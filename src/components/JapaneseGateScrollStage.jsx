@@ -568,13 +568,8 @@ export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' })
           >
             {/* Gate Bounding Frame for Consistent Responsive Anchor */}
             <div
+              className="torii-gate-frame"
               style={{
-                position: 'absolute',
-                bottom: '-4%',
-                left: '50%',
-                transform: 'translateX(-50%)',
-                width: 'min(128vw, 1440px)',
-                aspectRatio: '1376 / 830',
                 pointerEvents: 'none',
               }}
             >
@@ -598,6 +593,7 @@ export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' })
 
               {/* 篤子 学校 Nameplate with slight perspective(500px) rotateX(8deg) & Gold Embossed Text-Shadow */}
               <div
+                className="torii-floating-nameplate"
                 style={{
                   position: 'absolute',
                   top: '19%',
@@ -649,6 +645,7 @@ export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' })
         {/* INTRO HINT & CALL-TO-SCROLL (Floats forward in 2.5D space) */}
         <div
           ref={hintRef}
+          className="gate-intro-hint"
           style={{
             position: 'absolute',
             bottom: '12%',
@@ -662,6 +659,7 @@ export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' })
           }}
         >
           <div
+            className="gate-license-badge"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -682,6 +680,7 @@ export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' })
           </div>
 
           <h1
+            className="gate-hero-title"
             style={{
               fontSize: 'clamp(28px, 4.5vw, 48px)',
               fontWeight: 800,
@@ -696,6 +695,7 @@ export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' })
           </h1>
 
           <p
+            className="gate-hero-desc"
             style={{
               fontSize: 'clamp(14px, 1.8vw, 17px)',
               color: '#cbd5e1',
@@ -717,6 +717,7 @@ export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' })
             }}
           >
             <button
+              className="gate-walk-btn"
               onClick={handleSkipToContent}
               style={{
                 background: 'linear-gradient(135deg, #1e40af 0%, #172554 100%)',
@@ -750,6 +751,7 @@ export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' })
           </div>
 
           <div
+            className="gate-scroll-hint"
             style={{
               marginTop: 18,
               display: 'flex',
@@ -777,7 +779,8 @@ export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' })
             textAlign: 'center',
             color: 'white',
             maxWidth: 760,
-            padding: '36px 32px',
+            width: 'min(760px, calc(100vw - 32px))',
+            padding: 'clamp(24px, 4vw, 36px) clamp(16px, 4vw, 32px)',
             background: 'rgba(11, 21, 40, 0.88)',
             backdropFilter: 'blur(16px)',
             WebkitBackdropFilter: 'blur(16px)',

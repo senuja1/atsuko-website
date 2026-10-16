@@ -21,9 +21,9 @@ export default function Footer({ lang, onOpenModal, onNavigate }) {
           <div className="footer-brand-col">
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem', cursor: 'pointer' }} onClick={(e) => handleLinkClick(e, 'home')}>
               <img 
-                src="/images/atsuko-logo.svg" 
+                src="/images/atsuko-official-logo.png" 
                 alt="Atsuko International" 
-                style={{ width: '48px', height: '48px' }} 
+                style={{ width: '48px', height: '48px', borderRadius: '50%', objectFit: 'cover' }} 
               />
               <div>
                 <div className="footer-brand-title" style={{ margin: 0, lineHeight: 1.1 }}>
