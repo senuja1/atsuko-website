@@ -276,13 +276,13 @@ export default function AboutPage({ lang, onOpenModal, onNavigate }) {
             {aboutUsData.leadership.map((member, idx) => (
               <div key={idx} className="leader-card">
                 <div className="leader-avatar-placeholder">
-                  <span className="leader-initial">{member.role.charAt(0)}</span>
+                  <span className="leader-initial">{(member.name || member.role).charAt(0)}</span>
                   <span className="leader-icon">🎓</span>
                 </div>
                 <div className="leader-meta">
                   <span className="leader-role-tag">{member.title}</span>
-                  <h3 className="leader-name">{member.role}</h3>
-                  <span className="leader-exp">{member.experience}</span>
+                  <h3 className="leader-name">{member.name || member.role}</h3>
+                  <span className="leader-exp">{member.role} • {member.experience}</span>
                   <p className="leader-desc">{member.focus}</p>
                 </div>
               </div>

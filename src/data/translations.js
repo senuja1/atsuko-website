@@ -254,8 +254,8 @@ export const siteTranslations = {
 
     // Floating actions
     floating: {
-      whatsappTooltip: "Chat with us on WhatsApp (+94 77 864 3352)",
-      phoneTooltip: "Call Hotline (072 616 0160)"
+      whatsappTooltip: "Chat with us on WhatsApp (+94 77 793 3352)",
+      phoneTooltip: "Call Hotline ((+94) 112 987 263)"
     }
   },
 
@@ -515,8 +515,8 @@ export const siteTranslations = {
 
     // Floating actions
     floating: {
-      whatsappTooltip: "WhatsApp හරහා විමසන්න (+94 77 864 3352)",
-      phoneTooltip: "ක්ෂණික ඇමතුම් (072 616 0160)"
+      whatsappTooltip: "WhatsApp හරහා විමසන්න (+94 77 793 3352)",
+      phoneTooltip: "ක්ෂණික ඇමතුම් ((+94) 112 987 263)"
     }
   },
 
@@ -776,8 +776,8 @@ export const siteTranslations = {
 
     // Floating actions
     floating: {
-      whatsappTooltip: "WhatsAppでお問い合わせ (+94 77 864 3352)",
-      phoneTooltip: "電話でのお問い合わせ (072 616 0160)"
+      whatsappTooltip: "WhatsAppでお問い合わせ (+94 77 793 3352)",
+      phoneTooltip: "電話でのお問い合わせ ((+94) 112 987 263)"
     }
   }
 };

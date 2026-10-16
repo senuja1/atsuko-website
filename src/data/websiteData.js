@@ -47,22 +47,33 @@ export const translations = {
   }
 };
 
-// 100% Verified Official Contacts & Document Scope
+// 100% Verified Official Contacts from ATSUKO.txt & Drive Records
 export const officialContacts = {
   companyName: "ATSUKO INTERNATIONAL (PVT) LTD",
   kanjiName: "篤子 学校 (ATSUKO GAKKO)",
+  established: "November 1, 2019",
   license: "SLBFE License No. 3293",
   companyReg: "PV 0217143",
+  otit: "OTIT No. LKA000076",
   domain: "www.atsukojapan.com",
-  primaryHotline: "072 616 0160",
-  secondaryHotline: "070 363 4416",
-  primaryWhatsApp: "+94 77 864 3352",
-  primaryEmail: "info@atsukojapan.com",
-  secondaryEmail: "atsukoschooljapan@gmail.com",
-  kadawathaAddress: "191/3/1, Sirimavo Bandaranaike Mawatha, Mahara, Kadawatha, Sri Lanka",
+  primaryHotline: "(+94) 112 987 263",
+  secondaryHotline: "(+94) 777 933 352",
+  tertiaryHotline: "(+94) 767 763 352",
+  primaryWhatsApp: "+94 77 793 3352",
+  secondaryWhatsApp: "+94 76 776 3352",
+  primaryEmail: "atsukoschooljapan@gmail.com",
+  secondaryEmail: "info@atsukojapan.com",
+  kadawathaAddress: "191/3/1, Sirimavo Bandaranayake Mawatha, Mahara, Kadawatha, Sri Lanka, 11850",
   kelaniyaAddress: "712/B/1/1, Thorana Junction, Kelaniya, Sri Lanka",
-  japanKomakiAddress: "Komaki Office, Aichi Prefecture, Japan (株式会社 篤子インターナショナル)",
+  japanKomakiAddress: "2nd Floor, West Room, Sunshine Komaki Building, Komaki 2-41, Komaki City, Aichi Prefecture, Japan (Postcode: 485-0041)",
   japanSendaiAddress: "Sendai Office, Miyagi Prefecture, Japan (登録支援機関 - Registered Support Organization)",
+  japanPhone: "+81 90-2958-4420",
+  japanRegistrations: {
+    corporateNumber: "3700-01-048848",
+    supportOrgNumber: "23登-008312",
+    employmentLicense: "04-300338"
+  },
+  zeroFeeGuarantee: "Zero initial setup fees—no service costs are collected until visa approval is granted.",
   socials: {
     facebook: "https://www.facebook.com/AtsukoInternational",
     facebookGroup: "https://www.facebook.com/groups/studentsofatsukointernational",
@@ -72,12 +83,12 @@ export const officialContacts = {
     tiktok: "https://www.tiktok.com/@atsuko_international"
   },
   departmentNumbers: [
-    { label: "General Inquiries & Admissions", number: "070 363 4416" },
-    { label: "Student Visa Department (January, April, July, October Intakes)", number: "070 563 4413" },
-    { label: "SSW Caregiver & Nursing Healthcare Desk", number: "070 563 4414" },
-    { label: "SSW Food Service, Agriculture & Construction Desk", number: "070 563 4417" },
-    { label: "SSW Commercial Driving & Logistics Desk", number: "070 563 4422" },
-    { label: "Legal Documentation & SLBFE Clearance Desk", number: "070 563 4423" }
+    { label: "Head Office Kadawatha Hotline", number: "(+94) 112 987 263" },
+    { label: "Admissions & General Inquiries", number: "(+94) 777 933 352" },
+    { label: "Student Visa Desk (Jan, Apr, Jul, Oct)", number: "(+94) 767 763 352" },
+    { label: "SSW Caregiver & Nursing Healthcare Desk", number: "(+94) 777 933 352" },
+    { label: "SSW Food, Logistics & Driving Desk", number: "(+94) 767 763 352" },
+    { label: "Japan Resident Office (Aichi/Sendai)", number: "+81 90-2958-4420" }
   ]
 };
 
@@ -270,77 +281,108 @@ export const activeCourseSchedules = [
   }
 ];
 
-// About Us Comprehensive Profile (Document Section 5 & 6)
+// About Us Comprehensive Profile (Verified with Drive Records & ATSUKO.txt)
 export const aboutUsData = {
-  overview: "Atsuko International (Pvt) Ltd is a premier, government-registered foreign employment agency and specialized Japanese language academy licensed by the Sri Lanka Bureau of Foreign Employment (SLBFE License No. 3293) and incorporated under the Companies Act of Sri Lanka (PV 0217143). Operating collaboratively between Sri Lanka and Japan, we bridge aspirational Sri Lankan talent with legitimate, accredited educational institutions and registered Japanese enterprise employers.",
-  mission: "To empower Sri Lankan youth, students, and professionals through rigorous Japanese language instruction, authentic practical vocational training, ethical visa consultancy, and guaranteed candidate welfare in Japan.",
-  vision: "To be Sri Lanka's foremost, most respected digital and physical gateway for legal education and career migration to Japan, renowned for transparency, legal integrity, and unmatched support from Colombo to Tokyo.",
+  overview: "Atsuko International (PVT) LTD | 篤子 学校 (Atsuko Gakko) was officially established on November 1, 2019, as a premier government-registered foreign employment agency (SLBFE License No. 3293) and specialized Japanese language academy incorporated under Company Registration No. PV 0217143 and OTIT No. LKA000076. Operating across offices in Sri Lanka and Japan (Aichi Prefecture & Sendai), we provide accurate Japanese language instruction, technical/vocational training, ethical visa guidance, and coordinate students and workers directly with accredited Japanese educational institutions and licensed enterprise employers.",
+  mission: "To provide accurate Japanese language skills and vocational/technical training, offer essential visa guidance, and coordinate students and workers directly with Japanese language schools and employment agencies.",
+  vision: "To be a leader in Sri Lanka in providing the right guidance and vocational education for Sri Lankan students and workers to be confidently directed to Japan.",
+  zeroFeeGuarantee: "Zero initial setup fees—no service costs are collected until visa approval is granted.",
   credentials: [
     {
       title: "SLBFE License No. 3293",
-      issuedBy: "Sri Lanka Bureau of Foreign Employment",
-      detail: "100% government-authorized foreign employment agency for Japan recruitment under bilateral Sri Lanka–Japan frameworks."
+      issuedBy: "Sri Lanka Bureau of Foreign Employment (SLBFE)",
+      detail: "100% government-authorized foreign employment agency for Japan recruitment under official bilateral Sri Lanka–Japan frameworks."
     },
     {
       title: "Company Registration PV 0217143",
       issuedBy: "Department of the Registrar of Companies, Sri Lanka",
-      detail: "Legally incorporated private limited liability company with verified audit and corporate governance standards."
+      detail: "Legally incorporated private limited liability company established on November 1, 2019 with verified audit and corporate governance standards."
+    },
+    {
+      title: "OTIT Number: LKA000076",
+      issuedBy: "Organization for Technical Intern Training (OTIT, Japan)",
+      detail: "Official registered sending organization framework for technical internship and Specified Skilled Worker migration to Japan."
     },
     {
       title: "Registered Support Organization (登録支援機関)",
       issuedBy: "Immigration Services Agency of Japan (出入国在留管理庁)",
-      detail: "Official corporate presence in Komaki (Aichi) and Sendai, Japan under 株式会社 篤子インターナショナル for continuous worker welfare."
+      detail: "Registered Support Org No. 23登-008312 | Corporate No. 3700-01-048848 | Paid Employment Lic. No. 04-300338 in Komaki (Aichi) and Sendai, Japan under 株式会社 篤子インターナショナル."
     },
     {
       title: "Official Prometric & JLPT Curriculum",
       issuedBy: "The Japan Foundation & Japan Educational Exchanges and Services",
-      detail: "Certified standard curriculum preparing candidates for official JLPT N5/N4/N3 and Prometric CBT skill evaluations."
+      detail: "Certified standard curriculum preparing candidates for official JLPT N5/N4/N3 and Prometric CBT skill evaluations (Caregiving, Food, Driving)."
     }
   ],
   leadership: [
     {
-      role: "Managing Director & Founder",
-      title: "Managing Director",
-      experience: "15+ Years in Sri Lanka–Japan Relations & Bilateral Employment",
-      focus: "Overseeing government regulatory compliance (SLBFE License 3293), corporate integrity, and international enterprise agreements."
+      name: "Herath Mudiyanselage Dulaj Bandara",
+      role: "Managing Director",
+      title: "Managing Director & Executive Head",
+      experience: "Leadership & Bilateral Relations",
+      focus: "Overall executive governance, Sri Lanka–Japan institutional agreements, SLBFE License No. 3293 regulatory oversight, and corporate partnerships."
     },
     {
-      role: "Head of Academic Programs & Native Sensei",
-      title: "Principal Japanese Instructor",
-      experience: "JLPT N1 Certified & Native Japanese Faculty",
-      focus: "Directing language pedagogy, immersive Kaiwa (spoken Japanese) laboratories, and Embassy of Japan interview coaching."
+      name: "Ito Tsuguki",
+      role: "Director",
+      title: "Director (Japan Operations)",
+      experience: "Japan Enterprise Coordination",
+      focus: "Overseeing Japanese corporate employer liaison, legal compliance under Japanese labor standards, and candidate welfare integration in Japan."
     },
     {
-      role: "Director of Legal Documentation & Visa Services",
-      title: "Senior Visa Consultant",
-      experience: "12+ Years Japanese Immigration File Preparation",
-      focus: "Supervising Certificate of Eligibility (COE) filing, financial sponsorship audits, and SLBFE final clearance."
+      name: "Nguyen Thi Hanh",
+      role: "Director",
+      title: "Director (International Relations)",
+      experience: "International Education & Workforce Management",
+      focus: "Cross-border educational coordination, global training standards, and candidate lifecycle management between Sri Lanka and Japan."
     },
     {
-      role: "Japan Resident Support Director",
-      title: "Komaki & Sendai Office Lead (株式会社 篤子インターナショナル)",
-      experience: "Based in Aichi & Miyagi Prefectures, Japan",
-      focus: "Managing candidate airport reception, municipal resident registration, apartment leasing, and ongoing workplace welfare."
+      name: "Herath Mudiyanselage Dushan Bandara",
+      role: "Manager",
+      title: "General Manager (Sri Lanka)",
+      experience: "Operations & Center Administration",
+      focus: "Managing operations at Kadawatha and regional intake branches, student admissions, documentation integrity, and batch schedules."
+    },
+    {
+      name: "Pathiraja Mudiyanselage Vimani Ivanthika Pathiraja",
+      role: "Representative in Japan",
+      title: "Representative in Japan (Komaki & Sendai)",
+      experience: "Resident in Aichi Prefecture, Japan",
+      focus: "On-the-ground candidate reception, airport greeting at Nagoya Centrair and Tokyo, municipal registration, housing onboarding, and emergency support."
+    },
+    {
+      name: "Maddumage Ranudi Vihansa Ariyarathna",
+      role: "SSW Coordinator",
+      title: "SSW (Specified Skilled Worker) Coordinator",
+      experience: "Prometric CBT & Vocational Skills Head",
+      focus: "Coordinating Caregiver (Kaigo) practical hospital simulation lab training, Food Service, Truck Driving, and Prometric exam readiness."
+    },
+    {
+      name: "Thotage Imalsha Dulanjali",
+      role: "Student Visa Coordinator",
+      title: "Student Visa (Ryugaku) Coordinator",
+      experience: "Japanese University & Language School Admissions",
+      focus: "Directing Certificate of Eligibility (COE) filing for January, April, July, and October intakes, sponsor financial file audits, and school placements."
     }
   ],
   globalPresence: {
     sriLanka: {
-      title: "Sri Lanka Headquarters & Island-wide Centers",
-      headOffice: "Kadawatha Head Operations Center (191/3/1, Sirimavo Bandaranaike Mawatha, Mahara, Kadawatha)",
-      registeredOffice: "Kelaniya Corporate Office (712/B/1/1, Thorana Junction, Kelaniya)",
+      title: "Sri Lanka Headquarters & Operations Network",
+      headOffice: "Kadawatha Head Operations Center: 191/3/1, Sirimavo Bandaranayake Mawatha, Mahara, Kadawatha, 11850 (Tel: 011 298 7263 / 077 793 3352)",
+      registeredOffice: "Kelaniya Corporate Office: 712/B/1/1, Thorana Junction, Kelaniya, Sri Lanka",
       regionalCenters: "Kandy, Galle, Gampaha, Badulla, Matara, Ratnapura, Trincomalee",
       keyAssets: "Caregiver Practical Simulation Ward, Prometric CBT Computer Lab, Audio Listening Booths, Visa Legal Consultation Chambers"
     },
     japan: {
-      title: "Japan Operations & Support Network",
-      primaryOffice: "Komaki Office, Aichi Prefecture, Japan (株式会社 篤子インターナショナル)",
-      secondaryOffice: "Sendai Office, Miyagi Prefecture, Japan (登録支援機関)",
+      title: "Japan Operations & Support Network (株式会社 篤子インターナショナル)",
+      primaryOffice: "Komaki Office: 2nd Floor, West Room, Sunshine Komaki Building, Komaki 2-41, Komaki City, Aichi Prefecture, Japan 485-0041 (Tel: +81 90-2958-4420)",
+      secondaryOffice: "Sendai Office: Sendai City, Miyagi Prefecture, Japan (登録支援機関 - Registered Support Organization)",
       functions: [
         "Liaison with Japanese Ministry of Justice & Immigration Services Agency",
-        "Direct partnership agreements with accredited Japanese language academies and universities",
+        "Direct partnership agreements with accredited Japanese language academies and healthcare institutions",
         "Registered Support Organization (Touroku Shien Kikan) operations for SSW workers",
         "Airport meet-and-greet at Tokyo Haneda/Narita, Osaka Kansai, and Nagoya Chubu airports",
-        "Emergency pastoral support, medical insurance assistance, and municipal registration"
+        "Emergency pastoral support, medical insurance assistance, and municipal resident registration"
       ]
     }
   }
@@ -558,9 +600,9 @@ export const branchesData = [
     name: "Kadawatha (Head Operations Center)",
     jpName: "カダワタ 本社運営センター",
     isHeadOffice: true,
-    address: "191/3/1, Sirimavo Bandaranaike Mawatha, Mahara, Kadawatha, Sri Lanka",
-    phone: "072 616 0160",
-    whatsapp: "+94778643352",
+    address: "191/3/1, Sirimavo Bandaranayake Mawatha, Mahara, Kadawatha, Sri Lanka, 11850",
+    phone: "(+94) 112 987 263",
+    whatsapp: "+94777933352",
     hours: "Mon - Sat: 8:30 AM - 5:30 PM | Sun: 8:30 AM - 2:00 PM",
     facilities: [
       "Caregiver Practical Simulation Lab",
@@ -575,8 +617,8 @@ export const branchesData = [
     jpName: "ケラニヤ 登録事務所",
     isHeadOffice: false,
     address: "712/B/1/1, Thorana Junction, Kelaniya, Western Province, Sri Lanka",
-    phone: "070 563 4417",
-    whatsapp: "+94705634417",
+    phone: "(+94) 767 763 352",
+    whatsapp: "+94767763352",
     hours: "Mon - Sat: 8:30 AM - 5:00 PM",
     facilities: [
       "SLBFE License Registration Office (Lic. #3293)",
@@ -591,12 +633,12 @@ export const branchesData = [
     jpName: "日本法人：株式会社 篤子インターナショナル（愛知県小牧市）",
     isHeadOffice: false,
     isJapanEntity: true,
-    address: "Komaki Office, Aichi Prefecture, Japan (愛知県小牧市 - 登録支援機関)",
-    phone: "+94 72 616 0160",
-    whatsapp: "+94778643352",
+    address: "2nd Floor, West Room, Sunshine Komaki Building, Komaki 2-41, Komaki City, Aichi Prefecture, Japan (Postcode: 485-0041)",
+    phone: "+81 90-2958-4420",
+    whatsapp: "+94777933352",
     hours: "Japan Standard Time (JST): 9:00 AM - 6:00 PM",
     facilities: [
-      "Official Registered Support Organization in Japan (登録支援機関)",
+      "Official Registered Support Organization in Japan (登録支援機関 No. 23登-008312)",
       "Aichi & Chubu Region Corporate Employer Liaison",
       "Direct Candidate Welfare & Residency Onboarding",
       "Airport Welcome from Nagoya Centrair & Tokyo Airports"
@@ -887,7 +929,7 @@ export const successStoriesData = [
     jlptLevel: "Passed JLPT N5 at Atsuko, now N3 in Tokyo",
     workplace: "FamilyMart Retail & Bistro Assistant (28h/week legal)",
     monthlyEarnings: "¥138,000 / month (~LKR 280,000)",
-    image: "/images/student-success.jpg",
+    image: "/images/real/caregiver_vlcsnap-2026-07-12-11h34m42s115.png",
     quote: "Atsuko International guided me from Hiragana zero at Kadawatha to landing at Narita Airport. Having their registered company in Japan meant I was never left stranded when registering at the Shinjuku Ward office or opening my Yucho bank account.",
     highlights: ["COE Granted in 1st attempt", "University progression underway", "Supported by Atsuko Kadawatha sensei"]
   },
@@ -904,7 +946,7 @@ export const successStoriesData = [
     jlptLevel: "JFT-Basic A2 + Prometric Nursing Care",
     workplace: "Specialized Elderly Nursing Facility",
     monthlyEarnings: "¥225,000 / month (~LKR 460,000) + Dormitory Subsidy",
-    image: "/images/caregiver-ssw.jpg",
+    image: "/images/real/caregiver_vlcsnap-2026-09-04-14h53m07s959.png",
     quote: "The practical simulation ward at Atsuko Kadawatha made all the difference. When I arrived in Komaki, the Atsuko Japan team met me, helped furnish my apartment, and introduced me to the hospital director. Today I send money home every month while building a permanent career.",
     highlights: ["5-Year Specified Skilled Worker Status", "Komaki office ongoing welfare visits", "Full Japanese National Health Insurance"]
   },
@@ -921,7 +963,7 @@ export const successStoriesData = [
     jlptLevel: "JLPT N4 + Japan Commercial Driving Theory",
     workplace: "Express Cold-Chain Logistics Hub",
     monthlyEarnings: "¥245,000 / month (~LKR 500,000)",
-    image: "/images/classroom-sensei.jpg",
+    image: "/images/real/caregiver_vlcsnap-2026-07-12-11h48m10s036.png",
     quote: "Atsuko International's licensing under SLBFE License 3293 was why my family trusted them. Everything promised in Colombo was delivered in Sendai. My contract is 100% legal, and the working conditions are world-class.",
     highlights: ["SLBFE Verified Contract", "Sendai registered support office", "Annual bonus & overtime benefits"]
   },
@@ -938,7 +980,7 @@ export const successStoriesData = [
     jlptLevel: "JLPT N2 Preparation Candidate",
     workplace: "Hotel Front Desk & Cafe Specialist (Part-time)",
     monthlyEarnings: "¥132,000 / month (~LKR 270,000)",
-    image: "/images/student-success.jpg",
+    image: "/images/real/caregiver_vlcsnap-2026-09-04-14h40m54s666.png",
     quote: "Kandy center provided great Sensei coaching, and the documentation team reviewed my sponsor bank files 4 times so my COE had zero queries. Living in Osaka is culturally vibrant and very safe for Sri Lankan female students.",
     highlights: ["Full scholarship for N2 merit", "Hospitality degree pathway", "Shared student residence in Namba"]
   },
@@ -955,7 +997,7 @@ export const successStoriesData = [
     jlptLevel: "JFT-Basic A2 + Prometric Food Service Skills",
     workplace: "Commercial Kitchen & Restaurant Operations",
     monthlyEarnings: "¥218,000 / month (~LKR 445,000)",
-    image: "/images/caregiver-ssw.jpg",
+    image: "/images/real/office_Atsuko_International.jpg",
     quote: "I prepared for the computer Prometric test at Atsuko's CBT Lab in Kadawatha. Within 4 months of clearing the exam, my visa arrived. Atsuko's Komaki office staff came to Nagoya station to escort me to my apartment.",
     highlights: ["Food hygiene & HACCP certified", "Near Atsuko Komaki headquarters", "Subsidized staff meals included"]
   },
@@ -972,7 +1014,7 @@ export const successStoriesData = [
     jlptLevel: "JLPT N4 + Senior Care Certification",
     workplace: "Rehabilitation & Nursing Center",
     monthlyEarnings: "¥230,000 / month (~LKR 470,000)",
-    image: "/images/hero-japan.jpg",
+    image: "/images/real/caregiver_vlcsnap-2026-09-04-14h54m20s391.png",
     quote: "From our Galle branch consultation to flying out of Katunayake with 14 other Atsuko students, the journey was smooth. In Sendai, Japanese colleagues are polite and welcoming, and Atsuko's support desk answers every phone call.",
     highlights: ["Co-cohort with Atsuko graduates", "Tohoku support network", "Clean modern staff apartment"]
   }

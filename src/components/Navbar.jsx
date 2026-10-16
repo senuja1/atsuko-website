@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Sparkles, Send, GraduationCap, Briefcase, Phone, BookOpen, Info, Home, Award } from 'lucide-react';
+import { Menu, X, Sparkles, Send, GraduationCap, Briefcase, Phone, BookOpen, Info, Home, Award, ChevronRight } from 'lucide-react';
 import { siteTranslations } from '../data/translations';
 
 export default function Navbar({ 
@@ -61,7 +61,7 @@ export default function Navbar({
           aria-label="Atsuko International - Go to Home Page"
         >
           <img 
-            src="/images/atsuko-logo.svg" 
+            src="/images/atsuko-official-logo.png" 
             alt="Atsuko International Logo" 
             className="brand-logo-img" 
           />
@@ -152,55 +152,65 @@ export default function Navbar({
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer & Backdrop */}
       {mobileMenuOpen && (
-        <div className="mobile-menu-drawer">
-          <div className="mobile-nav-items">
-            {navPages.map((item) => {
-              const Icon = item.icon;
-              return (
-                <button 
-                  key={item.id} 
-                  onClick={() => handleNavClick(item.id)}
-                  className={`mobile-nav-link ${currentPage === item.id ? 'active' : ''}`}
-                >
-                  <Icon size={18} className="mobile-nav-icon" />
-                  <span>{item.label}</span>
-                </button>
-              );
-            })}
-          </div>
+        <>
+          <div 
+            className="mobile-menu-backdrop" 
+            onClick={() => setMobileMenuOpen(false)}
+            aria-hidden="true"
+          />
+          <div className="mobile-menu-drawer">
+            <div className="mobile-nav-items">
+              {navPages.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <button 
+                    key={item.id} 
+                    onClick={() => handleNavClick(item.id)}
+                    className={`mobile-nav-link ${currentPage === item.id ? 'active' : ''}`}
+                  >
+                    <div className="mobile-nav-left">
+                      <div className="mobile-nav-icon-box">
+                        <Icon size={17} />
+                      </div>
+                      <span className="mobile-nav-label">{item.label}</span>
+                    </div>
+                    <ChevronRight size={16} className="mobile-nav-chevron" />
+                  </button>
+                );
+              })}
+            </div>
 
-          <div className="mobile-menu-actions">
-            <button 
-              onClick={() => {
-                setMobileMenuOpen(false);
-                if (currentPage !== 'home') {
-                  onNavigate('home');
-                  setTimeout(() => onScrollToEligibility(), 150);
-                } else {
-                  onScrollToEligibility();
-                }
-              }}
-              className="nav-btn-secondary" 
-              style={{ width: '100%', justifyContent: 'center', marginBottom: '0.6rem', padding: '10px' }}
-            >
-              <Sparkles size={16} style={{ color: '#0284c7' }} />
-              <span>{t.nav?.checkEligibility || 'Check Eligibility'}</span>
-            </button>
-            <button 
-              onClick={() => { 
-                setMobileMenuOpen(false); 
-                onOpenModal('Mobile Registration'); 
-              }}
-              className="nav-btn-primary" 
-              style={{ width: '100%', justifyContent: 'center', padding: '10px' }}
-            >
-              <span>{t.nav?.applyNow || 'Apply Now'}</span>
-              <Send size={15} />
-            </button>
+            <div className="mobile-menu-actions">
+              <button 
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  if (currentPage !== 'home') {
+                    onNavigate('home');
+                    setTimeout(() => onScrollToEligibility(), 150);
+                  } else {
+                    onScrollToEligibility();
+                  }
+                }}
+                className="mobile-action-secondary" 
+              >
+                <Sparkles size={16} style={{ color: '#0284c7' }} />
+                <span>{t.nav?.checkEligibility || 'Check Eligibility'}</span>
+              </button>
+              <button 
+                onClick={() => { 
+                  setMobileMenuOpen(false); 
+                  onOpenModal('Mobile Registration'); 
+                }}
+                className="mobile-action-primary" 
+              >
+                <span>{t.nav?.applyNow || 'Apply Now'}</span>
+                <Send size={15} />
+              </button>
+            </div>
           </div>
-        </div>
+        </>
       )}
     </header>
   );

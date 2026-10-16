@@ -65,19 +65,22 @@ export default function BranchNetwork({ lang, onOpenModal }) {
         </div>
 
         {/* Active Branch Detailed Card */}
-        <div style={{
-          background: '#ffffff',
-          borderRadius: 'var(--radius-xl)',
-          border: '2px solid',
-          borderColor: selectedBranch.isHeadOffice ? '#0284c7' : selectedBranch.isJapanEntity ? '#0ea5e9' : 'var(--border-light)',
-          padding: '2.5rem',
-          boxShadow: 'var(--shadow-lg)',
-          marginBottom: '3rem',
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-          gap: '2.5rem',
-          alignItems: 'center'
-        }}>
+        <div 
+          className="branch-active-card"
+          style={{
+            background: '#ffffff',
+            borderRadius: 'var(--radius-xl)',
+            border: '2px solid',
+            borderColor: selectedBranch.isHeadOffice ? '#0284c7' : selectedBranch.isJapanEntity ? '#0ea5e9' : 'var(--border-light)',
+            padding: 'clamp(1.25rem, 4vw, 2.5rem)',
+            boxShadow: 'var(--shadow-lg)',
+            marginBottom: '3rem',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+            gap: 'clamp(1.25rem, 3vw, 2.5rem)',
+            alignItems: 'center'
+          }}
+        >
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem', flexWrap: 'wrap' }}>
               <span className={`branch-tag ${selectedBranch.isHeadOffice ? 'branch-tag-head' : 'branch-tag-sub'}`} style={{

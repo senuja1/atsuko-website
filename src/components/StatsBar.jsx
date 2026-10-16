@@ -9,16 +9,23 @@ export default function StatsBar({ lang }) {
   const t = siteTranslations[lang]?.stats || siteTranslations.en.stats;
 
   const stats = [
-    t.stat1,
-    t.stat2,
-    t.stat3,
-    t.stat4
+    { ...t.stat1, animate: true },
+    { ...t.stat2, animate: true },
+    { ...t.stat3, animate: false },
+    { ...t.stat4, animate: false }
   ];
 
   const delays = [0.1, 0.3, 0.5, 0.7];
 
-  const renderAnimatedNumber = (str) => {
+  const renderAnimatedNumber = (stat) => {
+    const str = stat?.number;
     if (!str) return null;
+
+    // Do not animate license IDs or explicitly un-animated stats
+    if (stat.animate === false || /SLBFE|#|Lic/i.test(str)) {
+      return str;
+    }
+
     const match = str.match(/^([^\d]*)(\d+(?:,\d+)*(?:\.\d+)?)(.*)$/);
     if (!match) return str;
 
@@ -57,7 +64,7 @@ export default function StatsBar({ lang }) {
             <RevealOnScroll key={i} delay={delays[i] || 0.1}>
               <div className="stat-item" style={{ borderRight: i === stats.length - 1 ? 'none' : undefined }}>
                 <div className="stat-num" style={{ color: '#fb7185' }}>
-                  {renderAnimatedNumber(stat.number)}
+                  {renderAnimatedNumber(stat)}
                 </div>
                 <div className="stat-label">
                   {stat.label}
