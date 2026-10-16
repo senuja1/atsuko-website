@@ -590,42 +590,6 @@ export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' })
                   WebkitBackfaceVisibility: 'hidden',
                 }}
               />
-
-              {/* 篤子 学校 Nameplate with slight perspective(500px) rotateX(8deg) & Gold Embossed Text-Shadow */}
-              <div
-                className="torii-floating-nameplate"
-                style={{
-                  position: 'absolute',
-                  top: '19%',
-                  left: '50%',
-                  transform: 'translate(-50%, -50%) perspective(500px) rotateX(8deg)',
-                  transformStyle: 'preserve-3d',
-                  background: 'linear-gradient(145deg, #180d09 0%, #2b170e 50%, #120906 100%)',
-                  border: '2.5px solid #d4af37',
-                  borderRadius: '4px',
-                  boxShadow: 'inset 0 0 10px rgba(0, 0, 0, 0.95), 0 8px 24px rgba(0, 0, 0, 0.85), 0 0 15px rgba(212, 175, 55, 0.3)',
-                  padding: '5px 16px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  zIndex: 12,
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: 'var(--font-jp)',
-                    fontWeight: 900,
-                    fontSize: 'clamp(13px, 1.6vw, 22px)',
-                    letterSpacing: '4px',
-                    color: '#fef08a',
-                    textShadow: '0 1px 0 #ffe082, 0 2px 0 #d4af37, 0 3px 0 #b45309, 0 4px 4px rgba(0, 0, 0, 0.95), 0 0 14px rgba(251, 191, 36, 0.6)',
-                    whiteSpace: 'nowrap',
-                    userSelect: 'none',
-                  }}
-                >
-                  篤子 学校
-                </span>
-              </div>
             </div>
           </div>
         </div>
