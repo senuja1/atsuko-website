@@ -93,12 +93,20 @@ export default function FaqSection({ lang }) {
                   type="button"
                   className="faq-question"
                   onClick={() => toggleFaq(idx)}
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-answer-${idx}`}
+                  id={`faq-btn-${idx}`}
                 >
                   <span>{item.q}</span>
                   {isOpen ? <ChevronUp size={20} style={{ color: '#dc2626', flexShrink: 0 }} /> : <ChevronDown size={20} style={{ color: '#94a3b8', flexShrink: 0 }} />}
                 </button>
                 {isOpen && (
-                  <div className="faq-answer">
+                  <div 
+                    id={`faq-answer-${idx}`}
+                    role="region"
+                    aria-labelledby={`faq-btn-${idx}`}
+                    className="faq-answer"
+                  >
                     {item.a}
                   </div>
                 )}

@@ -22,6 +22,23 @@ export default function ConsultationModal({ lang, isOpen, onClose, defaultProgra
     }
   }, [defaultProgram]);
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+      const handleKeyDown = (e) => {
+        if (e.key === 'Escape') {
+          setSubmitted(false);
+          onClose();
+        }
+      };
+      window.addEventListener('keydown', handleKeyDown);
+      return () => {
+        document.body.style.overflow = '';
+        window.removeEventListener('keydown', handleKeyDown);
+      };
+    }
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   const handleChange = (e) => {
@@ -70,19 +87,30 @@ Please schedule my consultation session with an Atsuko Counselor.`;
   };
 
   return (
-    <div className="modal-overlay" onClick={handleClose}>
+    <div 
+      className="modal-overlay" 
+      onClick={handleClose} 
+      role="dialog" 
+      aria-modal="true" 
+      aria-labelledby="consultation-modal-title"
+    >
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
           <div>
-            <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--navy-900)' }}>
+            <h3 id="consultation-modal-title" style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--navy-900)' }}>
               {submitted ? t.submittedTitle : t.title}
             </h3>
             <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
               {t.subtitle}
             </p>
           </div>
-          <button className="close-btn" onClick={handleClose}>
-            <X size={24} />
+          <button 
+            type="button" 
+            className="close-btn" 
+            onClick={handleClose} 
+            aria-label="Close consultation modal"
+          >
+            <X size={22} />
           </button>
         </div>
 

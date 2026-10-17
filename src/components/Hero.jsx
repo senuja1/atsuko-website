@@ -5,20 +5,20 @@ export default function Hero({ lang, onOpenModal, onScrollToEligibility }) {
   const t = siteTranslations[lang]?.hero || siteTranslations.en.hero;
 
   return (
-    <section className="hero">
+    <section className="hero" id="hero-section">
       <div className="container hero-grid">
         {/* Left Column: Content */}
         <div className="hero-content">
-          <div className="hero-tag">
-            <span className="dot"></span>
-            <span>{t.tagline}</span>
-            <span style={{ color: '#fbbf24', marginLeft: '4px' }}>{t.licenseTag}</span>
+          <div className="hero-tag" role="status">
+            <span className="dot" aria-hidden="true"></span>
+            <span className="hero-tag-text">{t.tagline}</span>
+            <span className="hero-tag-badge">{t.licenseTag}</span>
           </div>
 
           <h1 className="hero-title">
-            {t.titlePre}{' '}
+            <span className="hero-title-lead">{t.titlePre}</span>{' '}
             <span className="red">{t.titleHighlight}</span>
-            <span className="jp">{t.titleJp}</span>
+            <span className="jp" aria-label="Atsuko Gakko">{t.titleJp}</span>
           </h1>
 
           <p className="hero-desc">
@@ -26,21 +26,21 @@ export default function Hero({ lang, onOpenModal, onScrollToEligibility }) {
           </p>
 
           {/* Quick Benefit Badges */}
-          <div className="hero-highlights">
-            <div className="hero-pill">
-              <span className="hero-pill-icon">🌸</span>
+          <div className="hero-highlights" role="list">
+            <div className="hero-pill" role="listitem">
+              <span className="hero-pill-icon" aria-hidden="true">🌸</span>
               <span>{t.pill1}</span>
             </div>
-            <div className="hero-pill">
-              <span className="hero-pill-icon">🏥</span>
+            <div className="hero-pill" role="listitem">
+              <span className="hero-pill-icon" aria-hidden="true">🏥</span>
               <span>{t.pill2}</span>
             </div>
-            <div className="hero-pill">
-              <span className="hero-pill-icon">💴</span>
+            <div className="hero-pill" role="listitem">
+              <span className="hero-pill-icon" aria-hidden="true">💴</span>
               <span>{t.pill3}</span>
             </div>
-            <div className="hero-pill">
-              <span className="hero-pill-icon">📜</span>
+            <div className="hero-pill" role="listitem">
+              <span className="hero-pill-icon" aria-hidden="true">📜</span>
               <span>{t.pill4}</span>
             </div>
           </div>
@@ -49,36 +49,33 @@ export default function Hero({ lang, onOpenModal, onScrollToEligibility }) {
           <div className="hero-cta-group">
             <button 
               onClick={onScrollToEligibility}
-              className="btn btn-primary btn-pulse" 
-              style={{ padding: '0.85rem 1.75rem', fontSize: '0.95rem' }}
+              className="btn btn-primary btn-pulse hero-cta-btn" 
             >
               <Sparkles size={18} />
-              {t.checkEligibilityBtn}
+              <span>{t.checkEligibilityBtn}</span>
               <ArrowRight size={16} />
             </button>
 
             <button 
               onClick={onOpenModal} 
-              className="btn btn-gold"
-              style={{ padding: '0.85rem 1.75rem', fontSize: '0.95rem' }}
+              className="btn btn-gold hero-cta-btn"
             >
-              {t.talkAdvisorBtn}
+              <span>{t.talkAdvisorBtn}</span>
             </button>
 
             <a 
               href="https://wa.me/94778643352?text=Hello%20Atsuko%20International,%20I%20would%20like%20to%20inquire%20about%20upcoming%20classes%20and%20Japan%20visa%20intakes."
               target="_blank"
               rel="noreferrer"
-              className="btn btn-whatsapp"
-              style={{ padding: '0.85rem 1.4rem', fontSize: '0.95rem' }}
+              className="btn btn-whatsapp hero-cta-btn"
             >
-              {t.whatsappBtn}
+              <span>{t.whatsappBtn}</span>
             </a>
           </div>
 
           {/* Micro trust quote */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginTop: '0.5rem', color: '#94a3b8', fontSize: '0.825rem' }}>
-            <CheckCircle2 size={16} style={{ color: '#10b981', flexShrink: 0 }} />
+          <div className="hero-trust-quote">
+            <CheckCircle2 size={16} className="hero-trust-icon" aria-hidden="true" />
             <span>{t.trustQuote}</span>
           </div>
         </div>
@@ -89,13 +86,19 @@ export default function Hero({ lang, onOpenModal, onScrollToEligibility }) {
             <img 
               src="/images/hero-japan.jpg" 
               alt="Sri Lankan Students Aspiring to Study in Japan - Atsuko International" 
+              width="600"
+              height="450"
+              loading="eager"
+              decoding="async"
+              className="hero-main-img"
             />
+            <div className="hero-image-glow" aria-hidden="true"></div>
           </div>
 
           {/* Floating Top Right Badge */}
           <div className="floating-badge badge-top-right">
             <div className="badge-icon-box badge-icon-red">
-              <Award size={24} />
+              <Award size={22} />
             </div>
             <div>
               <div className="badge-val">SLBFE #3293 • PV 0217143</div>
@@ -106,7 +109,7 @@ export default function Hero({ lang, onOpenModal, onScrollToEligibility }) {
           {/* Floating Bottom Left Badge */}
           <div className="floating-badge badge-bottom-left">
             <div className="badge-icon-box badge-icon-gold">
-              <ShieldCheck size={24} />
+              <ShieldCheck size={22} />
             </div>
             <div>
               <div className="badge-val">Komaki & Sendai, Japan</div>

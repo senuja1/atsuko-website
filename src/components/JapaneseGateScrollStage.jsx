@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { ArrowDown, Sparkles, ShieldCheck, Award } from 'lucide-react';
+import { getUiText } from '../data/uiText';
 
 /* ============================================================
    PHOTOREALISTIC SVG CHOCHIN LANTERN (光 & 輝)
@@ -125,6 +126,7 @@ function PhotorealisticChochin({ kanji, idPrefix }) {
 }
 
 export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' }) {
+  const g = getUiText(lang).gate;
   const containerRef = useRef(null);
   const canvasRef = useRef(null);
   const fgCanvasRef = useRef(null);
@@ -433,7 +435,8 @@ export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' })
         style={{
           position: 'sticky',
           top: 0,
-          height: '100vh',
+          height: '100dvh',
+          minHeight: '100dvh',
           width: '100%',
           overflow: 'hidden',
           display: 'flex',
@@ -482,19 +485,19 @@ export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' })
               objectFit: 'cover',
               objectPosition: 'center 48%',
               transformOrigin: 'center 48%',
-              filter: 'brightness(0.92) contrast(1.06) saturate(1.15)',
+              filter: 'brightness(1.05) contrast(1.02) saturate(1.12)',
               willChange: 'transform',
             }}
           />
 
-          {/* Cinematic Vignette & Atmospheric Color Grading Overlays */}
+          {/* Cinematic Vignette & Atmospheric Color Grading Overlays - Lightened for vibrant clarity */}
           <div
             style={{
               position: 'absolute',
               inset: 0,
               background: `
-                radial-gradient(circle at 50% 45%, rgba(0,0,0,0.1) 0%, rgba(7, 13, 30, 0.45) 55%, rgba(7, 13, 30, 0.92) 100%),
-                linear-gradient(180deg, rgba(7, 13, 30, 0.65) 0%, rgba(7, 13, 30, 0.15) 35%, rgba(7, 13, 30, 0.3) 70%, #070d1e 100%)
+                radial-gradient(circle at 50% 45%, transparent 35%, rgba(7, 13, 30, 0.12) 65%, rgba(7, 13, 30, 0.42) 100%),
+                linear-gradient(180deg, rgba(7, 13, 30, 0.15) 0%, transparent 25%, rgba(7, 13, 30, 0.1) 65%, rgba(7, 13, 30, 0.78) 100%)
               `,
             }}
           />
@@ -508,7 +511,7 @@ export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' })
               transform: 'translate(-50%, -50%)',
               width: 'min(700px, 90vw)',
               height: 'min(500px, 60vh)',
-              background: 'radial-gradient(ellipse at center, rgba(251, 191, 36, 0.22) 0%, rgba(239, 68, 68, 0.15) 45%, transparent 75%)',
+              background: 'radial-gradient(ellipse at center, rgba(251, 191, 36, 0.28) 0%, rgba(239, 68, 68, 0.18) 45%, transparent 75%)',
               mixBlendMode: 'screen',
               filter: 'blur(30px)',
             }}
@@ -524,7 +527,7 @@ export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' })
             transform: 'translate(-50%, -50%)',
             width: 'min(760px, 85vw)',
             height: 'min(540px, 65vh)',
-            background: 'radial-gradient(ellipse at center, rgba(251, 146, 60, 0.38) 0%, rgba(239, 68, 68, 0.25) 40%, rgba(220, 38, 38, 0.1) 65%, transparent 80%)',
+            background: 'radial-gradient(ellipse at center, rgba(251, 146, 60, 0.32) 0%, rgba(239, 68, 68, 0.2) 40%, rgba(220, 38, 38, 0.08) 65%, transparent 80%)',
             mixBlendMode: 'screen',
             filter: 'blur(35px)',
             pointerEvents: 'none',
@@ -590,42 +593,6 @@ export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' })
                   WebkitBackfaceVisibility: 'hidden',
                 }}
               />
-
-              {/* 篤子 学校 Nameplate with slight perspective(500px) rotateX(8deg) & Gold Embossed Text-Shadow */}
-              <div
-                className="torii-floating-nameplate"
-                style={{
-                  position: 'absolute',
-                  top: '19%',
-                  left: '50%',
-                  transform: 'translate(-50%, -50%) perspective(500px) rotateX(8deg)',
-                  transformStyle: 'preserve-3d',
-                  background: 'linear-gradient(145deg, #180d09 0%, #2b170e 50%, #120906 100%)',
-                  border: '2.5px solid #d4af37',
-                  borderRadius: '4px',
-                  boxShadow: 'inset 0 0 10px rgba(0, 0, 0, 0.95), 0 8px 24px rgba(0, 0, 0, 0.85), 0 0 15px rgba(212, 175, 55, 0.3)',
-                  padding: '5px 16px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  zIndex: 12,
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: 'var(--font-jp)',
-                    fontWeight: 900,
-                    fontSize: 'clamp(13px, 1.6vw, 22px)',
-                    letterSpacing: '4px',
-                    color: '#fef08a',
-                    textShadow: '0 1px 0 #ffe082, 0 2px 0 #d4af37, 0 3px 0 #b45309, 0 4px 4px rgba(0, 0, 0, 0.95), 0 0 14px rgba(251, 191, 36, 0.6)',
-                    whiteSpace: 'nowrap',
-                    userSelect: 'none',
-                  }}
-                >
-                  篤子 学校
-                </span>
-              </div>
             </div>
           </div>
         </div>
@@ -664,8 +631,10 @@ export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' })
               display: 'inline-flex',
               alignItems: 'center',
               gap: 8,
-              background: 'rgba(255,255,255,0.08)',
-              border: '1px solid rgba(251,191,36,0.35)',
+              background: 'rgba(15, 23, 42, 0.65)',
+              backdropFilter: 'blur(12px)',
+              WebkitBackdropFilter: 'blur(12px)',
+              border: '1px solid rgba(251,191,36,0.45)',
               padding: '6px 16px',
               borderRadius: '999px',
               color: '#fbbf24',
@@ -673,10 +642,11 @@ export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' })
               fontWeight: 700,
               letterSpacing: '1px',
               marginBottom: 14,
+              boxShadow: '0 4px 14px rgba(0,0,0,0.4)',
             }}
           >
             <ShieldCheck size={14} />
-            <span>SLBFE LICENSE NO. 3293 • PV 0217143</span>
+            <span>{g.license}</span>
           </div>
 
           <h1
@@ -687,24 +657,24 @@ export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' })
               color: 'white',
               lineHeight: 1.2,
               marginBottom: 8,
-              textShadow: '0 4px 20px rgba(0,0,0,0.8)',
+              textShadow: '0 2px 4px rgba(0,0,0,0.9), 0 6px 24px rgba(0,0,0,0.85)',
             }}
           >
             ATSUKO INTERNATIONAL{' '}
-            <span style={{ color: '#ef4444' }}>篤子 学校</span>
+            <span style={{ color: '#f87171', textShadow: '0 2px 4px rgba(0,0,0,0.9), 0 0 20px rgba(239,68,68,0.45)' }}>篤子 学校</span>
           </h1>
 
           <p
             className="gate-hero-desc"
             style={{
               fontSize: 'clamp(14px, 1.8vw, 17px)',
-              color: '#cbd5e1',
+              color: '#e2e8f0',
               maxWidth: 640,
               margin: '0 auto 20px',
-              textShadow: '0 2px 10px rgba(0,0,0,0.8)',
+              textShadow: '0 2px 4px rgba(0,0,0,0.9), 0 4px 16px rgba(0,0,0,0.85)',
             }}
           >
-            Sri Lanka’s premier government-registered pathway to study and work in Japan.
+            {g.desc}
           </p>
 
           <div
@@ -745,7 +715,7 @@ export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' })
                 e.currentTarget.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.35), 0 0 12px rgba(30, 64, 175, 0.2)';
               }}
             >
-              <span>Walk Through Gate to Portal</span>
+              <span>{g.walkBtn}</span>
               <ArrowDown size={15} />
             </button>
           </div>
@@ -765,7 +735,7 @@ export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' })
               animation: 'bounce 2s infinite',
             }}
           >
-            <span>Scroll Down to Enter</span>
+            <span>{g.scrollHint}</span>
             <span>↓</span>
           </div>
         </div>
@@ -779,7 +749,7 @@ export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' })
             textAlign: 'center',
             color: 'white',
             maxWidth: 760,
-            width: 'min(760px, calc(100vw - 32px))',
+            width: 'min(760px, calc(100% - 32px))',
             padding: 'clamp(24px, 4vw, 36px) clamp(16px, 4vw, 32px)',
             background: 'rgba(11, 21, 40, 0.88)',
             backdropFilter: 'blur(16px)',
@@ -810,7 +780,7 @@ export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' })
             }}
           >
             <Award size={15} />
-            <span>WELCOME TO ATSUKO GAKKO (篤子 学校)</span>
+            <span>{g.welcomeBadge}</span>
           </div>
 
           <h2
@@ -822,7 +792,7 @@ export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' })
               marginBottom: 12,
             }}
           >
-            Your Official Pathway to Study & Work in Japan
+            {g.portalTitle}
           </h2>
 
           <p
@@ -833,8 +803,7 @@ export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' })
               marginBottom: 24,
             }}
           >
-            Licensed Foreign Employment Agency (SLBFE No. 3293) and Specialized Japanese Language School.
-            Kadawatha Head Operations Center & Registered Support Organization in Komaki (Aichi) and Sendai, Japan.
+            {g.portalDesc}
           </p>
 
           <div
@@ -864,7 +833,7 @@ export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' })
               }}
             >
               <Sparkles size={16} />
-              <span>Continue into Official Portal</span>
+              <span>{g.continueBtn}</span>
             </button>
           </div>
         </div>

@@ -95,97 +95,77 @@ export default function SuccessStories({ lang }) {
         </div>
 
         {/* Airport Departure & Japan Support Spotlight Card */}
-        <div style={{
-          background: 'linear-gradient(135deg, #0f1b38 0%, #1e3568 100%)',
-          borderRadius: 'var(--radius-xl)',
-          overflow: 'hidden',
-          marginBottom: '3.5rem',
-          boxShadow: 'var(--shadow-xl)',
-          color: '#ffffff',
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-          alignItems: 'center'
-        }}>
-          <div style={{ padding: '3rem' }}>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(255,255,255,0.1)', padding: '0.35rem 0.85rem', borderRadius: 'var(--radius-full)', fontSize: '0.8rem', fontWeight: 700, color: '#fbbf24', marginBottom: '1rem' }}>
+        <div className="stories-spotlight-card">
+          <div className="stories-spotlight-content">
+            <div className="spotlight-pill">
               {t.airportPill}
             </div>
 
-            <h3 style={{ fontSize: '2rem', fontWeight: 800, lineHeight: 1.25, marginBottom: '1rem' }}>
+            <h3 className="spotlight-title">
               {t.airportTitle}
             </h3>
 
-            <p style={{ color: '#cbd5e1', fontSize: '0.975rem', lineHeight: 1.65, marginBottom: '1.75rem' }}>
+            <p className="spotlight-desc">
               {t.airportDesc}
             </p>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem', marginBottom: '1.5rem' }}>
-              <div style={{ background: 'rgba(255,255,255,0.08)', padding: '0.85rem', borderRadius: 'var(--radius-md)' }}>
-                <div style={{ fontSize: '1.3rem', fontWeight: 800, color: '#fbbf24' }}>{t.airportBadge1Val}</div>
-                <div style={{ fontSize: '0.75rem', color: '#cbd5e1' }}>{t.airportBadge1Lbl}</div>
+            <div className="spotlight-stats-row">
+              <div className="spotlight-stat-box">
+                <div className="spotlight-stat-val text-gold">{t.airportBadge1Val}</div>
+                <div className="spotlight-stat-lbl">{t.airportBadge1Lbl}</div>
               </div>
-              <div style={{ background: 'rgba(255,255,255,0.08)', padding: '0.85rem', borderRadius: 'var(--radius-md)' }}>
-                <div style={{ fontSize: '1.3rem', fontWeight: 800, color: '#34d399' }}>{t.airportBadge2Val}</div>
-                <div style={{ fontSize: '0.75rem', color: '#cbd5e1' }}>{t.airportBadge2Lbl}</div>
+              <div className="spotlight-stat-box">
+                <div className="spotlight-stat-val text-emerald">{t.airportBadge2Val}</div>
+                <div className="spotlight-stat-lbl">{t.airportBadge2Lbl}</div>
               </div>
             </div>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#cbd5e1', fontSize: '0.85rem' }}>
-              <CheckCircle2 size={16} style={{ color: '#10b981', flexShrink: 0 }} />
+            <div className="spotlight-point">
+              <CheckCircle2 size={16} className="text-emerald flex-shrink-0" />
               <span>{t.airportPoint}</span>
             </div>
           </div>
 
-          <div style={{ height: '100%', minHeight: '360px' }}>
+          <div className="stories-spotlight-img">
             <img 
               src="/images/student-success.jpg" 
               alt="Atsuko International Students Holding Visas Departing for Tokyo at Colombo Airport" 
-              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              width="600"
+              height="420"
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </div>
 
         {/* Verified Cohort & Credibility Pillars */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+        <div className="success-cohorts-grid">
           {cohorts.map((c, idx) => (
-            <div 
-              key={idx} 
-              style={{
-                background: 'var(--surface-alt)',
-                border: '1px solid var(--border-light)',
-                borderRadius: 'var(--radius-lg)',
-                padding: '2rem',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-                transition: 'var(--transition)',
-                boxShadow: 'var(--shadow-sm)'
-              }}
-            >
+            <div key={idx} className="cohort-credibility-card">
               <div>
-                <div style={{ display: 'inline-block', background: '#f0f9ff', color: '#0284c7', border: '1px solid #bae6fd', padding: '0.3rem 0.75rem', borderRadius: 'var(--radius-full)', fontSize: '0.75rem', fontWeight: 700, marginBottom: '1rem' }}>
+                <div className="cohort-stat-pill">
                   {c.stat}
                 </div>
 
-                <h4 style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--navy-900)', marginBottom: '0.35rem' }}>
+                <h4 className="cohort-title">
                   {c.title}
                 </h4>
-                <div style={{ fontSize: '0.85rem', color: '#d97706', fontWeight: 600, marginBottom: '1rem' }}>
+                <div className="cohort-sub">
                   {c.sub}
                 </div>
 
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.6, marginBottom: '1.5rem' }}>
+                <p className="cohort-desc">
                   {c.desc}
                 </p>
               </div>
 
               {c.link && c.link !== '#' && (
-                <div style={{ paddingTop: '1rem', borderTop: '1px solid var(--border-light)' }}>
+                <div className="cohort-link-wrapper">
                   <a 
                     href={c.link} 
                     target="_blank" 
                     rel="noreferrer" 
-                    style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', color: '#2563eb', fontWeight: 700, fontSize: '0.85rem' }}
+                    className="cohort-channel-link"
                   >
                     <span>{t.btnVisitChannel}</span>
                     <ExternalLink size={14} />

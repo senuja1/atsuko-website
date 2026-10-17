@@ -22,8 +22,10 @@ import SuccessStories from './SuccessStories';
 import BranchNetwork from './BranchNetwork';
 import FaqSection from './FaqSection';
 import { targetAudiencePathways, studentVisaIntakes } from '../data/websiteData';
+import { getUiText } from '../data/uiText';
 
 export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligibility }) {
+  const h = getUiText(lang).home;
   return (
     <div className="home-view">
       {/* Hero Section */}
@@ -42,18 +44,19 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
           <div className="section-header">
             <span className="section-badge badge-red">
               <Award size={14} />
-              Tailored Pathways
+              {h.pathwaysBadge}
             </span>
             <h2 className="section-title">
-              Designed For Every <span className="text-gradient-red">Aspirational Journey</span>
+              {h.pathwaysTitle} <span className="text-gradient-red">{h.pathwaysHighlight}</span>
             </h2>
             <p className="section-subtitle">
-              Whether you are a student after A/Ls, a skilled vocational worker, or a parent seeking government-licensed security, Atsuko International has a dedicated pathway for you.
+              {h.pathwaysSubtitle}
             </p>
           </div>
 
           <div className="target-gateway-grid">
-            {targetAudiencePathways.map((card, idx) => {
+            {targetAudiencePathways.map((baseCard, idx) => {
+              const card = { ...baseCard, ...(h.pathways[baseCard.id] || {}) };
               const isStudent = card.id === 'students';
               const isWorker = card.id === 'workers';
               const Icon = isStudent ? GraduationCap : isWorker ? Briefcase : ShieldCheck;
@@ -122,7 +125,7 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
               className="btn btn-gold"
               style={{ padding: '0.85rem 2rem', fontSize: '0.95rem' }}
             >
-              <span>View All Courses & Active Batch Schedules</span>
+              <span>{h.viewAllCourses}</span>
               <ArrowRight size={16} />
             </button>
           </div>
@@ -178,39 +181,35 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
             <div className="home-cta-box">
               <span className="section-badge badge-gold">
                 <ShieldCheck size={14} />
-                SLBFE License No. 3293 • PV 0217143 • www.atsukojapan.com
+                {h.ctaBadge}
               </span>
               <h2 className="home-cta-title">
-                Your Trusted Pathway to Japan Starts Today
+                {h.ctaTitle}
               </h2>
               <p className="home-cta-desc">
-                Join thousands of Sri Lankan students and skilled workers who have successfully flown to Tokyo, Osaka, 
-                Nagoya, and Sendai under official government protection.
+                {h.ctaDesc}
               </p>
               <div className="home-cta-buttons">
                 <button 
                   onClick={() => onOpenModal('Fast Registration')}
                   className="btn btn-primary btn-pulse"
-                  style={{ padding: '0.9rem 2rem' }}
                 >
                   <Sparkles size={16} />
-                  <span>Register for Next Intake</span>
+                  <span>{h.ctaRegister}</span>
                 </button>
                 <a 
                   href="https://wa.me/94778643352" 
                   target="_blank" 
                   rel="noreferrer" 
                   className="btn btn-whatsapp"
-                  style={{ padding: '0.9rem 2rem' }}
                 >
-                  <span>WhatsApp Admissions Advisor</span>
+                  <span>{h.ctaWhatsApp}</span>
                 </a>
                 <button 
                   onClick={() => onNavigate('contact')}
                   className="btn btn-secondary-white"
-                  style={{ padding: '0.9rem 2rem' }}
                 >
-                  <span>Visit Nearest Branch</span>
+                  <span>{h.ctaVisitBranch}</span>
                 </button>
               </div>
             </div>

@@ -145,6 +145,10 @@ export default function SuccessStoriesPage({ lang, onOpenModal, onNavigate }) {
                     <img 
                       src={item.image} 
                       alt={item.name} 
+                      width="54"
+                      height="54"
+                      loading="lazy"
+                      decoding="async"
                       className="story-avatar-img"
                     />
                     <span className="story-cat-badge">{item.categoryLabel}</span>
@@ -266,6 +270,10 @@ export default function SuccessStoriesPage({ lang, onOpenModal, onNavigate }) {
               <img 
                 src="/images/student-success.jpg" 
                 alt="Atsuko International Students Holding Japanese Visas at Departure Gate" 
+                width="600"
+                height="400"
+                loading="lazy"
+                decoding="async"
                 className="stories-banner-image"
               />
             </div>

@@ -347,7 +347,7 @@ Please provide me with upcoming batch details and consultation at your nearest c
                 <p style={{ color: '#cbd5e1', fontSize: '0.925rem' }}>{result.advice}</p>
               </div>
 
-              <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+              <div className="result-action-buttons" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
                 <a
                   href={`https://wa.me/94778643352?text=${getWhatsAppMessage()}`}
                   target="_blank"
