@@ -193,7 +193,6 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
                 <button 
                   onClick={() => onOpenModal('Fast Registration')}
                   className="btn btn-primary btn-pulse"
-                  style={{ padding: '0.9rem 2rem' }}
                 >
                   <Sparkles size={16} />
                   <span>{h.ctaRegister}</span>
@@ -203,14 +202,12 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
                   target="_blank" 
                   rel="noreferrer" 
                   className="btn btn-whatsapp"
-                  style={{ padding: '0.9rem 2rem' }}
                 >
                   <span>{h.ctaWhatsApp}</span>
                 </a>
                 <button 
                   onClick={() => onNavigate('contact')}
                   className="btn btn-secondary-white"
-                  style={{ padding: '0.9rem 2rem' }}
                 >
                   <span>{h.ctaVisitBranch}</span>
                 </button>

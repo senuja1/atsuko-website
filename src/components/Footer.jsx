@@ -20,10 +20,14 @@ export default function Footer({ lang, onOpenModal, onNavigate }) {
           {/* Brand Info */}
           <div className="footer-brand-col">
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem', cursor: 'pointer' }} onClick={(e) => handleLinkClick(e, 'home')}>
-              <img 
-                src="/images/atsuko-official-logo.png" 
-                alt="Atsuko International" 
-                style={{ width: '48px', height: '48px', borderRadius: '50%', objectFit: 'cover' }} 
+              <img
+                src="/images/atsuko-official-logo.png"
+                alt="Atsuko International"
+                width="48"
+                height="48"
+                loading="lazy"
+                decoding="async"
+                style={{ width: '48px', height: '48px', borderRadius: '50%', objectFit: 'cover' }}
               />
               <div>
                 <div className="footer-brand-title" style={{ margin: 0, lineHeight: 1.1 }}>
@@ -36,7 +40,7 @@ export default function Footer({ lang, onOpenModal, onNavigate }) {
             </div>
 
             <p className="footer-desc">
-              Premier, government-registered Japanese language academy and licensed foreign employment agency. 
+              Premier, government-registered Japanese language academy and licensed foreign employment agency.
               Bridging Sri Lankan talent with Japan under SLBFE License No. 3293 and Company Registration PV 0217143.
             </p>
 
@@ -54,80 +58,86 @@ export default function Footer({ lang, onOpenModal, onNavigate }) {
               </div>
             </div>
 
-            {/* Social Media Channels Row */}
+            {/* Social Media Channels Row - 44px min touch target */}
             <div style={{ display: 'flex', gap: '0.65rem', flexWrap: 'wrap' }}>
               {/* Facebook */}
-              <a 
-                href={officialContacts.socials.facebook} 
-                target="_blank" 
-                rel="noreferrer" 
+              <a
+                href={officialContacts.socials.facebook}
+                target="_blank"
+                rel="noreferrer"
                 style={{
-                  width: '36px',
-                  height: '36px',
+                  width: '44px',
+                  height: '44px',
                   borderRadius: '50%',
                   background: '#1877f2',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   color: '#ffffff',
-                  fontSize: '0.95rem',
-                  fontWeight: 800
+                  fontSize: '1rem',
+                  fontWeight: 800,
+                  transition: 'transform 0.15s ease'
                 }}
                 title="Atsuko International on Facebook (17K+ Followers)"
+                aria-label="Atsuko Facebook Group"
               >
                 f
               </a>
 
               {/* WhatsApp */}
-              <a 
-                href="https://wa.me/94778643352" 
-                target="_blank" 
-                rel="noreferrer" 
+              <a
+                href="https://wa.me/94778643352"
+                target="_blank"
+                rel="noreferrer"
                 style={{
-                  width: '36px',
-                  height: '36px',
+                  width: '44px',
+                  height: '44px',
                   borderRadius: '50%',
                   background: '#25d366',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   color: '#ffffff',
-                  fontSize: '0.95rem'
+                  fontSize: '1.1rem',
+                  transition: 'transform 0.15s ease'
                 }}
                 title="Chat with Atsuko International on WhatsApp"
+                aria-label="Chat with Atsuko on WhatsApp"
               >
                 💬
               </a>
 
               {/* YouTube */}
-              <a 
-                href={officialContacts.socials.youtube} 
-                target="_blank" 
-                rel="noreferrer" 
+              <a
+                href={officialContacts.socials.youtube}
+                target="_blank"
+                rel="noreferrer"
                 style={{
-                  width: '36px',
-                  height: '36px',
+                  width: '44px',
+                  height: '44px',
                   borderRadius: '50%',
                   background: '#ff0000',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   color: '#ffffff',
-                  fontSize: '0.85rem'
+                  fontSize: '0.95rem',
+                  transition: 'transform 0.15s ease'
                 }}
                 title="Watch Student Testimonials on YouTube"
+                aria-label="Atsuko YouTube Channel"
               >
                 ▶
               </a>
 
               {/* TikTok */}
-              <a 
-                href={officialContacts.socials.tiktok} 
-                target="_blank" 
-                rel="noreferrer" 
+              <a
+                href={officialContacts.socials.tiktok}
+                target="_blank"
+                rel="noreferrer"
                 style={{
-                  width: '36px',
-                  height: '36px',
+                  width: '44px',
+                  height: '44px',
                   borderRadius: '50%',
                   background: '#010101',
                   border: '1px solid #334155',
@@ -135,30 +145,34 @@ export default function Footer({ lang, onOpenModal, onNavigate }) {
                   alignItems: 'center',
                   justifyContent: 'center',
                   color: '#ffffff',
-                  fontSize: '0.85rem'
+                  fontSize: '0.95rem',
+                  transition: 'transform 0.15s ease'
                 }}
                 title="TikTok: @atsuko_international"
+                aria-label="Atsuko TikTok"
               >
                 ♪
               </a>
 
               {/* Instagram */}
-              <a 
-                href={officialContacts.socials.instagram} 
-                target="_blank" 
-                rel="noreferrer" 
+              <a
+                href={officialContacts.socials.instagram}
+                target="_blank"
+                rel="noreferrer"
                 style={{
-                  width: '36px',
-                  height: '36px',
+                  width: '44px',
+                  height: '44px',
                   borderRadius: '50%',
                   background: 'linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   color: '#ffffff',
-                  fontSize: '0.85rem'
+                  fontSize: '0.95rem',
+                  transition: 'transform 0.15s ease'
                 }}
                 title="Instagram: @atsuko_gakkou"
+                aria-label="Atsuko Instagram"
               >
                 📷
               </a>
@@ -235,10 +249,10 @@ export default function Footer({ lang, onOpenModal, onNavigate }) {
             <span>•</span>
             <span>Company Reg: PV 0217143</span>
             <span>•</span>
-            <a 
-              href="https://www.facebook.com/groups/studentsofatsukointernational" 
-              target="_blank" 
-              rel="noreferrer" 
+            <a
+              href="https://www.facebook.com/groups/studentsofatsukointernational"
+              target="_blank"
+              rel="noreferrer"
               style={{ color: '#38bdf8', display: 'flex', alignItems: 'center', gap: '3px' }}
             >
               <span>Student Community Group (17K+)</span>
