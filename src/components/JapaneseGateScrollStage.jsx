@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { ArrowDown, Sparkles, ShieldCheck, Award } from 'lucide-react';
+import { getUiText } from '../data/uiText';
 
 /* ============================================================
    PHOTOREALISTIC SVG CHOCHIN LANTERN (光 & 輝)
@@ -125,6 +126,7 @@ function PhotorealisticChochin({ kanji, idPrefix }) {
 }
 
 export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' }) {
+  const g = getUiText(lang).gate;
   const containerRef = useRef(null);
   const canvasRef = useRef(null);
   const fgCanvasRef = useRef(null);
@@ -640,7 +642,7 @@ export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' })
             }}
           >
             <ShieldCheck size={14} />
-            <span>SLBFE LICENSE NO. 3293 • PV 0217143</span>
+            <span>{g.license}</span>
           </div>
 
           <h1
@@ -668,7 +670,7 @@ export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' })
               textShadow: '0 2px 10px rgba(0,0,0,0.8)',
             }}
           >
-            Sri Lanka’s premier government-registered pathway to study and work in Japan.
+            {g.desc}
           </p>
 
           <div
@@ -709,7 +711,7 @@ export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' })
                 e.currentTarget.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.35), 0 0 12px rgba(30, 64, 175, 0.2)';
               }}
             >
-              <span>Walk Through Gate to Portal</span>
+              <span>{g.walkBtn}</span>
               <ArrowDown size={15} />
             </button>
           </div>
@@ -729,7 +731,7 @@ export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' })
               animation: 'bounce 2s infinite',
             }}
           >
-            <span>Scroll Down to Enter</span>
+            <span>{g.scrollHint}</span>
             <span>↓</span>
           </div>
         </div>
@@ -774,7 +776,7 @@ export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' })
             }}
           >
             <Award size={15} />
-            <span>WELCOME TO ATSUKO GAKKO (篤子 学校)</span>
+            <span>{g.welcomeBadge}</span>
           </div>
 
           <h2
@@ -786,7 +788,7 @@ export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' })
               marginBottom: 12,
             }}
           >
-            Your Official Pathway to Study & Work in Japan
+            {g.portalTitle}
           </h2>
 
           <p
@@ -797,8 +799,7 @@ export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' })
               marginBottom: 24,
             }}
           >
-            Licensed Foreign Employment Agency (SLBFE No. 3293) and Specialized Japanese Language School.
-            Kadawatha Head Operations Center & Registered Support Organization in Komaki (Aichi) and Sendai, Japan.
+            {g.portalDesc}
           </p>
 
           <div
@@ -828,7 +829,7 @@ export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' })
               }}
             >
               <Sparkles size={16} />
-              <span>Continue into Official Portal</span>
+              <span>{g.continueBtn}</span>
             </button>
           </div>
         </div>

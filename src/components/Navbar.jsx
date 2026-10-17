@@ -19,9 +19,29 @@ export default function Navbar({
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Lock background body scrolling when mobile drawer is open & handle Escape key
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+
+      const handleKeyDown = (e) => {
+        if (e.key === 'Escape') {
+          setMobileMenuOpen(false);
+        }
+      };
+
+      window.addEventListener('keydown', handleKeyDown);
+      return () => {
+        document.body.style.overflow = originalOverflow;
+        window.removeEventListener('keydown', handleKeyDown);
+      };
+    }
+  }, [mobileMenuOpen]);
 
   const navPages = [
     { id: 'home', label: lang === 'si' ? 'මුල් පිටුව' : lang === 'jp' ? 'ホーム' : 'Home', icon: Home },
@@ -31,7 +51,6 @@ export default function Navbar({
     { id: 'stories', label: lang === 'si' ? 'ජයග්‍රාහී කතා' : lang === 'jp' ? '渡航実績' : 'Success Stories', icon: Award },
     { id: 'contact', label: lang === 'si' ? 'අප අමතන්න' : lang === 'jp' ? 'お問い合わせ' : 'Contact Us', icon: Phone },
   ];
-
 
   const handleNavClick = (pageId) => {
     setMobileMenuOpen(false);
@@ -64,6 +83,10 @@ export default function Navbar({
             src="/images/atsuko-official-logo.png" 
             alt="Atsuko International Logo" 
             className="brand-logo-img" 
+            width="36"
+            height="36"
+            loading="eager"
+            decoding="async"
           />
           <div className="brand-text-col">
             <div className="brand-title-row">
@@ -75,7 +98,7 @@ export default function Navbar({
         </div>
 
         {/* Desktop Primary Nav Links (Apple Clean Typography) */}
-        <nav className="nav-links">
+        <nav className="nav-links" aria-label="Primary Navigation">
           {navPages.map((item) => (
             <button 
               key={item.id} 
@@ -89,9 +112,9 @@ export default function Navbar({
 
         {/* Actions (Apple Style) */}
         <div className="nav-actions">
-          {/* Apple Segmented Language Switcher */}
+          {/* Apple Segmented Language Switcher (Visible on desktop & tablet) */}
           {setLang && (
-            <div className="apple-lang-control">
+            <div className="apple-lang-control" role="group" aria-label="Select language">
               <button 
                 type="button"
                 className={`apple-lang-pill ${lang === 'en' ? 'active' : ''}`}
@@ -145,7 +168,9 @@ export default function Navbar({
           <button 
             className="mobile-menu-btn" 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle navigation menu"
+            aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-navigation-drawer"
           >
             {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -160,7 +185,43 @@ export default function Navbar({
             onClick={() => setMobileMenuOpen(false)}
             aria-hidden="true"
           />
-          <div className="mobile-menu-drawer">
+          <div 
+            id="mobile-navigation-drawer"
+            className="mobile-menu-drawer"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mobile Navigation"
+          >
+            {/* Mobile Drawer Language Bar */}
+            {setLang && (
+              <div className="mobile-drawer-lang-row">
+                <span className="mobile-drawer-lang-label">Language / භාෂාව / 言語:</span>
+                <div className="apple-lang-control">
+                  <button 
+                    type="button"
+                    className={`apple-lang-pill ${lang === 'en' ? 'active' : ''}`}
+                    onClick={() => setLang('en')}
+                  >
+                    English
+                  </button>
+                  <button 
+                    type="button"
+                    className={`apple-lang-pill ${lang === 'si' ? 'active' : ''}`}
+                    onClick={() => setLang('si')}
+                  >
+                    සිංහල
+                  </button>
+                  <button 
+                    type="button"
+                    className={`apple-lang-pill ${lang === 'jp' ? 'active' : ''}`}
+                    onClick={() => setLang('jp')}
+                  >
+                    日本語
+                  </button>
+                </div>
+              </div>
+            )}
+
             <div className="mobile-nav-items">
               {navPages.map((item) => {
                 const Icon = item.icon;
