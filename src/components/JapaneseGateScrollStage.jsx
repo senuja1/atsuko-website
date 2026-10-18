@@ -125,8 +125,8 @@ function PhotorealisticChochin({ kanji, idPrefix }) {
   );
 }
 
-export default function JapaneseGateScrollStage({ 
-  onEnterWebsite, 
+export default function JapaneseGateScrollStage({
+  onEnterWebsite,
   lang = 'en',
   onOpenModal,
   onScrollToEligibility,
@@ -143,6 +143,7 @@ export default function JapaneseGateScrollStage({
   const portalCardRef = useRef(null);
   const duskOverlayRef = useRef(null);
   const sunriseOverlayRef = useRef(null);
+  const watermarkRef = useRef(null);
 
   // Safe 2.5D Parallax: Smooth mouse-move tracking for CSS custom properties (--mouse-x, --mouse-y)
   useEffect(() => {
@@ -265,6 +266,16 @@ export default function JapaneseGateScrollStage({
         const hintOpacity = Math.max(0, 1 - p * 3);
         hintRef.current.style.opacity = hintOpacity;
         hintRef.current.style.pointerEvents = hintOpacity < 0.05 ? 'none' : 'auto';
+      }
+
+      // 4b. Ambient Japanese Vertical Typography Watermarks (Tategaki)
+      if (watermarkRef.current) {
+        const wmProgress = Math.min(1, p / 0.18);
+        const wmOpacity = Math.max(0, 1 - wmProgress);
+        const wmY = -20 * wmProgress;
+        watermarkRef.current.style.opacity = wmOpacity;
+        watermarkRef.current.style.transform = `translate3d(0, ${wmY}px, 0)`;
+        watermarkRef.current.style.visibility = wmOpacity <= 0.01 ? 'hidden' : 'visible';
       }
 
       // 5. Emerging Kouki-Style Open Hero (Replaces blue box)
@@ -709,6 +720,30 @@ export default function JapaneseGateScrollStage({
             zIndex: 15,
           }}
         />
+
+        {/* AMBIENT JAPANESE VERTICAL TYPOGRAPHY WATERMARK (TATEGAKI) */}
+        <div
+          ref={watermarkRef}
+          className="hero-tategaki-watermark-container"
+          aria-hidden="true"
+        >
+          {/* Left Column (Sub-accent): 夢を現実に • 篤子学校 with Thin Vertical Divider */}
+          <div className="tategaki-column tategaki-column-left">
+            <div className="tategaki-divider-line" />
+            <div className="tategaki-text-left" lang="ja">
+              夢を現実に • 篤子学校
+            </div>
+            <div className="tategaki-left-seal" />
+          </div>
+
+          {/* Right Column: 日本への道 (Pathway to Japan) with Red Hanko Stamp */}
+          <div className="tategaki-column tategaki-column-right">
+            <div className="tategaki-text-right" lang="ja">
+              日本への道
+            </div>
+            <div className="tategaki-hanko-seal" />
+          </div>
+        </div>
 
         {/* INTRO HINT & CALL-TO-SCROLL (Floats forward in 2.5D space) */}
         <div

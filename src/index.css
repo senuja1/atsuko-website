@@ -4773,6 +4773,94 @@ body {
 }
 
 /* ============================================================
+   AMBIENT JAPANESE VERTICAL TYPOGRAPHY WATERMARK (TATEGAKI)
+   Balances upper sky on mobile/tablet framing Mount Fuji
+   ============================================================ */
+.hero-tategaki-watermark-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  z-index: 12;
+  will-change: opacity, transform;
+}
+
+.tategaki-column {
+  position: absolute;
+  top: clamp(80px, 12vh, 110px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+  user-select: none;
+}
+
+.tategaki-column-right {
+  right: clamp(16px, 3.5vw, 44px);
+}
+
+.tategaki-column-left {
+  left: clamp(16px, 3.5vw, 44px);
+}
+
+.tategaki-text-right {
+  writing-mode: vertical-rl;
+  -webkit-writing-mode: vertical-rl;
+  font-family: 'Noto Serif JP', 'Cinzel', 'Hiragino Mincho ProN', serif;
+  font-size: clamp(20px, 3vw, 28px);
+  font-weight: 800;
+  letter-spacing: 0.35em;
+  color: rgba(15, 23, 42, 0.44);
+  text-shadow: 
+    0 1px 2px rgba(255, 255, 255, 0.95),
+    0 2px 8px rgba(15, 23, 42, 0.12);
+  line-height: 1.25;
+}
+
+.tategaki-hanko-seal {
+  width: 8px;
+  height: 8px;
+  background: rgba(220, 38, 38, 0.65);
+  border-radius: 2px;
+  margin-top: 10px;
+  box-shadow: 0 0 5px rgba(220, 38, 38, 0.35);
+}
+
+.tategaki-divider-line {
+  width: 1px;
+  height: 44px;
+  background: rgba(15, 23, 42, 0.38);
+  margin: 0 auto 10px;
+}
+
+.tategaki-text-left {
+  writing-mode: vertical-rl;
+  -webkit-writing-mode: vertical-rl;
+  font-family: 'Noto Serif JP', 'Cinzel', serif;
+  font-size: clamp(10.5px, 1.2vw, 12px);
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: rgba(15, 23, 42, 0.46);
+  text-shadow: 
+    0 1px 2px rgba(255, 255, 255, 0.9),
+    0 2px 6px rgba(15, 23, 42, 0.1);
+  line-height: 1.35;
+}
+
+.tategaki-left-seal {
+  width: 6px;
+  height: 6px;
+  background: rgba(220, 38, 38, 0.55);
+  border-radius: 1.5px;
+  margin-top: 8px;
+  box-shadow: 0 0 4px rgba(220, 38, 38, 0.3);
+}
+
+/* ============================================================
    TORII GATE HERO STAGE RESPONSIVE FRAME SYSTEM
    ============================================================ */
 .torii-gate-frame {
@@ -4853,39 +4941,39 @@ body {
   background: linear-gradient(90deg, rgba(251, 191, 36, 0.85), transparent);
 }
 
-/* Temple crimson + gold "Walk Through Gate" CTA */
+/* Atsuko brand blue "Walk Through Gate" CTA */
 .gate-walk-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   padding: 12px 28px;
   border-radius: 999px;
-  border: 1px solid rgba(251, 191, 36, 0.7);
-  background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+  border: 1px solid rgba(56, 189, 248, 0.65);
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 55%, #0369a1 100%);
   color: #fff;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.02em;
   cursor: pointer;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   box-shadow:
-    0 4px 16px rgba(0, 0, 0, 0.45),
-    0 0 18px rgba(220, 38, 38, 0.35),
-    0 0 0 3px rgba(251, 191, 36, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    0 4px 18px rgba(0, 0, 0, 0.45),
+    0 0 20px rgba(2, 132, 199, 0.45),
+    0 0 0 3px rgba(14, 165, 233, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
   transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease, border-color 0.25s ease;
 }
 
 .gate-walk-btn:hover {
   transform: translateY(-2px);
-  border-color: #fbbf24;
+  border-color: #38bdf8;
   filter: brightness(1.08);
   box-shadow:
-    0 8px 24px rgba(0, 0, 0, 0.5),
-    0 0 24px rgba(220, 38, 38, 0.45),
-    0 0 18px rgba(251, 191, 36, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    0 8px 26px rgba(0, 0, 0, 0.5),
+    0 0 26px rgba(2, 132, 199, 0.6),
+    0 0 18px rgba(56, 189, 248, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
 }
 
 .gate-walk-btn:active {
@@ -4893,7 +4981,7 @@ body {
 }
 
 .gate-walk-btn:focus-visible {
-  outline: 2px solid #fbbf24;
+  outline: 2px solid #38bdf8;
   outline-offset: 3px;
 }
 
@@ -5177,14 +5265,14 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  height: clamp(140px, 28vh, 320px);
+  height: clamp(75px, 14vh, 150px);
   background: linear-gradient(
     to bottom,
     transparent 0%,
-    rgba(255, 255, 255, 0.15) 25%,
-    rgba(255, 255, 255, 0.6) 60%,
-    rgba(255, 255, 255, 0.95) 88%,
-    #ffffff 100%
+    rgba(255, 255, 255, 0.05) 30%,
+    rgba(255, 255, 255, 0.2) 65%,
+    rgba(255, 255, 255, 0.45) 85%,
+    rgba(255, 255, 255, 0.7) 100%
   );
   pointer-events: none;
   z-index: 20;
@@ -5438,7 +5526,7 @@ body {
   }
 
   .gate-intro-hint {
-    bottom: 5% !important;
+    bottom: clamp(52px, 8vh, 76px) !important;
     left: 0 !important;
     right: 0 !important;
     margin-left: auto !important;
@@ -5727,6 +5815,27 @@ body {
     display: none !important;
   }
 
+  /* Tategaki Watermark: Elevate in mobile view */
+  .tategaki-column-left {
+    top: 54px !important;
+    left: clamp(10px, 2.5vw, 16px) !important;
+  }
+
+  .tategaki-column-left .tategaki-divider-line {
+    height: 22px !important;
+    margin-bottom: 5px !important;
+  }
+
+  .tategaki-column-left .tategaki-text-left {
+    font-size: 10.5px !important;
+    letter-spacing: 0.22em !important;
+  }
+
+  .tategaki-column-right {
+    top: 60px !important;
+    right: clamp(10px, 2.5vw, 16px) !important;
+  }
+
   /* Torii Gate Stage Mobile Proportions */
   .torii-gate-frame {
     width: auto !important;
@@ -5736,9 +5845,9 @@ body {
   }
 
   .gate-intro-hint {
-    bottom: 5.5% !important;
-    width: 96% !important;
-    padding: 0 6px !important;
+    bottom: clamp(68px, 10.5vh, 96px) !important;
+    width: min(94vw, 440px) !important;
+    padding: 0 8px 12px !important;
   }
 
   .gate-license-badge {
@@ -5758,7 +5867,9 @@ body {
     font-size: 11.5px !important;
     line-height: 1.45 !important;
     margin-bottom: 10px !important;
-    max-width: 96% !important;
+    max-width: min(340px, 86vw) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 
   .gate-walk-btn {
@@ -6080,9 +6191,9 @@ body {
   }
 
   .gate-intro-hint {
-    bottom: 3% !important;
-    width: 98% !important;
-    padding: 0 4px !important;
+    bottom: clamp(74px, 11.5vh, 102px) !important;
+    width: min(96vw, 380px) !important;
+    padding: 0 6px 14px !important;
   }
 
   .gate-license-badge {
@@ -6097,7 +6208,11 @@ body {
 
   .gate-hero-desc {
     font-size: 11px !important;
+    line-height: 1.4 !important;
     margin-bottom: 8px !important;
+    max-width: min(300px, 86vw) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 
   /* Kouki Hero Ultra-Compact Phone Adjustments */
