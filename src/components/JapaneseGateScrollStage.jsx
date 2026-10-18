@@ -125,7 +125,195 @@ function PhotorealisticChochin({ kanji, idPrefix }) {
   );
 }
 
-export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' }) {
+/* ============================================================
+   JAPANESE TEMPLE CURVED ROOF CORNERS (KAWARA & TIMBER RAFTERS)
+   Framing bottom-left and bottom-right corners just like Kouki style
+   ============================================================ */
+function JapaneseTempleRoofLeft() {
+  return (
+    <svg
+      viewBox="0 0 540 380"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      style={{ width: '100%', height: 'auto', display: 'block' }}
+    >
+      <defs>
+        <linearGradient id="tile-grad-l" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#2c3340" />
+          <stop offset="35%" stopColor="#1e232d" />
+          <stop offset="85%" stopColor="#12161e" />
+          <stop offset="100%" stopColor="#0a0d14" />
+        </linearGradient>
+        <linearGradient id="timber-l" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stopColor="#78350f" />
+          <stop offset="50%" stopColor="#451a03" />
+          <stop offset="100%" stopColor="#1c0a02" />
+        </linearGradient>
+      </defs>
+
+      {/* Timber under-eave */}
+      <path
+        d="M 0 240 Q 220 280, 420 250 L 390 320 Q 200 330, 0 350 Z"
+        fill="url(#timber-l)"
+        opacity="0.95"
+      />
+      {/* Rafter brackets (Taruki) */}
+      <g stroke="#92400e" strokeWidth="3" opacity="0.45">
+        <line x1="60" y1="245" x2="50" y2="305" />
+        <line x1="110" y1="250" x2="100" y2="310" />
+        <line x1="160" y1="255" x2="150" y2="312" />
+        <line x1="210" y1="260" x2="200" y2="310" />
+        <line x1="260" y1="262" x2="250" y2="305" />
+        <line x1="310" y1="260" x2="300" y2="295" />
+        <line x1="360" y1="254" x2="350" y2="280" />
+      </g>
+
+      {/* Main Curved Ceramic Roof Slope (Kawara) */}
+      <path
+        d="M 0 110 C 130 145, 270 215, 450 205 C 500 200, 535 175, 540 155 C 515 210, 455 255, 360 270 C 230 285, 90 280, 0 295 Z"
+        fill="url(#tile-grad-l)"
+      />
+
+      {/* Upper Tier Roof Section */}
+      <path
+        d="M 0 0 C 100 45, 210 115, 360 120 C 400 120, 430 100, 440 85 C 415 130, 360 165, 280 175 C 170 185, 60 170, 0 180 Z"
+        fill="url(#tile-grad-l)"
+        opacity="0.96"
+      />
+
+      {/* Curved Tile Ridges */}
+      <g stroke="#1a1e28" strokeWidth="2.5" opacity="0.6">
+        <path d="M 0 40 Q 150 95, 310 145" />
+        <path d="M 0 75 Q 170 130, 340 170" />
+        <path d="M 0 140 Q 190 210, 400 230" />
+        <path d="M 0 175 Q 210 235, 430 240" />
+        <path d="M 0 210 Q 230 260, 455 245" />
+      </g>
+
+      {/* Golden Sunrise Rim Lighting */}
+      <path
+        d="M 0 110 C 130 145, 270 215, 450 205 C 500 200, 535 175, 540 155"
+        stroke="#fed7aa"
+        strokeWidth="2.2"
+        strokeOpacity="0.45"
+        fill="none"
+      />
+      <path
+        d="M 0 0 C 100 45, 210 115, 360 120 C 400 120, 430 100, 440 85"
+        stroke="#fed7aa"
+        strokeWidth="2"
+        strokeOpacity="0.4"
+        fill="none"
+      />
+
+      {/* Ornamental Ridge End */}
+      <path
+        d="M 536 158 C 542 145, 538 135, 530 140 C 525 145, 528 152, 536 158 Z"
+        fill="#1e232d"
+        stroke="#fed7aa"
+        strokeWidth="1.2"
+        strokeOpacity="0.6"
+      />
+    </svg>
+  );
+}
+
+function JapaneseTempleRoofRight() {
+  return (
+    <svg
+      viewBox="0 0 540 380"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      style={{ width: '100%', height: 'auto', display: 'block', transform: 'scaleX(-1)' }}
+    >
+      <defs>
+        <linearGradient id="tile-grad-r" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#2c3340" />
+          <stop offset="35%" stopColor="#1e232d" />
+          <stop offset="85%" stopColor="#12161e" />
+          <stop offset="100%" stopColor="#0a0d14" />
+        </linearGradient>
+        <linearGradient id="timber-r" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stopColor="#78350f" />
+          <stop offset="50%" stopColor="#451a03" />
+          <stop offset="100%" stopColor="#1c0a02" />
+        </linearGradient>
+      </defs>
+
+      {/* Timber under-eave */}
+      <path
+        d="M 0 240 Q 220 280, 420 250 L 390 320 Q 200 330, 0 350 Z"
+        fill="url(#timber-r)"
+        opacity="0.95"
+      />
+      {/* Rafter brackets */}
+      <g stroke="#92400e" strokeWidth="3" opacity="0.45">
+        <line x1="60" y1="245" x2="50" y2="305" />
+        <line x1="110" y1="250" x2="100" y2="310" />
+        <line x1="160" y1="255" x2="150" y2="312" />
+        <line x1="210" y1="260" x2="200" y2="310" />
+        <line x1="260" y1="262" x2="250" y2="305" />
+        <line x1="310" y1="260" x2="300" y2="295" />
+        <line x1="360" y1="254" x2="350" y2="280" />
+      </g>
+
+      {/* Main Curved Ceramic Roof Slope */}
+      <path
+        d="M 0 110 C 130 145, 270 215, 450 205 C 500 200, 535 175, 540 155 C 515 210, 455 255, 360 270 C 230 285, 90 280, 0 295 Z"
+        fill="url(#tile-grad-r)"
+      />
+
+      {/* Upper Tier Roof Section */}
+      <path
+        d="M 0 0 C 100 45, 210 115, 360 120 C 400 120, 430 100, 440 85 C 415 130, 360 165, 280 175 C 170 185, 60 170, 0 180 Z"
+        fill="url(#tile-grad-r)"
+        opacity="0.96"
+      />
+
+      {/* Curved Tile Ridges */}
+      <g stroke="#1a1e28" strokeWidth="2.5" opacity="0.6">
+        <path d="M 0 40 Q 150 95, 310 145" />
+        <path d="M 0 75 Q 170 130, 340 170" />
+        <path d="M 0 140 Q 190 210, 400 230" />
+        <path d="M 0 175 Q 210 235, 430 240" />
+        <path d="M 0 210 Q 230 260, 455 245" />
+      </g>
+
+      {/* Golden Sunrise Rim Lighting */}
+      <path
+        d="M 0 110 C 130 145, 270 215, 450 205 C 500 200, 535 175, 540 155"
+        stroke="#fed7aa"
+        strokeWidth="2.2"
+        strokeOpacity="0.45"
+        fill="none"
+      />
+      <path
+        d="M 0 0 C 100 45, 210 115, 360 120 C 400 120, 430 100, 440 85"
+        stroke="#fed7aa"
+        strokeWidth="2"
+        strokeOpacity="0.4"
+        fill="none"
+      />
+
+      {/* Ornamental Ridge End */}
+      <path
+        d="M 536 158 C 542 145, 538 135, 530 140 C 525 145, 528 152, 536 158 Z"
+        fill="#1e232d"
+        stroke="#fed7aa"
+        strokeWidth="1.2"
+        strokeOpacity="0.6"
+      />
+    </svg>
+  );
+}
+
+export default function JapaneseGateScrollStage({ 
+  onEnterWebsite, 
+  lang = 'en',
+  onOpenModal,
+  onScrollToEligibility,
+  onNavigate
+}) {
   const g = getUiText(lang).gate;
   const containerRef = useRef(null);
   const canvasRef = useRef(null);
@@ -135,6 +323,10 @@ export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' })
   const gateLayerRef = useRef(null);
   const hintRef = useRef(null);
   const portalCardRef = useRef(null);
+  const roofLeftRef = useRef(null);
+  const roofRightRef = useRef(null);
+  const duskOverlayRef = useRef(null);
+  const sunriseOverlayRef = useRef(null);
 
   // Safe 2.5D Parallax: Smooth mouse-move tracking for CSS custom properties (--mouse-x, --mouse-y)
   useEffect(() => {
@@ -259,13 +451,35 @@ export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' })
         hintRef.current.style.pointerEvents = hintOpacity < 0.05 ? 'none' : 'auto';
       }
 
-      // 5. Emerging Portal Welcome Card (appears after gate zoom-through)
+      // 5. Emerging Kouki-Style Open Hero (Replaces blue box)
       if (portalCardRef.current) {
-        const cardOpacity = p > 0.78 ? Math.min(1, (p - 0.78) / 0.18) : 0;
-        const cardY = (1 - cardOpacity) * 40;
-        portalCardRef.current.style.opacity = cardOpacity;
-        portalCardRef.current.style.transform = `translate3d(0, ${cardY}px, 0)`;
-        portalCardRef.current.style.pointerEvents = cardOpacity > 0.5 ? 'auto' : 'none';
+        const heroOpacity = p > 0.65 ? Math.min(1, (p - 0.65) / 0.22) : 0;
+        const heroY = (1 - heroOpacity) * 28;
+        portalCardRef.current.style.opacity = heroOpacity;
+        portalCardRef.current.style.transform = `translate3d(0, ${heroY}px, 0)`;
+        portalCardRef.current.style.pointerEvents = heroOpacity > 0.5 ? 'auto' : 'none';
+      }
+
+      // 6. Corner Japanese Temple Roofs (Parallax Floating)
+      if (roofLeftRef.current) {
+        const roofOpacity = p > 0.45 ? Math.min(1, (p - 0.45) / 0.25) : 0;
+        roofLeftRef.current.style.opacity = roofOpacity;
+        roofLeftRef.current.style.transform = `translate3d(calc(var(--mouse-x, 0) * -16px), calc(var(--mouse-y, 0) * -10px), 0)`;
+      }
+      if (roofRightRef.current) {
+        const roofOpacity = p > 0.45 ? Math.min(1, (p - 0.45) / 0.25) : 0;
+        roofRightRef.current.style.opacity = roofOpacity;
+        roofRightRef.current.style.transform = `translate3d(calc(var(--mouse-x, 0) * -16px), calc(var(--mouse-y, 0) * -10px), 0)`;
+      }
+
+      // 7. Lighting Cross-Fade (Gate Dusk -> Bright Morning Sunrise)
+      if (duskOverlayRef.current) {
+        const duskOpacity = p > 0.35 ? Math.max(0, 1 - (p - 0.35) / 0.42) : 1;
+        duskOverlayRef.current.style.opacity = duskOpacity;
+      }
+      if (sunriseOverlayRef.current) {
+        const sunriseOpacity = p > 0.4 ? Math.min(1, (p - 0.4) / 0.35) : 0;
+        sunriseOverlayRef.current.style.opacity = sunriseOpacity;
       }
 
       animId = requestAnimationFrame(render);
@@ -420,6 +634,70 @@ export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' })
     if (onEnterWebsite) onEnterWebsite();
   };
 
+  // Smooth cinematic scroll through Torii Gate to reveal the Kouki-style hero
+  const handleWalkThrough = () => {
+    if (!containerRef.current) return;
+    const totalScroll = containerRef.current.offsetHeight - window.innerHeight;
+    const target = containerRef.current.offsetTop + totalScroll * 0.90;
+    window.scrollTo({ top: target, behavior: 'smooth' });
+  };
+
+  const handleApplyNow = (e) => {
+    if (e) e.stopPropagation();
+    if (onScrollToEligibility) {
+      onScrollToEligibility();
+    } else {
+      const el = document.getElementById('eligibility') || document.getElementById('home-content-start');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+      else if (onEnterWebsite) onEnterWebsite();
+    }
+  };
+
+  const handleConsultation = (e) => {
+    if (e) e.stopPropagation();
+    if (onOpenModal) {
+      onOpenModal('Free Consultation');
+    } else {
+      const el = document.getElementById('home-content-start');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+      else if (onEnterWebsite) onEnterWebsite();
+    }
+  };
+
+  const getHeroContent = (currentLang) => {
+    switch (currentLang) {
+      case 'si':
+        return {
+          kicker: '篤子 インターナショナル',
+          t1: 'ජපන් භාෂාව',
+          t2: 'ජපානයේ රැකියා',
+          t3: 'ශිෂ්‍ය වීසා',
+          applyBtn: 'අයදුම් කරන්න',
+          consultBtn: 'නොමිලේ උපදේශනයක්',
+        };
+      case 'jp':
+        return {
+          kicker: '篤子 インターナショナル',
+          t1: '日本語教育',
+          t2: '特定技能・就労',
+          t3: '留学ビザ',
+          applyBtn: '今すぐ申し込む',
+          consultBtn: '無料相談を予約',
+        };
+      case 'en':
+      default:
+        return {
+          kicker: '篤子 インターナショナル',
+          t1: 'LEARN JAPANESE',
+          t2: 'WORK IN JAPAN',
+          t3: 'STUDY IN JAPAN',
+          applyBtn: 'Apply Now',
+          consultBtn: 'Book a Free Consultation',
+        };
+    }
+  };
+  const heroContent = getHeroContent(lang);
+
   return (
     <div
       ref={containerRef}
@@ -492,6 +770,7 @@ export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' })
 
           {/* Cinematic Vignette & Atmospheric Color Grading Overlays - Lightened for vibrant clarity */}
           <div
+            ref={duskOverlayRef}
             style={{
               position: 'absolute',
               inset: 0,
@@ -499,6 +778,24 @@ export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' })
                 radial-gradient(circle at 50% 45%, transparent 35%, rgba(7, 13, 30, 0.12) 65%, rgba(7, 13, 30, 0.42) 100%),
                 linear-gradient(180deg, rgba(7, 13, 30, 0.15) 0%, transparent 25%, rgba(7, 13, 30, 0.1) 65%, rgba(7, 13, 30, 0.78) 100%)
               `,
+              willChange: 'opacity',
+            }}
+          />
+
+          {/* Radiant Morning Sunrise Sky Overlay (Emerges as gate opens, matching Kouki morning sky) */}
+          <div
+            ref={sunriseOverlayRef}
+            style={{
+              position: 'absolute',
+              inset: 0,
+              background: `
+                radial-gradient(circle at 50% 28%, rgba(254, 243, 199, 0.35) 0%, rgba(251, 146, 60, 0.18) 35%, transparent 70%),
+                linear-gradient(180deg, rgba(254, 242, 242, 0.25) 0%, transparent 30%, rgba(255, 255, 255, 0.3) 70%, rgba(255, 255, 255, 0.9) 100%)
+              `,
+              opacity: 0,
+              pointerEvents: 'none',
+              mixBlendMode: 'screen',
+              willChange: 'opacity',
             }}
           />
 
@@ -619,7 +916,6 @@ export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' })
             textAlign: 'center',
             color: 'white',
             zIndex: 20,
-            padding: '0 20px',
             willChange: 'opacity, transform',
             transform: 'translate3d(calc(var(--mouse-x, 0) * 16px), calc(var(--mouse-y, 0) * 10px), 35px)',
             transformStyle: 'preserve-3d',
@@ -652,7 +948,6 @@ export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' })
           <h1
             className="gate-hero-title"
             style={{
-              fontSize: 'clamp(28px, 4.5vw, 48px)',
               fontWeight: 800,
               color: 'white',
               lineHeight: 1.2,
@@ -660,8 +955,8 @@ export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' })
               textShadow: '0 2px 4px rgba(0,0,0,0.9), 0 6px 24px rgba(0,0,0,0.85)',
             }}
           >
-            ATSUKO INTERNATIONAL{' '}
-            <span style={{ color: '#f87171', textShadow: '0 2px 4px rgba(0,0,0,0.9), 0 0 20px rgba(239,68,68,0.45)' }}>篤子 学校</span>
+            <span className="gate-hero-main">ATSUKO INTERNATIONAL</span>
+            <span className="gate-hero-sub" lang="ja">篤子 学校</span>
           </h1>
 
           <p
@@ -688,32 +983,7 @@ export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' })
           >
             <button
               className="gate-walk-btn"
-              onClick={handleSkipToContent}
-              style={{
-                background: 'linear-gradient(135deg, #1e40af 0%, #172554 100%)',
-                color: 'white',
-                border: '1px solid rgba(147, 197, 253, 0.25)',
-                padding: '12px 28px',
-                borderRadius: '999px',
-                fontSize: 14,
-                fontWeight: 600,
-                cursor: 'pointer',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: 8,
-                boxShadow: '0 4px 16px rgba(0, 0, 0, 0.35), 0 0 12px rgba(30, 64, 175, 0.2)',
-                transition: 'all 0.25s ease',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-2px)';
-                e.currentTarget.style.background = 'linear-gradient(135deg, #2563eb 0%, #1e3a8a 100%)';
-                e.currentTarget.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.45), 0 0 16px rgba(37, 99, 235, 0.3)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.background = 'linear-gradient(135deg, #1e40af 0%, #172554 100%)';
-                e.currentTarget.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.35), 0 0 12px rgba(30, 64, 175, 0.2)';
-              }}
+              onClick={handleWalkThrough}
             >
               <span>{g.walkBtn}</span>
               <ArrowDown size={15} />
@@ -740,101 +1010,87 @@ export default function JapaneseGateScrollStage({ onEnterWebsite, lang = 'en' })
           </div>
         </div>
 
-        {/* PORTAL REVEAL CARD (Emerges as You Pass Through the Gate) */}
+        {/* Foreground Japanese Curved Temple Roof Corners */}
+        <div ref={roofLeftRef} className="kouki-roof-corner kouki-roof-left" aria-hidden="true">
+          <JapaneseTempleRoofLeft />
+        </div>
+        <div ref={roofRightRef} className="kouki-roof-corner kouki-roof-right" aria-hidden="true">
+          <JapaneseTempleRoofRight />
+        </div>
+
+        {/* Soft Misty Cloud Gradient Transition at Bottom */}
+        <div className="kouki-bottom-mist" aria-hidden="true" />
+
+        {/* KOUKI-STYLE OPEN HERO REVEAL (NO BLUE BOX) */}
         <div
           ref={portalCardRef}
+          className="kouki-hero-stage"
           style={{
-            position: 'absolute',
-            zIndex: 25,
-            textAlign: 'center',
-            color: 'white',
-            maxWidth: 760,
-            width: 'min(760px, calc(100% - 32px))',
-            padding: 'clamp(24px, 4vw, 36px) clamp(16px, 4vw, 32px)',
-            background: 'rgba(11, 21, 40, 0.88)',
-            backdropFilter: 'blur(16px)',
-            WebkitBackdropFilter: 'blur(16px)',
-            borderRadius: 24,
-            border: '2px solid rgba(2, 132, 199, 0.4)',
-            boxShadow: '0 20px 60px rgba(0,0,0,0.8), 0 0 35px rgba(2, 132, 199, 0.25)',
             opacity: 0,
-            transform: 'translateY(40px)',
+            transform: 'translateY(28px)',
             pointerEvents: 'none',
             willChange: 'transform, opacity',
           }}
         >
-          <div
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 8,
-              color: '#38bdf8',
-              background: 'rgba(2, 132, 199, 0.15)',
-              padding: '6px 14px',
-              borderRadius: 999,
-              fontSize: 12,
-              fontWeight: 800,
-              letterSpacing: '1px',
-              marginBottom: 12,
-              border: '1px solid rgba(2, 132, 199, 0.3)',
-            }}
-          >
-            <Award size={15} />
-            <span>{g.welcomeBadge}</span>
-          </div>
+          <div className="kouki-hero-content">
+            {/* 1. Circular Emblem Badge */}
+            <div className="kouki-logo-circle">
+              <img
+                src="/images/atsuko-official-logo.png"
+                alt="Atsuko International Official Emblem"
+                width="84"
+                height="84"
+                loading="eager"
+              />
+            </div>
 
-          <h2
-            style={{
-              fontSize: 'clamp(26px, 3.8vw, 42px)',
-              fontWeight: 800,
-              color: 'white',
-              lineHeight: 1.2,
-              marginBottom: 12,
-            }}
-          >
-            {g.portalTitle}
-          </h2>
+            {/* 2. Japanese Script Kicker */}
+            <div className="kouki-jp-kicker" lang="ja">
+              {heroContent.kicker}
+            </div>
 
-          <p
-            style={{
-              fontSize: 15,
-              color: '#cbd5e1',
-              lineHeight: 1.7,
-              marginBottom: 24,
-            }}
-          >
-            {g.portalDesc}
-          </p>
+            {/* 3. Grand Dual-Tone Regal Serif Title */}
+            <h1 className="kouki-hero-title">
+              <span className="kouki-title-dark">ATSUKO</span>
+              <span className="kouki-title-crimson">INTERNATIONAL</span>
+            </h1>
 
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              gap: 14,
-              flexWrap: 'wrap',
-            }}
-          >
-            <button
-              onClick={handleSkipToContent}
-              style={{
-                background: 'linear-gradient(135deg, #0ea5e9 0%, #0284c7 60%, #0369a1 100%)',
-                color: 'white',
-                border: 'none',
-                padding: '12px 28px',
-                borderRadius: 999,
-                fontSize: 14,
-                fontWeight: 700,
-                cursor: 'pointer',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: 8,
-                boxShadow: '0 4px 18px rgba(2, 132, 199, 0.45)',
-                transition: 'all 0.25s ease',
-              }}
-            >
-              <Sparkles size={16} />
-              <span>{g.continueBtn}</span>
-            </button>
+            {/* 4. Elegant Decorative Horizontal Divider */}
+            <div className="kouki-hero-divider" aria-hidden="true">
+              <span className="divider-line" />
+              <span className="divider-diamond">◆</span>
+              <span className="divider-line" />
+            </div>
+
+            {/* 5. Spaced Feature Bullets */}
+            <div className="kouki-hero-tags">
+              <span>{heroContent.t1}</span>
+              <span className="tag-dot">·</span>
+              <span className="tag-highlight">{heroContent.t2}</span>
+              <span className="tag-dot">·</span>
+              <span>{heroContent.t3}</span>
+            </div>
+
+            {/* 6. Two Pill Call-To-Action Buttons */}
+            <div className="kouki-hero-actions">
+              <button
+                type="button"
+                onClick={handleApplyNow}
+                className="kouki-btn-primary"
+                id="hero-apply-btn"
+              >
+                <span>{heroContent.applyBtn}</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={handleConsultation}
+                className="kouki-btn-secondary"
+                id="hero-consult-btn"
+              >
+                <span>{heroContent.consultBtn}</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>

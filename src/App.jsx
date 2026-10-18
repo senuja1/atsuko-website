@@ -87,6 +87,9 @@ export default function App() {
                 const startEl = document.getElementById('home-content-start');
                 if (startEl) startEl.scrollIntoView({ behavior: 'smooth' });
               }} 
+              onOpenModal={handleOpenModal}
+              onScrollToEligibility={scrollToEligibility}
+              onNavigate={handleNavigate}
             />
 
             {/* Complete Atsuko International Home Sections */}

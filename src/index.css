@@ -4792,6 +4792,419 @@ body {
   margin-left: auto;
   margin-right: auto;
   width: min(92vw, 680px);
+  padding: 26px 28px 20px;
+}
+
+/* Soft dark scrim keeps hero copy crisp over the bright stone stairs.
+   Drawn on a pseudo-element (oversized + feathered mask) so it has no hard edges. */
+.gate-intro-hint::before {
+  content: '';
+  position: absolute;
+  inset: -14% -16%;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, rgba(7, 13, 30, 0.72) 0%, rgba(7, 13, 30, 0.35) 55%, transparent 80%);
+  -webkit-mask-image: radial-gradient(closest-side, #000 72%, transparent 100%);
+  mask-image: radial-gradient(closest-side, #000 72%, transparent 100%);
+}
+
+/* Desktop: keep all copy strictly inside the open space between the pillars (clear of the lanterns) */
+@media (min-width: 1025px) {
+  .gate-intro-hint {
+    width: min(560px, 52vw);
+    max-width: min(560px, 52vw);
+  }
+}
+
+.gate-hero-title {
+  font-size: clamp(24px, 3.2vw, 38px);
+  letter-spacing: 0.01em;
+}
+
+.gate-hero-main {
+  display: block;
+}
+
+/* Secondary kanji line: quiet tracked-out gold so it doesn't compete with the gate plaque */
+.gate-hero-sub {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 8px;
+  font-family: var(--font-jp);
+  font-size: clamp(12px, 0.95vw, 15px);
+  font-weight: 600;
+  letter-spacing: 0.55em;
+  text-indent: 0.55em; /* balances trailing tracking so text stays optically centred */
+  color: #fde68a;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9), 0 0 14px rgba(251, 191, 36, 0.25);
+}
+
+.gate-hero-sub::before,
+.gate-hero-sub::after {
+  content: '';
+  width: 40px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.85));
+}
+
+.gate-hero-sub::after {
+  background: linear-gradient(90deg, rgba(251, 191, 36, 0.85), transparent);
+}
+
+/* Temple crimson + gold "Walk Through Gate" CTA */
+.gate-walk-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border-radius: 999px;
+  border: 1px solid rgba(251, 191, 36, 0.7);
+  background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.45),
+    0 0 18px rgba(220, 38, 38, 0.35),
+    0 0 0 3px rgba(251, 191, 36, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease, border-color 0.25s ease;
+}
+
+.gate-walk-btn:hover {
+  transform: translateY(-2px);
+  border-color: #fbbf24;
+  filter: brightness(1.08);
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.5),
+    0 0 24px rgba(220, 38, 38, 0.45),
+    0 0 18px rgba(251, 191, 36, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.gate-walk-btn:active {
+  transform: translateY(0);
+}
+
+.gate-walk-btn:focus-visible {
+  outline: 2px solid #fbbf24;
+  outline-offset: 3px;
+}
+
+/* ============================================================
+   KOUKI-STYLE OPEN HERO REVEAL (NO BLUE BOX)
+   Inspired by Kouki International School:
+   - Floating white circular crest badge
+   - Crimson Japanese kicker ('篤子 インターナショナル')
+   - Grand dual-tone serif typography (ATSUKO in sumi, INTERNATIONAL in crimson)
+   - Delicate gold/crimson horizontal divider line with center diamond
+   - Spaced taglines with middle dots
+   - Crimson pill + white frosted pill call-to-action buttons
+   - Japanese curved temple roof framing and soft white mist bottom
+   ============================================================ */
+.kouki-hero-stage {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 25;
+  padding: clamp(70px, 10vh, 100px) 20px 20px;
+}
+
+.kouki-hero-content {
+  text-align: center;
+  max-width: 980px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: auto;
+  user-select: none;
+  position: relative;
+}
+
+.kouki-hero-content::before {
+  content: '';
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(820px, 92vw);
+  height: min(440px, 60vh);
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.22) 48%, transparent 75%);
+  pointer-events: none;
+  z-index: -1;
+  filter: blur(25px);
+}
+
+/* 1. Circular white emblem badge */
+.kouki-logo-circle {
+  width: clamp(74px, 7.5vw, 92px);
+  height: clamp(74px, 7.5vw, 92px);
+  border-radius: 50%;
+  background: #ffffff;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: clamp(10px, 1.6vh, 16px);
+  box-shadow: 
+    0 12px 32px rgba(0, 0, 0, 0.16),
+    0 0 0 1px rgba(255, 255, 255, 0.95),
+    0 0 26px rgba(255, 255, 255, 0.75);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.kouki-logo-circle:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 
+    0 16px 36px rgba(0, 0, 0, 0.22),
+    0 0 0 1.5px rgba(255, 255, 255, 1),
+    0 0 32px rgba(255, 255, 255, 0.95);
+}
+
+.kouki-logo-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
+}
+
+/* 2. Japanese script kicker */
+.kouki-jp-kicker {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(15px, 1.6vw, 22px);
+  font-weight: 700;
+  color: #c81e2b;
+  letter-spacing: clamp(0.28em, 0.45vw, 0.48em);
+  text-indent: clamp(0.28em, 0.45vw, 0.48em);
+  margin-bottom: clamp(6px, 1vh, 12px);
+  text-shadow: 
+    0 1px 3px rgba(255, 255, 255, 0.95),
+    0 2px 12px rgba(255, 255, 255, 0.85),
+    0 0 22px rgba(255, 255, 255, 0.7);
+}
+
+/* 3. Grand Dual-Tone Regal Serif Title */
+.kouki-hero-title {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.02;
+  font-family: 'Cinzel', 'Noto Serif JP', Georgia, serif;
+}
+
+.kouki-title-dark {
+  display: block;
+  font-size: clamp(40px, 6.2vw, 82px);
+  font-weight: 900;
+  color: #18181b;
+  letter-spacing: 0.08em;
+  text-shadow: 
+    0 2px 10px rgba(255, 255, 255, 0.95),
+    0 4px 22px rgba(255, 255, 255, 0.85),
+    0 1px 2px rgba(0, 0, 0, 0.12);
+}
+
+.kouki-title-crimson {
+  display: block;
+  font-size: clamp(40px, 6.2vw, 82px);
+  font-weight: 900;
+  color: #c81e2b;
+  letter-spacing: 0.1em;
+  text-shadow: 
+    0 2px 12px rgba(255, 255, 255, 0.95),
+    0 4px 24px rgba(255, 255, 255, 0.85),
+    0 1px 3px rgba(200, 30, 43, 0.2);
+}
+
+/* 4. Elegant gold/crimson horizontal accent line */
+.kouki-hero-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: clamp(140px, 20vw, 220px);
+  margin: clamp(10px, 1.4vh, 16px) auto clamp(12px, 1.6vh, 20px);
+}
+
+.kouki-hero-divider .divider-line {
+  flex: 1;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, rgba(200, 30, 43, 0.5) 40%, #d97706);
+}
+
+.kouki-hero-divider .divider-line:last-child {
+  background: linear-gradient(90deg, #d97706, rgba(200, 30, 43, 0.5) 60%, transparent);
+}
+
+.kouki-hero-divider .divider-diamond {
+  color: #d97706;
+  font-size: 9px;
+  line-height: 1;
+  text-shadow: 0 0 6px rgba(217, 119, 6, 0.6);
+}
+
+/* 5. Spaced taglines with dots */
+.kouki-hero-tags {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(8px, 1.4vw, 16px);
+  flex-wrap: wrap;
+  margin-bottom: clamp(18px, 2.5vh, 28px);
+  font-size: clamp(12px, 1.3vw, 15px);
+  font-weight: 700;
+  letter-spacing: clamp(0.12em, 0.2vw, 0.22em);
+  color: #1e293b;
+  text-transform: uppercase;
+  text-shadow: 
+    0 1px 3px rgba(255, 255, 255, 0.95),
+    0 2px 10px rgba(255, 255, 255, 0.85);
+}
+
+.kouki-hero-tags .tag-dot {
+  color: #94a3b8;
+  font-weight: 900;
+}
+
+.kouki-hero-tags .tag-highlight {
+  color: #c81e2b;
+  font-weight: 800;
+  text-shadow: 0 1px 4px rgba(255, 255, 255, 0.95);
+}
+
+/* 6. Action Buttons */
+.kouki-hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(10px, 1.5vw, 18px);
+  flex-wrap: wrap;
+}
+
+.kouki-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #e11d48 0%, #c81e2b 55%, #991b1b 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: clamp(12px, 1.4vh, 15px) clamp(28px, 2.5vw, 38px);
+  border-radius: 9999px;
+  font-size: clamp(13px, 1.1vw, 15px);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  box-shadow: 
+    0 8px 24px -2px rgba(200, 30, 43, 0.5),
+    0 2px 6px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.kouki-btn-primary:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 
+    0 12px 30px -2px rgba(200, 30, 43, 0.6),
+    0 4px 10px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  filter: brightness(1.06);
+}
+
+.kouki-btn-primary:active {
+  transform: translateY(0) scale(0.99);
+}
+
+.kouki-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #c81e2b;
+  border: 1.5px solid rgba(200, 30, 43, 0.3);
+  padding: clamp(12px, 1.4vh, 15px) clamp(24px, 2.2vw, 32px);
+  border-radius: 9999px;
+  font-size: clamp(13px, 1.1vw, 15px);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  box-shadow: 
+    0 6px 20px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.kouki-btn-secondary:hover {
+  transform: translateY(-2px) scale(1.02);
+  background: #ffffff;
+  border-color: #c81e2b;
+  box-shadow: 
+    0 10px 26px rgba(0, 0, 0, 0.12),
+    0 0 16px rgba(200, 30, 43, 0.15);
+  color: #991b1b;
+}
+
+.kouki-btn-secondary:active {
+  transform: translateY(0) scale(0.99);
+}
+
+/* 7. Foreground Corner Temple Roofs */
+.kouki-roof-corner {
+  position: absolute;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 18;
+  will-change: transform;
+}
+
+.kouki-roof-left {
+  left: -20px;
+  width: clamp(260px, 34vw, 500px);
+  height: auto;
+  filter: drop-shadow(10px 10px 30px rgba(0, 0, 0, 0.65));
+}
+
+.kouki-roof-right {
+  right: -20px;
+  width: clamp(260px, 34vw, 500px);
+  height: auto;
+  filter: drop-shadow(-10px 10px 30px rgba(0, 0, 0, 0.65));
+}
+
+/* 8. Bottom Misty Cloud Gradient Transition */
+.kouki-bottom-mist {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: clamp(140px, 28vh, 320px);
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(255, 255, 255, 0.15) 25%,
+    rgba(255, 255, 255, 0.6) 60%,
+    rgba(255, 255, 255, 0.95) 88%,
+    #ffffff 100%
+  );
+  pointer-events: none;
+  z-index: 20;
 }
 
 /* Portrait / Narrow Viewports: Scale Torii Gate by Height for Majestic Presence */
