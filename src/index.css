@@ -5002,35 +5002,41 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  line-height: 1.02;
+  line-height: 1.05;
   font-family: 'Cinzel', 'Noto Serif JP', Georgia, serif;
+  width: 100%;
+  max-width: 100%;
 }
 
 .kouki-title-dark {
   display: block;
-  font-size: clamp(40px, 6.2vw, 82px);
+  font-size: clamp(34px, 5.4vw, 76px);
   font-weight: 900;
   color: #18181b;
-  letter-spacing: 0.08em;
+  letter-spacing: clamp(0.04em, 0.08vw, 0.08em);
   text-shadow: 
     0 2px 10px rgba(255, 255, 255, 0.95),
     0 4px 22px rgba(255, 255, 255, 0.85),
     0 1px 2px rgba(0, 0, 0, 0.12);
+  white-space: nowrap;
 }
 
-.kouki-title-crimson {
+.kouki-title-crimson,
+.kouki-title-blue {
   display: block;
-  font-size: clamp(40px, 6.2vw, 82px);
+  font-size: clamp(22px, 3.8vw, 54px);
   font-weight: 900;
-  color: #c81e2b;
-  letter-spacing: 0.1em;
+  color: #0284c7;
+  letter-spacing: clamp(0.03em, 0.06vw, 0.07em);
   text-shadow: 
-    0 2px 12px rgba(255, 255, 255, 0.95),
-    0 4px 24px rgba(255, 255, 255, 0.85),
-    0 1px 3px rgba(200, 30, 43, 0.2);
+    0 2px 12px rgba(255, 255, 255, 0.98),
+    0 4px 24px rgba(255, 255, 255, 0.9),
+    0 1px 3px rgba(2, 132, 199, 0.28);
+  white-space: nowrap;
+  max-width: 100%;
 }
 
-/* 4. Elegant gold/crimson horizontal accent line */
+/* 4. Elegant gold/blue horizontal accent line */
 .kouki-hero-divider {
   display: flex;
   align-items: center;
@@ -5043,11 +5049,11 @@ body {
 .kouki-hero-divider .divider-line {
   flex: 1;
   height: 1.5px;
-  background: linear-gradient(90deg, transparent, rgba(200, 30, 43, 0.5) 40%, #d97706);
+  background: linear-gradient(90deg, transparent, rgba(2, 132, 199, 0.5) 40%, #d97706);
 }
 
 .kouki-hero-divider .divider-line:last-child {
-  background: linear-gradient(90deg, #d97706, rgba(200, 30, 43, 0.5) 60%, transparent);
+  background: linear-gradient(90deg, #d97706, rgba(2, 132, 199, 0.5) 60%, transparent);
 }
 
 .kouki-hero-divider .divider-diamond {
@@ -5081,7 +5087,7 @@ body {
 }
 
 .kouki-hero-tags .tag-highlight {
-  color: #c81e2b;
+  color: #0284c7;
   font-weight: 800;
   text-shadow: 0 1px 4px rgba(255, 255, 255, 0.95);
 }
@@ -5100,9 +5106,9 @@ body {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: linear-gradient(135deg, #e11d48 0%, #c81e2b 55%, #991b1b 100%);
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 55%, #0369a1 100%);
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   padding: clamp(12px, 1.4vh, 15px) clamp(28px, 2.5vw, 38px);
   border-radius: 9999px;
   font-size: clamp(13px, 1.1vw, 15px);
@@ -5110,18 +5116,18 @@ body {
   letter-spacing: 0.03em;
   cursor: pointer;
   box-shadow: 
-    0 8px 24px -2px rgba(200, 30, 43, 0.5),
+    0 8px 24px -2px rgba(2, 132, 199, 0.5),
     0 2px 6px rgba(0, 0, 0, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
   transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .kouki-btn-primary:hover {
   transform: translateY(-2px) scale(1.02);
   box-shadow: 
-    0 12px 30px -2px rgba(200, 30, 43, 0.6),
+    0 12px 30px -2px rgba(2, 132, 199, 0.6),
     0 4px 10px rgba(0, 0, 0, 0.18),
-    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
   filter: brightness(1.06);
 }
 
@@ -5135,8 +5141,8 @@ body {
   justify-content: center;
   gap: 8px;
   background: rgba(255, 255, 255, 0.95);
-  color: #c81e2b;
-  border: 1.5px solid rgba(200, 30, 43, 0.3);
+  color: #0284c7;
+  border: 1.5px solid rgba(2, 132, 199, 0.35);
   padding: clamp(12px, 1.4vh, 15px) clamp(24px, 2.2vw, 32px);
   border-radius: 9999px;
   font-size: clamp(13px, 1.1vw, 15px);
@@ -5154,41 +5160,18 @@ body {
 .kouki-btn-secondary:hover {
   transform: translateY(-2px) scale(1.02);
   background: #ffffff;
-  border-color: #c81e2b;
+  border-color: #0284c7;
   box-shadow: 
     0 10px 26px rgba(0, 0, 0, 0.12),
-    0 0 16px rgba(200, 30, 43, 0.15);
-  color: #991b1b;
+    0 0 16px rgba(2, 132, 199, 0.2);
+  color: #0369a1;
 }
 
 .kouki-btn-secondary:active {
   transform: translateY(0) scale(0.99);
 }
 
-/* 7. Foreground Corner Temple Roofs */
-.kouki-roof-corner {
-  position: absolute;
-  bottom: 0;
-  pointer-events: none;
-  z-index: 18;
-  will-change: transform;
-}
-
-.kouki-roof-left {
-  left: -20px;
-  width: clamp(260px, 34vw, 500px);
-  height: auto;
-  filter: drop-shadow(10px 10px 30px rgba(0, 0, 0, 0.65));
-}
-
-.kouki-roof-right {
-  right: -20px;
-  width: clamp(260px, 34vw, 500px);
-  height: auto;
-  filter: drop-shadow(-10px 10px 30px rgba(0, 0, 0, 0.65));
-}
-
-/* 8. Bottom Misty Cloud Gradient Transition */
+/* 7. Bottom Misty Cloud Gradient Transition */
 .kouki-bottom-mist {
   position: absolute;
   bottom: 0;
@@ -5483,6 +5466,48 @@ body {
     max-width: 95% !important;
   }
 
+  /* Kouki Hero Reveal on Tablets */
+  .kouki-hero-stage {
+    padding: clamp(60px, 8vh, 85px) 16px 20px !important;
+  }
+
+  .kouki-hero-content {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  .kouki-title-dark {
+    font-size: clamp(28px, 6.5vw, 44px) !important;
+    letter-spacing: 0.05em !important;
+  }
+
+  .kouki-title-crimson,
+  .kouki-title-blue {
+    font-size: clamp(18px, 4.4vw, 30px) !important;
+    letter-spacing: clamp(0.02em, 0.4vw, 0.05em) !important;
+    white-space: nowrap !important;
+    max-width: 95vw !important;
+  }
+
+  .kouki-jp-kicker {
+    font-size: clamp(13px, 2.2vw, 17px) !important;
+    letter-spacing: clamp(0.16em, 0.8vw, 0.32em) !important;
+    text-indent: clamp(0.16em, 0.8vw, 0.32em) !important;
+  }
+
+  .kouki-hero-divider {
+    width: clamp(120px, 30vw, 180px) !important;
+    margin: 8px auto 12px !important;
+  }
+
+  .kouki-hero-tags {
+    font-size: clamp(11.5px, 2vw, 13.5px) !important;
+    letter-spacing: 0.12em !important;
+    gap: 6px 12px !important;
+    margin-bottom: 18px !important;
+    max-width: 92vw !important;
+  }
+
   .hero-image-wrapper {
     order: -1;
   }
@@ -5744,6 +5769,71 @@ body {
   .gate-scroll-hint {
     margin-top: 8px !important;
     font-size: 9.5px !important;
+  }
+
+  /* Kouki Hero Reveal on Mobile Smartphones */
+  .kouki-hero-stage {
+    padding: clamp(50px, 7vh, 70px) 12px 16px !important;
+  }
+
+  .kouki-logo-circle {
+    width: 66px !important;
+    height: 66px !important;
+    padding: 6px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .kouki-jp-kicker {
+    font-size: clamp(11.5px, 3.2vw, 13.5px) !important;
+    letter-spacing: 0.14em !important;
+    text-indent: 0.14em !important;
+    margin-bottom: 5px !important;
+  }
+
+  .kouki-hero-title {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .kouki-title-dark {
+    font-size: clamp(24px, 7.8vw, 32px) !important;
+    letter-spacing: 0.04em !important;
+  }
+
+  .kouki-title-crimson,
+  .kouki-title-blue {
+    font-size: clamp(16px, 4.8vw, 21px) !important;
+    letter-spacing: 0.025em !important;
+    white-space: nowrap !important;
+    max-width: 94vw !important;
+  }
+
+  .kouki-hero-divider {
+    width: 130px !important;
+    margin: 8px auto 10px !important;
+  }
+
+  .kouki-hero-tags {
+    font-size: 11px !important;
+    letter-spacing: 0.08em !important;
+    gap: 4px 8px !important;
+    margin-bottom: 14px !important;
+    max-width: 95vw !important;
+  }
+
+  .kouki-hero-actions {
+    gap: 8px !important;
+    width: 100% !important;
+    max-width: 340px !important;
+    flex-wrap: nowrap !important;
+  }
+
+  .kouki-btn-primary,
+  .kouki-btn-secondary {
+    padding: 10px 14px !important;
+    font-size: 12.5px !important;
+    flex: 1 1 auto !important;
+    white-space: nowrap !important;
   }
 
   /* Hero Mobile Refinement */
@@ -6008,6 +6098,28 @@ body {
   .gate-hero-desc {
     font-size: 11px !important;
     margin-bottom: 8px !important;
+  }
+
+  /* Kouki Hero Ultra-Compact Phone Adjustments */
+  .kouki-title-dark {
+    font-size: 21px !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  .kouki-title-crimson,
+  .kouki-title-blue {
+    font-size: 14.5px !important;
+    letter-spacing: 0.015em !important;
+  }
+
+  .kouki-hero-actions {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+
+  .kouki-btn-primary,
+  .kouki-btn-secondary {
+    width: 100% !important;
   }
 }
 

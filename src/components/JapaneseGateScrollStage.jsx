@@ -125,188 +125,6 @@ function PhotorealisticChochin({ kanji, idPrefix }) {
   );
 }
 
-/* ============================================================
-   JAPANESE TEMPLE CURVED ROOF CORNERS (KAWARA & TIMBER RAFTERS)
-   Framing bottom-left and bottom-right corners just like Kouki style
-   ============================================================ */
-function JapaneseTempleRoofLeft() {
-  return (
-    <svg
-      viewBox="0 0 540 380"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      style={{ width: '100%', height: 'auto', display: 'block' }}
-    >
-      <defs>
-        <linearGradient id="tile-grad-l" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#2c3340" />
-          <stop offset="35%" stopColor="#1e232d" />
-          <stop offset="85%" stopColor="#12161e" />
-          <stop offset="100%" stopColor="#0a0d14" />
-        </linearGradient>
-        <linearGradient id="timber-l" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stopColor="#78350f" />
-          <stop offset="50%" stopColor="#451a03" />
-          <stop offset="100%" stopColor="#1c0a02" />
-        </linearGradient>
-      </defs>
-
-      {/* Timber under-eave */}
-      <path
-        d="M 0 240 Q 220 280, 420 250 L 390 320 Q 200 330, 0 350 Z"
-        fill="url(#timber-l)"
-        opacity="0.95"
-      />
-      {/* Rafter brackets (Taruki) */}
-      <g stroke="#92400e" strokeWidth="3" opacity="0.45">
-        <line x1="60" y1="245" x2="50" y2="305" />
-        <line x1="110" y1="250" x2="100" y2="310" />
-        <line x1="160" y1="255" x2="150" y2="312" />
-        <line x1="210" y1="260" x2="200" y2="310" />
-        <line x1="260" y1="262" x2="250" y2="305" />
-        <line x1="310" y1="260" x2="300" y2="295" />
-        <line x1="360" y1="254" x2="350" y2="280" />
-      </g>
-
-      {/* Main Curved Ceramic Roof Slope (Kawara) */}
-      <path
-        d="M 0 110 C 130 145, 270 215, 450 205 C 500 200, 535 175, 540 155 C 515 210, 455 255, 360 270 C 230 285, 90 280, 0 295 Z"
-        fill="url(#tile-grad-l)"
-      />
-
-      {/* Upper Tier Roof Section */}
-      <path
-        d="M 0 0 C 100 45, 210 115, 360 120 C 400 120, 430 100, 440 85 C 415 130, 360 165, 280 175 C 170 185, 60 170, 0 180 Z"
-        fill="url(#tile-grad-l)"
-        opacity="0.96"
-      />
-
-      {/* Curved Tile Ridges */}
-      <g stroke="#1a1e28" strokeWidth="2.5" opacity="0.6">
-        <path d="M 0 40 Q 150 95, 310 145" />
-        <path d="M 0 75 Q 170 130, 340 170" />
-        <path d="M 0 140 Q 190 210, 400 230" />
-        <path d="M 0 175 Q 210 235, 430 240" />
-        <path d="M 0 210 Q 230 260, 455 245" />
-      </g>
-
-      {/* Golden Sunrise Rim Lighting */}
-      <path
-        d="M 0 110 C 130 145, 270 215, 450 205 C 500 200, 535 175, 540 155"
-        stroke="#fed7aa"
-        strokeWidth="2.2"
-        strokeOpacity="0.45"
-        fill="none"
-      />
-      <path
-        d="M 0 0 C 100 45, 210 115, 360 120 C 400 120, 430 100, 440 85"
-        stroke="#fed7aa"
-        strokeWidth="2"
-        strokeOpacity="0.4"
-        fill="none"
-      />
-
-      {/* Ornamental Ridge End */}
-      <path
-        d="M 536 158 C 542 145, 538 135, 530 140 C 525 145, 528 152, 536 158 Z"
-        fill="#1e232d"
-        stroke="#fed7aa"
-        strokeWidth="1.2"
-        strokeOpacity="0.6"
-      />
-    </svg>
-  );
-}
-
-function JapaneseTempleRoofRight() {
-  return (
-    <svg
-      viewBox="0 0 540 380"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      style={{ width: '100%', height: 'auto', display: 'block', transform: 'scaleX(-1)' }}
-    >
-      <defs>
-        <linearGradient id="tile-grad-r" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#2c3340" />
-          <stop offset="35%" stopColor="#1e232d" />
-          <stop offset="85%" stopColor="#12161e" />
-          <stop offset="100%" stopColor="#0a0d14" />
-        </linearGradient>
-        <linearGradient id="timber-r" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stopColor="#78350f" />
-          <stop offset="50%" stopColor="#451a03" />
-          <stop offset="100%" stopColor="#1c0a02" />
-        </linearGradient>
-      </defs>
-
-      {/* Timber under-eave */}
-      <path
-        d="M 0 240 Q 220 280, 420 250 L 390 320 Q 200 330, 0 350 Z"
-        fill="url(#timber-r)"
-        opacity="0.95"
-      />
-      {/* Rafter brackets */}
-      <g stroke="#92400e" strokeWidth="3" opacity="0.45">
-        <line x1="60" y1="245" x2="50" y2="305" />
-        <line x1="110" y1="250" x2="100" y2="310" />
-        <line x1="160" y1="255" x2="150" y2="312" />
-        <line x1="210" y1="260" x2="200" y2="310" />
-        <line x1="260" y1="262" x2="250" y2="305" />
-        <line x1="310" y1="260" x2="300" y2="295" />
-        <line x1="360" y1="254" x2="350" y2="280" />
-      </g>
-
-      {/* Main Curved Ceramic Roof Slope */}
-      <path
-        d="M 0 110 C 130 145, 270 215, 450 205 C 500 200, 535 175, 540 155 C 515 210, 455 255, 360 270 C 230 285, 90 280, 0 295 Z"
-        fill="url(#tile-grad-r)"
-      />
-
-      {/* Upper Tier Roof Section */}
-      <path
-        d="M 0 0 C 100 45, 210 115, 360 120 C 400 120, 430 100, 440 85 C 415 130, 360 165, 280 175 C 170 185, 60 170, 0 180 Z"
-        fill="url(#tile-grad-r)"
-        opacity="0.96"
-      />
-
-      {/* Curved Tile Ridges */}
-      <g stroke="#1a1e28" strokeWidth="2.5" opacity="0.6">
-        <path d="M 0 40 Q 150 95, 310 145" />
-        <path d="M 0 75 Q 170 130, 340 170" />
-        <path d="M 0 140 Q 190 210, 400 230" />
-        <path d="M 0 175 Q 210 235, 430 240" />
-        <path d="M 0 210 Q 230 260, 455 245" />
-      </g>
-
-      {/* Golden Sunrise Rim Lighting */}
-      <path
-        d="M 0 110 C 130 145, 270 215, 450 205 C 500 200, 535 175, 540 155"
-        stroke="#fed7aa"
-        strokeWidth="2.2"
-        strokeOpacity="0.45"
-        fill="none"
-      />
-      <path
-        d="M 0 0 C 100 45, 210 115, 360 120 C 400 120, 430 100, 440 85"
-        stroke="#fed7aa"
-        strokeWidth="2"
-        strokeOpacity="0.4"
-        fill="none"
-      />
-
-      {/* Ornamental Ridge End */}
-      <path
-        d="M 536 158 C 542 145, 538 135, 530 140 C 525 145, 528 152, 536 158 Z"
-        fill="#1e232d"
-        stroke="#fed7aa"
-        strokeWidth="1.2"
-        strokeOpacity="0.6"
-      />
-    </svg>
-  );
-}
-
 export default function JapaneseGateScrollStage({ 
   onEnterWebsite, 
   lang = 'en',
@@ -323,8 +141,6 @@ export default function JapaneseGateScrollStage({
   const gateLayerRef = useRef(null);
   const hintRef = useRef(null);
   const portalCardRef = useRef(null);
-  const roofLeftRef = useRef(null);
-  const roofRightRef = useRef(null);
   const duskOverlayRef = useRef(null);
   const sunriseOverlayRef = useRef(null);
 
@@ -460,19 +276,7 @@ export default function JapaneseGateScrollStage({
         portalCardRef.current.style.pointerEvents = heroOpacity > 0.5 ? 'auto' : 'none';
       }
 
-      // 6. Corner Japanese Temple Roofs (Parallax Floating)
-      if (roofLeftRef.current) {
-        const roofOpacity = p > 0.45 ? Math.min(1, (p - 0.45) / 0.25) : 0;
-        roofLeftRef.current.style.opacity = roofOpacity;
-        roofLeftRef.current.style.transform = `translate3d(calc(var(--mouse-x, 0) * -16px), calc(var(--mouse-y, 0) * -10px), 0)`;
-      }
-      if (roofRightRef.current) {
-        const roofOpacity = p > 0.45 ? Math.min(1, (p - 0.45) / 0.25) : 0;
-        roofRightRef.current.style.opacity = roofOpacity;
-        roofRightRef.current.style.transform = `translate3d(calc(var(--mouse-x, 0) * -16px), calc(var(--mouse-y, 0) * -10px), 0)`;
-      }
-
-      // 7. Lighting Cross-Fade (Gate Dusk -> Bright Morning Sunrise)
+      // 6. Lighting Cross-Fade (Gate Dusk -> Bright Morning Sunrise)
       if (duskOverlayRef.current) {
         const duskOpacity = p > 0.35 ? Math.max(0, 1 - (p - 0.35) / 0.42) : 1;
         duskOverlayRef.current.style.opacity = duskOpacity;
@@ -955,7 +759,7 @@ export default function JapaneseGateScrollStage({
               textShadow: '0 2px 4px rgba(0,0,0,0.9), 0 6px 24px rgba(0,0,0,0.85)',
             }}
           >
-            <span className="gate-hero-main">ATSUKO INTERNATIONAL</span>
+            <span className="gate-hero-main">ATSUKO <span style={{ color: '#38bdf8' }}>INTERNATIONAL</span></span>
             <span className="gate-hero-sub" lang="ja">篤子 学校</span>
           </h1>
 
@@ -1010,14 +814,6 @@ export default function JapaneseGateScrollStage({
           </div>
         </div>
 
-        {/* Foreground Japanese Curved Temple Roof Corners */}
-        <div ref={roofLeftRef} className="kouki-roof-corner kouki-roof-left" aria-hidden="true">
-          <JapaneseTempleRoofLeft />
-        </div>
-        <div ref={roofRightRef} className="kouki-roof-corner kouki-roof-right" aria-hidden="true">
-          <JapaneseTempleRoofRight />
-        </div>
-
         {/* Soft Misty Cloud Gradient Transition at Bottom */}
         <div className="kouki-bottom-mist" aria-hidden="true" />
 
@@ -1052,7 +848,7 @@ export default function JapaneseGateScrollStage({
             {/* 3. Grand Dual-Tone Regal Serif Title */}
             <h1 className="kouki-hero-title">
               <span className="kouki-title-dark">ATSUKO</span>
-              <span className="kouki-title-crimson">INTERNATIONAL</span>
+              <span className="kouki-title-blue kouki-title-crimson">INTERNATIONAL</span>
             </h1>
 
             {/* 4. Elegant Decorative Horizontal Divider */}
