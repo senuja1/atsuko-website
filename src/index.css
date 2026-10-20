@@ -782,26 +782,25 @@ body {
 .mobile-drawer-lang-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 10px;
-  flex-wrap: wrap;
   padding-bottom: 12px;
   margin-bottom: 12px;
   border-bottom: 1px solid #e2e8f0;
 }
 
+.mobile-drawer-lang-row .apple-lang-control {
+  width: 100%;
+}
+
 .mobile-drawer-lang-label {
-  font-size: 11px;
-  font-weight: 700;
-  color: #64748b;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  display: none;
 }
 
 .mobile-drawer-lang-row .apple-lang-pill {
-  min-width: 64px;
-  height: 30px;
-  font-size: 11.5px;
+  min-width: 0;
+  height: 32px;
+  font-size: 12px;
   padding: 0 10px;
 }
 
@@ -5081,15 +5080,23 @@ body {
 }
 
 .gate-hero-title {
-  font-size: clamp(24px, 3.2vw, 38px);
-  letter-spacing: 0.01em;
+  font-size: clamp(25px, 3.4vw, 40px);
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7), 0 0 24px rgba(255, 255, 255, 0.45);
 }
 
 .gate-hero-main {
   display: block;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.45));
 }
 
-/* Secondary kanji line: quiet tracked-out gold so it doesn't compete with the gate plaque */
+.gate-hero-main .gate-brand-blue {
+  color: #38bdf8;
+  text-shadow: 0 0 18px rgba(56, 189, 248, 0.85), 0 0 35px rgba(56, 189, 248, 0.5), 0 2px 8px rgba(0, 0, 0, 0.65);
+}
+
+/* Secondary kanji line: bright radiant golden glow with crisp visibility */
 .gate-hero-sub {
   display: flex;
   align-items: center;
@@ -5097,24 +5104,24 @@ body {
   gap: 14px;
   margin-top: 8px;
   font-family: var(--font-jp);
-  font-size: clamp(12px, 0.95vw, 15px);
-  font-weight: 600;
+  font-size: clamp(13px, 1.05vw, 16px);
+  font-weight: 700;
   letter-spacing: 0.55em;
   text-indent: 0.55em; /* balances trailing tracking so text stays optically centred */
-  color: #fde68a;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9), 0 0 14px rgba(251, 191, 36, 0.25);
+  color: #fef08a; /* Bright radiant gold */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6), 0 0 16px rgba(250, 204, 21, 0.85), 0 0 32px rgba(253, 224, 71, 0.5);
 }
 
 .gate-hero-sub::before,
 .gate-hero-sub::after {
   content: '';
-  width: 40px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.85));
+  width: 44px;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, rgba(250, 204, 21, 0.95));
 }
 
 .gate-hero-sub::after {
-  background: linear-gradient(90deg, rgba(251, 191, 36, 0.85), transparent);
+  background: linear-gradient(90deg, rgba(250, 204, 21, 0.95), transparent);
 }
 
 /* Atsuko brand blue "Walk Through Gate" CTA */
@@ -5782,7 +5789,7 @@ body {
     font-size: clamp(20px, 5.2vw, 28px) !important;
     line-height: 1.22 !important;
     margin-bottom: 4px !important;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95), 0 0 24px rgba(0, 0, 0, 0.85) !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7), 0 0 16px rgba(255, 255, 255, 0.4) !important;
   }
 
   .gate-hero-desc {

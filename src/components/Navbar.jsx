@@ -195,8 +195,7 @@ export default function Navbar({
             {/* Mobile Drawer Language Bar */}
             {setLang && (
               <div className="mobile-drawer-lang-row">
-                <span className="mobile-drawer-lang-label">Language / භාෂාව / 言語:</span>
-                <div className="apple-lang-control">
+                <div className="apple-lang-control" role="group" aria-label="Select language">
                   <button 
                     type="button"
                     className={`apple-lang-pill ${lang === 'en' ? 'active' : ''}`}

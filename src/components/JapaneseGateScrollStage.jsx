@@ -581,20 +581,21 @@ export default function JapaneseGateScrollStage({
               objectFit: 'cover',
               objectPosition: 'center 48%',
               transformOrigin: 'center 48%',
-              filter: 'brightness(1.05) contrast(1.02) saturate(1.12)',
+              filter: 'brightness(1.02) contrast(1.04) saturate(1.06)',
+              imageRendering: 'auto',
               willChange: 'transform',
             }}
           />
 
-          {/* Cinematic Vignette & Atmospheric Color Grading Overlays - Lightened for vibrant clarity */}
+          {/* Cinematic Vignette & Atmospheric Color Grading Overlays - Crystal-clear clarity */}
           <div
             ref={duskOverlayRef}
             style={{
               position: 'absolute',
               inset: 0,
               background: `
-                radial-gradient(circle at 50% 45%, transparent 35%, rgba(7, 13, 30, 0.12) 65%, rgba(7, 13, 30, 0.42) 100%),
-                linear-gradient(180deg, rgba(7, 13, 30, 0.15) 0%, transparent 25%, rgba(7, 13, 30, 0.1) 65%, rgba(7, 13, 30, 0.78) 100%)
+                radial-gradient(circle at 50% 45%, transparent 50%, rgba(7, 13, 30, 0.06) 75%, rgba(7, 13, 30, 0.28) 100%),
+                linear-gradient(180deg, rgba(7, 13, 30, 0.06) 0%, transparent 25%, rgba(7, 13, 30, 0.05) 70%, rgba(7, 13, 30, 0.6) 100%)
               `,
               willChange: 'opacity',
             }}
@@ -626,9 +627,10 @@ export default function JapaneseGateScrollStage({
               transform: 'translate(-50%, -50%)',
               width: 'min(700px, 90vw)',
               height: 'min(500px, 60vh)',
-              background: 'radial-gradient(ellipse at center, rgba(251, 191, 36, 0.28) 0%, rgba(239, 68, 68, 0.18) 45%, transparent 75%)',
+              background: 'radial-gradient(ellipse at center, rgba(251, 191, 36, 0.12) 0%, rgba(239, 68, 68, 0.06) 45%, transparent 75%)',
               mixBlendMode: 'screen',
               filter: 'blur(30px)',
+              pointerEvents: 'none',
             }}
           />
         </div>
@@ -642,7 +644,7 @@ export default function JapaneseGateScrollStage({
             transform: 'translate(-50%, -50%)',
             width: 'min(760px, 85vw)',
             height: 'min(540px, 65vh)',
-            background: 'radial-gradient(ellipse at center, rgba(251, 146, 60, 0.32) 0%, rgba(239, 68, 68, 0.2) 40%, rgba(220, 38, 38, 0.08) 65%, transparent 80%)',
+            background: 'radial-gradient(ellipse at center, rgba(251, 146, 60, 0.14) 0%, rgba(239, 68, 68, 0.08) 40%, transparent 80%)',
             mixBlendMode: 'screen',
             filter: 'blur(35px)',
             pointerEvents: 'none',
@@ -693,7 +695,7 @@ export default function JapaneseGateScrollStage({
             >
               {/* Torii Gate Cutout with Drop-Shadow Depth & Warm Top Rim-Light */}
               <img
-                src="/images/torii-gate-enhanced.with-lamps-backup.png"
+                src="/images/torii-gate-ultra.png"
                 alt="Torii Gate"
                 style={{
                   position: 'absolute',
@@ -793,13 +795,14 @@ export default function JapaneseGateScrollStage({
               className="gate-hero-title"
               style={{
                 fontWeight: 800,
-                color: 'white',
+                color: '#ffffff',
                 lineHeight: 1.2,
                 marginBottom: 8,
-                textShadow: '0 2px 4px rgba(0,0,0,0.9), 0 6px 24px rgba(0,0,0,0.85)',
               }}
             >
-              <span className="gate-hero-main">ATSUKO <span style={{ color: '#38bdf8' }}>INTERNATIONAL</span></span>
+              <span className="gate-hero-main">
+                ATSUKO <span className="gate-brand-blue" style={{ color: '#38bdf8' }}>INTERNATIONAL</span>
+              </span>
               <span className="gate-hero-sub" lang="ja">篤子 学校</span>
             </h1>
           </div>
