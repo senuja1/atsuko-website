@@ -36,7 +36,8 @@ export const siteTranslations = {
       checkEligibilityBtn: "Check Visa Eligibility",
       talkAdvisorBtn: "Contact Admissions Officer",
       whatsappBtn: "WhatsApp Advisor",
-      trustQuote: "Supported by our registered support company in Sendai, Japan (株式会社 篤子インターナショナル)"
+      trustQuote: "Supported by our registered support company in Sendai, Japan (株式会社 篤子インターナショナル)",
+      droneTourTag: "4K Drone Tour • Atsuko HQ"
     },
 
     // Stats
@@ -300,7 +301,8 @@ export const siteTranslations = {
       checkEligibilityBtn: "වීසා සුදුසුකම් පරීක්ෂා කරන්න",
       talkAdvisorBtn: "ඇතුළත් කිරීම් නිලධාරී අමතන්න",
       whatsappBtn: "වට්ස්ඇප් උපදේශක",
-      trustQuote: "ජපානයේ සෙන්ඩායි නුවර අපගේම ලියාපදිංචි ආයතනය (株式会社 篤子インターナショナル) මඟින් පූර්ණ රැකවරණය"
+      trustQuote: "ජපානයේ සෙන්ඩායි නුවර අපගේම ලියාපදිංචි ආයතනය (株式会社 篤子インターナショナル) මඟින් පූර්ණ රැකවරණය",
+      droneTourTag: "4K ඩ්‍රෝන දර්ශන • අත්සුකෝ මූලස්ථානය"
     },
 
     // Stats
@@ -563,7 +565,8 @@ export const siteTranslations = {
       checkEligibilityBtn: "ビザ適性診断を始める",
       talkAdvisorBtn: "進路指導員に相談する",
       whatsappBtn: "WhatsAppでお問い合わせ",
-      trustQuote: "日本法人：宮城県仙台市「株式会社 篤子インターナショナル」（登録支援機関）が日本現地で万全サポート"
+      trustQuote: "日本法人：宮城県仙台市「株式会社 篤子インターナショナル」（登録支援機関）が日本現地で万全サポート",
+      droneTourTag: "4K ドローン映像 • アツコ本部"
     },
 
     // Stats

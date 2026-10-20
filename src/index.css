@@ -391,11 +391,13 @@ body {
 }
 
 .lang-selector {
-  display: flex;
+  display: inline-grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
   align-items: center;
-  gap: 4px;
+  gap: 3px;
   background: rgba(255, 255, 255, 0.06);
-  padding: 2px;
+  padding: 2.5px;
   border-radius: var(--radius-full);
 }
 
@@ -405,10 +407,17 @@ body {
   color: #94a3b8;
   font-size: 11px;
   font-weight: 700;
-  padding: 3px 9px;
+  padding: 0 8px;
+  min-width: 48px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   border-radius: var(--radius-full);
   cursor: pointer;
   transition: var(--transition);
+  box-sizing: border-box;
 }
 
 .lang-btn.active {
@@ -611,10 +620,12 @@ body {
 
 /* Apple iOS Segmented Control for Languages - Blue & White Theme */
 .apple-lang-control {
-  display: inline-flex;
+  display: inline-grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
   align-items: center;
   background: #f0f9ff;
-  padding: 2.5px;
+  padding: 3px;
   border-radius: 999px;
   border: 1px solid #bae6fd;
   gap: 2px;
@@ -626,11 +637,19 @@ body {
   color: #0369a1;
   font-size: 11px;
   font-weight: 600;
-  padding: 3px 8px;
+  padding: 0 10px;
+  min-width: 52px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   border-radius: 999px;
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  line-height: 1.2;
+  line-height: 1;
+  white-space: nowrap;
+  box-sizing: border-box;
 }
 
 .apple-lang-pill:hover {
@@ -777,6 +796,13 @@ body {
   color: #64748b;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+}
+
+.mobile-drawer-lang-row .apple-lang-pill {
+  min-width: 64px;
+  height: 30px;
+  font-size: 11.5px;
+  padding: 0 10px;
 }
 
 @keyframes mobileDrawerSlide {
@@ -1337,7 +1363,8 @@ body {
   position: relative;
 }
 
-.hero-main-img {
+.hero-main-img,
+.hero-main-video {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -1345,9 +1372,12 @@ body {
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+
+
 @media (hover: hover) and (pointer: fine) {
-  .hero-image-card:hover .hero-main-img {
-    transform: scale(1.03);
+  .hero-image-card:hover .hero-main-img,
+  .hero-image-card:hover .hero-main-video {
+    transform: scale(1.02);
   }
 }
 
@@ -6006,14 +6036,16 @@ body {
   }
 
   .apple-lang-control {
-    padding: 1.5px;
-    gap: 1px;
+    padding: 2px;
+    gap: 1.5px;
   }
 
   .apple-lang-pill {
-    padding: 3px 6px;
+    padding: 0 4px;
     font-size: 9.5px;
-    min-height: 32px;
+    min-width: 40px;
+    height: 28px;
+    min-height: 28px;
   }
 
   .mobile-menu-btn {
@@ -6444,12 +6476,16 @@ body {
   }
 
   .apple-lang-control {
-    padding: 1px;
+    padding: 1.5px;
+    gap: 1px;
   }
 
   .apple-lang-pill {
-    padding: 2px 4px;
+    padding: 0 3px;
     font-size: 8.5px;
+    min-width: 34px;
+    height: 26px;
+    min-height: 26px;
   }
 
   /* Preserve accessible touch target >= 44px even on ultra small devices */

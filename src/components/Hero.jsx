@@ -83,14 +83,15 @@ export default function Hero({ lang, onOpenModal, onScrollToEligibility }) {
         {/* Right Column: Hero Visual Graphic */}
         <div className="hero-image-wrapper">
           <div className="hero-image-card">
-            <img 
-              src="/images/hero-japan.jpg" 
-              alt="Sri Lankan Students Aspiring to Study in Japan - Atsuko International" 
-              width="600"
-              height="450"
-              loading="eager"
-              decoding="async"
-              className="hero-main-img"
+            <video 
+              src="/videos/atsuko-drone-intro.webm" 
+              poster="/images/atsuko-drone-wide.jpg"
+              autoPlay 
+              loop 
+              muted 
+              playsInline
+              className="hero-main-video"
+              title="Atsuko International Headquarters - 4K Drone Video"
             />
             <div className="hero-image-glow" aria-hidden="true"></div>
           </div>
