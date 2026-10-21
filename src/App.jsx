@@ -9,6 +9,7 @@ import VisaServicesPage from './components/VisaServicesPage';
 import SuccessStoriesPage from './components/SuccessStoriesPage';
 import BranchNetwork from './components/BranchNetwork';
 import ContactPage from './components/ContactPage';
+import StudentLifePage from './components/StudentLifePage';
 import Footer from './components/Footer';
 import ConsultationModal from './components/ConsultationModal';
 import FloatingActions from './components/FloatingActions';
@@ -24,7 +25,7 @@ export default function App() {
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '').replace('/', '');
-      if (['home', 'about', 'courses', 'visa', 'stories', 'branches', 'contact', 'landing'].includes(hash)) {
+      if (['home', 'about', 'courses', 'visa', 'facilities', 'stories', 'branches', 'contact', 'landing'].includes(hash)) {
         setCurrentPage(hash);
       } else if (!hash) {
         setCurrentPage('home');
@@ -59,6 +60,8 @@ export default function App() {
     const el = document.getElementById('eligibility');
     if (el) {
       el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      handleOpenModal('Eligibility Assessment');
     }
   };
 
@@ -129,20 +132,30 @@ export default function App() {
           />
         )}
 
-        {/* PAGE 5: SUCCESS STORIES & BRANCH NETWORK */}
-        {(currentPage === 'stories' || currentPage === 'branches') && (
-          <div>
-            <SuccessStoriesPage 
-              lang={lang}
-              onOpenModal={handleOpenModal}
-              onNavigate={handleNavigate}
-            />
-            {/* Multi-Office Network in Sri Lanka (Kadawatha, Kelaniya) & Japan (Komaki, Sendai) */}
-            <BranchNetwork 
-              lang={lang}
-              onOpenModal={handleOpenModal}
-            />
-          </div>
+        {/* PAGE 5: CAMPUS FACILITIES & STUDENT LIFE */}
+        {currentPage === 'facilities' && (
+          <StudentLifePage 
+            lang={lang}
+            onOpenModal={handleOpenModal}
+            onNavigate={handleNavigate}
+          />
+        )}
+
+        {/* PAGE 6: SUCCESS STORIES */}
+        {currentPage === 'stories' && (
+          <SuccessStoriesPage 
+            lang={lang}
+            onOpenModal={handleOpenModal}
+            onNavigate={handleNavigate}
+          />
+        )}
+
+        {/* BRANCH NETWORK */}
+        {currentPage === 'branches' && (
+          <BranchNetwork 
+            lang={lang}
+            onOpenModal={handleOpenModal}
+          />
         )}
 
         {/* PAGE 6: CONTACT US */}

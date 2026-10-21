@@ -132,7 +132,17 @@ export default function JapaneseGateScrollStage({
   onScrollToEligibility,
   onNavigate
 }) {
-  const g = getUiText(lang).gate;
+  const gateText = getUiText(lang)?.gate || {};
+  const g = {
+    license: gateText.license || 'SLBFE LICENSE NO. 3293 • PV 0217143',
+    desc: gateText.desc || 'Sri Lanka’s premier government-registered pathway to study and work in Japan.',
+    walkBtn: gateText.walkBtn || 'Walk Through Gate to Portal',
+    scrollHint: gateText.scrollHint || 'Scroll Down to Enter',
+    welcomeBadge: gateText.welcomeBadge || 'WELCOME TO ATSUKO GAKKO (篤子 学校)',
+    portalTitle: gateText.portalTitle || 'Your Official Pathway to Study & Work in Japan',
+    portalDesc: gateText.portalDesc || 'Licensed Foreign Employment Agency (SLBFE No. 3293) and Specialized Japanese Language School.',
+    continueBtn: gateText.continueBtn || 'Continue into Official Portal',
+  };
   const containerRef = useRef(null);
   const canvasRef = useRef(null);
   const fgCanvasRef = useRef(null);

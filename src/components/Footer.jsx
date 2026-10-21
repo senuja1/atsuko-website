@@ -19,10 +19,13 @@ export default function Footer({ lang, onOpenModal, onNavigate }) {
         <div className="footer-grid">
           {/* Brand Info */}
           <div className="footer-brand-col">
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem', cursor: 'pointer' }} onClick={(e) => handleLinkClick(e, 'home')}>
+            <div 
+              style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem', cursor: 'pointer' }} 
+              onClick={(e) => handleLinkClick(e, 'home')}
+            >
               <img
                 src="/images/atsuko-official-logo.png"
-                alt="Atsuko International"
+                alt="Atsuko International School Logo"
                 width="48"
                 height="48"
                 loading="lazy"
@@ -40,8 +43,7 @@ export default function Footer({ lang, onOpenModal, onNavigate }) {
             </div>
 
             <p className="footer-desc">
-              Premier, government-registered Japanese language academy and licensed foreign employment agency.
-              Bridging Sri Lankan talent with Japan under SLBFE License No. 3293 and Company Registration PV 0217143.
+              {t.tagline}
             </p>
 
             <div className="footer-badges-wrap" style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1.25rem' }}>
@@ -54,11 +56,11 @@ export default function Footer({ lang, onOpenModal, onNavigate }) {
               </div>
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', background: 'rgba(255,255,255,0.06)', padding: '0.35rem 0.75rem', borderRadius: 'var(--radius-full)', fontSize: '0.75rem', color: '#4ade80', border: '1px solid rgba(74,222,128,0.3)' }}>
                 <Globe2 size={13} />
-                <span>www.atsukojapan.com</span>
+                <span>{officialContacts.domain}</span>
               </div>
             </div>
 
-            {/* Social Media Channels Row - 44px min touch target */}
+            {/* Social Media Channels Row */}
             <div style={{ display: 'flex', gap: '0.65rem', flexWrap: 'wrap' }}>
               {/* Facebook */}
               <a
@@ -66,39 +68,39 @@ export default function Footer({ lang, onOpenModal, onNavigate }) {
                 target="_blank"
                 rel="noreferrer"
                 style={{
-                  width: '44px',
-                  height: '44px',
+                  width: '42px',
+                  height: '42px',
                   borderRadius: '50%',
                   background: '#1877f2',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   color: '#ffffff',
-                  fontSize: '1rem',
+                  fontSize: '1.1rem',
                   fontWeight: 800,
                   transition: 'transform 0.15s ease'
                 }}
-                title="Atsuko International on Facebook (17K+ Followers)"
-                aria-label="Atsuko Facebook Group"
+                title="Atsuko International on Facebook"
+                aria-label="Atsuko Facebook"
               >
                 f
               </a>
 
               {/* WhatsApp */}
               <a
-                href="https://wa.me/94778643352"
+                href={officialContacts.socials.whatsappChannel}
                 target="_blank"
                 rel="noreferrer"
                 style={{
-                  width: '44px',
-                  height: '44px',
+                  width: '42px',
+                  height: '42px',
                   borderRadius: '50%',
                   background: '#25d366',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   color: '#ffffff',
-                  fontSize: '1.1rem',
+                  fontSize: '1.2rem',
                   transition: 'transform 0.15s ease'
                 }}
                 title="Chat with Atsuko International on WhatsApp"
@@ -113,18 +115,18 @@ export default function Footer({ lang, onOpenModal, onNavigate }) {
                 target="_blank"
                 rel="noreferrer"
                 style={{
-                  width: '44px',
-                  height: '44px',
+                  width: '42px',
+                  height: '42px',
                   borderRadius: '50%',
                   background: '#ff0000',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   color: '#ffffff',
-                  fontSize: '0.95rem',
+                  fontSize: '1rem',
                   transition: 'transform 0.15s ease'
                 }}
-                title="Watch Student Testimonials on YouTube"
+                title="Watch on YouTube"
                 aria-label="Atsuko YouTube Channel"
               >
                 ▶
@@ -136,8 +138,8 @@ export default function Footer({ lang, onOpenModal, onNavigate }) {
                 target="_blank"
                 rel="noreferrer"
                 style={{
-                  width: '44px',
-                  height: '44px',
+                  width: '42px',
+                  height: '42px',
                   borderRadius: '50%',
                   background: '#010101',
                   border: '1px solid #334155',
@@ -145,7 +147,7 @@ export default function Footer({ lang, onOpenModal, onNavigate }) {
                   alignItems: 'center',
                   justifyContent: 'center',
                   color: '#ffffff',
-                  fontSize: '0.95rem',
+                  fontSize: '1rem',
                   transition: 'transform 0.15s ease'
                 }}
                 title="TikTok: @atsuko_international"
@@ -160,15 +162,15 @@ export default function Footer({ lang, onOpenModal, onNavigate }) {
                 target="_blank"
                 rel="noreferrer"
                 style={{
-                  width: '44px',
-                  height: '44px',
+                  width: '42px',
+                  height: '42px',
                   borderRadius: '50%',
                   background: 'linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   color: '#ffffff',
-                  fontSize: '0.95rem',
+                  fontSize: '1rem',
                   transition: 'transform 0.15s ease'
                 }}
                 title="Instagram: @atsuko_gakkou"
@@ -179,83 +181,83 @@ export default function Footer({ lang, onOpenModal, onNavigate }) {
             </div>
           </div>
 
-          {/* Platform Pages Navigation (6 Complete Pages) */}
+          {/* Platform Pages Navigation */}
           <div>
-            <h4 className="footer-col-title">Main Portal Pages</h4>
+            <h4 className="footer-col-title">{t.colPrograms || (lang === 'si' ? 'ප්‍රධාන පිටු' : lang === 'jp' ? '主要ページ' : 'Main Portal Pages')}</h4>
             <ul className="footer-links">
-              <li><a href="#home" onClick={(e) => handleLinkClick(e, 'home')}>Home Page</a></li>
-              <li><a href="#about" onClick={(e) => handleLinkClick(e, 'about')}>About Us & Licenses</a></li>
-              <li><a href="#courses" onClick={(e) => handleLinkClick(e, 'courses')}>Courses & Training</a></li>
-              <li><a href="#visa" onClick={(e) => handleLinkClick(e, 'visa')}>Visa Services (Student & SSW)</a></li>
-              <li><a href="#stories" onClick={(e) => handleLinkClick(e, 'stories')}>Success Stories & Life in Japan</a></li>
-              <li><a href="#contact" onClick={(e) => handleLinkClick(e, 'contact')}>Contact Us & Branch Network</a></li>
+              <li><a href="#home" onClick={(e) => handleLinkClick(e, 'home')}>{lang === 'si' ? 'මුල් පිටුව' : lang === 'jp' ? 'ホーム' : 'Home Page'}</a></li>
+              <li><a href="#about" onClick={(e) => handleLinkClick(e, 'about')}>{lang === 'si' ? 'අප ගැන සහ බලපත්‍ර' : lang === 'jp' ? '会社概要・許可証' : 'About Us & Licenses'}</a></li>
+              <li><a href="#courses" onClick={(e) => handleLinkClick(e, 'courses')}>{lang === 'si' ? 'පාඨමාලා සහ පුහුණුව' : lang === 'jp' ? '教育・研修コース' : 'Courses & Skills Training'}</a></li>
+              <li><a href="#visa" onClick={(e) => handleLinkClick(e, 'visa')}>{lang === 'si' ? 'වීසා සේවා (ශිෂ්‍ය සහ SSW)' : lang === 'jp' ? 'ビザ支援（留学・特定技能）' : 'Visa Services (Student & SSW)'}</a></li>
+              <li><a href="#facilities" onClick={(e) => handleLinkClick(e, 'facilities')}>{lang === 'si' ? 'නේවාසිකාගාර සහ ශිෂ්‍ය ජීවිතය' : lang === 'jp' ? '学生寮・キャンパス生活' : 'Accommodation & Student Life'}</a></li>
+              <li><a href="#contact" onClick={(e) => handleLinkClick(e, 'contact')}>{lang === 'si' ? 'ප්‍රධාන කාර්යාලය සහ ඇමතුම්' : lang === 'jp' ? 'お問い合わせ・本部' : 'Contact & Head Office'}</a></li>
             </ul>
           </div>
 
           {/* Visa & Career Pathways */}
           <div>
-            <h4 className="footer-col-title">Visa & Study Pathways</h4>
+            <h4 className="footer-col-title">{t.colBranches || (lang === 'si' ? 'වීසා සහ අධ්‍යාපන මාවත්' : lang === 'jp' ? 'ビザ・進路案内' : 'Visa & Career Pathways')}</h4>
             <ul className="footer-links">
-              <li><a href="#visa" onClick={(e) => handleLinkClick(e, 'visa')}>Student Visa (Jan/Apr/Jul/Oct)</a></li>
-              <li><a href="#visa" onClick={(e) => handleLinkClick(e, 'visa')}>SSW Caregiver (Kaigo)</a></li>
-              <li><a href="#visa" onClick={(e) => handleLinkClick(e, 'visa')}>SSW Food Service Industry</a></li>
-              <li><a href="#visa" onClick={(e) => handleLinkClick(e, 'visa')}>SSW Commercial Truck Driving</a></li>
-              <li><a href="#visa" onClick={(e) => handleLinkClick(e, 'visa')}>SSW Agriculture & Construction</a></li>
-              <li><a href="#visa" onClick={(e) => handleLinkClick(e, 'visa')}>TITP Technical Internship</a></li>
+              <li><a href="#visa" onClick={(e) => handleLinkClick(e, 'visa')}>{lang === 'si' ? 'ශිෂ්‍ය වීසා (ජන/අප්‍රේල්/ජූලි/ඔක්)' : lang === 'jp' ? '留学ビザ (1・4・7・10月期)' : 'Student Visa (Jan/Apr/Jul/Oct)'}</a></li>
+              <li><a href="#visa" onClick={(e) => handleLinkClick(e, 'visa')}>{lang === 'si' ? 'SSW සාත්තු සේවා (Kaigo)' : lang === 'jp' ? '特定技能 介護 (Kaigo)' : 'SSW Caregiver (Kaigo)'}</a></li>
+              <li><a href="#visa" onClick={(e) => handleLinkClick(e, 'visa')}>{lang === 'si' ? 'SSW ආහාර සැකසුම් ක්ෂේත්‍රය' : lang === 'jp' ? '特定技能 外食業' : 'SSW Food Service Industry'}</a></li>
+              <li><a href="#visa" onClick={(e) => handleLinkClick(e, 'visa')}>{lang === 'si' ? 'SSW වාණිජ රියදුරු සහ ප්‍රවාහන' : lang === 'jp' ? '特定技能 自動車運送業' : 'SSW Automobile Transport & Truck'}</a></li>
+              <li><a href="#visa" onClick={(e) => handleLinkClick(e, 'visa')}>{lang === 'si' ? 'SSW හෝටල් සහ සංචාරක සේවා' : lang === 'jp' ? '特定技能 宿泊業' : 'SSW Accommodation (Hotel)'}</a></li>
+              <li><a href="#visa" onClick={(e) => handleLinkClick(e, 'visa')}>{lang === 'si' ? 'TITP කාර්මික පුහුණුව' : lang === 'jp' ? '技能実習制度 (TITP)' : 'TITP Technical Internship'}</a></li>
             </ul>
           </div>
 
-          {/* Offices & Physical Locations */}
+          {/* Headquarters & Japan Presence */}
           <div>
-            <h4 className="footer-col-title">Head Offices & Contact</h4>
+            <h4 className="footer-col-title">{t.colContact || (lang === 'si' ? 'ප්‍රධාන කාර්යාලය සහ ජපන් ආයතනය' : lang === 'jp' ? '本部・日本現地拠点' : 'Headquarters & Japan Presence')}</h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', fontSize: '0.85rem' }}>
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem' }}>
                 <MapPin size={16} style={{ color: '#0284c7', flexShrink: 0, marginTop: '3px' }} />
-                <span><strong>Kadawatha Head Office:</strong> 191/3/1, Sirimavo Bandaranaike Mawatha, Mahara, Kadawatha</span>
+                <span><strong>{lang === 'si' ? 'කඩවත මූලස්ථානය:' : lang === 'jp' ? 'カダワタ本校:' : 'Kadawatha Campus:'}</strong> {officialContacts.headOfficeAddress}</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem' }}>
                 <MapPin size={16} style={{ color: '#38bdf8', flexShrink: 0, marginTop: '3px' }} />
-                <span><strong>Japan Office:</strong> Komaki Office, Aichi Prefecture, Japan (株式会社 篤子インターナショナル)</span>
+                <span><strong>{lang === 'si' ? 'ජපානයේ ආයතනය:' : lang === 'jp' ? '日本支援法人:' : 'Japan Support Entity:'}</strong> {officialContacts.japanAddress}</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <Phone size={15} style={{ color: '#38bdf8', flexShrink: 0 }} />
-                <span>Hotline: 072 616 0160 / 070 363 4416</span>
+                <span>{lang === 'si' ? 'ක්ෂණික ඇමතුම්:' : lang === 'jp' ? '総合窓口:' : 'Hotline:'} {officialContacts.hotline} / {officialContacts.mobile1}</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <Mail size={15} style={{ color: '#fbbf24', flexShrink: 0 }} />
-                <span>info@atsukojapan.com</span>
+                <span>{officialContacts.email}</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <Clock size={15} style={{ color: '#34d399', flexShrink: 0 }} />
-                <span>Mon-Sat: 8:30 AM - 5:30 PM | Sun: 8:30 AM - 2:00 PM</span>
+                <span>{lang === 'si' ? 'සඳුදා - සෙන: පෙ.ව 8:30 - ප.ව 5:30 | ඉරිදා: පෙ.ව 8:30 - ප.ව 2:00' : lang === 'jp' ? '月〜土: 8:30 - 17:30 | 日: 8:30 - 14:00' : 'Mon-Sat: 8:30 AM - 5:30 PM | Sun: 8:30 AM - 2:00 PM'}</span>
               </div>
             </div>
 
             <button
-              onClick={() => onOpenModal('General Consultation')}
+              onClick={() => onOpenModal('General Admissions')}
               className="btn btn-primary"
               style={{ marginTop: '1.25rem', width: '100%', fontSize: '0.85rem' }}
             >
-              Book In-Person Consultation
+              {t.btnBookConsultation || (lang === 'si' ? 'උපදේශනයක් වෙන්කරගන්න' : lang === 'jp' ? '来校カウンセリング予約' : 'Book In-Person Consultation')}
             </button>
           </div>
         </div>
 
         {/* Footer Bottom */}
         <div className="footer-bottom">
-          <p>© {new Date().getFullYear()} ATSUKO INTERNATIONAL (PVT) LTD (篤子 学校). Official Domain: www.atsukojapan.com</p>
+          <p>© {new Date().getFullYear()} {officialContacts.companyName} ({officialContacts.kanjiName}). {lang === 'si' ? 'සියලුම හිමිකම් ඇවිරිණි.' : lang === 'jp' ? '無断転載を禁じます。' : 'All Rights Reserved.'}</p>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
-            <span>SLBFE License No: 3293</span>
+            <span>{officialContacts.slbfeLicense}</span>
             <span>•</span>
-            <span>Company Reg: PV 0217143</span>
+            <span>{lang === 'si' ? 'සමාගම් ලියාපදිංචිය:' : lang === 'jp' ? '会社登記:' : 'Company Reg:'} {officialContacts.companyReg}</span>
             <span>•</span>
             <a
-              href="https://www.facebook.com/groups/studentsofatsukointernational"
+              href={officialContacts.socials.facebookGroup}
               target="_blank"
               rel="noreferrer"
               style={{ color: '#38bdf8', display: 'flex', alignItems: 'center', gap: '3px' }}
             >
-              <span>Student Community Group (17K+)</span>
+              <span>{lang === 'si' ? 'නිල ශිෂ්‍ය එකමුතුව' : lang === 'jp' ? '公式 学生コミュニティ' : 'Student Community Group'}</span>
               <ExternalLink size={12} />
             </a>
           </div>

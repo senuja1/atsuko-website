@@ -8,37 +8,40 @@ import {
   CheckCircle2, 
   Building2, 
   Award, 
-  Send 
+  Send,
+  Home,
+  MapPin,
+  Phone,
+  Mail,
+  Users,
+  Clock
 } from 'lucide-react';
 import Hero from './Hero';
 import StatsBar from './StatsBar';
 import RevealOnScroll from './RevealOnScroll';
-import EligibilityChecker from './EligibilityChecker';
-import ProgramsSection from './ProgramsSection';
 import TrainingShowcase from './TrainingShowcase';
-import JapaneseQuiz from './JapaneseQuiz';
 import RoadmapSection from './RoadmapSection';
-import SuccessStories from './SuccessStories';
 import BranchNetwork from './BranchNetwork';
 import FaqSection from './FaqSection';
-import { targetAudiencePathways, studentVisaIntakes } from '../data/websiteData';
+import { targetAudiencePathways, studentLifeData, globalPresenceData, officialContacts } from '../data/websiteData';
 import { getUiText } from '../data/uiText';
 
 export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligibility }) {
   const h = getUiText(lang).home;
+
   return (
     <div className="home-view">
-      {/* Hero Section */}
+      {/* 1. Hero Section */}
       <Hero 
         lang={lang} 
-        onOpenModal={() => onOpenModal('Consultation Request')} 
+        onOpenModal={() => onOpenModal('General Admissions')} 
         onScrollToEligibility={scrollToEligibility} 
       />
 
-      {/* Trust & Performance Metrics Counter */}
+      {/* 2. Trust & Official Credentials Bar */}
       <StatsBar lang={lang} />
 
-      {/* Target Customers Gateway (Document Section 3) */}
+      {/* 3. Target Audience Pathways */}
       <section className="section target-gateway-section">
         <div className="container">
           <div className="section-header">
@@ -87,8 +90,7 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
                     <button 
                       onClick={() => {
                         if (card.targetTab === 'about') onNavigate('about');
-                        else if (card.targetTab === 'studentVisa') onNavigate('visa');
-                        else if (card.targetTab === 'sswWorkVisa') onNavigate('visa');
+                        else if (card.targetTab === 'visa') onNavigate('visa');
                         else onNavigate('courses');
                       }}
                       className="btn btn-primary btn-block tg-btn"
@@ -104,35 +106,8 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
         </div>
       </section>
 
-      {/* Interactive Visa & Pathway Eligibility Calculator */}
-      <RevealOnScroll delay={0.1}>
-        <EligibilityChecker 
-          lang={lang}
-          onOpenModal={() => onOpenModal('Custom Pathway Booking')} 
-        />
-      </RevealOnScroll>
 
-      {/* Academic & SSW Pathways Showcase */}
-      <RevealOnScroll delay={0.1}>
-        <section className="home-programs-wrapper">
-          <ProgramsSection 
-            lang={lang}
-            onOpenModal={onOpenModal} 
-          />
-          <div className="container" style={{ textAlign: 'center', marginTop: '-2rem', marginBottom: '3.5rem' }}>
-            <button 
-              onClick={() => onNavigate('courses')}
-              className="btn btn-gold"
-              style={{ padding: '0.85rem 2rem', fontSize: '0.95rem' }}
-            >
-              <span>{h.viewAllCourses}</span>
-              <ArrowRight size={16} />
-            </button>
-          </div>
-        </section>
-      </RevealOnScroll>
-
-      {/* Practical Simulation Facilities & Sensei Classrooms */}
+      {/* 6. Practical Simulation Facilities & Classrooms */}
       <RevealOnScroll delay={0.1}>
         <TrainingShowcase 
           lang={lang}
@@ -140,15 +115,86 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
         />
       </RevealOnScroll>
 
-      {/* Interactive Japanese Language Mini-Quiz */}
+      {/* 7. Student Life & Accommodation Showcase (Leaflet Page 14-16) */}
       <RevealOnScroll delay={0.1}>
-        <JapaneseQuiz 
-          lang={lang}
-          onOpenModal={onOpenModal} 
-        />
+        <section className="section section-alt">
+          <div className="container">
+            <div className="section-header">
+              <span className="section-badge badge-gold">
+                <Home size={14} />
+                {h.facilitiesPreview?.badge || 'Campus Facilities & Accommodation'}
+              </span>
+              <h2 className="section-title">
+                {h.facilitiesPreview?.title || 'Comfortable Housing &'} <span className="text-gradient-red">{h.facilitiesPreview?.highlight || 'Student Life'}</span>
+              </h2>
+              <p className="section-subtitle">
+                {h.facilitiesPreview?.subtitle || 'Safe, affordable on-campus housing with easy access to classes, nutritious budget-friendly meals, and continuous support.'}
+              </p>
+            </div>
+
+            <div className="presence-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' }}>
+              <div className="credentials-card" style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: 'var(--radius-xl)', padding: '1.75rem' }}>
+                <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: '#fee2e2', color: '#b91c1c', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem' }}>
+                  <Building2 size={24} />
+                </div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--navy-900)', marginBottom: '0.5rem' }}>
+                  {h.facilitiesPreview?.card1Title || 'Comfortable Accommodation Provided'}
+                </h3>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.6, marginBottom: '1rem' }}>
+                  {h.facilitiesPreview?.card1Desc || 'Stay in safe, affordable housing with easy access to the school. Separate wings for male and female students with 24/7 security.'}
+                </p>
+                <button 
+                  onClick={() => onNavigate('facilities')}
+                  className="btn btn-sm btn-secondary"
+                >
+                  <span>{h.facilitiesPreview?.card1Btn || 'Learn More'}</span>
+                  <ArrowRight size={12} />
+                </button>
+              </div>
+
+              <div className="credentials-card" style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: 'var(--radius-xl)', padding: '1.75rem' }}>
+                <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: '#fef3c7', color: '#92400e', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem' }}>
+                  <Sparkles size={24} />
+                </div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--navy-900)', marginBottom: '0.5rem' }}>
+                  {h.facilitiesPreview?.card2Title || 'Nutritious & Budget-Friendly Meals'}
+                </h3>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.6, marginBottom: '1rem' }}>
+                  {h.facilitiesPreview?.card2Desc || 'Wholesome daily meals prepared on campus so candidates can focus 100% on their Japanese language and vocational training.'}
+                </p>
+                <button 
+                  onClick={() => onNavigate('facilities')}
+                  className="btn btn-sm btn-secondary"
+                >
+                  <span>{h.facilitiesPreview?.card2Btn || 'View Details'}</span>
+                  <ArrowRight size={12} />
+                </button>
+              </div>
+
+              <div className="credentials-card" style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: 'var(--radius-xl)', padding: '1.75rem' }}>
+                <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: '#e0f2fe', color: '#0369a1', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem' }}>
+                  <Users size={24} />
+                </div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--navy-900)', marginBottom: '0.5rem' }}>
+                  {h.facilitiesPreview?.card3Title || 'Supportive Assessment System'}
+                </h3>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.6, marginBottom: '1rem' }}>
+                  {h.facilitiesPreview?.card3Desc || 'Weekly checkpoints, mock CBT exams, audio listening lab drills, and personalized feedback ensuring high exam pass rates.'}
+                </p>
+                <button 
+                  onClick={() => onNavigate('facilities')}
+                  className="btn btn-sm btn-secondary"
+                >
+                  <span>{h.facilitiesPreview?.card3Btn || 'Assessment Info'}</span>
+                  <ArrowRight size={12} />
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
       </RevealOnScroll>
 
-      {/* 6-Step Roadmap from Sri Lanka to Japan */}
+      {/* 9. 6-Step Roadmap from Sri Lanka to Japan */}
       <RevealOnScroll delay={0.1}>
         <RoadmapSection 
           lang={lang}
@@ -156,12 +202,7 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
         />
       </RevealOnScroll>
 
-      {/* Airport Departure & Verified Cohort Representation */}
-      <RevealOnScroll delay={0.1}>
-        <SuccessStories lang={lang} />
-      </RevealOnScroll>
-
-      {/* Island-wide & Komaki/Sendai Japan Center Network */}
+      {/* 11. Official Operating Hubs (Kadawatha, Kelaniya, Sendai, Komaki, Island-wide Zoom) */}
       <RevealOnScroll delay={0.1}>
         <BranchNetwork 
           lang={lang}
@@ -169,12 +210,114 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
         />
       </RevealOnScroll>
 
-      {/* Frequently Asked Questions & SLBFE Guidance */}
+      {/* 9. Official Global Operating Bases (Sri Lanka & Japan) */}
+      <RevealOnScroll delay={0.1}>
+        <section className="section" style={{ background: '#ffffff' }}>
+          <div className="container">
+            <div className="section-header">
+              <span className="section-badge badge-red">
+                <Building2 size={14} />
+                {h.globalPresence?.badge || 'Dual-Nation Structure'}
+              </span>
+              <h2 className="section-title">
+                {h.globalPresence?.title || 'Global Presence in'} <span className="text-gradient-red">{h.globalPresence?.highlight || 'Sri Lanka & Sendai, Japan'}</span>
+              </h2>
+              <p className="section-subtitle">
+                {h.globalPresence?.subtitle || 'Atsuko International operates between our Kadawatha Headquarters and our registered support corporation in Sendai & Aichi, Japan.'}
+              </p>
+            </div>
+
+            <div className="presence-grid">
+              <div className="presence-card presence-sl">
+                <div className="presence-card-header">
+                  <span className="presence-flag">🇱🇰</span>
+                  <div>
+                    <h3 className="presence-title">{h.globalPresence?.slTitle || 'Sri Lanka Headquarters'}</h3>
+                    <span className="presence-tag">{h.globalPresence?.slTag || 'SLBFE License No. 3293 • PV 0217143'}</span>
+                  </div>
+                </div>
+                <div className="presence-body">
+                  <div className="presence-detail-row">
+                    <MapPin size={18} className="presence-icon" />
+                    <div>
+                      <strong>{h.globalPresence?.slAddressLbl || 'Address:'}</strong>
+                      <p>{officialContacts.headOfficeAddress}</p>
+                    </div>
+                  </div>
+                  <div className="presence-detail-row">
+                    <Phone size={18} className="presence-icon" />
+                    <div>
+                      <strong>{h.globalPresence?.slHotlineLbl || 'Hotline & Mobiles:'}</strong>
+                      <p>{officialContacts.hotline} / {officialContacts.mobile1}</p>
+                    </div>
+                  </div>
+                  <div className="presence-detail-row">
+                    <Clock size={18} className="presence-icon" />
+                    <div>
+                      <strong>{h.globalPresence?.slHoursLbl || 'Working Hours:'}</strong>
+                      <p>{h.globalPresence?.slHoursVal || 'Monday – Saturday: 8:30 AM – 5:30 PM | Sunday: 8:30 AM – 2:00 PM'}</p>
+                    </div>
+                  </div>
+                  <div className="presence-detail-row">
+                    <Mail size={18} className="presence-icon" />
+                    <div>
+                      <strong>{h.globalPresence?.slEmailLbl || 'Official Email:'}</strong>
+                      <p>{officialContacts.email}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="presence-card presence-jp">
+                <div className="presence-card-header">
+                  <span className="presence-flag">🇯🇵</span>
+                  <div>
+                    <h3 className="presence-title">{h.globalPresence?.jpTitle || 'Japan Operations & Support Entity'}</h3>
+                    <span className="presence-tag">{h.globalPresence?.jpTag || '株式会社 Atsuko International'}</span>
+                  </div>
+                </div>
+                <div className="presence-body">
+                  <div className="presence-detail-row">
+                    <Building2 size={18} className="presence-icon" />
+                    <div>
+                      <strong>{h.globalPresence?.jpEntityLbl || 'Official Support Entity:'}</strong>
+                      <p>{h.globalPresence?.jpEntityVal || '株式会社 Atsuko International'}</p>
+                    </div>
+                  </div>
+                  <div className="presence-detail-row">
+                    <MapPin size={18} className="presence-icon" />
+                    <div>
+                      <strong>{h.globalPresence?.jpLocLbl || 'Locations in Japan:'}</strong>
+                      <p>{h.globalPresence?.jpLocVal || officialContacts.japanAddress}</p>
+                    </div>
+                  </div>
+                  <div className="presence-detail-row">
+                    <Phone size={18} className="presence-icon" />
+                    <div>
+                      <strong>{h.globalPresence?.jpContactLbl || 'Direct Contact in Japan:'}</strong>
+                      <p>{officialContacts.japanPhone}</p>
+                    </div>
+                  </div>
+                  <div className="presence-detail-row">
+                    <ShieldCheck size={18} className="presence-icon" />
+                    <div>
+                      <strong>{h.globalPresence?.jpRegLbl || 'Corporate Reg & Licenses:'}</strong>
+                      <p>{h.globalPresence?.jpRegVal || '登録支援機関 No. 23登-008312 • 有料職業紹介 No. 04-ユ-300338'}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </RevealOnScroll>
+
+      {/* 10. Frequently Asked Questions & SLBFE Guidance */}
       <RevealOnScroll delay={0.1}>
         <FaqSection lang={lang} />
       </RevealOnScroll>
 
-      {/* Pre-Footer Final Call to Action Banner */}
+      {/* 11. Pre-Footer Final Call to Action Banner */}
       <RevealOnScroll delay={0.1}>
         <section className="home-bottom-cta">
           <div className="container">
@@ -198,7 +341,7 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
                   <span>{h.ctaRegister}</span>
                 </button>
                 <a 
-                  href="https://wa.me/94778643352" 
+                  href="https://wa.me/94777933352" 
                   target="_blank" 
                   rel="noreferrer" 
                   className="btn btn-whatsapp"
@@ -209,7 +352,7 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
                   onClick={() => onNavigate('contact')}
                   className="btn btn-secondary-white"
                 >
-                  <span>{h.ctaVisitBranch}</span>
+                  <span>{h.ctaVisitHeadOffice}</span>
                 </button>
               </div>
             </div>

@@ -47,7 +47,7 @@ export default function FloatingActions({ lang }) {
       >
         {/* WhatsApp Button */}
         <a
-          href="https://wa.me/94778643352?text=Hello%20Atsuko%20International,%20I%20am%20interested%20in%20Japan%20Study%20and%20Work%20opportunities."
+          href="https://wa.me/94777933352?text=Hello%20Atsuko%20International,%20I%20am%20interested%20in%20Japan%20Study%20and%20Work%20opportunities."
           target="_blank"
           rel="noreferrer"
           className="floating-option-btn whatsapp"
@@ -64,7 +64,7 @@ export default function FloatingActions({ lang }) {
 
         {/* Hotline Call Button */}
         <a
-          href="tel:0726160160"
+          href="tel:+94112987263"
           className="floating-option-btn phone"
           title={t.phoneTooltip}
           aria-label="Call Hotline"

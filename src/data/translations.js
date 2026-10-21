@@ -10,11 +10,17 @@ export const siteTranslations = {
     // Navbar
     brandSub: "Japanese Language Academy & Visa Consultancy",
     nav: {
+      home: "Home",
+      about: "About Us",
+      courses: "Courses & Training",
+      visa: "Visa Pathways",
+      facilities: "Campus & Housing",
+      contact: "Contact Us",
       programs: "Programs & Courses",
       studentVisa: "Study in Japan",
       sswVisa: "SSW Work Visas",
       training: "Training Facilities",
-      branches: "Branches (9)",
+      branches: "Operating Hubs",
       success: "Track Record",
       faq: "FAQ",
       checkEligibility: "Check Eligibility",
@@ -28,7 +34,7 @@ export const siteTranslations = {
       titlePre: "Your Official Pathway to",
       titleHighlight: "Study & Work in Japan",
       titleJp: "日本への架け橋 - 篤子学校 (ATSUKO GAKKO)",
-      desc: "Atsuko International (Pvt) Ltd is a government-registered Japanese language academy and overseas employment agency (SLBFE License No. 3293). Backed by our registered support company in Sendai, Japan (株式会社 篤子インターナショナル), we provide accredited JLPT/JFT training, Student Visas, and Specified Skilled Worker (SSW) job placements.",
+      desc: "Atsuko International (Pvt) Ltd is a government-registered Japanese language academy and overseas employment agency (SLBFE License No. 3293). Backed by our registered support company in Sendai, Japan (株式会社 Atsuko International), we provide accredited JLPT/JFT training, Student Visas, and Specified Skilled Worker (SSW) job placements.",
       pill1: "JLPT N5/N4 & JFT-Basic Exam Batches",
       pill2: "SSW Caregiver (Kaigo) Nursing Practical Lab",
       pill3: "28 hrs/week Legal Work in Tokyo & Osaka",
@@ -36,16 +42,16 @@ export const siteTranslations = {
       checkEligibilityBtn: "Check Visa Eligibility",
       talkAdvisorBtn: "Contact Admissions Officer",
       whatsappBtn: "WhatsApp Advisor",
-      trustQuote: "Supported by our registered support company in Sendai, Japan (株式会社 篤子インターナショナル)",
+      trustQuote: "Supported by our registered support company in Sendai, Japan (株式会社 Atsuko International)",
       droneTourTag: "4K Drone Tour • Atsuko HQ"
     },
 
     // Stats
     stats: {
-      stat1: { number: "5,000+", label: "Students Placed in Japan" },
-      stat2: { number: "9", label: "Island-wide Training Centers" },
+      stat1: { number: "100%", label: "Zero Initial Fee Guarantee" },
+      stat2: { number: "Kadawatha HQ", label: "Practical Simulation Campus" },
       stat3: { number: "SLBFE #3293", label: "Government Verified License" },
-      stat4: { number: "Sendai, Japan", label: "Registered Support Org (登録支援機関)" }
+      stat4: { number: "Sendai & Aichi", label: "Registered Support Org (登録支援機関)" }
     },
 
     // Eligibility Calculator
@@ -255,8 +261,8 @@ export const siteTranslations = {
 
     // Floating actions
     floating: {
-      whatsappTooltip: "Chat with us on WhatsApp (+94 77 864 3352)",
-      phoneTooltip: "Call Hotline (072 616 0160)",
+      whatsappTooltip: "Chat with us on WhatsApp (+94 77 793 3352)",
+      phoneTooltip: "Call Hotline ((+94) 112 987 263)",
       whatsappLabel: "WhatsApp",
       phoneLabel: "Call Hotline"
     }
@@ -275,11 +281,17 @@ export const siteTranslations = {
     // Navbar
     brandSub: "ජපන් භාෂා ඇකඩමිය සහ වීසා උපදේශන සේවාව",
     nav: {
+      home: "මුල් පිටුව",
+      about: "අප ගැන",
+      courses: "පාඨමාලා හා පුහුණුව",
+      visa: "වීසා මාවත්",
+      facilities: "නේවාසිකාගාර පහසුකම්",
+      contact: "සම්බන්ධ වන්න",
       programs: "පාඨමාලා සහ වීසා",
       studentVisa: "ශිෂ්‍ය වීසා (ජපානය)",
       sswVisa: "SSW රැකියා වීසා",
       training: "ප්‍රායෝගික පුහුණු මධ්‍යස්ථාන",
-      branches: "ශාඛා ජාලය (9)",
+      branches: "මෙහෙයුම් මධ්‍යස්ථාන",
       success: "විශ්වාසනීය වාර්තාව",
       faq: "නිතර අසන ප්‍රශ්න",
       checkEligibility: "සුදුසුකම් පරීක්ෂාව",
@@ -293,7 +305,7 @@ export const siteTranslations = {
       titlePre: "ජපානයට යාමේ ඔබේ සිහිනයට",
       titleHighlight: "නියමිත නීත්‍යානුකූල දොරටුව",
       titleJp: "スリランカから日本へ - 篤子学校 (ATSUKO GAKKO)",
-      desc: "ශ්‍රී ලංකා විදේශ සේවා නියුක්ති කාර්යාංශයේ (SLBFE) නිල ලියාපදිංචි අංක 3293 දරන අත්සුකෝ ජපන් භාෂා ඇකඩමිය. ජපානයේ සෙන්ඩායි නුවර පිහිටි අපගේම ලියාපදිංචි ආයතනය (株式会社 篤子インターナショナル) හරහා පිළිගත් JLPT/JFT විභාග පුහුණුව, ශිෂ්‍ය වීසා සහ SSW රැකියා අවස්ථා සලසා දෙයි.",
+      desc: "ශ්‍රී ලංකා විදේශ සේවා නියුක්ති කාර්යාංශයේ (SLBFE) නිල ලියාපදිංචි අංක 3293 දරන අත්සුකෝ ජපන් භාෂා ඇකඩමිය. ජපානයේ සෙන්ඩායි නුවර පිහිටි අපගේම ලියාපදිංචි ආයතනය (株式会社 Atsuko International) හරහා පිළිගත් JLPT/JFT විභාග පුහුණුව, ශිෂ්‍ය වීසා සහ SSW රැකියා අවස්ථා සලසා දෙයි.",
       pill1: "JLPT N5/N4 සහ JFT-Basic විභාග පන්ති",
       pill2: "SSW සාත්තු සේවා (Caregiver) ප්‍රායෝගික විද්‍යාගාරය",
       pill3: "ටෝකියෝ හා ඔසාකා හි සතියට පැය 28ක නීත්‍යානුකූල රැකියා",
@@ -301,16 +313,16 @@ export const siteTranslations = {
       checkEligibilityBtn: "වීසා සුදුසුකම් පරීක්ෂා කරන්න",
       talkAdvisorBtn: "ඇතුළත් කිරීම් නිලධාරී අමතන්න",
       whatsappBtn: "වට්ස්ඇප් උපදේශක",
-      trustQuote: "ජපානයේ සෙන්ඩායි නුවර අපගේම ලියාපදිංචි ආයතනය (株式会社 篤子インターナショナル) මඟින් පූර්ණ රැකවරණය",
+      trustQuote: "ජපානයේ සෙන්ඩායි නුවර අපගේම ලියාපදිංචි ආයතනය (株式会社 Atsuko International) මඟින් පූර්ණ රැකවරණය",
       droneTourTag: "4K ඩ්‍රෝන දර්ශන • අත්සුකෝ මූලස්ථානය"
     },
 
     // Stats
     stats: {
-      stat1: { number: "5,000+", label: "ජපානයට පිටත්වූ සිසුන් ගණන" },
-      stat2: { number: "9", label: "දිවයින පුරා පුහුණු මධ්‍යස්ථාන" },
+      stat1: { number: "100%", label: "අනුමැතිය ලැබෙන තෙක් මුලික ගාස්තු ශුන්‍යයි" },
+      stat2: { number: "කඩවත මූලස්ථානය", label: "ප්‍රායෝගික පුහුණු විද්‍යාගාරය" },
       stat3: { number: "SLBFE #3293", label: "රජයේ ලියාපදිංචි බලපත්‍රය" },
-      stat4: { number: "සෙන්ඩායි, ජපානය", label: "ජපානයේ ලියාපදිංචි ආයතනය (登録支援機関)" }
+      stat4: { number: "සෙන්ඩායි සහ අයිචි", label: "ජපානයේ ලියාපදිංචි ආධාරක ආයතනය" }
     },
 
     // Eligibility Calculator
@@ -507,7 +519,7 @@ export const siteTranslations = {
 
     // Footer
     footer: {
-      desc: "ශ්‍රී ලංකා විදේශ සේවා නියුක්ති කාර්යාංශයේ (SLBFE Lic. 3293) ලියාපදිංචි විශ්වාසනීය ජපන් භාෂා ඇකඩමිය. ජපානයේ සෙන්ඩායි නුවර පිහිටි ලියාපදිංචි ආයතනය (株式会社 篤子インターナショナル) මඟින් ජපානය තුළ පූර්ණ රැකවරණය.",
+      desc: "ශ්‍රී ලංකා විදේශ සේවා නියුක්ති කාර්යාංශයේ (SLBFE Lic. 3293) ලියාපදිංචි විශ්වාසනීය ජපන් භාෂා ඇකඩමිය. ජපානයේ සෙන්ඩායි හා අයිචි නුවර පිහිටි අපගේ ලියාපදිංචි ආයතනය (株式会社 Atsuko International) මඟින් ජපානය තුළ පූර්ණ රැකවරණය.",
       licenseBadge: "SLBFE ලියාපදිංචි අංක: 3293 (තහවුරුයි)",
       colPrograms: "ජපාන පාඨමාලා",
       colBranches: "මධ්‍යස්ථාන ජාලය",
@@ -519,8 +531,8 @@ export const siteTranslations = {
 
     // Floating actions
     floating: {
-      whatsappTooltip: "WhatsApp හරහා විමසන්න (+94 77 864 3352)",
-      phoneTooltip: "ක්ෂණික ඇමතුම් (072 616 0160)",
+      whatsappTooltip: "WhatsApp හරහා විමසන්න (+94 77 793 3352)",
+      phoneTooltip: "ක්ෂණික ඇමතුම් ((+94) 112 987 263)",
       whatsappLabel: "WhatsApp සේවාව",
       phoneLabel: "ක්ෂණික ඇමතුම"
     }
@@ -539,11 +551,17 @@ export const siteTranslations = {
     // Navbar
     brandSub: "日本語アカデミー＆日本留学・就労ビザコンサルティング",
     nav: {
+      home: "ホーム",
+      about: "当校について",
+      courses: "教育・研修コース",
+      visa: "ビザ案内",
+      facilities: "学生寮・施設",
+      contact: "お問い合わせ",
       programs: "教育プログラム",
       studentVisa: "日本留学",
       sswVisa: "特定技能ビザ",
       training: "実習施設",
-      branches: "スリランカ国内拠点 (9)",
+      branches: "国内・現地拠点",
       success: "実績・コミュニティ",
       faq: "よくある質問",
       checkEligibility: "適性診断",
@@ -557,7 +575,7 @@ export const siteTranslations = {
       titlePre: "スリランカから日本への",
       titleHighlight: "確かな留学・特定技能就労",
       titleJp: "日本への架け橋 - 篤子インターナショナル (ATSUKO GAKKO)",
-      desc: "スリランカ海外雇用局（SLBFE No. 3293）公認。宮城県仙台市の登録支援機関（株式会社 篤子インターナショナル）と直結し、確かな日本語教育（JLPT/JFT）と特定技能（介護・外食・運送等）・留学ビザ申請まで日本政府公認の万全な体制で支援いたします。",
+      desc: "スリランカ海外雇用局（SLBFE No. 3293）公認。宮城県仙台市および愛知県小牧市の日本法人（株式会社 Atsuko International）と直結し、確かな日本語教育（JLPT/JFT）と特定技能（介護・外食・運送等）・留学ビザ申請まで日本政府公認の万全な体制で支援いたします。",
       pill1: "JLPT N5/N4・JFT-Basic 集中対策",
       pill2: "特定技能「介護」実技シミュレーション実習室",
       pill3: "東京・大阪等での週28時間合法アルバイト支援",
@@ -565,16 +583,16 @@ export const siteTranslations = {
       checkEligibilityBtn: "ビザ適性診断を始める",
       talkAdvisorBtn: "進路指導員に相談する",
       whatsappBtn: "WhatsAppでお問い合わせ",
-      trustQuote: "日本法人：宮城県仙台市「株式会社 篤子インターナショナル」（登録支援機関）が日本現地で万全サポート",
+      trustQuote: "日本法人：宮城県仙台市・愛知県小牧市「株式会社 Atsuko International」（登録支援機関）が日本現地で万全サポート",
       droneTourTag: "4K ドローン映像 • アツコ本部"
     },
 
     // Stats
     stats: {
-      stat1: { number: "5,000+", label: "日本渡航実績" },
-      stat2: { number: "9", label: "スリランカ国内校舎数" },
-      stat3: { number: "SLBFE #3293", label: "海外雇用局公認ライセンス" },
-      stat4: { number: "宮城県仙台市", label: "日本法人（登録支援機関）" }
+      stat1: { number: "初期費用ゼロ", label: "ビザ認可まで一切不要" },
+      stat2: { number: "カダワタ本部", label: "介護・模擬実習センター" },
+      stat3: { number: "SLBFE #3293", label: "スリランカ海外雇用局認可" },
+      stat4: { number: "仙台・小牧", label: "登録支援機関（23登-008312）" }
     },
 
     // Eligibility Calculator
@@ -771,7 +789,7 @@ export const siteTranslations = {
 
     // Footer
     footer: {
-      desc: "スリランカ海外雇用局（SLBFE Lic. No: 3293）公認の日本語教育機関・送り出し機関。宮城県仙台市の登録支援機関（株式会社 篤子インターナショナル）とともに、日本での安心な生活とキャリアを支援します。",
+      desc: "スリランカ海外雇用局（SLBFE Lic. No: 3293）公認の日本語教育機関・送り出し機関。宮城県仙台市および愛知県小牧市の日本法人（株式会社 Atsuko International）とともに、日本での安心な生活とキャリアを支援します。",
       licenseBadge: "SLBFE認可ライセンス No: 3293（確認済み）",
       colPrograms: "プログラム一覧",
       colBranches: "校舎・ネットワーク",
@@ -783,8 +801,8 @@ export const siteTranslations = {
 
     // Floating actions
     floating: {
-      whatsappTooltip: "WhatsAppでお問い合わせ (+94 77 864 3352)",
-      phoneTooltip: "電話でのお問い合わせ (072 616 0160)",
+      whatsappTooltip: "WhatsAppでお問い合わせ (+94 77 793 3352)",
+      phoneTooltip: "電話でのお問い合わせ ((+94) 112 987 263)",
       whatsappLabel: "WhatsApp相談",
       phoneLabel: "電話窓口"
     }
