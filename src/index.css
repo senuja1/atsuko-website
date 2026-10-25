@@ -4938,6 +4938,88 @@ body {
   transform: translateX(3px);
 }
 
+/* Footer Social Media Buttons - Premium Brands */
+.footer-socials-row {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 0.75rem;
+}
+
+.footer-social-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none !important;
+  color: #ffffff !important;
+  position: relative;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s ease, filter 0.22s ease;
+  flex-shrink: 0;
+  cursor: pointer;
+  outline: none;
+}
+
+.footer-social-btn:hover {
+  transform: translateY(-3px) scale(1.08);
+  filter: brightness(1.08);
+  text-decoration: none !important;
+}
+
+.footer-social-btn:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+.footer-social-btn.fb {
+  background: linear-gradient(135deg, #1877f2 0%, #0c63d4 100%);
+  box-shadow: 0 4px 14px rgba(24, 119, 242, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.footer-social-btn.fb:hover {
+  box-shadow: 0 8px 22px rgba(24, 119, 242, 0.55);
+}
+
+.footer-social-btn.wa {
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.footer-social-btn.wa:hover {
+  box-shadow: 0 8px 22px rgba(37, 211, 102, 0.55);
+}
+
+.footer-social-btn.yt {
+  background: linear-gradient(135deg, #ff0000 0%, #c90000 100%);
+  box-shadow: 0 4px 14px rgba(255, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.footer-social-btn.yt:hover {
+  box-shadow: 0 8px 22px rgba(255, 0, 0, 0.55);
+}
+
+.footer-social-btn.tt {
+  background: #050505;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.footer-social-btn.tt:hover {
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.7), 0 0 14px rgba(0, 242, 234, 0.3);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.footer-social-btn.ig {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  box-shadow: 0 4px 14px rgba(225, 48, 108, 0.38);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.footer-social-btn.ig:hover {
+  box-shadow: 0 8px 22px rgba(225, 48, 108, 0.6);
+}
+
+
 .footer-bottom {
   padding-top: 24px;
   display: flex;

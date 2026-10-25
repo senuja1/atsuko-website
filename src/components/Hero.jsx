@@ -87,15 +87,19 @@ export default function Hero({ lang, onOpenModal, onScrollToEligibility }) {
         <div className="hero-image-wrapper">
           <div className="hero-image-card">
             <video 
-              src="/videos/atsuko-drone-intro.webm" 
+              src="/videos/atsuko-drone-intro.mp4" 
               poster="/images/atsuko-drone-wide.jpg"
               autoPlay 
               loop 
               muted 
               playsInline
+              preload="metadata"
               className="hero-main-video"
               title="Atsuko International Headquarters - Drone Video"
-            />
+            >
+              <source src="/videos/atsuko-drone-intro.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
             <div className="hero-image-glow" aria-hidden="true"></div>
           </div>
 

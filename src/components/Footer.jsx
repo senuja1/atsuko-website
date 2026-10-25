@@ -1,6 +1,7 @@
 import { ShieldCheck, MapPin, Phone, Mail, Clock, Globe2, ExternalLink } from 'lucide-react';
 import { siteTranslations } from '../data/translations';
 import { officialContacts } from '../data/websiteData';
+import { FacebookIcon, WhatsAppIcon, YoutubeIcon, TikTokIcon, InstagramIcon } from './SocialIcons';
 
 export default function Footer({ lang, onOpenModal, onNavigate }) {
   const t = siteTranslations[lang]?.footer || siteTranslations.en.footer;
@@ -61,29 +62,17 @@ export default function Footer({ lang, onOpenModal, onNavigate }) {
             </div>
 
             {/* Social Media Channels Row */}
-            <div style={{ display: 'flex', gap: '0.65rem', flexWrap: 'wrap' }}>
+            <div className="footer-socials-row">
               {/* Facebook */}
               <a
                 href={officialContacts.socials.facebook}
                 target="_blank"
                 rel="noreferrer"
-                style={{
-                  width: '42px',
-                  height: '42px',
-                  borderRadius: '50%',
-                  background: '#1877f2',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#ffffff',
-                  fontSize: '1.1rem',
-                  fontWeight: 800,
-                  transition: 'transform 0.15s ease'
-                }}
+                className="footer-social-btn fb"
                 title="Atsuko International on Facebook"
                 aria-label="Atsuko Facebook"
               >
-                f
+                <FacebookIcon size={20} />
               </a>
 
               {/* WhatsApp */}
@@ -91,22 +80,11 @@ export default function Footer({ lang, onOpenModal, onNavigate }) {
                 href={officialContacts.socials.whatsappChannel}
                 target="_blank"
                 rel="noreferrer"
-                style={{
-                  width: '42px',
-                  height: '42px',
-                  borderRadius: '50%',
-                  background: '#25d366',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#ffffff',
-                  fontSize: '1.2rem',
-                  transition: 'transform 0.15s ease'
-                }}
+                className="footer-social-btn wa"
                 title="Chat with Atsuko International on WhatsApp"
                 aria-label="Chat with Atsuko on WhatsApp"
               >
-                💬
+                <WhatsAppIcon size={22} />
               </a>
 
               {/* YouTube */}
@@ -114,22 +92,11 @@ export default function Footer({ lang, onOpenModal, onNavigate }) {
                 href={officialContacts.socials.youtube}
                 target="_blank"
                 rel="noreferrer"
-                style={{
-                  width: '42px',
-                  height: '42px',
-                  borderRadius: '50%',
-                  background: '#ff0000',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#ffffff',
-                  fontSize: '1rem',
-                  transition: 'transform 0.15s ease'
-                }}
+                className="footer-social-btn yt"
                 title="Watch on YouTube"
                 aria-label="Atsuko YouTube Channel"
               >
-                ▶
+                <YoutubeIcon size={22} />
               </a>
 
               {/* TikTok */}
@@ -137,23 +104,11 @@ export default function Footer({ lang, onOpenModal, onNavigate }) {
                 href={officialContacts.socials.tiktok}
                 target="_blank"
                 rel="noreferrer"
-                style={{
-                  width: '42px',
-                  height: '42px',
-                  borderRadius: '50%',
-                  background: '#010101',
-                  border: '1px solid #334155',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#ffffff',
-                  fontSize: '1rem',
-                  transition: 'transform 0.15s ease'
-                }}
+                className="footer-social-btn tt"
                 title="TikTok: @atsuko_international"
                 aria-label="Atsuko TikTok"
               >
-                ♪
+                <TikTokIcon size={19} />
               </a>
 
               {/* Instagram */}
@@ -161,22 +116,11 @@ export default function Footer({ lang, onOpenModal, onNavigate }) {
                 href={officialContacts.socials.instagram}
                 target="_blank"
                 rel="noreferrer"
-                style={{
-                  width: '42px',
-                  height: '42px',
-                  borderRadius: '50%',
-                  background: 'linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#ffffff',
-                  fontSize: '1rem',
-                  transition: 'transform 0.15s ease'
-                }}
+                className="footer-social-btn ig"
                 title="Instagram: @atsuko_gakkou"
                 aria-label="Atsuko Instagram"
               >
-                📷
+                <InstagramIcon size={21} />
               </a>
             </div>
           </div>
