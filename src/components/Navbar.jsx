@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Sparkles, Send, GraduationCap, Briefcase, Phone, BookOpen, Info, Home, Award, ChevronRight } from 'lucide-react';
+import { Menu, X, GraduationCap, ExternalLink, Briefcase, Phone, BookOpen, Info, Home, Award, ChevronRight } from 'lucide-react';
 import { siteTranslations } from '../data/translations';
+import { officialContacts } from '../data/websiteData';
 
 export default function Navbar({ 
   lang, 
@@ -142,28 +143,18 @@ export default function Navbar({
             </div>
           )}
 
-          <button 
-            onClick={() => {
-              if (currentPage !== 'home') {
-                onNavigate('home');
-                setTimeout(() => onScrollToEligibility(), 150);
-              } else {
-                onScrollToEligibility();
-              }
-            }} 
-            className="nav-btn-secondary"
+          <a 
+            href={officialContacts.studentPortalUrl || "https://portal.atsukojapan.com"}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nav-btn-student-login"
+            title="Atsuko Student Portal Login"
+            aria-label="Login as Student"
           >
-            <Sparkles size={13} style={{ color: '#0284c7' }} />
-            <span>{t.nav?.checkEligibility || 'Check Eligibility'}</span>
-          </button>
-
-          <button 
-            onClick={() => onOpenModal('Fast Registration')} 
-            className="nav-btn-primary"
-          >
-            <span>{t.nav?.applyNow || 'Apply Now'}</span>
-            <Send size={12} />
-          </button>
+            <GraduationCap size={15} className="student-login-cap" />
+            <span>{t.nav?.studentLogin || 'Login as Student'}</span>
+            <ExternalLink size={12} className="student-login-ext" />
+          </a>
 
           <button 
             className="mobile-menu-btn" 
@@ -243,31 +234,19 @@ export default function Navbar({
             </div>
 
             <div className="mobile-menu-actions">
-              <button 
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  if (currentPage !== 'home') {
-                    onNavigate('home');
-                    setTimeout(() => onScrollToEligibility(), 150);
-                  } else {
-                    onScrollToEligibility();
-                  }
-                }}
-                className="mobile-action-secondary" 
+              <a 
+                href={officialContacts.studentPortalUrl || "https://portal.atsukojapan.com"}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
+                className="mobile-action-student-login"
+                title="Atsuko Student Portal Login"
+                aria-label="Login as Student"
               >
-                <Sparkles size={16} style={{ color: '#0284c7' }} />
-                <span>{t.nav?.checkEligibility || 'Check Eligibility'}</span>
-              </button>
-              <button 
-                onClick={() => { 
-                  setMobileMenuOpen(false); 
-                  onOpenModal('Mobile Registration'); 
-                }}
-                className="mobile-action-primary" 
-              >
-                <span>{t.nav?.applyNow || 'Apply Now'}</span>
-                <Send size={15} />
-              </button>
+                <GraduationCap size={18} />
+                <span>{t.nav?.studentLogin || 'Login as Student'}</span>
+                <ExternalLink size={14} />
+              </a>
             </div>
           </div>
         </>

@@ -714,6 +714,58 @@ body {
   transform: translateY(-1px);
 }
 
+/* Student Login Button - Desktop Navigation */
+.nav-btn-student-login {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-left: 14px;
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 55%, #0369a1 100%);
+  color: #ffffff !important;
+  text-decoration: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.1px;
+  padding: 7px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(2, 132, 199, 0.32), 0 0 0 1px rgba(2, 132, 199, 0.1);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.nav-btn-student-login:hover {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  color: #ffffff !important;
+  text-decoration: none !important;
+  box-shadow: 0 4px 16px rgba(2, 132, 199, 0.48), 0 0 0 2px rgba(14, 165, 233, 0.25);
+  transform: translateY(-1.5px);
+}
+
+.nav-btn-student-login:active {
+  transform: translateY(0);
+}
+
+.nav-btn-student-login .student-login-cap {
+  color: #e0f2fe;
+  transition: transform 0.2s ease;
+}
+
+.nav-btn-student-login:hover .student-login-cap {
+  transform: rotate(-6deg) scale(1.1);
+}
+
+.nav-btn-student-login .student-login-ext {
+  opacity: 0.8;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.nav-btn-student-login:hover .student-login-ext {
+  opacity: 1;
+  transform: translate(1px, -1px);
+}
+
 .mobile-menu-btn {
   display: none;
   background: transparent;
@@ -967,6 +1019,35 @@ body {
 
 .mobile-action-primary:hover {
   background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.45);
+  transform: translateY(-1px);
+}
+
+/* Student Login - Mobile Action */
+.mobile-action-student-login {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 60%, #0369a1 100%);
+  color: #ffffff !important;
+  text-decoration: none !important;
+  border: none;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 12px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-action-student-login:hover {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  color: #ffffff !important;
+  text-decoration: none !important;
   box-shadow: 0 6px 18px rgba(2, 132, 199, 0.45);
   transform: translateY(-1px);
 }
@@ -5994,7 +6075,8 @@ body {
     padding: 0 clamp(1rem, 3.5vw, 1.5rem);
   }
 
-  .nav-actions > .nav-btn-primary {
+  .nav-actions > .nav-btn-primary,
+  .nav-actions > .nav-btn-student-login {
     display: none !important;
   }
 
@@ -6392,7 +6474,8 @@ body {
     justify-content: center;
   }
 
-  .nav-actions > .nav-btn-primary {
+  .nav-actions > .nav-btn-primary,
+  .nav-actions > .nav-btn-student-login {
     display: none !important;
   }
 
