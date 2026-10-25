@@ -24,7 +24,8 @@ export const siteTranslations = {
       success: "Track Record",
       faq: "FAQ",
       checkEligibility: "Check Eligibility",
-      applyNow: "Apply Now"
+      applyNow: "Apply Now",
+      studentLogin: "Login as Student"
     },
 
     // Hero
@@ -295,7 +296,8 @@ export const siteTranslations = {
       success: "විශ්වාසනීය වාර්තාව",
       faq: "නිතර අසන ප්‍රශ්න",
       checkEligibility: "සුදුසුකම් පරීක්ෂාව",
-      applyNow: "ලියාපදිංචි වන්න"
+      applyNow: "ලියාපදිංචි වන්න",
+      studentLogin: "ශිෂ්‍ය පිවිසුම"
     },
 
     // Hero
@@ -565,7 +567,8 @@ export const siteTranslations = {
       success: "実績・コミュニティ",
       faq: "よくある質問",
       checkEligibility: "適性診断",
-      applyNow: "お申し込み"
+      applyNow: "お申し込み",
+      studentLogin: "受講生ログイン"
     },
 
     // Hero

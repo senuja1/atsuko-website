@@ -23,6 +23,7 @@ export const officialContacts = {
   japanSupportOrgNo: "23登-008312",
   japanPaidEmploymentNo: "04-ユ-300338",
   domain: "www.atsukojapan.com",
+  studentPortalUrl: "https://portal.atsukojapan.com",
   
   // Official Leaflet Hotlines & Contacts (Page 18)
   hotline: "(+94) 112 987 263",
