@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BookOpen, GraduationCap, Briefcase, Award, Clock, MapPin, Send } from 'lucide-react';
+import { BookOpen, GraduationCap, Briefcase, Award, Clock, MapPin, Send, Check } from 'lucide-react';
 import { coursesData } from '../data/websiteData';
 import { siteTranslations } from '../data/translations';
 
@@ -55,7 +55,7 @@ export default function ProgramsSection({ lang, onOpenModal }) {
           {currentPrograms.map((program) => (
             <div key={program.id} className="program-card">
               <span className="program-badge">
-                ★ {program.badge}
+                {program.badge}
               </span>
 
               <h3 className="program-title">{program.title}</h3>
@@ -65,7 +65,7 @@ export default function ProgramsSection({ lang, onOpenModal }) {
               <ul className="program-features">
                 {program.features.map((feat, idx) => (
                   <li key={idx} className="program-feature-item">
-                    <span className="feature-check">✓</span>
+                    <span className="feature-check"><Check size={13} strokeWidth={3} /></span>
                     <span>{feat}</span>
                   </li>
                 ))}

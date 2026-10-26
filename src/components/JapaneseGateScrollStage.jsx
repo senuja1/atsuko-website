@@ -196,36 +196,46 @@ export default function JapaneseGateScrollStage({
     };
   }, []);
 
-  // Silky 60fps-120fps Physics-Interpolated Scroll Loop
+  // Silky scroll loop — scroll tracking merged into rAF to avoid layout thrash
   useEffect(() => {
     let animId;
     let targetP = 0;
     let currentP = 0;
+    // Cache container metrics to avoid getBoundingClientRect every frame
+    let containerTop = 0;
+    let totalHeight = 0;
+
+    const cacheMetrics = () => {
+      if (!containerRef.current) return;
+      const rect = containerRef.current.getBoundingClientRect();
+      containerTop = window.scrollY + rect.top;
+      totalHeight = containerRef.current.offsetHeight - window.innerHeight;
+    };
 
     const updateTarget = () => {
-      if (!containerRef.current) return;
+      if (totalHeight <= 0) return;
+      const scrolled = window.scrollY - containerTop;
       if (window.scrollY <= 5) {
         targetP = 0;
-        return;
+      } else {
+        targetP = Math.max(0, Math.min(1, scrolled / totalHeight));
       }
-      const rect = containerRef.current.getBoundingClientRect();
-      const totalHeight = containerRef.current.offsetHeight - window.innerHeight;
-      if (totalHeight <= 0) return;
-      const scrolled = -rect.top;
-      targetP = Math.max(0, Math.min(1, scrolled / totalHeight));
     };
 
     const render = () => {
-      // Instant snap when at the top to prevent lingering lag
+      // Update target from latest scroll position (no DOM read, just cached math)
+      updateTarget();
+
       if (window.scrollY <= 5) {
         targetP = 0;
         currentP = 0;
       } else {
         const diff = targetP - currentP;
-        if (Math.abs(diff) < 0.001) {
+        if (Math.abs(diff) < 0.0008) {
           currentP = targetP;
         } else {
-          currentP += diff * 0.22;
+          // Smoother lerp: 0.12 feels buttery vs 0.22 which can feel choppy
+          currentP += diff * 0.12;
         }
       }
 
@@ -236,10 +246,9 @@ export default function JapaneseGateScrollStage({
         return;
       }
 
-      const rect = containerRef.current.getBoundingClientRect();
-
-      // If scrolled completely past the stage, hide the gate layer to free GPU resources
-      if (rect.bottom < 0) {
+      // Cheap visibility check using cached metrics (no getBoundingClientRect)
+      const approxBottom = containerTop + containerRef.current.offsetHeight - window.scrollY;
+      if (approxBottom < 0) {
         if (gateLayerRef.current && gateLayerRef.current.style.visibility !== 'hidden') {
           gateLayerRef.current.style.visibility = 'hidden';
         }
@@ -271,7 +280,7 @@ export default function JapaneseGateScrollStage({
         }
       }
 
-      // 4. Intro Hint & Call-to-Scroll Badge (Smooth upward fade before gate zooms)
+      // 4. Intro Hint & Call-to-Scroll Badge
       if (hintRef.current) {
         const hintOpacity = Math.max(0, 1 - p * 4.5);
         const hintY = -25 * Math.min(1, p * 4.5);
@@ -281,7 +290,7 @@ export default function JapaneseGateScrollStage({
         hintRef.current.style.visibility = hintOpacity <= 0.01 ? 'hidden' : 'visible';
       }
 
-      // 4b. Ambient Japanese Vertical Typography Watermarks (Tategaki)
+      // 4b. Ambient Watermarks
       if (watermarkRef.current) {
         const wmProgress = Math.min(1, p / 0.18);
         const wmOpacity = Math.max(0, 1 - wmProgress);
@@ -291,7 +300,7 @@ export default function JapaneseGateScrollStage({
         watermarkRef.current.style.visibility = wmOpacity <= 0.01 ? 'hidden' : 'visible';
       }
 
-      // 5. Emerging Kouki-Style Open Hero (Replaces blue box)
+      // 5. Portal Card
       if (portalCardRef.current) {
         const heroOpacity = p > 0.65 ? Math.min(1, (p - 0.65) / 0.22) : 0;
         const heroY = (1 - heroOpacity) * 28;
@@ -300,7 +309,7 @@ export default function JapaneseGateScrollStage({
         portalCardRef.current.style.pointerEvents = heroOpacity > 0.5 ? 'auto' : 'none';
       }
 
-      // 6. Lighting Cross-Fade (Gate Dusk -> Bright Morning Sunrise)
+      // 6. Lighting Cross-Fade
       if (duskOverlayRef.current) {
         const duskOpacity = p > 0.35 ? Math.max(0, 1 - (p - 0.35) / 0.42) : 1;
         duskOverlayRef.current.style.opacity = duskOpacity;
@@ -313,15 +322,23 @@ export default function JapaneseGateScrollStage({
       animId = requestAnimationFrame(render);
     };
 
-    window.addEventListener('scroll', updateTarget, { passive: true });
-    window.addEventListener('resize', updateTarget, { passive: true });
-    updateTarget();
-    animId = requestAnimationFrame(render);
+    const handleResize = () => {
+      cacheMetrics();
+    };
+
+    // Cache on mount, re-cache on resize
+    // Use requestAnimationFrame to ensure DOM is laid out first
+    const initRaf = requestAnimationFrame(() => {
+      cacheMetrics();
+      animId = requestAnimationFrame(render);
+    });
+
+    window.addEventListener('resize', handleResize, { passive: true });
 
     return () => {
+      cancelAnimationFrame(initRaf);
       cancelAnimationFrame(animId);
-      window.removeEventListener('scroll', updateTarget);
-      window.removeEventListener('resize', updateTarget);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
@@ -381,7 +398,19 @@ export default function JapaneseGateScrollStage({
       opacity: 0.55 + Math.random() * 0.3,
     }));
 
-    const render = () => {
+    // Pre-compute rotation as radians to avoid per-frame * Math.PI / 180
+    bgPetals.forEach(p => { p.rotRad = (p.rotation * Math.PI) / 180; p.rotSpeedRad = (p.rotSpeed * Math.PI) / 180; });
+    fgPetals.forEach(p => { p.rotRad = (p.rotation * Math.PI) / 180; p.rotSpeedRad = (p.rotSpeed * Math.PI) / 180; });
+
+    let lastTime = 0;
+    const render = (timestamp) => {
+      // Throttle to ~30fps for petals — imperceptible difference, halves GPU load
+      if (timestamp - lastTime < 33) {
+        animId = requestAnimationFrame(render);
+        return;
+      }
+      lastTime = timestamp;
+
       if (!isVisible) {
         animId = requestAnimationFrame(render);
         return;
@@ -389,57 +418,43 @@ export default function JapaneseGateScrollStage({
 
       // Render background petals
       bgCtx.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
+      bgCtx.fillStyle = '#ffb3c1';
       bgPetals.forEach((p) => {
         p.x += p.speedX;
         p.y += p.speedY;
-        p.rotation += p.rotSpeed;
+        p.rotRad += p.rotSpeedRad;
 
-        if (p.y > bgCanvas.height + 20) {
-          p.y = -20;
-          p.x = Math.random() * bgCanvas.width;
-        }
-        if (p.x > bgCanvas.width + 20) {
-          p.x = -20;
-        }
+        if (p.y > bgCanvas.height + 20) { p.y = -20; p.x = Math.random() * bgCanvas.width; }
+        if (p.x > bgCanvas.width + 20) { p.x = -20; }
 
         bgCtx.save();
         bgCtx.translate(p.x, p.y);
-        bgCtx.rotate((p.rotation * Math.PI) / 180);
+        bgCtx.rotate(p.rotRad);
         bgCtx.globalAlpha = p.opacity;
-
         bgCtx.beginPath();
-        bgCtx.fillStyle = '#ffb3c1';
         bgCtx.ellipse(0, 0, p.size, p.size * 0.55, 0, 0, Math.PI * 2);
         bgCtx.fill();
-
         bgCtx.restore();
       });
 
       // Render foreground petals
       fgCtx.clearRect(0, 0, fgCanvas.width, fgCanvas.height);
+      fgCtx.fillStyle = '#ffccd5';
       fgPetals.forEach((p) => {
         p.x += p.speedX;
         p.y += p.speedY;
-        p.rotation += p.rotSpeed;
+        p.rotRad += p.rotSpeedRad;
 
-        if (p.y > fgCanvas.height + 30) {
-          p.y = -30;
-          p.x = Math.random() * fgCanvas.width;
-        }
-        if (p.x > fgCanvas.width + 30) {
-          p.x = -30;
-        }
+        if (p.y > fgCanvas.height + 30) { p.y = -30; p.x = Math.random() * fgCanvas.width; }
+        if (p.x > fgCanvas.width + 30) { p.x = -30; }
 
         fgCtx.save();
         fgCtx.translate(p.x, p.y);
-        fgCtx.rotate((p.rotation * Math.PI) / 180);
+        fgCtx.rotate(p.rotRad);
         fgCtx.globalAlpha = p.opacity;
-
         fgCtx.beginPath();
-        fgCtx.fillStyle = '#ffccd5';
         fgCtx.ellipse(0, 0, p.size, p.size * 0.58, 0, 0, Math.PI * 2);
         fgCtx.fill();
-
         fgCtx.restore();
       });
 
@@ -718,6 +733,7 @@ export default function JapaneseGateScrollStage({
                   filter: 'brightness(1.06) contrast(1.08) drop-shadow(0 25px 40px rgba(0, 0, 0, 0.85))',
                   backfaceVisibility: 'hidden',
                   WebkitBackfaceVisibility: 'hidden',
+                  willChange: 'transform',
                 }}
               />
             </div>

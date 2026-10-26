@@ -6,7 +6,9 @@ import {
   Sparkles,
   Award,
   Building2,
-  Users
+  Users,
+  Video,
+  Globe2
 } from 'lucide-react';
 import { videoSuccessStories } from '../data/websiteData';
 import { getUiText } from '../data/uiText';
@@ -44,11 +46,11 @@ export default function SuccessStoriesPage({ lang, onOpenModal }) {
     return item.description;
   };
 
-  const icons = [
-    { icon: '🎥', color: '#ef4444' },
-    { icon: '🏛️', color: '#f59e0b' },
-    { icon: '🇯🇵', color: '#0ea5e9' },
-    { icon: '👥', color: '#10b981' }
+  const quickIcons = [
+    <Video size={18} style={{ color: '#ef4444' }} />,
+    <Building2 size={18} style={{ color: '#f59e0b' }} />,
+    <Globe2 size={18} style={{ color: '#0ea5e9' }} />,
+    <Users size={18} style={{ color: '#10b981' }} />
   ];
 
   const cardThemeStyles = [
@@ -78,7 +80,7 @@ export default function SuccessStoriesPage({ lang, onOpenModal }) {
             <div className="about-quick-badges">
               {s.badges.map((b, idx) => (
                 <div key={idx} className="about-badge-item">
-                  <span className="badge-icon">{icons[idx]?.icon || '⭐'}</span>
+                  <span className="badge-icon">{quickIcons[idx] || <Award size={18} />}</span>
                   <div>
                     <strong>{b.val}</strong>
                     <span className="helper-text">{b.sub}</span>

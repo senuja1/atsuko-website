@@ -58,8 +58,8 @@ export default function BranchNetwork({ lang, onOpenModal }) {
               }}
             >
               {lang === 'jp' ? (branch.jpName || branch.name) : branch.name}
-              {branch.isHeadOffice && <span style={{ marginLeft: '4px', color: '#fbbf24' }}>★</span>}
-              {branch.isJapanEntity && <span style={{ marginLeft: '4px' }}>🇯🇵</span>}
+              {branch.isHeadOffice && <span style={{ marginLeft: '6px', fontSize: '0.72rem', color: '#b45309', background: '#fef3c7', padding: '1px 6px', borderRadius: '4px', fontWeight: 700 }}>HQ</span>}
+              {branch.isJapanEntity && <span style={{ marginLeft: '6px', fontSize: '0.72rem', color: '#0369a1', background: '#e0f2fe', padding: '1px 6px', borderRadius: '4px', fontWeight: 700 }}>Japan</span>}
             </button>
           ))}
         </div>

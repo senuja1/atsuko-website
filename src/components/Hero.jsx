@@ -1,4 +1,4 @@
-import { Sparkles, ArrowRight, CheckCircle2, Award, ShieldCheck } from 'lucide-react';
+import { CheckCircle2, Award, ShieldCheck, GraduationCap, Briefcase, FileCheck, Globe2, MapPin } from 'lucide-react';
 import { siteTranslations } from '../data/translations';
 import { officialContacts } from '../data/websiteData';
 import { getUiText } from '../data/uiText';
@@ -12,11 +12,7 @@ export default function Hero({ lang, onOpenModal, onScrollToEligibility }) {
       <div className="container hero-grid">
         {/* Left Column: Content */}
         <div className="hero-content">
-          <div className="hero-tag" role="status">
-            <span className="dot" aria-hidden="true"></span>
-            <span className="hero-tag-text">{t.tagline}</span>
-            <span className="hero-tag-badge">{t.licenseTag}</span>
-          </div>
+
 
           <h1 className="hero-title">
             <span className="hero-title-lead">{t.titlePre}</span>{' '}
@@ -28,53 +24,39 @@ export default function Hero({ lang, onOpenModal, onScrollToEligibility }) {
             {t.desc}
           </p>
 
-          {/* Quick Benefit Badges */}
+          {/* Four Core Services Highlights */}
           <div className="hero-highlights" role="list">
             <div className="hero-pill" role="listitem">
-              <span className="hero-pill-icon" aria-hidden="true">🌸</span>
-              <span>{t.pill1}</span>
+              <span className="hero-pill-icon" aria-hidden="true"><FileCheck size={18} /></span>
+              <div className="hero-pill-body">
+                <span className="hero-pill-title">{t.pill1Title || "Comprehensive Visa Processing"}</span>
+                <span className="hero-pill-desc">{t.pill1Desc}</span>
+              </div>
             </div>
             <div className="hero-pill" role="listitem">
-              <span className="hero-pill-icon" aria-hidden="true">🏥</span>
-              <span>{t.pill2}</span>
+              <span className="hero-pill-icon" aria-hidden="true"><GraduationCap size={18} /></span>
+              <div className="hero-pill-body">
+                <span className="hero-pill-title">{t.pill2Title || "Japanese Language Education"}</span>
+                <span className="hero-pill-desc">{t.pill2Desc}</span>
+              </div>
             </div>
             <div className="hero-pill" role="listitem">
-              <span className="hero-pill-icon" aria-hidden="true">✨</span>
-              <span>{t.pill3}</span>
+              <span className="hero-pill-icon" aria-hidden="true"><Briefcase size={18} /></span>
+              <div className="hero-pill-body">
+                <span className="hero-pill-title">{t.pill3Title || "Targeted Vocational Training"}</span>
+                <span className="hero-pill-desc">{t.pill3Desc}</span>
+              </div>
             </div>
             <div className="hero-pill" role="listitem">
-              <span className="hero-pill-icon" aria-hidden="true">📜</span>
-              <span>{t.pill4}</span>
+              <span className="hero-pill-icon" aria-hidden="true"><Globe2 size={18} /></span>
+              <div className="hero-pill-body">
+                <span className="hero-pill-title">{t.pill4Title || "Complete Migration Preparation"}</span>
+                <span className="hero-pill-desc">{t.pill4Desc}</span>
+              </div>
             </div>
           </div>
 
-          {/* CTAs */}
-          <div className="hero-cta-group">
-            <button 
-              onClick={onScrollToEligibility}
-              className="btn btn-primary btn-pulse hero-cta-btn" 
-            >
-              <Sparkles size={18} />
-              <span>{t.checkEligibilityBtn}</span>
-              <ArrowRight size={16} />
-            </button>
 
-            <button 
-              onClick={onOpenModal} 
-              className="btn btn-gold hero-cta-btn"
-            >
-              <span>{t.talkAdvisorBtn}</span>
-            </button>
-
-            <a 
-              href="https://wa.me/94777933352?text=Hello%20Atsuko%20International,%20I%20would%20like%20to%20inquire%20about%20upcoming%20classes%20and%20Japan%20visa%20intakes."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-whatsapp hero-cta-btn"
-            >
-              <span>{t.whatsappBtn}</span>
-            </a>
-          </div>
 
           {/* Micro trust quote */}
           <div className="hero-trust-quote">
@@ -117,11 +99,11 @@ export default function Hero({ lang, onOpenModal, onScrollToEligibility }) {
           {/* Floating Bottom Left Badge */}
           <div className="floating-badge badge-bottom-left">
             <div className="badge-icon-box badge-icon-gold">
-              <ShieldCheck size={22} />
+              <MapPin size={22} />
             </div>
             <div>
-              <div className="badge-val">{b.japanVal}</div>
-              <div className="badge-lbl">{b.japanLbl}</div>
+              <div className="badge-val">{b.slAddressVal || b.japanVal}</div>
+              <div className="badge-lbl">{b.slAddressLbl || b.japanLbl}</div>
             </div>
           </div>
         </div>

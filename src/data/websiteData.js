@@ -689,7 +689,7 @@ export const targetAudiencePathways = [
 export const globalPresenceData = {
   sriLanka: {
     country: "Sri Lanka",
-    flag: "🇱🇰",
+    countryCode: "LK",
     title: "Atsuko International School & Agency (Headquarters)",
     companyName: "ATSUKO INTERNATIONAL (PVT) LTD",
     license: "SLBFE License No. 3293 (Renewed 2020 - 2026)",
@@ -710,7 +710,7 @@ export const globalPresenceData = {
   },
   japan: {
     country: "Japan",
-    flag: "🇯🇵",
+    countryCode: "JP",
     title: "Japan Resident Support Entity",
     companyName: "株式会社 Atsuko International",
     corporateNumber: "3700-01-048848",

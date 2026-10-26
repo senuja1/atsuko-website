@@ -1,19 +1,21 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import './index.css';
 import Navbar from './components/Navbar';
 import JapaneseGateScrollStage from './components/JapaneseGateScrollStage';
-import HomeView from './components/HomeView';
-import AboutPage from './components/AboutPage';
-import CoursesPage from './components/CoursesPage';
-import VisaServicesPage from './components/VisaServicesPage';
-import SuccessStoriesPage from './components/SuccessStoriesPage';
-import BranchNetwork from './components/BranchNetwork';
-import ContactPage from './components/ContactPage';
-import StudentLifePage from './components/StudentLifePage';
 import Footer from './components/Footer';
 import ConsultationModal from './components/ConsultationModal';
 import FloatingActions from './components/FloatingActions';
-import VisaAgencyLanding from './components/VisaAgencyLanding';
+
+// Lazy-load all page-level components — only parsed when first visited
+const HomeView = lazy(() => import('./components/HomeView'));
+const AboutPage = lazy(() => import('./components/AboutPage'));
+const CoursesPage = lazy(() => import('./components/CoursesPage'));
+const VisaServicesPage = lazy(() => import('./components/VisaServicesPage'));
+const SuccessStoriesPage = lazy(() => import('./components/SuccessStoriesPage'));
+const BranchNetwork = lazy(() => import('./components/BranchNetwork'));
+const ContactPage = lazy(() => import('./components/ContactPage'));
+const StudentLifePage = lazy(() => import('./components/StudentLifePage'));
+const VisaAgencyLanding = lazy(() => import('./components/VisaAgencyLanding'));
 
 export default function App() {
   const [lang, setLang] = useState('en');
@@ -83,7 +85,6 @@ export default function App() {
         {/* PAGE 1: HOME PAGE WITH 3D GATE SCROLL-THROUGH STAGE */}
         {currentPage === 'home' && (
           <div>
-            {/* Majestic 3D Torii Gate Walkthrough Scroll Animation */}
             <JapaneseGateScrollStage 
               lang={lang} 
               onEnterWebsite={() => {
@@ -94,83 +95,66 @@ export default function App() {
               onScrollToEligibility={scrollToEligibility}
               onNavigate={handleNavigate}
             />
-
-            {/* Complete Atsuko International Home Sections */}
             <div id="home-content-start">
-              <HomeView 
-                lang={lang}
-                onOpenModal={handleOpenModal}
-                onNavigate={handleNavigate}
-                scrollToEligibility={scrollToEligibility}
-              />
+              <Suspense fallback={<div style={{ minHeight: '60vh' }} />}>
+                <HomeView 
+                  lang={lang}
+                  onOpenModal={handleOpenModal}
+                  onNavigate={handleNavigate}
+                  scrollToEligibility={scrollToEligibility}
+                />
+              </Suspense>
             </div>
           </div>
         )}
 
         {/* PAGE 2: ABOUT US */}
         {currentPage === 'about' && (
-          <AboutPage 
-            lang={lang}
-            onOpenModal={handleOpenModal}
-            onNavigate={handleNavigate}
-          />
+          <Suspense fallback={<div style={{ minHeight: '60vh' }} />}>
+            <AboutPage lang={lang} onOpenModal={handleOpenModal} onNavigate={handleNavigate} />
+          </Suspense>
         )}
-
         {/* PAGE 3: COURSES & TRAINING */}
         {currentPage === 'courses' && (
-          <CoursesPage 
-            lang={lang}
-            onOpenModal={handleOpenModal}
-          />
+          <Suspense fallback={<div style={{ minHeight: '60vh' }} />}>
+            <CoursesPage lang={lang} onOpenModal={handleOpenModal} />
+          </Suspense>
         )}
-
         {/* PAGE 4: VISA SERVICES */}
         {currentPage === 'visa' && (
-          <VisaServicesPage 
-            lang={lang}
-            onOpenModal={handleOpenModal}
-          />
+          <Suspense fallback={<div style={{ minHeight: '60vh' }} />}>
+            <VisaServicesPage lang={lang} onOpenModal={handleOpenModal} />
+          </Suspense>
         )}
-
         {/* PAGE 5: CAMPUS FACILITIES & STUDENT LIFE */}
         {currentPage === 'facilities' && (
-          <StudentLifePage 
-            lang={lang}
-            onOpenModal={handleOpenModal}
-            onNavigate={handleNavigate}
-          />
+          <Suspense fallback={<div style={{ minHeight: '60vh' }} />}>
+            <StudentLifePage lang={lang} onOpenModal={handleOpenModal} onNavigate={handleNavigate} />
+          </Suspense>
         )}
-
         {/* PAGE 6: SUCCESS STORIES */}
         {currentPage === 'stories' && (
-          <SuccessStoriesPage 
-            lang={lang}
-            onOpenModal={handleOpenModal}
-            onNavigate={handleNavigate}
-          />
+          <Suspense fallback={<div style={{ minHeight: '60vh' }} />}>
+            <SuccessStoriesPage lang={lang} onOpenModal={handleOpenModal} onNavigate={handleNavigate} />
+          </Suspense>
         )}
-
         {/* BRANCH NETWORK */}
         {currentPage === 'branches' && (
-          <BranchNetwork 
-            lang={lang}
-            onOpenModal={handleOpenModal}
-          />
+          <Suspense fallback={<div style={{ minHeight: '60vh' }} />}>
+            <BranchNetwork lang={lang} onOpenModal={handleOpenModal} />
+          </Suspense>
         )}
-
         {/* PAGE 6: CONTACT US */}
         {currentPage === 'contact' && (
-          <ContactPage 
-            lang={lang}
-            onOpenModal={handleOpenModal}
-          />
+          <Suspense fallback={<div style={{ minHeight: '60vh' }} />}>
+            <ContactPage lang={lang} onOpenModal={handleOpenModal} />
+          </Suspense>
         )}
-
         {/* JAPANDI MINIMALIST VISA AGENCY LANDING */}
         {currentPage === 'landing' && (
-          <VisaAgencyLanding 
-            onApply={() => handleOpenModal('Visa Application')}
-          />
+          <Suspense fallback={<div style={{ minHeight: '60vh' }} />}>
+            <VisaAgencyLanding onApply={() => handleOpenModal('Visa Application')} />
+          </Suspense>
         )}
       </main>
 

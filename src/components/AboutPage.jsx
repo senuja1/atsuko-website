@@ -24,7 +24,12 @@ export default function AboutPage({ lang, onOpenModal, onNavigate }) {
   const ui = tFull.pages.about;
   const h = tFull.home;
 
-  const quickIcons = ['🏛️', '📄', '🇯🇵', '✨'];
+  const quickIcons = [
+    <Building2 size={20} style={{ color: '#0284c7' }} />,
+    <FileText size={20} style={{ color: '#f59e0b' }} />,
+    <Globe2 size={20} style={{ color: '#dc2626' }} />,
+    <Award size={20} style={{ color: '#10b981' }} />
+  ];
 
   const slFacilities = lang === 'si' ? [
     'ප්‍රායෝගික රෝහල් සාත්තු සේවා සමාකරණ ඒකකය (Kaigo Lab)',
@@ -74,7 +79,7 @@ export default function AboutPage({ lang, onOpenModal, onNavigate }) {
             <div className="about-quick-badges">
               {ui.badges.map((b, idx) => (
                 <div key={idx} className="about-badge-item">
-                  <span className="badge-icon">{quickIcons[idx] || '✨'}</span>
+                  <span className="badge-icon">{quickIcons[idx] || <Award size={20} />}</span>
                   <div>
                     <strong>{b.val}</strong>
                     <span className="helper-text">{b.sub}</span>
@@ -149,7 +154,7 @@ export default function AboutPage({ lang, onOpenModal, onNavigate }) {
                 <div className="credentials-list">
                   {ui.credItems.map((item, idx) => (
                     <div key={idx} className="cred-item">
-                      <div className="cred-check">✓</div>
+                      <div className="cred-check"><CheckCircle2 size={16} /></div>
                       <div>
                         <h4 className="cred-name">{item.name}</h4>
                         <span className="cred-issuer">{item.issuer}</span>
@@ -290,7 +295,9 @@ export default function AboutPage({ lang, onOpenModal, onNavigate }) {
             {/* Sri Lanka Headquarters */}
             <div className="presence-card presence-sl">
               <div className="presence-card-header">
-                <span className="presence-flag">🇱🇰</span>
+                <div className="presence-flag-icon-badge" style={{ width: 44, height: 44, borderRadius: '10px', background: 'rgba(2, 132, 199, 0.1)', color: '#0284c7', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <Building2 size={24} />
+                </div>
                 <div>
                   <h3 className="presence-title">{h.globalPresence.slTitle}</h3>
                   <span className="presence-tag">{h.globalPresence.slTag}</span>
@@ -339,7 +346,9 @@ export default function AboutPage({ lang, onOpenModal, onNavigate }) {
             {/* Japan Operations */}
             <div className="presence-card presence-jp">
               <div className="presence-card-header">
-                <span className="presence-flag">🇯🇵</span>
+                <div className="presence-flag-icon-badge" style={{ width: 44, height: 44, borderRadius: '10px', background: 'rgba(220, 38, 38, 0.1)', color: '#dc2626', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <Globe2 size={24} />
+                </div>
                 <div>
                   <h3 className="presence-title">{h.globalPresence.jpTitle}</h3>
                   <span className="presence-tag">{h.globalPresence.jpTag}</span>
@@ -407,8 +416,9 @@ export default function AboutPage({ lang, onOpenModal, onNavigate }) {
           <div className="presence-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))' }}>
             {ui.guaranteesList.map((item, idx) => (
               <div key={idx} className="credentials-card" style={{ background: '#f8fafc', border: '1px solid #e2e8f0', padding: '1.75rem' }}>
-                <span style={{ fontSize: '0.8rem', color: '#dc2626', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
-                  ★ GUARANTEE 0{idx + 1}
+                <span style={{ fontSize: '0.8rem', color: '#dc2626', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', display: 'flex', alignItems: 'center', gap: '5px' }}>
+                  <ShieldCheck size={14} />
+                  GUARANTEE 0{idx + 1}
                 </span>
                 <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--navy-900)', margin: '0.35rem 0 0.65rem' }}>
                   {item.title}

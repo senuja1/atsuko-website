@@ -14,7 +14,8 @@ import {
   Phone,
   Mail,
   Users,
-  Clock
+  Clock,
+  Globe2
 } from 'lucide-react';
 import Hero from './Hero';
 import StatsBar from './StatsBar';
@@ -45,10 +46,7 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
       <section className="section target-gateway-section">
         <div className="container">
           <div className="section-header">
-            <span className="section-badge badge-red">
-              <Award size={14} />
-              {h.pathwaysBadge}
-            </span>
+
             <h2 className="section-title">
               {h.pathwaysTitle} <span className="text-gradient-red">{h.pathwaysHighlight}</span>
             </h2>
@@ -87,17 +85,7 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
                       ))}
                     </ul>
 
-                    <button 
-                      onClick={() => {
-                        if (card.targetTab === 'about') onNavigate('about');
-                        else if (card.targetTab === 'visa') onNavigate('visa');
-                        else onNavigate('courses');
-                      }}
-                      className="btn btn-primary btn-block tg-btn"
-                    >
-                      <span>{card.ctaText}</span>
-                      <ArrowRight size={14} />
-                    </button>
+
                   </div>
                 </RevealOnScroll>
               );
@@ -202,13 +190,7 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
         />
       </RevealOnScroll>
 
-      {/* 11. Official Operating Hubs (Kadawatha, Kelaniya, Sendai, Komaki, Island-wide Zoom) */}
-      <RevealOnScroll delay={0.1}>
-        <BranchNetwork 
-          lang={lang}
-          onOpenModal={onOpenModal} 
-        />
-      </RevealOnScroll>
+
 
       {/* 9. Official Global Operating Bases (Sri Lanka & Japan) */}
       <RevealOnScroll delay={0.1}>
@@ -230,7 +212,9 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
             <div className="presence-grid">
               <div className="presence-card presence-sl">
                 <div className="presence-card-header">
-                  <span className="presence-flag">🇱🇰</span>
+                  <div className="presence-flag-icon-badge" style={{ width: 44, height: 44, borderRadius: '10px', background: 'rgba(2, 132, 199, 0.1)', color: '#0284c7', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                    <Building2 size={24} />
+                  </div>
                   <div>
                     <h3 className="presence-title">{h.globalPresence?.slTitle || 'Sri Lanka Headquarters'}</h3>
                     <span className="presence-tag">{h.globalPresence?.slTag || 'SLBFE License No. 3293 • PV 0217143'}</span>
@@ -270,7 +254,9 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
 
               <div className="presence-card presence-jp">
                 <div className="presence-card-header">
-                  <span className="presence-flag">🇯🇵</span>
+                  <div className="presence-flag-icon-badge" style={{ width: 44, height: 44, borderRadius: '10px', background: 'rgba(220, 38, 38, 0.1)', color: '#dc2626', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                    <Globe2 size={24} />
+                  </div>
                   <div>
                     <h3 className="presence-title">{h.globalPresence?.jpTitle || 'Japan Operations & Support Entity'}</h3>
                     <span className="presence-tag">{h.globalPresence?.jpTag || '株式会社 Atsuko International'}</span>

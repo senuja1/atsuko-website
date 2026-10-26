@@ -120,8 +120,9 @@ export default function JapaneseQuiz({ lang, onOpenModal }) {
                   padding: '1rem 1.25rem',
                   marginBottom: '1.5rem'
                 }}>
-                  <div style={{ fontWeight: 700, color: selectedOption === question.correct ? '#34d399' : '#f87171', marginBottom: '0.25rem' }}>
-                    {selectedOption === question.correct ? t.correctAnswer : t.wrongAnswer}
+                  <div style={{ fontWeight: 700, color: selectedOption === question.correct ? '#34d399' : '#f87171', marginBottom: '0.25rem', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    {selectedOption === question.correct ? <CheckCircle size={16} /> : <XCircle size={16} />}
+                    <span>{selectedOption === question.correct ? t.correctAnswer : t.wrongAnswer}</span>
                   </div>
                   <p style={{ color: '#cbd5e1', fontSize: '0.875rem' }}>{question.explanation}</p>
                 </div>

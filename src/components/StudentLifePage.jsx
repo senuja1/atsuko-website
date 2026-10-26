@@ -12,7 +12,9 @@ import {
   GraduationCap,
   ArrowRight,
   FileCheck,
-  Compass
+  Compass,
+  Laptop,
+  Globe2
 } from 'lucide-react';
 import { studentLifeData, officialContacts } from '../data/websiteData';
 import { getUiText } from '../data/uiText';
@@ -22,7 +24,12 @@ export default function StudentLifePage({ lang, onOpenModal, onNavigate }) {
   const ui = tFull.pages.facilities;
   const h = tFull.home;
 
-  const quickIcons = ['🏢', '🍱', '💻', '🇯🇵'];
+  const quickIcons = [
+    <Building2 size={20} style={{ color: '#0284c7' }} />,
+    <Utensils size={20} style={{ color: '#f59e0b' }} />,
+    <Laptop size={20} style={{ color: '#10b981' }} />,
+    <Globe2 size={20} style={{ color: '#dc2626' }} />
+  ];
 
   const assessmentCards = lang === 'si' ? [
     {
@@ -120,7 +127,7 @@ export default function StudentLifePage({ lang, onOpenModal, onNavigate }) {
             <div className="about-quick-badges">
               {ui.badges.map((b, idx) => (
                 <div key={idx} className="about-badge-item">
-                  <span className="badge-icon">{quickIcons[idx] || '✨'}</span>
+                  <span className="badge-icon">{quickIcons[idx] || <Sparkles size={20} />}</span>
                   <div>
                     <strong>{b.val}</strong>
                     <span className="helper-text">{b.sub}</span>

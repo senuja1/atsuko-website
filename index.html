@@ -45,12 +45,22 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts: non-blocking load to avoid render-blocking on slow connections -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Load as print then switch to all — zero render blocking -->
   <link
     href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@400;700;900&family=Noto+Sans+Sinhala:wght@400;600;700&display=swap"
-    rel="stylesheet">
+    rel="stylesheet"
+    media="print"
+    onload="this.media='all'">
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@400;700;900&family=Noto+Sans+Sinhala:wght@400;600;700&display=swap" rel="stylesheet">
+  </noscript>
+  <!-- Preload LCP image: Torii gate is first heavy visual -->
+  <link rel="preload" href="/images/torii-gate-ultra.png" as="image" fetchpriority="high">
+  <!-- Preload hero video poster so first frame shows immediately -->
+  <link rel="preload" href="/images/atsuko-drone-wide.jpg" as="image">
 
   <title>Atsuko International (PVT) LTD | 篤子 学校 (ATSUKO GAKKO) - Official Pathway to Study & Work in Japan</title>
 </head>

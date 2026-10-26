@@ -1371,31 +1371,71 @@ body {
 }
 
 .hero-highlights {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 28px;
 }
 
 .hero-pill {
   display: flex;
-  align-items: center;
-  gap: 8px;
+  align-items: flex-start;
+  gap: 10px;
   background: white;
-  padding: 8px 16px;
-  border-radius: var(--radius-full);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   font-size: 13px;
-  font-weight: 600;
   color: var(--navy-800);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 @media (hover: hover) and (pointer: fine) {
   .hero-pill:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-color: rgba(220, 38, 38, 0.2);
+  }
+}
+
+.hero-pill-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(220, 38, 38, 0.08);
+  color: #dc2626;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.hero-pill-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.hero-pill-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy-900);
+  line-height: 1.3;
+}
+
+.hero-pill-desc {
+  font-size: 11.5px;
+  font-weight: 400;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+@media (max-width: 640px) {
+  .hero-highlights {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -8194,4 +8234,122 @@ body {
   background: #0f172a;
   color: #ffffff;
   border-color: #0f172a;
-}
+}
+
+/* ============================================================
+   PERFORMANCE OPTIMIZATIONS
+   - prefers-reduced-motion: kills all transitions/animations
+   - Mobile: reduce expensive GPU effects (backdrop-filter, shadows)
+   - content-visibility: defer off-screen section rendering
+   - Low-end hints: strip heavy filters on small viewports
+   ============================================================ */
+
+/* 1. Respect system reduced-motion preference (accessibility + low-power) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .floating-badge,
+  .hero-pill,
+  .gate-scroll-runway,
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* 2. content-visibility: auto — browser skips rendering off-screen sections */
+.section,
+.hero,
+.target-gateway-section,
+.stats-bar,
+.programs-section,
+.roadmap-section,
+.faq-section {
+  content-visibility: auto;
+  /* contain-intrinsic-size gives the browser a size estimate to avoid layout shift */
+  contain-intrinsic-size: 0 600px;
+}
+
+/* 3. Mobile GPU relief: reduce expensive effects on screens <= 768px */
+@media (max-width: 768px) {
+  /* Reduce backdrop-filter blur — one of the most expensive GPU ops */
+  .navbar,
+  .floating-badge,
+  .consultation-modal,
+  .mobile-menu-drawer {
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+  }
+
+  /* Simplify box-shadows to single layer */
+  .target-gateway-card,
+  .program-card,
+  .story-card,
+  .course-card {
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08) !important;
+  }
+
+  /* Disable hover transforms on touch (no hover state anyway) */
+  .target-gateway-card:hover,
+  .program-card:hover,
+  .story-card:hover {
+    transform: none !important;
+  }
+
+  /* Reduce gate animation complexity on mobile */
+  .gate-scroll-runway {
+    height: 180vh !important;
+  }
+}
+
+/* 4. Very small screens (320px–480px): strip expensive filters entirely */
+@media (max-width: 480px) {
+  img {
+    /* Avoid expensive CSS filters on low-end mobile GPUs */
+    filter: none !important;
+  }
+
+  /* Disable floating badge hover animations */
+  .floating-badge {
+    animation: none !important;
+  }
+
+  /* Reduce box-shadow complexity further */
+  * {
+    text-shadow: none !important;
+  }
+}
+
+/* 5. Slow network / data-saver: hide video, show poster only */
+@media (prefers-reduced-data: reduce) {
+  .hero-main-video {
+    display: none !important;
+  }
+  .hero-image-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('/images/atsuko-drone-wide.jpg') center/cover no-repeat;
+    border-radius: inherit;
+  }
+}
+
+/* 6. High contrast mode support */
+@media (prefers-contrast: high) {
+  .text-gradient-red,
+  .text-gradient-gold {
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: unset !important;
+    color: #dc2626 !important;
+  }
+}
+

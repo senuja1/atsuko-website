@@ -1,6 +1,27 @@
 import { useState } from 'react';
 import confetti from 'canvas-confetti';
-import { CheckCircle, ArrowRight, ArrowLeft, RefreshCw, Send, Sparkles, AlertCircle } from 'lucide-react';
+import { 
+  CheckCircle, 
+  ArrowRight, 
+  ArrowLeft, 
+  RefreshCw, 
+  Send, 
+  Sparkles, 
+  AlertCircle,
+  Users,
+  Briefcase,
+  ShieldCheck,
+  Award,
+  BookOpen,
+  GraduationCap,
+  FileText,
+  HeartPulse,
+  Truck,
+  Utensils,
+  Laptop,
+  Languages,
+  CheckCircle2
+} from 'lucide-react';
 import { siteTranslations } from '../data/translations';
 
 export default function EligibilityChecker({ lang, onOpenModal }) {
@@ -15,6 +36,29 @@ export default function EligibilityChecker({ lang, onOpenModal }) {
 
   const t = siteTranslations[lang]?.calculator || siteTranslations.en.calculator;
   const stepsTotal = 4;
+
+  const getOptionIcon = (id) => {
+    switch (id) {
+      case '18-24': return <Users size={22} />;
+      case '25-28': return <Briefcase size={22} />;
+      case '29-35': return <ShieldCheck size={22} />;
+      case '36+': return <Award size={22} />;
+      case 'ol': return <BookOpen size={22} />;
+      case 'al': return <GraduationCap size={22} />;
+      case 'diploma': return <FileText size={22} />;
+      case 'degree': return <Award size={22} />;
+      case 'student': return <GraduationCap size={22} />;
+      case 'caregiver': return <HeartPulse size={22} />;
+      case 'driver': return <Truck size={22} />;
+      case 'food': return <Utensils size={22} />;
+      case 'engineer': return <Laptop size={22} />;
+      case 'beginner': return <BookOpen size={22} />;
+      case 'basic': return <Languages size={22} />;
+      case 'n5_ready': return <CheckCircle2 size={22} />;
+      case 'n4_plus': return <Sparkles size={22} />;
+      default: return <Sparkles size={22} />;
+    }
+  };
 
   const handleSelect = (field, value) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -229,7 +273,7 @@ Please provide me with upcoming batch details and consultation at your nearest c
                     className={`option-card ${formData.age === opt.id ? 'selected' : ''}`}
                     onClick={() => handleSelect('age', opt.id)}
                   >
-                    <span className="option-icon">{opt.icon}</span>
+                    <span className="option-icon">{getOptionIcon(opt.id)}</span>
                     <span className="option-label">{opt.label}</span>
                     <span className="option-desc">{opt.desc}</span>
                   </button>
@@ -252,7 +296,7 @@ Please provide me with upcoming batch details and consultation at your nearest c
                     className={`option-card ${formData.qualification === opt.id ? 'selected' : ''}`}
                     onClick={() => handleSelect('qualification', opt.id)}
                   >
-                    <span className="option-icon">{opt.icon}</span>
+                    <span className="option-icon">{getOptionIcon(opt.id)}</span>
                     <span className="option-label">{opt.label}</span>
                     <span className="option-desc">{opt.desc}</span>
                   </button>
@@ -275,7 +319,7 @@ Please provide me with upcoming batch details and consultation at your nearest c
                     className={`option-card ${formData.goal === opt.id ? 'selected' : ''}`}
                     onClick={() => handleSelect('goal', opt.id)}
                   >
-                    <span className="option-icon">{opt.icon}</span>
+                    <span className="option-icon">{getOptionIcon(opt.id)}</span>
                     <span className="option-label">{opt.label}</span>
                     <span className="option-desc">{opt.desc}</span>
                   </button>
@@ -298,7 +342,7 @@ Please provide me with upcoming batch details and consultation at your nearest c
                     className={`option-card ${formData.japaneseLevel === opt.id ? 'selected' : ''}`}
                     onClick={() => handleSelect('japaneseLevel', opt.id)}
                   >
-                    <span className="option-icon">{opt.icon}</span>
+                    <span className="option-icon">{getOptionIcon(opt.id)}</span>
                     <span className="option-label">{opt.label}</span>
                     <span className="option-desc">{opt.desc}</span>
                   </button>
@@ -311,7 +355,8 @@ Please provide me with upcoming batch details and consultation at your nearest c
           {step === 5 && result && (
             <div className="result-card">
               <div className="result-header">
-                <span className="result-badge">
+                <span className="result-badge" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                  <CheckCircle2 size={15} />
                   {t.resultBadge}
                 </span>
                 <span style={{ color: '#cbd5e1', fontSize: '0.85rem' }}>

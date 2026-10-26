@@ -142,7 +142,7 @@ export default function VisaServicesPage({ lang, onOpenModal }) {
             <div className="visa-detail-block">
               <div className="visa-detail-header-card">
                 <div className="badge-pill-header">
-                  <span className="badge-pill-flag">🇯🇵</span>
+                  <span className="badge-pill-flag"><GraduationCap size={16} /></span>
                   <span>{ui.studentPill}</span>
                 </div>
                 <h2 className="visa-title-lg">
@@ -233,7 +233,7 @@ export default function VisaServicesPage({ lang, onOpenModal }) {
             <div className="visa-detail-block">
               <div className="visa-detail-header-card">
                 <div className="badge-pill-header">
-                  <span className="badge-pill-flag">💼</span>
+                  <span className="badge-pill-flag"><Briefcase size={16} /></span>
                   <span>{ui.sswPill}</span>
                 </div>
                 <h2 className="visa-title-lg">
