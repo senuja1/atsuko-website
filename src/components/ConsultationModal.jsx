@@ -49,13 +49,13 @@ export default function ConsultationModal({ lang, isOpen, onClose, defaultProgra
   const handleSubmit = (e) => {
     e.preventDefault();
     try {
-      const existing = JSON.parse(localStorage.getItem('atsuko_inquiries') || '[]');
+      const existing = JSON.parse(sessionStorage.getItem('atsuko_inquiries') || '[]');
       existing.push({
         ...formData,
         id: Date.now(),
         date: new Date().toISOString()
       });
-      localStorage.setItem('atsuko_inquiries', JSON.stringify(existing));
+      sessionStorage.setItem('atsuko_inquiries', JSON.stringify(existing));
 
       confetti({
         particleCount: 50,
@@ -123,6 +123,7 @@ Please schedule my consultation session with an Atsuko Counselor.`;
                   type="text"
                   name="name"
                   required
+                  maxLength={80}
                   placeholder="e.g. Kasun Chamara Perera"
                   className="form-input"
                   value={formData.name}
@@ -136,6 +137,8 @@ Please schedule my consultation session with an Atsuko Counselor.`;
                   type="tel"
                   name="phone"
                   required
+                  maxLength={20}
+                  pattern="[0-9+ \-]{9,20}"
                   placeholder="e.g. 077 123 4567"
                   className="form-input"
                   value={formData.phone}
@@ -209,6 +212,7 @@ Please schedule my consultation session with an Atsuko Counselor.`;
                 <textarea
                   name="notes"
                   rows="3"
+                  maxLength={500}
                   placeholder={t.notesPlaceholder}
                   className="form-textarea"
                   value={formData.notes}
@@ -253,7 +257,7 @@ Please schedule my consultation session with an Atsuko Counselor.`;
                 <a
                   href={getWhatsAppLink()}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="btn btn-whatsapp"
                   style={{ width: '100%', padding: '0.85rem' }}
                 >

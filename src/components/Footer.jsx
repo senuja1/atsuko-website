@@ -64,7 +64,7 @@ export default function Footer({ lang, onOpenModal, onNavigate }) {
               <a
                 href={officialContacts.socials.facebook}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 style={{
                   width: '44px',
                   height: '44px',
@@ -88,7 +88,7 @@ export default function Footer({ lang, onOpenModal, onNavigate }) {
               <a
                 href="https://wa.me/94778643352"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 style={{
                   width: '44px',
                   height: '44px',
@@ -111,7 +111,7 @@ export default function Footer({ lang, onOpenModal, onNavigate }) {
               <a
                 href={officialContacts.socials.youtube}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 style={{
                   width: '44px',
                   height: '44px',
@@ -134,7 +134,7 @@ export default function Footer({ lang, onOpenModal, onNavigate }) {
               <a
                 href={officialContacts.socials.tiktok}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 style={{
                   width: '44px',
                   height: '44px',
@@ -158,7 +158,7 @@ export default function Footer({ lang, onOpenModal, onNavigate }) {
               <a
                 href={officialContacts.socials.instagram}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 style={{
                   width: '44px',
                   height: '44px',
@@ -252,7 +252,7 @@ export default function Footer({ lang, onOpenModal, onNavigate }) {
             <a
               href="https://www.facebook.com/groups/studentsofatsukointernational"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               style={{ color: '#38bdf8', display: 'flex', alignItems: 'center', gap: '3px' }}
             >
               <span>Student Community Group (17K+)</span>

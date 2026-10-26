@@ -164,7 +164,7 @@ export default function SuccessStories({ lang }) {
                   <a 
                     href={c.link} 
                     target="_blank" 
-                    rel="noreferrer" 
+                    rel="noopener noreferrer" 
                     className="cohort-channel-link"
                   >
                     <span>{t.btnVisitChannel}</span>

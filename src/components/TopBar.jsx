@@ -26,7 +26,7 @@ export default function TopBar({ lang, setLang }) {
           <a 
             href="https://wa.me/94778643352?text=Hello%20Atsuko%20International,%20I%20would%20like%20information%20regarding%20studying%20and%20working%20in%20Japan." 
             target="_blank" 
-            rel="noreferrer" 
+            rel="noopener noreferrer" 
             className="top-contact-link"
           >
             <MessageSquare size={13} style={{ color: '#22c55e' }} />

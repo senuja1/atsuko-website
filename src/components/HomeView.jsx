@@ -16,7 +16,6 @@ import RevealOnScroll from './RevealOnScroll';
 import EligibilityChecker from './EligibilityChecker';
 import ProgramsSection from './ProgramsSection';
 import TrainingShowcase from './TrainingShowcase';
-import JapaneseQuiz from './JapaneseQuiz';
 import RoadmapSection from './RoadmapSection';
 import SuccessStories from './SuccessStories';
 import BranchNetwork from './BranchNetwork';
@@ -140,13 +139,6 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
         />
       </RevealOnScroll>
 
-      {/* Interactive Japanese Language Mini-Quiz */}
-      <RevealOnScroll delay={0.1}>
-        <JapaneseQuiz 
-          lang={lang}
-          onOpenModal={onOpenModal} 
-        />
-      </RevealOnScroll>
 
       {/* 6-Step Roadmap from Sri Lanka to Japan */}
       <RevealOnScroll delay={0.1}>
@@ -200,7 +192,7 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
                 <a 
                   href="https://wa.me/94778643352" 
                   target="_blank" 
-                  rel="noreferrer" 
+                  rel="noopener noreferrer" 
                   className="btn btn-whatsapp"
                 >
                   <span>{h.ctaWhatsApp}</span>

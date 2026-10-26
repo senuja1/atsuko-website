@@ -38,13 +38,13 @@ export default function ContactPage({ lang, onOpenModal }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     try {
-      const stored = JSON.parse(localStorage.getItem('atsuko_contact_submissions') || '[]');
+      const stored = JSON.parse(sessionStorage.getItem('atsuko_contact_submissions') || '[]');
       stored.push({
         ...formData,
         id: Date.now(),
         date: new Date().toISOString()
       });
-      localStorage.setItem('atsuko_contact_submissions', JSON.stringify(stored));
+      sessionStorage.setItem('atsuko_contact_submissions', JSON.stringify(stored));
 
       confetti({
         particleCount: 60,
@@ -97,7 +97,7 @@ Please get back to me with course / visa details.`;
               <a 
                 href="https://wa.me/94778643352" 
                 target="_blank" 
-                rel="noreferrer" 
+                rel="noopener noreferrer" 
                 className="touchpoint-pill"
               >
                 <MessageSquare size={15} className="text-emerald" />
@@ -215,7 +215,7 @@ Please get back to me with course / visa details.`;
                   <a 
                     href={`https://wa.me/${currentOffice.whatsapp.replace('+', '')}?text=Hello%20Atsuko%20International%20${encodeURIComponent(currentOffice.name)}`}
                     target="_blank" 
-                    rel="noreferrer" 
+                    rel="noopener noreferrer" 
                     className="btn btn-whatsapp btn-sm"
                   >
                     <MessageSquare size={14} />
@@ -270,6 +270,7 @@ Please get back to me with course / visa details.`;
                         type="text" 
                         name="name" 
                         required 
+                        maxLength={80}
                         placeholder="e.g. Kasun Chamara Perera" 
                         value={formData.name}
                         onChange={handleInputChange}
@@ -284,6 +285,8 @@ Please get back to me with course / visa details.`;
                           type="tel" 
                           name="phone" 
                           required 
+                          maxLength={20}
+                          pattern="[0-9+ \-]{9,20}"
                           placeholder="e.g. 077 123 4567" 
                           value={formData.phone}
                           onChange={handleInputChange}
@@ -296,6 +299,7 @@ Please get back to me with course / visa details.`;
                         <input 
                           type="email" 
                           name="email" 
+                          maxLength={100}
                           placeholder="e.g. kasun@example.com" 
                           value={formData.email}
                           onChange={handleInputChange}
@@ -352,6 +356,7 @@ Please get back to me with course / visa details.`;
                       <textarea 
                         name="message" 
                         rows="3" 
+                        maxLength={500}
                         placeholder="Tell us about your educational background, Japanese language knowledge, or specific goals..."
                         value={formData.message}
                         onChange={handleInputChange}
@@ -384,7 +389,7 @@ Please get back to me with course / visa details.`;
                       <a 
                         href={getWhatsAppForwardUrl()}
                         target="_blank" 
-                        rel="noreferrer" 
+                        rel="noopener noreferrer" 
                         className="btn btn-whatsapp btn-block"
                       >
                         <MessageSquare size={16} />
@@ -441,7 +446,7 @@ Please get back to me with course / visa details.`;
                 <a 
                   href={officialContacts.socials.facebook} 
                   target="_blank" 
-                  rel="noreferrer" 
+                  rel="noopener noreferrer" 
                   className="sc-btn"
                 >
                   <span>Official Page</span>
@@ -450,7 +455,7 @@ Please get back to me with course / visa details.`;
                 <a 
                   href={officialContacts.socials.facebookGroup} 
                   target="_blank" 
-                  rel="noreferrer" 
+                  rel="noopener noreferrer" 
                   className="sc-btn sc-btn-alt"
                 >
                   <span>Student Group</span>
@@ -475,7 +480,7 @@ Please get back to me with course / visa details.`;
                 <a 
                   href={officialContacts.socials.whatsAppChannel} 
                   target="_blank" 
-                  rel="noreferrer" 
+                  rel="noopener noreferrer" 
                   className="sc-btn wa-btn"
                 >
                   <span>Join WhatsApp Channel</span>
@@ -500,7 +505,7 @@ Please get back to me with course / visa details.`;
                 <a 
                   href={officialContacts.socials.youtube} 
                   target="_blank" 
-                  rel="noreferrer" 
+                  rel="noopener noreferrer" 
                   className="sc-btn yt-btn"
                 >
                   <span>Watch Testimonials</span>
@@ -525,7 +530,7 @@ Please get back to me with course / visa details.`;
                 <a 
                   href={officialContacts.socials.tiktok} 
                   target="_blank" 
-                  rel="noreferrer" 
+                  rel="noopener noreferrer" 
                   className="sc-btn"
                 >
                   <span>TikTok</span>
@@ -534,7 +539,7 @@ Please get back to me with course / visa details.`;
                 <a 
                   href={officialContacts.socials.instagram} 
                   target="_blank" 
-                  rel="noreferrer" 
+                  rel="noopener noreferrer" 
                   className="sc-btn"
                 >
                   <span>Instagram</span>

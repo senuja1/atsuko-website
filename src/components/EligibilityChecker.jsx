@@ -351,7 +351,7 @@ Please provide me with upcoming batch details and consultation at your nearest c
                 <a
                   href={`https://wa.me/94778643352?text=${getWhatsAppMessage()}`}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="btn btn-whatsapp"
                   style={{ padding: '0.85rem 1.75rem', fontSize: '0.95rem' }}
                 >

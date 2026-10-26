@@ -10,7 +10,7 @@ export default function FloatingActions({ lang }) {
       <a
         href="https://wa.me/94778643352?text=Hello%20Atsuko%20International,%20I%20am%20interested%20in%20Japan%20Study%20and%20Work%20opportunities."
         target="_blank"
-        rel="noreferrer"
+        rel="noopener noreferrer"
         className="floating-btn whatsapp"
         title={t.whatsappTooltip}
         aria-label="WhatsApp Contact"

@@ -117,7 +117,7 @@ export default function BranchNetwork({ lang, onOpenModal }) {
               <a
                 href={`https://wa.me/${selectedBranch.whatsapp.replace('+', '')}?text=Hello%20Atsuko%20International%20${encodeURIComponent(selectedBranch.name)},%20I%20would%20like%20to%20visit%20for%20a%20consultation.`}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="btn btn-whatsapp"
               >
                 <MessageSquare size={16} />

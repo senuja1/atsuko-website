@@ -256,7 +256,7 @@ export default function SuccessStoriesPage({ lang, onOpenModal, onNavigate }) {
                 <a 
                   href={officialContacts.socials.facebookGroup} 
                   target="_blank" 
-                  rel="noreferrer" 
+                  rel="noopener noreferrer" 
                   className="btn btn-secondary"
                 >
                   <Users size={16} />
@@ -465,7 +465,7 @@ export default function SuccessStoriesPage({ lang, onOpenModal, onNavigate }) {
               <a 
                 href="https://wa.me/94778643352?text=Hello%20Atsuko%20International,%20I%20saw%20your%20student%20success%20stories%20and%20want%20to%20apply."
                 target="_blank" 
-                rel="noreferrer" 
+                rel="noopener noreferrer" 
                 className="btn btn-lg btn-whatsapp"
               >
                 <span>WhatsApp Senior Counselor</span>

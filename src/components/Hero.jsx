@@ -66,7 +66,7 @@ export default function Hero({ lang, onOpenModal, onScrollToEligibility }) {
             <a 
               href="https://wa.me/94778643352?text=Hello%20Atsuko%20International,%20I%20would%20like%20to%20inquire%20about%20upcoming%20classes%20and%20Japan%20visa%20intakes."
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="btn btn-whatsapp hero-cta-btn"
             >
               <span>{t.whatsappBtn}</span>
