@@ -1,238 +1,385 @@
+/**
+ * ATSUKO INTERNATIONAL (PVT) LTD - OFFICIAL WEBSITE DATA
+ * Verified against Official ATSUKO Leaflet (Document: 261005 of Copy of ATSUKO-LEAFLET.pdf)
+ * 
+ * Government Registrations:
+ * - Sri Lanka Bureau of Foreign Employment (SLBFE) License No. 3293 (Renewed 2020-2026)
+ * - Department of the Registrar of Companies Sri Lanka: PV 0217143 (Inc. 01 Nov 2019)
+ * - Japan Corporate Number: 3700-01-048848 (株式会社 Atsuko International)
+ * - Japan Registered Support Organization (登録支援機関): 23登-008312
+ * - Japan Paid Employment License (有料職業紹介事業許可証): 04-ユ-300338
+ */
 
-export const translations = {
-  en: {
-    tagline: "Official Gateway to Study & Work in Japan",
-    subTagline: "SLBFE Registered License No. 3293 | PV 0217143 | 篤子 学校 (Atsuko Gakko)",
-    heroTitlePre: "Your Official Pathway to",
-    heroTitleHighlight: "Study & Work in Japan",
-    heroJp: "日本への架け橋 - 篤子学校 (ATSUKO GAKKO)",
-    heroDesc: "Atsuko International (Pvt) Ltd is a premier, government-registered foreign employment agency and specialized Japanese language school (SLBFE License No. 3293 | PV 0217143) operating in Sri Lanka and Japan. We provide structured Japanese language training (JLPT, JFT, and vocational tracks), technical/skills training, comprehensive student and worker visa consultancy, and direct career placements bridging Sri Lankan talent with Japanese industries.",
-    checkEligibilityBtn: "Check Visa Eligibility",
-    exploreProgramsBtn: "Explore Japan Programs",
-    talkAdvisorBtn: "Contact Admissions Officer",
-    stat1Label: "Students Placed in Japan",
-    stat2Label: "Island-wide Training Centers",
-    stat3Label: "SLBFE Verified License",
-    stat4Label: "Registered Support in Japan"
-  },
-  si: {
-    tagline: "ජපානයේ අධ්‍යාපනය සහ රැකියා සඳහා නිල දොරටුව",
-    subTagline: "විදේශ සේවා නියුක්ති කාර්යාංශයේ ලියාපදිංචි අංක 3293 | PV 0217143 | අත්සුකෝ ඉන්ටර්නැෂනල්",
-    heroTitlePre: "ජපානයට යාමේ ඔබේ සිහිනය",
-    heroTitleHighlight: "නියමිත නීත්‍යානුකූල මාවතෙන් සැබෑ කරගන්න",
-    heroJp: "スリランカから日本へ - 確かな実績と信頼の篤子学校",
-    heroDesc: "ශ්‍රී ලංකා විදේශ සේවා නියුක්ති කාර්යාංශයේ (SLBFE) නිල ලියාපදිංචි අංක 3293 සහ සමාගම් ලියාපදිංචි අංක PV 0217143 දරන අත්සුකෝ ජපන් භාෂා ආයතනය සහ රැකියා නියෝජිතායතනය. ජපානයේ කොමාකි (අයිචි) සහ සෙන්ඩායි හි අපගේම ලියාපදිංචි ආයතනය (株式会社 篤子インターナショナル) හරහා සහතිකලත් JLPT/JFT විභාග පුහුණුව, ශිෂ්‍ය වීසා සහ SSW රැකියා අවස්ථා.",
-    checkEligibilityBtn: "සුදුසුකම් පරීක්ෂා කරන්න",
-    exploreProgramsBtn: "පාඨමාලා සහ වීසා මඟපෙන්වීම්",
-    talkAdvisorBtn: "උපදේශකවරයෙකු අමතන්න",
-    stat1Label: "ජපානයට පිටත්වූ සිසුන් ගණන",
-    stat2Label: "දිවයින පුරා මධ්‍යස්ථාන ජාලය",
-    stat3Label: "SLBFE නිල ලියාපදිංචිය",
-    stat4Label: "ජපානයේ ලියාපදිංචි ආයතනය"
-  },
-  jp: {
-    tagline: "スリランカから日本への公式進学・就労ゲートウェイ",
-    subTagline: "スリランカ海外雇用局公認ライセンス No. 3293 | 法人番号 PV 0217143 | 篤子学校",
-    heroTitlePre: "日本での留学・就職を",
-    heroTitleHighlight: "確かな実績でサポート",
-    heroJp: "篤子インターナショナル (ATSUKO GAKKO)",
-    heroDesc: "スリランカ海外雇用局（SLBFE No. 3293 / PV 0217143）認可。愛知県小牧市および宮城県仙台市の登録支援機関（株式会社 篤子インターナショナル）と直結し、確かな日本語教育（JLPT/JFT）と特定技能・留学ビザ支援を提供しています。",
-    checkEligibilityBtn: "ビザ適性診断",
-    exploreProgramsBtn: "教育プログラム一覧",
-    talkAdvisorBtn: "進路相談・お問い合わせ",
-    stat1Label: "日本渡航実績",
-    stat2Label: "スリランカ国内校舎数",
-    stat3Label: "海外雇用局公認番号",
-    stat4Label: "日本法人（登録支援機関）"
-  }
-};
-
-// 100% Verified Official Contacts from ATSUKO.txt & Drive Records
 export const officialContacts = {
   companyName: "ATSUKO INTERNATIONAL (PVT) LTD",
+  schoolName: "ATSUKO INTERNATIONAL SCHOOL",
+  tagline: "Japanese Language School & Employment Agency",
   kanjiName: "篤子 学校 (ATSUKO GAKKO)",
+  japanCompanyName: "株式会社 Atsuko International",
   established: "November 1, 2019",
-  license: "SLBFE License No. 3293",
+  slbfeLicense: "SLBFE License No. 3293",
   companyReg: "PV 0217143",
-  otit: "OTIT No. LKA000076",
+  japanCorporateNo: "3700-01-048848",
+  japanSupportOrgNo: "23登-008312",
+  japanPaidEmploymentNo: "04-ユ-300338",
   domain: "www.atsukojapan.com",
-  primaryHotline: "(+94) 112 987 263",
-  secondaryHotline: "(+94) 777 933 352",
-  tertiaryHotline: "(+94) 767 763 352",
-  primaryWhatsApp: "+94 77 793 3352",
-  secondaryWhatsApp: "+94 76 776 3352",
-  primaryEmail: "atsukoschooljapan@gmail.com",
+  studentPortalUrl: "https://portal.atsukojapan.com",
+  
+  // Official Leaflet Hotlines & Contacts (Page 18)
+  hotline: "(+94) 112 987 263",
+  mobile1: "(+94) 777 933 352",
+  mobile2: "(+94) 767 763 352",
+  whatsapp1: "+94 77 793 3352",
+  whatsapp2: "+94 76 776 3352",
+  email: "atsukoschooljapan@gmail.com",
   secondaryEmail: "info@atsukojapan.com",
-  kadawathaAddress: "191/3/1, Sirimavo Bandaranayake Mawatha, Mahara, Kadawatha, Sri Lanka, 11850",
-  kelaniyaAddress: "712/B/1/1, Thorana Junction, Kelaniya, Sri Lanka",
-  japanKomakiAddress: "2nd Floor, West Room, Sunshine Komaki Building, Komaki 2-41, Komaki City, Aichi Prefecture, Japan (Postcode: 485-0041)",
-  japanSendaiAddress: "Sendai Office, Miyagi Prefecture, Japan (登録支援機関 - Registered Support Organization)",
+  
+  // Sri Lanka Headquarters
+  headOfficeAddress: "191/3/1, Sirimavo Bandaranayake Mawatha, Mahara, Kadawatha, Sri Lanka, 11850",
+  headOfficeCity: "Kadawatha, Sri Lanka",
+  
+  // Japan Operations
+  japanAddress: "Sendai City, Miyagi Prefecture & Komaki City, Aichi Prefecture, Japan",
   japanPhone: "+81 90-2958-4420",
-  japanRegistrations: {
-    corporateNumber: "3700-01-048848",
-    supportOrgNumber: "23登-008312",
-    employmentLicense: "04-300338"
-  },
-  zeroFeeGuarantee: "Zero initial setup fees—no service costs are collected until visa approval is granted.",
+
+  // Key Assurance from Leaflet (Page 17)
+  zeroFeeGuarantee: "Zero Initial Fee: The cost is until approval is granted. We won't take any before the approval. (初期費用ゼロ: 承認されるまで費用は発生しません。承認前は一切費用をいただきません。)",
+  
   socials: {
     facebook: "https://www.facebook.com/AtsukoInternational",
     facebookGroup: "https://www.facebook.com/groups/studentsofatsukointernational",
-    whatsAppChannel: "https://whatsapp.com/channel/0029VbAoN5u3GJOukcmHcr27",
     youtube: "https://www.youtube.com/@ATSUKOINTERNATIONAL",
     instagram: "https://www.instagram.com/atsuko_gakkou/",
-    tiktok: "https://www.tiktok.com/@atsuko_international"
+    tiktok: "https://www.tiktok.com/@atsuko_international",
+    whatsappChannel: "https://wa.me/94777933352"
+  }
+};
+
+// Vision & Mission (Verbatim from Leaflet Page 2 & 3)
+export const aboutUsData = {
+  overview: "Atsuko International School is a premier, government-registered Japanese language academy and licensed foreign employment agency operating in Sri Lanka and Sendai, Japan. Incorporated under Sri Lanka Company Registration No. PV 0217143 and authorized under SLBFE License No. 3293, Atsuko International provides certified Japanese language training (JLPT & JFT), technical and vocational skills training, transparent visa processing, and direct placement coordination with Japanese language schools and enterprise employers.",
+  
+  vision: "To be a leader in Sri Lanka in providing the right guidance and vocational education for Sri Lankan students and Sri Lankan workers to be confidently directed to Japan.",
+  visionJp: "スリランカの学生と労働者が自信を持って日本へ向かえるよう、適切な指導と職業教育を提供する事でスリランカのリーダーとなること。",
+  
+  mission: "Provide accurate Japanese language skills and vocational/technical training to Sri Lankan students and workers, offer essential visa guidance, and coordinate directly with Japanese language schools and employment agencies.",
+  missionJp: "スリランカの学生と労働者に正確な日本語スキルと職業・技術研修を提供し、不可欠なビザ指導を行い、日本語学校や雇用機関と直接連携します。",
+  
+  mdMessage: {
+    title: "Message From Our Managing Director",
+    titleJp: "代表取締役からのメッセージ",
+    author: "Herath Mudiyanselage Dulaj Bandara",
+    role: "Managing Director, Atsuko International (Pvt) Ltd",
+    body: "At Atsuko International, our vision is clear: to lead Sri Lanka in providing the essential guidance and vocational education that empowers Sri Lankan students and workers to confidently pursue opportunities in Japan. We believe in bridging the gap between dreams and reality, and our commitment is to ensure that every individual is fully prepared for their journey.\n\nOur dedicated team at Atsuko International is here to support you every step of the way. Whether you're a student aiming to study in Japan or a worker seeking employment opportunities, we are committed to helping you achieve your goals with confidence and competence.",
+    bodyJp: "アツコ・インターナショナルのビジョンは明確です。スリランカの学生や労働者が自信を持って日本でのチャンスを掴めるよう、必要なガイダンスと職業教育を提供することで、スリランカをリードすることです。私たちは夢と現実のギャップを埋めることに尽力し、一人ひとりがそれぞれの旅に万全の準備を整えられるよう尽力しています。\n\nアツコ・インターナショナルの献身的なチームは、あらゆる段階でお客様をサポートいたします。日本への留学を目指す学生の方も、就職の機会を求める労働者の方も、自信と実力を持って目標を達成できるよう全力でお手伝いいたします。"
   },
-  departmentNumbers: [
-    { label: "Head Office Kadawatha Hotline", number: "(+94) 112 987 263" },
-    { label: "Admissions & General Inquiries", number: "(+94) 777 933 352" },
-    { label: "Student Visa Desk (Jan, Apr, Jul, Oct)", number: "(+94) 767 763 352" },
-    { label: "SSW Caregiver & Nursing Healthcare Desk", number: "(+94) 777 933 352" },
-    { label: "SSW Food, Logistics & Driving Desk", number: "(+94) 767 763 352" },
-    { label: "Japan Resident Office (Aichi/Sendai)", number: "+81 90-2958-4420" }
+
+  teamMembers: [
+    {
+      name: "Herath Mudiyanselage Dulaj Bandara",
+      role: "Managing Director",
+      title: "Managing Director & Executive Head",
+      focus: "Overall leadership, bilateral Sri Lanka–Japan relations, SLBFE regulatory compliance, and institutional partnerships."
+    },
+    {
+      name: "Ito Tsuguki",
+      role: "Director",
+      title: "Director (Japan Operations)",
+      focus: "Overseeing Japanese corporate employer relations, legal compliance under Japanese labor standards, and candidate reception."
+    },
+    {
+      name: "Nguyen Thi Hanh",
+      role: "Director",
+      title: "Director (International Relations)",
+      focus: "International training standards, cross-border educational coordination, and candidate lifecycle management."
+    },
+    {
+      name: "Herath Mudiyanselage Dushan Bandara",
+      role: "Manager",
+      title: "General Manager (Sri Lanka)",
+      focus: "Directing operations at Kadawatha Headquarters, student admissions, academic quality, and batch coordination."
+    },
+    {
+      name: "Pathiraja Mudiyanselage Vimani Ivanthika Pathiraja",
+      role: "Representative in Japan",
+      title: "Representative in Japan (Sendai & Aichi)",
+      focus: "On-the-ground candidate reception, airport greeting, municipal resident registration, bank account setup, and student welfare."
+    },
+    {
+      name: "Maddumage Ranudi Vihansa Ariyarathna",
+      role: "SSW Coordinator",
+      title: "SSW (Specified Skilled Worker) Coordinator",
+      focus: "Coordinating Caregiver (Kaigo) practical simulation lab, Food Service, Truck Driving, and Prometric CBT test readiness."
+    },
+    {
+      name: "Thotage Imalsha Dulanjali",
+      role: "Student Visa Coordinator",
+      title: "Student Visa (Ryugaku) Coordinator",
+      focus: "Managing Certificate of Eligibility (COE) filing for Jan, Apr, Jul, and Oct intakes, financial audit, and school placements."
+    }
+  ],
+
+  teamSummary: "A dedicated team of 10 qualified professionals working towards the success and legal safety of our students and workers.",
+
+  corePillars: [
+    {
+      id: "language",
+      title: "Japanese Language Proficiency",
+      jp: "日本語教育",
+      desc: "Structured courses for JLPT N5, N4, N3, JFT-Basic A2, Spoken Japanese (Kaiwa), and embassy/employer interview (Mensetsu) practice."
+    },
+    {
+      id: "vocational",
+      title: "Technical & Vocational Training",
+      jp: "特定技能・職業訓練",
+      desc: "Government-aligned SSW skills training in Caregiving (practical simulation lab), Food Service, Truck Driving, Accommodation, Agriculture, and Construction."
+    },
+    {
+      id: "visa",
+      title: "Visa Guidance & Legal Processing",
+      jp: "ビザ申請・法的支援",
+      desc: "100% legal visa processing under SLBFE License No. 3293 for Student Visas (4 intakes), SSW Visas, TITP Internships, and Engineering Visas."
+    },
+    {
+      id: "coordination",
+      title: "Coordination with Japanese Institutions",
+      jp: "日本現地機関との連携",
+      desc: "Direct agreements with Japanese language schools and enterprise employers, backed by our registered support corporation in Sendai & Aichi."
+    }
+  ],
+
+  guarantees: [
+    {
+      title: "Zero Initial Fee",
+      jp: "初期費用ゼロ",
+      desc: "The cost is until approval is granted. We won't take any before the approval. Completely transparent and risk-free."
+    },
+    {
+      title: "Legal Expertise",
+      jp: "法的専門知識",
+      desc: "With professional legal guidance, our visa consultancy services are 100% legally compliant and ethically sound."
+    },
+    {
+      title: "Personalized Assistance",
+      jp: "個別のサポート",
+      desc: "We provide tailored solutions to meet the unique needs of each client, offering personalized support at every step."
+    },
+    {
+      title: "Efficiency & Reliability",
+      jp: "効率性と信頼性",
+      desc: "Our experienced team ensures timely and efficient visa processing, minimizing hassle and maximizing convenience."
+    }
   ]
 };
 
-// Student Visa Upcoming Intake Cycles (from Project Document Scope)
-export const studentVisaIntakes = [
-  {
-    intake: "April 2025 Intake",
-    jpTerm: "4月生 (Haru Gakki)",
-    season: "Spring / Main Academic Cycle",
-    status: "Final Document Submission",
-    badgeColor: "gold",
-    coeRelease: "February 2025",
-    departure: "Late March 2025",
-    studyPeriod: "2 Years Course",
-    description: "The primary and largest academic intake in Japan. Ideal for students aiming for direct university or Senmon Gakko progression."
-  },
-  {
-    intake: "July 2025 Intake",
-    jpTerm: "7月生 (Natsu Gakki)",
-    season: "Summer Intake",
-    status: "Admissions Open",
-    badgeColor: "green",
-    coeRelease: "May 2025",
-    departure: "Late June 2025",
-    studyPeriod: "1 Year 9 Months",
-    description: "Optimal intake for students completing G.C.E. A/L examinations and seeking fast transition to Japanese language institutes."
-  },
-  {
-    intake: "October 2025 Intake",
-    jpTerm: "10月生 (Aki Gakki)",
-    season: "Autumn Intake",
-    status: "Early Registration Open",
-    badgeColor: "blue",
-    coeRelease: "August 2025",
-    departure: "Late September 2025",
-    studyPeriod: "1.5 Years Course",
-    description: "Second major intake period for Japanese language schools with extensive scholarship options and part-time work availability."
-  },
-  {
-    intake: "January 2026 Intake",
-    jpTerm: "1月生 (Fuyu Gakki)",
-    season: "Winter Intake",
-    status: "Upcoming / Counseling Active",
-    badgeColor: "purple",
-    coeRelease: "November 2025",
-    departure: "Late December 2025",
-    studyPeriod: "1 Year 3 Months",
-    description: "Intensive fast-track course for students with prior Japanese language capability (N5/N4) seeking direct university prep."
-  }
-];
+// Course Categories from Leaflet (Page 11 - 13)
+export const coursesData = {
+  language: [
+    {
+      id: "jlpt-n5",
+      badge: "JLPT Basics",
+      title: "JLPT N5 Foundation Course",
+      jpTitle: "日本語能力試験 N5 基礎コース",
+      duration: "4 Months (160 Hours)",
+      mode: "Kadawatha Head Office & Online Zoom",
+      description: "Essential foundation for students starting Japanese from zero. Covers Hiragana, Katakana, 100+ Kanji, basic sentence grammar, listening comprehension, and daily conversation.",
+      features: [
+        "Complete Hiragana & Katakana mastery with workbook kit",
+        "100+ Essential Kanji and 800+ core Japanese vocabulary",
+        "Official mock exam papers and audio listening lab practice",
+        "Daily spoken Japanese (Kaiwa) with qualified Sensei"
+      ],
+      suitableFor: "School leavers, beginners, Student Visa applicants"
+    },
+    {
+      id: "jlpt-n4",
+      badge: "SSW & Student Benchmark",
+      title: "JLPT N4 Intermediate Course",
+      jpTitle: "日本語能力試験 N4 中級コース",
+      duration: "4 Months (160 Hours)",
+      mode: "Physical Classroom & Hybrid Zoom",
+      description: "Required benchmark for Specified Skilled Worker (SSW) visas and student visa direct admissions. Understand everyday conversations and written materials encountered in daily life in Japan.",
+      features: [
+        "300+ Kanji & 1,500+ Japanese vocabulary",
+        "Complex sentence structures, polite/honorific Japanese basics",
+        "Embassy of Japan and employer interview (Mensetsu) coaching",
+        "Real JLPT audio test simulation in our audio listening laboratory"
+      ],
+      suitableFor: "SSW Caregiver, Food, Driving applicants and Student Visa seekers"
+    },
+    {
+      id: "jft-basic",
+      badge: "Prometric CBT Exam",
+      title: "JFT-Basic A2 Exam Preparation",
+      jpTitle: "国際交流基金日本語基礎テスト (JFT-Basic)",
+      duration: "2.5 Months Intensive",
+      mode: "Kadawatha CBT Computer Lab Practice",
+      description: "Specially formulated for the Japan Foundation Test for Basic Japanese (JFT-Basic) administered via Prometric computer testing centers for Specified Skilled Worker (SSW) applicants.",
+      features: [
+        "Simulated CBT computer test practice replicating Prometric format",
+        "Japanese workplace and daily living communication scenarios",
+        "Targeted vocabulary for living and working safely in Japan",
+        "Assistance with official Prometric test registration"
+      ],
+      suitableFor: "SSW candidates needing fast-track Japanese test clearance"
+    },
+    {
+      id: "spoken-kaiwa",
+      badge: "Conversational Fluency",
+      title: "Spoken Japanese & Interview Practice",
+      jpTitle: "会話クラス・面接指導 (Kaiwa & Mensetsu)",
+      duration: "Ongoing Weekly Sessions",
+      mode: "Interactive Speaking Sessions",
+      description: "Dedicated spoken Japanese practice and intensive interview drills to prepare students and job seekers for Japanese school principals, hospital directors, and company interviews.",
+      features: [
+        "Authentic Japanese pronunciation, intonation, and Keigo manners",
+        "One-on-one mock interviews replicating official Embassy questions",
+        "Japanese resume writing (Rirekisho) and self-introduction (Jikoshoukai)",
+        "Confidence-building conversation drills with experienced teachers"
+      ],
+      suitableFor: "All candidates preparing for employer or embassy interviews"
+    }
+  ],
+  sswVocational: [
+    {
+      id: "ssw-caregiver",
+      badge: "High Demand Sector",
+      title: "Caregiving (Kaigo) Skills Training",
+      jpTitle: "特定技能 - 介護分野 (Kaigo)",
+      duration: "3 Months Practical + Nursing Japanese",
+      mode: "Kadawatha Practical Simulation Ward",
+      description: "Comprehensive preparation for Japan's thriving nursing and elderly care sector. Includes hospital simulation lab practicals, nursing care Japanese vocabulary, and Prometric test coaching.",
+      features: [
+        "Hands-on practice with hospital beds, wheelchairs, and transfer techniques",
+        "Nursing care Japanese (Kaigo no Nihongo) terminology and documentation",
+        "Preparation for Prometric Nursing Care Skills Evaluation Exam",
+        "Direct matching with accredited Japanese medical facilities via Atsuko Japan"
+      ],
+      suitableFor: "Compassionate candidates aged 18-35 seeking stable healthcare careers"
+    },
+    {
+      id: "ssw-food",
+      badge: "Hospitality & Dining",
+      title: "Food Service (Gaishoku) & Hospitality",
+      jpTitle: "特定技能 - 外食業分野 (Gaishoku)",
+      duration: "2 Months Prep + Prometric Exam",
+      mode: "Kadawatha Classroom & Zoom Theory",
+      description: "Training for employment in Japanese restaurants, food preparation companies, and catering chains. Covers Japanese food safety standards, hygiene, and customer hospitality.",
+      features: [
+        "Japanese food hygiene (HACCP) standards and kitchen safety",
+        "Restaurant customer service vocabulary and order handling",
+        "Prometric Food Service Skills Evaluation test questions and answers",
+        "Direct contract processing under SLBFE License No. 3293"
+      ],
+      suitableFor: "Young candidates interested in culinary and hospitality careers in Japan"
+    },
+    {
+      id: "ssw-driving",
+      badge: "Logistics & Transport",
+      title: "Automobile Transport & Truck Driving",
+      jpTitle: "特定技能 - 自動車運送業 (トラック・バス)",
+      duration: "2.5 Months Theory + Japanese",
+      mode: "Classroom & Road Regulations Theory",
+      description: "Preparation for Japan's high-demand commercial transport sector, including truck driving, bus transport, and logistics dispatch operations.",
+      features: [
+        "Study of Japanese traffic signs, road laws, and safety regulations",
+        "Logistics handling, delivery scanning, and cargo transport terms",
+        "Guidance on Japanese commercial driving license procedures",
+        "Full contract verification under SLBFE License No. 3293"
+      ],
+      suitableFor: "Licensed commercial drivers seeking high-paying logistics jobs in Japan"
+    },
+    {
+      id: "ssw-accommodation",
+      badge: "Hotel & Tourism",
+      title: "Accommodation (Hotel & Hospitality)",
+      jpTitle: "特定技能 - 宿泊分野 (Shukuhaku)",
+      duration: "2 Months Training",
+      mode: "Hospitality Etiquette Lab",
+      description: "Training for front desk, guest hospitality, housekeeping, and concierge roles at Japanese hotels, resorts, and traditional Ryokan inns.",
+      features: [
+        "Japanese hospitality etiquette (Omotenashi) and polite Keigo speech",
+        "Hotel front office software, reservation management, and guest services",
+        "Prometric Accommodation Skills Evaluation exam preparation",
+        "Placements in prime tourist prefectures across Japan"
+      ],
+      suitableFor: "Candidates with good communication skills and hospitality interest"
+    },
+    {
+      id: "ssw-agriculture",
+      badge: "Agricultural Sector",
+      title: "Agriculture & Crop Cultivation",
+      jpTitle: "特定技能 - 農業分野 (Nōgyō)",
+      duration: "2 Months Training",
+      mode: "Comprehensive Agriculture Prep",
+      description: "Preparation for automated greenhouse crop cultivation, fruit harvesting, and livestock farm management across leading agricultural prefectures in Japan.",
+      features: [
+        "Japanese farming equipment safety, crop varieties, and irrigation terminology",
+        "Prometric Agriculture Skills Evaluation exam preparation",
+        "Protected under Japanese labor laws with National Health Insurance",
+        "Ongoing support from Atsuko's Japan team during stay"
+      ],
+      suitableFor: "Hardworking individuals ready for steady agricultural employment"
+    },
+    {
+      id: "ssw-construction",
+      badge: "Civil Works & Finishing",
+      title: "Construction & Civil Engineering",
+      jpTitle: "特定技能 - 建設分野 (Kensetsu)",
+      duration: "2.5 Months Technical Training",
+      mode: "Safety & Technical Terminology",
+      description: "Work in Japanese civil engineering, structural construction, interior finishing, and electrical equipment under strict Japanese safety standards.",
+      features: [
+        "Site safety protocols (Anzen Daiichi), safety gear, and tool terms",
+        "Prometric Construction Skills Evaluation exam coaching",
+        "Competitive Japanese wages with overtime compensation",
+        "Complete legal processing under SLBFE License No. 3293"
+      ],
+      suitableFor: "Physically fit individuals with technical or trade background"
+    }
+  ]
+};
 
-// Target Audience Pathways (Document Section 3)
-export const targetAudiencePathways = [
-  {
-    id: "students",
-    title: "Prospective Students",
-    subtitle: "Higher Education & Language Schools",
-    icon: "GraduationCap",
-    tag: "Ages 18 - 28",
-    description: "Sri Lankan students seeking higher education in Japan through accredited Japanese language institutes, leading to bachelor's degrees or vocational diplomas (Senmon Gakko).",
-    points: [
-      "Legal 28 hrs/week part-time work permission (up to 40 hrs in vacations)",
-      "Four annual intake windows: January, April, July, and October",
-      "Full COE documentation, embassy visa filing & university guidance",
-      "Airport reception, student accommodation & bank setup in Japan"
-    ],
-    ctaText: "Explore Student Visa",
-    targetTab: "studentVisa"
-  },
-  {
-    id: "workers",
-    title: "Job Seekers & Skilled Workers",
-    subtitle: "Specified Skilled Worker (SSW)",
-    icon: "Briefcase",
-    tag: "High Demand Sectors",
-    description: "Skilled workers and job seekers seeking legal employment under Japan's Specified Skilled Worker (SSW) programs with attractive Japanese wage standards.",
-    points: [
-      "Caregiving (Kaigo) with on-site practical simulation lab in Kadawatha",
-      "Food Service (Gaishoku) & Restaurant Operations",
-      "Agriculture & Greenhouse Farming",
-      "Construction & Civil Engineering Safety",
-      "Commercial Truck Driving & Logistics Operations"
-    ],
-    ctaText: "Explore SSW Pathways",
-    targetTab: "sswWorkVisa"
-  },
-  {
-    id: "parents",
-    title: "Parents & Guardians",
-    subtitle: "Government-Verified Trust & Safety",
-    icon: "ShieldCheck",
-    tag: "SLBFE Lic. #3293 | PV 0217143",
-    description: "Parents seeking a trusted, 100% government-registered agency that provides complete legal security, transparent fees, and physical on-the-ground support inside Japan.",
-    points: [
-      "SLBFE Registered License No. 3293 & Company Registration PV 0217143",
-      "Official Support Office in Komaki (Aichi) & Sendai, Japan",
-      "Zero hidden fees with official stamped receipts & agreements",
-      "24/7 emergency welfare network and student pastoral care in Japan"
-    ],
-    ctaText: "Verify Credentials",
-    targetTab: "about"
-  }
-];
-
-// Active Course Schedules & Batches Calendar (Document Section 4 & 6)
+// Active Batch Schedules (Real-Time Calendar)
 export const activeCourseSchedules = [
   {
     id: "batch-n5-weekend",
     course: "JLPT N5 Weekend Foundation",
     category: "Japanese Language",
-    mode: "Kadawatha Head Office + Hybrid Zoom",
+    mode: "Kadawatha Head Office + Live Zoom",
     days: "Saturday & Sunday",
     time: "8:30 AM - 1:30 PM",
-    startDate: "Every 1st Saturday of the Month",
+    startDate: "1st Weekend of Every Month",
     duration: "4 Months (160 Hours)",
-    seatsStatus: "Enrollment Open",
+    seatsStatus: "Admissions Open",
     badgeType: "open"
   },
   {
     id: "batch-n5-weekday",
     course: "JLPT N5 Fast-Track Weekday",
     category: "Japanese Language",
-    mode: "Kadawatha & Regional Centers",
+    mode: "Kadawatha Head Office",
     days: "Tuesday & Thursday",
     time: "9:00 AM - 1:00 PM",
-    startDate: "Mid-Month Intakes",
-    duration: "3.5 Months (160 Hours)",
+    startDate: "Mid-Month Cohorts",
+    duration: "3.5 Months Intensive",
     seatsStatus: "Fast Filling",
     badgeType: "filling"
   },
   {
-    id: "batch-n4-comprehensive",
-    course: "JLPT N4 Intermediate Masterclass",
+    id: "batch-n4-intermediate",
+    course: "JLPT N4 Intermediate Standard",
     category: "Japanese Language & SSW",
-    mode: "Physical / Live Interactive Zoom",
+    mode: "Kadawatha + Hybrid Zoom",
     days: "Saturday & Sunday",
     time: "2:00 PM - 6:30 PM",
-    startDate: "Ongoing Batches",
+    startDate: "Ongoing Cohorts",
     duration: "4 Months (160 Hours)",
-    seatsStatus: "Few Seats Left",
-    badgeType: "limited"
+    seatsStatus: "Enrollment Open",
+    badgeType: "open"
   },
   {
-    id: "batch-jft-intensive",
+    id: "batch-jft-cbt",
     course: "JFT-Basic A2 Computer Lab Batch",
     category: "Prometric CBT Prep",
     mode: "Kadawatha CBT Computer Lab",
@@ -240,14 +387,14 @@ export const activeCourseSchedules = [
     time: "9:00 AM - 12:30 PM",
     startDate: "Bi-Weekly Intake",
     duration: "2.5 Months Intensive",
-    seatsStatus: "Enrollment Open",
+    seatsStatus: "Admissions Open",
     badgeType: "open"
   },
   {
     id: "batch-caregiver-sim",
     course: "SSW Caregiver (Kaigo) Practical Simulation Lab",
     category: "SSW Skills Training",
-    mode: "Kadawatha Practical Simulation Center",
+    mode: "Kadawatha Practical Simulation Ward",
     days: "Saturday Full Day + Lab Practicals",
     time: "8:30 AM - 4:30 PM",
     startDate: "Monthly New Cohort",
@@ -262,359 +409,350 @@ export const activeCourseSchedules = [
     mode: "Kadawatha Center & Zoom Theory",
     days: "Sunday Mornings",
     time: "9:00 AM - 1:00 PM",
-    startDate: "Next Batch Starting Soon",
+    startDate: "Monthly Cohort",
     duration: "2 Months Prep + Prometric Exam",
     seatsStatus: "Enrollment Open",
     badgeType: "open"
   },
   {
     id: "batch-driving-logistics",
-    course: "SSW Commercial Driving & Logistics Theory",
+    course: "SSW Automobile Transport & Truck Driving Theory",
     category: "SSW Skills Training",
-    mode: "Physical Classroom & Theory Tests",
+    mode: "Kadawatha Classroom & Theory Tests",
     days: "Weekend Evenings",
     time: "3:00 PM - 6:30 PM",
-    startDate: "Monthly Intake",
+    startDate: "Monthly Cohort",
     duration: "2.5 Months Theory + Japanese",
     seatsStatus: "Few Seats Left",
     badgeType: "limited"
   }
 ];
 
-// About Us Comprehensive Profile (Verified with Drive Records & ATSUKO.txt)
-export const aboutUsData = {
-  overview: "Atsuko International (PVT) LTD | 篤子 学校 (Atsuko Gakko) was officially established on November 1, 2019, as a premier government-registered foreign employment agency (SLBFE License No. 3293) and specialized Japanese language academy incorporated under Company Registration No. PV 0217143 and OTIT No. LKA000076. Operating across offices in Sri Lanka and Japan (Aichi Prefecture & Sendai), we provide accurate Japanese language instruction, technical/vocational training, ethical visa guidance, and coordinate students and workers directly with accredited Japanese educational institutions and licensed enterprise employers.",
-  mission: "To provide accurate Japanese language skills and vocational/technical training, offer essential visa guidance, and coordinate students and workers directly with Japanese language schools and employment agencies.",
-  vision: "To be a leader in Sri Lanka in providing the right guidance and vocational education for Sri Lankan students and workers to be confidently directed to Japan.",
-  zeroFeeGuarantee: "Zero initial setup fees—no service costs are collected until visa approval is granted.",
-  credentials: [
-    {
-      title: "SLBFE License No. 3293",
-      issuedBy: "Sri Lanka Bureau of Foreign Employment (SLBFE)",
-      detail: "100% government-authorized foreign employment agency for Japan recruitment under official bilateral Sri Lanka–Japan frameworks."
-    },
-    {
-      title: "Company Registration PV 0217143",
-      issuedBy: "Department of the Registrar of Companies, Sri Lanka",
-      detail: "Legally incorporated private limited liability company established on November 1, 2019 with verified audit and corporate governance standards."
-    },
-    {
-      title: "OTIT Number: LKA000076",
-      issuedBy: "Organization for Technical Intern Training (OTIT, Japan)",
-      detail: "Official registered sending organization framework for technical internship and Specified Skilled Worker migration to Japan."
-    },
-    {
-      title: "Registered Support Organization (登録支援機関)",
-      issuedBy: "Immigration Services Agency of Japan (出入国在留管理庁)",
-      detail: "Registered Support Org No. 23登-008312 | Corporate No. 3700-01-048848 | Paid Employment Lic. No. 04-300338 in Komaki (Aichi) and Sendai, Japan under 株式会社 篤子インターナショナル."
-    },
-    {
-      title: "Official Prometric & JLPT Curriculum",
-      issuedBy: "The Japan Foundation & Japan Educational Exchanges and Services",
-      detail: "Certified standard curriculum preparing candidates for official JLPT N5/N4/N3 and Prometric CBT skill evaluations (Caregiving, Food, Driving)."
-    }
-  ],
-  leadership: [
-    {
-      name: "Herath Mudiyanselage Dulaj Bandara",
-      role: "Managing Director",
-      title: "Managing Director & Executive Head",
-      experience: "Leadership & Bilateral Relations",
-      focus: "Overall executive governance, Sri Lanka–Japan institutional agreements, SLBFE License No. 3293 regulatory oversight, and corporate partnerships."
-    },
-    {
-      name: "Ito Tsuguki",
-      role: "Director",
-      title: "Director (Japan Operations)",
-      experience: "Japan Enterprise Coordination",
-      focus: "Overseeing Japanese corporate employer liaison, legal compliance under Japanese labor standards, and candidate welfare integration in Japan."
-    },
-    {
-      name: "Nguyen Thi Hanh",
-      role: "Director",
-      title: "Director (International Relations)",
-      experience: "International Education & Workforce Management",
-      focus: "Cross-border educational coordination, global training standards, and candidate lifecycle management between Sri Lanka and Japan."
-    },
-    {
-      name: "Herath Mudiyanselage Dushan Bandara",
-      role: "Manager",
-      title: "General Manager (Sri Lanka)",
-      experience: "Operations & Center Administration",
-      focus: "Managing operations at Kadawatha and regional intake branches, student admissions, documentation integrity, and batch schedules."
-    },
-    {
-      name: "Pathiraja Mudiyanselage Vimani Ivanthika Pathiraja",
-      role: "Representative in Japan",
-      title: "Representative in Japan (Komaki & Sendai)",
-      experience: "Resident in Aichi Prefecture, Japan",
-      focus: "On-the-ground candidate reception, airport greeting at Nagoya Centrair and Tokyo, municipal registration, housing onboarding, and emergency support."
-    },
-    {
-      name: "Maddumage Ranudi Vihansa Ariyarathna",
-      role: "SSW Coordinator",
-      title: "SSW (Specified Skilled Worker) Coordinator",
-      experience: "Prometric CBT & Vocational Skills Head",
-      focus: "Coordinating Caregiver (Kaigo) practical hospital simulation lab training, Food Service, Truck Driving, and Prometric exam readiness."
-    },
-    {
-      name: "Thotage Imalsha Dulanjali",
-      role: "Student Visa Coordinator",
-      title: "Student Visa (Ryugaku) Coordinator",
-      experience: "Japanese University & Language School Admissions",
-      focus: "Directing Certificate of Eligibility (COE) filing for January, April, July, and October intakes, sponsor financial file audits, and school placements."
-    }
-  ],
-  globalPresence: {
-    sriLanka: {
-      title: "Sri Lanka Headquarters & Operations Network",
-      headOffice: "Kadawatha Head Operations Center: 191/3/1, Sirimavo Bandaranayake Mawatha, Mahara, Kadawatha, 11850 (Tel: 011 298 7263 / 077 793 3352)",
-      registeredOffice: "Kelaniya Corporate Office: 712/B/1/1, Thorana Junction, Kelaniya, Sri Lanka",
-      regionalCenters: "Kandy, Galle, Gampaha, Badulla, Matara, Ratnapura, Trincomalee",
-      keyAssets: "Caregiver Practical Simulation Ward, Prometric CBT Computer Lab, Audio Listening Booths, Visa Legal Consultation Chambers"
-    },
-    japan: {
-      title: "Japan Operations & Support Network (株式会社 篤子インターナショナル)",
-      primaryOffice: "Komaki Office: 2nd Floor, West Room, Sunshine Komaki Building, Komaki 2-41, Komaki City, Aichi Prefecture, Japan 485-0041 (Tel: +81 90-2958-4420)",
-      secondaryOffice: "Sendai Office: Sendai City, Miyagi Prefecture, Japan (登録支援機関 - Registered Support Organization)",
-      functions: [
-        "Liaison with Japanese Ministry of Justice & Immigration Services Agency",
-        "Direct partnership agreements with accredited Japanese language academies and healthcare institutions",
-        "Registered Support Organization (Touroku Shien Kikan) operations for SSW workers",
-        "Airport meet-and-greet at Tokyo Haneda/Narita, Osaka Kansai, and Nagoya Chubu airports",
-        "Emergency pastoral support, medical insurance assistance, and municipal resident registration"
-      ]
-    }
+// Student Visa Intakes (4 Annual Cycles)
+export const studentVisaIntakes = [
+  {
+    intake: "April Intake",
+    jpTerm: "4月生 (Haru Gakki)",
+    season: "Spring / Main Academic Cycle",
+    status: "Admissions Open",
+    badgeColor: "gold",
+    coeRelease: "Late February",
+    departure: "Late March",
+    studyPeriod: "2 Years Course",
+    description: "The primary and largest academic intake in Japan. Ideal for students aiming for university degree or vocational college (Senmon Gakko) progression."
+  },
+  {
+    intake: "July Intake",
+    jpTerm: "7月生 (Natsu Gakki)",
+    season: "Summer Intake",
+    status: "Admissions Open",
+    badgeColor: "green",
+    coeRelease: "Late May",
+    departure: "Late June",
+    studyPeriod: "1 Year 9 Months",
+    description: "Optimal intake for students completing G.C.E. A/L examinations and seeking immediate transition to Japanese language institutes."
+  },
+  {
+    intake: "October Intake",
+    jpTerm: "10月生 (Aki Gakki)",
+    season: "Autumn Intake",
+    status: "Registration Open",
+    badgeColor: "blue",
+    coeRelease: "Late August",
+    departure: "Late September",
+    studyPeriod: "1.5 Years Course",
+    description: "Second major intake period for Japanese language schools with extensive scholarship options and part-time work availability."
+  },
+  {
+    intake: "January Intake",
+    jpTerm: "1月生 (Fuyu Gakki)",
+    season: "Winter Intake",
+    status: "Registration Open",
+    badgeColor: "purple",
+    coeRelease: "Late November",
+    departure: "Late December",
+    studyPeriod: "1 Year 3 Months",
+    description: "Intensive fast-track course for students with prior Japanese language capability (N5/N4) seeking direct higher education prep."
+  }
+];
+
+// Student Life & Accommodation (Leaflet Page 14 - 16)
+export const studentLifeData = {
+  accommodation: {
+    title: "Comfortable Accommodation Provided",
+    titleJp: "快適な宿泊施設を提供",
+    description: "Stay in safe, affordable housing with easy access to the school. Atsuko provides on-campus / partner student residence options to ensure students from outside Colombo can study in complete security.",
+    points: [
+      "Safe, well-maintained residential rooms with easy access to classrooms",
+      "Nutritious and budget-friendly meals that help you focus on your studies and training",
+      "Clean sanitary facilities, study desks, high-speed WiFi, and 24/7 security",
+      "Separate accommodation wings for male and female students"
+    ]
+  },
+  environment: {
+    title: "Friendly Multicultural Environment",
+    titleJp: "多文化が共存する温かい環境",
+    description: "Experience a warm, welcoming atmosphere where students from diverse backgrounds come together to learn and grow. Cultural immersion events, Japanese festival celebrations, and peer support make learning exciting and memorable.",
+    points: [
+      "Cultural celebration days: Tanabata, Obon, Japanese food days",
+      "Supportive peer study circles and Kaiwa conversation clubs",
+      "Guidance from senior students and alumni who have returned from Japan",
+      "Friendly Sensei and staff always available for student counseling"
+    ]
+  },
+  assessment: {
+    title: "Supportive Assessment System",
+    titleJp: "充実した評価・サポート体制",
+    description: "We don't just teach—we track your progress continuously. Our assessment system ensures every candidate meets the exact benchmark required for embassy visa clearance and employer selection.",
+    points: [
+      "Weekly Kanji, grammar, and vocabulary checkpoint tests",
+      "Monthly full-length JLPT / JFT mock examinations",
+      "Computer CBT laboratory practice simulating official Prometric exams",
+      "Personalized feedback sessions identifying areas for rapid improvement"
+    ]
   }
 };
 
-// Course breakdowns (Document Section 5)
-export const coursesData = {
-  language: [
-    {
-      id: "jlpt-n5",
-      badge: "Official JLPT Foundation",
-      title: "JLPT N5 Comprehensive Course",
-      jpTitle: "日本語能力試験 N5 基礎コース",
-      duration: "4 Months (160 Hours)",
-      mode: "Kadawatha Head Office / Regional Centers / Online Zoom",
-      description: "Foundational Japanese required for student and basic visa applications. Covers Hiragana, Katakana, 100+ Kanji, basic sentence grammar, listening comprehension, and essential daily conversation.",
-      features: [
-        "100+ Essential Kanji & 800+ Core Vocabulary",
-        "Official mock exam papers & audio listening drills",
-        "Free study books, Hiragana/Katakana workbook kits",
-        "Interactive Kaiwa (spoken conversational practice with Sensei)"
-      ],
-      suitableFor: "Beginners, O/L & A/L school leavers, Student Visa applicants"
-    },
-    {
-      id: "jlpt-n4",
-      badge: "SSW & Student Visa Standard",
-      title: "JLPT N4 Intermediate Course",
-      jpTitle: "日本語能力試験 N4 中級コース",
-      duration: "4 Months (160 Hours)",
-      mode: "Physical / Hybrid Online",
-      description: "Required benchmark for Specified Skilled Worker (SSW) visas and student visa direct admissions. Understand everyday conversation and written passages in daily life.",
-      features: [
-        "300+ Kanji & 1,500+ Vocabulary comprehensive training",
-        "Complex sentence structures, verb conjugations, and honorific basics",
-        "Direct preparation for Embassy of Japan interview questions",
-        "Listening laboratory practice reproducing real JLPT exam audio"
-      ],
-      suitableFor: "SSW Caregiver applicants, student visa aspirants, technical interns"
-    },
-    {
-      id: "jft-basic",
-      badge: "Computer-Based Exam",
-      title: "JFT-Basic A2 Intensive Preparation",
-      jpTitle: "国際交流基金日本語基礎テスト (JFT-Basic)",
-      duration: "2.5 Months (Intensive)",
-      mode: "Computer-Based CBT Lab Practice",
-      description: "Specially structured for the Japan Foundation Test for Basic Japanese (JFT-Basic) administered via Prometric computer testing centers for SSW visa candidates.",
-      features: [
-        "Simulated CBT computer exam practice replicating Prometric tests",
-        "Workplace and daily lifestyle communication scenarios in Japan",
-        "Targeted vocabulary for living and working safely in Japan",
-        "Prometric test registration assistance in Sri Lanka"
-      ],
-      suitableFor: "Specified Skilled Worker (SSW) candidates wanting fast-track test clearance"
-    },
-    {
-      id: "jlpt-n3-n2",
-      badge: "Advanced & Professional",
-      title: "JLPT N3 & N2 Professional Japanese",
-      jpTitle: "日本語能力試験 N3 / N2 ビジネス日本語",
-      duration: "5 Months",
-      mode: "Weekend / Evening Sessions",
-      description: "Advanced Japanese language proficiency for degree holders, IT professionals, engineers, and candidates seeking long-term corporate careers and permanent residency in Japan.",
-      features: [
-        "Business Keigo (formal Japanese honorific speech)",
-        "Technical vocabulary for IT, Engineering & Healthcare",
-        "Japanese resume writing (Rirekisho) and corporate interview coaching",
-        "Direct interview connections through our Komaki & Sendai Japan support offices"
-      ],
-      suitableFor: "Graduates, IT specialists, engineers, and N4 holders"
-    }
-  ],
-  studentVisa: [
-    {
-      id: "language-school",
-      badge: "Official Study Route",
-      title: "Study in Japan - Language School (1-2 Years)",
-      jpTitle: "日本留学 - 日本語学校進学コース",
-      duration: "1 to 2 Years in Japan",
-      mode: "Tokyo, Osaka, Nagoya (Aichi), Sendai, Fukuoka",
-      description: "Enroll in accredited Japanese language institutes. Under Japanese immigration law, international students are legally permitted to work 28 hours per week during term and up to 40 hours per week during school vacation periods.",
-      features: [
-        "Legal 28 hrs/week part-time work permit (Arubaito)",
-        "Four annual intakes: January, April, July, and October",
-        "Progression pathways to Japanese Universities & Senmon Gakko",
-        "Atsuko International handles Certificate of Eligibility (COE) filing",
-        "Pre-departure briefing, student hostel booking & airport reception"
-      ],
-      suitableFor: "Age 18-28 with completed G.C.E. A/L (12 years of formal education)"
-    },
-    {
-      id: "university-transfer",
-      badge: "Higher Education",
-      title: "Japanese Universities & Vocational Colleges",
-      jpTitle: "日本の大学・専門学校進学サポート",
-      duration: "2 - 4 Years Degree / Diploma",
-      mode: "Direct University Placement",
-      description: "Direct progression into Japanese bachelor's degree programs or specialized vocational training colleges (Senmon Gakko) in IT, Robotics, Automobile Technology, and Business.",
-      features: [
-        "Guidance on Japanese Government (MEXT) and institutional scholarships",
-        "Transition to full-time Engineering / Humanities work visa (Gijinkoku)",
-        "Accredited college options in Tokyo, Aichi, Sendai, and Kansai region",
-        "Post-graduation career assistance via our registered Japan office"
-      ],
-      suitableFor: "A/L or Diploma holders seeking international recognized qualifications"
-    }
-  ],
-  sswWorkVisa: [
-    {
-      id: "ssw-caregiver",
-      badge: "High Demand SSW Sector",
-      title: "SSW Nursing Care / Caregiver (Kaigo)",
-      jpTitle: "特定技能1号 - 介護分野 (Kaigo)",
-      duration: "5-Year Renewable Work Visa",
-      mode: "Practical Simulation Lab at Kadawatha",
-      description: "Employment in accredited Japanese nursing care facilities. Requires passing JFT-Basic or JLPT N4, plus the Prometric Caregiving Skills and Nursing Japanese evaluation tests.",
-      features: [
-        "Practical caregiving training facility at Kadawatha Head Office",
-        "Nursing Japanese vocabulary (Kaigo no Nihongo) preparation",
-        "Direct matching with accredited healthcare employers across Japan",
-        "Supervised by our Registered Support Organization in Komaki & Sendai, Japan"
-      ],
-      suitableFor: "Aged 18-35 with compassion for healthcare; O/L or A/L background"
-    },
-    {
-      id: "ssw-driving",
-      badge: "Japan Transport Sector",
-      title: "SSW Logistics & Commercial Driver",
-      jpTitle: "特定技能 - 自動車運送業 (トラック・バス・タクシー)",
-      duration: "5 Years Work Visa",
-      mode: "Language + Road Regulations Theory",
-      description: "Japan opened the Specified Skilled Worker category to commercial truck, bus, and taxi driving to address national transportation requirements.",
-      features: [
-        "Study Japanese traffic regulations, road signs, and logistics terms",
-        "Guidance on commercial driving license procedures in Japan",
-        "JFT-Basic / JLPT N4 exam preparation",
-        "Contract verification under SLBFE License No. 3293"
-      ],
-      suitableFor: "Commercial drivers with clean driving records and language aptitude"
-    },
-    {
-      id: "ssw-food-service",
-      badge: "Hospitality & Dining",
-      title: "SSW Food Service & Restaurant Operations",
-      jpTitle: "特定技能1号 - 外食業 (Gaishoku)",
-      duration: "5 Years Work Visa",
-      mode: "Language + Prometric Food Exam",
-      description: "Work in Japan's restaurant, food preparation, and hospitality sectors. Requires passing JFT-Basic or N4 and the Prometric Food Service Skills Exam.",
-      features: [
-        "Food safety standards, hygiene (HACCP), and kitchen terminology",
-        "Customer service conversation drills in Japanese",
-        "Prometric Food Service test preparation",
-        "Direct contract processing under Japanese immigration standards"
-      ],
-      suitableFor: "Young energetic applicants interested in food service and culinary work"
-    },
-    {
-      id: "ssw-agriculture",
-      badge: "Agricultural Sector",
-      title: "SSW Agriculture & Crop Cultivation",
-      jpTitle: "特定技能1号 - 農業分野 (Nōgyō)",
-      duration: "5 Years Work Visa",
-      mode: "Comprehensive Agriculture Prep",
-      description: "Agricultural greenhouse cultivation, crop harvesting, and automated livestock farming in leading agricultural prefectures in Japan.",
-      features: [
-        "Placements in agricultural prefectures including Ibaraki, Nagano, and Miyagi",
-        "Covered under Japanese labor laws with national health insurance",
-        "Clear skills testing pathway with Atsuko International test training",
-        "Local welfare support through our Komaki & Sendai offices"
-      ],
-      suitableFor: "Hardworking candidates ready for steady agricultural employment in Japan"
-    },
-    {
-      id: "ssw-construction",
-      badge: "Infrastructure & Engineering",
-      title: "SSW Construction & Civil Works",
-      jpTitle: "特定技能1号 - 建設分野 (Kensetsu)",
-      duration: "5 Years Work Visa",
-      mode: "Safety & Technical Terminology",
-      description: "Work in Japanese civil engineering, structural construction, interior finishing, and electrical equipment under strict Japanese labor safety frameworks.",
-      features: [
-        "Comprehensive training in Japanese site safety protocols & equipment names",
-        "Competitive Japanese standard salaries with overtime compensation",
-        "Prometric Construction evaluation exam preparation",
-        "Full support under SLBFE License No. 3293"
-      ],
-      suitableFor: "Fit, safety-conscious individuals and trade school leavers"
-    }
-  ],
-  titp: [
-    {
-      id: "titp-program",
-      badge: "Government Supervised",
-      title: "TITP Technical Intern Training Program",
-      jpTitle: "外国人技能実習制度 (TITP)",
-      duration: "3 to 5 Years",
-      mode: "OTIT Supervised Framework",
-      description: "Government-monitored technical internship framework designed for transfer of technical industrial skills to foreign trainees inside Japanese industrial corporations.",
-      features: [
-        "Strictly supervised by Japan's OTIT organization for trainee welfare",
-        "One month post-arrival language and lifestyle adaptation in Japan",
-        "Opportunity to transition to Specified Skilled Worker (SSW) after 3 years",
-        "Pension contribution refund (Dattai Ichijikin) claim support upon return"
-      ],
-      suitableFor: "Youth aged 18-30 seeking structured industrial experience in Japan"
-    }
-  ]
+// 6-Step Roadmap from Sri Lanka to Japan
+export const roadmapSteps = [
+  {
+    step: "01",
+    title: "Career Counseling & Assessment",
+    jp: "カウンセリング",
+    desc: "Visit our Kadawatha Headquarters for personalized assessment. We review your educational background and recommend the optimal pathway: Student Visa or SSW Work Visa."
+  },
+  {
+    step: "02",
+    title: "Japanese Language & Skills Training",
+    jp: "日本語学習・技能訓練",
+    desc: "Enroll in structured JLPT N5/N4 or JFT-Basic classes and SSW vocational practical labs (Caregiving, Food, Transport) with experienced teachers."
+  },
+  {
+    step: "03",
+    title: "School / Employer Interviews",
+    jp: "学校・企業面接",
+    desc: "Attend structured interviews with accredited Japanese language schools or healthcare/enterprise employers, supported by comprehensive Mensetsu coaching."
+  },
+  {
+    step: "04",
+    title: "COE Application to Japan Immigration",
+    jp: "在留資格認定証明書 (COE)",
+    desc: "Our legal documentation team prepares and submits your Certificate of Eligibility (COE) file directly to the Immigration Services Agency of Japan."
+  },
+  {
+    step: "05",
+    title: "Visa Stamping & SLBFE Clearance",
+    jp: "ビザ発給・海外雇用局承認",
+    desc: "Receive your Japanese visa via the Embassy of Japan in Colombo, obtain official SLBFE clearance under License No. 3293, and attend our pre-departure briefing."
+  },
+  {
+    step: "06",
+    title: "Arrival in Japan & Ongoing Support",
+    jp: "日本渡航・登録支援機関サポート",
+    desc: "Fly to Japan, received at the airport, and supported by our registered support corporation (株式会社 Atsuko International) in Sendai & Aichi for housing, bank accounts, and living adjustment."
+  }
+];
+
+// Document Checklist
+export const visaDocumentChecklist = [
+  {
+    category: "Identity & Civil Records",
+    items: [
+      "Original Passport valid for at least 2 years",
+      "National Identity Card (NIC) with certified English translation",
+      "Original Birth Certificate with certified English translation",
+      "Recent passport-size photographs (Japanese immigration specification 45mm x 35mm)"
+    ]
+  },
+  {
+    category: "Academic Qualifications",
+    items: [
+      "G.C.E. O/L Certificate (Original & Certified Translation)",
+      "G.C.E. A/L Certificate (12 Years of Formal Schooling Proof)",
+      "School Leaving Certificate & Character Certificate",
+      "Diplomas, NVQ Certificates, or Degree Certificates (if applicable)"
+    ]
+  },
+  {
+    category: "Language & Skill Certificates",
+    items: [
+      "JLPT Certificate (N5, N4 or N3) or JFT-Basic A2 Passing Score Report",
+      "150+ Hours Japanese Language Study Certificate from Atsuko International School",
+      "Prometric Skills Evaluation Test Certificate (for SSW applicants in Caregiving, Food, etc.)"
+    ]
+  },
+  {
+    category: "Financial Sponsorship & Legal Clearance",
+    items: [
+      "Sponsor's Bank Balance Certificate & 6-month statement",
+      "Sponsor's Employment / Business Income Verification letter",
+      "Affidavit of Financial Support (Relationship Certificate)",
+      "Police Clearance Certificate & SLBFE Registration under License No. 3293"
+    ]
+  }
+];
+
+// Frequently Asked Questions
+export const faqList = [
+  {
+    q: "Is Atsuko International officially licensed by the Sri Lankan Government?",
+    a: "Yes. Atsuko International (Pvt) Ltd is an officially registered foreign employment agency licensed by the Sri Lanka Bureau of Foreign Employment (SLBFE) under License No. 3293 (renewed continuously from 2020 through 2026), and incorporated under Company Registration No. PV 0217143. You can verify this license directly with the SLBFE."
+  },
+  {
+    q: "What is the Zero Initial Fee Guarantee?",
+    a: "As explicitly committed by Atsuko International: 'Zero Initial Fee: The cost is until approval is granted. We won't take any before the approval.' (初期費用ゼロ). Candidates pay no agency service fee until their visa approval is legally secured, ensuring 100% financial peace of mind."
+  },
+  {
+    q: "Does Atsuko International have an official registered office in Japan?",
+    a: "Yes. In Japan, our associated corporate entity is 株式会社 Atsuko International (Corporate No. 3700-01-048848), operating in Sendai (Miyagi Prefecture) and Komaki (Aichi Prefecture). It holds an official Paid Employment Agency License (No. 04-ユ-300338) and is recognized as a Registered Support Organization (登録支援機関 No. 23登-008312) under the Immigration Services Agency of Japan."
+  },
+  {
+    q: "What are the four student visa intake cycles for Japan?",
+    a: "Japanese language institutes accept international students four times a year: January (Winter, 1.25 years), April (Spring, 2 years - main academic intake), July (Summer, 1.75 years), and October (Autumn, 1.5 years). Atsuko International prepares documents and files Certificate of Eligibility (COE) applications for all four cycles."
+  },
+  {
+    q: "What is the legal limit for student part-time work in Japan?",
+    a: "Under the Immigration Control Act of Japan, international students holding a valid part-time work permit (Shikakugai Katsudō Kyoka) are legally permitted to work up to 28 hours per week during school terms, and up to 40 hours per week (8 hours/day) during official long vacation periods."
+  },
+  {
+    q: "What are the requirements for the SSW Caregiver (Kaigo) Visa?",
+    a: "To obtain the Specified Skilled Worker (SSW) Caregiver visa, candidates must pass two examinations: 1) Japanese Language Test (either JLPT N4 or JFT-Basic A2), and 2) Prometric Nursing Care Skills Evaluation Test + Nursing Care Japanese Evaluation Test. Atsuko International provides classroom training, practical hospital simulation lab training at Kadawatha, and employer interview placement."
+  },
+  {
+    q: "Which other SSW sectors can I apply for through Atsuko International?",
+    a: "In addition to Caregiving, we provide preparation and placement for Food Service (Gaishoku), Commercial Automobile Transport / Truck Driving, Accommodation / Hospitality, Agriculture, and Construction."
+  },
+  {
+    q: "Where is Atsuko International's head operations center located?",
+    a: "Our head operations center and simulation training facility is located at 191/3/1, Sirimavo Bandaranayake Mawatha, Mahara, Kadawatha, Sri Lanka, 11850. You can reach our hotlines at (+94) 112 987 263, (+94) 777 933 352, or (+94) 767 763 352."
+  },
+  {
+    q: "Does Atsuko International provide accommodation for students from outside Colombo?",
+    a: "Yes. Atsuko International provides comfortable, safe, affordable student accommodation with nutritious and budget-friendly meals, allowing students from across Sri Lanka to focus fully on their language and vocational studies at Kadawatha."
+  }
+];
+
+// Target Audience Pathways
+export const targetAudiencePathways = [
+  {
+    id: "students",
+    title: "Prospective Students",
+    subtitle: "Higher Education & Language Schools",
+    icon: "GraduationCap",
+    tag: "Ages 18 - 28",
+    description: "Sri Lankan students seeking higher education in Japan through accredited Japanese language institutes, leading to bachelor's degrees or specialized vocational diplomas (Senmon Gakko).",
+    points: [
+      "Legal 28 hrs/week part-time work permission (up to 40 hrs in vacations)",
+      "Four annual intake windows: January, April, July, and October",
+      "Full COE documentation, embassy visa filing & university guidance",
+      "Airport reception, student accommodation & bank setup in Japan"
+    ],
+    ctaText: "Explore Student Visa",
+    targetTab: "visa"
+  },
+  {
+    id: "workers",
+    title: "Job Seekers & Skilled Workers",
+    subtitle: "Specified Skilled Worker (SSW)",
+    icon: "Briefcase",
+    tag: "High Demand Sectors",
+    description: "Skilled workers and job seekers seeking legal employment under Japan's Specified Skilled Worker (SSW) programs with attractive Japanese standard wages.",
+    points: [
+      "Caregiving (Kaigo) with on-site practical simulation lab in Kadawatha",
+      "Food Service (Gaishoku) & Restaurant Operations",
+      "Commercial Truck Driving & Logistics Operations",
+      "Accommodation (Hospitality), Agriculture & Construction",
+      "Zero initial fee guarantee—pay only after visa approval"
+    ],
+    ctaText: "Explore SSW Pathways",
+    targetTab: "visa"
+  },
+  {
+    id: "parents",
+    title: "Parents & Guardians",
+    subtitle: "Government-Verified Trust & Safety",
+    icon: "ShieldCheck",
+    tag: "SLBFE Lic. #3293 | PV 0217143",
+    description: "Parents seeking a trusted, 100% government-registered agency that provides complete legal security, zero initial fees, and physical on-the-ground support inside Japan.",
+    points: [
+      "SLBFE Registered License No. 3293 (Renewed through 2026)",
+      "Company Registration PV 0217143 (Incorporated Nov 1, 2019)",
+      "Zero initial setup fee—no service charges until visa approval",
+      "Official support office in Sendai & Aichi, Japan for student welfare"
+    ],
+    ctaText: "Verify Credentials",
+    targetTab: "about"
+  }
+];
+
+// Global Presence Details (Leaflet Page 10 & 18)
+export const globalPresenceData = {
+  sriLanka: {
+    country: "Sri Lanka",
+    flag: "🇱🇰",
+    title: "Atsuko International School & Agency (Headquarters)",
+    companyName: "ATSUKO INTERNATIONAL (PVT) LTD",
+    license: "SLBFE License No. 3293 (Renewed 2020 - 2026)",
+    registration: "Company Registration No. PV 0217143",
+    address: "191/3/1, Sirimavo Bandaranayake Mawatha, Mahara, Kadawatha, Sri Lanka, 11850",
+    hotline: "(+94) 112 987 263",
+    mobiles: ["(+94) 777 933 352", "(+94) 767 763 352"],
+    email: "atsukoschooljapan@gmail.com",
+    website: "www.atsukojapan.com",
+    hours: "Mon - Sat: 8:30 AM - 5:30 PM | Sun: 8:30 AM - 2:00 PM",
+    facilities: [
+      "Modern Audio & Language Classrooms",
+      "Hospital & Caregiving Practical Simulation Ward",
+      "Computer-Based Testing (CBT) Prometric Exam Lab",
+      "Comfortable On-Campus Student Accommodation & Dining",
+      "Visa Legal Documentation & Counseling Chambers"
+    ]
+  },
+  japan: {
+    country: "Japan",
+    flag: "🇯🇵",
+    title: "Japan Resident Support Entity",
+    companyName: "株式会社 Atsuko International",
+    corporateNumber: "3700-01-048848",
+    supportOrgNumber: "23登-008312 (登録支援機関)",
+    paidEmploymentLicense: "04-ユ-300338 (有料職業紹介事業許可証)",
+    locations: "Sendai City, Miyagi Prefecture & Komaki City, Aichi Prefecture, Japan",
+    phone: "+81 90-2958-4420",
+    hours: "Japan Standard Time (JST): 9:00 AM - 6:00 PM",
+    services: [
+      "Airport reception and transfer from Tokyo, Nagoya, or Osaka airports",
+      "Municipal resident registration (Zairyu card) at City Hall (Shiyakusho)",
+      "Japan Post / Yucho Bank account opening and Hanko seal assistance",
+      "National Health Insurance (NHI) enrollment (covers 70% of medical costs)",
+      "Ongoing candidate welfare, pastoral care, and employer liaison"
+    ]
+  }
 };
 
-// 100% Verified Island-wide Locations & Multi-office Routing
+// ══════════════════════════════════════════════════════════════════
+// OFFICIAL BRANCHES & HUBS DATA (SRI LANKA & JAPAN)
+// ══════════════════════════════════════════════════════════════════
 export const branchesData = [
   {
     id: "kadawatha",
-    name: "Kadawatha (Head Operations Center)",
-    jpName: "カダワタ 本社運営センター",
+    name: "Kadawatha (Head Operations Center & Campus)",
+    jpName: "カダワタ 本社運営センター・研修校舎",
     isHeadOffice: true,
     address: "191/3/1, Sirimavo Bandaranayake Mawatha, Mahara, Kadawatha, Sri Lanka, 11850",
     phone: "(+94) 112 987 263",
     whatsapp: "+94777933352",
     hours: "Mon - Sat: 8:30 AM - 5:30 PM | Sun: 8:30 AM - 2:00 PM",
     facilities: [
-      "Caregiver Practical Simulation Lab",
-      "Computer-Based Testing (CBT) Center",
-      "Visa Documentation & Legal Wing",
-      "Native & Certified Sensei Classrooms"
+      "Caregiver (Kaigo) Practical Simulation Ward",
+      "Computer-Based Testing (CBT) Prometric Exam Lab",
+      "Visa Legal Wing & Interview (Mensetsu) Chamber",
+      "On-Campus Student Hostel & Meal Facilities"
     ]
   },
   {
     id: "kelaniya",
-    name: "Kelaniya (Registered Office)",
-    jpName: "ケラニヤ 登録事務所",
+    name: "Kelaniya (Registered Corporate Office)",
+    jpName: "ケラニヤ 登記本社事務所",
     isHeadOffice: false,
     address: "712/B/1/1, Thorana Junction, Kelaniya, Western Province, Sri Lanka",
     phone: "(+94) 767 763 352",
@@ -623,116 +761,65 @@ export const branchesData = [
     facilities: [
       "SLBFE License Registration Office (Lic. #3293)",
       "Company Registration Desk (PV 0217143)",
-      "Direct Student Counseling",
-      "Course Admissions Desk"
-    ]
-  },
-  {
-    id: "komaki-japan",
-    name: "Komaki, Aichi, Japan (株式会社 篤子インターナショナル)",
-    jpName: "日本法人：株式会社 篤子インターナショナル（愛知県小牧市）",
-    isHeadOffice: false,
-    isJapanEntity: true,
-    address: "2nd Floor, West Room, Sunshine Komaki Building, Komaki 2-41, Komaki City, Aichi Prefecture, Japan (Postcode: 485-0041)",
-    phone: "+81 90-2958-4420",
-    whatsapp: "+94777933352",
-    hours: "Japan Standard Time (JST): 9:00 AM - 6:00 PM",
-    facilities: [
-      "Official Registered Support Organization in Japan (登録支援機関 No. 23登-008312)",
-      "Aichi & Chubu Region Corporate Employer Liaison",
-      "Direct Candidate Welfare & Residency Onboarding",
-      "Airport Welcome from Nagoya Centrair & Tokyo Airports"
+      "Direct Student & Worker Consultations",
+      "Official Document Verification"
     ]
   },
   {
     id: "sendai-japan",
     name: "Sendai, Miyagi, Japan (東北・仙台 支援センター)",
-    jpName: "日本法人：株式会社 篤子インターナショナル（宮城県仙台市）",
+    jpName: "日本法人：株式会社 Atsuko International（宮城県仙台市）",
     isHeadOffice: false,
     isJapanEntity: true,
-    address: "Sendai City, Miyagi Prefecture, Japan (登録支援機関 - Registered Support Organization)",
-    phone: "+94 72 616 0160",
-    whatsapp: "+94778643352",
+    address: "Sendai City, Miyagi Prefecture, Japan (登録支援機関 No. 23登-008312)",
+    phone: "+81 90-2958-4420",
+    whatsapp: "+94777933352",
     hours: "Japan Standard Time (JST): 9:00 AM - 6:00 PM",
     facilities: [
-      "Tohoku Region Student & Worker Care Hub",
-      "Healthcare Facility Coordination for Caregivers",
-      "Living Support, Bank Account Setup & Health Insurance",
-      "Direct Student Community Liaison"
+      "Registered Support Organization (登録支援機関 No. 23登-008312)",
+      "Healthcare Facility Coordination for SSW Caregivers",
+      "Municipal City Hall Registration & Bank Account Setup",
+      "On-the-ground Candidate Pastoral Care"
     ]
   },
   {
-    id: "kandy",
-    name: "Kandy Center",
-    jpName: "キャンディ 校",
-    address: "Kandy City, Central Province, Sri Lanka",
-    phone: "070 363 4416",
-    whatsapp: "+94703634416",
-    hours: "Tue - Sun: 8:30 AM - 5:00 PM",
-    facilities: ["Central Province Intake Center", "Weekend Intensive Batches", "Student Visa Counseling"]
+    id: "komaki-japan",
+    name: "Komaki, Aichi, Japan (愛知県小牧市 駐在事務所)",
+    jpName: "日本法人：株式会社 Atsuko International（愛知県小牧市）",
+    isHeadOffice: false,
+    isJapanEntity: true,
+    address: "Komaki City, Aichi Prefecture, Japan (Postcode: 485-0041)",
+    phone: "+81 90-2958-4420",
+    whatsapp: "+94777933352",
+    hours: "Japan Standard Time (JST): 9:00 AM - 6:00 PM",
+    facilities: [
+      "Paid Employment Agency License (有料職業紹介 No. 04-ユ-300338)",
+      "Chubu & Aichi Region Corporate Employer Liaison",
+      "Nagoya Centrair & Kansai Airport Reception",
+      "SSW Job Placement & Enterprise Matching"
+    ]
   },
   {
-    id: "galle",
-    name: "Galle Center",
-    jpName: "ゴール 校",
-    address: "Galle City Center, Southern Province, Sri Lanka",
-    phone: "070 563 4413",
-    whatsapp: "+94705634413",
-    hours: "Tue - Sun: 8:30 AM - 5:00 PM",
-    facilities: ["Southern Region Visa Desk", "JLPT N5/N4 Preparation", "Caregiver Enrollment"]
-  },
-  {
-    id: "gampaha",
-    name: "Gampaha Center",
-    jpName: "ガンパハ 校",
-    address: "Gampaha City, Western Province, Sri Lanka",
-    phone: "070 563 4414",
-    whatsapp: "+94705634414",
-    hours: "Mon - Sat: 8:30 AM - 5:00 PM",
-    facilities: ["Gampaha District Center", "Caregiver Theory Classes", "Hybrid Zoom Link"]
-  },
-  {
-    id: "badulla",
-    name: "Badulla Center",
-    jpName: "バドゥッラ 校",
-    address: "Badulla City, Uva Province, Sri Lanka",
-    phone: "070 563 4422",
-    whatsapp: "+94705634422",
-    hours: "Tue - Sun: 8:30 AM - 5:00 PM",
-    facilities: ["Uva Province Student Center", "SSW Registration Desk"]
-  },
-  {
-    id: "matara",
-    name: "Matara Center",
-    jpName: "マータラ 校",
-    address: "Matara City, Southern Province, Sri Lanka",
-    phone: "070 563 4423",
-    whatsapp: "+94705634423",
-    hours: "Tue - Sun: 8:30 AM - 5:00 PM",
-    facilities: ["Southern Province Intake Wing", "Documentation Assistance"]
-  },
-  {
-    id: "ratnapura",
-    name: "Ratnapura Center",
-    jpName: "ラトナプラ 校",
-    address: "Ratnapura City, Sabaragamuwa Province, Sri Lanka",
-    phone: "072 616 0160",
-    whatsapp: "+94778643352",
-    hours: "Wed - Sun: 8:30 AM - 5:00 PM",
-    facilities: ["Sabaragamuwa Regional Desk", "Language Course Admissions"]
-  },
-  {
-    id: "trincomalee",
-    name: "Trincomalee Center",
-    jpName: "トリンコマリー 校",
-    address: "Trincomalee City, Eastern Province, Sri Lanka",
-    phone: "077 864 3352",
-    whatsapp: "+94778643352",
-    hours: "Thu - Sun: 8:30 AM - 4:30 PM",
-    facilities: ["Eastern Province Training Center", "Bilingual Language Instruction"]
+    id: "online-campus",
+    name: "Island-wide Online Interactive Campus",
+    jpName: "スリランカ全土 オンライン・インタラクティブ校",
+    isHeadOffice: false,
+    address: "Accessible across all 25 districts in Sri Lanka via Live Zoom Platform",
+    phone: "(+94) 112 987 263",
+    whatsapp: "+94777933352",
+    hours: "Daily: Morning & Evening Flexible Batches",
+    facilities: [
+      "Live HD Zoom Classroom with Kadawatha Native/Certified Sensei",
+      "Digital LMS Study Packs, Audio Drills & Recorded Lectures",
+      "Weekly Online Vocabulary Checks & Simulated Prometric CBTs",
+      "Direct Guidance for Outstation Students Relocating to Hostel"
+    ]
   }
 ];
 
+// ══════════════════════════════════════════════════════════════════
+// JAPANESE LANGUAGE QUIZ CHALLENGE
+// ══════════════════════════════════════════════════════════════════
 export const quizQuestions = [
   {
     id: 1,
@@ -776,145 +863,9 @@ export const quizQuestions = [
   }
 ];
 
-export const roadmapSteps = [
-  {
-    step: "01",
-    title: "Official Career Assessment",
-    jp: "カウンセリング",
-    desc: "Visit our Kadawatha Operations Center or regional branches to review your educational certificates and determine whether Student Visa (Ryugaku) or SSW Work Visa best fits your profile."
-  },
-  {
-    step: "02",
-    title: "JLPT / JFT Batch Training",
-    jp: "日本語学習 (N5/N4/JFT)",
-    desc: "Undergo structured training with certified Sensei, learning reading, writing, listening, and essential Japanese interview etiquette (Mensetsu)."
-  },
-  {
-    step: "03",
-    title: "School / Employer Interviews",
-    jp: "面接選考",
-    desc: "Attend structured interviews with accredited Japanese language institutes or healthcare / enterprise organizations in Japan with full coaching from our team."
-  },
-  {
-    step: "04",
-    title: "COE Application to Japan",
-    jp: "在留資格認定証明書 (COE)",
-    desc: "Our legal documentation team prepares and submits your Certificate of Eligibility (COE) file directly to the Immigration Services Agency of Japan."
-  },
-  {
-    step: "05",
-    title: "SLBFE Clearance & Visa Stamping",
-    jp: "ビザ発給・海外雇用局承認",
-    desc: "Obtain your official Japanese Visa through the Embassy of Japan in Colombo, complete mandatory SLBFE clearance under License No. 3293, and attend our pre-departure orientation."
-  },
-  {
-    step: "06",
-    title: "Arrival in Japan & Support",
-    jp: "日本渡航・登録支援機関サポート",
-    desc: "Fly to Japan, received at the airport, and supported by our registered support company (株式会社 篤子インターナショナル) in Komaki (Aichi) or Sendai for housing and living adjustment."
-  }
-];
-
-// Document Checklist (Section 4 & 5)
-export const visaDocumentChecklist = [
-  {
-    category: "Identity & Civil Records",
-    items: [
-      "Original Passport valid for at least 2 years",
-      "National Identity Card (NIC) with certified English translation",
-      "Original Birth Certificate with certified English translation",
-      "Recent passport-size photographs (Japanese immigration specification 45mm x 35mm)"
-    ]
-  },
-  {
-    category: "Academic Qualifications",
-    items: [
-      "G.C.E. O/L Certificate (Original & Certified Translation)",
-      "G.C.E. A/L Certificate (12 Years of Formal Schooling Proof)",
-      "School Leaving Certificate & Character Certificate",
-      "Diplomas, Vocational NVQ Certificates or University Degrees (if applicable)"
-    ]
-  },
-  {
-    category: "Japanese Language & Skills Proof",
-    items: [
-      "JLPT Certificate (N5, N4 or N3) or JFT-Basic A2 Passing Score Report",
-      "150+ Hours Japanese Language Study Certificate from Atsuko International",
-      "Prometric Skills Evaluation Test Certificate (for SSW applicants in Caregiver, Food, etc.)"
-    ]
-  },
-  {
-    category: "Financial Sponsorship & Legal Clearance",
-    items: [
-      "Sponsor's Bank Balance Certificate & 6-month statement",
-      "Sponsor's Income Verification / Employment Confirmation letter",
-      "Affidavit of Financial Support (Relationship Certificate)",
-      "Police Clearance Certificate & SLBFE Registration (Lic. #3293)"
-    ]
-  }
-];
-
-// Verified Cohort Highlights
-export const cohortHighlights = [
-  {
-    title: "Official Student Community",
-    sub: "Facebook Group: Students of Atsuko International",
-    desc: "Over 17,000 prospective students, alumni, and current workers in Japan actively exchange updates on batches, job vacancies, and study experiences.",
-    stat: "17K+ Followers",
-    link: "https://www.facebook.com/groups/studentsofatsukointernational"
-  },
-  {
-    title: "Komaki & Sendai Registered Entities",
-    sub: "株式会社 篤子インターナショナル (Komaki & Sendai, Japan)",
-    desc: "Unlike standard agents that end support at the Colombo airport, Atsuko's registered Japanese entity provides continuous welfare, legal documentation, and employer coordination inside Japan.",
-    stat: "Registered Support Org (登録支援機関)",
-    link: "#"
-  },
-  {
-    title: "Government Verified Agency",
-    sub: "Sri Lanka Bureau of Foreign Employment (SLBFE)",
-    desc: "Fully registered and verified under SLBFE License No. 3293 and Company Registration PV 0217143, providing 100% legal contracts, transparent processing, and government-approved recruitment standards.",
-    stat: "Lic. #3293 | PV 0217143",
-    link: "https://www.slbfe.lk"
-  }
-];
-
-export const faqList = [
-  {
-    q: "Is Atsuko International officially licensed by the Sri Lankan Government?",
-    a: "Yes. Atsuko International (Pvt) Ltd is an officially registered foreign employment agency licensed by the Sri Lanka Bureau of Foreign Employment (SLBFE) under License No. 3293, and legally incorporated under Company Registration No. PV 0217143. You can verify this license directly with the SLBFE."
-  },
-  {
-    q: "Does Atsuko International have an official registered office in Japan?",
-    a: "Yes. In Japan, our associated entity is 株式会社 篤子インターナショナル (Kabushiki Gaisha Atsuko International), with offices in Komaki (Aichi Prefecture) and Sendai (Miyagi Prefecture). It operates as an officially recognized Registered Support Organization (登録支援機関 - Touroku Shien Kikan) under the Immigration Services Agency of Japan."
-  },
-  {
-    q: "What are the four student visa intake cycles for Japan?",
-    a: "Japanese language institutes accept international students four times a year: January (Winter, 1.25 years), April (Spring, 2 years - main intake), July (Summer, 1.75 years), and October (Autumn, 1.5 years). Atsuko International prepares documents and files Certificate of Eligibility (COE) applications for all four cycles."
-  },
-  {
-    q: "What is the legal limit for student part-time work in Japan?",
-    a: "Under the Immigration Control and Refugee Recognition Act of Japan, international students holding a valid 'Permission to Engage in Activity other than that Permitted under the Status of Residence' (Shikakugai Katsudō Kyoka) are legally permitted to work up to 28 hours per week during school terms, and up to 40 hours per week (8 hours/day) during official long vacation periods."
-  },
-  {
-    q: "What are the requirements for the SSW Caregiver (Kaigo) Visa?",
-    a: "To obtain the Specified Skilled Worker (SSW) Caregiver visa for Japan, candidates must pass two examinations: 1) Japanese Language Test (either JLPT N4 or JFT-Basic A2), and 2) Prometric Nursing Care Skills Evaluation Test + Nursing Care Japanese Evaluation Test. Atsuko International provides classroom training, practical simulation lab training at Kadawatha, and employer interview placement."
-  },
-  {
-    q: "Which other SSW sectors can I apply for through Atsuko International?",
-    a: "In addition to Caregiving, we provide preparation and placement for Food Service (Gaishoku), Commercial Truck Driving & Logistics, Agriculture & Farming, and Construction & Civil Engineering."
-  },
-  {
-    q: "Where is Atsuko International's head operations center located?",
-    a: "Our head operations center and simulation training facility is located at 191/3/1, Sirimavo Bandaranaike Mawatha, Mahara, Kadawatha, Sri Lanka. Our registered corporate address is at 712/B/1/1, Thorana Junction, Kelaniya. We also coordinate admissions across our regional branch network in Kandy, Galle, Gampaha, Badulla, Matara, Ratnapura, and Trincomalee."
-  },
-  {
-    q: "How can I verify upcoming batch dates and contact department officers?",
-    a: "You can contact our primary hotlines directly at 072 616 0160 or WhatsApp +94 77 864 3352, or follow our official social channels on Facebook (facebook.com/AtsukoInternational), TikTok, and YouTube (@ATSUKOINTERNATIONAL) where upcoming batch schedules and orientation dates are posted."
-  }
-];
-
-// Comprehensive 6th Page Data: Real Alumni Success Stories & Life in Japan Guide
+// ══════════════════════════════════════════════════════════════════
+// STUDENT & SSW WORKER SUCCESS STORIES
+// ══════════════════════════════════════════════════════════════════
 export const successStoriesData = [
   {
     id: "kavindi-tokyo",
@@ -925,7 +876,7 @@ export const successStoriesData = [
     hometown: "Gampaha, Sri Lanka",
     locationInJapan: "Shinjuku, Tokyo",
     institution: "Tokyo Global Language Academy",
-    intakeBatch: "April 2024 Intake",
+    intakeBatch: "April Intake",
     jlptLevel: "Passed JLPT N5 at Atsuko, now N3 in Tokyo",
     workplace: "FamilyMart Retail & Bistro Assistant (28h/week legal)",
     monthlyEarnings: "¥138,000 / month (~LKR 280,000)",
@@ -942,7 +893,7 @@ export const successStoriesData = [
     hometown: "Kurunegala, Sri Lanka",
     locationInJapan: "Komaki, Aichi Prefecture",
     institution: "Aichi Social Welfare Healthcare Corporation",
-    intakeBatch: "November 2023 Batch",
+    intakeBatch: "November Batch",
     jlptLevel: "JFT-Basic A2 + Prometric Nursing Care",
     workplace: "Specialized Elderly Nursing Facility",
     monthlyEarnings: "¥225,000 / month (~LKR 460,000) + Dormitory Subsidy",
@@ -959,7 +910,7 @@ export const successStoriesData = [
     hometown: "Negombo, Sri Lanka",
     locationInJapan: "Sendai City, Miyagi Prefecture",
     institution: "Tohoku Regional Distribution Network",
-    intakeBatch: "February 2024 Batch",
+    intakeBatch: "February Batch",
     jlptLevel: "JLPT N4 + Japan Commercial Driving Theory",
     workplace: "Express Cold-Chain Logistics Hub",
     monthlyEarnings: "¥245,000 / month (~LKR 500,000)",
@@ -976,12 +927,12 @@ export const successStoriesData = [
     hometown: "Kandy, Sri Lanka",
     locationInJapan: "Namba, Osaka",
     institution: "Kansai International Academy",
-    intakeBatch: "October 2023 Intake",
+    intakeBatch: "October Intake",
     jlptLevel: "JLPT N2 Preparation Candidate",
     workplace: "Hotel Front Desk & Cafe Specialist (Part-time)",
     monthlyEarnings: "¥132,000 / month (~LKR 270,000)",
     image: "/images/real/caregiver_vlcsnap-2026-09-04-14h40m54s666.png",
-    quote: "Kandy center provided great Sensei coaching, and the documentation team reviewed my sponsor bank files 4 times so my COE had zero queries. Living in Osaka is culturally vibrant and very safe for Sri Lankan female students.",
+    quote: "Kadawatha center provided great Sensei coaching, and the documentation team reviewed my sponsor bank files 4 times so my COE had zero queries. Living in Osaka is culturally vibrant and very safe for Sri Lankan female students.",
     highlights: ["Full scholarship for N2 merit", "Hospitality degree pathway", "Shared student residence in Namba"]
   },
   {
@@ -993,7 +944,7 @@ export const successStoriesData = [
     hometown: "Kadawatha, Sri Lanka",
     locationInJapan: "Nagoya, Aichi Prefecture",
     institution: "Central Japan Dining Group (Skylark Network)",
-    intakeBatch: "January 2024 Batch",
+    intakeBatch: "January Batch",
     jlptLevel: "JFT-Basic A2 + Prometric Food Service Skills",
     workplace: "Commercial Kitchen & Restaurant Operations",
     monthlyEarnings: "¥218,000 / month (~LKR 445,000)",
@@ -1010,16 +961,19 @@ export const successStoriesData = [
     hometown: "Galle, Sri Lanka",
     locationInJapan: "Sendai, Miyagi Prefecture",
     institution: "Miyagi Healthcare & Senior Living Residence",
-    intakeBatch: "July 2024 Batch",
+    intakeBatch: "July Batch",
     jlptLevel: "JLPT N4 + Senior Care Certification",
     workplace: "Rehabilitation & Nursing Center",
     monthlyEarnings: "¥230,000 / month (~LKR 470,000)",
     image: "/images/real/caregiver_vlcsnap-2026-09-04-14h54m20s391.png",
-    quote: "From our Galle branch consultation to flying out of Katunayake with 14 other Atsuko students, the journey was smooth. In Sendai, Japanese colleagues are polite and welcoming, and Atsuko's support desk answers every phone call.",
+    quote: "From our Kadawatha campus consultation to flying out of Katunayake with other Atsuko students, the journey was smooth. In Sendai, Japanese colleagues are polite and welcoming, and Atsuko's support desk answers every phone call.",
     highlights: ["Co-cohort with Atsuko graduates", "Tohoku support network", "Clean modern staff apartment"]
   }
 ];
 
+// ══════════════════════════════════════════════════════════════════
+// LIFE IN JAPAN, LIVING COSTS & ONBOARDING
+// ══════════════════════════════════════════════════════════════════
 export const lifeInJapanData = {
   livingCosts: [
     {
@@ -1101,4 +1055,154 @@ export const lifeInJapanData = {
     }
   ]
 };
+
+// ══════════════════════════════════════════════════════════════════
+// OFFICIAL YOUTUBE VIDEO SUCCESS STORIES & CANDIDATE TESTIMONIALS
+// ══════════════════════════════════════════════════════════════════
+export const videoSuccessStories = [
+  {
+    id: "dwibi9wmrn4",
+    youtubeId: "DwIbi9WMrn4",
+    type: "feature",
+    title: "Atsuko International Official Student Journey & Success Experience",
+    titleSi: "අත්සුකෝ ජාත්‍යන්තර ආයතනය හරහා ජපානයට ගිය සිසුන්ගේ අත්දැකීම්",
+    titleJp: "アツコ・インターナショナル 公式 受講生・渡航者の体験談",
+    category: "general",
+    categoryLabel: "Full Student Journey",
+    badge: "Featured In-Depth Story",
+    description: "Comprehensive insight into how Atsuko International provides transparent, end-to-end guidance from basic Japanese language classes in Kadawatha to official visa clearance and confident settlement in Japan.",
+    youtubeUrl: "https://youtu.be/DwIbi9WMrn4?si=R7beMuL8HPwpQaNp",
+    embedUrl: "https://www.youtube-nocookie.com/embed/DwIbi9WMrn4",
+    highlights: ["SLBFE Lic. #3293 Legal Processing", "Kadawatha to Japan Direct Support", "Zero Initial Fee Until Approval"]
+  },
+  {
+    id: "4zstvgbncam",
+    youtubeId: "4ZSTvGbNCAM",
+    type: "feature",
+    title: "ජපන් භාෂා පාඨමාලාවේ 17 වන කණ්ඩායමේ සිසුවියක් ඔවුන්ගේ පාඨමාලා අවසන් දිනයේ අප ආයතනය ගැන දැක්වූ අදහස්",
+    titleSi: "ජපන් භාෂා පාඨමාලාවේ 17 වන කණ්ඩායමේ සිසුවියක් දැක්වූ අදහස්",
+    titleJp: "日本語コース第17期生 修了日の生の声・受講レビュー",
+    category: "language",
+    categoryLabel: "Batch 17 Completion",
+    badge: "Classroom Feedback",
+    description: "A student from Batch 17 of our Japanese Language Course shares her heartfelt feedback on their final day of classes, discussing the teaching quality, audio listening drills, and how Atsuko prepared her for the JLPT/JFT examinations.",
+    youtubeUrl: "https://youtu.be/4ZSTvGbNCAM?si=92fJ2xtWsvGFgtIN",
+    embedUrl: "https://www.youtube-nocookie.com/embed/4ZSTvGbNCAM",
+    highlights: ["Interactive Classrooms at Kadawatha", "Dedicated Sensei Coaching", "Exam Techniques & Confidence"]
+  },
+  {
+    id: "lhdl9_nxane",
+    youtubeId: "lhdl9_nXAnE",
+    type: "short",
+    title: "අපගේ ජපන් භාෂා පාඨමාලාවේ සිසුවියකගේ අදහස්",
+    titleSi: "ජපන් භාෂා පාඨමාලාවේ සිසුවියකගේ අදහස්",
+    titleJp: "日本語受講生の体験談ショート",
+    category: "language",
+    categoryLabel: "Language Course Feedback",
+    badge: "YouTube Short",
+    description: "Direct student testimonial highlighting her learning experience, friendly classroom culture, and rapid progress in Japanese conversation.",
+    youtubeUrl: "https://youtube.com/shorts/lhdl9_nXAnE?si=H2rifbnBwhZRh4i4",
+    embedUrl: "https://www.youtube-nocookie.com/embed/lhdl9_nXAnE"
+  },
+  {
+    id: "buiqb1nwloo",
+    youtubeId: "buiQB1nwloo",
+    type: "short",
+    title: "Atsuko International Student Journey & Visa Milestone",
+    titleSi: "අත්සුකෝ ජාත්‍යන්තර ආයතනයේ සිසු සාර්ථකත්වය",
+    titleJp: "アツコ・インターナショナル 留学・就労への道のり",
+    category: "student",
+    categoryLabel: "Student Visa Milestone",
+    badge: "YouTube Short",
+    description: "Inspiring candidate sharing her pathway to Japan, trusting Atsuko International's government-licensed guidance and dedicated support team.",
+    youtubeUrl: "https://youtube.com/shorts/buiQB1nwloo?si=j4pVnl9ONzOqjHY5",
+    embedUrl: "https://www.youtube-nocookie.com/embed/buiQB1nwloo"
+  },
+  {
+    id: "lpol8ppqsnm",
+    youtubeId: "LPol8PPQsnM",
+    type: "short",
+    title: "ATSUKO INTERNATIONAL - FOOD SERVICE රැකියාවක් ලබාගත් ඇය...",
+    titleSi: "Food Service රැකියාවක් ලබාගත් ඇයගේ සාර්ථකත්වය",
+    titleJp: "外食業（Food Service）特定技能ビザ 採用実績",
+    category: "ssw-food",
+    categoryLabel: "SSW Food Service Placed",
+    badge: "SSW Work Victory",
+    description: "Celebrating another proud Atsuko candidate who successfully passed her Prometric Food Service exams and secured direct legal employment in Japan.",
+    youtubeUrl: "https://youtube.com/shorts/LPol8PPQsnM?si=cVnnxakZZcPTgxZ0",
+    embedUrl: "https://www.youtube-nocookie.com/embed/LPol8PPQsnM"
+  },
+  {
+    id: "i8slmrh5apc",
+    youtubeId: "I8SlMRh5APc",
+    type: "short",
+    title: "ATSUKO INTERNATIONAL - FOOD SERVICE රැකියාවක් ලබාගත් ඇයගේ සතුට...",
+    titleSi: "Food Service රැකියාවක් ලබාගත් ඇයගේ සතුට සමරමින්...",
+    titleJp: "特定技能「外食業」就労決定 喜びの声",
+    category: "ssw-food",
+    categoryLabel: "SSW Food Service Victory",
+    badge: "SSW Work Victory",
+    description: "Real emotions and victory celebration of an Atsuko candidate embarking on her Specified Skilled Worker career in Japan's hospitality and restaurant sector.",
+    youtubeUrl: "https://youtube.com/shorts/I8SlMRh5APc?si=gPR7Zp2rKJmHR3zl",
+    embedUrl: "https://www.youtube-nocookie.com/embed/I8SlMRh5APc"
+  },
+  {
+    id: "tw_y7l7qlli",
+    youtubeId: "tw_y7l7qllI",
+    type: "short",
+    title: "Japan Caregiver Fulltime Course | ATSUKO INTERNATIONAL",
+    titleSi: "ජපන් සාත්තු සේවා (Caregiver) පූර්ණකාලීන පාඨමාලාව - අත්සුකෝ ජාත්‍යන්තර ආයතනය",
+    titleJp: "特定技能「介護職」フルタイム研修コース 受講生の声",
+    category: "caregiver",
+    categoryLabel: "SSW Caregiver Training",
+    badge: "Caregiver Training",
+    description: "Inside our dedicated nursing & elderly care simulation facility at Kadawatha, preparing candidates with clinical Japanese, patient transfer techniques, and Prometric test success.",
+    youtubeUrl: "https://youtube.com/shorts/tw_y7l7qllI?si=J225Zhs4NgCfgWP9",
+    embedUrl: "https://www.youtube-nocookie.com/embed/tw_y7l7qllI"
+  },
+  {
+    id: "hvbtzchk430",
+    youtubeId: "hvBtzchK430",
+    type: "short",
+    title: "Atsuko International Student Journey & Placement Celebration",
+    titleSi: "අත්සුකෝ ආයතනය හරහා ජයග්‍රහණය ලැබූ සිසුවියගේ සතුට",
+    titleJp: "アツコ・インターナショナル 渡航決定・合格の瞬間",
+    category: "student",
+    categoryLabel: "Student Milestone",
+    badge: "Student Victory",
+    description: "Heartfelt celebration and genuine student appreciation after obtaining official visa clearance through Atsuko International's licensed pathway to Japan.",
+    youtubeUrl: "https://youtube.com/shorts/hvBtzchK430?si=dnF9aDbyVYk4MScL",
+    embedUrl: "https://www.youtube-nocookie.com/embed/hvBtzchK430"
+  },
+  {
+    id: "r48idvabhvu",
+    youtubeId: "R48IDvAbhVU",
+    type: "short",
+    title: "Atsuko International Candidate Success Story & Guidance",
+    titleSi: "අත්සුකෝ ජාත්‍යන්තර ආයතනයේ නිවැරදි මඟපෙන්වීම සහ සාර්ථකත්වය",
+    titleJp: "アツコ・インターナショナルの丁寧な進路指導・日本への道",
+    category: "general",
+    categoryLabel: "Success Guidance",
+    badge: "Guidance Story",
+    description: "Student testimonial explaining how Atsuko International's direct sensei mentorship and transparent SLBFE documentation made the journey to Japan smooth and stress-free.",
+    youtubeUrl: "https://youtube.com/shorts/R48IDvAbhVU?si=HBx9qhBc_4MD8KSh",
+    embedUrl: "https://www.youtube-nocookie.com/embed/R48IDvAbhVU"
+  },
+  {
+    id: "bhazrf4_oyo",
+    youtubeId: "BHaZrf4-oyo",
+    type: "short",
+    title: "JFT විභාගය සමත් සිසුවියක් අප ආයතනය ගැන දැක්වූ අදහස්",
+    titleSi: "JFT විභාගය සමත් සිසුවියක් අප ආයතනය ගැන දැක්වූ අදහස්",
+    titleJp: "JFT-Basic試験 合格者の声・アツコ日本語学校の指導実績",
+    category: "language",
+    categoryLabel: "JFT Exam Passed",
+    badge: "Exam Success",
+    description: "Candidate who successfully passed the Japan Foundation Test for Basic Japanese (JFT-Basic) shares how Atsuko's intensive mock questions and audio labs secured her victory.",
+    youtubeUrl: "https://youtube.com/shorts/BHaZrf4-oyo?si=yhRGqp1x4eMEBPeP",
+    embedUrl: "https://www.youtube-nocookie.com/embed/BHaZrf4-oyo"
+  }
+];
+
+
 

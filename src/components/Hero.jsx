@@ -1,8 +1,11 @@
 import { Sparkles, ArrowRight, CheckCircle2, Award, ShieldCheck } from 'lucide-react';
 import { siteTranslations } from '../data/translations';
+import { officialContacts } from '../data/websiteData';
+import { getUiText } from '../data/uiText';
 
 export default function Hero({ lang, onOpenModal, onScrollToEligibility }) {
   const t = siteTranslations[lang]?.hero || siteTranslations.en.hero;
+  const b = getUiText(lang).heroBadges;
 
   return (
     <section className="hero" id="hero-section">
@@ -36,7 +39,7 @@ export default function Hero({ lang, onOpenModal, onScrollToEligibility }) {
               <span>{t.pill2}</span>
             </div>
             <div className="hero-pill" role="listitem">
-              <span className="hero-pill-icon" aria-hidden="true">💴</span>
+              <span className="hero-pill-icon" aria-hidden="true">✨</span>
               <span>{t.pill3}</span>
             </div>
             <div className="hero-pill" role="listitem">
@@ -64,7 +67,7 @@ export default function Hero({ lang, onOpenModal, onScrollToEligibility }) {
             </button>
 
             <a 
-              href="https://wa.me/94778643352?text=Hello%20Atsuko%20International,%20I%20would%20like%20to%20inquire%20about%20upcoming%20classes%20and%20Japan%20visa%20intakes."
+              href="https://wa.me/94777933352?text=Hello%20Atsuko%20International,%20I%20would%20like%20to%20inquire%20about%20upcoming%20classes%20and%20Japan%20visa%20intakes."
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-whatsapp hero-cta-btn"
@@ -83,15 +86,20 @@ export default function Hero({ lang, onOpenModal, onScrollToEligibility }) {
         {/* Right Column: Hero Visual Graphic */}
         <div className="hero-image-wrapper">
           <div className="hero-image-card">
-            <img 
-              src="/images/hero-japan.jpg" 
-              alt="Sri Lankan Students Aspiring to Study in Japan - Atsuko International" 
-              width="600"
-              height="450"
-              loading="eager"
-              decoding="async"
-              className="hero-main-img"
-            />
+            <video 
+              src="/videos/atsuko-drone-intro.mp4" 
+              poster="/images/atsuko-drone-wide.jpg"
+              autoPlay 
+              loop 
+              muted 
+              playsInline
+              preload="metadata"
+              className="hero-main-video"
+              title="Atsuko International Headquarters - Drone Video"
+            >
+              <source src="/videos/atsuko-drone-intro.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
             <div className="hero-image-glow" aria-hidden="true"></div>
           </div>
 
@@ -101,8 +109,8 @@ export default function Hero({ lang, onOpenModal, onScrollToEligibility }) {
               <Award size={22} />
             </div>
             <div>
-              <div className="badge-val">SLBFE #3293 • PV 0217143</div>
-              <div className="badge-lbl">Government Verified License</div>
+              <div className="badge-val">{b.licenseVal}</div>
+              <div className="badge-lbl">{b.licenseLbl}</div>
             </div>
           </div>
 
@@ -112,8 +120,8 @@ export default function Hero({ lang, onOpenModal, onScrollToEligibility }) {
               <ShieldCheck size={22} />
             </div>
             <div>
-              <div className="badge-val">Komaki & Sendai, Japan</div>
-              <div className="badge-lbl">登録支援機関 Support Entity</div>
+              <div className="badge-val">{b.japanVal}</div>
+              <div className="badge-lbl">{b.japanLbl}</div>
             </div>
           </div>
         </div>

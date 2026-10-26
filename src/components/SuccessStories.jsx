@@ -1,7 +1,7 @@
 import { Award, ExternalLink, CheckCircle2 } from 'lucide-react';
 import { siteTranslations } from '../data/translations';
 
-export default function SuccessStories({ lang }) {
+export default function SuccessStories({ lang, onNavigate }) {
   const t = siteTranslations[lang]?.success || siteTranslations.en.success;
 
   const siCohorts = [
@@ -124,6 +124,20 @@ export default function SuccessStories({ lang }) {
               <CheckCircle2 size={16} className="text-emerald flex-shrink-0" />
               <span>{t.airportPoint}</span>
             </div>
+
+            {onNavigate && (
+              <div style={{ marginTop: '1.5rem' }}>
+                <button
+                  type="button"
+                  onClick={() => onNavigate('stories')}
+                  className="btn btn-primary"
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontWeight: 700 }}
+                >
+                  <span>{lang === 'si' ? 'වීඩියෝ සාක්ෂි සහ Shorts 10 නරඹන්න' : lang === 'jp' ? '動画体験談・ショート動画を見る（10本）' : 'Watch 10 Video Stories & Shorts'}</span>
+                  <ExternalLink size={14} />
+                </button>
+              </div>
+            )}
           </div>
 
           <div className="stories-spotlight-img">

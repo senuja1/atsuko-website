@@ -13,12 +13,22 @@ import {
   ArrowRight,
   ShieldCheck,
   Search,
-  Filter
+  Filter,
+  GraduationCap,
+  HeartPulse,
+  Truck,
+  Utensils,
+  Hotel,
+  Hammer,
+  Sprout
 } from 'lucide-react';
 import { coursesData, activeCourseSchedules } from '../data/websiteData';
+import { getUiText } from '../data/uiText';
 
 export default function CoursesPage({ lang, onOpenModal }) {
-  const [activeTab, setActiveTab] = useState('all');
+  const tFull = getUiText(lang);
+  const ui = tFull.pages.courses;
+  const h = tFull.home;
   const [scheduleFilter, setScheduleFilter] = useState('all');
 
   const filterSchedules = activeCourseSchedules.filter(item => {
@@ -28,99 +38,290 @@ export default function CoursesPage({ lang, onOpenModal }) {
     return true;
   });
 
+  // Localized Course Content overrides for Sinhala & Japanese
+  const localizedLangCourses = coursesData.language.map(c => {
+    if (lang === 'si') {
+      if (c.id === 'n5') {
+        return {
+          ...c,
+          title: 'JLPT N5 මූලික පාඨමාලාව',
+          duration: 'මාස 4 (පැය 160)',
+          suitableFor: 'පාසල් හැරගිය සිසුන්, ආධුනිකයින්, ශිෂ්‍ය වීසා අපේක්ෂකයින්',
+          description: 'ජපන් භාෂාව මුලසිට (හිරගනා, කටකනා) ඉගෙන ගන්නා සිසුන් සඳහා මූලික පදනම. කන්ජි 100+, මූලික ව්‍යාකරණ, ශ්‍රව්‍ය පරීක්ෂණ සහ දෛනික සංවාද පුහුණුව.',
+          features: [
+            'හිරගනා සහ කටකනා අභ්‍යාස පොත් කට්ටලයක් සමඟ සම්පූර්ණ දැනුම',
+            'මූලික කන්ජි 100+ සහ අත්‍යවශ්‍ය වචන 800+ කටපාඩම් කරවීම',
+            'නිල පසුගිය විභාග ප්‍රශ්න පත්‍ර සහ ශ්‍රව්‍යාගාර පෙරහුරුව',
+            'සුදුසුකම්ලත් සෙන්සෙයිවරුන් සමඟ දෛනික කතාබහ (Kaiwa)',
+          ]
+        };
+      }
+      if (c.id === 'n4') {
+        return {
+          ...c,
+          title: 'JLPT N4 මධ්‍යම පාඨමාලාව',
+          duration: 'මාස 4 (පැය 160)',
+          suitableFor: 'N5 සමතුන්, SSW රැකියා වීසා අපේක්ෂකයින්',
+          description: 'SSW රැකියා වීසා සඳහා අවශ්‍ය නිල භාෂා ප්‍රමිතිය. සංකීර්ණ ව්‍යාකරණ, කන්ජි 300+, සහ ජපන් සේවා ස්ථානවල භාවිත වන ප්‍රායෝගික භාෂා දැනුම.',
+          features: [
+            'N4 මට්ටමේ කන්ජි 300+ සහ වචන මාලා 1,500+ පරිපූර්ණ හැදෑරීම',
+            'රැකියා ස්ථානයට අදාළ දෛනික සන්නිවේදනය සහ ආචාර විධි',
+            'Prometric හා සමාන පරිගණක (CBT) සහ ලිඛිත විභාග පෙරහුරු',
+            'තානාපති කාර්යාල සම්මුඛ පරීක්ෂණ පෙරහුරු (Mensetsu)',
+          ]
+        };
+      }
+      if (c.id === 'jft') {
+        return {
+          ...c,
+          title: 'JFT-Basic A2 වේගවත් පාඨමාලාව',
+          duration: 'මාස 3 (පැය 120)',
+          suitableFor: 'ඉක්මනින් SSW විභාගය ලිවීමට අපේක්ෂා කරන සිසුන්',
+          description: 'ජපන් පදනම (The Japan Foundation) විසින් පවත්වනු ලබන පරිගණක පාදක (CBT) විභාගය සඳහා විශේෂිත පුහුණුව.',
+          features: [
+            'කඩවත කැම්පස් පරිගණක විද්‍යාගාරයේ CBT පරිගණක විභාග පෙරහුරුව',
+            'Irodori (ජපානයේ ජීවිතය සඳහා ජපන්) නිල විෂය නිර්දේශය',
+            'ක්ෂණික ශ්‍රව්‍ය ප්‍රතිචාර සහ තිරය හරහා ප්‍රශ්නවලට පිළිතුරු දීම',
+            'Prometric විභාග ලියාපදිංචි කිරීමේ සම්පූර්ණ මඟපෙන්වීම',
+          ]
+        };
+      }
+      if (c.id === 'spoken') {
+        return {
+          ...c,
+          title: 'ප්‍රායෝගික කථන ජපන් සහ සම්මුඛ පරීක්ෂණ',
+          duration: 'මාස 2 (පැය 60)',
+          suitableFor: 'වීසා සම්මුඛ පරීක්ෂණ හා ජපන් සේවායෝජක සම්මුඛ පරීක්ෂණ සඳහා',
+          description: 'ජපන් හාම්පුතුන් සහ පාසල් විදුහල්පතිවරුන් සමඟ පවත්වන සජීවී Zoom සම්මුඛ පරීක්ෂණ ජයගැනීමේ විශේෂිත කථන පුහුණුව.',
+          features: [
+            'ජපන් ආචාර විධි (Ojigi), ශරීර භාෂාව සහ වෘත්තීය ගෞරවය',
+            'ස්වයං හැඳින්වීම (Jikoshoukai) සහ සාමාන්‍ය ප්‍රශ්නවලට චතුර පිළිතුරු',
+            'සේවා ස්ථානවල භාවිත වන කීර්තිමත් ගෞරව භාෂාව (Keigo)',
+            'වීඩියෝ පටිගත කිරීම් හරහා උච්චාරණ නිවැරදි කිරීම',
+          ]
+        };
+      }
+    }
+    return c;
+  });
+
   return (
     <div className="page-container courses-page">
-      {/* Page Hero Banner */}
+      {/* 1. Page Hero Banner */}
       <section className="page-header-banner">
         <div className="container">
           <div className="page-header-content">
             <span className="section-badge badge-gold">
               <Award size={14} />
-              Accredited Curriculum & Practical Labs
+              {ui.badge}
             </span>
             <h1 className="page-hero-title">
-              Courses & <span className="text-gradient-red">Vocational Training</span>
+              {ui.titlePre} <span className="text-gradient-red">{ui.titleHighlight}</span>
             </h1>
             <p className="page-hero-subtitle">
-              Comprehensive Japanese language preparation (JLPT & JFT) and government-certified Specified Skilled Worker 
-              (SSW) vocational simulation training designed for maximum pass rates and immediate employer selection.
+              {ui.subtitle}
             </p>
 
             <div className="course-stats-bar">
-              <div className="course-stat-item">
-                <span className="course-stat-num">JLPT N5 / N4</span>
-                <span className="course-stat-lbl">Foundation to SSW Standard</span>
-              </div>
-              <div className="course-stat-item">
-                <span className="course-stat-num">JFT-Basic A2</span>
-                <span className="course-stat-lbl">Computer-Based CBT Lab Prep</span>
-              </div>
-              <div className="course-stat-item">
-                <span className="course-stat-num">5 SSW Sectors</span>
-                <span className="course-stat-lbl">Caregiver, Food, Farm, Driving, Build</span>
-              </div>
-              <div className="course-stat-item">
-                <span className="course-stat-num">Kadawatha Lab</span>
-                <span className="course-stat-lbl">Hospital Bed & Wheelchair Unit</span>
-              </div>
+              {ui.stats.map((st, idx) => (
+                <div key={idx} className="course-stat-item">
+                  <span className="course-stat-num">{st.num}</span>
+                  <span className="course-stat-lbl">{st.lbl}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Active Batch Schedules & Calendar Table Section */}
-      <section className="section" id="active-schedules">
+      {/* 2. Japanese Language Proficiency Track */}
+      <section className="section" style={{ background: '#ffffff' }}>
+        <div className="container">
+          <div className="section-header">
+            <span className="section-badge badge-red">
+              <BookOpen size={14} />
+              {ui.langBadge}
+            </span>
+            <h2 className="section-title">
+              {ui.langTitle} <span className="text-gradient-red">{ui.langHighlight}</span>
+            </h2>
+            <p className="section-subtitle">
+              {ui.langSubtitle}
+            </p>
+          </div>
+
+          <div className="courses-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.75rem' }}>
+            {localizedLangCourses.map((course) => (
+              <div key={course.id} className="course-card" style={{ background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: 'var(--radius-xl)', padding: '1.75rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                <div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
+                    <span style={{ background: '#fee2e2', color: '#b91c1c', fontSize: '0.75rem', fontWeight: 700, padding: '0.25rem 0.65rem', borderRadius: 'var(--radius-full)' }}>
+                      {course.badge}
+                    </span>
+                    <span style={{ fontSize: '0.8rem', color: '#64748b', fontWeight: 600 }}>
+                      {course.duration}
+                    </span>
+                  </div>
+
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--navy-900)', margin: '0.25rem 0 0.5rem' }}>
+                    {course.title}
+                  </h3>
+                  <div style={{ fontFamily: 'var(--font-jp)', fontSize: '0.85rem', color: '#b45309', fontWeight: 700, marginBottom: '0.75rem' }}>
+                    {course.jpTitle}
+                  </div>
+
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.6, marginBottom: '1.25rem' }}>
+                    {course.description}
+                  </p>
+
+                  <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 1.5rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                    {course.features.map((feat, idx) => (
+                      <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', fontSize: '0.875rem', color: 'var(--navy-800)' }}>
+                        <CheckCircle2 size={15} style={{ color: '#10b981', flexShrink: 0, marginTop: '2px' }} />
+                        <span>{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <div style={{ background: '#ffffff', padding: '0.65rem 0.85rem', borderRadius: 'var(--radius-md)', fontSize: '0.8rem', color: '#475569', marginBottom: '1rem', border: '1px solid #e2e8f0' }}>
+                    <strong>{ui.idealCandidateLbl || 'Ideal for:'}</strong> {course.suitableFor}
+                  </div>
+                  <button 
+                    onClick={() => onOpenModal(`Course Enrollment: ${course.title}`)}
+                    className="btn btn-primary btn-block"
+                  >
+                    <span>{ui.enrollBtn || 'Enroll in Course'}</span>
+                    <ArrowRight size={14} />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 3. SSW Technical & Vocational Training Track */}
+      <section className="section section-alt">
+        <div className="container">
+          <div className="section-header">
+            <span className="section-badge badge-gold">
+              <Briefcase size={14} />
+              {ui.sswBadge}
+            </span>
+            <h2 className="section-title">
+              {ui.sswTitle} <span className="text-gradient-red">{ui.sswHighlight}</span>
+            </h2>
+            <p className="section-subtitle">
+              {ui.sswSubtitle}
+            </p>
+          </div>
+
+          <div className="courses-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.75rem' }}>
+            {coursesData.sswVocational.map((course) => (
+              <div key={course.id} className="course-card" style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: 'var(--radius-xl)', padding: '1.75rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 4px 15px rgba(0,0,0,0.03)' }}>
+                <div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
+                    <span style={{ background: '#fef3c7', color: '#92400e', fontSize: '0.75rem', fontWeight: 700, padding: '0.25rem 0.65rem', borderRadius: 'var(--radius-full)' }}>
+                      {course.badge}
+                    </span>
+                    <span style={{ fontSize: '0.8rem', color: '#64748b', fontWeight: 600 }}>
+                      {course.duration}
+                    </span>
+                  </div>
+
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--navy-900)', margin: '0.25rem 0 0.5rem' }}>
+                    {course.title}
+                  </h3>
+                  <div style={{ fontFamily: 'var(--font-jp)', fontSize: '0.85rem', color: '#0284c7', fontWeight: 700, marginBottom: '0.75rem' }}>
+                    {course.jpTitle}
+                  </div>
+
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.6, marginBottom: '1.25rem' }}>
+                    {course.description}
+                  </p>
+
+                  <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 1.5rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                    {course.features.map((feat, idx) => (
+                      <li key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', fontSize: '0.875rem', color: 'var(--navy-800)' }}>
+                        <CheckCircle2 size={15} style={{ color: '#0284c7', flexShrink: 0, marginTop: '2px' }} />
+                        <span>{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <div style={{ background: '#f8fafc', padding: '0.65rem 0.85rem', borderRadius: 'var(--radius-md)', fontSize: '0.8rem', color: '#475569', marginBottom: '1rem', border: '1px solid #e2e8f0' }}>
+                    <strong>{ui.modeLbl || 'Training Venue:'}</strong> {course.mode}
+                  </div>
+                  <button 
+                    onClick={() => onOpenModal(`SSW Skill Registration: ${course.title}`)}
+                    className="btn btn-gold btn-block"
+                  >
+                    <span>{ui.enrollBtn || 'Register for SSW Training'}</span>
+                    <ArrowRight size={14} />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Active Real-Time Batch Schedules & Calendar */}
+      <section className="section" id="active-schedules" style={{ background: '#ffffff' }}>
         <div className="container">
           <div className="section-header">
             <span className="section-badge badge-red">
               <Calendar size={14} />
-              Real-Time Batch Calendar
+              {ui.scheduleBadge}
             </span>
             <h2 className="section-title">
-              Browse Active <span className="text-gradient-red">Course Schedules</span>
+              {ui.scheduleTitle} <span className="text-gradient-red">{ui.scheduleHighlight}</span>
             </h2>
             <p className="section-subtitle">
-              Select an upcoming batch schedule below and register online for physical classes at Kadawatha, 
-              regional intake branches, or live interactive Zoom batches.
+              {ui.scheduleSubtitle}
             </p>
           </div>
 
           {/* Schedule Filter Tabs */}
-          <div className="schedule-filter-bar">
-            <div className="filter-pill-group">
+          <div className="schedule-filter-bar" style={{ display: 'flex', justifyContent: 'center', marginBottom: '2rem' }}>
+            <div className="filter-pill-group" style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
               <button 
                 className={`filter-pill ${scheduleFilter === 'all' ? 'active' : ''}`}
                 onClick={() => setScheduleFilter('all')}
               >
-                All Upcoming Batches ({activeCourseSchedules.length})
+                {ui.filterAll || 'All Batches'} ({activeCourseSchedules.length})
               </button>
               <button 
                 className={`filter-pill ${scheduleFilter === 'language' ? 'active' : ''}`}
                 onClick={() => setScheduleFilter('language')}
               >
-                Japanese Language (N5/N4/JFT)
+                {ui.filterLanguage || 'Japanese Language'}
               </button>
               <button 
                 className={`filter-pill ${scheduleFilter === 'ssw' ? 'active' : ''}`}
                 onClick={() => setScheduleFilter('ssw')}
               >
-                SSW Vocational Skills & Labs
+                {ui.filterSsw || 'SSW Vocational Skills'}
               </button>
             </div>
           </div>
 
-          {/* Structured Responsive Schedules Table / Cards */}
+          {/* Structured Responsive Schedules Table */}
           <div className="schedules-table-container">
             <div className="schedules-table-wrapper">
               <table className="schedules-table">
                 <thead>
                   <tr>
-                    <th>Course Name & Category</th>
-                    <th>Days & Timing</th>
-                    <th>Center / Learning Mode</th>
-                    <th>Intake Cycle</th>
-                    <th>Availability</th>
-                    <th>Action</th>
+                    <th>{ui.thCourse || 'Course Name & Category'}</th>
+                    <th>{ui.thSchedule || 'Days & Timing'}</th>
+                    <th>{ui.modeLbl || 'Venue / Mode'}</th>
+                    <th>{ui.thIntake || 'Intake Cycle'}</th>
+                    <th>{ui.thStatus || 'Availability'}</th>
+                    <th>{ui.thAction || 'Action'}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -138,26 +339,26 @@ export default function CoursesPage({ lang, onOpenModal }) {
                         </div>
                       </td>
                       <td className="cell-mode">
-                        <div className="batch-location">
-                          <MapPin size={13} className="text-red" />
+                        <div className="batch-mode-text">
+                          <MapPin size={13} />
                           <span>{batch.mode}</span>
                         </div>
-                        <span className="batch-duration">{batch.duration}</span>
+                        <span className="batch-duration-badge">{batch.duration}</span>
                       </td>
                       <td className="cell-start">
                         <span className="batch-start-date">{batch.startDate}</span>
                       </td>
                       <td className="cell-status">
-                        <span className={`status-pill status-${batch.badgeType}`}>
-                          {batch.seatsStatus}
+                        <span className={`status-badge status-${batch.badgeType}`}>
+                          {batch.badgeType === 'success' ? (ui.statusOpen || batch.seatsStatus) : (ui.statusLimited || batch.seatsStatus)}
                         </span>
                       </td>
                       <td className="cell-action">
                         <button 
-                          onClick={() => onOpenModal(batch.course)}
-                          className="btn-register-table"
+                          onClick={() => onOpenModal(`Batch Registration: ${batch.course}`)}
+                          className="btn btn-sm btn-primary"
                         >
-                          Register Online
+                          <span>{ui.btnEnrollNow || 'Apply'}</span>
                         </button>
                       </td>
                     </tr>
@@ -169,195 +370,35 @@ export default function CoursesPage({ lang, onOpenModal }) {
         </div>
       </section>
 
-      {/* Detailed Course Breakdowns */}
-      <section className="section section-alt">
+      {/* 5. Zero Initial Fee Assurance */}
+      <section className="about-cta-section">
         <div className="container">
-          <div className="section-header">
-            <span className="section-badge badge-gold">
-              <BookOpen size={14} />
-              Syllabus & Modules
-            </span>
-            <h2 className="section-title">
-              Detailed Breakdown of <span className="text-gradient-red">Japanese Language Courses</span>
-            </h2>
-            <p className="section-subtitle">
-              Structured step-by-step syllabus from basic Hiragana alphabet to professional Japanese business honorifics.
-            </p>
-          </div>
-
-          <div className="courses-detailed-grid">
-            {coursesData.language.map((course) => (
-              <div key={course.id} className="course-card-enhanced">
-                <div className="course-card-header">
-                  <span className="course-card-badge">{course.badge}</span>
-                  <span className="course-card-duration">
-                    <Clock size={13} />
-                    {course.duration}
-                  </span>
-                </div>
-
-                <h3 className="course-card-title">{course.title}</h3>
-                <div className="course-card-jp">{course.jpTitle}</div>
-                <p className="course-card-desc">{course.description}</p>
-
-                <div className="course-features-block">
-                  <strong className="block-title">Key Learning Outcomes:</strong>
-                  <ul className="course-features-list">
-                    {course.features.map((feat, idx) => (
-                      <li key={idx}>
-                        <CheckCircle2 size={14} className="text-red" />
-                        <span>{feat}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="course-card-candidate-box">
-                  <strong>Target Applicant:</strong> {course.suitableFor}
-                </div>
-
-                <div className="course-card-footer">
-                  <div className="course-mode-tag">
-                    <MapPin size={13} />
-                    <span>{course.mode}</span>
-                  </div>
-                  <button 
-                    onClick={() => onOpenModal(course.title)}
-                    className="btn btn-primary btn-sm"
-                  >
-                    <Send size={13} />
-                    <span>Register Batch</span>
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SSW Vocational Training & Skills Tracks Section */}
-      <section className="section">
-        <div className="container">
-          <div className="section-header">
-            <span className="section-badge badge-red">
-              <Briefcase size={14} />
-              Specified Skilled Worker (SSW)
-            </span>
-            <h2 className="section-title">
-              SSW Vocational <span className="text-gradient-red">Skills Training Tracks</span>
-            </h2>
-            <p className="section-subtitle">
-              Government-aligned practical curriculum preparing candidates for Prometric Skills Evaluation tests in 
-              high-demand employment sectors in Japan.
-            </p>
-          </div>
-
-          <div className="ssw-tracks-grid">
-            {coursesData.sswWorkVisa.map((track) => (
-              <div key={track.id} className="ssw-track-card">
-                <div className="ssw-track-banner">
-                  <span className="ssw-track-badge">★ {track.badge}</span>
-                  <span className="ssw-track-period">{track.duration}</span>
-                </div>
-
-                <div className="ssw-track-content">
-                  <h3 className="ssw-track-title">{track.title}</h3>
-                  <div className="ssw-track-jp">{track.jpTitle}</div>
-                  <p className="ssw-track-desc">{track.description}</p>
-
-                  <div className="ssw-track-points">
-                    <strong className="block-title">Training Modules & Placement:</strong>
-                    <ul>
-                      {track.features.map((feat, idx) => (
-                        <li key={idx}>
-                          <span className="track-bullet">•</span>
-                          <span>{feat}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="ssw-track-meta">
-                    <span className="candidate-req">
-                      <strong>Eligibility:</strong> {track.suitableFor}
-                    </span>
-                  </div>
-
-                  <button 
-                    onClick={() => onOpenModal(track.title)}
-                    className="btn btn-gold btn-block"
-                    style={{ marginTop: '1.25rem' }}
-                  >
-                    <span>Enroll for {track.title.split('(')[0]}</span>
-                    <ArrowRight size={14} />
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Practical Facilities & Simulation Labs Section */}
-      <section className="section section-alt">
-        <div className="container">
-          <div className="training-facility-showcase-grid">
-            <div className="facility-img-card">
-              <img 
-                src="/images/classroom-sensei.jpg" 
-                alt="Kadawatha Japanese Language Classroom & Native Sensei" 
-                className="facility-img"
-              />
-              <div className="facility-floating-pill">
-                <Sparkles size={16} className="text-gold" />
-                <span>Native Japanese Sensei & JLPT N1/N2 Faculty</span>
-              </div>
-            </div>
-
-            <div className="facility-info-col">
-              <span className="section-badge badge-red">Kadawatha Operations Hub</span>
-              <h2 className="section-title-md">
-                World-Class Simulation & <span className="text-gradient-red">Audio-Visual Facilities</span>
-              </h2>
-              <p className="about-body-p">
-                Atsuko International is equipped with proprietary training infrastructure designed to replicate 
-                the exact testing conditions of Prometric computer centers and Japanese healthcare institutions:
+          <div className="about-cta-card">
+            <div>
+              <span className="section-badge badge-gold" style={{ marginBottom: '0.75rem' }}>
+                <ShieldCheck size={14} />
+                {h.ctaBadge}
+              </span>
+              <h3 className="about-cta-title">{h.ctaTitle}</h3>
+              <p className="about-cta-desc">
+                {h.ctaDesc}
               </p>
-
-              <div className="facility-points-list">
-                <div className="facility-point-item">
-                  <div className="f-icon">🏥</div>
-                  <div>
-                    <h4>Caregiver (Kaigo) Practical Simulation Ward</h4>
-                    <p>Fitted with authentic Japanese hospital adjustable beds, wheelchairs, bathing aids, and ergonomic patient transfer apparatus.</p>
-                  </div>
-                </div>
-
-                <div className="facility-point-item">
-                  <div className="f-icon">💻</div>
-                  <div>
-                    <h4>Prometric Computer-Based Testing (CBT) Lab</h4>
-                    <p>Dedicated computer terminals simulating JFT-Basic and SSW skill test interfaces to build examination confidence.</p>
-                  </div>
-                </div>
-
-                <div className="facility-point-item">
-                  <div className="f-icon">🎧</div>
-                  <div>
-                    <h4>JLPT Acoustic Listening Chambers</h4>
-                    <p>High-fidelity audio booths calibrated to Japanese Embassy examination acoustic standards for auditory drills.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div style={{ marginTop: '1.5rem' }}>
-                <button 
-                  onClick={() => onOpenModal('Campus Tour & Simulation Lab Visit')}
-                  className="btn btn-primary"
-                >
-                  Book a Visit to Kadawatha Simulation Lab
-                </button>
-              </div>
+            </div>
+            <div className="about-cta-btn-group">
+              <button 
+                onClick={() => onOpenModal('Fast-Track Batch Enrollment')} 
+                className="btn btn-gold"
+              >
+                {h.ctaRegister}
+              </button>
+              <a 
+                href="https://wa.me/94777933352" 
+                target="_blank" 
+                rel="noreferrer" 
+                className="btn btn-whatsapp"
+              >
+                {h.ctaWhatsApp}
+              </a>
             </div>
           </div>
         </div>

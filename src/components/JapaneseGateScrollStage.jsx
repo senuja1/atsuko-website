@@ -132,7 +132,17 @@ export default function JapaneseGateScrollStage({
   onScrollToEligibility,
   onNavigate
 }) {
-  const g = getUiText(lang).gate;
+  const gateText = getUiText(lang)?.gate || {};
+  const g = {
+    license: gateText.license || 'SLBFE LICENSE NO. 3293 • PV 0217143',
+    desc: gateText.desc || 'Sri Lanka’s premier government-registered pathway to study and work in Japan.',
+    walkBtn: gateText.walkBtn || 'Walk Through Gate to Portal',
+    scrollHint: gateText.scrollHint || 'Scroll Down to Enter',
+    welcomeBadge: gateText.welcomeBadge || 'WELCOME TO ATSUKO GAKKO (篤子 学校)',
+    portalTitle: gateText.portalTitle || 'Your Official Pathway to Study & Work in Japan',
+    portalDesc: gateText.portalDesc || 'Licensed Foreign Employment Agency (SLBFE No. 3293) and Specialized Japanese Language School.',
+    continueBtn: gateText.continueBtn || 'Continue into Official Portal',
+  };
   const containerRef = useRef(null);
   const canvasRef = useRef(null);
   const fgCanvasRef = useRef(null);
@@ -261,11 +271,14 @@ export default function JapaneseGateScrollStage({
         }
       }
 
-      // 4. Intro Hint & Call-to-Scroll Badge
+      // 4. Intro Hint & Call-to-Scroll Badge (Smooth upward fade before gate zooms)
       if (hintRef.current) {
-        const hintOpacity = Math.max(0, 1 - p * 3);
+        const hintOpacity = Math.max(0, 1 - p * 4.5);
+        const hintY = -25 * Math.min(1, p * 4.5);
         hintRef.current.style.opacity = hintOpacity;
+        hintRef.current.style.transform = `translate3d(calc(var(--mouse-x, 0) * 16px), calc(var(--mouse-y, 0) * 10px + ${hintY}px), 35px)`;
         hintRef.current.style.pointerEvents = hintOpacity < 0.05 ? 'none' : 'auto';
+        hintRef.current.style.visibility = hintOpacity <= 0.01 ? 'hidden' : 'visible';
       }
 
       // 4b. Ambient Japanese Vertical Typography Watermarks (Tategaki)
@@ -578,20 +591,21 @@ export default function JapaneseGateScrollStage({
               objectFit: 'cover',
               objectPosition: 'center 48%',
               transformOrigin: 'center 48%',
-              filter: 'brightness(1.05) contrast(1.02) saturate(1.12)',
+              filter: 'brightness(1.02) contrast(1.04) saturate(1.06)',
+              imageRendering: 'auto',
               willChange: 'transform',
             }}
           />
 
-          {/* Cinematic Vignette & Atmospheric Color Grading Overlays - Lightened for vibrant clarity */}
+          {/* Cinematic Vignette & Atmospheric Color Grading Overlays - Crystal-clear clarity */}
           <div
             ref={duskOverlayRef}
             style={{
               position: 'absolute',
               inset: 0,
               background: `
-                radial-gradient(circle at 50% 45%, transparent 35%, rgba(7, 13, 30, 0.12) 65%, rgba(7, 13, 30, 0.42) 100%),
-                linear-gradient(180deg, rgba(7, 13, 30, 0.15) 0%, transparent 25%, rgba(7, 13, 30, 0.1) 65%, rgba(7, 13, 30, 0.78) 100%)
+                radial-gradient(circle at 50% 45%, transparent 50%, rgba(7, 13, 30, 0.06) 75%, rgba(7, 13, 30, 0.28) 100%),
+                linear-gradient(180deg, rgba(7, 13, 30, 0.06) 0%, transparent 25%, rgba(7, 13, 30, 0.05) 70%, rgba(7, 13, 30, 0.6) 100%)
               `,
               willChange: 'opacity',
             }}
@@ -623,9 +637,10 @@ export default function JapaneseGateScrollStage({
               transform: 'translate(-50%, -50%)',
               width: 'min(700px, 90vw)',
               height: 'min(500px, 60vh)',
-              background: 'radial-gradient(ellipse at center, rgba(251, 191, 36, 0.28) 0%, rgba(239, 68, 68, 0.18) 45%, transparent 75%)',
+              background: 'radial-gradient(ellipse at center, rgba(251, 191, 36, 0.12) 0%, rgba(239, 68, 68, 0.06) 45%, transparent 75%)',
               mixBlendMode: 'screen',
               filter: 'blur(30px)',
+              pointerEvents: 'none',
             }}
           />
         </div>
@@ -639,7 +654,7 @@ export default function JapaneseGateScrollStage({
             transform: 'translate(-50%, -50%)',
             width: 'min(760px, 85vw)',
             height: 'min(540px, 65vh)',
-            background: 'radial-gradient(ellipse at center, rgba(251, 146, 60, 0.32) 0%, rgba(239, 68, 68, 0.2) 40%, rgba(220, 38, 38, 0.08) 65%, transparent 80%)',
+            background: 'radial-gradient(ellipse at center, rgba(251, 146, 60, 0.14) 0%, rgba(239, 68, 68, 0.08) 40%, transparent 80%)',
             mixBlendMode: 'screen',
             filter: 'blur(35px)',
             pointerEvents: 'none',
@@ -690,7 +705,7 @@ export default function JapaneseGateScrollStage({
             >
               {/* Torii Gate Cutout with Drop-Shadow Depth & Warm Top Rim-Light */}
               <img
-                src="/images/torii-gate-enhanced.with-lamps-backup.png"
+                src="/images/torii-gate-ultra.png"
                 alt="Torii Gate"
                 style={{
                   position: 'absolute',
@@ -760,92 +775,124 @@ export default function JapaneseGateScrollStage({
             transformStyle: 'preserve-3d',
           }}
         >
-          <div
-            className="gate-license-badge"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 8,
-              background: 'rgba(15, 23, 42, 0.65)',
-              backdropFilter: 'blur(12px)',
-              WebkitBackdropFilter: 'blur(12px)',
-              border: '1px solid rgba(251,191,36,0.45)',
-              padding: '6px 16px',
-              borderRadius: '999px',
-              color: '#fbbf24',
-              fontSize: 12,
-              fontWeight: 700,
-              letterSpacing: '1px',
-              marginBottom: 14,
-              boxShadow: '0 4px 14px rgba(0,0,0,0.4)',
-            }}
-          >
-            <ShieldCheck size={14} />
-            <span>{g.license}</span>
-          </div>
-
-          <h1
-            className="gate-hero-title"
-            style={{
-              fontWeight: 800,
-              color: 'white',
-              lineHeight: 1.2,
-              marginBottom: 8,
-              textShadow: '0 2px 4px rgba(0,0,0,0.9), 0 6px 24px rgba(0,0,0,0.85)',
-            }}
-          >
-            <span className="gate-hero-main">ATSUKO <span style={{ color: '#38bdf8' }}>INTERNATIONAL</span></span>
-            <span className="gate-hero-sub" lang="ja">篤子 学校</span>
-          </h1>
-
-          <p
-            className="gate-hero-desc"
-            style={{
-              fontSize: 'clamp(14px, 1.8vw, 17px)',
-              color: '#e2e8f0',
-              maxWidth: 640,
-              margin: '0 auto 20px',
-              textShadow: '0 2px 4px rgba(0,0,0,0.9), 0 4px 16px rgba(0,0,0,0.85)',
-            }}
-          >
-            {g.desc}
-          </p>
-
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: 12,
-              flexWrap: 'wrap',
-            }}
-          >
-            <button
-              className="gate-walk-btn"
-              onClick={handleWalkThrough}
+          {/* Upper Group: License Badge (Desktop) + ATSUKO INTERNATIONAL + Kanji Sub */}
+          <div className="gate-intro-header-block">
+            <div
+              className="gate-license-badge gate-license-badge-desktop"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 8,
+                background: 'rgba(15, 23, 42, 0.65)',
+                backdropFilter: 'blur(12px)',
+                WebkitBackdropFilter: 'blur(12px)',
+                border: '1px solid rgba(251,191,36,0.45)',
+                padding: '6px 16px',
+                borderRadius: '999px',
+                color: '#fbbf24',
+                fontSize: 12,
+                fontWeight: 700,
+                letterSpacing: '1px',
+                marginBottom: 14,
+                boxShadow: '0 4px 14px rgba(0,0,0,0.4)',
+              }}
             >
-              <span>{g.walkBtn}</span>
-              <ArrowDown size={15} />
-            </button>
+              <ShieldCheck size={14} />
+              <span>{g.license}</span>
+            </div>
+
+            <h1
+              className="gate-hero-title"
+              style={{
+                fontWeight: 800,
+                color: '#ffffff',
+                lineHeight: 1.2,
+                marginBottom: 8,
+              }}
+            >
+              <span className="gate-hero-main">
+                ATSUKO <span className="gate-brand-blue" style={{ color: '#38bdf8' }}>INTERNATIONAL</span>
+              </span>
+              <span className="gate-hero-sub" lang="ja">篤子 学校</span>
+            </h1>
           </div>
 
-          <div
-            className="gate-scroll-hint"
-            style={{
-              marginTop: 18,
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              gap: 4,
-              fontSize: 11,
-              letterSpacing: '2px',
-              color: '#94a3b8',
-              textTransform: 'uppercase',
-              animation: 'bounce 2s infinite',
-            }}
-          >
-            <span>{g.scrollHint}</span>
-            <span>↓</span>
+          {/* Lower Group: Description + License Badge (Mobile) + CTA Button + Scroll Hint */}
+          <div className="gate-intro-action-block">
+            <p
+              className="gate-hero-desc"
+              style={{
+                fontSize: 'clamp(14px, 1.8vw, 17px)',
+                color: '#e2e8f0',
+                maxWidth: 640,
+                margin: '0 auto 20px',
+                textShadow: '0 2px 4px rgba(0,0,0,0.9), 0 4px 16px rgba(0,0,0,0.85)',
+              }}
+            >
+              {g.desc}
+            </p>
+
+            {/* Mobile License Badge: Placed directly above the blue button as requested */}
+            <div
+              className="gate-license-badge gate-license-badge-mobile"
+              style={{
+                display: 'none',
+                alignItems: 'center',
+                gap: 7,
+                background: 'rgba(15, 23, 42, 0.72)',
+                backdropFilter: 'blur(12px)',
+                WebkitBackdropFilter: 'blur(12px)',
+                border: '1px solid rgba(251,191,36,0.45)',
+                padding: '4px 12px',
+                borderRadius: '999px',
+                color: '#fbbf24',
+                fontSize: 10,
+                fontWeight: 700,
+                letterSpacing: '0.8px',
+                marginBottom: 12,
+                boxShadow: '0 4px 14px rgba(0,0,0,0.4)',
+              }}
+            >
+              <ShieldCheck size={13} />
+              <span>{g.license}</span>
+            </div>
+
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: 12,
+                flexWrap: 'wrap',
+              }}
+            >
+              <button
+                className="gate-walk-btn"
+                onClick={handleWalkThrough}
+              >
+                <span>{g.walkBtn}</span>
+                <ArrowDown size={15} />
+              </button>
+            </div>
+
+            <div
+              className="gate-scroll-hint"
+              style={{
+                marginTop: 18,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: 4,
+                fontSize: 11,
+                letterSpacing: '2px',
+                color: '#94a3b8',
+                textTransform: 'uppercase',
+                animation: 'bounce 2s infinite',
+              }}
+            >
+              <span>{g.scrollHint}</span>
+              <span>↓</span>
+            </div>
           </div>
         </div>
 

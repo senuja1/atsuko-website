@@ -1,34 +1,35 @@
 import { useState } from 'react';
-import { 
-  MapPin, 
-  Phone, 
-  Mail, 
-  Clock, 
-  MessageSquare, 
-  Send, 
-  CheckCircle2, 
-  Globe2, 
-  ShieldCheck, 
-  Building2, 
-  Users, 
-  ExternalLink 
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  MessageSquare,
+  Send,
+  CheckCircle2,
+  Globe2,
+  ShieldCheck,
+  Building2,
+  ExternalLink,
+  QrCode,
+  Sparkles
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
-import { officialContacts, branchesData } from '../data/websiteData';
+import { officialContacts } from '../data/websiteData';
+import { getUiText } from '../data/uiText';
+import { FacebookIcon, YoutubeIcon, TikTokIcon, InstagramIcon, WhatsAppIcon } from './SocialIcons';
 
-export default function ContactPage({ lang, onOpenModal }) {
-  const [activeOfficeId, setActiveOfficeId] = useState('kadawatha');
+export default function ContactPage({ lang }) {
+  const ui = getUiText(lang).pages.contact;
+  const [activeLocation, setActiveLocation] = useState('srilanka');
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     email: '',
     inquiryType: 'Student Visa (Language School)',
-    preferredOffice: 'Kadawatha (Head Operations Center)',
     message: ''
   });
   const [submitted, setSubmitted] = useState(false);
-
-  const currentOffice = branchesData.find(b => b.id === activeOfficeId) || branchesData[0];
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -47,7 +48,7 @@ export default function ContactPage({ lang, onOpenModal }) {
       sessionStorage.setItem('atsuko_contact_submissions', JSON.stringify(stored));
 
       confetti({
-        particleCount: 60,
+        particleCount: 50,
         spread: 70,
         origin: { y: 0.6 }
       });
@@ -64,347 +65,376 @@ I have sent an official inquiry through www.atsukojapan.com:
 • Contact: ${formData.phone}
 • Email: ${formData.email || 'N/A'}
 • Pathway: ${formData.inquiryType}
-• Office: ${formData.preferredOffice}
 • Message: ${formData.message || 'General inquiry'}
 
 Please get back to me with course / visa details.`;
-    return `https://wa.me/94778643352?text=${encodeURIComponent(text)}`;
+    return `https://wa.me/94777933352?text=${encodeURIComponent(text)}`;
   };
+
+  const pathways = lang === 'si' ? [
+    { val: 'Student Visa (Language School)', label: 'ශිෂ්‍ය වීසා (ජනවාරි / අප්‍රේල් / ජූලි / ඔක්තෝබර්)' },
+    { val: 'JLPT Language Courses', label: 'JLPT ජපන් භාෂා පන්ති (N5 / N4 / N3)' },
+    { val: 'JFT-Basic A2 Computer Lab', label: 'JFT-Basic A2 පරිගණක විභාග පුහුණුව' },
+    { val: 'SSW Caregiver (Kaigo)', label: 'SSW සාත්තු සේවා (Kaigo) රෝහල් පුහුණුව සමඟ' },
+    { val: 'SSW Food Service Industry', label: 'SSW ආහාර සැකසුම් සහ අවන්හල් සේවා' },
+    { val: 'SSW Automobile Transport & Truck', label: 'SSW වාණිජ ට්‍රක් රථ රියදුරු සහ ප්‍රවාහන' },
+    { val: 'SSW Accommodation / Hotel', label: 'SSW හෝටල් සහ සංචාරක සත්කාරක' },
+    { val: 'TITP Technical Internship', label: 'TITP කාර්මික පුහුණුලාභී වැඩසටහන' },
+    { val: 'Hostel Inquiry', label: 'නේවාසිකාගාර පහසුකම් පිළිබඳ විමසීම්' },
+  ] : (lang === 'jp' || lang === 'ja') ? [
+    { val: 'Student Visa (Language School)', label: '留学ビザ（1月/4月/7月/10月期生）' },
+    { val: 'JLPT Language Courses', label: 'JLPT日本語能力試験講座（N5/N4/N3）' },
+    { val: 'JFT-Basic A2 Computer Lab', label: 'JFT-Basic A2 CBTコンピューター試験対策' },
+    { val: 'SSW Caregiver (Kaigo)', label: '特定技能「介護」（病棟シミュレーション付）' },
+    { val: 'SSW Food Service Industry', label: '特定技能「外食業・食品製造」' },
+    { val: 'SSW Automobile Transport & Truck', label: '特定技能「自動車運送業・トラック運転手」' },
+    { val: 'SSW Accommodation / Hotel', label: '特定技能「宿泊業・ホテル」' },
+    { val: 'TITP Technical Internship', label: '外国人技能実習制度（TITP）' },
+    { val: 'Hostel Inquiry', label: '学生寮・宿泊施設について' },
+  ] : [
+    { val: 'Student Visa (Language School)', label: 'Student Visa (January / April / July / October)' },
+    { val: 'JLPT Language Courses', label: 'JLPT Language Courses (N5 / N4 / N3)' },
+    { val: 'JFT-Basic A2 Computer Lab', label: 'JFT-Basic A2 Computer Exam Prep' },
+    { val: 'SSW Caregiver (Kaigo)', label: 'SSW Caregiver (Kaigo) with Hospital Lab' },
+    { val: 'SSW Food Service Industry', label: 'SSW Food Service (Gaishoku)' },
+    { val: 'SSW Automobile Transport & Truck', label: 'SSW Automobile Transport & Truck Driving' },
+    { val: 'SSW Accommodation / Hotel', label: 'SSW Accommodation (Hotel & Hospitality)' },
+    { val: 'TITP Technical Internship', label: 'TITP Technical Intern Training' },
+    { val: 'Hostel Inquiry', label: 'Student Accommodation / Hostel Inquiry' },
+  ];
 
   return (
     <div className="page-container contact-page">
-      {/* Header Banner */}
+      {/* 1. Header Banner */}
       <section className="page-header-banner">
         <div className="container">
           <div className="page-header-content">
             <span className="section-badge badge-gold">
               <Globe2 size={14} />
-              Sri Lanka & Japan Dual Locations
+              {ui.badge}
             </span>
             <h1 className="page-hero-title">
-              Contact <span className="text-gradient-red">Atsuko International</span>
+              {ui.titlePre} <span className="text-gradient-red">{ui.titleHighlight}</span>
             </h1>
             <p className="page-hero-subtitle">
-              Official Sri Lanka Operations Centers in Kadawatha and Kelaniya, with our registered support office in 
-              Komaki, Aichi Prefecture, Japan. We welcome your calls, visits, and direct inquiries.
+              {ui.subtitle}
             </p>
 
             <div className="contact-quick-touchpoints">
-              <a href="tel:0726160160" className="touchpoint-pill">
+              <a href={`tel:${officialContacts.hotline.replace(/[^0-9+]/g, '')}`} className="touchpoint-pill">
                 <Phone size={15} className="text-red" />
-                <span>Primary Hotline: 072 616 0160</span>
+                <span>{ui.hotlinePill}</span>
               </a>
-              <a 
-                href="https://wa.me/94778643352" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href={officialContacts.socials.whatsappChannel}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="touchpoint-pill"
               >
                 <MessageSquare size={15} className="text-emerald" />
-                <span>WhatsApp: +94 77 864 3352</span>
+                <span>{ui.whatsappPill}</span>
               </a>
-              <a href="mailto:info@atsukojapan.com" className="touchpoint-pill">
+              <a href={`mailto:${officialContacts.email}`} className="touchpoint-pill">
                 <Mail size={15} className="text-gold" />
-                <span>Portal: info@atsukojapan.com</span>
+                <span>{ui.emailPill}</span>
               </a>
               <div className="touchpoint-pill">
                 <ShieldCheck size={15} className="text-gold" />
-                <span>SLBFE Lic. #3293 | PV 0217143</span>
+                <span>{ui.licensePill}</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Main Dual-Column: Multi-Location Office Selector & Interactive Form */}
-      <section className="section">
+      {/* 2. Main Dual-Column: Official Locations & Contact Form */}
+      <section className="section" style={{ background: '#ffffff' }}>
         <div className="container">
-          <div className="contact-main-grid">
-            {/* Left Column: Multi-Location Display */}
+          <div className="contact-main-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2.5rem' }}>
+            {/* Left Column: Official Sri Lanka & Japan Operating Bases */}
             <div className="contact-offices-col">
               <span className="section-badge badge-red">
                 <Building2 size={14} />
-                Multi-Location Office Directory
+                {ui.leftBadge}
               </span>
-              <h2 className="section-title-md">
-                Sri Lanka & <span className="text-gradient-red">Japan Offices</span>
+              <h2 className="section-title-md" style={{ margin: '0.5rem 0 1rem' }}>
+                {ui.leftTitle} <span className="text-gradient-red">{ui.leftHighlight}</span>
               </h2>
-              <p className="about-body-p">
-                Select an office below to view addresses, telephone contacts, and specialized facilities.
+              <p className="about-body-p" style={{ marginBottom: '1.5rem' }}>
+                {ui.leftDesc}
               </p>
 
-              {/* Office Selector Pills */}
-              <div className="office-selector-tabs">
-                <button 
-                  className={`office-tab-btn ${activeOfficeId === 'kadawatha' ? 'active' : ''}`}
-                  onClick={() => setActiveOfficeId('kadawatha')}
+              {/* Office Selector Tabs */}
+              <div className="office-selector-tabs" style={{ display: 'flex', gap: '0.75rem', marginBottom: '1.5rem' }}>
+                <button
+                  className={`office-tab-btn ${activeLocation === 'srilanka' ? 'active' : ''}`}
+                  onClick={() => setActiveLocation('srilanka')}
                 >
-                  <span>🇱🇰 Kadawatha (Head Ops)</span>
+                  <span className="office-tab-flag">🇱🇰</span>
+                  <span>{ui.tabSl}</span>
                 </button>
-                <button 
-                  className={`office-tab-btn ${activeOfficeId === 'komaki-japan' ? 'active' : ''}`}
-                  onClick={() => setActiveOfficeId('komaki-japan')}
+                <button
+                  className={`office-tab-btn ${activeLocation === 'japan' ? 'active' : ''}`}
+                  onClick={() => setActiveLocation('japan')}
                 >
-                  <span>🇯🇵 Komaki, Aichi (Japan)</span>
-                </button>
-                <button 
-                  className={`office-tab-btn ${activeOfficeId === 'kelaniya' ? 'active' : ''}`}
-                  onClick={() => setActiveOfficeId('kelaniya')}
-                >
-                  <span>🇱🇰 Kelaniya (Reg. Office)</span>
-                </button>
-                <button 
-                  className={`office-tab-btn ${activeOfficeId === 'sendai-japan' ? 'active' : ''}`}
-                  onClick={() => setActiveOfficeId('sendai-japan')}
-                >
-                  <span>🇯🇵 Sendai (Japan Entity)</span>
+                  <span className="office-tab-flag">🇯🇵</span>
+                  <span>{ui.tabJp}</span>
                 </button>
               </div>
 
-              {/* Active Selected Office Details Card */}
-              <div className="active-office-display-card">
-                <div className="aod-header">
-                  <div>
-                    <span className="aod-type-tag">
-                      {currentOffice.isHeadOffice ? '★ Primary Operations Center' : currentOffice.isJapanEntity ? '🇯🇵 Registered Support Organization in Japan' : 'Regional Branch'}
+              {/* Sri Lanka Headquarters Card */}
+              {activeLocation === 'srilanka' && (
+                <div className="office-profile-card" style={{ background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: 'var(--radius-xl)', padding: '1.75rem' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+                    <span style={{ background: '#fee2e2', color: '#b91c1c', fontSize: '0.75rem', fontWeight: 700, padding: '0.25rem 0.65rem', borderRadius: 'var(--radius-full)' }}>
+                      {ui.slCardBadge}
                     </span>
-                    <h3 className="aod-title">{currentOffice.name}</h3>
-                    <div className="aod-jp-name">{currentOffice.jpName}</div>
-                  </div>
-                </div>
-
-                <div className="aod-details-list">
-                  <div className="aod-detail-item">
-                    <MapPin size={20} className="text-red flex-shrink-0" />
-                    <div>
-                      <strong>Physical Address:</strong>
-                      <p>{currentOffice.address}</p>
-                    </div>
+                    <span style={{ fontSize: '0.8rem', color: '#64748b', fontWeight: 600 }}>
+                      SLBFE Lic. #3293
+                    </span>
                   </div>
 
-                  <div className="aod-detail-item">
-                    <Phone size={18} className="text-blue flex-shrink-0" />
-                    <div>
-                      <strong>Telephone Contact:</strong>
-                      <p>{currentOffice.phone} {currentOffice.isHeadOffice && '/ 070 363 4416'}</p>
+                  <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--navy-900)', marginBottom: '0.75rem' }}>
+                    {ui.slCardTitle}
+                  </h3>
+
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1.25rem' }}>
+                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
+                      <MapPin size={18} style={{ color: '#ef4444', flexShrink: 0, marginTop: '2px' }} />
+                      <div>
+                        <strong>{ui.slAddressLbl}</strong>
+                        <p style={{ margin: '0.25rem 0 0', color: 'var(--navy-800)', fontSize: '0.9rem', lineHeight: 1.5 }}>
+                          {officialContacts.headOfficeAddress}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
+                      <Phone size={18} style={{ color: '#0284c7', flexShrink: 0, marginTop: '2px' }} />
+                      <div>
+                        <strong>{ui.slHotlineLbl}</strong>
+                        <p style={{ margin: '0.25rem 0 0', color: 'var(--navy-800)', fontSize: '0.9rem', lineHeight: 1.5 }}>
+                          {officialContacts.hotline} / {officialContacts.mobile1}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
+                      <Mail size={18} style={{ color: '#d97706', flexShrink: 0, marginTop: '2px' }} />
+                      <div>
+                        <strong>{ui.slEmailLbl}</strong>
+                        <p style={{ margin: '0.25rem 0 0', color: 'var(--navy-800)', fontSize: '0.9rem', lineHeight: 1.5 }}>
+                          {officialContacts.email} • {officialContacts.domain}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
+                      <Clock size={18} style={{ color: '#10b981', flexShrink: 0, marginTop: '2px' }} />
+                      <div>
+                        <strong>{ui.slHoursLbl}</strong>
+                        <p style={{ margin: '0.25rem 0 0', color: 'var(--navy-800)', fontSize: '0.9rem', lineHeight: 1.5 }}>
+                          {ui.slHoursVal}
+                        </p>
+                      </div>
                     </div>
                   </div>
+                </div>
+              )}
 
-                  <div className="aod-detail-item">
-                    <Clock size={18} className="text-emerald flex-shrink-0" />
-                    <div>
-                      <strong>Office Hours:</strong>
-                      <p>{currentOffice.hours}</p>
+              {/* Japan Support Entity Card */}
+              {activeLocation === 'japan' && (
+                <div className="office-profile-card" style={{ background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: 'var(--radius-xl)', padding: '1.75rem' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+                    <span style={{ background: '#e0f2fe', color: '#0369a1', fontSize: '0.75rem', fontWeight: 700, padding: '0.25rem 0.65rem', borderRadius: 'var(--radius-full)' }}>
+                      {ui.jpCardBadge}
+                    </span>
+                    <span style={{ fontSize: '0.8rem', color: '#64748b', fontWeight: 600 }}>
+                      No. 23登-008312
+                    </span>
+                  </div>
+
+                  <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--navy-900)', marginBottom: '0.75rem' }}>
+                    {ui.jpCardTitle}
+                  </h3>
+
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1.25rem' }}>
+                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
+                      <Building2 size={18} style={{ color: '#0369a1', flexShrink: 0, marginTop: '2px' }} />
+                      <div>
+                        <strong>{ui.jpEntityLbl}</strong>
+                        <p style={{ margin: '0.25rem 0 0', color: 'var(--navy-800)', fontSize: '0.9rem', lineHeight: 1.5 }}>
+                          株式会社 Atsuko International (Japan)
+                        </p>
+                      </div>
+                    </div>
+
+                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
+                      <MapPin size={18} style={{ color: '#ef4444', flexShrink: 0, marginTop: '2px' }} />
+                      <div>
+                        <strong>{ui.jpAddressLbl}</strong>
+                        <p style={{ margin: '0.25rem 0 0', color: 'var(--navy-800)', fontSize: '0.9rem', lineHeight: 1.5 }}>
+                          {officialContacts.japanAddress}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
+                      <Phone size={18} style={{ color: '#0284c7', flexShrink: 0, marginTop: '2px' }} />
+                      <div>
+                        <strong>{ui.jpPhoneLbl}</strong>
+                        <p style={{ margin: '0.25rem 0 0', color: 'var(--navy-800)', fontSize: '0.9rem', lineHeight: 1.5 }}>
+                          {officialContacts.japanPhone}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
+                      <Clock size={18} style={{ color: '#10b981', flexShrink: 0, marginTop: '2px' }} />
+                      <div>
+                        <strong>{ui.jpHoursLbl}</strong>
+                        <p style={{ margin: '0.25rem 0 0', color: 'var(--navy-800)', fontSize: '0.9rem', lineHeight: 1.5 }}>
+                          {ui.jpHoursVal}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
-
-                <div className="aod-facilities-box">
-                  <strong>Key Facilities & Desks:</strong>
-                  <ul>
-                    {currentOffice.facilities.map((fac, idx) => (
-                      <li key={idx}>
-                        <CheckCircle2 size={13} className="text-red" />
-                        <span>{fac}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="aod-action-buttons">
-                  <a 
-                    href={`https://wa.me/${currentOffice.whatsapp.replace('+', '')}?text=Hello%20Atsuko%20International%20${encodeURIComponent(currentOffice.name)}`}
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="btn btn-whatsapp btn-sm"
-                  >
-                    <MessageSquare size={14} />
-                    <span>WhatsApp This Office</span>
-                  </a>
-
-                  <a 
-                    href={`tel:${currentOffice.phone.replace(/[^0-9]/g, '')}`}
-                    className="btn btn-primary btn-sm"
-                  >
-                    <Phone size={14} />
-                    <span>Call Directly</span>
-                  </a>
-                </div>
-              </div>
-
-              {/* Department Numbers Directory */}
-              <div className="department-directory-box">
-                <h4 className="dept-box-title">Direct Department Desks (Kadawatha Head Office)</h4>
-                <div className="dept-grid">
-                  {officialContacts.departmentNumbers.map((dept, idx) => (
-                    <div key={idx} className="dept-item">
-                      <span className="dept-lbl">{dept.label}</span>
-                      <a href={`tel:${dept.number.replace(/\s+/g, '')}`} className="dept-num">
-                        {dept.number}
-                      </a>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              )}
             </div>
 
-            {/* Right Column: Direct Online Inquiry & Registration Form */}
+            {/* Right Column: Interactive Consultation & Application Form */}
             <div className="contact-form-col">
-              <div className="contact-form-card">
-                <div className="form-card-header">
-                  <span className="section-badge badge-gold">
-                    <Send size={13} />
-                    Direct Inquiry & Registration
-                  </span>
-                  <h3 className="form-card-title">Send Us a Direct Application</h3>
-                  <p className="form-card-sub">
-                    Our admissions and visa counselors review every inquiry and respond within 24 business hours.
-                  </p>
-                </div>
+              <div className="contact-form-card" style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: 'var(--radius-xl)', padding: '2rem', boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
+                <span className="section-badge badge-gold" style={{ marginBottom: '0.75rem' }}>
+                  <Sparkles size={14} />
+                  {ui.formBadge}
+                </span>
+                <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--navy-900)', margin: '0.25rem 0 0.5rem' }}>
+                  {ui.formTitle}
+                </h3>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '1.5rem', lineHeight: 1.5 }}>
+                  {ui.formSubtitle}
+                </p>
 
-                {!submitted ? (
-                  <form onSubmit={handleSubmit} className="contact-actual-form">
-                    <div className="form-group">
-                      <label className="form-label">Your Full Name *</label>
-                      <input 
-                        type="text" 
-                        name="name" 
-                        required 
-                        maxLength={80}
-                        placeholder="e.g. Kasun Chamara Perera" 
+                {submitted ? (
+                  <div style={{ textAlign: 'center', padding: '2rem 1rem' }}>
+                    <div style={{ width: '64px', height: '64px', background: '#dcfce7', color: '#16a34a', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.25rem' }}>
+                      <CheckCircle2 size={36} />
+                    </div>
+                    <h4 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--navy-900)', marginBottom: '0.5rem' }}>
+                      {ui.formSuccessTitle}
+                    </h4>
+                    <p style={{ color: 'var(--text-muted)', fontSize: '0.925rem', lineHeight: 1.6, marginBottom: '1.5rem' }}>
+                      {ui.formSuccessDesc}
+                    </p>
+                    <a
+                      href={getWhatsAppForwardUrl()}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="btn btn-whatsapp btn-block"
+                    >
+                      <MessageSquare size={16} />
+                      <span>{ui.socialsCards?.whatsapp?.btn || 'WhatsApp'}</span>
+                    </a>
+                    <button
+                      onClick={() => setSubmitted(false)}
+                      className="btn btn-secondary btn-block"
+                      style={{ marginTop: '0.75rem' }}
+                    >
+                      {ui.formReset}
+                    </button>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.15rem' }}>
+                    <div>
+                      <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--navy-900)', marginBottom: '0.35rem' }}>
+                        {ui.formName} *
+                      </label>
+                      <input
+                        type="text"
+                        name="name"
                         value={formData.name}
                         onChange={handleInputChange}
+                        required
+                        placeholder="e.g. Kasun Fernando"
                         className="form-input"
+                        style={{ width: '100%', padding: '0.75rem 1rem', borderRadius: 'var(--radius-md)', border: '1px solid #cbd5e1', fontSize: '0.95rem' }}
                       />
                     </div>
 
-                    <div className="form-row-2">
-                      <div className="form-group">
-                        <label className="form-label">Phone / WhatsApp Number *</label>
-                        <input 
-                          type="tel" 
-                          name="phone" 
-                          required 
-                          maxLength={20}
-                          pattern="[0-9+ \-]{9,20}"
-                          placeholder="e.g. 077 123 4567" 
-                          value={formData.phone}
-                          onChange={handleInputChange}
-                          className="form-input"
-                        />
-                      </div>
-
-                      <div className="form-group">
-                        <label className="form-label">Email Address (Optional)</label>
-                        <input 
-                          type="email" 
-                          name="email" 
-                          maxLength={100}
-                          placeholder="e.g. kasun@example.com" 
-                          value={formData.email}
-                          onChange={handleInputChange}
-                          className="form-input"
-                        />
-                      </div>
+                    <div>
+                      <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--navy-900)', marginBottom: '0.35rem' }}>
+                        {ui.formPhone} *
+                      </label>
+                      <input
+                        type="tel"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        required
+                        placeholder="e.g. 077 123 4567"
+                        className="form-input"
+                        style={{ width: '100%', padding: '0.75rem 1rem', borderRadius: 'var(--radius-md)', border: '1px solid #cbd5e1', fontSize: '0.95rem' }}
+                      />
                     </div>
 
-                    <div className="form-group">
-                      <label className="form-label">Program or Visa Pathway of Interest *</label>
-                      <select 
-                        name="inquiryType" 
+                    <div>
+                      <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--navy-900)', marginBottom: '0.35rem' }}>
+                        {ui.formEmail}
+                      </label>
+                      <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        placeholder="e.g. kasun@example.com"
+                        className="form-input"
+                        style={{ width: '100%', padding: '0.75rem 1rem', borderRadius: 'var(--radius-md)', border: '1px solid #cbd5e1', fontSize: '0.95rem' }}
+                      />
+                    </div>
+
+                    <div>
+                      <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--navy-900)', marginBottom: '0.35rem' }}>
+                        {ui.formPathway} *
+                      </label>
+                      <select
+                        name="inquiryType"
                         value={formData.inquiryType}
                         onChange={handleInputChange}
                         className="form-select"
+                        style={{ width: '100%', padding: '0.75rem 1rem', borderRadius: 'var(--radius-md)', border: '1px solid #cbd5e1', fontSize: '0.95rem', background: '#ffffff' }}
                       >
-                        <option value="Student Visa (Language School)">Student Visa (Language School - Jan/Apr/Jul/Oct Intakes)</option>
-                        <option value="JLPT N5 Comprehensive Course">JLPT N5 Comprehensive Course (Beginner)</option>
-                        <option value="JLPT N4 Intermediate Course">JLPT N4 Intermediate Course (SSW Standard)</option>
-                        <option value="JFT-Basic A2 Computer Lab">JFT-Basic A2 Computer Lab Batch</option>
-                        <option value="SSW Caregiver (Kaigo) Practical Lab">SSW Caregiver (Kaigo) Practical Simulation</option>
-                        <option value="SSW Food Service & Hospitality">SSW Food Service & Hospitality Operations</option>
-                        <option value="SSW Commercial Truck Driving">SSW Commercial Truck Driving & Logistics</option>
-                        <option value="SSW Agriculture & Farming">SSW Agriculture & Farming</option>
-                        <option value="SSW Construction & Civil Works">SSW Construction & Civil Works</option>
-                        <option value="TITP Technical Intern Training">TITP Technical Intern Training Program</option>
-                        <option value="General Consultation & Guidance">General Consultation & Guidance</option>
+                        {pathways.map((p, idx) => (
+                          <option key={idx} value={p.val}>{p.label}</option>
+                        ))}
                       </select>
                     </div>
 
-                    <div className="form-group">
-                      <label className="form-label">Preferred Branch for Consultation *</label>
-                      <select 
-                        name="preferredOffice" 
-                        value={formData.preferredOffice}
-                        onChange={handleInputChange}
-                        className="form-select"
-                      >
-                        <option value="Kadawatha (Head Operations Center)">Kadawatha (Head Operations Center & Practical Lab)</option>
-                        <option value="Kelaniya (Registered Office)">Kelaniya (Registered Corporate Office)</option>
-                        <option value="Kandy Center">Kandy Center (Central Province)</option>
-                        <option value="Galle Center">Galle Center (Southern Province)</option>
-                        <option value="Gampaha Center">Gampaha Center</option>
-                        <option value="Badulla Center">Badulla Center (Uva Province)</option>
-                        <option value="Matara Center">Matara Center</option>
-                        <option value="Ratnapura Center">Ratnapura Center</option>
-                        <option value="Trincomalee Center">Trincomalee Center (Eastern Province)</option>
-                        <option value="Online Zoom Consultation">Online Zoom Video Consultation</option>
-                      </select>
-                    </div>
-
-                    <div className="form-group">
-                      <label className="form-label">Questions or Additional Details (Optional)</label>
-                      <textarea 
-                        name="message" 
-                        rows="3" 
-                        maxLength={500}
-                        placeholder="Tell us about your educational background, Japanese language knowledge, or specific goals..."
+                    <div>
+                      <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--navy-900)', marginBottom: '0.35rem' }}>
+                        {ui.formMessage}
+                      </label>
+                      <textarea
+                        name="message"
+                        rows={3}
                         value={formData.message}
                         onChange={handleInputChange}
+                        placeholder="..."
                         className="form-textarea"
-                      ></textarea>
+                        style={{ width: '100%', padding: '0.75rem 1rem', borderRadius: 'var(--radius-md)', border: '1px solid #cbd5e1', fontSize: '0.95rem', resize: 'vertical' }}
+                      />
                     </div>
 
-                    <div className="form-security-note">
-                      <ShieldCheck size={14} className="text-gold flex-shrink-0" />
-                      <span>Submitted securely under SLBFE License No. 3293 privacy regulations.</span>
-                    </div>
-
-                    <button type="submit" className="btn btn-primary btn-block">
-                      <Send size={15} />
-                      <span>Submit Official Inquiry</span>
+                    <button
+                      type="submit"
+                      className="btn btn-primary btn-block"
+                      style={{ padding: '0.85rem', fontSize: '1rem', marginTop: '0.5rem' }}
+                    >
+                      <Send size={16} />
+                      <span>{ui.formSubmit}</span>
                     </button>
                   </form>
-                ) : (
-                  <div className="form-success-box">
-                    <div className="success-icon-circ">✓</div>
-                    <h4 className="success-title">Inquiry Submitted Successfully!</h4>
-                    <p className="success-desc">
-                      Thank you, <strong>{formData.name}</strong>. Your inquiry for <strong>{formData.inquiryType}</strong> has been registered with our Admissions Desk.
-                    </p>
-                    <p className="success-sub">
-                      An Atsuko International counselor will contact you at <strong>{formData.phone}</strong> within 24 business hours.
-                    </p>
-
-                    <div className="success-action-group">
-                      <a 
-                        href={getWhatsAppForwardUrl()}
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        className="btn btn-whatsapp btn-block"
-                      >
-                        <MessageSquare size={16} />
-                        <span>Send to WhatsApp Admissions Advisor Now</span>
-                      </a>
-
-                      <button 
-                        onClick={() => setSubmitted(false)}
-                        className="btn btn-secondary-white btn-block"
-                        style={{ marginTop: '0.75rem' }}
-                      >
-                        Submit Another Inquiry
-                      </button>
-                    </div>
-                  </div>
                 )}
               </div>
             </div>
@@ -412,141 +442,107 @@ Please get back to me with course / visa details.`;
         </div>
       </section>
 
-      {/* Social Media & Community Groups Integration Section (Document Section 7) */}
+      {/* 3. Official QR Code & Social Channels */}
       <section className="section section-alt">
         <div className="container">
           <div className="section-header">
-            <span className="section-badge badge-red">
-              <Users size={14} />
-              Connected Community
+            <span className="section-badge badge-gold">
+              <QrCode size={14} />
+              {ui.socialsBadge}
             </span>
             <h2 className="section-title">
-              Official Social Media & <span className="text-gradient-red">Community Channels</span>
+              {ui.socialsTitle} <span className="text-gradient-red">{ui.socialsHighlight}</span>
             </h2>
             <p className="section-subtitle">
-              Join over 17,000 active students and alumni across our official social networks for daily Japanese study tips, 
-              visa batch announcements, and visa approval celebrations.
+              {ui.socialsSubtitle}
             </p>
           </div>
 
-          <div className="social-channels-grid">
-            {/* Facebook Page & Group */}
-            <div className="social-channel-card sc-facebook">
-              <div className="sc-header">
-                <div className="sc-icon-circ fb-bg">f</div>
-                <div>
-                  <h4 className="sc-name">Facebook Community</h4>
-                  <span className="sc-followers">17K+ Followers & Alumni Group</span>
-                </div>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '1.25rem', flexWrap: 'wrap', marginTop: '2rem' }}>
+            <a
+              href={officialContacts.socials.facebook}
+              target="_blank"
+              rel="noreferrer"
+              className="social-connect-card social-card-fb"
+            >
+              <div className="social-icon-wrapper social-icon-fb">
+                <FacebookIcon size={24} />
               </div>
-              <p className="sc-desc">
-                Follow our official Facebook page for daily photo updates of airport departures, visa awards, and batch announcements.
-              </p>
-              <div className="sc-links-row">
-                <a 
-                  href={officialContacts.socials.facebook} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="sc-btn"
-                >
-                  <span>Official Page</span>
-                  <ExternalLink size={12} />
-                </a>
-                <a 
-                  href={officialContacts.socials.facebookGroup} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="sc-btn sc-btn-alt"
-                >
-                  <span>Student Group</span>
-                  <ExternalLink size={12} />
-                </a>
-              </div>
-            </div>
+              <h4 className="social-card-name">Facebook</h4>
+              <span className="social-card-handle">@AtsukoInternational</span>
+              <span className="social-card-action-chip">
+                <span>{ui.socialsCards?.facebook?.btn || 'Follow'}</span>
+                <ExternalLink size={11} />
+              </span>
+            </a>
 
-            {/* WhatsApp Official Channel */}
-            <div className="social-channel-card sc-whatsapp">
-              <div className="sc-header">
-                <div className="sc-icon-circ wa-bg">💬</div>
-                <div>
-                  <h4 className="sc-name">WhatsApp Channel & Groups</h4>
-                  <span className="sc-followers">Direct Alerts & Intake Notices</span>
-                </div>
+            <a
+              href={officialContacts.socials.youtube}
+              target="_blank"
+              rel="noreferrer"
+              className="social-connect-card social-card-yt"
+            >
+              <div className="social-icon-wrapper social-icon-yt">
+                <YoutubeIcon size={24} />
               </div>
-              <p className="sc-desc">
-                Join our official WhatsApp channel to receive instant reminders for Prometric test registration, JLPT deadlines, and interview dates.
-              </p>
-              <div className="sc-links-row">
-                <a 
-                  href={officialContacts.socials.whatsAppChannel} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="sc-btn wa-btn"
-                >
-                  <span>Join WhatsApp Channel</span>
-                  <ExternalLink size={12} />
-                </a>
-              </div>
-            </div>
+              <h4 className="social-card-name">YouTube</h4>
+              <span className="social-card-handle">@ATSUKOINTERNATIONAL</span>
+              <span className="social-card-action-chip">
+                <span>{ui.socialsCards?.youtube?.btn || 'Subscribe'}</span>
+                <ExternalLink size={11} />
+              </span>
+            </a>
 
-            {/* YouTube Channel */}
-            <div className="social-channel-card sc-youtube">
-              <div className="sc-header">
-                <div className="sc-icon-circ yt-bg">▶</div>
-                <div>
-                  <h4 className="sc-name">YouTube Channel</h4>
-                  <span className="sc-followers">@ATSUKOINTERNATIONAL</span>
-                </div>
+            <a
+              href={officialContacts.socials.tiktok}
+              target="_blank"
+              rel="noreferrer"
+              className="social-connect-card social-card-tiktok"
+            >
+              <div className="social-icon-wrapper social-icon-tiktok">
+                <TikTokIcon size={22} />
               </div>
-              <p className="sc-desc">
-                Watch video testimonials from students living in Tokyo and Sendai, Caregiver practical class walk-throughs, and free Japanese lessons.
-              </p>
-              <div className="sc-links-row">
-                <a 
-                  href={officialContacts.socials.youtube} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="sc-btn yt-btn"
-                >
-                  <span>Watch Testimonials</span>
-                  <ExternalLink size={12} />
-                </a>
-              </div>
-            </div>
+              <h4 className="social-card-name">TikTok</h4>
+              <span className="social-card-handle">@atsuko_international</span>
+              <span className="social-card-action-chip">
+                <span>{ui.socialsCards?.tiktok?.btn || 'Watch'}</span>
+                <ExternalLink size={11} />
+              </span>
+            </a>
 
-            {/* TikTok & Instagram */}
-            <div className="social-channel-card sc-tiktok">
-              <div className="sc-header">
-                <div className="sc-icon-circ tt-bg">♪</div>
-                <div>
-                  <h4 className="sc-name">TikTok & Instagram</h4>
-                  <span className="sc-followers">@atsuko_international</span>
-                </div>
+            <a
+              href={officialContacts.socials.instagram}
+              target="_blank"
+              rel="noreferrer"
+              className="social-connect-card social-card-ig"
+            >
+              <div className="social-icon-wrapper social-icon-ig">
+                <InstagramIcon size={24} />
               </div>
-              <p className="sc-desc">
-                Engaging short-form videos covering daily Japanese conversational phrases, Japanese work culture, and student life in Japan.
-              </p>
-              <div className="sc-links-row">
-                <a 
-                  href={officialContacts.socials.tiktok} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="sc-btn"
-                >
-                  <span>TikTok</span>
-                  <ExternalLink size={12} />
-                </a>
-                <a 
-                  href={officialContacts.socials.instagram} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="sc-btn"
-                >
-                  <span>Instagram</span>
-                  <ExternalLink size={12} />
-                </a>
+              <h4 className="social-card-name">Instagram</h4>
+              <span className="social-card-handle">@atsuko_gakkou</span>
+              <span className="social-card-action-chip">
+                <span>{ui.socialsCards?.instagram?.btn || 'Gallery'}</span>
+                <ExternalLink size={11} />
+              </span>
+            </a>
+
+            <a
+              href={officialContacts.socials.whatsappChannel}
+              target="_blank"
+              rel="noreferrer"
+              className="social-connect-card social-card-wa"
+            >
+              <div className="social-icon-wrapper social-icon-wa">
+                <WhatsAppIcon size={24} />
               </div>
-            </div>
+              <h4 className="social-card-name">WhatsApp</h4>
+              <span className="social-card-handle">+94 77 793 3352</span>
+              <span className="social-card-action-chip">
+                <span>{ui.socialsCards?.whatsapp?.btn || 'Chat'}</span>
+                <ExternalLink size={11} />
+              </span>
+            </a>
           </div>
         </div>
       </section>

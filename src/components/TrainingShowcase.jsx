@@ -1,8 +1,10 @@
 import { CheckCircle2, GraduationCap, HeartPulse, Sparkles } from 'lucide-react';
 import { siteTranslations } from '../data/translations';
+import { getUiText } from '../data/uiText';
 
 export default function TrainingShowcase({ lang, onOpenModal }) {
   const t = siteTranslations[lang]?.training || siteTranslations.en.training;
+  const captions = getUiText(lang).trainingCaptions;
 
   return (
     <section id="training" className="section" style={{ background: '#ffffff' }}>
@@ -34,7 +36,7 @@ export default function TrainingShowcase({ lang, onOpenModal }) {
             />
             <div className="feature-tag-box">
               <h5>篤子 日本語 専門クラス</h5>
-              <p>Authentic Japanese Immersion Classroom at Atsuko Kadawatha</p>
+              <p>{captions.classroom}</p>
             </div>
           </div>
 
@@ -82,7 +84,7 @@ export default function TrainingShowcase({ lang, onOpenModal }) {
             />
             <div className="feature-tag-box">
               <h5>特定技能 介護 実習施設</h5>
-              <p>Fully Equipped Japanese Hospital & Elderly Care Simulation Facility</p>
+              <p>{captions.caregiver}</p>
             </div>
           </div>
 
