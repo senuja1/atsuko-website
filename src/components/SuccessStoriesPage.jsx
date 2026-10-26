@@ -133,7 +133,7 @@ export default function SuccessStoriesPage({ lang, onOpenModal }) {
                       <a
                         href={video.youtubeUrl}
                         target="_blank"
-                        rel="noopener noreferrer"
+                        rel="noreferrer"
                         className="btn btn-sm btn-outline-danger"
                         style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}
                       >
@@ -194,7 +194,7 @@ export default function SuccessStoriesPage({ lang, onOpenModal }) {
                     <a
                       href={short.youtubeUrl}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="noreferrer"
                       className="short-footer-btn"
                     >
                       <YoutubeIcon size={14} />
@@ -223,6 +223,7 @@ export default function SuccessStoriesPage({ lang, onOpenModal }) {
               {s.trustSubtitle}
             </p>
           </div>
+
           <div className="trust-pillars-grid">
             {s.trustCards.map((card, idx) => {
               const meta = cardThemeStyles[idx] || cardThemeStyles[0];
@@ -252,7 +253,7 @@ export default function SuccessStoriesPage({ lang, onOpenModal }) {
                   </ul>
                   <div className="trust-pillar-footer">
                     <span>Atsuko Verified</span>
-                    <span style={{ color: meta.footerColor }}>★ 100% Legal</span>
+                    <span style={{ color: meta.footerColor }}> 100% Legal</span>
                   </div>
                 </div>
               );

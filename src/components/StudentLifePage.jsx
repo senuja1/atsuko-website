@@ -1,18 +1,18 @@
 import { useState } from 'react';
-import { 
-  Building2, 
-  Home, 
-  Utensils, 
-  Users, 
-  CheckCircle2, 
-  Sparkles, 
-  ShieldCheck, 
-  Heart, 
-  Clock, 
-  GraduationCap, 
-  ArrowRight, 
-  FileCheck, 
-  Compass 
+import {
+  Building2,
+  Home,
+  Utensils,
+  Users,
+  CheckCircle2,
+  Sparkles,
+  ShieldCheck,
+  Heart,
+  Clock,
+  GraduationCap,
+  ArrowRight,
+  FileCheck,
+  Compass
 } from 'lucide-react';
 import { studentLifeData, officialContacts } from '../data/websiteData';
 import { getUiText } from '../data/uiText';
@@ -26,64 +26,52 @@ export default function StudentLifePage({ lang, onOpenModal, onNavigate }) {
 
   const assessmentCards = lang === 'si' ? [
     {
-      icon: '📝',
       title: 'සතිපතා ප්‍රගති පරීක්ෂණ',
       desc: 'කන්ජි අක්ෂර, කටකනා වචන මාලාව, ව්‍යාකරණ සහ දෛනික තේරුම්ගැනීමේ හැකියාව මැනීමේ නිතිපතා පරීක්ෂණ.'
     },
     {
-      icon: '🎧',
       title: 'ශ්‍රව්‍ය පුහුණු විද්‍යාගාරය',
       desc: 'JLPT සහ JFT ශ්‍රව්‍ය විභාගවල නියම වේගය, ජපන් කථන විලාස සහ නිල විභාග ශාලා පරිසරය පෙරහුරු කිරීම.'
     },
     {
-      icon: '💻',
       title: 'පරිගණක CBT විද්‍යාගාරය',
       desc: 'JFT-Basic සහ SSW වෘත්තීය නිපුණතා (සාත්තු සේවා, ආහාර, රියදුරු) සඳහා ප්‍රායෝගික Prometric පරිගණක පුහුණුව.'
     },
     {
-      icon: '🗣️',
       title: 'Mensetsu සම්මුඛ පරීක්ෂණ පෙරහුරු',
       desc: 'ජපන් විදුහල්පතිවරුන්, රෝහල් අධ්‍යක්ෂවරුන් සහ ජපන් තානාපති කාර්යාල සම්මුඛ පරීක්ෂණ සඳහා පෞද්ගලික පුහුණුව.'
     }
   ] : lang === 'jp' ? [
     {
-      icon: '📝',
       title: '週間チェックテスト',
       desc: '漢字の筆順、カタカナ語彙、文法助詞、日常読解に関する小テストを毎週実施。'
     },
     {
-      icon: '🎧',
       title: '音声聴解ラボ',
       desc: '本番のJLPT・JFT試験と同じスピード・アクセント・音響環境を忠実に再現。'
     },
     {
-      icon: '💻',
       title: 'CBTコンピュータ演習室',
       desc: 'JFT-Basicおよび特定技能評価試験（介護・外食・運送）の実戦的プロメトリック演習。'
     },
     {
-      icon: '🗣️',
       title: '面接模擬特訓',
       desc: '日本語学校校長、介護施設長、在スリランカ日本国大使館面接に対応した徹底個別指導。'
     }
   ] : [
     {
-      icon: '📝',
       title: 'Weekly Checkpoints',
       desc: 'Regular quizzes on Kanji stroke order, Katakana vocabulary, grammar particles, and daily comprehension.'
     },
     {
-      icon: '🎧',
       title: 'Audio Listening Lab',
       desc: 'Simulating genuine JLPT and JFT listening test speed, Japanese accents, and acoustic exam conditions.'
     },
     {
-      icon: '💻',
       title: 'Computer CBT Lab',
       desc: 'Hands-on Prometric CBT practice for JFT-Basic and SSW skill evaluations (Caregiving, Food, Driving).'
     },
     {
-      icon: '🗣️',
       title: 'Mensetsu Mock Interviews',
       desc: 'One-on-one coaching for Japanese school principals, hospital directors, and Embassy of Japan visa interviews.'
     }
@@ -149,9 +137,9 @@ export default function StudentLifePage({ lang, onOpenModal, onNavigate }) {
         <div className="container">
           <div className="feature-split">
             <div className="feature-img-box">
-              <img 
-                src="/images/atsuko-building-ground.jpg" 
-                alt="Atsuko International School Headquarters & Student Accommodation in Kadawatha" 
+              <img
+                src="/images/atsuko-building-ground.jpg"
+                alt="Atsuko International School Headquarters & Student Accommodation in Kadawatha"
                 width="600"
                 height="450"
                 loading="lazy"
@@ -185,7 +173,7 @@ export default function StudentLifePage({ lang, onOpenModal, onNavigate }) {
                 ))}
               </div>
 
-              <button 
+              <button
                 onClick={() => onOpenModal('Accommodation & Hostel Inquiries')}
                 className="btn btn-primary"
               >
@@ -202,9 +190,9 @@ export default function StudentLifePage({ lang, onOpenModal, onNavigate }) {
         <div className="container">
           <div className="feature-split reverse">
             <div className="feature-img-box">
-              <img 
-                src="/images/classroom-sensei.jpg" 
-                alt="Interactive Japanese Language Class at Atsuko International School" 
+              <img
+                src="/images/classroom-sensei.jpg"
+                alt="Interactive Japanese Language Class at Atsuko International School"
                 width="600"
                 height="450"
                 loading="lazy"
@@ -239,17 +227,17 @@ export default function StudentLifePage({ lang, onOpenModal, onNavigate }) {
               </div>
 
               <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-                <button 
+                <button
                   onClick={() => onOpenModal('Meal Plans Inquiry')}
                   className="btn btn-primary"
                 >
                   <Utensils size={16} />
                   <span>{ui.sec2Btn}</span>
                 </button>
-                <a 
-                  href={officialContacts.socials.facebookGroup} 
-                  target="_blank" 
-                  rel="noreferrer" 
+                <a
+                  href={officialContacts.socials.facebookGroup}
+                  target="_blank"
+                  rel="noreferrer"
                   className="btn btn-secondary"
                 >
                   <span>{lang === 'si' ? 'ෆේස්බුක් ශිෂ්‍ය එකමුතුවට එක්වන්න' : lang === 'jp' ? '公式Facebookグループ' : 'Join Student Community on Facebook'}</span>
@@ -292,7 +280,7 @@ export default function StudentLifePage({ lang, onOpenModal, onNavigate }) {
           </div>
 
           <div style={{ textAlign: 'center', marginTop: '2.5rem' }}>
-            <button 
+            <button
               onClick={() => onOpenModal('CBT Lab Registration')}
               className="btn btn-gold"
             >
@@ -342,13 +330,13 @@ export default function StudentLifePage({ lang, onOpenModal, onNavigate }) {
               </p>
             </div>
             <div className="about-cta-btn-group">
-              <button 
-                onClick={() => onOpenModal('Admissions & Housing Consultation')} 
+              <button
+                onClick={() => onOpenModal('Admissions & Housing Consultation')}
                 className="btn btn-gold"
               >
                 {h.ctaRegister}
               </button>
-              <button 
+              <button
                 onClick={() => onNavigate && onNavigate('contact')}
                 className="btn btn-secondary-white"
               >

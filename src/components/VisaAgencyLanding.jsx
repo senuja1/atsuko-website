@@ -8,7 +8,7 @@ export default function VisaAgencyLanding({ onApply }) {
     <div className="japandi-landing">
       <section className="japandi-hero">
         <RevealOnScroll>
-          <span className="japandi-kanji">🌸 光輝</span>
+          <span className="japandi-kanji">光輝</span>
           <h1 className="japandi-title">
             Sri Lanka to <span>Japan</span>
           </h1>
@@ -29,7 +29,7 @@ export default function VisaAgencyLanding({ onApply }) {
             </div>
             <div className="japandi-stat-lbl">Students in Japan</div>
           </RevealOnScroll>
-          
+
           <RevealOnScroll delay={0.3}>
             <div className="japandi-stat-num">
               <CountUp end={88} duration={3} enableScrollSpy scrollSpyOnce />%

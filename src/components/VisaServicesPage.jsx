@@ -260,35 +260,35 @@ export default function VisaServicesPage({ lang, onOpenModal }) {
                 </h3>
                 <div className="ssw-sectors-cards-grid">
                   <div className="ssw-cat-card">
-                    <div className="ssw-cat-icon">🏥</div>
+                    <div className="ssw-cat-icon"></div>
                     <h4>1. Nursing Care / Caregiver (Kaigo)</h4>
                     <p>{lang === 'si' ? 'ජපානයේ ඉහළම ඉල්ලුමක් ඇති ක්ෂේත්‍රය. කඩවත අපගේ රෝහල් සමාකරණ විද්‍යාගාරයේ ප්‍රායෝගික පුහුණුව.' : 'Highest demand sector in Japan. Work in accredited nursing homes and eldercare facilities. Practical training at our Kadawatha hospital ward simulation lab.'}</p>
                     <span className="ssw-cat-test">Test: JLPT N4 / JFT + Prometric Nursing Skills</span>
                   </div>
 
                   <div className="ssw-cat-card">
-                    <div className="ssw-cat-icon">🍽️</div>
+                    <div className="ssw-cat-icon"></div>
                     <h4>2. Food Service & Restaurants (Gaishoku)</h4>
                     <p>{lang === 'si' ? 'ජපානයේ ප්‍රමුඛ පෙළේ අවන්හල් ජාල සහ හෝටල් මුළුතැන්ගෙයි සේවා. පාරිභෝගික සත්කාරය සහ ආහාර සනීපාරක්ෂාව.' : 'Employment in dining chains, family restaurants, and hotel kitchens across Japan. Involves customer service, food prep, and kitchen sanitation.'}</p>
                     <span className="ssw-cat-test">Test: JLPT N4 / JFT + Prometric Food Service</span>
                   </div>
 
                   <div className="ssw-cat-card">
-                    <div className="ssw-cat-icon">🌾</div>
+                    <div className="ssw-cat-icon"></div>
                     <h4>3. Agriculture & Livestock Farming</h4>
                     <p>{lang === 'si' ? 'ස්වයංක්‍රීය හරිතාගාර එළවළු වගාව, පලතුරු නෙලීම සහ පශු සම්පත් කළමනාකරණය.' : 'Automated greenhouse vegetable cultivation, fruit picking, and livestock management in leading agricultural prefectures like Ibaraki and Nagano.'}</p>
                     <span className="ssw-cat-test">Test: JLPT N4 / JFT + Prometric Agriculture Exam</span>
                   </div>
 
                   <div className="ssw-cat-card">
-                    <div className="ssw-cat-icon">🚛</div>
+                    <div className="ssw-cat-icon"></div>
                     <h4>4. Commercial Truck Driving & Transport</h4>
                     <p>{lang === 'si' ? 'ඉහළ වැටුප් සහිත ලොජිස්ටික්ස් ක්ෂේත්‍රය. වාණිජ වාහන ධාවනය සහ ප්‍රවාහන සේවා.' : 'High-demand logistics sector. Operating commercial vehicles under Japanese transportation standards. Requires driving aptitude and road law study.'}</p>
                     <span className="ssw-cat-test">Test: JLPT N4 / JFT + Automobile Transport Exam</span>
                   </div>
 
                   <div className="ssw-cat-card">
-                    <div className="ssw-cat-icon">🏗️</div>
+                    <div className="ssw-cat-icon"></div>
                     <h4>5. Construction & Civil Engineering</h4>
                     <p>{lang === 'si' ? 'ජපන් ආරක්ෂිත ප්‍රමිතීන්ට අනුකූලව ඉදිකිරීම් එකලස් කිරීම, සිවිල් ඉංජිනේරු ශිල්පය සහ අභ්‍යන්තර නිමවුම්.' : 'Structural assembly, civil engineering, interior finishing, and equipment handling under rigorous Japanese workplace safety standards.'}</p>
                     <span className="ssw-cat-test">Test: JLPT N4 / JFT + Construction Skills Exam</span>
@@ -323,7 +323,7 @@ export default function VisaServicesPage({ lang, onOpenModal }) {
             <div className="visa-detail-block">
               <div className="visa-detail-header-card">
                 <div className="badge-pill-header">
-                  <span className="badge-pill-flag">📜</span>
+                  <span className="badge-pill-flag"></span>
                   <span>{ui.titpPill}</span>
                 </div>
                 <h2 className="visa-title-lg">

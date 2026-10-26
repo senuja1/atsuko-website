@@ -12,7 +12,9 @@ import {
   Building2,
   ExternalLink,
   QrCode,
-  Sparkles
+  Sparkles,
+  Compass,
+  Navigation
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { officialContacts } from '../data/websiteData';
@@ -22,6 +24,65 @@ import { FacebookIcon, YoutubeIcon, TikTokIcon, InstagramIcon, WhatsAppIcon } fr
 export default function ContactPage({ lang }) {
   const ui = getUiText(lang).pages.contact;
   const [activeLocation, setActiveLocation] = useState('srilanka');
+  const [mapLocationId, setMapLocationId] = useState('kadawatha');
+
+  const handleLocationTab = (loc) => {
+    setActiveLocation(loc);
+    if (loc === 'srilanka') {
+      setMapLocationId('kadawatha');
+    } else {
+      setMapLocationId('sendai');
+    }
+  };
+
+  const mapLocations = {
+    kadawatha: {
+      id: 'kadawatha',
+      name: ui.liveMapBranches?.kadawatha || 'Kadawatha Campus (Headquarters)',
+      country: 'Sri Lanka',
+      badge: 'Main Campus & Simulation Lab',
+      address: '191/3/1, Sirimavo Bandaranayake Mawatha, Mahara, Kadawatha, 11850',
+      embedUrl: 'https://maps.google.com/maps?q=191%2F3%2F1%2C+Sirimavo+Bandaranayake+Mawatha%2C+Mahara%2C+Kadawatha%2C+Sri+Lanka&t=&z=16&ie=UTF8&iwloc=&output=embed',
+      mapsUrl: 'https://www.google.com/maps/search/?api=1&query=191%2F3%2F1+Sirimavo+Bandaranayake+Mawatha+Mahara+Kadawatha',
+      directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=191%2F3%2F1+Sirimavo+Bandaranayake+Mawatha+Mahara+Kadawatha',
+      transitHint: ui.liveMapHintSl || 'Sirimavo Bandaranayake Mawatha, Mahara, Kadawatha (Near Kandy Road & Kadawatha Interchange)'
+    },
+    kelaniya: {
+      id: 'kelaniya',
+      name: ui.liveMapBranches?.kelaniya || 'Kelaniya Office (Thorana Junc.)',
+      country: 'Sri Lanka',
+      badge: 'Registered Corporate Office',
+      address: '712/B/1/1, Thorana Junction, Kelaniya, Western Province',
+      embedUrl: 'https://maps.google.com/maps?q=712%2FB%2F1%2F1%2C+Thorana+Junction%2C+Kelaniya%2C+Sri+Lanka&t=&z=16&ie=UTF8&iwloc=&output=embed',
+      mapsUrl: 'https://www.google.com/maps/search/?api=1&query=712%2FB%2F1%2F1+Thorana+Junction+Kelaniya',
+      directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=712%2FB%2F1%2F1+Thorana+Junction+Kelaniya',
+      transitHint: 'Thorana Junction commercial area • Direct access from Colombo-Kandy main bus route'
+    },
+    sendai: {
+      id: 'sendai',
+      name: ui.liveMapBranches?.sendai || 'Sendai Center (Tohoku, Japan)',
+      country: 'Japan',
+      badge: 'Registered Support Organization (23登-008312)',
+      address: 'Sendai City, Miyagi Prefecture, Japan',
+      embedUrl: 'https://maps.google.com/maps?q=Sendai%2C+Miyagi+Prefecture%2C+Japan&t=&z=12&ie=UTF8&iwloc=&output=embed',
+      mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Sendai+Miyagi+Prefecture+Japan',
+      directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=Sendai+Miyagi+Prefecture+Japan',
+      transitHint: ui.liveMapHintJp || 'Sendai City, Miyagi Prefecture Support Entity'
+    },
+    komaki: {
+      id: 'komaki',
+      name: ui.liveMapBranches?.komaki || 'Komaki Office (Aichi, Japan)',
+      country: 'Japan',
+      badge: 'Chubu Regional Office',
+      address: 'Komaki City, Aichi Prefecture, Japan',
+      embedUrl: 'https://maps.google.com/maps?q=Komaki%2C+Aichi+Prefecture%2C+Japan&t=&z=12&ie=UTF8&iwloc=&output=embed',
+      mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Komaki+Aichi+Prefecture+Japan',
+      directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=Komaki+Aichi+Prefecture+Japan',
+      transitHint: 'Aichi / Chubu Industrial and Nursing Network liaison'
+    }
+  };
+
+  const currentMap = mapLocations[mapLocationId] || mapLocations.kadawatha;
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -153,154 +214,241 @@ Please get back to me with course / visa details.`;
           <div className="contact-main-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2.5rem' }}>
             {/* Left Column: Official Sri Lanka & Japan Operating Bases */}
             <div className="contact-offices-col">
-              <span className="section-badge badge-red">
-                <Building2 size={14} />
-                {ui.leftBadge}
-              </span>
-              <h2 className="section-title-md" style={{ margin: '0.5rem 0 1rem' }}>
-                {ui.leftTitle} <span className="text-gradient-red">{ui.leftHighlight}</span>
-              </h2>
-              <p className="about-body-p" style={{ marginBottom: '1.5rem' }}>
-                {ui.leftDesc}
-              </p>
 
-              {/* Office Selector Tabs */}
-              <div className="office-selector-tabs" style={{ display: 'flex', gap: '0.75rem', marginBottom: '1.5rem' }}>
-                <button
-                  className={`office-tab-btn ${activeLocation === 'srilanka' ? 'active' : ''}`}
-                  onClick={() => setActiveLocation('srilanka')}
-                >
-                  <span className="office-tab-flag">🇱🇰</span>
-                  <span>{ui.tabSl}</span>
-                </button>
-                <button
-                  className={`office-tab-btn ${activeLocation === 'japan' ? 'active' : ''}`}
-                  onClick={() => setActiveLocation('japan')}
-                >
-                  <span className="office-tab-flag">🇯🇵</span>
-                  <span>{ui.tabJp}</span>
-                </button>
+              {/* Interactive Live Location Map Card */}
+              <div
+                className="office-live-map-card"
+                style={{
+                  marginTop: '0',
+                  background: '#ffffff',
+                  border: '1px solid #e2e8f0',
+                  borderRadius: 'var(--radius-xl)',
+                  overflow: 'hidden',
+                  boxShadow: '0 4px 20px rgba(0,0,0,0.06)'
+                }}
+              >
+                {/* Map Card Header with Live Indicator */}
+                <div style={{
+                  padding: '1rem 1.25rem',
+                  background: 'linear-gradient(135deg, #060d1f 0%, #1e293b 100%)',
+                  color: '#ffffff',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  flexWrap: 'wrap',
+                  gap: '0.65rem'
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+                    <div style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '0.35rem',
+                      background: 'rgba(239, 68, 68, 0.25)',
+                      border: '1px solid rgba(239, 68, 68, 0.5)',
+                      color: '#fca5a5',
+                      fontSize: '0.72rem',
+                      fontWeight: 800,
+                      padding: '0.2rem 0.55rem',
+                      borderRadius: 'var(--radius-full)',
+                      letterSpacing: '0.04em'
+                    }}>
+                      <span style={{
+                        display: 'inline-block',
+                        width: '6px',
+                        height: '6px',
+                        borderRadius: '50%',
+                        background: '#ef4444',
+                        boxShadow: '0 0 8px #ef4444'
+                      }}></span>
+                      <span>{ui.liveMapBadge || 'LIVE MAP'}</span>
+                    </div>
+                    <span style={{ fontSize: '0.925rem', fontWeight: 700, color: '#f8fafc' }}>
+                      {currentMap.name}
+                    </span>
+                  </div>
+
+                  <a
+                    href={currentMap.mapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '0.35rem',
+                      color: '#38bdf8',
+                      fontSize: '0.78rem',
+                      fontWeight: 700,
+                      textDecoration: 'none',
+                      background: 'rgba(56, 189, 248, 0.12)',
+                      padding: '0.3rem 0.65rem',
+                      borderRadius: 'var(--radius-full)'
+                    }}
+                  >
+                    <span>{ui.liveMapOpenGmaps}</span>
+                    <ExternalLink size={12} />
+                  </a>
+                </div>
+
+                {/* Sub-Branch Switcher Tabs */}
+                <div style={{
+                  display: 'flex',
+                  gap: '0.5rem',
+                  padding: '0.65rem 1rem',
+                  background: '#f8fafc',
+                  borderBottom: '1px solid #e2e8f0',
+                  overflowX: 'auto'
+                }}>
+                  {activeLocation === 'srilanka' ? (
+                    <>
+                      <button
+                        type="button"
+                        onClick={() => setMapLocationId('kadawatha')}
+                        style={{
+                          padding: '0.35rem 0.8rem',
+                          fontSize: '0.78rem',
+                          fontWeight: 700,
+                          borderRadius: 'var(--radius-full)',
+                          border: '1px solid',
+                          borderColor: mapLocationId === 'kadawatha' ? '#ef4444' : '#cbd5e1',
+                          background: mapLocationId === 'kadawatha' ? '#fee2e2' : '#ffffff',
+                          color: mapLocationId === 'kadawatha' ? '#b91c1c' : '#475569',
+                          cursor: 'pointer',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '0.35rem'
+                        }}
+                      >
+                        <MapPin size={12} />
+                        <span>Kadawatha Campus (Main)</span>
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setMapLocationId('kelaniya')}
+                        style={{
+                          padding: '0.35rem 0.8rem',
+                          fontSize: '0.78rem',
+                          fontWeight: 700,
+                          borderRadius: 'var(--radius-full)',
+                          border: '1px solid',
+                          borderColor: mapLocationId === 'kelaniya' ? '#ef4444' : '#cbd5e1',
+                          background: mapLocationId === 'kelaniya' ? '#fee2e2' : '#ffffff',
+                          color: mapLocationId === 'kelaniya' ? '#b91c1c' : '#475569',
+                          cursor: 'pointer',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '0.35rem'
+                        }}
+                      >
+                        <Building2 size={12} />
+                        <span>Kelaniya Office</span>
+                      </button>
+                    </>
+                  ) : (
+                    <>
+                      <button
+                        type="button"
+                        onClick={() => setMapLocationId('sendai')}
+                        style={{
+                          padding: '0.35rem 0.8rem',
+                          fontSize: '0.78rem',
+                          fontWeight: 700,
+                          borderRadius: 'var(--radius-full)',
+                          border: '1px solid',
+                          borderColor: mapLocationId === 'sendai' ? '#0284c7' : '#cbd5e1',
+                          background: mapLocationId === 'sendai' ? '#e0f2fe' : '#ffffff',
+                          color: mapLocationId === 'sendai' ? '#0369a1' : '#475569',
+                          cursor: 'pointer',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '0.35rem'
+                        }}
+                      >
+                        <MapPin size={12} />
+                        <span>Sendai Center (Miyagi)</span>
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setMapLocationId('komaki')}
+                        style={{
+                          padding: '0.35rem 0.8rem',
+                          fontSize: '0.78rem',
+                          fontWeight: 700,
+                          borderRadius: 'var(--radius-full)',
+                          border: '1px solid',
+                          borderColor: mapLocationId === 'komaki' ? '#0284c7' : '#cbd5e1',
+                          background: mapLocationId === 'komaki' ? '#e0f2fe' : '#ffffff',
+                          color: mapLocationId === 'komaki' ? '#0369a1' : '#475569',
+                          cursor: 'pointer',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '0.35rem'
+                        }}
+                      >
+                        <Building2 size={12} />
+                        <span>Komaki Office (Aichi)</span>
+                      </button>
+                    </>
+                  )}
+                </div>
+
+                {/* Live Google Map Interactive Frame */}
+                <div style={{ position: 'relative', width: '100%', height: '330px', background: '#e2e8f0' }}>
+                  <iframe
+                    key={currentMap.id}
+                    title={`${currentMap.name} Live Location Map`}
+                    src={currentMap.embedUrl}
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0, display: 'block' }}
+                    allowFullScreen=""
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                </div>
+
+                {/* Transit Details & Action Footer */}
+                <div style={{
+                  padding: '1rem 1.25rem',
+                  background: '#f8fafc',
+                  borderTop: '1px solid #e2e8f0',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  flexWrap: 'wrap',
+                  gap: '0.85rem'
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', flex: '1 1 250px' }}>
+                    <Compass size={17} style={{ color: '#0284c7', flexShrink: 0, marginTop: '2px' }} />
+                    <div>
+                      <strong style={{ fontSize: '0.82rem', color: 'var(--navy-900)', display: 'block' }}>
+                        {currentMap.address}
+                      </strong>
+                      <span style={{ fontSize: '0.76rem', color: 'var(--text-muted)', lineHeight: 1.4 }}>
+                        {currentMap.transitHint}
+                      </span>
+                    </div>
+                  </div>
+
+                  <a
+                    href={currentMap.directionsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-primary"
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '0.45rem',
+                      padding: '0.55rem 1rem',
+                      fontSize: '0.825rem',
+                      fontWeight: 700,
+                      borderRadius: 'var(--radius-md)'
+                    }}
+                  >
+                    <Navigation size={14} />
+                    <span>{ui.liveMapGetDirections}</span>
+                  </a>
+                </div>
               </div>
-
-              {/* Sri Lanka Headquarters Card */}
-              {activeLocation === 'srilanka' && (
-                <div className="office-profile-card" style={{ background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: 'var(--radius-xl)', padding: '1.75rem' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-                    <span style={{ background: '#fee2e2', color: '#b91c1c', fontSize: '0.75rem', fontWeight: 700, padding: '0.25rem 0.65rem', borderRadius: 'var(--radius-full)' }}>
-                      {ui.slCardBadge}
-                    </span>
-                    <span style={{ fontSize: '0.8rem', color: '#64748b', fontWeight: 600 }}>
-                      SLBFE Lic. #3293
-                    </span>
-                  </div>
-
-                  <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--navy-900)', marginBottom: '0.75rem' }}>
-                    {ui.slCardTitle}
-                  </h3>
-
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1.25rem' }}>
-                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
-                      <MapPin size={18} style={{ color: '#ef4444', flexShrink: 0, marginTop: '2px' }} />
-                      <div>
-                        <strong>{ui.slAddressLbl}</strong>
-                        <p style={{ margin: '0.25rem 0 0', color: 'var(--navy-800)', fontSize: '0.9rem', lineHeight: 1.5 }}>
-                          {officialContacts.headOfficeAddress}
-                        </p>
-                      </div>
-                    </div>
-
-                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
-                      <Phone size={18} style={{ color: '#0284c7', flexShrink: 0, marginTop: '2px' }} />
-                      <div>
-                        <strong>{ui.slHotlineLbl}</strong>
-                        <p style={{ margin: '0.25rem 0 0', color: 'var(--navy-800)', fontSize: '0.9rem', lineHeight: 1.5 }}>
-                          {officialContacts.hotline} / {officialContacts.mobile1}
-                        </p>
-                      </div>
-                    </div>
-
-                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
-                      <Mail size={18} style={{ color: '#d97706', flexShrink: 0, marginTop: '2px' }} />
-                      <div>
-                        <strong>{ui.slEmailLbl}</strong>
-                        <p style={{ margin: '0.25rem 0 0', color: 'var(--navy-800)', fontSize: '0.9rem', lineHeight: 1.5 }}>
-                          {officialContacts.email} • {officialContacts.domain}
-                        </p>
-                      </div>
-                    </div>
-
-                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
-                      <Clock size={18} style={{ color: '#10b981', flexShrink: 0, marginTop: '2px' }} />
-                      <div>
-                        <strong>{ui.slHoursLbl}</strong>
-                        <p style={{ margin: '0.25rem 0 0', color: 'var(--navy-800)', fontSize: '0.9rem', lineHeight: 1.5 }}>
-                          {ui.slHoursVal}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* Japan Support Entity Card */}
-              {activeLocation === 'japan' && (
-                <div className="office-profile-card" style={{ background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: 'var(--radius-xl)', padding: '1.75rem' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-                    <span style={{ background: '#e0f2fe', color: '#0369a1', fontSize: '0.75rem', fontWeight: 700, padding: '0.25rem 0.65rem', borderRadius: 'var(--radius-full)' }}>
-                      {ui.jpCardBadge}
-                    </span>
-                    <span style={{ fontSize: '0.8rem', color: '#64748b', fontWeight: 600 }}>
-                      No. 23登-008312
-                    </span>
-                  </div>
-
-                  <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--navy-900)', marginBottom: '0.75rem' }}>
-                    {ui.jpCardTitle}
-                  </h3>
-
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1.25rem' }}>
-                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
-                      <Building2 size={18} style={{ color: '#0369a1', flexShrink: 0, marginTop: '2px' }} />
-                      <div>
-                        <strong>{ui.jpEntityLbl}</strong>
-                        <p style={{ margin: '0.25rem 0 0', color: 'var(--navy-800)', fontSize: '0.9rem', lineHeight: 1.5 }}>
-                          株式会社 Atsuko International (Japan)
-                        </p>
-                      </div>
-                    </div>
-
-                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
-                      <MapPin size={18} style={{ color: '#ef4444', flexShrink: 0, marginTop: '2px' }} />
-                      <div>
-                        <strong>{ui.jpAddressLbl}</strong>
-                        <p style={{ margin: '0.25rem 0 0', color: 'var(--navy-800)', fontSize: '0.9rem', lineHeight: 1.5 }}>
-                          {officialContacts.japanAddress}
-                        </p>
-                      </div>
-                    </div>
-
-                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
-                      <Phone size={18} style={{ color: '#0284c7', flexShrink: 0, marginTop: '2px' }} />
-                      <div>
-                        <strong>{ui.jpPhoneLbl}</strong>
-                        <p style={{ margin: '0.25rem 0 0', color: 'var(--navy-800)', fontSize: '0.9rem', lineHeight: 1.5 }}>
-                          {officialContacts.japanPhone}
-                        </p>
-                      </div>
-                    </div>
-
-                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem' }}>
-                      <Clock size={18} style={{ color: '#10b981', flexShrink: 0, marginTop: '2px' }} />
-                      <div>
-                        <strong>{ui.jpHoursLbl}</strong>
-                        <p style={{ margin: '0.25rem 0 0', color: 'var(--navy-800)', fontSize: '0.9rem', lineHeight: 1.5 }}>
-                          {ui.jpHoursVal}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
             </div>
 
             {/* Right Column: Interactive Consultation & Application Form */}

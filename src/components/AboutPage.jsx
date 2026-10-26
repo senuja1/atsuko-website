@@ -1,15 +1,15 @@
 import { useState } from 'react';
-import { 
-  ShieldCheck, 
-  Award, 
-  Globe2, 
-  Users, 
-  Building2, 
-  CheckCircle2, 
-  MapPin, 
-  ArrowRight, 
-  GraduationCap, 
-  FileText, 
+import {
+  ShieldCheck,
+  Award,
+  Globe2,
+  Users,
+  Building2,
+  CheckCircle2,
+  MapPin,
+  ArrowRight,
+  GraduationCap,
+  FileText,
   HeartHandshake,
   MessageSquare,
   Sparkles,
@@ -160,7 +160,7 @@ export default function AboutPage({ lang, onOpenModal, onNavigate }) {
                 </div>
 
                 <div className="credentials-footer-cta">
-                  <button 
+                  <button
                     onClick={() => onOpenModal('License & Registration Verification')}
                     className="btn btn-primary btn-block"
                   >
@@ -195,11 +195,11 @@ export default function AboutPage({ lang, onOpenModal, onNavigate }) {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem', marginTop: '1.5rem' }}>
               <div style={{ borderLeft: '4px solid #ef4444', paddingLeft: '1.25rem' }}>
                 <p style={{ fontStyle: 'italic', color: 'var(--navy-900)', fontSize: '1.05rem', lineHeight: 1.7, marginBottom: '1rem' }}>
-                  "{lang === 'si' 
+                  "{lang === 'si'
                     ? 'ශ්‍රී ලංකාවේ තරුණ පරපුරට ජපානයේ උසස් අධ්‍යාපනය සහ ගෞරවනීය රැකියා අවස්ථා කරා යාමට 100%ක් නීත්‍යානුකූල හා විනිවිදභාවයෙන් යුතු මාවතක් සැලසීම අත්සුකෝ අපගේ පරම අධිෂ්ඨානයයි. ශ්‍රී ලංකාවේ හා ජපානයේ අපගේම සෘජු ආයතන හරහා කිසිදු අතරමැදියෙකුගෙන් තොරව සිසුන්ගේ ආරක්ෂාව හා අනාගතය අපි තහවුරු කරන්නෙමු.'
                     : lang === 'jp'
-                    ? aboutUsData.mdMessage.bodyJp
-                    : aboutUsData.mdMessage.body}"
+                      ? aboutUsData.mdMessage.bodyJp
+                      : aboutUsData.mdMessage.body}"
                 </p>
                 <div style={{ marginTop: '1rem' }}>
                   <strong style={{ display: 'block', color: 'var(--navy-900)', fontSize: '1.1rem' }}>
@@ -433,13 +433,13 @@ export default function AboutPage({ lang, onOpenModal, onNavigate }) {
               </p>
             </div>
             <div className="about-cta-btn-group">
-              <button 
-                onClick={() => onOpenModal('Official Consultation')} 
+              <button
+                onClick={() => onOpenModal('Official Consultation')}
                 className="btn btn-gold"
               >
                 {h.ctaRegister}
               </button>
-              <button 
+              <button
                 onClick={() => onNavigate && onNavigate('contact')}
                 className="btn btn-secondary-white"
               >
