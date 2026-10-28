@@ -1,0 +1,13 @@
+User-agent: *
+Disallow: /.*
+Disallow: /*.json$
+Disallow: /*.config.*
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /.env*
+
+Allow: /
+Allow: /images/
+Allow: /videos/
+
+Sitemap: https://www.atsukojapan.com/sitemap.xml

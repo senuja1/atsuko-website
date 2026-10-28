@@ -20,6 +20,7 @@ import confetti from 'canvas-confetti';
 import { officialContacts } from '../data/websiteData';
 import { getUiText } from '../data/uiText';
 import { FacebookIcon, YoutubeIcon, TikTokIcon, InstagramIcon, WhatsAppIcon } from './SocialIcons';
+import { sanitizeFormData } from '../utils/security';
 
 export default function ContactPage({ lang }) {
   const ui = getUiText(lang).pages.contact;
@@ -97,39 +98,46 @@ export default function ContactPage({ lang }) {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  const getWhatsAppForwardUrl = () => {
+    const text = `🇯🇵 *Atsuko International — Official Inquiry*
+────────────────────────
+👤 *Full Name:* ${(formData.name || '').trim()}
+📱 *Phone / WhatsApp:* ${(formData.phone || '').trim()}
+📧 *Email:* ${(formData.email || '').trim() || 'Not specified'}
+🎯 *Target Pathway:* ${formData.inquiryType}
+📝 *Questions / Message:*
+${(formData.message || '').trim() || 'I would like to inquire about eligibility, course schedules, and visa procedures.'}
+────────────────────────
+📍 Sent via: www.atsukojapan.com`;
+    return `https://wa.me/94777933352?text=${encodeURIComponent(text)}`;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    const cleanData = sanitizeFormData(formData);
     try {
       const stored = JSON.parse(sessionStorage.getItem('atsuko_contact_submissions') || '[]');
       stored.push({
-        ...formData,
+        ...cleanData,
         id: Date.now(),
         date: new Date().toISOString()
       });
       sessionStorage.setItem('atsuko_contact_submissions', JSON.stringify(stored));
 
       confetti({
-        particleCount: 50,
+        particleCount: 60,
         spread: 70,
         origin: { y: 0.6 }
       });
     } catch (err) {
       console.error(err);
     }
+
+    // Direct inquiry: Immediately launch WhatsApp with the sanitized inquiry message
+    const waUrl = getWhatsAppForwardUrl();
+    window.open(waUrl, '_blank', 'noopener,noreferrer');
+
     setSubmitted(true);
-  };
-
-  const getWhatsAppForwardUrl = () => {
-    const text = `Hello Atsuko International!
-I have sent an official inquiry through www.atsukojapan.com:
-• Name: ${formData.name}
-• Contact: ${formData.phone}
-• Email: ${formData.email || 'N/A'}
-• Pathway: ${formData.inquiryType}
-• Message: ${formData.message || 'General inquiry'}
-
-Please get back to me with course / visa details.`;
-    return `https://wa.me/94777933352?text=${encodeURIComponent(text)}`;
   };
 
   const pathways = lang === 'si' ? [
@@ -243,9 +251,9 @@ Please get back to me with course / visa details.`;
                       display: 'inline-flex',
                       alignItems: 'center',
                       gap: '0.35rem',
-                      background: 'rgba(239, 68, 68, 0.25)',
-                      border: '1px solid rgba(239, 68, 68, 0.5)',
-                      color: '#fca5a5',
+                      background: currentMap.country === 'Japan' ? 'rgba(14, 165, 233, 0.25)' : 'rgba(239, 68, 68, 0.25)',
+                      border: currentMap.country === 'Japan' ? '1px solid rgba(14, 165, 233, 0.5)' : '1px solid rgba(239, 68, 68, 0.5)',
+                      color: currentMap.country === 'Japan' ? '#7dd3fc' : '#fca5a5',
                       fontSize: '0.72rem',
                       fontWeight: 800,
                       padding: '0.2rem 0.55rem',
@@ -257,10 +265,10 @@ Please get back to me with course / visa details.`;
                         width: '6px',
                         height: '6px',
                         borderRadius: '50%',
-                        background: '#ef4444',
-                        boxShadow: '0 0 8px #ef4444'
+                        background: currentMap.country === 'Japan' ? '#38bdf8' : '#ef4444',
+                        boxShadow: currentMap.country === 'Japan' ? '0 0 8px #38bdf8' : '0 0 8px #ef4444'
                       }}></span>
-                      <span>{ui.liveMapBadge || 'LIVE MAP'}</span>
+                      <span>{currentMap.country === 'Japan' ? 'JAPAN OFFICE' : (ui.liveMapBadge || 'LIVE MAP')}</span>
                     </div>
                     <span style={{ fontSize: '0.925rem', fontWeight: 700, color: '#f8fafc' }}>
                       {currentMap.name}
@@ -289,106 +297,116 @@ Please get back to me with course / visa details.`;
                   </a>
                 </div>
 
-                {/* Sub-Branch Switcher Tabs */}
+                {/* Sub-Branch Switcher Tabs - Sri Lanka & Japan Operating Bases */}
                 <div style={{
                   display: 'flex',
-                  gap: '0.5rem',
-                  padding: '0.65rem 1rem',
+                  gap: '0.45rem',
+                  padding: '0.65rem 0.85rem',
                   background: '#f8fafc',
                   borderBottom: '1px solid #e2e8f0',
-                  overflowX: 'auto'
+                  overflowX: 'auto',
+                  whiteSpace: 'nowrap',
+                  scrollbarWidth: 'thin'
                 }}>
-                  {activeLocation === 'srilanka' ? (
-                    <>
-                      <button
-                        type="button"
-                        onClick={() => setMapLocationId('kadawatha')}
-                        style={{
-                          padding: '0.35rem 0.8rem',
-                          fontSize: '0.78rem',
-                          fontWeight: 700,
-                          borderRadius: 'var(--radius-full)',
-                          border: '1px solid',
-                          borderColor: mapLocationId === 'kadawatha' ? '#ef4444' : '#cbd5e1',
-                          background: mapLocationId === 'kadawatha' ? '#fee2e2' : '#ffffff',
-                          color: mapLocationId === 'kadawatha' ? '#b91c1c' : '#475569',
-                          cursor: 'pointer',
-                          display: 'inline-flex',
-                          alignItems: 'center',
-                          gap: '0.35rem'
-                        }}
-                      >
-                        <MapPin size={12} />
-                        <span>Kadawatha Campus (Main)</span>
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => setMapLocationId('kelaniya')}
-                        style={{
-                          padding: '0.35rem 0.8rem',
-                          fontSize: '0.78rem',
-                          fontWeight: 700,
-                          borderRadius: 'var(--radius-full)',
-                          border: '1px solid',
-                          borderColor: mapLocationId === 'kelaniya' ? '#ef4444' : '#cbd5e1',
-                          background: mapLocationId === 'kelaniya' ? '#fee2e2' : '#ffffff',
-                          color: mapLocationId === 'kelaniya' ? '#b91c1c' : '#475569',
-                          cursor: 'pointer',
-                          display: 'inline-flex',
-                          alignItems: 'center',
-                          gap: '0.35rem'
-                        }}
-                      >
-                        <Building2 size={12} />
-                        <span>Kelaniya Office</span>
-                      </button>
-                    </>
-                  ) : (
-                    <>
-                      <button
-                        type="button"
-                        onClick={() => setMapLocationId('sendai')}
-                        style={{
-                          padding: '0.35rem 0.8rem',
-                          fontSize: '0.78rem',
-                          fontWeight: 700,
-                          borderRadius: 'var(--radius-full)',
-                          border: '1px solid',
-                          borderColor: mapLocationId === 'sendai' ? '#0284c7' : '#cbd5e1',
-                          background: mapLocationId === 'sendai' ? '#e0f2fe' : '#ffffff',
-                          color: mapLocationId === 'sendai' ? '#0369a1' : '#475569',
-                          cursor: 'pointer',
-                          display: 'inline-flex',
-                          alignItems: 'center',
-                          gap: '0.35rem'
-                        }}
-                      >
-                        <MapPin size={12} />
-                        <span>Sendai Center (Miyagi)</span>
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => setMapLocationId('komaki')}
-                        style={{
-                          padding: '0.35rem 0.8rem',
-                          fontSize: '0.78rem',
-                          fontWeight: 700,
-                          borderRadius: 'var(--radius-full)',
-                          border: '1px solid',
-                          borderColor: mapLocationId === 'komaki' ? '#0284c7' : '#cbd5e1',
-                          background: mapLocationId === 'komaki' ? '#e0f2fe' : '#ffffff',
-                          color: mapLocationId === 'komaki' ? '#0369a1' : '#475569',
-                          cursor: 'pointer',
-                          display: 'inline-flex',
-                          alignItems: 'center',
-                          gap: '0.35rem'
-                        }}
-                      >
-                        <Building2 size={12} />
-                        <span>Komaki Office (Aichi)</span>
-                      </button>
-                    </>
-                  )}
+                  {/* Kadawatha Campus (Main) */}
+                  <button
+                    type="button"
+                    onClick={() => { setMapLocationId('kadawatha'); setActiveLocation('srilanka'); }}
+                    style={{
+                      padding: '0.35rem 0.75rem',
+                      fontSize: '0.78rem',
+                      fontWeight: 700,
+                      borderRadius: 'var(--radius-full)',
+                      border: '1px solid',
+                      borderColor: mapLocationId === 'kadawatha' ? '#ef4444' : '#cbd5e1',
+                      background: mapLocationId === 'kadawatha' ? '#fee2e2' : '#ffffff',
+                      color: mapLocationId === 'kadawatha' ? '#b91c1c' : '#475569',
+                      cursor: 'pointer',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '0.35rem',
+                      flexShrink: 0,
+                      transition: 'all 0.15s ease'
+                    }}
+                  >
+                    <MapPin size={12} />
+                    <span>Kadawatha Campus (Main)</span>
+                  </button>
+
+                  {/* Kelaniya Office */}
+                  <button
+                    type="button"
+                    onClick={() => { setMapLocationId('kelaniya'); setActiveLocation('srilanka'); }}
+                    style={{
+                      padding: '0.35rem 0.75rem',
+                      fontSize: '0.78rem',
+                      fontWeight: 700,
+                      borderRadius: 'var(--radius-full)',
+                      border: '1px solid',
+                      borderColor: mapLocationId === 'kelaniya' ? '#ef4444' : '#cbd5e1',
+                      background: mapLocationId === 'kelaniya' ? '#fee2e2' : '#ffffff',
+                      color: mapLocationId === 'kelaniya' ? '#b91c1c' : '#475569',
+                      cursor: 'pointer',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '0.35rem',
+                      flexShrink: 0,
+                      transition: 'all 0.15s ease'
+                    }}
+                  >
+                    <Building2 size={12} />
+                    <span>Kelaniya Office</span>
+                  </button>
+
+                  {/* Sendai Center (Japan) */}
+                  <button
+                    type="button"
+                    onClick={() => { setMapLocationId('sendai'); setActiveLocation('japan'); }}
+                    style={{
+                      padding: '0.35rem 0.75rem',
+                      fontSize: '0.78rem',
+                      fontWeight: 700,
+                      borderRadius: 'var(--radius-full)',
+                      border: '1px solid',
+                      borderColor: mapLocationId === 'sendai' ? '#0284c7' : '#cbd5e1',
+                      background: mapLocationId === 'sendai' ? '#e0f2fe' : '#ffffff',
+                      color: mapLocationId === 'sendai' ? '#0369a1' : '#475569',
+                      cursor: 'pointer',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '0.35rem',
+                      flexShrink: 0,
+                      transition: 'all 0.15s ease'
+                    }}
+                  >
+                    <Globe2 size={12} />
+                    <span>Japan (Sendai Center)</span>
+                  </button>
+
+                  {/* Komaki Office (Japan) */}
+                  <button
+                    type="button"
+                    onClick={() => { setMapLocationId('komaki'); setActiveLocation('japan'); }}
+                    style={{
+                      padding: '0.35rem 0.75rem',
+                      fontSize: '0.78rem',
+                      fontWeight: 700,
+                      borderRadius: 'var(--radius-full)',
+                      border: '1px solid',
+                      borderColor: mapLocationId === 'komaki' ? '#0284c7' : '#cbd5e1',
+                      background: mapLocationId === 'komaki' ? '#e0f2fe' : '#ffffff',
+                      color: mapLocationId === 'komaki' ? '#0369a1' : '#475569',
+                      cursor: 'pointer',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '0.35rem',
+                      flexShrink: 0,
+                      transition: 'all 0.15s ease'
+                    }}
+                  >
+                    <Building2 size={12} />
+                    <span>Japan (Komaki Office)</span>
+                  </button>
                 </div>
 
                 {/* Live Google Map Interactive Frame */}
@@ -471,26 +489,48 @@ Please get back to me with course / visa details.`;
                       <CheckCircle2 size={36} />
                     </div>
                     <h4 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--navy-900)', marginBottom: '0.5rem' }}>
-                      {ui.formSuccessTitle}
+                      {ui.formSuccessTitle || 'Inquiry Generated & WhatsApp Launched!'}
                     </h4>
                     <p style={{ color: 'var(--text-muted)', fontSize: '0.925rem', lineHeight: 1.6, marginBottom: '1.5rem' }}>
-                      {ui.formSuccessDesc}
+                      {ui.formSuccessDesc || 'Your inquiry details were formatted and forwarded to Atsuko International on WhatsApp. If WhatsApp did not open automatically, click the button below to send your message.'}
                     </p>
                     <a
                       href={getWhatsAppForwardUrl()}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       className="btn btn-whatsapp btn-block"
+                      style={{
+                        background: '#25D366',
+                        color: '#ffffff',
+                        padding: '0.85rem',
+                        fontWeight: 700,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '0.55rem',
+                        borderRadius: 'var(--radius-md)',
+                        textDecoration: 'none',
+                        boxShadow: '0 4px 14px rgba(37, 211, 102, 0.35)'
+                      }}
                     >
-                      <MessageSquare size={16} />
-                      <span>{ui.socialsCards?.whatsapp?.btn || 'WhatsApp'}</span>
+                      <WhatsAppIcon size={18} />
+                      <span>{ui.socialsCards?.whatsapp?.btn || 'Open in WhatsApp Now'}</span>
                     </a>
                     <button
-                      onClick={() => setSubmitted(false)}
+                      onClick={() => {
+                        setSubmitted(false);
+                        setFormData({
+                          name: '',
+                          phone: '',
+                          email: '',
+                          inquiryType: 'Student Visa (Language School)',
+                          message: ''
+                        });
+                      }}
                       className="btn btn-secondary btn-block"
                       style={{ marginTop: '0.75rem' }}
                     >
-                      {ui.formReset}
+                      {ui.formReset || 'Send Another Inquiry'}
                     </button>
                   </div>
                 ) : (
@@ -574,14 +614,41 @@ Please get back to me with course / visa details.`;
                       />
                     </div>
 
-                    <button
-                      type="submit"
-                      className="btn btn-primary btn-block"
-                      style={{ padding: '0.85rem', fontSize: '1rem', marginTop: '0.5rem' }}
-                    >
-                      <Send size={16} />
-                      <span>{ui.formSubmit}</span>
-                    </button>
+                    <div>
+                      <button
+                        type="submit"
+                        className="btn btn-whatsapp btn-block"
+                        style={{
+                          padding: '0.85rem 1.25rem',
+                          fontSize: '1rem',
+                          fontWeight: 700,
+                          background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
+                          color: '#ffffff',
+                          border: 'none',
+                          borderRadius: 'var(--radius-md)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          gap: '0.55rem',
+                          cursor: 'pointer',
+                          boxShadow: '0 4px 16px rgba(37, 211, 102, 0.35)',
+                          transition: 'all 0.2s ease',
+                          width: '100%'
+                        }}
+                      >
+                        <WhatsAppIcon size={18} />
+                        <span>{ui.formSubmit || 'Send Inquiry via WhatsApp'}</span>
+                      </button>
+                      <span style={{
+                        display: 'block',
+                        fontSize: '0.76rem',
+                        color: 'var(--text-muted)',
+                        textAlign: 'center',
+                        marginTop: '0.45rem'
+                      }}>
+                        ⚡ Automatically generates and opens your message in WhatsApp
+                      </span>
+                    </div>
                   </form>
                 )}
               </div>

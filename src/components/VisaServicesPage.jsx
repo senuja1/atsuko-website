@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   GraduationCap,
   Briefcase,
@@ -16,11 +16,17 @@ import {
 import { studentVisaIntakes, visaDocumentChecklist, roadmapSteps } from '../data/websiteData';
 import { getUiText } from '../data/uiText';
 
-export default function VisaServicesPage({ lang, onOpenModal }) {
+export default function VisaServicesPage({ lang, onOpenModal, initialTab = 'student' }) {
   const tFull = getUiText(lang);
   const ui = tFull.pages.visa;
   const h = tFull.home;
-  const [activeVisaTab, setActiveVisaTab] = useState('student');
+  const [activeVisaTab, setActiveVisaTab] = useState(initialTab || 'student');
+
+  useEffect(() => {
+    if (initialTab) {
+      setActiveVisaTab(initialTab);
+    }
+  }, [initialTab]);
 
   const studentReqs = lang === 'si' ? [
     'අවම වශයෙන් වසර 12 ක පාසල් අධ්‍යාපනයක් සම්පූර්ණ කර තිබීම (අ.පො.ස. උ/පෙළ හෝ ඊට සමාන සුදුසුකම්).',

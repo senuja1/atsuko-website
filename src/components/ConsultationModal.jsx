@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { X, Send, CheckCircle2, MessageSquare, ShieldCheck } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { siteTranslations } from '../data/translations';
+import { sanitizeFormData } from '../utils/security';
 
 export default function ConsultationModal({ lang, isOpen, onClose, defaultProgram = '' }) {
   const [formData, setFormData] = useState({
@@ -48,10 +49,11 @@ export default function ConsultationModal({ lang, isOpen, onClose, defaultProgra
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const cleanData = sanitizeFormData(formData);
     try {
       const existing = JSON.parse(sessionStorage.getItem('atsuko_inquiries') || '[]');
       existing.push({
-        ...formData,
+        ...cleanData,
         id: Date.now(),
         date: new Date().toISOString()
       });

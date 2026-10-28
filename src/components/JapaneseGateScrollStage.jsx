@@ -782,7 +782,7 @@ export default function JapaneseGateScrollStage({
           className="gate-intro-hint"
           style={{
             position: 'absolute',
-            bottom: '12%',
+            bottom: '9.5%',
             textAlign: 'center',
             color: 'white',
             zIndex: 20,
@@ -791,32 +791,8 @@ export default function JapaneseGateScrollStage({
             transformStyle: 'preserve-3d',
           }}
         >
-          {/* Upper Group: License Badge (Desktop) + ATSUKO INTERNATIONAL + Kanji Sub */}
+          {/* Upper Group: Title & Kanji Sub (cleared from gate plaque) */}
           <div className="gate-intro-header-block">
-            <div
-              className="gate-license-badge gate-license-badge-desktop"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: 8,
-                background: 'rgba(15, 23, 42, 0.65)',
-                backdropFilter: 'blur(12px)',
-                WebkitBackdropFilter: 'blur(12px)',
-                border: '1px solid rgba(251,191,36,0.45)',
-                padding: '6px 16px',
-                borderRadius: '999px',
-                color: '#fbbf24',
-                fontSize: 12,
-                fontWeight: 700,
-                letterSpacing: '1px',
-                marginBottom: 14,
-                boxShadow: '0 4px 14px rgba(0,0,0,0.4)',
-              }}
-            >
-              <ShieldCheck size={14} />
-              <span>{g.license}</span>
-            </div>
-
             <h1
               className="gate-hero-title"
               style={{
@@ -833,43 +809,30 @@ export default function JapaneseGateScrollStage({
             </h1>
           </div>
 
-          {/* Lower Group: Description + License Badge (Mobile) + CTA Button + Scroll Hint */}
+          {/* Lower Group: License Badge + CTA Button + Scroll Hint */}
           <div className="gate-intro-action-block">
-            <p
-              className="gate-hero-desc"
-              style={{
-                fontSize: 'clamp(14px, 1.8vw, 17px)',
-                color: '#e2e8f0',
-                maxWidth: 640,
-                margin: '0 auto 20px',
-                textShadow: '0 2px 4px rgba(0,0,0,0.9), 0 4px 16px rgba(0,0,0,0.85)',
-              }}
-            >
-              {g.desc}
-            </p>
-
-            {/* Mobile License Badge: Placed directly above the blue button as requested */}
+            {/* Official License Badge: Positioned safely near the Walk button, clear of the gate */}
             <div
-              className="gate-license-badge gate-license-badge-mobile"
+              className="gate-license-badge"
               style={{
-                display: 'none',
+                display: 'inline-flex',
                 alignItems: 'center',
                 gap: 7,
                 background: 'rgba(15, 23, 42, 0.72)',
                 backdropFilter: 'blur(12px)',
                 WebkitBackdropFilter: 'blur(12px)',
                 border: '1px solid rgba(251,191,36,0.45)',
-                padding: '4px 12px',
+                padding: '5px 14px',
                 borderRadius: '999px',
                 color: '#fbbf24',
-                fontSize: 10,
+                fontSize: 'clamp(10px, 1.1vw, 12px)',
                 fontWeight: 700,
                 letterSpacing: '0.8px',
-                marginBottom: 12,
+                marginBottom: 14,
                 boxShadow: '0 4px 14px rgba(0,0,0,0.4)',
               }}
             >
-              <ShieldCheck size={13} />
+              <ShieldCheck size={14} />
               <span>{g.license}</span>
             </div>
 

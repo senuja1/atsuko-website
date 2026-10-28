@@ -610,6 +610,275 @@ body {
   background: #0284c7;
 }
 
+/* ============================================================
+   NAVBAR POP-DOWN DROPDOWN MENU (VISA SERVICES)
+   ============================================================ */
+.nav-dropdown-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-dropdown-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.nav-dropdown-caret {
+  color: #64748b;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
+}
+
+.nav-link-btn:hover .nav-dropdown-caret,
+.nav-dropdown-trigger.dropdown-open .nav-dropdown-caret {
+  color: #0284c7;
+}
+
+.nav-dropdown-caret.open {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 320px;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  border-radius: 14px;
+  box-shadow: 0 16px 36px -6px rgba(15, 23, 42, 0.16), 0 4px 12px rgba(0, 0, 0, 0.04);
+  padding: 8px;
+  z-index: 1000;
+  animation: navDropdownPop 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes navDropdownPop {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+}
+
+.nav-dropdown-header {
+  padding: 6px 10px 4px;
+}
+
+.nav-dropdown-eyebrow {
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #94a3b8;
+  text-transform: uppercase;
+}
+
+.nav-dropdown-item {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 10px;
+  border: none;
+  background: transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.16s ease;
+}
+
+.nav-dropdown-item:hover {
+  background: #f0f9ff;
+  transform: translateX(2px);
+}
+
+.nav-dropdown-icon-box {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.nav-dropdown-icon-box.student {
+  background: #e0f2fe;
+  color: #0284c7;
+}
+
+.nav-dropdown-icon-box.job {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.nav-dropdown-item:hover .nav-dropdown-icon-box.student {
+  background: #0284c7;
+  color: #ffffff;
+}
+
+.nav-dropdown-item:hover .nav-dropdown-icon-box.job {
+  background: #16a34a;
+  color: #ffffff;
+}
+
+.nav-dropdown-item-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.nav-dropdown-item-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-badge-pill {
+  font-size: 9.5px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.nav-badge-pill.pill-blue {
+  background: #e0f2fe;
+  color: #0284c7;
+}
+
+.nav-badge-pill.pill-emerald {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.nav-dropdown-item-desc {
+  font-size: 11px;
+  color: #64748b;
+  line-height: 1.35;
+  display: block;
+  margin-top: 2px;
+}
+
+.nav-dropdown-divider {
+  height: 1px;
+  background: #f1f5f9;
+  margin: 4px 6px;
+}
+
+.nav-dropdown-footer {
+  padding: 4px 6px 2px;
+  border-top: 1px solid #f1f5f9;
+  margin-top: 4px;
+}
+
+.nav-dropdown-footer-link {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  border: none;
+  padding: 6px 8px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #0284c7;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.15s ease;
+}
+
+.nav-dropdown-footer-link:hover {
+  background: #f0f9ff;
+}
+
+/* Mobile drawer accordion sub-items */
+.mobile-nav-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mobile-nav-sub-menu {
+  padding: 4px 0 4px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mobile-nav-sub-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s ease;
+}
+
+.mobile-nav-sub-item:hover {
+  background: #f0f9ff;
+  border-color: #bae6fd;
+}
+
+.mobile-sub-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.mobile-sub-icon.student {
+  background: #e0f2fe;
+  color: #0284c7;
+}
+
+.mobile-sub-icon.job {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.mobile-sub-content {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.mobile-sub-content strong {
+  font-size: 13px;
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.mobile-sub-content span {
+  font-size: 11px;
+  color: #64748b;
+}
+
+.mobile-nav-sub-item.all {
+  background: transparent;
+  border: none;
+  padding: 6px 8px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #0284c7;
+}
+
 /* Nav Actions */
 .nav-actions {
   display: flex;
@@ -5472,16 +5741,44 @@ body {
 
 /* ============================================================
    TORII GATE HERO STAGE RESPONSIVE FRAME SYSTEM
+   Single fluid formula per orientation (no per-device overrides):
+   - Landscape: width-led, capped so the gate is never taller than
+     ~80% of the viewport (roof never clipped on short laptops,
+     landscape tablets or phones).
+   - Portrait: height-led for majestic presence, capped by vw so the
+     inner pillar edges always stay on-screen (narrow phones/foldables).
+   Image ratio 2048x1236 ≈ 1376/830. vh fallbacks precede dvh.
    ============================================================ */
 .torii-gate-frame {
   position: absolute;
   bottom: -4%;
   left: 50%;
   transform: translateX(-50%);
-  width: min(128vw, 1440px);
+  width: min(155vw, 168vh, 2600px);
+  width: min(155vw, 168dvh, 2600px);
+  height: auto;
   aspect-ratio: 1376 / 830;
   pointer-events: none;
   transform-origin: 50% 100%;
+}
+
+/* Short landscape (phones on their side, small laptop windows): let the gate fill more height */
+@media (orientation: landscape) and (max-height: 550px) {
+  .torii-gate-frame {
+    width: min(150vw, 175vh);
+    width: min(150vw, 175dvh);
+    bottom: -3%;
+  }
+}
+
+/* Portrait (phones, portrait tablets, foldables) */
+@media (orientation: portrait) {
+  .torii-gate-frame {
+    width: auto;
+    height: min(88vh, 185vw, 1050px);
+    height: min(88dvh, 185vw, 1050px);
+    bottom: -1%;
+  }
 }
 
 .gate-intro-hint {
@@ -5499,12 +5796,9 @@ body {
   position: relative;
 }
 
-.gate-license-badge-desktop {
+.gate-license-badge {
   display: inline-flex !important;
-}
-
-.gate-license-badge-mobile {
-  display: none !important;
+  align-items: center;
 }
 
 /* Soft dark scrim keeps hero copy crisp over the bright stone stairs.
@@ -5910,24 +6204,8 @@ body {
   z-index: 20;
 }
 
-/* Portrait / Narrow Viewports: Scale Torii Gate by Height for Majestic Presence */
-@media (orientation: portrait) {
-  .torii-gate-frame {
-    width: auto;
-    height: clamp(540px, 80vh, 880px);
-    aspect-ratio: 1376 / 830;
-    bottom: -1;
-  }
-}
-
+/* Torii gate frame sizing lives in the TORII GATE HERO STAGE RESPONSIVE FRAME SYSTEM block above */
 @media (orientation: landscape) and (max-height: 550px) {
-  .torii-gate-frame {
-    width: auto;
-    height: 94vh;
-    aspect-ratio: 1376 / 830;
-    bottom: -2%;
-  }
-
   .gate-intro-hint {
     bottom: 3% !important;
   }
@@ -5968,14 +6246,6 @@ body {
 
 /* Tablet Landscape & Medium Desktops (769px - 1024px) */
 @media (max-width: 1024px) {
-
-  /* Torii Gate Majestic Frame on Tablets and Portrait Viewports */
-  .torii-gate-frame {
-    width: auto;
-    height: clamp(620px, 80vh, 880px);
-    aspect-ratio: 1376 / 830;
-    bottom: -2%;
-  }
 
   .nav-links {
     display: none;
@@ -6146,14 +6416,6 @@ body {
     display: none;
   }
 
-  /* Torii Gate Responsive Balance on Tablets and Phones */
-  .torii-gate-frame {
-    width: auto !important;
-    height: clamp(560px, 80vh, 820px) !important;
-    aspect-ratio: 1376 / 830 !important;
-    bottom: -1% !important;
-  }
-
   .torii-floating-nameplate {
     display: none !important;
   }
@@ -6223,11 +6485,7 @@ body {
     -webkit-backdrop-filter: blur(6px);
   }
 
-  .gate-license-badge-desktop {
-    display: none !important;
-  }
-
-  .gate-license-badge-mobile {
+  .gate-license-badge {
     display: inline-flex !important;
     font-size: 10px !important;
     padding: 3.5px 10px !important;
@@ -6540,14 +6798,6 @@ body {
     right: clamp(10px, 2.5vw, 16px) !important;
   }
 
-  /* Torii Gate Stage Mobile Proportions */
-  .torii-gate-frame {
-    width: auto !important;
-    height: clamp(500px, 78vh, 700px) !important;
-    aspect-ratio: 1376 / 830 !important;
-    bottom: 0% !important;
-  }
-
   /* Mobile Decoupled Layout: Title in Upper Torii Archway, Actions in Lower Area */
   .gate-intro-hint {
     position: absolute !important;
@@ -6611,7 +6861,7 @@ body {
     -webkit-backdrop-filter: blur(6px);
   }
 
-  .gate-license-badge-mobile {
+  .gate-license-badge {
     font-size: 9px !important;
     padding: 3px 8px !important;
     margin-bottom: 8px !important;
@@ -6956,14 +7206,6 @@ body {
     justify-content: center;
   }
 
-  /* Torii Gate Stage Proportions for Ultra-Compact Screens */
-  .torii-gate-frame {
-    width: auto !important;
-    height: clamp(440px, 75vh, 600px) !important;
-    aspect-ratio: 1376 / 830 !important;
-    bottom: 0% !important;
-  }
-
   .gate-intro-header-block {
     margin-top: clamp(76px, 10vh, 94px) !important;
     width: min(96vw, 330px) !important;
@@ -6974,7 +7216,7 @@ body {
     width: min(96vw, 310px) !important;
   }
 
-  .gate-license-badge-mobile {
+  .gate-license-badge {
     font-size: 8px !important;
     padding: 2.5px 6px !important;
     margin-bottom: 6px !important;
@@ -8350,6 +8592,47 @@ body {
     -webkit-background-clip: unset !important;
     -webkit-text-fill-color: unset !important;
     color: #dc2626 !important;
+  }
+}
+
+/* 7. Torii gate hero on short landscape screens (phones held sideways).
+   Width-based mobile rules above don't know the screen is short, so the
+   full copy stack covered the gate. Here we keep only title + CTA and pin
+   them to the lower archway so the whole gate stays visible. */
+@media (orientation: landscape) and (max-height: 500px) {
+  .gate-scroll-runway .gate-hero-desc,
+  .gate-scroll-runway .gate-license-badge,
+  .gate-scroll-runway .gate-scroll-hint {
+    display: none !important;
+  }
+
+  .gate-scroll-runway .gate-intro-hint {
+    position: absolute !important;
+    top: auto !important;
+    bottom: 5% !important;
+    left: 0 !important;
+    right: 0 !important;
+    display: block !important;
+    width: min(90vw, 460px) !important;
+    max-width: min(90vw, 460px) !important;
+    margin: 0 auto !important;
+    padding: 8px 16px !important;
+  }
+
+  .gate-scroll-runway .gate-intro-header-block,
+  .gate-scroll-runway .gate-intro-action-block {
+    margin: 0 auto !important;
+    width: 100% !important;
+  }
+
+  .gate-scroll-runway .gate-hero-title {
+    font-size: clamp(18px, 6.5vh, 26px) !important;
+    margin-bottom: 10px !important;
+  }
+
+  .gate-scroll-runway .gate-hero-sub {
+    margin-top: 2px !important;
+    font-size: 11px !important;
   }
 }
 

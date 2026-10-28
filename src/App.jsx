@@ -11,6 +11,8 @@ const HomeView = lazy(() => import('./components/HomeView'));
 const AboutPage = lazy(() => import('./components/AboutPage'));
 const CoursesPage = lazy(() => import('./components/CoursesPage'));
 const VisaServicesPage = lazy(() => import('./components/VisaServicesPage'));
+const StudentVisaPage = lazy(() => import('./components/StudentVisaPage'));
+const JobVisaPage = lazy(() => import('./components/JobVisaPage'));
 const SuccessStoriesPage = lazy(() => import('./components/SuccessStoriesPage'));
 const BranchNetwork = lazy(() => import('./components/BranchNetwork'));
 const ContactPage = lazy(() => import('./components/ContactPage'));
@@ -23,11 +25,19 @@ export default function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalDefaultProgram, setModalDefaultProgram] = useState('');
 
+  const [visaInitialTab, setVisaInitialTab] = useState('student');
+
   // Synchronize with URL hash for browser navigation
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '').replace('/', '');
-      if (['home', 'about', 'courses', 'visa', 'facilities', 'stories', 'branches', 'contact', 'landing'].includes(hash)) {
+      if (hash === 'student-visa' || hash === 'visa-student') {
+        setCurrentPage('student-visa');
+      } else if (hash === 'job-visa' || hash === 'visa-job' || hash === 'visa-ssw') {
+        setCurrentPage('job-visa');
+      } else if (hash === 'visa') {
+        setCurrentPage('student-visa');
+      } else if (['home', 'about', 'courses', 'facilities', 'stories', 'branches', 'contact', 'landing', 'student-visa', 'job-visa'].includes(hash)) {
         setCurrentPage(hash);
       } else if (!hash) {
         setCurrentPage('home');
@@ -39,13 +49,17 @@ export default function App() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
-  const handleNavigate = (page) => {
-    if (page === currentPage) {
+  const handleNavigate = (page, subTab) => {
+    let targetPage = page;
+    if (page === 'visa') {
+      targetPage = (subTab === 'ssw' || subTab === 'job') ? 'job-visa' : 'student-visa';
+    }
+    if (targetPage === currentPage) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
-    setCurrentPage(page);
-    window.location.hash = page;
+    setCurrentPage(targetPage);
+    window.location.hash = targetPage;
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -120,10 +134,17 @@ export default function App() {
             <CoursesPage lang={lang} onOpenModal={handleOpenModal} />
           </Suspense>
         )}
-        {/* PAGE 4: VISA SERVICES */}
-        {currentPage === 'visa' && (
+        {/* SEPARATE PAGE 4A: STUDENT VISA (RYUGAKU) */}
+        {(currentPage === 'student-visa' || currentPage === 'visa') && (
           <Suspense fallback={<div style={{ minHeight: '60vh' }} />}>
-            <VisaServicesPage lang={lang} onOpenModal={handleOpenModal} />
+            <StudentVisaPage lang={lang} onOpenModal={handleOpenModal} onNavigate={handleNavigate} />
+          </Suspense>
+        )}
+
+        {/* SEPARATE PAGE 4B: JOB VISA (SSW & TITP) */}
+        {currentPage === 'job-visa' && (
+          <Suspense fallback={<div style={{ minHeight: '60vh' }} />}>
+            <JobVisaPage lang={lang} onOpenModal={handleOpenModal} onNavigate={handleNavigate} />
           </Suspense>
         )}
         {/* PAGE 5: CAMPUS FACILITIES & STUDENT LIFE */}

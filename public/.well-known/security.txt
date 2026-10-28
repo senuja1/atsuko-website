@@ -1,0 +1,8 @@
+# Official Security Vulnerability Reporting Policy (RFC 9116)
+Contact: mailto:security@atsukojapan.com
+Contact: mailto:atsukointernational@gmail.com
+Expires: 2027-12-31T23:59:59.000Z
+Preferred-Languages: en, ja, si
+Canonical: https://www.atsukojapan.com/.well-known/security.txt
+Policy: https://www.atsukojapan.com/#about
+Acknowledgments: https://www.atsukojapan.com/#about

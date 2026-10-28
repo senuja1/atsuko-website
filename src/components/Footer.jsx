@@ -67,7 +67,7 @@ export default function Footer({ lang, onOpenModal, onNavigate }) {
               <a
                 href={officialContacts.socials.facebook}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="footer-social-btn fb"
                 title="Atsuko International on Facebook"
                 aria-label="Atsuko Facebook"
@@ -79,7 +79,7 @@ export default function Footer({ lang, onOpenModal, onNavigate }) {
               <a
                 href={officialContacts.socials.whatsappChannel}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="footer-social-btn wa"
                 title="Chat with Atsuko International on WhatsApp"
                 aria-label="Chat with Atsuko on WhatsApp"
@@ -91,7 +91,7 @@ export default function Footer({ lang, onOpenModal, onNavigate }) {
               <a
                 href={officialContacts.socials.youtube}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="footer-social-btn yt"
                 title="Watch on YouTube"
                 aria-label="Atsuko YouTube Channel"
@@ -103,7 +103,7 @@ export default function Footer({ lang, onOpenModal, onNavigate }) {
               <a
                 href={officialContacts.socials.tiktok}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="footer-social-btn tt"
                 title="TikTok: @atsuko_international"
                 aria-label="Atsuko TikTok"
@@ -115,7 +115,7 @@ export default function Footer({ lang, onOpenModal, onNavigate }) {
               <a
                 href={officialContacts.socials.instagram}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="footer-social-btn ig"
                 title="Instagram: @atsuko_gakkou"
                 aria-label="Atsuko Instagram"
@@ -132,7 +132,8 @@ export default function Footer({ lang, onOpenModal, onNavigate }) {
               <li><a href="#home" onClick={(e) => handleLinkClick(e, 'home')}>{lang === 'si' ? 'මුල් පිටුව' : lang === 'jp' ? 'ホーム' : 'Home Page'}</a></li>
               <li><a href="#about" onClick={(e) => handleLinkClick(e, 'about')}>{lang === 'si' ? 'අප ගැන සහ බලපත්‍ර' : lang === 'jp' ? '会社概要・許可証' : 'About Us & Licenses'}</a></li>
               <li><a href="#courses" onClick={(e) => handleLinkClick(e, 'courses')}>{lang === 'si' ? 'පාඨමාලා සහ පුහුණුව' : lang === 'jp' ? '教育・研修コース' : 'Courses & Skills Training'}</a></li>
-              <li><a href="#visa" onClick={(e) => handleLinkClick(e, 'visa')}>{lang === 'si' ? 'වීසා සේවා (ශිෂ්‍ය සහ SSW)' : lang === 'jp' ? 'ビザ支援（留学・特定技能）' : 'Visa Services (Student & SSW)'}</a></li>
+              <li><a href="#student-visa" onClick={(e) => handleLinkClick(e, 'student-visa')}>{lang === 'si' ? 'ශිෂ්‍ය වීසා සේවාව (Ryugaku)' : lang === 'jp' ? '日本留学ビザ' : 'Student Visa (Ryugaku)'}</a></li>
+              <li><a href="#job-visa" onClick={(e) => handleLinkClick(e, 'job-visa')}>{lang === 'si' ? 'රැකියා වීසා (SSW & TITP)' : lang === 'jp' ? '特定技能・就労ビザ' : 'Job Visa (SSW & TITP)'}</a></li>
               <li><a href="#facilities" onClick={(e) => handleLinkClick(e, 'facilities')}>{lang === 'si' ? 'නේවාසිකාගාර සහ ශිෂ්‍ය ජීවිතය' : lang === 'jp' ? '学生寮・キャンパス生活' : 'Accommodation & Student Life'}</a></li>
               <li><a href="#contact" onClick={(e) => handleLinkClick(e, 'contact')}>{lang === 'si' ? 'ප්‍රධාන කාර්යාලය සහ ඇමතුම්' : lang === 'jp' ? 'お問い合わせ・本部' : 'Contact & Head Office'}</a></li>
             </ul>
@@ -142,12 +143,12 @@ export default function Footer({ lang, onOpenModal, onNavigate }) {
           <div>
             <h4 className="footer-col-title">{t.colBranches || (lang === 'si' ? 'වීසා සහ අධ්‍යාපන මාවත්' : lang === 'jp' ? 'ビザ・進路案内' : 'Visa & Career Pathways')}</h4>
             <ul className="footer-links">
-              <li><a href="#visa" onClick={(e) => handleLinkClick(e, 'visa')}>{lang === 'si' ? 'ශිෂ්‍ය වීසා (ජන/අප්‍රේල්/ජූලි/ඔක්)' : lang === 'jp' ? '留学ビザ (1・4・7・10月期)' : 'Student Visa (Jan/Apr/Jul/Oct)'}</a></li>
-              <li><a href="#visa" onClick={(e) => handleLinkClick(e, 'visa')}>{lang === 'si' ? 'SSW සාත්තු සේවා (Kaigo)' : lang === 'jp' ? '特定技能 介護 (Kaigo)' : 'SSW Caregiver (Kaigo)'}</a></li>
-              <li><a href="#visa" onClick={(e) => handleLinkClick(e, 'visa')}>{lang === 'si' ? 'SSW ආහාර සැකසුම් ක්ෂේත්‍රය' : lang === 'jp' ? '特定技能 外食業' : 'SSW Food Service Industry'}</a></li>
-              <li><a href="#visa" onClick={(e) => handleLinkClick(e, 'visa')}>{lang === 'si' ? 'SSW වාණිජ රියදුරු සහ ප්‍රවාහන' : lang === 'jp' ? '特定技能 自動車運送業' : 'SSW Automobile Transport & Truck'}</a></li>
-              <li><a href="#visa" onClick={(e) => handleLinkClick(e, 'visa')}>{lang === 'si' ? 'SSW හෝටල් සහ සංචාරක සේවා' : lang === 'jp' ? '特定技能 宿泊業' : 'SSW Accommodation (Hotel)'}</a></li>
-              <li><a href="#visa" onClick={(e) => handleLinkClick(e, 'visa')}>{lang === 'si' ? 'TITP කාර්මික පුහුණුව' : lang === 'jp' ? '技能実習制度 (TITP)' : 'TITP Technical Internship'}</a></li>
+              <li><a href="#student-visa" onClick={(e) => handleLinkClick(e, 'student-visa')}>{lang === 'si' ? 'ශිෂ්‍ය වීසා (ජන/අප්‍රේල්/ජූලි/ඔක්)' : lang === 'jp' ? '留学ビザ (1・4・7・10月期)' : 'Student Visa (Jan/Apr/Jul/Oct)'}</a></li>
+              <li><a href="#job-visa" onClick={(e) => handleLinkClick(e, 'job-visa')}>{lang === 'si' ? 'SSW සාත්තු සේවා (Kaigo)' : lang === 'jp' ? '特定技能 介護 (Kaigo)' : 'SSW Caregiver (Kaigo)'}</a></li>
+              <li><a href="#job-visa" onClick={(e) => handleLinkClick(e, 'job-visa')}>{lang === 'si' ? 'SSW ආහාර සැකසුම් ක්ෂේත්‍රය' : lang === 'jp' ? '特定技能 外食業' : 'SSW Food Service Industry'}</a></li>
+              <li><a href="#job-visa" onClick={(e) => handleLinkClick(e, 'job-visa')}>{lang === 'si' ? 'SSW වාණිජ රියදුරු සහ ප්‍රවාහන' : lang === 'jp' ? '特定技能 自動車運送業' : 'SSW Automobile Transport & Truck'}</a></li>
+              <li><a href="#job-visa" onClick={(e) => handleLinkClick(e, 'job-visa')}>{lang === 'si' ? 'SSW හෝටල් සහ සංචාරක සේවා' : lang === 'jp' ? '特定技能 宿泊業' : 'SSW Accommodation (Hotel)'}</a></li>
+              <li><a href="#job-visa" onClick={(e) => handleLinkClick(e, 'job-visa')}>{lang === 'si' ? 'TITP කාර්මික පුහුණුව' : lang === 'jp' ? '技能実習制度 (TITP)' : 'TITP Technical Internship'}</a></li>
             </ul>
           </div>
 

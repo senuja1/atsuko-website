@@ -1,0 +1,67 @@
+# ====================================================================
+# ATSUKO INTERNATIONAL - BATTLE-TESTED APACHE / CPANEL HARDENING
+# ====================================================================
+
+# 1. Disable Server Signatures & Directory Browsing (Prevents reconnaissance)
+ServerSignature Off
+Options -Indexes -MultiViews
+
+# 2. Block access to hidden files and sensitive configuration files
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+<FilesMatch "(^#.*#|\.(bak|conf|dist|fla|in[ci]|log|psd|sh|sql|sw[op]|env|git|json)|~)$">
+    Require all denied
+</FilesMatch>
+
+# 3. Prevent Clickjacking, MIME Sniffing, and Cross-Site Injections
+<IfModule mod_headers.c>
+    # HTTP Strict Transport Security (HSTS)
+    Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+    
+    # Prevent MIME Sniffing
+    Header always set X-Content-Type-Options "nosniff"
+    
+    # Prevent Clickjacking / UI Redressing
+    Header always set X-Frame-Options "SAMEORIGIN"
+    
+    # Enable Legacy XSS Filter
+    Header always set X-XSS-Protection "1; mode=block"
+    
+    # Referrer Policy
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Restrict Device Hardware APIs
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
+    
+    # Content Security Policy (CSP)
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; media-src 'self' data: https: blob:; connect-src 'self' https://wa.me https://api.whatsapp.com https://fonts.googleapis.com https://fonts.gstatic.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://wa.me https://api.whatsapp.com;"
+</IfModule>
+
+# 4. Block Common Web Attacks (SQLi, XSS, Path Traversal, Script Injection)
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Block path traversal (../)
+    RewriteCond %{QUERY_STRING} \.\./ [NC,OR]
+    
+    # Block <script> tags in query parameters (reflected XSS)
+    RewriteCond %{QUERY_STRING} (<|%3C)([^s]*s)+cript.*(>|%3E) [NC,OR]
+    
+    # Block base64 encoded payloads in query strings
+    RewriteCond %{QUERY_STRING} base64_(en|de)code[^(]*\([^)]*\) [NC,OR]
+    
+    # Block GLOBALS and _REQUEST variables injection
+    RewriteCond %{QUERY_STRING} (GLOBALS|_REQUEST)(\[|\%5B) [NC,OR]
+    
+    # Block common SQL injection keywords in URL
+    RewriteCond %{QUERY_STRING} (union.*select.*\(|select.*from.*where) [NC]
+    RewriteRule ^(.*)$ - [F,L]
+
+    # Standard Single Page Application (SPA) routing
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.html [L]
+</IfModule>
