@@ -8222,4 +8222,328 @@ body {
   }
 }
 
-
+/* ==========================================================================
+   STUDENT COMMENTS SECTION ("Their Comments Tell You Everything")
+   ========================================================================== */
+.student-comments-section {
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+  overflow: hidden;
+  position: relative;
+}
+
+.student-comments-marquee-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 8px 0 16px;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+}
+
+.student-comments-track {
+  display: flex;
+  gap: 1rem;
+  width: max-content;
+  animation: rollCommentsRightToLeft 42s linear infinite;
+  will-change: transform;
+}
+
+.student-comments-marquee-wrapper:hover .student-comments-track {
+  animation-play-state: paused;
+}
+
+@keyframes rollCommentsRightToLeft {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.student-comment-card {
+  width: 300px;
+  max-width: 82vw;
+  flex-shrink: 0;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-lg);
+  padding: 0.9rem 1rem;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.65rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  user-select: none;
+}
+
+.student-comment-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(2, 132, 199, 0.1);
+  border-color: rgba(2, 132, 199, 0.35);
+}
+
+/* Native Comment Header */
+.student-comment-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.comment-user-info-group {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.comment-avatar-wrap {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+}
+
+.comment-user-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid #e2e8f0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  background: #f1f5f9;
+}
+
+.comment-avatar-badge {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #0284c7;
+  color: #ffffff;
+  font-size: 8px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ffffff;
+  line-height: 1;
+}
+
+.comment-name-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.comment-author-name {
+  font-size: 0.86rem;
+  font-weight: 800;
+  color: var(--navy-950);
+  line-height: 1.2;
+}
+
+.comment-time-ago {
+  font-size: 0.7rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.comment-tag-row {
+  margin-top: 0.1rem;
+}
+
+.comment-student-tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #0369a1;
+  background: #e0f2fe;
+  padding: 0.1rem 0.45rem;
+  border-radius: var(--radius-full);
+  line-height: 1.2;
+}
+
+.comment-stars-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.1rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+/* Native Comment Body */
+.comment-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.comment-main-text {
+  font-size: 0.83rem;
+  color: var(--navy-900);
+  line-height: 1.45;
+  margin: 0;
+  font-weight: 500;
+  word-break: break-word;
+}
+
+.comment-translation-sub {
+  background: #f8fafc;
+  border-left: 2.5px solid #0284c7;
+  border-radius: 0 6px 6px 0;
+  padding: 0.35rem 0.55rem;
+}
+
+.comment-translation-quote {
+  font-size: 0.76rem;
+  font-style: italic;
+  color: #475569;
+  line-height: 1.4;
+  display: block;
+}
+
+/* Official Atsuko Reply Box */
+.comment-official-reply-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45rem;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: var(--radius-md);
+  padding: 0.4rem 0.55rem;
+  margin-top: 0.15rem;
+}
+
+.reply-avatar-wrap {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.reply-logo-avatar {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #16a34a;
+}
+
+.reply-text-content {
+  flex: 1;
+}
+
+.reply-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-bottom: 0.1rem;
+}
+
+.reply-author-name {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #166534;
+}
+
+.reply-badge-pill {
+  font-size: 0.62rem;
+  font-weight: 700;
+  background: #dcfce7;
+  color: #15803d;
+  padding: 0.02rem 0.3rem;
+  border-radius: var(--radius-full);
+}
+
+.reply-msg {
+  font-size: 0.75rem;
+  color: #1e293b;
+  margin: 0;
+  line-height: 1.35;
+  font-weight: 500;
+}
+
+/* Footer Actions */
+.comment-footer-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 0.5rem;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.comment-action-likes {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.action-like-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #0284c7;
+  background: #f0f9ff;
+  padding: 0.12rem 0.45rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(2, 132, 199, 0.15);
+}
+
+.action-heart-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #e11d48;
+  background: #fff1f2;
+  padding: 0.12rem 0.45rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(225, 29, 72, 0.15);
+}
+
+.comment-site-verified {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #059669;
+}
+
+.student-comments-pause-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  background: #f1f5f9;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-full);
+}
+
+@media (max-width: 640px) {
+  .student-comment-card {
+    width: 260px;
+    padding: 0.8rem 0.85rem;
+  }
+
+  .student-comments-track {
+    gap: 0.75rem;
+    animation-duration: 34s;
+  }
+}
+
+
+

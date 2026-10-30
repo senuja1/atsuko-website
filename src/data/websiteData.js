@@ -1275,5 +1275,144 @@ export const videoSuccessStories = [
   }
 ];
 
+export const studentSocialComments = [
+  {
+    id: "comment-thakshi",
+    author: "Thakshi Dhanu",
+    avatar: "/images/comments/avatars/avatar-thakshi.png",
+    timeAgo: "1d ago",
+    timeAgoSi: "දින 1කට පෙර",
+    timeAgoJp: "1日前",
+    originalText: "විශ්වාසයෙන් කියන්න පුලුවන් මේ ආයතනය හොදම හොදයි කියලා. 👍",
+    translationEn: "I can say with 100% confidence that this institute is truly the very best.",
+    translationJp: "「この学校が本当に最高だと、自信を持って言えます。」",
+    badge: "Verified Student",
+    badgeSi: "තහවුරු කළ සිසුවියක්",
+    badgeJp: "受講生",
+    likes: 24,
+    lovedByAtsuko: true
+  },
+  {
+    id: "comment-dhammika",
+    author: "Dhammika Jayasinghe",
+    avatar: "/images/comments/avatars/avatar-dhammika.png",
+    timeAgo: "2w ago",
+    timeAgoSi: "සති 2කට පෙර",
+    timeAgoJp: "2週間前",
+    originalText: "මේකතමයි අපේ තැන හදන තැන කවදාම හරි ලංකාවේ එක වෙන්න ඕනි Atsuko ආයතනය ජය වේවා සෙන්සේ ඔබතුමාට ❤️",
+    translationEn: "This is the place that builds our future! Atsuko Institute deserves to be #1 in Sri Lanka. Wishing every victory to you, Sensei!",
+    translationJp: "「ここは私たちの未来を築いてくれる場所です。AtsukoはスリランカNo.1になるべき学校です。先生のご活躍をお祈りします！」",
+    badge: "Cadet Candidate",
+    badgeSi: "සාත්තු සේවා අපේක්ෂක",
+    badgeJp: "受講生",
+    likes: 38,
+    lovedByAtsuko: true
+  },
+  {
+    id: "comment-sachith",
+    author: "Sachith Senawirathna",
+    avatar: "/images/comments/avatars/avatar-sachith.png",
+    timeAgo: "16w ago",
+    timeAgoSi: "සති 16කට පෙර",
+    timeAgoJp: "16週間前",
+    originalText: "මගේ ජපාන සිහිනය සැබෑ කරගන්න නිවැරදිම මගපෙන්වීම දුන්න තරංග සෙන්සෙයි, දුලාජ් සෙන්සෙයි ඇතුළු Atsuko ආයතනයට හදපිරි ස්තූතිය! 🙏🇯🇵",
+    translationEn: "Heartfelt thanks to Tharanga Sensei, Dulaj Sensei, and Atsuko for making my Japan dream a reality! 🙏🇯🇵",
+    translationJp: "「夢を叶える指導を下さった先生方とAtsukoに心より感謝します！🙏🇯🇵」",
+    badge: "Placed in Japan (Alumni)",
+    badgeSi: "ජපානයේ සේවයේ නියුතු",
+    badgeJp: "日本渡航・卒業生",
+    likes: 56,
+    lovedByAtsuko: true,
+    reply: {
+      author: "Atsuko",
+      avatar: "/images/atsuko-official-logo.png",
+      text: "Bohoma isthuthi, parissamin weda tika karagena yanna!",
+      timeAgo: "16w ago",
+      badge: "Official Sensei Response"
+    }
+  },
+  {
+    id: "comment-subash",
+    author: "Subash Wijegunawardane",
+    avatar: "/images/comments/avatars/avatar-subash.png",
+    timeAgo: "1w ago",
+    timeAgoSi: "සතියකට පෙර",
+    timeAgoJp: "1週間前",
+    originalText: "Palweni set eke mth hitiya..makola clz eke... ❤️",
+    translationEn: "I was also part of the very first batch at the Makola class... ❤️",
+    translationJp: "「私もマコラ教室の最初の第1期生メンバーでした… ❤️」",
+    badge: "Batch 01 Alumni",
+    badgeSi: "පළමු කණ්ඩායමේ ආදි ශිෂ්‍ය",
+    badgeJp: "第1期 卒業生",
+    likes: 19,
+    lovedByAtsuko: true
+  },
+  {
+    id: "comment-indika",
+    author: "Indika Dasanayaka",
+    avatar: "/images/comments/avatars/avatar-indika.png",
+    timeAgo: "2w ago",
+    timeAgoSi: "සති 2කට පෙර",
+    timeAgoJp: "2週間前",
+    originalText: "බය නැතිව ජපන් යන්න හොදම තැනක්",
+    translationEn: "The absolute best place to go to Japan with total confidence and zero fear.",
+    translationJp: "「不安なく安心して日本へ渡航できる、最高の場所です。」",
+    badge: "Verified Review",
+    badgeSi: "තහවුරු කළ අදහසක්",
+    badgeJp: "公認レビュー",
+    likes: 27,
+    lovedByAtsuko: true
+  },
+  {
+    id: "comment-hasitha",
+    author: "Hasitha Madushanka",
+    avatar: "/images/comments/avatars/avatar-hasitha.png",
+    timeAgo: "12w ago",
+    timeAgoSi: "සති 12කට පෙර",
+    timeAgoJp: "12週間前",
+    originalText: "ජපන් යන්න හරිම තැන.. Atsuko International 🤟🗼",
+    translationEn: "The exact right place to go to Japan.. Atsuko International 🤟🗼",
+    translationJp: "「日本へ行くための正真正銘のベストな場所… Atsuko International 🤟🗼」",
+    badge: "Top Fan 💎",
+    badgeSi: "විශේෂිත සාමාජික 💎",
+    badgeJp: "トップファン 💎",
+    likes: 42,
+    lovedByAtsuko: true
+  },
+  {
+    id: "comment-senoli",
+    author: "Senoli Wickramarathne",
+    avatar: "/images/comments/avatars/avatar-senoli.png",
+    timeAgo: "8w ago",
+    timeAgoSi: "සති 8කට පෙර",
+    timeAgoJp: "8週間前",
+    originalText: "විශ්වාසකරලා ගිය තැන Atsuko ❤️🥹😍",
+    translationEn: "Atsuko is the place we trusted with our entire future ❤️🥹😍",
+    translationJp: "「私たちが心から信頼して進んだ場所、それがAtsukoです ❤️🥹😍」",
+    badge: "Verified Student",
+    badgeSi: "තහවුරු කළ ශිෂ්‍යාව",
+    badgeJp: "受講生",
+    likes: 31,
+    lovedByAtsuko: true
+  },
+  {
+    id: "comment-ananda",
+    author: "Ananda Alahakoon",
+    avatar: "/images/comments/avatars/avatar-ananda.png",
+    timeAgo: "3w ago",
+    timeAgoSi: "සති 3කට පෙර",
+    timeAgoJp: "3週間前",
+    originalText: "මෙතන විශ්වාස තැනක්.",
+    translationEn: "This is a genuinely trustworthy place.",
+    translationJp: "「ここは本当に信頼できる場所です。」",
+    badge: "100% Trusted Agency",
+    badgeSi: "100% විශ්වසනීය ආයතනයක්",
+    badgeJp: "100% 信頼できる機関",
+    likes: 18,
+    lovedByAtsuko: true
+  }
+];
+
+
 
 

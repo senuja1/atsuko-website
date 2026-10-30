@@ -1,13 +1,13 @@
-import { 
-  GraduationCap, 
-  Briefcase, 
-  ShieldCheck, 
-  ArrowRight, 
-  Sparkles, 
-  Calendar, 
-  CheckCircle2, 
-  Building2, 
-  Award, 
+import {
+  GraduationCap,
+  Briefcase,
+  ShieldCheck,
+  ArrowRight,
+  Sparkles,
+  Calendar,
+  CheckCircle2,
+  Building2,
+  Award,
   Send,
   Home,
   MapPin,
@@ -15,16 +15,19 @@ import {
   Mail,
   Users,
   Clock,
-  Globe2
+  Globe2,
+  MessageSquare,
+  Star,
+  ThumbsUp,
+  Heart
 } from 'lucide-react';
 import Hero from './Hero';
 import StatsBar from './StatsBar';
 import RevealOnScroll from './RevealOnScroll';
 import TrainingShowcase from './TrainingShowcase';
-import RoadmapSection from './RoadmapSection';
 import BranchNetwork from './BranchNetwork';
 import FaqSection from './FaqSection';
-import { targetAudiencePathways, studentLifeData, globalPresenceData, officialContacts } from '../data/websiteData';
+import { targetAudiencePathways, studentLifeData, globalPresenceData, officialContacts, studentSocialComments } from '../data/websiteData';
 import { getUiText } from '../data/uiText';
 
 export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligibility }) {
@@ -33,10 +36,10 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
   return (
     <div className="home-view">
       {/* 1. Hero Section */}
-      <Hero 
-        lang={lang} 
-        onOpenModal={() => onOpenModal('General Admissions')} 
-        onScrollToEligibility={scrollToEligibility} 
+      <Hero
+        lang={lang}
+        onOpenModal={() => onOpenModal('General Admissions')}
+        onScrollToEligibility={scrollToEligibility}
       />
 
       {/* 2. Trust & Official Credentials Bar */}
@@ -97,9 +100,9 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
 
       {/* 6. Practical Simulation Facilities & Classrooms */}
       <RevealOnScroll delay={0.1}>
-        <TrainingShowcase 
+        <TrainingShowcase
           lang={lang}
-          onOpenModal={onOpenModal} 
+          onOpenModal={onOpenModal}
         />
       </RevealOnScroll>
 
@@ -131,7 +134,7 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
                 <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.6, marginBottom: '1rem' }}>
                   {h.facilitiesPreview?.card1Desc || 'Stay in safe, affordable housing with easy access to the school. Separate wings for male and female students with 24/7 security.'}
                 </p>
-                <button 
+                <button
                   onClick={() => onNavigate('facilities')}
                   className="btn btn-sm btn-secondary"
                 >
@@ -150,7 +153,7 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
                 <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.6, marginBottom: '1rem' }}>
                   {h.facilitiesPreview?.card2Desc || 'Wholesome daily meals prepared on campus so candidates can focus 100% on their Japanese language and vocational training.'}
                 </p>
-                <button 
+                <button
                   onClick={() => onNavigate('facilities')}
                   className="btn btn-sm btn-secondary"
                 >
@@ -169,7 +172,7 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
                 <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.6, marginBottom: '1rem' }}>
                   {h.facilitiesPreview?.card3Desc || 'Weekly checkpoints, mock CBT exams, audio listening lab drills, and personalized feedback ensuring high exam pass rates.'}
                 </p>
-                <button 
+                <button
                   onClick={() => onNavigate('facilities')}
                   className="btn btn-sm btn-secondary"
                 >
@@ -182,12 +185,146 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
         </section>
       </RevealOnScroll>
 
-      {/* 9. 6-Step Roadmap from Sri Lanka to Japan */}
+      {/* 8. Student Comments Showcase: "Their Comments Tell You Everything" */}
       <RevealOnScroll delay={0.1}>
-        <RoadmapSection 
-          lang={lang}
-          onOpenModal={onOpenModal} 
-        />
+        <section className="section student-comments-section" id="student-comments">
+          <div className="container">
+            <div className="section-header">
+              <span className="section-badge badge-gold">
+                <MessageSquare size={14} />
+                {lang === 'si' ? 'සිසුන්ගේ සැබෑ අදහස්' : lang === 'jp' ? '受講生のリアルな声' : 'Verified Student Feedback'}
+              </span>
+              <h2 className="section-title">
+                {lang === 'si' ? 'ඔවුන්ගේ අදහස්' : lang === 'jp' ? '受講生のコメントが' : 'Their Comments'}{' '}
+                <span className="text-gradient-red">
+                  {lang === 'si' ? 'සියල්ල පවසයි' : lang === 'jp' ? 'すべてを物語っています' : 'Tell You Everything'}
+                </span>
+              </h2>
+              <p className="section-subtitle">
+                {lang === 'si'
+                  ? 'අත්සුකෝ ජාත්‍යන්තර ආයතනය සමඟ එක්වූ අපගේ සිසුන් සහ ආදි සිසුන් සමාජ මාධ්‍ය ඔස්සේ දැක්වූ අව්‍යාජ අදහස්.'
+                  : lang === 'jp'
+                    ? 'アツコ・インターナショナルで学ぶ受講生や卒業生から寄せられた、実際のSNSコメントをご紹介します。'
+                    : 'Authentic, unedited public comments from our students and alumni sharing their real experiences with Atsuko International.'}
+              </p>
+            </div>
+          </div>
+
+          {/* Continuous Moving Roll (Right to Left) */}
+          <div className="student-comments-marquee-wrapper">
+            <div className="student-comments-track">
+              {[...studentSocialComments, ...studentSocialComments].map((item, index) => (
+                <div key={`${item.id}-${index}`} className="student-comment-card">
+                  {/* Native Comment Header */}
+                  <div className="student-comment-card-header">
+                    <div className="comment-user-info-group">
+                      <div className="comment-avatar-wrap">
+                        <img 
+                          src={item.avatar} 
+                          alt={item.author} 
+                          className="comment-user-avatar"
+                          loading="lazy"
+                          decoding="async"
+                          width="28"
+                          height="28"
+                        />
+                        <span className="comment-avatar-badge" title="Verified Atsuko Student">✓</span>
+                      </div>
+                      <div style={{ minWidth: 0 }}>
+                        <div className="comment-name-row">
+                          <strong className="comment-author-name">{item.author}</strong>
+                          <span className="comment-time-ago">
+                            {lang === 'si' ? item.timeAgoSi : lang === 'jp' ? item.timeAgoJp : item.timeAgo}
+                          </span>
+                        </div>
+                        <div className="comment-tag-row">
+                          <span className="comment-student-tag">
+                            {lang === 'si' ? item.badgeSi : lang === 'jp' ? item.badgeJp : item.badge}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="comment-stars-row" aria-label="5 stars rating">
+                      <Star size={11} fill="#f59e0b" color="#f59e0b" />
+                      <Star size={11} fill="#f59e0b" color="#f59e0b" />
+                      <Star size={11} fill="#f59e0b" color="#f59e0b" />
+                      <Star size={11} fill="#f59e0b" color="#f59e0b" />
+                      <Star size={11} fill="#f59e0b" color="#f59e0b" />
+                    </div>
+                  </div>
+
+                  {/* Native Comment Body */}
+                  <div className="comment-body">
+                    <p className="comment-main-text">{item.originalText}</p>
+                    
+                    <div className="comment-translation-sub">
+                      <span className="comment-translation-quote">
+                        {lang === 'jp' ? item.translationJp : `"${item.translationEn}"`}
+                      </span>
+                    </div>
+
+                    {item.reply && (
+                      <div className="comment-official-reply-box">
+                        <div className="reply-avatar-wrap">
+                          <img 
+                            src={item.reply.avatar} 
+                            alt="Atsuko Official" 
+                            className="reply-logo-avatar"
+                            width="16"
+                            height="16"
+                          />
+                        </div>
+                        <div className="reply-text-content">
+                          <span className="reply-author-name">{item.reply.author}:</span>
+                          <span className="reply-msg">{item.reply.text}</span>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Native Comment Footer Actions */}
+                  <div className="comment-footer-actions">
+                    <div className="comment-action-likes">
+                      <span className="action-like-pill">
+                        <ThumbsUp size={11} style={{ color: '#0284c7' }} />
+                        <span>{item.likes}</span>
+                      </span>
+                      {item.lovedByAtsuko && (
+                        <span className="action-heart-pill" title="Loved by Atsuko Sensei">
+                          <Heart size={10} fill="#ef4444" color="#ef4444" />
+                          <span>{lang === 'si' ? 'සෙන්සෙයි අගය කළා' : lang === 'jp' ? '先生のお気に入り' : 'Sensei Loved'}</span>
+                        </span>
+                      )}
+                    </div>
+                    <span className="comment-site-verified">
+                      <CheckCircle2 size={11} style={{ color: '#059669' }} />
+                      <span>{lang === 'si' ? 'තහවුරු කළ අදහස' : lang === 'jp' ? '公認レビュー' : 'Verified Review'}</span>
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="container" style={{ textAlign: 'center', marginTop: '1.5rem' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.85rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+              <span className="student-comments-pause-hint">
+                {lang === 'si' ? '⏸️ නැරඹීමට හෝ කියවීමට මවුසය තබන්න / ස්පර්ශ කරන්න' : lang === 'jp' ? '⏸️ ホバーまたはタップで一時停止' : '⏸️ Hover or touch to pause roll'}
+              </span>
+              <button 
+                onClick={() => onOpenModal('Student Community Feedback')}
+                className="btn btn-sm btn-secondary"
+                style={{ fontSize: '0.8rem', padding: '0.4rem 0.9rem' }}
+              >
+                <MessageSquare size={13} />
+                <span>{lang === 'si' ? 'ඔබේ අදහසත් පළකරන්න' : lang === 'jp' ? 'コメントを投稿する' : 'Leave a Comment'}</span>
+              </button>
+            </div>
+          </div>
+
+
+        </section>
       </RevealOnScroll>
 
 
@@ -319,22 +456,22 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
                 {h.ctaDesc}
               </p>
               <div className="home-cta-buttons">
-                <button 
+                <button
                   onClick={() => onOpenModal('Fast Registration')}
                   className="btn btn-primary btn-pulse"
                 >
                   <Sparkles size={16} />
                   <span>{h.ctaRegister}</span>
                 </button>
-                <a 
-                  href="https://wa.me/94777933352" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <a
+                  href="https://wa.me/94777933352"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="btn btn-whatsapp"
                 >
                   <span>{h.ctaWhatsApp}</span>
                 </a>
-                <button 
+                <button
                   onClick={() => onNavigate('contact')}
                   className="btn btn-secondary-white"
                 >
