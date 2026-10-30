@@ -42,7 +42,7 @@ export const RevealOnScroll = ({ children, delay = 0, className = "" }) => {
   const handleTransitionEnd = () => setDone(true);
 
   if (prefersReduced) {
-    return <div className={className}>{children}</div>;
+    return <div className={className} style={{ maxWidth: "100%" }}>{children}</div>;
   }
 
   return (
@@ -51,6 +51,7 @@ export const RevealOnScroll = ({ children, delay = 0, className = "" }) => {
       className={className}
       onTransitionEnd={handleTransitionEnd}
       style={{
+        maxWidth: "100%",
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0)" : "translateY(28px)",
         transition: done

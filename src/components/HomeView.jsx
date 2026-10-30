@@ -219,14 +219,14 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
                   <div className="student-comment-card-header">
                     <div className="comment-user-info-group">
                       <div className="comment-avatar-wrap">
-                        <img 
-                          src={item.avatar} 
-                          alt={item.author} 
+                        <img
+                          src={item.avatar}
+                          alt={item.author}
                           className="comment-user-avatar"
                           loading="lazy"
                           decoding="async"
-                          width="28"
-                          height="28"
+                          width="44"
+                          height="44"
                         />
                         <span className="comment-avatar-badge" title="Verified Atsuko Student">✓</span>
                       </div>
@@ -244,40 +244,46 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
                         </div>
                       </div>
                     </div>
-                    
+
                     <div className="comment-stars-row" aria-label="5 stars rating">
-                      <Star size={11} fill="#f59e0b" color="#f59e0b" />
-                      <Star size={11} fill="#f59e0b" color="#f59e0b" />
-                      <Star size={11} fill="#f59e0b" color="#f59e0b" />
-                      <Star size={11} fill="#f59e0b" color="#f59e0b" />
-                      <Star size={11} fill="#f59e0b" color="#f59e0b" />
+                      <Star size={15} fill="#f59e0b" color="#f59e0b" />
+                      <Star size={15} fill="#f59e0b" color="#f59e0b" />
+                      <Star size={15} fill="#f59e0b" color="#f59e0b" />
+                      <Star size={15} fill="#f59e0b" color="#f59e0b" />
+                      <Star size={15} fill="#f59e0b" color="#f59e0b" />
                     </div>
                   </div>
 
                   {/* Native Comment Body */}
                   <div className="comment-body">
-                    <p className="comment-main-text">{item.originalText}</p>
-                    
-                    <div className="comment-translation-sub">
-                      <span className="comment-translation-quote">
-                        {lang === 'jp' ? item.translationJp : `"${item.translationEn}"`}
-                      </span>
-                    </div>
+                    <p className="comment-main-text">
+                      {lang === 'si'
+                        ? item.originalText
+                        : lang === 'jp'
+                          ? item.translationJp
+                          : item.translationEn}
+                    </p>
 
                     {item.reply && (
                       <div className="comment-official-reply-box">
                         <div className="reply-avatar-wrap">
-                          <img 
-                            src={item.reply.avatar} 
-                            alt="Atsuko Official" 
+                          <img
+                            src={item.reply.avatar}
+                            alt="Atsuko Official"
                             className="reply-logo-avatar"
-                            width="16"
-                            height="16"
+                            width="22"
+                            height="22"
                           />
                         </div>
                         <div className="reply-text-content">
                           <span className="reply-author-name">{item.reply.author}:</span>
-                          <span className="reply-msg">{item.reply.text}</span>
+                          <span className="reply-msg">
+                            {lang === 'si'
+                              ? (item.reply.textSi || item.reply.text)
+                              : lang === 'jp'
+                                ? (item.reply.textJp || '誠にありがとうございます。お体に気をつけて頑張ってください！')
+                                : (item.reply.textEn || 'Thank you so much, stay safe and keep up the great work!')}
+                          </span>
                         </div>
                       </div>
                     )}
@@ -287,18 +293,18 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
                   <div className="comment-footer-actions">
                     <div className="comment-action-likes">
                       <span className="action-like-pill">
-                        <ThumbsUp size={11} style={{ color: '#0284c7' }} />
+                        <ThumbsUp size={14} style={{ color: '#0284c7' }} />
                         <span>{item.likes}</span>
                       </span>
                       {item.lovedByAtsuko && (
                         <span className="action-heart-pill" title="Loved by Atsuko Sensei">
-                          <Heart size={10} fill="#ef4444" color="#ef4444" />
+                          <Heart size={13} fill="#ef4444" color="#ef4444" />
                           <span>{lang === 'si' ? 'සෙන්සෙයි අගය කළා' : lang === 'jp' ? '先生のお気に入り' : 'Sensei Loved'}</span>
                         </span>
                       )}
                     </div>
                     <span className="comment-site-verified">
-                      <CheckCircle2 size={11} style={{ color: '#059669' }} />
+                      <CheckCircle2 size={13} style={{ color: '#059669' }} />
                       <span>{lang === 'si' ? 'තහවුරු කළ අදහස' : lang === 'jp' ? '公認レビュー' : 'Verified Review'}</span>
                     </span>
                   </div>
@@ -312,7 +318,7 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
               <span className="student-comments-pause-hint">
                 {lang === 'si' ? '⏸️ නැරඹීමට හෝ කියවීමට මවුසය තබන්න / ස්පර්ශ කරන්න' : lang === 'jp' ? '⏸️ ホバーまたはタップで一時停止' : '⏸️ Hover or touch to pause roll'}
               </span>
-              <button 
+              <button
                 onClick={() => onOpenModal('Student Community Feedback')}
                 className="btn btn-sm btn-secondary"
                 style={{ fontSize: '0.8rem', padding: '0.4rem 0.9rem' }}
