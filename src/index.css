@@ -64,8 +64,11 @@
   --surface-dark: #0b1528;
 
   /* Typography */
+  --font-serif: 'Lora', 'Noto Serif JP', Georgia, 'Times New Roman', serif;
   --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-small: 'Lora', 'Noto Sans Sinhala', 'Noto Sans JP', Georgia, serif;
   --font-jp: 'Noto Sans JP', sans-serif;
+  --font-jp-serif: 'Noto Serif JP', serif;
   --font-sinhala: 'Noto Sans Sinhala', sans-serif;
 
   /* Shadows */
@@ -128,6 +131,90 @@ body {
   max-width: 1320px;
   margin: 0 auto;
   padding: 0 clamp(1.125rem, 3.5vw, 2.5rem);
+}
+
+/* ============================================================
+   ELEGANT SERIF TYPOGRAPHY FOR SMALL TEXTS & DESCRIPTIONS
+   Uses Lora (Editorial Serif) with full Sinhala & Japanese fallbacks
+   ============================================================ */
+p,
+.desc,
+.hero-desc,
+.gate-hero-desc,
+.section-subtitle,
+.page-hero-subtitle,
+.card-desc,
+.proof-desc,
+.story-desc,
+.feature-desc,
+.mv-desc,
+.batch-desc,
+.faq-answer,
+.footer-desc,
+.footer-copy,
+.comment-main-text,
+.comment-desc,
+.reply-msg,
+.badge,
+.tag,
+.pill,
+.chip,
+.hero-pill,
+.stat-label,
+.stat-lbl,
+.proof-tag-chip,
+.proof-batch-pill,
+.proof-footer,
+.comment-student-tag,
+.comment-time-ago,
+.action-like-pill,
+.action-heart-pill,
+.comment-site-verified,
+.status-badge,
+.batch-duration-badge,
+.license-badge,
+.top-bar-subtitle,
+.nav-dropdown-item-desc,
+.mobile-sub-content span,
+small,
+.small-text,
+.text-sm,
+.text-muted {
+  font-family: var(--font-small);
+}
+
+/* Explicit Sinhala Language Typography */
+html[lang="si"] p,
+html[lang="si"] .desc,
+html[lang="si"] .section-subtitle,
+html[lang="si"] .hero-desc,
+html[lang="si"] .gate-hero-desc,
+html[lang="si"] .card-desc,
+html[lang="si"] .faq-answer,
+html[lang="si"] .comment-main-text,
+html[lang="si"] .badge,
+html[lang="si"] .tag,
+html[lang="si"] .stat-label,
+[lang="si"],
+.sinhala {
+  font-family: 'Noto Sans Sinhala', var(--font-small);
+}
+
+/* Explicit Japanese Language Typography */
+html[lang="jp"] p,
+html[lang="jp"] .desc,
+html[lang="jp"] .section-subtitle,
+html[lang="jp"] .hero-desc,
+html[lang="jp"] .gate-hero-desc,
+html[lang="jp"] .card-desc,
+html[lang="jp"] .faq-answer,
+html[lang="jp"] .comment-main-text,
+html[lang="jp"] .badge,
+html[lang="jp"] .tag,
+html[lang="jp"] .stat-label,
+[lang="jp"],
+.jp {
+  font-family: 'Noto Sans JP', 'Noto Serif JP', var(--font-small);
 }
 
 /* ============================================================
@@ -254,17 +341,27 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .navbar-scrolled {
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.03);
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.03);
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.navbar.navbar-menu-open {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  background: #ffffff !important;
+  z-index: 100000 !important;
 }
 
 .navbar-inner {
@@ -276,6 +373,7 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
+  position: relative;
 }
 
 /* Brand - Minimal & Refined Apple Micro-Interaction */
@@ -284,7 +382,8 @@ body {
   align-items: center;
   gap: 10px;
   text-decoration: none;
-  flex-shrink: 0;
+  flex-shrink: 1;
+  min-width: 0;
   cursor: pointer;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
@@ -324,12 +423,14 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  min-width: 0;
 }
 
 .brand-title-row {
   display: flex;
   align-items: center;
   gap: 6px;
+  min-width: 0;
 }
 
 .brand-english {
@@ -623,13 +724,14 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 8px 12px;
-  background: #ffffff;
+  padding: 9px 12px;
+  background: #f8fafc;
   border: 1px solid #e2e8f0;
-  border-radius: 10px;
+  border-radius: 12px;
   cursor: pointer;
   text-align: left;
   transition: all 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .mobile-nav-sub-item:hover {
@@ -637,10 +739,24 @@ body {
   border-color: #bae6fd;
 }
 
+.mobile-nav-sub-item:active {
+  transform: scale(0.985);
+}
+
+.mobile-nav-sub-item.current-sub-item {
+  background: #f0f9ff;
+  border-color: #0284c7;
+  box-shadow: 0 2px 6px rgba(2, 132, 199, 0.12);
+}
+
+.mobile-nav-sub-item.current-sub-item strong {
+  color: #0284c7;
+}
+
 .mobile-sub-icon {
-  width: 28px;
-  height: 28px;
-  border-radius: 7px;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -667,20 +783,28 @@ body {
   font-size: 13px;
   color: #0f172a;
   font-weight: 700;
+  line-height: 1.25;
 }
 
 .mobile-sub-content span {
   font-size: 11px;
   color: #64748b;
+  line-height: 1.35;
 }
 
 .mobile-nav-sub-item.all {
   background: transparent;
   border: none;
   padding: 6px 8px;
-  font-size: 11.5px;
-  font-weight: 600;
+  font-size: 12px;
+  font-weight: 700;
   color: #0284c7;
+  justify-content: flex-start;
+}
+
+.mobile-nav-sub-item.all:hover {
+  background: transparent;
+  text-decoration: underline;
 }
 
 /* Nav Actions */
@@ -702,6 +826,7 @@ body {
   border-radius: 999px;
   border: 1px solid #bae6fd;
   gap: 2px;
+  flex-shrink: 0;
 }
 
 .apple-lang-pill {
@@ -709,9 +834,9 @@ body {
   border: none;
   color: #0369a1;
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 700;
   padding: 0 10px;
-  min-width: 52px;
+  min-width: 48px;
   height: 28px;
   display: inline-flex;
   align-items: center;
@@ -733,6 +858,14 @@ body {
   background: #0284c7;
   color: #ffffff;
   box-shadow: 0 1px 3px rgba(2, 132, 199, 0.25), 0 1px 1px rgba(2, 132, 199, 0.15);
+}
+
+.lang-label-desktop {
+  display: inline;
+}
+
+.lang-label-mobile {
+  display: none;
 }
 
 /* Secondary Button - White with Crisp Royal Blue Border & Text */
@@ -842,17 +975,20 @@ body {
 .mobile-menu-btn {
   display: none;
   background: transparent;
-  border: none;
+  border: 1px solid transparent;
   color: #0f172a;
   cursor: pointer;
-  min-width: 44px;
-  min-height: 44px;
-  padding: 10px;
-  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  padding: 0;
+  border-radius: 10px;
   align-items: center;
   justify-content: center;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   -webkit-tap-highlight-color: transparent;
+  flex-shrink: 0;
 }
 
 .mobile-menu-btn:hover {
@@ -860,17 +996,23 @@ body {
   color: #0284c7;
 }
 
-.mobile-menu-btn:active {
-  transform: scale(0.95);
+.mobile-menu-btn:active,
+.mobile-menu-btn.active {
+  background: #f0f9ff;
+  border-color: #bae6fd;
+  color: #0284c7;
+  transform: scale(0.96);
 }
 
 .mobile-menu-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(6, 13, 31, 0.55);
+  background: rgba(15, 23, 42, 0.52);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   z-index: 998;
+  touch-action: none;
+  overscroll-behavior: contain;
   animation: mobileFadeIn 0.22s ease forwards;
 }
 
@@ -889,19 +1031,17 @@ body {
   top: 100%;
   left: 0;
   right: 0;
-  background: rgba(255, 255, 255, 0.98);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border-bottom: 2.5px solid var(--blue-600);
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.16), 0 4px 12px rgba(2, 132, 199, 0.08);
-  padding: 16px clamp(1rem, 3.5vw, 1.5rem) 24px;
+  background: #ffffff;
+  border-bottom: 2.5px solid #0284c7;
+  box-shadow: 0 20px 48px -10px rgba(15, 23, 42, 0.18), 0 2px 8px rgba(0, 0, 0, 0.04);
+  padding: 14px clamp(12px, 3.5vw, 20px) calc(22px + env(safe-area-inset-bottom, 14px));
   z-index: 999;
-  border-radius: 0 0 20px 20px;
-  max-height: calc(100vh - 64px);
-  max-height: calc(100dvh - 64px);
+  border-radius: 0 0 22px 22px;
+  max-height: calc(100dvh - 58px);
   overflow-y: auto;
+  overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
-  animation: mobileDrawerSlide 0.26s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: mobileDrawerSlide 0.24s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .mobile-drawer-lang-row {
@@ -911,11 +1051,15 @@ body {
   gap: 10px;
   padding-bottom: 12px;
   margin-bottom: 12px;
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid #f1f5f9;
 }
 
 .mobile-drawer-lang-row .apple-lang-control {
   width: 100%;
+  padding: 4px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
 }
 
 .mobile-drawer-lang-label {
@@ -924,9 +1068,11 @@ body {
 
 .mobile-drawer-lang-row .apple-lang-pill {
   min-width: 0;
-  height: 32px;
-  font-size: 12px;
-  padding: 0 10px;
+  height: 36px;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 0 12px;
+  border-radius: 9px;
 }
 
 @keyframes mobileDrawerSlide {
@@ -952,13 +1098,13 @@ body {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 10px 14px;
+  background: #ffffff;
+  border: 1.5px solid #f1f5f9;
+  border-radius: 14px;
+  padding: 11px 14px;
   cursor: pointer;
   text-align: left;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
   -webkit-tap-highlight-color: transparent;
   outline: none;
 }
@@ -970,23 +1116,23 @@ body {
 }
 
 .mobile-nav-icon-box {
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #f0f9ff;
+  border: 1px solid #e0f2fe;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #0284c7;
   flex-shrink: 0;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 1px 2px rgba(2, 132, 199, 0.08);
   transition: all 0.2s ease;
 }
 
 .mobile-nav-label {
   font-size: 14.5px;
-  font-weight: 600;
+  font-weight: 700;
   color: #1e293b;
   letter-spacing: -0.1px;
 }
@@ -999,8 +1145,8 @@ body {
 
 .mobile-nav-link:hover,
 .mobile-nav-link:focus-visible {
-  background: #f0f9ff;
-  border-color: #bae6fd;
+  background: #f8fafc;
+  border-color: #cbd5e1;
   transform: translateX(2px);
 }
 
@@ -1015,21 +1161,26 @@ body {
   transform: translateX(2px);
 }
 
+.mobile-nav-link:active {
+  transform: scale(0.985);
+}
+
 .mobile-nav-link.active {
-  background: linear-gradient(90deg, #f0f9ff 0%, #e0f2fe 100%);
+  background: #f0f9ff;
   border-color: #0284c7;
-  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.12);
+  box-shadow: 0 2px 10px rgba(2, 132, 199, 0.12);
 }
 
 .mobile-nav-link.active .mobile-nav-icon-box {
   background: #0284c7;
   color: #ffffff;
   border-color: #0284c7;
+  box-shadow: 0 2px 6px rgba(2, 132, 199, 0.25);
 }
 
 .mobile-nav-link.active .mobile-nav-label {
   color: #0284c7;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .mobile-nav-link.active .mobile-nav-chevron {
@@ -8317,6 +8468,12 @@ body {
     gap: 8px;
   }
 
+  .navbar-inner {
+    height: 60px;
+    padding: 0 16px;
+    gap: 10px;
+  }
+
   .brand-sub {
     display: none;
   }
@@ -8327,7 +8484,7 @@ body {
   }
 
   .brand-english {
-    font-size: 13px;
+    font-size: 13.5px;
   }
 
   .brand-kanji-pill {
@@ -8651,12 +8808,16 @@ body {
   }
 
   .navbar-inner {
-    padding: 0 10px;
-    height: 58px;
+    padding: 0 12px;
+    height: 56px;
+    gap: 8px;
   }
 
   .brand-wrapper {
-    gap: 6px;
+    gap: 8px;
+    min-width: 0;
+    flex: 1 1 auto;
+    overflow: hidden;
   }
 
   .brand-logo-img {
@@ -8665,8 +8826,10 @@ body {
   }
 
   .brand-english {
-    font-size: 11.5px;
-    letter-spacing: -0.3px;
+    font-size: 12px;
+    letter-spacing: -0.2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .brand-kanji-pill {
@@ -8674,22 +8837,32 @@ body {
   }
 
   .apple-lang-control {
-    padding: 2px;
-    gap: 1.5px;
+    padding: 2.5px;
+    gap: 2px;
   }
 
   .apple-lang-pill {
-    padding: 0 4px;
-    font-size: 9.5px;
-    min-width: 40px;
+    padding: 0 6px;
+    font-size: 11px;
+    min-width: 32px;
     height: 28px;
     min-height: 28px;
   }
 
+  .lang-label-desktop {
+    display: none;
+  }
+
+  .lang-label-mobile {
+    display: inline;
+  }
+
   .mobile-menu-btn {
-    min-width: 44px;
-    min-height: 44px;
-    padding: 10px;
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    min-height: 38px;
+    padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -9090,41 +9263,44 @@ body {
   }
 
   .navbar-inner {
-    padding: 0 6px;
+    padding: 0 8px;
+    height: 54px;
+    gap: 6px;
   }
 
   .brand-wrapper {
-    gap: 4px;
+    gap: 6px;
   }
 
   .brand-logo-img {
-    width: 26px;
-    height: 26px;
+    width: 28px;
+    height: 28px;
   }
 
   .brand-english {
-    font-size: 10.5px;
-    letter-spacing: -0.4px;
+    font-size: 11px;
+    letter-spacing: -0.3px;
   }
 
   .apple-lang-control {
-    padding: 1.5px;
-    gap: 1px;
+    padding: 2px;
+    gap: 1.5px;
   }
 
   .apple-lang-pill {
-    padding: 0 3px;
-    font-size: 8.5px;
-    min-width: 34px;
+    padding: 0 4px;
+    font-size: 10px;
+    min-width: 28px;
     height: 26px;
     min-height: 26px;
   }
 
-  /* Preserve accessible touch target >= 44px even on ultra small devices */
   .mobile-menu-btn {
-    min-width: 44px;
-    min-height: 44px;
-    padding: 10px;
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    min-height: 36px;
+    padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;

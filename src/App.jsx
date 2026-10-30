@@ -27,6 +27,11 @@ export default function App() {
 
   const [visaInitialTab, setVisaInitialTab] = useState('student');
 
+  // Synchronize document lang attribute for typography and accessibility
+  useEffect(() => {
+    document.documentElement.lang = lang;
+  }, [lang]);
+
   // Synchronize with URL hash for browser navigation
   useEffect(() => {
     const handleHashChange = () => {

@@ -43,22 +43,26 @@ export default function Navbar({
     };
   }, []);
 
-  // Lock background body scrolling when mobile drawer is open & handle Escape key
+  // Handle Escape key & auto-close on large screen resize
   useEffect(() => {
     if (mobileMenuOpen) {
-      const originalOverflow = document.body.style.overflow;
-      document.body.style.overflow = 'hidden';
-
       const handleKeyDown = (e) => {
         if (e.key === 'Escape') {
           setMobileMenuOpen(false);
         }
       };
 
+      const handleResize = () => {
+        if (window.innerWidth > 1024) {
+          setMobileMenuOpen(false);
+        }
+      };
+
       window.addEventListener('keydown', handleKeyDown);
+      window.addEventListener('resize', handleResize);
       return () => {
-        document.body.style.overflow = originalOverflow;
         window.removeEventListener('keydown', handleKeyDown);
+        window.removeEventListener('resize', handleResize);
       };
     }
   }, [mobileMenuOpen]);
@@ -99,7 +103,7 @@ export default function Navbar({
   };
 
   return (
-    <header className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
+    <header className={`navbar ${scrolled ? 'navbar-scrolled' : ''} ${mobileMenuOpen ? 'navbar-menu-open' : ''}`}>
       <div className="container navbar-inner">
         {/* Brand */}
         <div 
@@ -261,7 +265,8 @@ export default function Navbar({
                 onClick={() => setLang('jp')}
                 title="日本語 (Japanese)"
               >
-                日本語
+                <span className="lang-label-desktop">日本語</span>
+                <span className="lang-label-mobile">JA</span>
               </button>
             </div>
           )}
@@ -280,7 +285,7 @@ export default function Navbar({
           </a>
 
           <button 
-            className="mobile-menu-btn" 
+            className={`mobile-menu-btn ${mobileMenuOpen ? 'active' : ''}`} 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
             aria-expanded={mobileMenuOpen}
@@ -297,6 +302,9 @@ export default function Navbar({
           <div 
             className="mobile-menu-backdrop" 
             onClick={() => setMobileMenuOpen(false)}
+            onTouchMove={(e) => {
+              if (e.cancelable) e.preventDefault();
+            }}
             aria-hidden="true"
           />
           <div 
