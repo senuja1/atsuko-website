@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { 
   BookOpen, 
   Briefcase, 
@@ -20,16 +20,52 @@ import {
   Utensils,
   Hotel,
   Hammer,
-  Sprout
+  Sprout,
+  Camera,
+  ZoomIn,
+  X,
+  Users
 } from 'lucide-react';
-import { coursesData, activeCourseSchedules } from '../data/websiteData';
+import { coursesData, activeCourseSchedules, pastBatchesGallery } from '../data/websiteData';
 import { getUiText } from '../data/uiText';
 
 export default function CoursesPage({ lang, onOpenModal }) {
   const tFull = getUiText(lang);
   const ui = tFull.pages.courses;
-  const h = tFull.home;
   const [scheduleFilter, setScheduleFilter] = useState('all');
+  const [proofFilter, setProofFilter] = useState('all');
+  const [lightboxProof, setLightboxProof] = useState(null);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setLightboxProof(null);
+    };
+    if (lightboxProof) {
+      document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', handleKeyDown);
+    }
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [lightboxProof]);
+
+  const filteredProofs = pastBatchesGallery.filter(item => {
+    if (proofFilter === 'all') return true;
+    return item.batch.toLowerCase().replace(/\s+/g, '') === proofFilter;
+  });
+
+  const getProofTitle = (item) => {
+    if (lang === 'si' && item.titleSi) return item.titleSi;
+    if ((lang === 'jp' || lang === 'ja') && item.titleJp) return item.titleJp;
+    return item.title;
+  };
+
+  const getProofDesc = (item) => {
+    if (lang === 'si' && item.descSi) return item.descSi;
+    if ((lang === 'jp' || lang === 'ja') && item.descJp) return item.descJp;
+    return item.desc;
+  };
 
   const filterSchedules = activeCourseSchedules.filter(item => {
     if (scheduleFilter === 'all') return true;
@@ -370,39 +406,160 @@ export default function CoursesPage({ lang, onOpenModal }) {
         </div>
       </section>
 
-      {/* 5. Zero Initial Fee Assurance */}
-      <section className="about-cta-section">
+      {/* 5. Real Classroom Proofs & Previous Batches Gallery (Batch 10, Batch 11, Batch 17) */}
+      <section className="past-batches-section" id="batch-proofs">
         <div className="container">
-          <div className="about-cta-card">
-            <div>
-              <span className="section-badge badge-gold" style={{ marginBottom: '0.75rem' }}>
-                <ShieldCheck size={14} />
-                {h.ctaBadge}
-              </span>
-              <h3 className="about-cta-title">{h.ctaTitle}</h3>
-              <p className="about-cta-desc">
-                {h.ctaDesc}
-              </p>
-            </div>
-            <div className="about-cta-btn-group">
-              <button 
-                onClick={() => onOpenModal('Fast-Track Batch Enrollment')} 
-                className="btn btn-gold"
+          <div className="section-header">
+            <span className="section-badge badge-gold">
+              <Camera size={14} />
+              {ui.proofsBadge || 'Real Classroom Proofs & Completed Batches'}
+            </span>
+            <h2 className="section-title">
+              {ui.proofsTitle || 'Real Classroom Moments &'} <span className="text-gradient-red">{ui.proofsHighlight || 'Previous Batch Proofs'}</span>
+            </h2>
+            <p className="section-subtitle">
+              {ui.proofsSubtitle || 'Authentic photographic proof from our completed Japanese language cohorts at Kadawatha. See real student interactions, visiting native Japanese Sensei sessions, and graduation celebrations.'}
+            </p>
+          </div>
+
+          {/* Filter Pills */}
+          <div className="proofs-filter-bar">
+            <div className="proof-pill-group">
+              <button
+                type="button"
+                className={`proof-pill ${proofFilter === 'all' ? 'active' : ''}`}
+                onClick={() => setProofFilter('all')}
               >
-                {h.ctaRegister}
+                <span>{lang === 'si' ? 'සියලු කණ්ඩායම්' : lang === 'jp' ? '全バッチ' : 'All Batches'} ({pastBatchesGallery.length})</span>
               </button>
-              <a 
-                href="https://wa.me/94777933352" 
-                target="_blank" 
-                rel="noreferrer" 
-                className="btn btn-whatsapp"
+              <button
+                type="button"
+                className={`proof-pill ${proofFilter === 'batch10' ? 'active' : ''}`}
+                onClick={() => setProofFilter('batch10')}
               >
-                {h.ctaWhatsApp}
-              </a>
+                <span>Batch 10 (JLPT)</span>
+              </button>
+              <button
+                type="button"
+                className={`proof-pill ${proofFilter === 'batch11' ? 'active' : ''}`}
+                onClick={() => setProofFilter('batch11')}
+              >
+                <span>Batch 11 (Culture & Graduation)</span>
+              </button>
+              <button
+                type="button"
+                className={`proof-pill ${proofFilter === 'batch17' ? 'active' : ''}`}
+                onClick={() => setProofFilter('batch17')}
+              >
+                <span>Batch 17 (Smart Classroom)</span>
+              </button>
             </div>
+          </div>
+
+          {/* Proofs Grid */}
+          <div className="proofs-grid">
+            {filteredProofs.map((item) => (
+              <div 
+                key={item.id} 
+                className="proof-card"
+                onClick={() => setLightboxProof(item)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') setLightboxProof(item);
+                }}
+                aria-label={`View photo: ${getProofTitle(item)}`}
+              >
+                <div className="proof-img-container">
+                  <img 
+                    src={item.image} 
+                    alt={getProofTitle(item)}
+                    className="proof-img"
+                    loading="lazy"
+                    decoding="async"
+                    width="600"
+                    height="412"
+                  />
+                  <div className="proof-batch-pill">
+                    <ShieldCheck size={12} style={{ color: '#fbbf24' }} />
+                    <span>{item.badge}</span>
+                  </div>
+                  <div className="proof-zoom-badge">
+                    <ZoomIn size={12} />
+                    <span>{ui.proofsViewFullBtn || 'Zoom'}</span>
+                  </div>
+                </div>
+
+                <div className="proof-body">
+                  <span className="proof-tag-chip">{item.tag}</span>
+                  <h3 className="proof-title">{getProofTitle(item)}</h3>
+                  <p className="proof-desc">{getProofDesc(item)}</p>
+
+                  <div className="proof-footer">
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
+                      <MapPin size={12} style={{ color: '#0284c7' }} />
+                      <span>Kadawatha Campus</span>
+                    </span>
+                    <span style={{ color: '#059669', fontWeight: 700 }}>Verified Batch</span>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
+
+      {/* Lightbox Preview Modal */}
+      {lightboxProof && (
+        <div 
+          className="proof-lightbox-backdrop"
+          onClick={() => setLightboxProof(null)}
+          role="dialog"
+          aria-modal="true"
+        >
+          <div 
+            className="proof-lightbox-modal"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              type="button"
+              className="proof-lightbox-close"
+              onClick={() => setLightboxProof(null)}
+              aria-label="Close Preview"
+            >
+              <X size={20} />
+            </button>
+
+            <div className="proof-lightbox-img-wrap">
+              <img 
+                src={lightboxProof.image} 
+                alt={getProofTitle(lightboxProof)} 
+                className="proof-lightbox-img" 
+              />
+            </div>
+
+            <div className="proof-lightbox-details">
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem', flexWrap: 'wrap' }}>
+                <span className="badge badge-gold" style={{ fontSize: '0.75rem' }}>
+                  {lightboxProof.badge}
+                </span>
+                <span className="badge badge-blue" style={{ fontSize: '0.75rem' }}>
+                  {lightboxProof.tag}
+                </span>
+                <span style={{ fontSize: '0.75rem', color: '#64748b', fontWeight: 600 }}>
+                  Atsuko International (Pvt) Ltd • SLBFE Lic. 3293
+                </span>
+              </div>
+              <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--navy-950)', marginBottom: '0.5rem' }}>
+                {getProofTitle(lightboxProof)}
+              </h3>
+              <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', lineHeight: 1.6, margin: 0 }}>
+                {getProofDesc(lightboxProof)}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

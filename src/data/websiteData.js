@@ -428,6 +428,75 @@ export const activeCourseSchedules = [
   }
 ];
 
+// Real Classroom Proofs & Previous Completed Batches (Batch 10, Batch 11, Batch 17)
+export const pastBatchesGallery = [
+  {
+    id: "batch-10-selfie",
+    batch: "Batch 10",
+    badge: "Batch 10 • Foundation Class",
+    title: "Classroom Energy & Direct Sensei Interaction",
+    titleSi: "10 වන කණ්ඩායමේ පන්තිකාමර සුහදතාව සහ සෙන්සෙයි මඟපෙන්වීම",
+    titleJp: "第10期生 活気あふれる教室と講師との交流",
+    image: "/images/batches/batch-10-selfie.jpg",
+    desc: "Vibrant classroom moment during interactive Japanese conversation practice at our Kadawatha campus with students and Sensei.",
+    descSi: "කඩවත කැම්පස්හිදී සිසුන් සහ ගුරුවරුන් එක්ව පැවැත්වූ ප්‍රායෝගික ජපන් කථන පුහුණුව අතරතුර ලබාගත් සුහද ඡායාරූපයක්.",
+    descJp: "カダワタ本校での会話練習・授業風景。受講生と講師が一体となったアットホームな学習環境です。",
+    tag: "JLPT N5/N4 Preparation"
+  },
+  {
+    id: "batch-11-activities",
+    batch: "Batch 11",
+    badge: "Batch 11 • Cultural Immersion",
+    title: "Native Japanese Sensei & Kanji Calligraphy Workshop",
+    titleSi: "ජපන් ජාතික සෙන්සෙයි සහ කන්ජි (Kanji) අක්ෂර ලිවීමේ වැඩමුළුව",
+    titleJp: "日本人講師による漢字ワークショップ＆文化体験",
+    image: "/images/batches/batch-11-activities.jpg",
+    desc: "Students holding their handwritten Kanji calligraphy (母, 水, 父, 本, 百, 魚) and participating in interactive lectures with our visiting Japanese Sensei.",
+    descSi: "ජපන් ජාතික සෙන්සෙයිවරුන් සමඟ අත්‍යවශ්‍ය කන්ජි අක්ෂර අතින් ලියා පුහුණුවන සිසුන් සහ පන්තිකාමර ක්‍රියාකාරකම්.",
+    descJp: "受講生が自筆の漢字（母・水・父・本・百・魚など）を披露し、日本人講師と楽しく学ぶ特別授業。",
+    tag: "Kanji & Culture Workshop"
+  },
+  {
+    id: "batch-11-cohort",
+    batch: "Batch 11",
+    badge: "Batch 11 • Main Cohort",
+    title: "Batch 11 Full Class in Official Atsuko Uniforms",
+    titleSi: "11 වන කණ්ඩායමේ සමස්ත සිසු ප්‍රජාව නිල නිලඇඳුමින්",
+    titleJp: "第11期生 制服着用での集合記念写真",
+    image: "/images/batches/batch-11-cohort.jpg",
+    desc: "Over 30 dedicated candidates gathered in our main lecture auditorium with Sensei, holding their course progress and completion scrolls.",
+    descSi: "කඩවත ප්‍රධාන ශ්‍රවණාගාරයේදී සෙන්සෙයිවරුන් සමඟ නිල නිලඇඳුමින් සැරසුණු 11 වන කණ්ඩායමේ සාර්ථක සිසු පිරිස.",
+    descJp: "指定ポロシャツを着用した第11期生の全体集合写真。30名を超える仲間が切磋琢磨して学びました。",
+    tag: "Full Cohort Portrait"
+  },
+  {
+    id: "batch-11-graduation",
+    batch: "Batch 11",
+    badge: "Batch 11 • Course Completion",
+    title: "Official Batch Portrait & Certificate Presentation",
+    titleSi: "පාඨමාලා අවසන් දිනයේ සමූහ ඡායාරූප රාමුව හා සහතිකපත් පිරිනැමීම",
+    titleJp: "第11期修了式 記念額装写真と修了証書授与",
+    image: "/images/batches/batch-11-graduation.jpg",
+    desc: "Graduating students celebrating their official Japanese language milestone with framed cohort memories and course certificates.",
+    descSi: "11 වන කණ්ඩායමේ සිසුන් පාඨමාලාව සාර්ථකව නිමකර තම සමූහ ඡායාරූප රාමුව හා සහතිකපත් ලබාගත් ජයග්‍රාහී මොහොත.",
+    descJp: "コース修了記念に記念写真の額縁と証書を受け取り、日本への夢に向かって笑顔を見せる修了生たち。",
+    tag: "Graduation Celebration"
+  },
+  {
+    id: "batch-17-completion",
+    batch: "Batch 17",
+    badge: "Batch 17 • Recent Milestone",
+    title: "Batch 17 Completion Ceremony & Smart Classroom",
+    titleSi: "17 වන කණ්ඩායමේ පාඨමාලා අවසන් සැමරුම සහ සුබපැතුම් උත්සවය",
+    titleJp: "第17期生 スマート教室での修了式記念撮影",
+    image: "/images/batches/batch-17-completion.jpg",
+    desc: "Batch 17 students in official Atsuko attire standing in our interactive smart classroom in front of Japanese congratulatory displays with our Sensei.",
+    descSi: "අධිතාක්ෂණික ස්මාර්ට් පන්තිකාමරයේදී ජපන් සුබපැතුම් තිරය ඉදිරිපිට සෙන්සෙයි සමඟ 17 වන කණ්ඩායමේ සිසුන්ගේ සමරු ඡායාරූපය.",
+    descJp: "最新のスマートボード教室で、修了のお祝いメッセージを背景に撮影された第17期生修了記念写真。",
+    tag: "Smart Classroom Milestone"
+  }
+];
+
 // Student Visa Intakes (4 Annual Cycles)
 export const studentVisaIntakes = [
   {
