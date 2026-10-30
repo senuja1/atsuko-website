@@ -70,6 +70,7 @@ export const aboutUsData = {
     titleJp: "代表取締役からのメッセージ",
     author: "Herath Mudiyanselage Dulaj Bandara",
     role: "Managing Director, Atsuko International (Pvt) Ltd",
+    image: "/images/managing-director-dulaj-bandara.png",
     body: "At Atsuko International, our vision is clear: to lead Sri Lanka in providing the essential guidance and vocational education that empowers Sri Lankan students and workers to confidently pursue opportunities in Japan. We believe in bridging the gap between dreams and reality, and our commitment is to ensure that every individual is fully prepared for their journey.\n\nOur dedicated team at Atsuko International is here to support you every step of the way. Whether you're a student aiming to study in Japan or a worker seeking employment opportunities, we are committed to helping you achieve your goals with confidence and competence.",
     bodyJp: "アツコ・インターナショナルのビジョンは明確です。スリランカの学生や労働者が自信を持って日本でのチャンスを掴めるよう、必要なガイダンスと職業教育を提供することで、スリランカをリードすることです。私たちは夢と現実のギャップを埋めることに尽力し、一人ひとりがそれぞれの旅に万全の準備を整えられるよう尽力しています。\n\nアツコ・インターナショナルの献身的なチームは、あらゆる段階でお客様をサポートいたします。日本への留学を目指す学生の方も、就職の機会を求める労働者の方も、自信と実力を持って目標を達成できるよう全力でお手伝いいたします。"
   },
@@ -79,6 +80,7 @@ export const aboutUsData = {
       name: "Herath Mudiyanselage Dulaj Bandara",
       role: "Managing Director",
       title: "Managing Director & Executive Head",
+      image: "/images/managing-director-dulaj-bandara.png",
       focus: "Overall leadership, bilateral Sri Lanka–Japan relations, SLBFE regulatory compliance, and institutional partnerships."
     },
     {

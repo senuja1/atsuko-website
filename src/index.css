@@ -5995,6 +5995,18 @@ body {
   border: 1px solid var(--border-light);
 }
 
+.md-profile-header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.25rem 1.5rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
 .presence-flag-icon-badge {
   width: 44px;
   height: 44px;

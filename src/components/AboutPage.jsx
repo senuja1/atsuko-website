@@ -193,11 +193,65 @@ export default function AboutPage({ lang, onOpenModal, onNavigate }) {
               </span>
             </div>
 
-            <h2 className="section-title-md" style={{ marginBottom: '1rem' }}>
+            <h2 className="section-title-md" style={{ marginBottom: '1.5rem' }}>
               {ui.mdTitle}
             </h2>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: '2rem', marginTop: '1.5rem' }}>
+            {/* Managing Director Profile Highlight */}
+            <div className="md-profile-header" style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', padding: '1.25rem 1.5rem', background: 'linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)', borderRadius: 'var(--radius-lg)', border: '1px solid #e2e8f0', marginBottom: '2rem', flexWrap: 'wrap' }}>
+              <div style={{ position: 'relative', width: '84px', height: '84px', flexShrink: 0 }}>
+                <img 
+                  src={aboutUsData.mdMessage.image} 
+                  alt={ui.mdAuthor}
+                  style={{ width: '84px', height: '84px', borderRadius: '50%', objectFit: 'cover', border: '3px solid #2563eb', boxShadow: '0 4px 14px rgba(37,99,235,0.25)', background: '#ffffff' }}
+                  width="84"
+                  height="84"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span 
+                  style={{ 
+                    position: 'absolute', 
+                    bottom: '-2px', 
+                    right: '-2px', 
+                    background: '#10b981', 
+                    color: '#ffffff', 
+                    borderRadius: '50%', 
+                    width: '24px', 
+                    height: '24px', 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'center', 
+                    border: '2px solid #ffffff', 
+                    boxShadow: '0 2px 4px rgba(0,0,0,0.15)' 
+                  }}
+                  title="Verified Managing Director • SLBFE Lic. 3293"
+                >
+                  <ShieldCheck size={14} />
+                </span>
+              </div>
+              <div style={{ flex: 1, minWidth: '240px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '0.35rem' }}>
+                  <span className="badge badge-blue" style={{ fontSize: '0.75rem', fontWeight: 700 }}>
+                    {ui.mdBadge}
+                  </span>
+                  <span className="badge badge-gold" style={{ fontSize: '0.75rem', fontWeight: 700 }}>
+                    SLBFE Lic. 3293
+                  </span>
+                  <span style={{ fontSize: '0.75rem', color: '#64748b', fontWeight: 600 }}>
+                    Reg. PV 0217143
+                  </span>
+                </div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--navy-950)', margin: '0 0 0.25rem' }}>
+                  {ui.mdAuthor}
+                </h3>
+                <div style={{ fontSize: '0.875rem', color: '#64748b', fontWeight: 600 }}>
+                  {ui.mdRole} • <span style={{ fontFamily: 'var(--font-jp)', color: '#0369a1' }}>代表取締役 ヘラス・ムディヤンセラゲ・ドゥラージ・バンダラ</span>
+                </div>
+              </div>
+            </div>
+
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: '2rem' }}>
               <div style={{ borderLeft: '4px solid #ef4444', paddingLeft: '1.25rem' }}>
                 <p style={{ fontStyle: 'italic', color: 'var(--navy-900)', fontSize: '1.05rem', lineHeight: 1.7, marginBottom: '1rem' }}>
                   "{lang === 'si'
@@ -206,13 +260,24 @@ export default function AboutPage({ lang, onOpenModal, onNavigate }) {
                       ? aboutUsData.mdMessage.bodyJp
                       : aboutUsData.mdMessage.body}"
                 </p>
-                <div style={{ marginTop: '1rem' }}>
-                  <strong style={{ display: 'block', color: 'var(--navy-900)', fontSize: '1.1rem' }}>
-                    {ui.mdAuthor}
-                  </strong>
-                  <span style={{ color: '#64748b', fontSize: '0.9rem' }}>
-                    {ui.mdRole}
-                  </span>
+                <div style={{ marginTop: '1.25rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                  <img 
+                    src={aboutUsData.mdMessage.image} 
+                    alt={ui.mdAuthor}
+                    style={{ width: '42px', height: '42px', borderRadius: '50%', objectFit: 'cover', border: '2px solid #ef4444', flexShrink: 0 }}
+                    width="42"
+                    height="42"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div>
+                    <strong style={{ display: 'block', color: 'var(--navy-900)', fontSize: '1rem', lineHeight: 1.2 }}>
+                      {ui.mdAuthor}
+                    </strong>
+                    <span style={{ color: '#64748b', fontSize: '0.85rem' }}>
+                      {ui.mdRole}
+                    </span>
+                  </div>
                 </div>
               </div>
 
@@ -220,13 +285,24 @@ export default function AboutPage({ lang, onOpenModal, onNavigate }) {
                 <p style={{ color: '#475569', fontSize: '0.95rem', lineHeight: 1.8, marginBottom: '1rem' }}>
                   "{aboutUsData.mdMessage.bodyJp}"
                 </p>
-                <div style={{ marginTop: '1rem' }}>
-                  <strong style={{ display: 'block', color: 'var(--navy-900)', fontSize: '1rem' }}>
-                    代表取締役 ヘラス・ムディヤンセラゲ・ドゥラージ・バンダラ
-                  </strong>
-                  <span style={{ color: '#64748b', fontSize: '0.85rem' }}>
-                    Atsuko International (Pvt) Ltd
-                  </span>
+                <div style={{ marginTop: '1.25rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                  <img 
+                    src={aboutUsData.mdMessage.image} 
+                    alt="代表取締役"
+                    style={{ width: '42px', height: '42px', borderRadius: '50%', objectFit: 'cover', border: '2px solid #f59e0b', flexShrink: 0 }}
+                    width="42"
+                    height="42"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div>
+                    <strong style={{ display: 'block', color: 'var(--navy-900)', fontSize: '0.95rem', lineHeight: 1.2 }}>
+                      代表取締役 ヘラス・ムディヤンセラゲ・ドゥラージ・バンダラ
+                    </strong>
+                    <span style={{ color: '#64748b', fontSize: '0.85rem' }}>
+                      Atsuko International (Pvt) Ltd
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -254,9 +330,30 @@ export default function AboutPage({ lang, onOpenModal, onNavigate }) {
             {aboutUsData.teamMembers.map((member, idx) => (
               <div key={idx} className="leader-card" style={{ background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: 'var(--radius-lg)', padding: '1.5rem', transition: 'all 0.2s ease' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', marginBottom: '1rem' }}>
-                  <div style={{ width: '48px', height: '48px', borderRadius: '50%', background: 'linear-gradient(135deg, #ef4444 0%, #b91c1c 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ffffff', fontWeight: 800, fontSize: '1.2rem' }}>
-                    {member.name.charAt(0)}
-                  </div>
+                  {member.image ? (
+                    <img 
+                      src={member.image} 
+                      alt={member.name}
+                      style={{ 
+                        width: '52px', 
+                        height: '52px', 
+                        borderRadius: '50%', 
+                        objectFit: 'cover', 
+                        border: '2.5px solid #2563eb', 
+                        boxShadow: '0 2px 8px rgba(37,99,235,0.25)', 
+                        flexShrink: 0,
+                        background: '#ffffff'
+                      }}
+                      width="52"
+                      height="52"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  ) : (
+                    <div style={{ width: '48px', height: '48px', borderRadius: '50%', background: 'linear-gradient(135deg, #ef4444 0%, #b91c1c 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ffffff', fontWeight: 800, fontSize: '1.2rem', flexShrink: 0 }}>
+                      {member.name.charAt(0)}
+                    </div>
+                  )}
                   <div>
                     <span style={{ display: 'inline-block', background: '#e0f2fe', color: '#0369a1', fontSize: '0.75rem', fontWeight: 700, padding: '0.2rem 0.55rem', borderRadius: 'var(--radius-full)' }}>
                       {member.role}
