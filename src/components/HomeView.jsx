@@ -120,7 +120,7 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
               </p>
             </div>
 
-            <div className="presence-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' }}>
+            <div className="presence-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))' }}>
               <div className="credentials-card" style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: 'var(--radius-xl)', padding: '1.75rem' }}>
                 <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: '#fee2e2', color: '#b91c1c', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem' }}>
                   <Building2 size={24} />

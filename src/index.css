@@ -1,202 +1,4 @@
 /* ============================================================
-   20. UNIVERSAL RESPONSIVE & OVERFLOW HARDENING PATCH
-   Fixes 320px-480px grid overflows, tablet card proportions,
-   sticky container clipping, and mobile card padding.
-   ============================================================ */
-
-/* Prevent gradient text from clipping Sinhala/English descenders */
-.text-gradient-red,
-.text-gradient-gold {
-  display: inline-block;
-  padding-bottom: 0.08em;
-}
-
-/* Safe auto-fit grids that never overflow 320px viewports */
-.programs-grid,
-.courses-detailed-grid,
-.stories-cards-grid {
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
-}
-
-.quiz-options,
-.intakes-grid-cards,
-.visa-requirements-grid,
-.roadmap-grid-enhanced,
-.checklist-grid {
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
-}
-
-/* Ensure mobile drawer is scrollable on short/landscape screens */
-.mobile-menu-drawer {
-  max-height: calc(100dvh - 60px);
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-/* Keep Hero floating badges safely inside viewport on small laptops */
-@media (max-width: 1320px) {
-  .badge-top-right {
-    right: 8px;
-  }
-
-  .badge-bottom-left {
-    left: 8px;
-  }
-}
-
-/* Tablet refinements (481px - 1024px) */
-@media (min-width: 481px) and (max-width: 1024px) {
-  .stats-grid .stat-item:nth-last-child(-n+2) {
-    border-bottom: none;
-    padding-bottom: 0;
-  }
-
-  .target-gateway-grid {
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
-  }
-}
-
-/* Tablet & Mobile fixes (<= 768px) */
-@media (max-width: 768px) {
-  .top-bar {
-    height: auto;
-    min-height: 36px;
-    padding: 6px 0;
-  }
-
-  .top-bar-inner {
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-
-  .about-quick-badges {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .courses-detailed-grid,
-  .stories-cards-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .japandi-title {
-    font-size: clamp(2rem, 7vw, 3rem);
-  }
-
-  .japandi-hero,
-  .japandi-stats {
-    padding: 3.5rem 1.25rem;
-  }
-}
-
-/* Mobile Phone Hardening (<= 480px) */
-@media (max-width: 480px) {
-  .top-bar-right {
-    gap: 10px;
-  }
-
-  /* Hide secondary top-bar link if multiple exist so badge + phone fit on 1 line */
-  .top-bar-right .top-contact-link:nth-child(n+2) {
-    display: none;
-  }
-
-  .license-badge {
-    font-size: 11px;
-    padding: 2px 8px;
-  }
-
-  /* Scale down heavy desktop card paddings on mobile phones */
-  .target-gateway-card,
-  .program-card,
-  .roadmap-card,
-  .result-card,
-  .visa-detail-header-card,
-  .intakes-detailed-box,
-  .work-regulations-box,
-  .japan-support-entity-box,
-  .bottom-cta-banner-box,
-  .cost-breakdown-card,
-  .active-office-display-card,
-  .department-directory-box,
-  .contact-form-card,
-  .stories-banner-card,
-  .presence-card,
-  .credentials-card,
-  .checklist-cta-box {
-    padding: 22px 16px;
-  }
-
-  /* Uncrowd program card title & badge on narrow screens */
-  .program-badge {
-    position: static;
-    width: fit-content;
-    margin-bottom: 10px;
-  }
-
-  .program-title {
-    padding-right: 0;
-    font-size: 18px;
-  }
-
-  /* Eligibility checker & quiz mobile spacing */
-  .eligibility-progress-bar {
-    padding: 0 4px;
-    margin-bottom: 28px;
-  }
-
-  .step-indicator {
-    width: 32px;
-    height: 32px;
-    font-size: 12px;
-  }
-
-  .step-question,
-  .result-title {
-    font-size: 19px;
-  }
-
-  .wizard-nav,
-  .quiz-header {
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-
-  .wizard-nav .btn {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .faq-question {
-    padding: 16px;
-    font-size: 14.5px;
-  }
-
-  .faq-answer {
-    padding: 14px 16px 18px;
-    font-size: 13.5px;
-  }
-
-  .cost-total-estimate {
-    text-align: left;
-    width: 100%;
-  }
-
-  .bcta-buttons-row,
-  .about-cta-btn-group,
-  .aod-action-buttons {
-    width: 100%;
-    flex-direction: column;
-  }
-
-  .bcta-buttons-row .btn,
-  .about-cta-btn-group .btn,
-  .aod-action-buttons .btn {
-    width: 100%;
-    justify-content: center;
-  }
-}
-
-/* ============================================================
    ATSUKO INTERNATIONAL (PVT) LTD - 篤子 学校 (ATSUKO GAKKO)
    Official Digital Presence & Web Portal
    SLBFE License No. 3293 | Company Reg: PV 0217143 | www.atsukojapan.com
@@ -270,6 +72,7 @@
   --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-card: 0 8px 24px rgba(15, 23, 42, 0.06), 0 2px 6px rgba(15, 23, 42, 0.03);
   --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.05);
   --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.16);
 
@@ -278,10 +81,11 @@
   --radius-md: 14px;
   --radius-lg: 20px;
   --radius-xl: 28px;
+  --radius-2xl: 32px;
   --radius-full: 9999px;
 
   /* Transitions */
-  --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 html {
@@ -3473,20 +3277,53 @@ body {
   color: var(--text-muted);
 }
 
-.batch-location {
+.batch-location,
+.batch-mode-text {
   font-weight: 600;
   color: var(--navy-900);
   display: block;
 }
 
-.batch-duration {
+.batch-duration,
+.batch-duration-badge {
   font-size: 12px;
   color: var(--text-muted);
+  display: inline-block;
 }
 
 .batch-start-date {
   font-weight: 700;
   color: var(--gold-600);
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 11.5px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.status-open,
+.status-success {
+  background: #ecfdf5;
+  color: #047857;
+  border: 1px solid #a7f3d0;
+}
+
+.status-filling,
+.status-warning {
+  background: #fffbeb;
+  color: #b45309;
+  border: 1px solid #fde68a;
+}
+
+.status-limited {
+  background: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
 }
 
 .btn-register-table {
@@ -3508,9 +3345,10 @@ body {
 }
 
 /* Detailed Course Cards */
+.courses-grid,
 .courses-detailed-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
   gap: 28px;
   margin-top: 32px;
 }
@@ -4263,7 +4101,7 @@ body {
 }
 
 /* ============================================================
-   13. SUCCESS STORIES PAGE (FEATURED CINEMA VIDEOS, SHORTS & TRUST)
+   13. SUCCESS STORIES PAGE (BASE & UTILITIES)
    ============================================================ */
 
 .stories-page {
@@ -4276,117 +4114,6 @@ body {
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Featured Video Section (16:9 Cinema Cards) */
-.video-stories-section {
-  padding: 5rem 0;
-  background: #ffffff;
-  position: relative;
-}
-
-.featured-video-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2.25rem;
-  margin-top: 2rem;
-}
-
-.featured-video-card {
-  background: #ffffff;
-  border-radius: 24px;
-  border: 1px solid rgba(226, 232, 240, 0.95);
-  box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.06), 0 4px 12px -2px rgba(15, 23, 42, 0.03);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
-}
-
-.featured-video-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 24px 48px -10px rgba(15, 23, 42, 0.14), 0 10px 20px -5px rgba(15, 23, 42, 0.06);
-  border-color: rgba(220, 38, 38, 0.35);
-}
-
-.video-embed-responsive-16-9 {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  background: #0b1528;
-  overflow: hidden;
-}
-
-.video-embed-responsive-16-9 iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-  display: block;
-}
-
-.featured-video-info {
-  padding: 1.75rem 2rem 2rem;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.featured-video-meta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-  margin-bottom: 0.9rem;
-}
-
-.video-tag-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.35rem 0.85rem;
-  border-radius: 9999px;
-  font-size: 0.75rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  background: rgba(220, 38, 38, 0.08);
-  color: #dc2626;
-  border: 1px solid rgba(220, 38, 38, 0.18);
-}
-
-.video-tag-sub {
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: #64748b;
-}
-
-.featured-video-title {
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: #0f172a;
-  line-height: 1.4;
-  margin-bottom: 0.75rem;
-}
-
-.featured-video-desc {
-  font-size: 0.92rem;
-  color: #475569;
-  line-height: 1.65;
-  margin-bottom: 1.5rem;
-  flex: 1;
-}
-
-.featured-card-actions {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  flex-wrap: wrap;
-  padding-top: 1.25rem;
-  border-top: 1px solid #f1f5f9;
-  margin-top: auto;
-}
-
 .btn-outline-danger {
   background: transparent;
   color: #dc2626;
@@ -4394,7 +4121,7 @@ body {
   font-weight: 700;
   border-radius: 9999px;
   text-decoration: none;
-  transition: all 0.25s ease;
+  transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
   cursor: pointer;
 }
 
@@ -4406,288 +4133,6 @@ body {
   transform: translateY(-2px);
 }
 
-/* YouTube Shorts Showcase Section (9:16 Mobile Aspect Ratio Cards) */
-.shorts-showcase-section {
-  padding: 5.5rem 0;
-  background: #f8fafc;
-  border-top: 1px solid #e2e8f0;
-  border-bottom: 1px solid #e2e8f0;
-  position: relative;
-}
-
-.shorts-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.75rem;
-  margin-top: 2.75rem;
-}
-
-.short-video-card {
-  background: #ffffff;
-  border-radius: 22px;
-  border: 1px solid rgba(226, 232, 240, 0.9);
-  box-shadow: 0 8px 24px -4px rgba(15, 23, 42, 0.05);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.32s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
-}
-
-.short-video-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 22px 40px -6px rgba(15, 23, 42, 0.12);
-  border-color: rgba(220, 38, 38, 0.35);
-}
-
-.short-9-16-wrap {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 9 / 16;
-  background: #0b1528;
-  overflow: hidden;
-}
-
-.short-9-16-wrap iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-  display: block;
-}
-
-.short-body {
-  padding: 1.25rem 1.25rem 1.35rem;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.short-title {
-  font-size: 0.98rem;
-  font-weight: 700;
-  color: #0f172a;
-  line-height: 1.42;
-  margin-bottom: 0.5rem;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  min-height: 2.84em;
-}
-
-.short-desc {
-  font-size: 0.82rem;
-  color: #64748b;
-  line-height: 1.55;
-  margin-bottom: 1.15rem;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  flex: 1;
-}
-
-.short-footer-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.45rem;
-  padding: 0.6rem 1rem;
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: #dc2626;
-  background: rgba(220, 38, 38, 0.06);
-  border: 1.5px solid rgba(220, 38, 38, 0.18);
-  border-radius: 9999px;
-  text-decoration: none;
-  transition: all 0.25s ease;
-  margin-top: auto;
-}
-
-.short-footer-btn:hover {
-  background: #dc2626;
-  color: #ffffff;
-  border-color: #dc2626;
-  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.28);
-  transform: translateY(-2px);
-}
-
-/* Trust Pillars Grid (Why Atsuko Candidates Win) */
-.trust-pillars-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.75rem;
-  margin-top: 2.75rem;
-}
-
-.trust-pillar-card {
-  background: #ffffff;
-  border-radius: 22px;
-  border: 1px solid rgba(226, 232, 240, 0.95);
-  padding: 2rem 1.75rem 1.75rem;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
-  box-shadow: 0 6px 22px -3px rgba(15, 23, 42, 0.05);
-}
-
-.trust-pillar-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px -8px rgba(15, 23, 42, 0.12);
-}
-
-.trust-pillar-card.card-theme-red {
-  border-top: 4px solid #ef4444;
-}
-
-.trust-pillar-card.card-theme-gold {
-  border-top: 4px solid #f59e0b;
-}
-
-.trust-pillar-card.card-theme-blue {
-  border-top: 4px solid #0ea5e9;
-}
-
-.trust-pillar-card.card-theme-emerald {
-  border-top: 4px solid #10b981;
-}
-
-.trust-pillar-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 1.25rem;
-}
-
-.trust-pillar-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.3s ease;
-}
-
-.trust-pillar-card:hover .trust-pillar-icon {
-  transform: scale(1.08);
-}
-
-.trust-pillar-icon.icon-red {
-  background: rgba(239, 68, 68, 0.1);
-  color: #ef4444;
-}
-
-.trust-pillar-icon.icon-gold {
-  background: rgba(245, 158, 11, 0.1);
-  color: #d97706;
-}
-
-.trust-pillar-icon.icon-blue {
-  background: rgba(14, 165, 233, 0.1);
-  color: #0284c7;
-}
-
-.trust-pillar-icon.icon-emerald {
-  background: rgba(16, 185, 129, 0.1);
-  color: #059669;
-}
-
-.trust-pillar-badge {
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.05em;
-  padding: 0.28rem 0.7rem;
-  border-radius: 9999px;
-  text-transform: uppercase;
-}
-
-.trust-pillar-badge.badge-pill-red {
-  background: rgba(239, 68, 68, 0.1);
-  color: #dc2626;
-  border: 1px solid rgba(239, 68, 68, 0.22);
-}
-
-.trust-pillar-badge.badge-pill-gold {
-  background: rgba(245, 158, 11, 0.1);
-  color: #b45309;
-  border: 1px solid rgba(245, 158, 11, 0.22);
-}
-
-.trust-pillar-badge.badge-pill-blue {
-  background: rgba(14, 165, 233, 0.1);
-  color: #0369a1;
-  border: 1px solid rgba(14, 165, 233, 0.22);
-}
-
-.trust-pillar-badge.badge-pill-emerald {
-  background: rgba(16, 185, 129, 0.1);
-  color: #047857;
-  border: 1px solid rgba(16, 185, 129, 0.22);
-}
-
-.trust-pillar-kanji {
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: #94a3b8;
-  letter-spacing: 0.06em;
-  margin-bottom: 0.35rem;
-}
-
-.trust-pillar-title {
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: #0f172a;
-  line-height: 1.35;
-  margin-bottom: 0.65rem;
-}
-
-.trust-pillar-desc {
-  font-size: 0.88rem;
-  color: #64748b;
-  line-height: 1.6;
-  margin-bottom: 1.35rem;
-}
-
-.trust-pillar-checklist {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 1.5rem 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
-  flex: 1;
-}
-
-.trust-pillar-checklist li {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.65rem;
-  font-size: 0.84rem;
-  color: #334155;
-  line-height: 1.5;
-}
-
-.trust-pillar-checklist .text-emerald {
-  color: #10b981 !important;
-}
-
-.trust-pillar-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 1.15rem;
-  border-top: 1px solid #f1f5f9;
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: #64748b;
-  margin-top: auto;
-}
-
 /* Utilities */
 .text-emerald {
   color: #10b981 !important;
@@ -4695,56 +4140,6 @@ body {
 
 .flex-shrink-0 {
   flex-shrink: 0 !important;
-}
-
-/* Responsive Breakpoints for Stories Page */
-@media (max-width: 1200px) {
-  .shorts-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-  .trust-pillars-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-}
-
-@media (max-width: 960px) {
-  .featured-video-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-}
-
-@media (max-width: 860px) {
-  .shorts-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
-  }
-}
-
-@media (max-width: 640px) {
-  .trust-pillars-grid {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-  }
-  .shorts-grid {
-    grid-template-columns: 1fr;
-    max-width: 360px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .featured-video-info {
-    padding: 1.25rem 1.25rem 1.5rem;
-  }
-  .featured-card-actions {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  .featured-card-actions .btn {
-    justify-content: center;
-    width: 100%;
-  }
 }
 
 /* Cost Breakdown Card */
@@ -6216,1093 +5611,161 @@ body {
 }
 
 /* ============================================================
-   18. COMPREHENSIVE RESPONSIVE MEDIA QUERIES (FOR ALL DEVICES)
-   Keeps desktop layout 100% pristine while ensuring full
-   responsiveness on laptops, tablets, and all mobile screens.
+   17B. COMPONENT CLASS COMPLETERS & UNIVERSAL GRID DEFAULTS
    ============================================================ */
 
-/* Desktop & Laptop Adaptations (1025px - 1240px) */
-@media (max-width: 1240px) {
-  .nav-link-btn {
-    padding: 5px 8px;
-    font-size: 13px;
-  }
+/* Prevent gradient text from clipping Sinhala/English descenders */
+.text-gradient-red,
+.text-gradient-gold {
+  display: inline-block;
+  padding-bottom: 0.08em;
+}
 
-  .navbar-inner {
-    gap: 8px;
-  }
+/* Safe auto-fit grids that never overflow 320px viewports */
+.programs-grid,
+.courses-detailed-grid,
+.stories-cards-grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+}
 
-  .footer-grid {
-    grid-template-columns: 1.4fr 1fr 1fr 1fr;
-    gap: 28px;
+.quiz-options,
+.intakes-grid-cards,
+.visa-requirements-grid,
+.roadmap-grid-enhanced,
+.checklist-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+}
+
+/* Ensure mobile drawer is scrollable on short/landscape screens */
+.mobile-menu-drawer {
+  max-height: calc(100dvh - 60px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Keyframes for Torii Gate Scroll Hint Bounce */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-6px);
+  }
+  60% {
+    transform: translateY(-3px);
   }
 }
 
-@media (max-width: 1120px) {
-  .nav-btn-secondary {
-    display: none;
-  }
+.home-view {
+  width: 100%;
+  overflow-x: clip;
 }
 
-/* Tablet Landscape & Medium Desktops (769px - 1024px) */
-@media (max-width: 1024px) {
-
-  .nav-links {
-    display: none;
-  }
-
-  .mobile-menu-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 44px;
-    min-height: 44px;
-  }
-
-  .hero-grid {
-    grid-template-columns: 1fr;
-    gap: 36px;
-  }
-
-  .hero-image-wrapper {
-    max-width: 580px;
-    margin: 0 auto;
-    width: 100%;
-  }
-
-  /* Progressive 2-column grids for tablets (no dead zone!) */
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-
-  .stat-item {
-    border-right: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    padding-bottom: 16px;
-  }
-
-  .target-gateway-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-
-  .programs-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-
-  .courses-detailed-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-
-  .stories-cards-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-
-  .roadmap-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-
-  .footer-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 36px;
-  }
-
-  .course-stats-bar {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
-  }
-
-  .about-quick-badges {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-  }
-
-  .presence-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-  }
-
-  .cost-grid-items {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
-
-  .social-channels-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
-
-  .dept-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
-  }
-
-  /* Two-column split content stacks cleanly on tablet */
-  .feature-split,
-  .feature-split.reverse {
-    grid-template-columns: 1fr;
-    gap: 32px;
-    direction: ltr;
-  }
-
-  .about-overview-grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-
-  .credentials-card {
-    position: static;
-  }
-
-  .contact-main-grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-
-  .contact-form-card {
-    position: static;
-  }
-
-  .training-facility-showcase-grid {
-    grid-template-columns: 1fr;
-    gap: 28px;
-  }
-
-  .stories-banner-card {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-/* Tablet Portrait & Large Phones (641px - 768px) */
-@media (max-width: 768px) {
-  .container {
-    padding: 0 clamp(1rem, 3.5vw, 1.5rem);
-  }
-
-  .nav-actions > .nav-btn-primary,
-  .nav-actions > .nav-btn-student-login {
-    display: none !important;
-  }
-
-  .nav-actions {
-    gap: 8px;
-  }
-
-  .brand-sub {
-    display: none;
-  }
-
-  .brand-logo-img {
-    width: 32px;
-    height: 32px;
-  }
-
-  .brand-english {
-    font-size: 13px;
-  }
-
-  .brand-kanji-pill {
-    font-size: 9px;
-    padding: 1px 5px;
-  }
-
-  .top-bar-subtitle {
-    display: none;
-  }
-
-  .torii-floating-nameplate {
-    display: none !important;
-  }
-
-  /* Mobile Decoupled Layout (<= 768px): Title in Upper Torii Free Space, Actions in Lower Archway */
-  .gate-intro-hint {
-    position: absolute !important;
-    top: 0 !important;
-    bottom: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 0 16px !important;
-    pointer-events: none !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-  }
-
-  .gate-intro-hint::before {
-    display: none !important;
-  }
-
-  /* 1. Upper Torii Archway Header Block (ATSUKO INTERNATIONAL) */
-  .gate-intro-header-block {
-    position: relative !important;
-    margin-top: clamp(88px, 12vh, 115px) !important;
-    width: min(92vw, 420px) !important;
-    pointer-events: auto !important;
-    z-index: 2;
-    text-align: center !important;
-  }
-
-  .gate-intro-header-block::before {
-    content: '';
-    position: absolute;
-    inset: -8px -20px;
-    z-index: -1;
-    pointer-events: none;
-    background: radial-gradient(ellipse at center, rgba(15, 23, 42, 0.28) 0%, rgba(15, 23, 42, 0.08) 55%, transparent 75%);
-    border-radius: 20px;
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-  }
-
-  /* 2. Lower Torii Archway Action Block (Description + License Badge + Button + Scroll Hint) */
-  .gate-intro-action-block {
-    position: relative !important;
-    margin-bottom: clamp(78px, 12.5vh, 118px) !important;
-    width: min(92vw, 380px) !important;
-    pointer-events: auto !important;
-    z-index: 2;
-    text-align: center !important;
-  }
-
-  .gate-intro-action-block::before {
-    content: '';
-    position: absolute;
-    inset: -12px -20px;
-    z-index: -1;
-    pointer-events: none;
-    background: radial-gradient(ellipse at center, rgba(10, 15, 30, 0.65) 0%, rgba(10, 15, 30, 0.25) 65%, transparent 85%);
-    border-radius: 20px;
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-  }
-
-  .gate-license-badge {
-    display: inline-flex !important;
-    font-size: 10px !important;
-    padding: 3.5px 10px !important;
-    margin-bottom: 10px !important;
-    gap: 6px !important;
-  }
-
-  .gate-hero-title {
-    font-size: clamp(20px, 5.2vw, 28px) !important;
-    line-height: 1.22 !important;
-    margin-bottom: 4px !important;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7), 0 0 16px rgba(255, 255, 255, 0.4) !important;
-  }
-
-  .gate-hero-desc {
-    font-size: clamp(11.5px, 2.5vw, 13px) !important;
-    line-height: 1.45 !important;
-    margin-bottom: 10px !important;
-    max-width: 95% !important;
-  }
-
-  .gate-scroll-hint {
-    margin-top: 10px !important;
-    font-size: 10px !important;
-    gap: 2px !important;
-  }
-
-  /* Kouki Hero Reveal on Tablets */
-  .kouki-hero-stage {
-    padding: clamp(60px, 8vh, 85px) 16px 20px !important;
-  }
-
-  .kouki-hero-content {
-    max-width: 100% !important;
-    width: 100% !important;
-  }
-
-  .kouki-title-dark {
-    font-size: clamp(28px, 6.5vw, 44px) !important;
-    letter-spacing: 0.05em !important;
-  }
-
-  .kouki-title-crimson,
-  .kouki-title-blue {
-    font-size: clamp(18px, 4.4vw, 30px) !important;
-    letter-spacing: clamp(0.02em, 0.4vw, 0.05em) !important;
-    white-space: nowrap !important;
-    max-width: 95vw !important;
-  }
-
-  .kouki-jp-kicker {
-    font-size: clamp(13px, 2.2vw, 17px) !important;
-    letter-spacing: clamp(0.16em, 0.8vw, 0.32em) !important;
-    text-indent: clamp(0.16em, 0.8vw, 0.32em) !important;
-  }
-
-  .kouki-hero-divider {
-    width: clamp(120px, 30vw, 180px) !important;
-    margin: 8px auto 12px !important;
-  }
-
-  .kouki-hero-tags {
-    font-size: clamp(11.5px, 2vw, 13.5px) !important;
-    letter-spacing: 0.12em !important;
-    gap: 6px 12px !important;
-    margin-bottom: 18px !important;
-    max-width: 92vw !important;
-  }
-
-  .hero-image-wrapper {
-    order: -1;
-  }
-
-  /* Floating badges on tablet: keep inside bounding box so no horizontal scroll */
-  .badge-top-right {
-    top: 10px;
-    right: 10px;
-    position: absolute;
-  }
-
-  .badge-bottom-left {
-    bottom: 10px;
-    left: 10px;
-    position: absolute;
-  }
-
-  .floating-badge {
-    padding: 10px 14px;
-    gap: 8px;
-  }
-
-  .floating-badge .badge-val {
-    font-size: 12px;
-  }
-
-  .floating-badge .badge-lbl {
-    font-size: 10px;
-  }
-
-  .badge-icon-box {
-    width: 34px;
-    height: 34px;
-  }
-
-  /* Maintain 2 columns on 768px tablet portrait */
-  .target-gateway-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
-
-  .programs-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
-
-  .courses-detailed-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
-
-  .stories-cards-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
-
-  .roadmap-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
-
-  .footer-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 28px;
-  }
-
-  .success-cohorts-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
-
-  .stories-spotlight-card {
-    grid-template-columns: 1fr;
-  }
-
-  .stories-spotlight-img {
-    min-height: 240px;
-    max-height: 340px;
-  }
-
-  /* Stats Bar 2x2 Clean Borders */
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0;
-  }
-
-  .stat-item {
-    border-right: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 16px 12px;
-  }
-
-  .stat-item:nth-child(odd) {
-    border-right: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  .stat-item:nth-last-child(-n+2) {
-    border-bottom: none;
-  }
+.hero-title-lead {
+  display: inline;
 }
 
-/* Standard Mobile Breakpoint (<= 640px) */
-@media (max-width: 640px) {
-  /* Grids collapse cleanly to 1 column on phones */
-  .target-gateway-grid,
-  .programs-grid,
-  .courses-detailed-grid,
-  .stories-cards-grid,
-  .roadmap-grid,
-  .presence-grid,
-  .footer-grid,
-  .about-quick-badges,
-  .course-stats-bar,
-  .cost-income-comparison,
-  .dept-grid,
-  .form-row-2,
-  .cost-grid-items,
-  .social-channels-grid,
-  .intakes-grid-cards,
-  .result-metrics,
-  .success-cohorts-grid,
-  .spotlight-stats-row {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  /* Keep stats bar as balanced 2x2 grid */
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0;
-  }
-
-  .about-cta-card {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 28px 20px;
-  }
-
-  /* Stack button rows full-width on mobile */
-  .bcta-buttons-row,
-  .about-cta-btn-group,
-  .aod-action-buttons,
-  .hero-cta-group,
-  .stories-banner-actions,
-  .home-cta-buttons,
-  .branch-action-buttons,
-  .result-action-buttons {
-    width: 100%;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .bcta-buttons-row .btn,
-  .about-cta-btn-group .btn,
-  .aod-action-buttons .btn,
-  .hero-cta-group .btn,
-  .stories-banner-actions .btn,
-  .home-cta-buttons .btn,
-  .branch-action-buttons .btn,
-  .result-action-buttons .btn {
-    width: 100%;
-    justify-content: center;
-    min-height: 46px;
-  }
+.hero-image-glow {
+  position: absolute;
+  inset: -12px;
+  background: radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.18), transparent 70%);
+  border-radius: var(--radius-xl);
+  z-index: -1;
+  pointer-events: none;
 }
 
-/* Small to Standard Mobile Phones (320px - 480px) */
-@media (max-width: 480px) {
-  .container {
-    padding: 0 14px;
-  }
-
-  .navbar-inner {
-    padding: 0 10px;
-    height: 58px;
-  }
-
-  .brand-wrapper {
-    gap: 6px;
-  }
-
-  .brand-logo-img {
-    width: 30px;
-    height: 30px;
-  }
-
-  .brand-english {
-    font-size: 11.5px;
-    letter-spacing: -0.3px;
-  }
-
-  .brand-kanji-pill {
-    display: none;
-  }
-
-  .apple-lang-control {
-    padding: 2px;
-    gap: 1.5px;
-  }
-
-  .apple-lang-pill {
-    padding: 0 4px;
-    font-size: 9.5px;
-    min-width: 40px;
-    height: 28px;
-    min-height: 28px;
-  }
-
-  .mobile-menu-btn {
-    min-width: 44px;
-    min-height: 44px;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .nav-actions > .nav-btn-primary,
-  .nav-actions > .nav-btn-student-login {
-    display: none !important;
-  }
-
-  /* Tategaki Watermark: Elevate in mobile view */
-  .tategaki-column-left {
-    top: 54px !important;
-    left: clamp(10px, 2.5vw, 16px) !important;
-  }
-
-  .tategaki-column-left .tategaki-divider-line {
-    height: 22px !important;
-    margin-bottom: 5px !important;
-  }
-
-  .tategaki-column-left .tategaki-text-left {
-    font-size: 10.5px !important;
-    letter-spacing: 0.22em !important;
-  }
-
-  .tategaki-column-right {
-    top: 60px !important;
-    right: clamp(10px, 2.5vw, 16px) !important;
-  }
-
-  /* Mobile Decoupled Layout: Title in Upper Torii Archway, Actions in Lower Area */
-  .gate-intro-hint {
-    position: absolute !important;
-    top: 0 !important;
-    bottom: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 0 12px !important;
-    pointer-events: none !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-  }
-
-  .gate-intro-hint::before {
-    display: none !important;
-  }
-
-  /* 1. Upper Torii Archway Header Block (ATSUKO INTERNATIONAL) */
-  .gate-intro-header-block {
-    position: relative !important;
-    margin-top: clamp(84px, 11vh, 105px) !important;
-    width: min(92vw, 380px) !important;
-    pointer-events: auto !important;
-    z-index: 2;
-  }
-
-  .gate-intro-header-block::before {
-    content: '';
-    position: absolute;
-    inset: -8px -18px;
-    z-index: -1;
-    pointer-events: none;
-    background: radial-gradient(ellipse at center, rgba(15, 23, 42, 0.25) 0%, rgba(15, 23, 42, 0.06) 55%, transparent 75%);
-    border-radius: 20px;
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-  }
-
-  /* 2. Lower Torii Archway Action Block (Description + License Badge + Button + Scroll Hint) */
-  .gate-intro-action-block {
-    position: relative !important;
-    margin-bottom: clamp(74px, 12vh, 110px) !important;
-    width: min(92vw, 350px) !important;
-    pointer-events: auto !important;
-    z-index: 2;
-  }
-
-  .gate-intro-action-block::before {
-    content: '';
-    position: absolute;
-    inset: -10px -16px;
-    z-index: -1;
-    pointer-events: none;
-    background: radial-gradient(ellipse at center, rgba(10, 15, 30, 0.65) 0%, rgba(10, 15, 30, 0.25) 65%, transparent 85%);
-    border-radius: 20px;
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-  }
-
-  .gate-license-badge {
-    font-size: 9px !important;
-    padding: 3px 8px !important;
-    margin-bottom: 8px !important;
-    gap: 5px !important;
-  }
-
-  .gate-hero-title {
-    font-size: clamp(18px, 5.2vw, 23px) !important;
-    line-height: 1.18 !important;
-    margin-bottom: 2px !important;
-  }
-
-  .gate-hero-desc {
-    font-size: 11px !important;
-    line-height: 1.4 !important;
-    margin-bottom: 8px !important;
-    max-width: min(320px, 86vw) !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-
-  .gate-walk-btn {
-    padding: 9.5px 19px !important;
-    font-size: 12px !important;
-  }
-
-  .gate-scroll-hint {
-    margin-top: 6px !important;
-    font-size: 9px !important;
-  }
-
-  /* Kouki Hero Reveal on Mobile Smartphones */
-  .kouki-hero-stage {
-    padding: clamp(50px, 7vh, 70px) 12px 16px !important;
-  }
-
-  .kouki-logo-circle {
-    width: 66px !important;
-    height: 66px !important;
-    padding: 6px !important;
-    margin-bottom: 8px !important;
-  }
-
-  .kouki-jp-kicker {
-    font-size: clamp(11.5px, 3.2vw, 13.5px) !important;
-    letter-spacing: 0.14em !important;
-    text-indent: 0.14em !important;
-    margin-bottom: 5px !important;
-  }
-
-  .kouki-hero-title {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-
-  .kouki-title-dark {
-    font-size: clamp(24px, 7.8vw, 32px) !important;
-    letter-spacing: 0.04em !important;
-  }
-
-  .kouki-title-crimson,
-  .kouki-title-blue {
-    font-size: clamp(16px, 4.8vw, 21px) !important;
-    letter-spacing: 0.025em !important;
-    white-space: nowrap !important;
-    max-width: 94vw !important;
-  }
-
-  .kouki-hero-divider {
-    width: 130px !important;
-    margin: 8px auto 10px !important;
-  }
-
-  .kouki-hero-tags {
-    font-size: 11px !important;
-    letter-spacing: 0.08em !important;
-    gap: 4px 8px !important;
-    margin-bottom: 14px !important;
-    max-width: 95vw !important;
-  }
-
-  .kouki-hero-actions {
-    gap: 8px !important;
-    width: 100% !important;
-    max-width: 340px !important;
-    flex-wrap: nowrap !important;
-  }
-
-  .kouki-btn-primary,
-  .kouki-btn-secondary {
-    padding: 10px 14px !important;
-    font-size: 12.5px !important;
-    flex: 1 1 auto !important;
-    white-space: nowrap !important;
-  }
-
-  /* Hero Mobile Refinement */
-  .hero {
-    padding: 32px 0 44px;
-  }
-
-  .hero-tag {
-    font-size: 11.5px;
-    padding: 4px 10px;
-    margin-bottom: 14px;
-  }
-
-  .hero-title {
-    font-size: clamp(24px, 6.5vw, 32px);
-    line-height: 1.15;
-    letter-spacing: -0.03em;
-    margin-bottom: 14px;
-  }
-
-  .hero-title .jp {
-    font-size: 0.52em;
-    margin-top: 4px;
-  }
-
-  .hero-desc {
-    font-size: 14px;
-    line-height: 1.6;
-    margin-bottom: 20px;
-  }
-
-  .hero-highlights {
-    gap: 8px;
-    margin-bottom: 24px;
-  }
-
-  .hero-pill {
-    width: 100%;
-    font-size: 12px;
-    padding: 8px 12px;
-    min-height: 38px;
-  }
-
-  /* Floating badges convert to relative cards on narrow screens to eliminate overlap and overflow */
-  .hero-image-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .floating-badge {
-    position: static;
-    width: 100%;
-    box-shadow: var(--shadow-sm);
-    padding: 10px 14px;
-  }
-
-  /* Stats Bar Mobile */
-  .stats-bar {
-    padding: 28px 0;
-  }
-
-  .stat-num {
-    font-size: 28px;
-  }
-
-  .stat-label {
-    font-size: 12px;
-  }
-
-  /* Section Commons */
-  .section {
-    padding: 44px 0;
-  }
-
-  .section-title {
-    font-size: clamp(22px, 5.5vw, 28px);
-    line-height: 1.25;
-  }
-
-  .section-subtitle {
-    font-size: 13.5px;
-    line-height: 1.6;
-    margin-bottom: 24px;
-  }
-
-  /* Page Headers */
-  .page-header-banner {
-    padding: 36px 0 28px;
-  }
-
-  .page-hero-title {
-    font-size: 26px;
-    line-height: 1.2;
-  }
-
-  .page-hero-subtitle {
-    font-size: 13.5px;
-    line-height: 1.6;
-  }
-
-  /* Course Stats & Schedules */
-  .course-stats-bar {
-    padding: 12px 14px;
-  }
-
-  .course-card-enhanced {
-    padding: 20px 16px;
-  }
-
-  .course-card-footer {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 10px;
-  }
-
-  .course-card-footer .btn {
-    width: 100%;
-    justify-content: center;
-  }
-
-  /* Floating Actions */
-  .floating-actions-container {
-    bottom: 20px;
-    right: 18px;
-  }
-
-  .floating-launcher-btn {
-    width: 52px;
-    height: 52px;
-  }
-
-  .floating-option-icon {
-    width: 44px;
-    height: 44px;
-  }
-
-  .floating-option-label {
-    font-size: 12px;
-    padding: 5px 12px;
-  }
-
-  /* Modal Mobile Optimization */
-  .modal-overlay {
-    padding: 10px;
-  }
-
-  .modal-content {
-    padding: 20px 16px;
-    border-radius: 16px;
-    max-height: calc(100vh - 24px);
-    max-height: calc(100dvh - 24px);
-    width: 100%;
-  }
-
-  .modal-header h3 {
-    font-size: 1.15rem !important;
-  }
-
-  /* Input fields 16px prevent iOS auto-zoom */
-  .form-input,
-  .form-select,
-  .form-textarea {
-    font-size: 16px !important;
-    padding: 10px 12px;
-    min-height: 44px;
-  }
-
-  /* Scale down heavy desktop card paddings on mobile phones */
-  .target-gateway-card,
-  .program-card,
-  .roadmap-card,
-  .result-card,
-  .visa-detail-header-card,
-  .intakes-detailed-box,
-  .work-regulations-box,
-  .japan-support-entity-box,
-  .bottom-cta-banner-box,
-  .cost-breakdown-card,
-  .active-office-display-card,
-  .department-directory-box,
-  .contact-form-card,
-  .stories-banner-card,
-  .presence-card,
-  .credentials-card,
-  .checklist-cta-box,
-  .stories-spotlight-content,
-  .cohort-credibility-card {
-    padding: 20px 14px;
-  }
-
-  .faq-question {
-    padding: 16px 14px;
-    font-size: 14.5px;
-    min-height: 48px;
-  }
-
-  .faq-answer {
-    padding: 12px 14px 16px;
-    font-size: 13.5px;
-  }
+.intake-calendar-icon {
+  color: #38bdf8;
+  flex-shrink: 0;
 }
 
-/* Ultra Small Mobile Devices (<= 360px) */
-@media (max-width: 360px) {
-  .container {
-    padding: 0 10px;
-  }
-
-  .navbar-inner {
-    padding: 0 6px;
-  }
-
-  .brand-wrapper {
-    gap: 4px;
-  }
-
-  .brand-logo-img {
-    width: 26px;
-    height: 26px;
-  }
-
-  .brand-english {
-    font-size: 10.5px;
-    letter-spacing: -0.4px;
-  }
-
-  .apple-lang-control {
-    padding: 1.5px;
-    gap: 1px;
-  }
-
-  .apple-lang-pill {
-    padding: 0 3px;
-    font-size: 8.5px;
-    min-width: 34px;
-    height: 26px;
-    min-height: 26px;
-  }
-
-  /* Preserve accessible touch target >= 44px even on ultra small devices */
-  .mobile-menu-btn {
-    min-width: 44px;
-    min-height: 44px;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .gate-intro-header-block {
-    margin-top: clamp(76px, 10vh, 94px) !important;
-    width: min(96vw, 330px) !important;
-  }
-
-  .gate-intro-action-block {
-    margin-bottom: clamp(64px, 10vh, 90px) !important;
-    width: min(96vw, 310px) !important;
-  }
-
-  .gate-license-badge {
-    font-size: 8px !important;
-    padding: 2.5px 6px !important;
-    margin-bottom: 6px !important;
-  }
-
-  .gate-hero-title {
-    font-size: 17px !important;
-  }
-
-  .gate-hero-desc {
-    font-size: 10.5px !important;
-    line-height: 1.35 !important;
-    margin-bottom: 6px !important;
-    max-width: min(290px, 86vw) !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-
-  /* Kouki Hero Ultra-Compact Phone Adjustments */
-  .kouki-title-dark {
-    font-size: 21px !important;
-    letter-spacing: 0.02em !important;
-  }
-
-  .kouki-title-crimson,
-  .kouki-title-blue {
-    font-size: 14.5px !important;
-    letter-spacing: 0.015em !important;
-  }
-
-  .kouki-hero-actions {
-    flex-direction: column !important;
-    width: 100% !important;
-  }
-
-  .kouki-btn-primary,
-  .kouki-btn-secondary {
-    width: 100% !important;
-  }
+.intake-title {
+  font-size: 0.85rem;
+  color: #f8fafc;
 }
 
-/* Touch-Safe Micro-Interactions & Desktop-Only Hover */
-@media (hover: hover) and (pointer: fine) {
-  .target-gateway-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
-    border-color: #0284c7;
-  }
-
-  .program-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
-    border-color: #0284c7;
-  }
-
-  .roadmap-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
-    border-color: #0284c7;
-  }
-
-  .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(2, 132, 199, 0.38);
-  }
-
-  .btn-gold:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(2, 132, 199, 0.35);
-  }
-
-  .btn-secondary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.15);
-  }
+.intake-banner-right {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
 }
 
-/* Tactile Active Press Feedback Across All Devices */
-.btn:active,
-.target-gateway-card:active,
-.program-card:active,
-.mobile-nav-link:active,
-.apple-lang-pill:active,
-.floating-btn:active {
-  transform: scale(0.98);
-  transition: transform 0.1s ease;
+.badge-emerald {
+  background: var(--emerald-50);
+  color: var(--emerald-600);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mv-desc-jp {
+  font-family: var(--font-jp);
+  font-size: 0.85rem;
+  color: var(--text-light);
+  line-height: 1.6;
+  margin-top: 0.5rem;
+}
+
+.md-message-box {
+  background: #ffffff;
+  border-radius: var(--radius-xl);
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-light);
+}
+
+.presence-flag-icon-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.office-live-map-card {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.floating-launcher-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.footer-brand-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-badges-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.student-life-page {
+  min-height: 80vh;
 }
 
 /* --- Additional Component Class Completers --- */
@@ -7460,7 +5923,7 @@ body {
 
 .wr-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
   gap: 16px;
   margin-top: 16px;
 }
@@ -7791,18 +6254,40 @@ body {
 /* ============================================================
    VIDEO SUCCESS STORIES & YOUTUBE TESTIMONIALS
    ============================================================ */
+.branch-action-buttons,
+.result-action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.badge-val {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--navy-950);
+  line-height: 1.2;
+}
+
+.badge-lbl {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
 .video-stories-section {
   padding: 3rem 0;
 }
 
-.video-features-grid {
+.video-features-grid,
+.featured-video-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 520px), 1fr));
   gap: 2.25rem;
   margin-bottom: 3.5rem;
 }
 
-.video-feature-card {
+.video-feature-card,
+.featured-video-card {
   background: #ffffff;
   border-radius: var(--radius-xl);
   border: 1.5px solid #e2e8f0;
@@ -7813,13 +6298,15 @@ body {
   flex-direction: column;
 }
 
-.video-feature-card:hover {
+.video-feature-card:hover,
+.featured-video-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-xl);
   border-color: #cbd5e1;
 }
 
-.video-16-9-wrap {
+.video-16-9-wrap,
+.video-embed-responsive-16-9 {
   position: relative;
   width: 100%;
   padding-top: 56.25%; /* 16:9 Aspect Ratio */
@@ -7827,7 +6314,8 @@ body {
   overflow: hidden;
 }
 
-.video-16-9-wrap iframe {
+.video-16-9-wrap iframe,
+.video-embed-responsive-16-9 iframe {
   position: absolute;
   top: 0;
   left: 0;
@@ -7836,14 +6324,16 @@ body {
   border: none;
 }
 
-.video-feature-body {
+.video-feature-body,
+.featured-video-info {
   padding: 1.75rem;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 
-.video-badge-row {
+.video-badge-row,
+.featured-video-meta {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -7851,7 +6341,8 @@ body {
   margin-bottom: 0.85rem;
 }
 
-.video-cat-pill {
+.video-cat-pill,
+.video-tag-pill {
   font-size: 0.75rem;
   font-weight: 700;
   padding: 0.25rem 0.65rem;
@@ -7863,7 +6354,8 @@ body {
   gap: 0.35rem;
 }
 
-.video-type-pill {
+.video-type-pill,
+.video-tag-sub {
   font-size: 0.75rem;
   font-weight: 600;
   padding: 0.25rem 0.65rem;
@@ -7872,7 +6364,8 @@ body {
   color: #475569;
 }
 
-.video-feature-title {
+.video-feature-title,
+.featured-video-title {
   font-size: 1.25rem;
   font-weight: 800;
   color: var(--navy-900);
@@ -7880,7 +6373,8 @@ body {
   margin-bottom: 0.75rem;
 }
 
-.video-feature-desc {
+.video-feature-desc,
+.featured-video-desc {
   font-size: 0.9rem;
   color: var(--text-muted);
   line-height: 1.6;
@@ -7906,7 +6400,8 @@ body {
   color: #334155;
 }
 
-.video-card-actions {
+.video-card-actions,
+.featured-card-actions {
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -7925,7 +6420,7 @@ body {
 
 .shorts-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
   gap: 1.5rem;
   margin-top: 2rem;
 }
@@ -8118,7 +6613,7 @@ body {
    ============================================================ */
 .trust-pillars-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr));
   gap: 1.75rem;
   margin-top: 1.5rem;
 }
@@ -8479,126 +6974,837 @@ body {
 }
 
 /* ============================================================
-   PERFORMANCE OPTIMIZATIONS
-   - prefers-reduced-motion: kills all transitions/animations
-   - Mobile: reduce expensive GPU effects (backdrop-filter, shadows)
-   - content-visibility: defer off-screen section rendering
-   - Low-end hints: strip heavy filters on small viewports
+   18. COMPREHENSIVE RESPONSIVE MEDIA QUERIES (FOR ALL DEVICES)
+   Placed after all base component styles for proper cascade order
    ============================================================ */
 
-/* 1. Respect system reduced-motion preference (accessibility + low-power) */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+/* --- Compact Desktop Navbar Adjustments (<= 1320px) --- */
+@media (max-width: 1320px) {
+  .nav-links {
+    gap: 1px;
   }
 
-  .floating-badge,
-  .hero-pill,
-  .gate-scroll-runway,
-  .reveal-on-scroll {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
+  .nav-link {
+    padding: 7px 8px;
+    font-size: 13px;
+  }
+
+  .nav-phone-btn {
+    padding: 7px 11px;
+    font-size: 12.5px;
+  }
+
+  .nav-cta-btn {
+    padding: 8px 14px;
+    font-size: 12.5px;
   }
 }
 
-/* 2. content-visibility: auto — browser skips rendering off-screen sections */
-.section,
-.hero,
-.target-gateway-section,
-.stats-bar,
-.programs-section,
-.roadmap-section,
-.faq-section {
-  content-visibility: auto;
-  /* contain-intrinsic-size gives the browser a size estimate to avoid layout shift */
-  contain-intrinsic-size: 0 600px;
+@media (max-width: 1240px) {
+  .nav-phone-btn span {
+    display: none;
+  }
+
+  .nav-phone-btn {
+    padding: 8px 10px;
+  }
 }
 
-/* 3. Mobile GPU relief: reduce expensive effects on screens <= 768px */
+/* --- Switch to Mobile Drawer earlier (<= 1120px) so 8 nav items never collide --- */
+@media (max-width: 1120px) {
+  .nav-links,
+  .nav-phone-btn,
+  .nav-cta-btn {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+  }
+}
+
+/* --- Tablet Torii Gate Stage (481px to 1024px) --- */
+@media (min-width: 481px) and (max-width: 1024px) {
+  .gate-scroll-runway .gate-intro-hint {
+    top: 50% !important;
+    width: min(88vw, 620px) !important;
+    padding: 18px 20px !important;
+  }
+
+  .gate-scroll-runway .gate-intro-header-block,
+  .gate-scroll-runway .gate-intro-action-block {
+    width: 100% !important;
+  }
+}
+
+/* --- Large Tablets & Small Laptops (max-width: 1024px) --- */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  .section {
+    padding: 72px 0;
+  }
+
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .hero-visual {
+    max-width: 640px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .programs-grid,
+  .branches-grid,
+  .contact-grid,
+  .about-story-grid,
+  .mv-grid,
+  .presence-grid,
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .intake-banner-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .stat-item:nth-child(2)::after {
+    display: none;
+  }
+
+  .training-split {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .roadmap-steps {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .roadmap-steps::before {
+    display: none;
+  }
+
+  .stories-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stories-summary-banner {
+    grid-template-columns: 1fr;
+    padding: 28px;
+  }
+
+  .stories-banner-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .cost-Living-split,
+  .parttime-info-grid,
+  .accommodation-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .visa-doc-checklist-box {
+    grid-template-columns: 1fr;
+    padding: 28px;
+  }
+
+  .doc-list-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .eligibility-cta-card {
+    padding: 28px;
+  }
+
+  .office-detail-card.active-office-card,
+  .contact-form-card,
+  .credentials-card,
+  .mv-card,
+  .presence-card,
+  .work-regulations-box,
+  .japan-support-entity-box,
+  .bottom-cta-banner-box {
+    padding: 28px 24px !important;
+  }
+
+  /* Disable sticky sidebars on stacked single-column layouts so they don't overlap content */
+  .credentials-card,
+  .contact-form-card {
+    position: static !important;
+    top: auto !important;
+  }
+}
+
+/* --- Medium Tablets (max-width: 860px) --- */
+@media (max-width: 860px) {
+  .top-bar-left {
+    gap: 12px;
+  }
+
+  .top-bar-divider:nth-of-type(2),
+  .top-bar-item:nth-of-type(3) {
+    display: none;
+  }
+
+  .target-gateway-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .target-gateway-section {
+    padding: 40px 0 28px;
+  }
+
+  .stories-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stories-banner-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .video-features-grid,
+  .featured-video-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .youtube-community-card {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+}
+
+/* --- Standard Mobile & Small Tablets (max-width: 768px) --- */
 @media (max-width: 768px) {
-  /* Reduce backdrop-filter blur — one of the most expensive GPU ops */
-  .navbar,
-  .floating-badge,
-  .consultation-modal,
-  .mobile-menu-drawer {
-    backdrop-filter: blur(8px) !important;
-    -webkit-backdrop-filter: blur(8px) !important;
+  .top-bar {
+    font-size: 11px;
+    padding: 6px 0;
   }
 
-  /* Simplify box-shadows to single layer */
-  .target-gateway-card,
-  .program-card,
-  .story-card,
-  .course-card {
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08) !important;
+  .top-bar-right {
+    display: none;
   }
 
-  /* Disable hover transforms on touch (no hover state anyway) */
-  .target-gateway-card:hover,
-  .program-card:hover,
-  .story-card:hover {
-    transform: none !important;
+  .top-bar-container {
+    justify-content: center;
   }
 
-  /* Reduce gate animation complexity on mobile */
-  .gate-scroll-runway {
-    height: 180vh !important;
-  }
-}
-
-/* 4. Very small screens (320px–480px): strip expensive filters entirely */
-@media (max-width: 480px) {
-  img {
-    /* Avoid expensive CSS filters on low-end mobile GPUs */
-    filter: none !important;
+  .top-bar-left {
+    justify-content: center;
+    text-align: center;
   }
 
-  /* Disable floating badge hover animations */
-  .floating-badge {
-    animation: none !important;
+  .navbar {
+    padding: 10px 0;
   }
 
-  /* Reduce box-shadow complexity further */
-  * {
-    text-shadow: none !important;
+  .brand-logo-wrap {
+    width: 44px;
+    height: 44px;
   }
-}
 
-/* 5. Slow network / data-saver: hide video, show poster only */
-@media (prefers-reduced-data: reduce) {
+  .brand-name {
+    font-size: 16px;
+  }
+
+  .brand-sub {
+    font-size: 10px;
+  }
+
+  .hero {
+    padding: 36px 0 56px;
+    min-height: auto;
+  }
+
+  .hero-title {
+    font-size: clamp(26px, 7vw, 36px);
+  }
+
+  .hero-description {
+    font-size: 15px;
+    margin-bottom: 24px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .hero-trust-row {
+    gap: 16px;
+    justify-content: space-between;
+  }
+
+  .trust-metric-value {
+    font-size: 20px;
+  }
+
+  .hero-main-img,
   .hero-main-video {
+    height: 300px;
+  }
+
+  .floating-badge-top {
+    top: 12px;
+    left: 12px;
+    padding: 10px 14px;
+  }
+
+  .floating-badge-bottom {
+    bottom: 90px;
+    right: 12px;
+    padding: 10px 14px;
+  }
+
+  .hero-image-overlay-info {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    padding: 14px;
+  }
+
+  .page-hero {
+    padding: 36px 0 44px;
+  }
+
+  .page-hero-title {
+    font-size: clamp(24px, 6.5vw, 34px);
+  }
+
+  .page-hero-subtitle {
+    font-size: 15px;
+  }
+
+  .page-subnav {
+    top: 66px;
+  }
+
+  .section {
+    padding: 56px 0;
+  }
+
+  .section-header {
+    margin-bottom: 36px;
+  }
+
+  .section-title {
+    font-size: clamp(22px, 6vw, 30px);
+  }
+
+  .section-subtitle {
+    font-size: 15px;
+  }
+
+  .stats-bar {
+    padding: 28px 0;
+  }
+
+  .stat-number {
+    font-size: 26px;
+  }
+
+  .program-card {
+    padding: 24px 20px;
+  }
+
+  .program-highlights {
+    grid-template-columns: 1fr;
+  }
+
+  .roadmap-steps {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .contact-form-card {
+    padding: 24px 20px;
+  }
+
+  .footer {
+    padding: 56px 0 90px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-bottom-links {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .home-cta-banner-inner {
+    padding: 28px 22px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .home-cta-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .home-cta-actions .btn {
+    width: 100%;
+  }
+
+  .modal-card {
+    max-height: 92vh;
+    border-radius: 20px;
+  }
+
+  .modal-header {
+    padding: 22px 20px 16px;
+  }
+
+  .modal-form {
+    padding: 18px 20px 24px;
+  }
+
+  .schedule-table th,
+  .schedule-table td {
+    padding: 12px 14px;
+    font-size: 13px;
+  }
+
+  .FloatingActions-fix {
+    bottom: 16px;
+    right: 16px;
+  }
+
+  .shorts-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .trust-pillars-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .social-connect-card {
+    width: calc(50% - 0.75rem);
+    min-width: 150px;
+    flex: 1 1 150px;
+    max-width: 240px;
+  }
+}
+
+/* --- Large Phones / Phablets (max-width: 640px) --- */
+@media (max-width: 640px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .stat-item::after {
+    display: none;
+  }
+
+  .stat-item {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-md);
+    padding: 14px 10px;
+  }
+
+  .roadmap-steps {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .roadmap-step {
+    background: var(--surface-alt);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+  }
+
+  .floating-badge-top,
+  .floating-badge-bottom {
+    display: none;
+  }
+
+  .target-gateway-card {
+    padding: 24px 18px;
+  }
+
+  .target-card-title {
+    font-size: 21px;
+  }
+
+  .target-card-metrics {
+    grid-template-columns: 1fr 1fr;
+    padding: 12px;
+  }
+
+  .filter-tabs-bar {
+    width: 100%;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+
+  .filter-tab-btn {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .quiz-options-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ssw-tracks-grid,
+  .branches-grid,
+  .courses-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .intake-banner-card {
+    padding: 20px !important;
+  }
+
+  .intake-banner-right {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .intake-banner-right .btn {
+    width: 100%;
+  }
+
+  .yt-community-right {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .video-card-actions .btn,
+  .featured-card-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* --- Small Smartphones (max-width: 480px) --- */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  /* Torii Gate Hero Stage mobile refinements */
+  .gate-scroll-runway .gate-intro-hint {
+    position: fixed !important;
+    top: auto !important;
+    bottom: 6% !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin: 0 auto !important;
+    transform: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+    width: 92vw !important;
+    max-width: 390px !important;
+    height: auto !important;
+    padding: 0 !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+  }
+
+  .gate-scroll-runway .gate-intro-header-block {
+    background: linear-gradient(180deg, rgba(6, 10, 22, 0.85) 0%, rgba(10, 15, 30, 0.95) 100%) !important;
+    padding: 16px 16px 12px !important;
+    border-radius: 20px 20px 8px 8px !important;
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
+    border-bottom: none !important;
+    backdrop-filter: blur(12px) !important;
+    width: 100% !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6) !important;
+    margin-bottom: 0 !important;
+  }
+
+  .gate-scroll-runway .gate-intro-action-block {
+    background: linear-gradient(180deg, rgba(10, 15, 30, 0.95) 0%, rgba(6, 10, 22, 0.98) 100%) !important;
+    padding: 8px 16px 18px !important;
+    border-radius: 8px 8px 20px 20px !important;
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
+    border-top: none !important;
+    backdrop-filter: blur(12px) !important;
+    width: 100% !important;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8) !important;
+    margin-top: 0 !important;
+  }
+
+  .gate-scroll-runway .gate-license-badge {
+    padding: 4px 10px !important;
+    font-size: 9px !important;
+    margin-bottom: 6px !important;
+    letter-spacing: 0.4px !important;
+  }
+
+  .gate-scroll-runway .gate-hero-title {
+    font-size: clamp(20px, 6vw, 24px) !important;
+    margin-bottom: 4px !important;
+    line-height: 1.15 !important;
+  }
+
+  .gate-scroll-runway .gate-hero-sub {
+    font-size: 11px !important;
+    margin-top: 4px !important;
+    letter-spacing: 0.5px !important;
+  }
+
+  .gate-scroll-runway .gate-hero-desc {
     display: none !important;
   }
-  .hero-image-card::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: url('/images/atsuko-drone-wide.jpg') center/cover no-repeat;
-    border-radius: inherit;
+
+  .gate-scroll-runway .gate-cta-row {
+    flex-direction: column !important;
+    gap: 8px !important;
+    width: 100% !important;
+    margin-bottom: 10px !important;
+  }
+
+  .gate-scroll-runway .gate-cta-row .btn {
+    width: 100% !important;
+    padding: 11px 16px !important;
+    font-size: 13px !important;
+    justify-content: center !important;
+  }
+
+  .gate-scroll-runway .gate-scroll-hint {
+    padding: 4px 12px !important;
+    font-size: 9px !important;
+    letter-spacing: 1px !important;
+  }
+
+  .top-bar {
+    display: none;
+  }
+
+  .hero-badge {
+    font-size: 11px;
+    padding: 6px 12px;
+  }
+
+  .hero-trust-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .trust-divider {
+    display: none;
+  }
+
+  .hero-main-img,
+  .hero-main-video {
+    height: 240px;
+  }
+
+  .subnav-pill {
+    padding: 7px 12px;
+    font-size: 12px;
+  }
+
+  .btn-lg {
+    padding: 14px 20px;
+    font-size: 14.5px;
+  }
+
+  .course-card,
+  .story-card,
+  .branch-card,
+  .faq-item {
+    padding: 20px 16px;
+  }
+
+  .eligibility-cta-card {
+    padding: 22px 16px;
+  }
+
+  .office-detail-card.active-office-card,
+  .contact-form-card,
+  .credentials-card,
+  .mv-card,
+  .presence-card,
+  .work-regulations-box,
+  .japan-support-entity-box,
+  .bottom-cta-banner-box {
+    padding: 20px 16px !important;
+  }
+
+  .bcta-buttons-row,
+  .office-card-actions,
+  .branch-action-buttons,
+  .result-action-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .bcta-buttons-row .btn,
+  .office-card-actions .btn,
+  .branch-action-buttons .btn,
+  .result-action-buttons .btn {
+    width: 100%;
+  }
+
+  .floating-actions {
+    bottom: 14px;
+    right: 14px;
+    gap: 8px;
+  }
+
+  .floating-launcher-btn {
+    padding: 10px 14px;
+    height: 46px;
+  }
+
+  .floating-launcher-text {
+    font-size: 12px;
+  }
+
+  .scroll-top-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .shorts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .social-connect-card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .yt-community-right {
+    grid-template-columns: 1fr;
+  }
+
+  .japandi-title {
+    font-size: 2.25rem;
+  }
+
+  .japandi-hero,
+  .japandi-stats {
+    padding: 3.5rem 1rem;
+  }
+
+  .program-header {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .program-badge {
+    font-size: 10.5px;
+    padding: 4px 10px;
+  }
+
+  .program-title {
+    font-size: 20px;
+  }
+
+  .eligibility-progress-bar {
+    gap: 6px;
+  }
+
+  .step-indicator {
+    font-size: 11px;
+    padding: 6px 10px;
+  }
+
+  .wizard-nav {
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+
+  .wizard-nav .btn {
+    width: 100%;
+  }
+
+  .quiz-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .cost-total-estimate {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
   }
 }
 
-/* 6. High contrast mode support */
-@media (prefers-contrast: high) {
-  .text-gradient-red,
-  .text-gradient-gold {
-    background: none !important;
-    -webkit-background-clip: unset !important;
-    -webkit-text-fill-color: unset !important;
-    color: #dc2626 !important;
+/* --- Extra Small Devices (Galaxy Fold / iPhone SE - max-width: 360px) --- */
+@media (max-width: 360px) {
+  .brand-sub {
+    display: none;
+  }
+
+  .hero-title {
+    font-size: 24px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .target-card-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .floating-launcher-text {
+    display: none;
+  }
+
+  .floating-launcher-btn {
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    justify-content: center;
+    border-radius: 50%;
   }
 }
 
-/* 7. Torii gate hero on short landscape screens (phones held sideways).
-   Width-based mobile rules above don't know the screen is short, so the
-   full copy stack covered the gate. Here we keep only title + CTA and pin
-   them to the lower archway so the whole gate stays visible. */
+/* --- Short Landscape Mobile Screens (phones held sideways) --- */
 @media (orientation: landscape) and (max-height: 500px) {
   .gate-scroll-runway .gate-hero-desc,
   .gate-scroll-runway .gate-license-badge,
@@ -8635,4 +7841,100 @@ body {
     font-size: 11px !important;
   }
 }
+
+/* --- Touch Device & Hover Guard (Prevents sticky hover states on mobile) --- */
+@media (hover: hover) and (pointer: fine) {
+  .program-card:hover,
+  .course-card:hover,
+  .branch-card:hover,
+  .story-card:hover,
+  .target-gateway-card:hover,
+  .video-feature-card:hover,
+  .featured-video-card:hover,
+  .short-video-card:hover,
+  .trust-pillar-card:hover,
+  .social-connect-card:hover {
+    transform: translateY(-6px);
+  }
+}
+
+/* --- Tactile Active Feedback for All Devices (Touch + Pointer) --- */
+.btn:active,
+.subnav-pill:active,
+.filter-tab-btn:active,
+.nav-link:active,
+.mobile-nav-link:active,
+.floating-launcher-btn:active {
+  transform: scale(0.98);
+}
+
+/* ============================================================
+   19. PERFORMANCE & ACCESSIBILITY OPTIMIZATIONS (ZERO QUALITY LOSS)
+   - content-visibility: auto on below-the-fold sections only
+   - Full visual fidelity preserved across all devices (no shadow/filter stripping)
+   - Respects prefers-reduced-motion, prefers-reduced-data, prefers-contrast
+   ============================================================ */
+
+/* 1. Defer off-screen rendering for below-the-fold sections without clipping sticky sidebars or above-the-fold hero */
+.target-gateway-section,
+.stats-bar,
+#programs,
+#training,
+#eligibility,
+#branches,
+#faq,
+.shorts-showcase-section,
+.home-cta-banner,
+.footer {
+  content-visibility: auto;
+  contain-intrinsic-size: auto none auto 600px;
+}
+
+/* 2. Respect system reduced-motion preference (accessibility) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .floating-badge,
+  .hero-pill,
+  .gate-scroll-runway,
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* 3. Slow network / data-saver: hide background video, show poster image */
+@media (prefers-reduced-data: reduce) {
+  .hero-main-video {
+    display: none !important;
+  }
+
+  .hero-image-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('/images/atsuko-drone-wide.jpg') center/cover no-repeat;
+    border-radius: inherit;
+  }
+}
+
+/* 4. High contrast mode support */
+@media (prefers-contrast: high) {
+  .text-gradient-red,
+  .text-gradient-gold {
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: unset !important;
+    color: #dc2626 !important;
+  }
+}
+
 

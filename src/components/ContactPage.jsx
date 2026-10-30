@@ -43,7 +43,7 @@ export default function ContactPage({ lang }) {
       country: 'Sri Lanka',
       badge: 'Main Campus & Simulation Lab',
       address: '191/3/1, Sirimavo Bandaranayake Mawatha, Mahara, Kadawatha, 11850',
-      embedUrl: 'https://maps.google.com/maps?q=191%2F3%2F1%2C+Sirimavo+Bandaranayake+Mawatha%2C+Mahara%2C+Kadawatha%2C+Sri+Lanka&t=&z=16&ie=UTF8&iwloc=&output=embed',
+      embedUrl: 'https://www.google.com/maps/embed?origin=mfe&pb=!1m3!2m1!1s191/3/1,+Sirimavo+Bandaranayake+Mawatha,+Mahara,+Kadawatha,+Sri+Lanka!6i16',
       mapsUrl: 'https://www.google.com/maps/search/?api=1&query=191%2F3%2F1+Sirimavo+Bandaranayake+Mawatha+Mahara+Kadawatha',
       directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=191%2F3%2F1+Sirimavo+Bandaranayake+Mawatha+Mahara+Kadawatha',
       transitHint: ui.liveMapHintSl || 'Sirimavo Bandaranayake Mawatha, Mahara, Kadawatha (Near Kandy Road & Kadawatha Interchange)'
@@ -54,7 +54,7 @@ export default function ContactPage({ lang }) {
       country: 'Sri Lanka',
       badge: 'Registered Corporate Office',
       address: '712/B/1/1, Thorana Junction, Kelaniya, Western Province',
-      embedUrl: 'https://maps.google.com/maps?q=712%2FB%2F1%2F1%2C+Thorana+Junction%2C+Kelaniya%2C+Sri+Lanka&t=&z=16&ie=UTF8&iwloc=&output=embed',
+      embedUrl: 'https://www.google.com/maps/embed?origin=mfe&pb=!1m3!2m1!1s712/B/1/1,+Thorana+Junction,+Kelaniya,+Sri+Lanka!6i16',
       mapsUrl: 'https://www.google.com/maps/search/?api=1&query=712%2FB%2F1%2F1+Thorana+Junction+Kelaniya',
       directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=712%2FB%2F1%2F1+Thorana+Junction+Kelaniya',
       transitHint: 'Thorana Junction commercial area • Direct access from Colombo-Kandy main bus route'
@@ -65,7 +65,7 @@ export default function ContactPage({ lang }) {
       country: 'Japan',
       badge: 'Registered Support Organization (23登-008312)',
       address: 'Sendai City, Miyagi Prefecture, Japan',
-      embedUrl: 'https://maps.google.com/maps?q=Sendai%2C+Miyagi+Prefecture%2C+Japan&t=&z=12&ie=UTF8&iwloc=&output=embed',
+      embedUrl: 'https://www.google.com/maps/embed?origin=mfe&pb=!1m3!2m1!1sSendai,+Miyagi+Prefecture,+Japan!6i12',
       mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Sendai+Miyagi+Prefecture+Japan',
       directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=Sendai+Miyagi+Prefecture+Japan',
       transitHint: ui.liveMapHintJp || 'Sendai City, Miyagi Prefecture Support Entity'
@@ -76,7 +76,7 @@ export default function ContactPage({ lang }) {
       country: 'Japan',
       badge: 'Chubu Regional Office',
       address: 'Komaki City, Aichi Prefecture, Japan',
-      embedUrl: 'https://maps.google.com/maps?q=Komaki%2C+Aichi+Prefecture%2C+Japan&t=&z=12&ie=UTF8&iwloc=&output=embed',
+      embedUrl: 'https://www.google.com/maps/embed?origin=mfe&pb=!1m3!2m1!1sKomaki,+Aichi+Prefecture,+Japan!6i12',
       mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Komaki+Aichi+Prefecture+Japan',
       directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=Komaki+Aichi+Prefecture+Japan',
       transitHint: 'Aichi / Chubu Industrial and Nursing Network liaison'
@@ -219,7 +219,7 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
       {/* 2. Main Dual-Column: Official Locations & Contact Form */}
       <section className="section" style={{ background: '#ffffff' }}>
         <div className="container">
-          <div className="contact-main-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2.5rem' }}>
+          <div className="contact-main-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: 'clamp(1.5rem, 3vw, 2.5rem)' }}>
             {/* Left Column: Official Sri Lanka & Japan Operating Bases */}
             <div className="contact-offices-col">
 

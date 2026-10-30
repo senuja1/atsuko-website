@@ -155,28 +155,35 @@ export default function JapaneseGateScrollStage({
   const sunriseOverlayRef = useRef(null);
   const watermarkRef = useRef(null);
 
-  // Safe 2.5D Parallax: Smooth mouse-move tracking for CSS custom properties (--mouse-x, --mouse-y)
+  // Safe 2.5D Parallax: Demand-driven smooth mouse-move tracking for CSS custom properties (--mouse-x, --mouse-y)
   useEffect(() => {
+    if (typeof window !== 'undefined' && window.matchMedia && !window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      return undefined;
+    }
+
     let mouseX = 0;
     let mouseY = 0;
     let targetMouseX = 0;
     let targetMouseY = 0;
-    let animId;
-
-    const handleMouseMove = (e) => {
-      const { innerWidth, innerHeight } = window;
-      targetMouseX = (e.clientX / innerWidth) * 2 - 1;
-      targetMouseY = (e.clientY / innerHeight) * 2 - 1;
-    };
-
-    const handleMouseLeave = () => {
-      targetMouseX = 0;
-      targetMouseY = 0;
-    };
+    let animId = null;
 
     const updateParallax = () => {
-      mouseX += (targetMouseX - mouseX) * 0.08;
-      mouseY += (targetMouseY - mouseY) * 0.08;
+      const dx = targetMouseX - mouseX;
+      const dy = targetMouseY - mouseY;
+
+      if (Math.abs(dx) < 0.0005 && Math.abs(dy) < 0.0005) {
+        mouseX = targetMouseX;
+        mouseY = targetMouseY;
+        if (containerRef.current) {
+          containerRef.current.style.setProperty('--mouse-x', mouseX.toFixed(4));
+          containerRef.current.style.setProperty('--mouse-y', mouseY.toFixed(4));
+        }
+        animId = null;
+        return;
+      }
+
+      mouseX += dx * 0.08;
+      mouseY += dy * 0.08;
 
       if (containerRef.current) {
         containerRef.current.style.setProperty('--mouse-x', mouseX.toFixed(4));
@@ -185,31 +192,51 @@ export default function JapaneseGateScrollStage({
       animId = requestAnimationFrame(updateParallax);
     };
 
+    const scheduleParallax = () => {
+      if (animId === null) {
+        animId = requestAnimationFrame(updateParallax);
+      }
+    };
+
+    const handleMouseMove = (e) => {
+      const { innerWidth, innerHeight } = window;
+      targetMouseX = (e.clientX / innerWidth) * 2 - 1;
+      targetMouseY = (e.clientY / innerHeight) * 2 - 1;
+      scheduleParallax();
+    };
+
+    const handleMouseLeave = () => {
+      targetMouseX = 0;
+      targetMouseY = 0;
+      scheduleParallax();
+    };
+
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
     document.addEventListener('mouseleave', handleMouseLeave);
-    animId = requestAnimationFrame(updateParallax);
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseleave', handleMouseLeave);
-      cancelAnimationFrame(animId);
+      if (animId !== null) cancelAnimationFrame(animId);
     };
   }, []);
 
-  // Silky scroll loop — scroll tracking merged into rAF to avoid layout thrash
+  // Silky scroll loop — demand-driven rAF that runs at 60fps during scroll interpolation and rests at 0% CPU when settled or offscreen
   useEffect(() => {
-    let animId;
+    let animId = null;
     let targetP = 0;
     let currentP = 0;
     // Cache container metrics to avoid getBoundingClientRect every frame
     let containerTop = 0;
+    let containerHeight = 0;
     let totalHeight = 0;
 
     const cacheMetrics = () => {
       if (!containerRef.current) return;
       const rect = containerRef.current.getBoundingClientRect();
       containerTop = window.scrollY + rect.top;
-      totalHeight = containerRef.current.offsetHeight - window.innerHeight;
+      containerHeight = containerRef.current.offsetHeight;
+      totalHeight = containerHeight - window.innerHeight;
     };
 
     const updateTarget = () => {
@@ -222,40 +249,7 @@ export default function JapaneseGateScrollStage({
       }
     };
 
-    const render = () => {
-      // Update target from latest scroll position (no DOM read, just cached math)
-      updateTarget();
-
-      if (window.scrollY <= 5) {
-        targetP = 0;
-        currentP = 0;
-      } else {
-        const diff = targetP - currentP;
-        if (Math.abs(diff) < 0.0008) {
-          currentP = targetP;
-        } else {
-          // Smoother lerp: 0.12 feels buttery vs 0.22 which can feel choppy
-          currentP += diff * 0.12;
-        }
-      }
-
-      const p = currentP;
-
-      if (!containerRef.current) {
-        animId = requestAnimationFrame(render);
-        return;
-      }
-
-      // Cheap visibility check using cached metrics (no getBoundingClientRect)
-      const approxBottom = containerTop + containerRef.current.offsetHeight - window.scrollY;
-      if (approxBottom < 0) {
-        if (gateLayerRef.current && gateLayerRef.current.style.visibility !== 'hidden') {
-          gateLayerRef.current.style.visibility = 'hidden';
-        }
-        animId = requestAnimationFrame(render);
-        return;
-      }
-
+    const applyStageFrame = (p) => {
       // 1. Background Atmosphere Glow
       if (bgAtmosphereRef.current) {
         bgAtmosphereRef.current.style.transform = `scale3d(${1 + p * 0.25}, ${1 + p * 0.25}, 1)`;
@@ -318,27 +312,87 @@ export default function JapaneseGateScrollStage({
         const sunriseOpacity = p > 0.4 ? Math.min(1, (p - 0.4) / 0.35) : 0;
         sunriseOverlayRef.current.style.opacity = sunriseOpacity;
       }
+    };
 
+    const render = () => {
+      if (!containerRef.current) {
+        animId = null;
+        return;
+      }
+
+      updateTarget();
+
+      // Cheap visibility check using cached metrics (no getBoundingClientRect)
+      const approxBottom = containerTop + containerHeight - window.scrollY;
+      if (approxBottom < -100) {
+        currentP = targetP;
+        if (gateLayerRef.current && gateLayerRef.current.style.visibility !== 'hidden') {
+          gateLayerRef.current.style.visibility = 'hidden';
+        }
+        animId = null;
+        return;
+      }
+
+      if (window.scrollY <= 5) {
+        targetP = 0;
+      }
+
+      const diff = targetP - currentP;
+      const isSettled = Math.abs(diff) < 0.0005;
+
+      if (isSettled) {
+        currentP = targetP;
+        applyStageFrame(currentP);
+        animId = null;
+        return;
+      }
+
+      currentP += diff * 0.14;
+      applyStageFrame(currentP);
       animId = requestAnimationFrame(render);
+    };
+
+    const scheduleRender = () => {
+      if (animId === null) {
+        animId = requestAnimationFrame(render);
+      }
+    };
+
+    const handleScroll = () => {
+      scheduleRender();
     };
 
     const handleResize = () => {
       cacheMetrics();
+      scheduleRender();
     };
 
     // Cache on mount, re-cache on resize
-    // Use requestAnimationFrame to ensure DOM is laid out first
     const initRaf = requestAnimationFrame(() => {
       cacheMetrics();
-      animId = requestAnimationFrame(render);
+      updateTarget();
+      currentP = targetP;
+      applyStageFrame(currentP);
     });
 
+    window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('resize', handleResize, { passive: true });
+
+    let resizeObserver;
+    if (typeof ResizeObserver !== 'undefined' && containerRef.current) {
+      resizeObserver = new ResizeObserver(() => {
+        cacheMetrics();
+        scheduleRender();
+      });
+      resizeObserver.observe(containerRef.current);
+    }
 
     return () => {
       cancelAnimationFrame(initRaf);
-      cancelAnimationFrame(animId);
+      if (animId !== null) cancelAnimationFrame(animId);
+      window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleResize);
+      if (resizeObserver) resizeObserver.disconnect();
     };
   }, []);
 
@@ -349,19 +403,8 @@ export default function JapaneseGateScrollStage({
     if (!bgCanvas || !fgCanvas) return;
     const bgCtx = bgCanvas.getContext('2d');
     const fgCtx = fgCanvas.getContext('2d');
-    let animId;
+    let animId = null;
     let isVisible = true;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        isVisible = entry.isIntersecting;
-      },
-      { rootMargin: '100px' }
-    );
-
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
 
     const resize = () => {
       const w = window.innerWidth;
@@ -372,7 +415,7 @@ export default function JapaneseGateScrollStage({
       fgCanvas.height = h;
     };
     resize();
-    window.addEventListener('resize', resize);
+    window.addEventListener('resize', resize, { passive: true });
 
     // Background petals layer (behind the gate)
     const bgPetals = Array.from({ length: 22 }, () => ({
@@ -403,26 +446,22 @@ export default function JapaneseGateScrollStage({
     fgPetals.forEach(p => { p.rotRad = (p.rotation * Math.PI) / 180; p.rotSpeedRad = (p.rotSpeed * Math.PI) / 180; });
 
     let lastTime = 0;
-    const render = (timestamp) => {
-      // Throttle to ~30fps for petals — imperceptible difference, halves GPU load
-      if (timestamp - lastTime < 33) {
-        animId = requestAnimationFrame(render);
-        return;
-      }
-      lastTime = timestamp;
-
+    const render = (timestamp = 0) => {
       if (!isVisible) {
-        animId = requestAnimationFrame(render);
+        animId = null;
         return;
       }
+
+      const dt = lastTime ? Math.min(2.5, (timestamp - lastTime) / 16.667) : 1;
+      lastTime = timestamp;
 
       // Render background petals
       bgCtx.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
       bgCtx.fillStyle = '#ffb3c1';
       bgPetals.forEach((p) => {
-        p.x += p.speedX;
-        p.y += p.speedY;
-        p.rotRad += p.rotSpeedRad;
+        p.x += p.speedX * (dt * 0.55);
+        p.y += p.speedY * (dt * 0.55);
+        p.rotRad += p.rotSpeedRad * (dt * 0.55);
 
         if (p.y > bgCanvas.height + 20) { p.y = -20; p.x = Math.random() * bgCanvas.width; }
         if (p.x > bgCanvas.width + 20) { p.x = -20; }
@@ -441,9 +480,9 @@ export default function JapaneseGateScrollStage({
       fgCtx.clearRect(0, 0, fgCanvas.width, fgCanvas.height);
       fgCtx.fillStyle = '#ffccd5';
       fgPetals.forEach((p) => {
-        p.x += p.speedX;
-        p.y += p.speedY;
-        p.rotRad += p.rotSpeedRad;
+        p.x += p.speedX * (dt * 0.55);
+        p.y += p.speedY * (dt * 0.55);
+        p.rotRad += p.rotSpeedRad * (dt * 0.55);
 
         if (p.y > fgCanvas.height + 30) { p.y = -30; p.x = Math.random() * fgCanvas.width; }
         if (p.x > fgCanvas.width + 30) { p.x = -30; }
@@ -461,10 +500,26 @@ export default function JapaneseGateScrollStage({
       animId = requestAnimationFrame(render);
     };
 
-    render();
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const wasVisible = isVisible;
+        isVisible = entry.isIntersecting;
+        if (isVisible && !wasVisible && animId === null) {
+          lastTime = 0;
+          animId = requestAnimationFrame(render);
+        }
+      },
+      { rootMargin: '100px' }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    animId = requestAnimationFrame(render);
 
     return () => {
-      cancelAnimationFrame(animId);
+      if (animId !== null) cancelAnimationFrame(animId);
       window.removeEventListener('resize', resize);
       observer.disconnect();
     };

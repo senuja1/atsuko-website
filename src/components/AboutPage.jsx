@@ -182,7 +182,7 @@ export default function AboutPage({ lang, onOpenModal, onNavigate }) {
       {/* 3. Managing Director's Message */}
       <section className="section section-alt">
         <div className="container">
-          <div className="md-message-box" style={{ background: '#ffffff', borderRadius: 'var(--radius-xl)', padding: '2.5rem', boxShadow: '0 4px 20px rgba(0,0,0,0.05)', border: '1px solid #e2e8f0' }}>
+          <div className="md-message-box" style={{ background: '#ffffff', borderRadius: 'var(--radius-xl)', padding: 'clamp(1.25rem, 4vw, 2.5rem)', boxShadow: '0 4px 20px rgba(0,0,0,0.05)', border: '1px solid #e2e8f0' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
               <span className="section-badge badge-gold">
                 <MessageSquare size={14} />
@@ -197,7 +197,7 @@ export default function AboutPage({ lang, onOpenModal, onNavigate }) {
               {ui.mdTitle}
             </h2>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem', marginTop: '1.5rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: '2rem', marginTop: '1.5rem' }}>
               <div style={{ borderLeft: '4px solid #ef4444', paddingLeft: '1.25rem' }}>
                 <p style={{ fontStyle: 'italic', color: 'var(--navy-900)', fontSize: '1.05rem', lineHeight: 1.7, marginBottom: '1rem' }}>
                   "{lang === 'si'
@@ -250,7 +250,7 @@ export default function AboutPage({ lang, onOpenModal, onNavigate }) {
             </p>
           </div>
 
-          <div className="leadership-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
+          <div className="leadership-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '1.5rem' }}>
             {aboutUsData.teamMembers.map((member, idx) => (
               <div key={idx} className="leader-card" style={{ background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: 'var(--radius-lg)', padding: '1.5rem', transition: 'all 0.2s ease' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', marginBottom: '1rem' }}>
@@ -413,7 +413,7 @@ export default function AboutPage({ lang, onOpenModal, onNavigate }) {
             </p>
           </div>
 
-          <div className="presence-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))' }}>
+          <div className="presence-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))' }}>
             {ui.guaranteesList.map((item, idx) => (
               <div key={idx} className="credentials-card" style={{ background: '#f8fafc', border: '1px solid #e2e8f0', padding: '1.75rem' }}>
                 <span style={{ fontSize: '0.8rem', color: '#dc2626', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', display: 'flex', alignItems: 'center', gap: '5px' }}>

@@ -272,7 +272,7 @@ export default function StudentLifePage({ lang, onOpenModal, onNavigate }) {
             </p>
           </div>
 
-          <div className="presence-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
+          <div className="presence-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))' }}>
             {assessmentCards.map((card, idx) => (
               <div key={idx} className="credentials-card" style={{ background: '#f8fafc', border: '1px solid #e2e8f0' }}>
                 <div style={{ fontSize: '2rem', marginBottom: '0.75rem' }}>{card.icon}</div>

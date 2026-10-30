@@ -1072,7 +1072,7 @@ export const videoSuccessStories = [
     badge: "Featured In-Depth Story",
     description: "Comprehensive insight into how Atsuko International provides transparent, end-to-end guidance from basic Japanese language classes in Kadawatha to official visa clearance and confident settlement in Japan.",
     youtubeUrl: "https://youtu.be/DwIbi9WMrn4?si=R7beMuL8HPwpQaNp",
-    embedUrl: "https://www.youtube-nocookie.com/embed/DwIbi9WMrn4",
+    embedUrl: "https://www.youtube.com/embed/DwIbi9WMrn4?rel=0",
     highlights: ["SLBFE Lic. #3293 Legal Processing", "Kadawatha to Japan Direct Support", "Zero Initial Fee Until Approval"]
   },
   {
@@ -1087,7 +1087,7 @@ export const videoSuccessStories = [
     badge: "Classroom Feedback",
     description: "A student from Batch 17 of our Japanese Language Course shares her heartfelt feedback on their final day of classes, discussing the teaching quality, audio listening drills, and how Atsuko prepared her for the JLPT/JFT examinations.",
     youtubeUrl: "https://youtu.be/4ZSTvGbNCAM?si=92fJ2xtWsvGFgtIN",
-    embedUrl: "https://www.youtube-nocookie.com/embed/4ZSTvGbNCAM",
+    embedUrl: "https://www.youtube.com/embed/4ZSTvGbNCAM?rel=0",
     highlights: ["Interactive Classrooms at Kadawatha", "Dedicated Sensei Coaching", "Exam Techniques & Confidence"]
   },
   {
@@ -1102,7 +1102,7 @@ export const videoSuccessStories = [
     badge: "YouTube Short",
     description: "Direct student testimonial highlighting her learning experience, friendly classroom culture, and rapid progress in Japanese conversation.",
     youtubeUrl: "https://youtube.com/shorts/lhdl9_nXAnE?si=H2rifbnBwhZRh4i4",
-    embedUrl: "https://www.youtube-nocookie.com/embed/lhdl9_nXAnE"
+    embedUrl: "https://www.youtube.com/embed/lhdl9_nXAnE?rel=0"
   },
   {
     id: "buiqb1nwloo",
@@ -1116,7 +1116,7 @@ export const videoSuccessStories = [
     badge: "YouTube Short",
     description: "Inspiring candidate sharing her pathway to Japan, trusting Atsuko International's government-licensed guidance and dedicated support team.",
     youtubeUrl: "https://youtube.com/shorts/buiQB1nwloo?si=j4pVnl9ONzOqjHY5",
-    embedUrl: "https://www.youtube-nocookie.com/embed/buiQB1nwloo"
+    embedUrl: "https://www.youtube.com/embed/buiQB1nwloo?rel=0"
   },
   {
     id: "lpol8ppqsnm",
@@ -1130,7 +1130,7 @@ export const videoSuccessStories = [
     badge: "SSW Work Victory",
     description: "Celebrating another proud Atsuko candidate who successfully passed her Prometric Food Service exams and secured direct legal employment in Japan.",
     youtubeUrl: "https://youtube.com/shorts/LPol8PPQsnM?si=cVnnxakZZcPTgxZ0",
-    embedUrl: "https://www.youtube-nocookie.com/embed/LPol8PPQsnM"
+    embedUrl: "https://www.youtube.com/embed/LPol8PPQsnM?rel=0"
   },
   {
     id: "i8slmrh5apc",
@@ -1144,7 +1144,7 @@ export const videoSuccessStories = [
     badge: "SSW Work Victory",
     description: "Real emotions and victory celebration of an Atsuko candidate embarking on her Specified Skilled Worker career in Japan's hospitality and restaurant sector.",
     youtubeUrl: "https://youtube.com/shorts/I8SlMRh5APc?si=gPR7Zp2rKJmHR3zl",
-    embedUrl: "https://www.youtube-nocookie.com/embed/I8SlMRh5APc"
+    embedUrl: "https://www.youtube.com/embed/I8SlMRh5APc?rel=0"
   },
   {
     id: "tw_y7l7qlli",
@@ -1158,7 +1158,7 @@ export const videoSuccessStories = [
     badge: "Caregiver Training",
     description: "Inside our dedicated nursing & elderly care simulation facility at Kadawatha, preparing candidates with clinical Japanese, patient transfer techniques, and Prometric test success.",
     youtubeUrl: "https://youtube.com/shorts/tw_y7l7qllI?si=J225Zhs4NgCfgWP9",
-    embedUrl: "https://www.youtube-nocookie.com/embed/tw_y7l7qllI"
+    embedUrl: "https://www.youtube.com/embed/tw_y7l7qllI?rel=0"
   },
   {
     id: "hvbtzchk430",
@@ -1172,7 +1172,7 @@ export const videoSuccessStories = [
     badge: "Student Victory",
     description: "Heartfelt celebration and genuine student appreciation after obtaining official visa clearance through Atsuko International's licensed pathway to Japan.",
     youtubeUrl: "https://youtube.com/shorts/hvBtzchK430?si=dnF9aDbyVYk4MScL",
-    embedUrl: "https://www.youtube-nocookie.com/embed/hvBtzchK430"
+    embedUrl: "https://www.youtube.com/embed/hvBtzchK430?rel=0"
   },
   {
     id: "r48idvabhvu",
@@ -1186,7 +1186,7 @@ export const videoSuccessStories = [
     badge: "Guidance Story",
     description: "Student testimonial explaining how Atsuko International's direct sensei mentorship and transparent SLBFE documentation made the journey to Japan smooth and stress-free.",
     youtubeUrl: "https://youtube.com/shorts/R48IDvAbhVU?si=HBx9qhBc_4MD8KSh",
-    embedUrl: "https://www.youtube-nocookie.com/embed/R48IDvAbhVU"
+    embedUrl: "https://www.youtube.com/embed/R48IDvAbhVU?rel=0"
   },
   {
     id: "bhazrf4_oyo",
@@ -1200,7 +1200,7 @@ export const videoSuccessStories = [
     badge: "Exam Success",
     description: "Candidate who successfully passed the Japan Foundation Test for Basic Japanese (JFT-Basic) shares how Atsuko's intensive mock questions and audio labs secured her victory.",
     youtubeUrl: "https://youtube.com/shorts/BHaZrf4-oyo?si=yhRGqp1x4eMEBPeP",
-    embedUrl: "https://www.youtube-nocookie.com/embed/BHaZrf4-oyo"
+    embedUrl: "https://www.youtube.com/embed/BHaZrf4-oyo?rel=0"
   }
 ];
 
