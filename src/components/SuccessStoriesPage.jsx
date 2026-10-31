@@ -118,6 +118,7 @@ export default function SuccessStoriesPage({ lang, onOpenModal }) {
                       title={video.title}
                       loading="lazy"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerPolicy="strict-origin-when-cross-origin"
                       allowFullScreen
                     ></iframe>
                   </div>
@@ -185,6 +186,7 @@ export default function SuccessStoriesPage({ lang, onOpenModal }) {
                       title={short.title}
                       loading="lazy"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerPolicy="strict-origin-when-cross-origin"
                       allowFullScreen
                     ></iframe>
                   </div>
