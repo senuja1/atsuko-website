@@ -1360,9 +1360,9 @@ export const studentSocialComments = [
     originalText: "බය නැතිව ජපන් යන්න හොදම තැනක්",
     translationEn: "The absolute best place to go to Japan with total confidence and zero fear.",
     translationJp: "不安なく安心して日本へ渡航できる、最高の場所です。",
-    badge: "Verified Review",
-    badgeSi: "තහවුරු කළ අදහසක්",
-    badgeJp: "公認レビュー",
+    badge: "Atsuko Student 🎓",
+    badgeSi: "ඇට්සුකෝ ශිෂ්‍ය 🎓",
+    badgeJp: "アツコ受講生 🎓",
     likes: 27,
     lovedByAtsuko: true
   },

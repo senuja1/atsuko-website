@@ -18,8 +18,7 @@ import {
   Globe2,
   MessageSquare,
   Star,
-  ThumbsUp,
-  Heart
+  ThumbsUp
 } from 'lucide-react';
 import Hero from './Hero';
 import StatsBar from './StatsBar';
@@ -296,17 +295,7 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
                         <ThumbsUp size={14} style={{ color: '#0284c7' }} />
                         <span>{item.likes}</span>
                       </span>
-                      {item.lovedByAtsuko && (
-                        <span className="action-heart-pill" title="Loved by Atsuko Sensei">
-                          <Heart size={13} fill="#ef4444" color="#ef4444" />
-                          <span>{lang === 'si' ? 'සෙන්සෙයි අගය කළා' : lang === 'jp' ? '先生のお気に入り' : 'Sensei Loved'}</span>
-                        </span>
-                      )}
                     </div>
-                    <span className="comment-site-verified">
-                      <CheckCircle2 size={13} style={{ color: '#059669' }} />
-                      <span>{lang === 'si' ? 'තහවුරු කළ අදහස' : lang === 'jp' ? '公認レビュー' : 'Verified Review'}</span>
-                    </span>
                   </div>
                 </div>
               ))}

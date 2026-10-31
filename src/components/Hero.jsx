@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import { CheckCircle2, Award, ShieldCheck, GraduationCap, Briefcase, FileCheck, Globe2, MapPin } from 'lucide-react';
 import { siteTranslations } from '../data/translations';
 import { officialContacts } from '../data/websiteData';
@@ -6,6 +7,33 @@ import { getUiText } from '../data/uiText';
 export default function Hero({ lang, onOpenModal, onScrollToEligibility }) {
   const t = siteTranslations[lang]?.hero || siteTranslations.en.hero;
   const b = getUiText(lang).heroBadges;
+  const videoRef = useRef(null);
+
+  // Mobile smoothness: Play video only when in viewport, pause when offscreen
+  // to eliminate mobile background decoding stalls, GPU hitching, and network buffering
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          const playPromise = video.play();
+          if (playPromise !== undefined) {
+            playPromise.catch(() => {
+              // Gracefully handle browser autoplay policies or low power mode
+            });
+          }
+        } else {
+          video.pause();
+        }
+      },
+      { threshold: 0.15 }
+    );
+
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section className="hero" id="hero-section">
@@ -69,12 +97,13 @@ export default function Hero({ lang, onOpenModal, onScrollToEligibility }) {
         <div className="hero-image-wrapper">
           <div className="hero-image-card">
             <video 
-              src="/videos/atsuko-drone-intro.mp4" 
+              ref={videoRef}
               poster="/images/atsuko-drone-wide.jpg"
               autoPlay 
               loop 
               muted 
               playsInline
+              webkit-playsinline="true"
               preload="metadata"
               className="hero-main-video"
               title="Atsuko International Headquarters - Drone Video"

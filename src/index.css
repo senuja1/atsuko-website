@@ -1705,6 +1705,13 @@ html[lang="jp"] .stat-label,
   aspect-ratio: 4 / 3;
   background: #cbd5e1;
   position: relative;
+  /* Hardware acceleration layer isolation for mobile video rendering */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  isolation: isolate;
 }
 
 .hero-main-img,
@@ -1713,6 +1720,11 @@ html[lang="jp"] .stat-label,
   height: 100%;
   object-fit: cover;
   display: block;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 

@@ -156,22 +156,35 @@ export default function JapaneseGateScrollStage({
   const watermarkRef = useRef(null);
 
   // Safe 2.5D Parallax: Smooth mouse-move tracking for CSS custom properties (--mouse-x, --mouse-y)
+  // Only active on devices with a mouse/fine pointer — completely disabled on mobile/touch to eliminate frame drops
   useEffect(() => {
+    const isFinePointer = typeof window !== 'undefined' && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    if (!isFinePointer) return;
+
     let mouseX = 0;
     let mouseY = 0;
     let targetMouseX = 0;
     let targetMouseY = 0;
-    let animId;
+    let animId = null;
+    let isMoving = false;
 
     const handleMouseMove = (e) => {
       const { innerWidth, innerHeight } = window;
       targetMouseX = (e.clientX / innerWidth) * 2 - 1;
       targetMouseY = (e.clientY / innerHeight) * 2 - 1;
+      if (!isMoving) {
+        isMoving = true;
+        animId = requestAnimationFrame(updateParallax);
+      }
     };
 
     const handleMouseLeave = () => {
       targetMouseX = 0;
       targetMouseY = 0;
+      if (!isMoving) {
+        isMoving = true;
+        animId = requestAnimationFrame(updateParallax);
+      }
     };
 
     const updateParallax = () => {
@@ -182,26 +195,32 @@ export default function JapaneseGateScrollStage({
         containerRef.current.style.setProperty('--mouse-x', mouseX.toFixed(4));
         containerRef.current.style.setProperty('--mouse-y', mouseY.toFixed(4));
       }
-      animId = requestAnimationFrame(updateParallax);
+
+      if (Math.abs(targetMouseX - mouseX) > 0.001 || Math.abs(targetMouseY - mouseY) > 0.001) {
+        animId = requestAnimationFrame(updateParallax);
+      } else {
+        isMoving = false;
+        animId = null;
+      }
     };
 
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
     document.addEventListener('mouseleave', handleMouseLeave);
-    animId = requestAnimationFrame(updateParallax);
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseleave', handleMouseLeave);
-      cancelAnimationFrame(animId);
+      if (animId) cancelAnimationFrame(animId);
     };
   }, []);
 
-  // Silky scroll loop — scroll tracking merged into rAF to avoid layout thrash
+  // Silky scroll loop — reactive, layout-thrash-free scroll engine with automatic sleep on idle/offscreen
   useEffect(() => {
-    let animId;
+    let animId = null;
     let targetP = 0;
     let currentP = 0;
-    // Cache container metrics to avoid getBoundingClientRect every frame
+    let isVisible = true;
+    let isRunning = false;
     let containerTop = 0;
     let totalHeight = 0;
 
@@ -222,40 +241,7 @@ export default function JapaneseGateScrollStage({
       }
     };
 
-    const render = () => {
-      // Update target from latest scroll position (no DOM read, just cached math)
-      updateTarget();
-
-      if (window.scrollY <= 5) {
-        targetP = 0;
-        currentP = 0;
-      } else {
-        const diff = targetP - currentP;
-        if (Math.abs(diff) < 0.0008) {
-          currentP = targetP;
-        } else {
-          // Smoother lerp: 0.12 feels buttery vs 0.22 which can feel choppy
-          currentP += diff * 0.12;
-        }
-      }
-
-      const p = currentP;
-
-      if (!containerRef.current) {
-        animId = requestAnimationFrame(render);
-        return;
-      }
-
-      // Cheap visibility check using cached metrics (no getBoundingClientRect)
-      const approxBottom = containerTop + containerRef.current.offsetHeight - window.scrollY;
-      if (approxBottom < 0) {
-        if (gateLayerRef.current && gateLayerRef.current.style.visibility !== 'hidden') {
-          gateLayerRef.current.style.visibility = 'hidden';
-        }
-        animId = requestAnimationFrame(render);
-        return;
-      }
-
+    const applyTransforms = (p) => {
       // 1. Background Atmosphere Glow
       if (bgAtmosphereRef.current) {
         bgAtmosphereRef.current.style.transform = `scale3d(${1 + p * 0.25}, ${1 + p * 0.25}, 1)`;
@@ -318,27 +304,110 @@ export default function JapaneseGateScrollStage({
         const sunriseOpacity = p > 0.4 ? Math.min(1, (p - 0.4) / 0.35) : 0;
         sunriseOverlayRef.current.style.opacity = sunriseOpacity;
       }
+    };
 
-      animId = requestAnimationFrame(render);
+    const render = () => {
+      updateTarget();
+
+      if (!isVisible) {
+        isRunning = false;
+        animId = null;
+        return;
+      }
+
+      if (window.scrollY <= 5) {
+        targetP = 0;
+        currentP = 0;
+      } else {
+        const diff = targetP - currentP;
+        if (Math.abs(diff) < 0.0008) {
+          currentP = targetP;
+        } else {
+          currentP += diff * 0.12;
+        }
+      }
+
+      const p = currentP;
+
+      if (!containerRef.current) {
+        isRunning = false;
+        animId = null;
+        return;
+      }
+
+      const approxBottom = containerTop + containerRef.current.offsetHeight - window.scrollY;
+      if (approxBottom < 0) {
+        if (gateLayerRef.current && gateLayerRef.current.style.visibility !== 'hidden') {
+          gateLayerRef.current.style.visibility = 'hidden';
+        }
+        isRunning = false;
+        animId = null;
+        return;
+      }
+
+      applyTransforms(p);
+
+      // Sleep when target reached — avoids non-stop continuous 60fps/120fps background thrash
+      if (Math.abs(targetP - currentP) >= 0.0008) {
+        animId = requestAnimationFrame(render);
+      } else {
+        isRunning = false;
+        animId = null;
+      }
+    };
+
+    const requestRender = () => {
+      if (!isRunning && isVisible) {
+        isRunning = true;
+        animId = requestAnimationFrame(render);
+      }
+    };
+
+    // IntersectionObserver stops loop completely when scrolled out of view
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible) {
+          cacheMetrics();
+          requestRender();
+        } else {
+          if (animId) {
+            cancelAnimationFrame(animId);
+            animId = null;
+          }
+          isRunning = false;
+        }
+      },
+      { rootMargin: '100px' }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    const handleScroll = () => {
+      requestRender();
     };
 
     const handleResize = () => {
       cacheMetrics();
+      requestRender();
     };
 
-    // Cache on mount, re-cache on resize
-    // Use requestAnimationFrame to ensure DOM is laid out first
     const initRaf = requestAnimationFrame(() => {
       cacheMetrics();
-      animId = requestAnimationFrame(render);
+      requestRender();
     });
 
+    window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('resize', handleResize, { passive: true });
 
     return () => {
       cancelAnimationFrame(initRaf);
-      cancelAnimationFrame(animId);
+      if (animId) cancelAnimationFrame(animId);
+      window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleResize);
+      observer.disconnect();
     };
   }, []);
 
@@ -354,9 +423,22 @@ export default function JapaneseGateScrollStage({
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        isVisible = entry.isIntersecting;
+        const nextVisible = entry.isIntersecting;
+        if (nextVisible && !isVisible) {
+          isVisible = true;
+          if (!animId) {
+            lastTime = performance.now();
+            animId = requestAnimationFrame(render);
+          }
+        } else if (!nextVisible && isVisible) {
+          isVisible = false;
+          if (animId) {
+            cancelAnimationFrame(animId);
+            animId = null;
+          }
+        }
       },
-      { rootMargin: '100px' }
+      { rootMargin: '80px' }
     );
 
     if (containerRef.current) {
@@ -412,7 +494,7 @@ export default function JapaneseGateScrollStage({
       lastTime = timestamp;
 
       if (!isVisible) {
-        animId = requestAnimationFrame(render);
+        animId = null;
         return;
       }
 
