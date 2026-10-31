@@ -23,10 +23,11 @@ import {
 import Hero from './Hero';
 import StatsBar from './StatsBar';
 import RevealOnScroll from './RevealOnScroll';
-import TrainingShowcase from './TrainingShowcase';
+import FacebookIntakeBar from './FacebookIntakeBar';
+import MainCoursesGrid from './MainCoursesGrid';
 import BranchNetwork from './BranchNetwork';
 import FaqSection from './FaqSection';
-import { targetAudiencePathways, studentLifeData, globalPresenceData, officialContacts, studentSocialComments } from '../data/websiteData';
+import { studentLifeData, globalPresenceData, officialContacts, studentSocialComments } from '../data/websiteData';
 import { getUiText } from '../data/uiText';
 
 export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligibility }) {
@@ -44,64 +45,20 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
       {/* 2. Trust & Official Credentials Bar */}
       <StatsBar lang={lang} />
 
-      {/* 3. Target Audience Pathways */}
-      <section className="section target-gateway-section">
-        <div className="container">
-          <div className="section-header">
-
-            <h2 className="section-title">
-              {h.pathwaysTitle} <span className="text-gradient-red">{h.pathwaysHighlight}</span>
-            </h2>
-            <p className="section-subtitle">
-              {h.pathwaysSubtitle}
-            </p>
-          </div>
-
-          <div className="target-gateway-grid">
-            {targetAudiencePathways.map((baseCard, idx) => {
-              const card = { ...baseCard, ...(h.pathways[baseCard.id] || {}) };
-              const isStudent = card.id === 'students';
-              const isWorker = card.id === 'workers';
-              const Icon = isStudent ? GraduationCap : isWorker ? Briefcase : ShieldCheck;
-
-              return (
-                <RevealOnScroll key={card.id} delay={0.15 * (idx + 1)}>
-                  <div className="target-gateway-card">
-                    <div className="tg-card-header">
-                      <div className="tg-icon-box">
-                        <Icon size={24} />
-                      </div>
-                      <span className="tg-tag">{card.tag}</span>
-                    </div>
-
-                    <h3 className="tg-title">{card.title}</h3>
-                    <div className="tg-subtitle">{card.subtitle}</div>
-                    <p className="tg-desc">{card.description}</p>
-
-                    <ul className="tg-points-list">
-                      {card.points.map((pt, pIdx) => (
-                        <li key={pIdx}>
-                          <CheckCircle2 size={14} className="text-red flex-shrink-0" />
-                          <span>{pt}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-
-                  </div>
-                </RevealOnScroll>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-
-      {/* 6. Practical Simulation Facilities & Classrooms */}
+      {/* 3. Real-Time Facebook Updates & Intake Announcement Bar (NSBM Style) */}
       <RevealOnScroll delay={0.1}>
-        <TrainingShowcase
+        <FacebookIntakeBar
           lang={lang}
           onOpenModal={onOpenModal}
+        />
+      </RevealOnScroll>
+
+      {/* 4. Complete List of Academic Classes & Courses (NSBM 4-Column Style) */}
+      <RevealOnScroll delay={0.1}>
+        <MainCoursesGrid
+          lang={lang}
+          onOpenModal={onOpenModal}
+          onNavigate={onNavigate}
         />
       </RevealOnScroll>
 
@@ -433,49 +390,6 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
       {/* 10. Frequently Asked Questions & SLBFE Guidance */}
       <RevealOnScroll delay={0.1}>
         <FaqSection lang={lang} />
-      </RevealOnScroll>
-
-      {/* 11. Pre-Footer Final Call to Action Banner */}
-      <RevealOnScroll delay={0.1}>
-        <section className="home-bottom-cta">
-          <div className="container">
-            <div className="home-cta-box">
-              <span className="section-badge badge-gold">
-                <ShieldCheck size={14} />
-                {h.ctaBadge}
-              </span>
-              <h2 className="home-cta-title">
-                {h.ctaTitle}
-              </h2>
-              <p className="home-cta-desc">
-                {h.ctaDesc}
-              </p>
-              <div className="home-cta-buttons">
-                <button
-                  onClick={() => onOpenModal('Fast Registration')}
-                  className="btn btn-primary btn-pulse"
-                >
-                  <Sparkles size={16} />
-                  <span>{h.ctaRegister}</span>
-                </button>
-                <a
-                  href="https://wa.me/94777933352"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-whatsapp"
-                >
-                  <span>{h.ctaWhatsApp}</span>
-                </a>
-                <button
-                  onClick={() => onNavigate('contact')}
-                  className="btn btn-secondary-white"
-                >
-                  <span>{h.ctaVisitHeadOffice}</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
       </RevealOnScroll>
     </div>
   );

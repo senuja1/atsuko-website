@@ -10,7 +10,6 @@ import {
   ArrowRight,
   Send,
   Calendar,
-  AlertCircle,
   FolderOpen
 } from 'lucide-react';
 import { studentVisaIntakes, visaDocumentChecklist, roadmapSteps } from '../data/websiteData';
@@ -434,22 +433,6 @@ export default function VisaServicesPage({ lang, onOpenModal, initialTab = 'stud
                 </ul>
               </div>
             ))}
-          </div>
-
-          <div className="checklist-cta-box">
-            <div className="cta-box-content">
-              <AlertCircle size={24} className="text-gold" />
-              <div>
-                <strong>{lang === 'si' ? 'පරිවර්තන සහ ලියකියවිලි තහවුරු කිරීම සඳහා සහාය අවශ්‍යද?' : lang === 'jp' ? '翻訳や公証手続きのサポートが必要ですか？' : 'Need assistance with translations or document verification?'}</strong>
-                <p>{lang === 'si' ? 'කඩවත අපගේ ලේඛන අංශය හරහා දිවුරුම් ප්‍රකාශ, ඉංග්‍රීසි පරිවර්තන සහ විදේශ කටයුතු අමාත්‍යාංශයේ සහතික කිරීම් සඳහා සම්පූර්ණ සහාය ලැබේ.' : 'Our legal documentation desk at Kadawatha assists with certified English translations, sworn affidavits, and Ministry of Foreign Affairs (SLBFE) attestation.'}</p>
-              </div>
-            </div>
-            <button
-              onClick={() => onOpenModal('Document Verification & Checklist Review')}
-              className="btn btn-primary btn-sm"
-            >
-              {lang === 'si' ? 'ලේඛන නිලධාරී අමතන්න' : lang === 'jp' ? '書類担当に相談する' : 'Consult Document Officer'}
-            </button>
           </div>
         </div>
       </section>

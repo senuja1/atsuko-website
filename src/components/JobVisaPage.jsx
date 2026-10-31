@@ -3,10 +3,8 @@ import {
   CheckCircle2,
   FileCheck,
   ShieldCheck,
-  ArrowRight,
   Clock,
   FolderOpen,
-  AlertCircle,
   Building,
   Award,
   Globe2,
@@ -373,67 +371,6 @@ export default function JobVisaPage({ lang, onOpenModal, onNavigate }) {
                   </div>
                 ))}
               </div>
-
-              {/* Translation & Legal Help Desk Banner */}
-              <div className="checklist-cta-box">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '16px', maxWidth: '680px' }}>
-                  <AlertCircle size={32} className="text-gold" style={{ flexShrink: 0 }} />
-                  <div>
-                    <strong style={{ fontSize: '15px', display: 'block', marginBottom: '4px' }}>
-                      {lang === 'si' ? 'පරිවර්තන සහ ලියකියවිලි තහවුරු කිරීම සඳහා සහාය අවශ්‍යද?' : lang === 'jp' ? '書類翻訳や領事認証のサポートが必要ですか？' : 'Need assistance with certified translations or document attestation?'}
-                    </strong>
-                    <p style={{ fontSize: '13px', margin: 0, opacity: 0.85, lineHeight: 1.5 }}>
-                      {lang === 'si'
-                        ? 'කඩවත අපගේ නීතිමය ලේඛන අංශය හරහා දිවුරුම් ප්‍රකාශ, ඉංග්‍රීසි/ජපන් පරිවර්තන සහ විදේශ කටයුතු අමාත්‍යාංශයේ (MFA) සහතික කිරීම් සඳහා සම්පූර්ණ සහාය ලැබේ.'
-                        : 'Our documentation desk at Kadawatha assists with certified translations, sworn affidavits, and Ministry of Foreign Affairs (SLBFE) attestation.'}
-                    </p>
-                  </div>
-                </div>
-                <button
-                  onClick={() => onOpenModal('Job Visa Document Consultation')}
-                  className="btn btn-primary btn-sm"
-                  style={{ whiteSpace: 'nowrap' }}
-                >
-                  {lang === 'si' ? 'ලේඛන නිලධාරී අමතන්න' : lang === 'jp' ? '書類担当に相談する' : 'Consult Document Officer'}
-                </button>
-              </div>
-            </div>
-
-            {/* 8. Clean Cross-Link to Student Visa Page */}
-            <div style={{
-              marginTop: '40px',
-              padding: '24px 28px',
-              background: '#f8fafc',
-              border: '1.5px solid #e2e8f0',
-              borderRadius: 'var(--radius-xl)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              flexWrap: 'wrap',
-              gap: '16px'
-            }}>
-              <div>
-                <strong style={{ fontSize: '16px', color: 'var(--navy-950)', display: 'block', marginBottom: '4px' }}>
-                  {lang === 'si' ? 'ජපානයේ උසස් අධ්‍යාපනය හෝ භාෂා පාසලක් තෝරාගැනීමට කැමතිද?' : lang === 'jp' ? '日本語学校・専門学校・大学進学の留学ビザをお探しですか？' : 'Prefer Higher Education or Language School in Japan?'}
-                </strong>
-                <span style={{ fontSize: '13.5px', color: 'var(--text-muted)' }}>
-                  {lang === 'si'
-                    ? 'වසරකට ඇතුළත් කිරීම් 4 ක් (ජන/අප්‍රේල්/ජූලි/ඔක්) සහ පැය 28 ක අර්ධකාලීන රැකියා අවසරය සහිත ශිෂ්‍ය වීසා වැඩසටහන.'
-                    : 'Explore our 4 annual intakes (Jan, Apr, Jul, Oct) to top language academies in Tokyo, Osaka, Nagoya, and Sendai with a 28-hr/week legal work permit.'}
-                </span>
-              </div>
-              <button
-                type="button"
-                onClick={() => {
-                  if (onNavigate) onNavigate('student-visa');
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }}
-                className="btn btn-primary"
-                style={{ background: '#0284c7', borderColor: '#0284c7' }}
-              >
-                <span>{lang === 'si' ? 'ශිෂ්‍ය වීසා පිටුවට පිවිසෙන්න' : lang === 'jp' ? '留学ビザ専用ページを見る' : 'Explore Student Visa Page'}</span>
-                <ArrowRight size={15} />
-              </button>
             </div>
           </div>
         </div>

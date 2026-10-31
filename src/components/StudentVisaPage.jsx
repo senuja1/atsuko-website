@@ -4,10 +4,8 @@ import {
   CheckCircle2,
   FileCheck,
   ShieldCheck,
-  ArrowRight,
   Clock,
   FolderOpen,
-  AlertCircle,
   Building,
   Award,
   Globe2,
@@ -282,66 +280,6 @@ export default function StudentVisaPage({ lang, onOpenModal, onNavigate }) {
                 ))}
               </div>
 
-              {/* Translation & Legal Help Desk Banner */}
-              <div className="checklist-cta-box">
-                <div style={{ display: 'flex', alignItems: 'center', gap: '16px', maxWidth: '680px' }}>
-                  <AlertCircle size={32} className="text-gold" style={{ flexShrink: 0 }} />
-                  <div>
-                    <strong style={{ fontSize: '15px', display: 'block', marginBottom: '4px' }}>
-                      {lang === 'si' ? 'පරිවර්තන සහ ලියකියවිලි තහවුරු කිරීම සඳහා සහාය අවශ්‍යද?' : lang === 'jp' ? '書類翻訳や領事認証のサポートが必要ですか？' : 'Need assistance with certified translations or document attestation?'}
-                    </strong>
-                    <p style={{ fontSize: '13px', margin: 0, opacity: 0.85, lineHeight: 1.5 }}>
-                      {lang === 'si'
-                        ? 'කඩවත අපගේ නීතිමය ලේඛන අංශය හරහා දිවුරුම් ප්‍රකාශ, ඉංග්‍රීසි/ජපන් පරිවර්තන සහ විදේශ කටයුතු අමාත්‍යාංශයේ (MFA) සහතික කිරීම් සඳහා සම්පූර්ණ සහාය ලැබේ.'
-                        : 'Our documentation desk at Kadawatha assists with certified translations, sworn affidavits, and Ministry of Foreign Affairs (SLBFE) attestation.'}
-                    </p>
-                  </div>
-                </div>
-                <button
-                  onClick={() => onOpenModal('Student Visa Document Consultation')}
-                  className="btn btn-primary btn-sm"
-                  style={{ whiteSpace: 'nowrap' }}
-                >
-                  {lang === 'si' ? 'ලේඛන නිලධාරී අමතන්න' : lang === 'jp' ? '書類担当に相談する' : 'Consult Document Officer'}
-                </button>
-              </div>
-            </div>
-
-            {/* 7. Clean Cross-Link to Job Visa Page */}
-            <div style={{
-              marginTop: '40px',
-              padding: '24px 28px',
-              background: '#f8fafc',
-              border: '1.5px solid #e2e8f0',
-              borderRadius: 'var(--radius-xl)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              flexWrap: 'wrap',
-              gap: '16px'
-            }}>
-              <div>
-                <strong style={{ fontSize: '16px', color: 'var(--navy-950)', display: 'block', marginBottom: '4px' }}>
-                  {lang === 'si' ? 'ජපානයේ සෘජු රැකියා සහ SSW වැඩසටහන් ගැන සොයනවාද?' : lang === 'jp' ? '特定技能・就労ビザをお探しですか？' : 'Looking for Direct Employment & Work Visas in Japan?'}
-                </strong>
-                <span style={{ fontSize: '13.5px', color: 'var(--text-muted)' }}>
-                  {lang === 'si'
-                    ? 'වසර 5 ක SSW රැකියා වීසා (සාත්තු සේවා, ආහාර සැකසුම්, වාණිජ රියදුරු) සහ TITP කාර්මික පුහුණු අවස්ථා බලන්න.'
-                    : 'Explore our 5-Year Specified Skilled Worker (SSW) and Technical Intern Training (TITP) employment programs.'}
-                </span>
-              </div>
-              <button
-                type="button"
-                onClick={() => {
-                  if (onNavigate) onNavigate('job-visa');
-                  window.scrollTo({ top: 0, behavior: 'smooth' });
-                }}
-                className="btn btn-primary"
-                style={{ background: '#0284c7', borderColor: '#0284c7' }}
-              >
-                <span>{lang === 'si' ? 'රැකියා වීසා පිටුවට පිවිසෙන්න' : lang === 'jp' ? '特定技能ビザ専用ページへ' : 'View Job Visa Page'}</span>
-                <ArrowRight size={15} />
-              </button>
             </div>
           </div>
         </div>

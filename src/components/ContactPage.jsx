@@ -42,7 +42,7 @@ export default function ContactPage({ lang }) {
       name: ui.liveMapBranches?.kadawatha || 'Kadawatha Campus (Headquarters)',
       country: 'Sri Lanka',
       badge: 'Main Campus & Simulation Lab',
-      address: '191/3/1, Sirimavo Bandaranayake Mawatha, Mahara, Kadawatha, 11850',
+      address: '191/3/1, Sirimavo Bandaranayake Mw, Mahara, Kadawatha, Sri Lanka',
       embedUrl: 'https://www.google.com/maps/embed?origin=mfe&pb=!1m3!2m1!1s191/3/1,+Sirimavo+Bandaranayake+Mawatha,+Mahara,+Kadawatha,+Sri+Lanka!6i16',
       mapsUrl: 'https://www.google.com/maps/search/?api=1&query=191%2F3%2F1+Sirimavo+Bandaranayake+Mawatha+Mahara+Kadawatha',
       directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=191%2F3%2F1+Sirimavo+Bandaranayake+Mawatha+Mahara+Kadawatha',

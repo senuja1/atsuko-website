@@ -1001,16 +1001,7 @@ export default function JapaneseGateScrollStage({
               <span className="divider-line" />
             </div>
 
-            {/* 5. Spaced Feature Bullets */}
-            <div className="kouki-hero-tags">
-              <span>{heroContent.t1}</span>
-              <span className="tag-dot">·</span>
-              <span className="tag-highlight">{heroContent.t2}</span>
-              <span className="tag-dot">·</span>
-              <span>{heroContent.t3}</span>
-            </div>
-
-            {/* 6. Two Pill Call-To-Action Buttons */}
+            {/* 5. Two Pill Call-To-Action Buttons */}
             <div className="kouki-hero-actions">
               <button
                 type="button"

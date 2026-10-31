@@ -22,10 +22,10 @@ export const uiText = {
     heroBadges: {
       licenseVal: 'SLBFE #3293 • PV 0217143',
       licenseLbl: 'Government Verified License',
-      slAddressVal: 'Mahara, Kadawatha, Sri Lanka',
-      slAddressLbl: '191/3/1, Sirimavo Bandaranayake Mw',
-      japanVal: 'Mahara, Kadawatha, Sri Lanka',
-      japanLbl: '191/3/1, Sirimavo Bandaranayake Mw',
+      slAddressVal: '191/3/1, Sirimavo Bandaranayake Mw',
+      slAddressLbl: 'Mahara, Kadawatha, Sri Lanka',
+      japanVal: '191/3/1, Sirimavo Bandaranayake Mw',
+      japanLbl: 'Mahara, Kadawatha, Sri Lanka',
     },
     trainingCaptions: {
       classroom: 'Authentic Japanese Immersion Classroom at Atsuko Kadawatha',
@@ -493,10 +493,10 @@ export const uiText = {
     heroBadges: {
       licenseVal: 'SLBFE #3293 • PV 0217143',
       licenseLbl: 'රජයේ ලියාපදිංචි බලපත්‍රය',
-      slAddressVal: 'මහර, කඩවත, ශ්‍රී ලංකාව',
-      slAddressLbl: '191/3/1, සිරිමාවෝ බණ්ඩාරනායක මාවත',
-      japanVal: 'මහර, කඩවත, ශ්‍රී ලංකාව',
-      japanLbl: '191/3/1, සිරිමාවෝ බණ්ඩාරනායක මාවත',
+      slAddressVal: '191/3/1, සිරිමාවෝ බණ්ඩාරනායක මාවත',
+      slAddressLbl: 'මහර, කඩවත, ශ්‍රී ලංකාව',
+      japanVal: '191/3/1, සිරිමාවෝ බණ්ඩාරනායක මාවත',
+      japanLbl: 'මහර, කඩවත, ශ්‍රී ලංකාව',
     },
     trainingCaptions: {
       classroom: 'කඩවත අත්සුකෝ ජපන් භාෂා පන්ති කාමරය',
@@ -964,10 +964,10 @@ export const uiText = {
     heroBadges: {
       licenseVal: 'SLBFE #3293 • PV 0217143',
       licenseLbl: '政府公認ライセンス',
-      slAddressVal: 'スリランカ・カダワタ本校',
-      slAddressLbl: '191/3/1, Sirimavo Bandaranayake Mw, Mahara',
-      japanVal: 'スリランカ・カダワタ本校',
-      japanLbl: '191/3/1, Sirimavo Bandaranayake Mw, Mahara',
+      slAddressVal: '191/3/1, Sirimavo Bandaranayake Mw',
+      slAddressLbl: 'マハラ・カダワタ、スリランカ',
+      japanVal: '191/3/1, Sirimavo Bandaranayake Mw',
+      japanLbl: 'マハラ・カダワタ、スリランカ',
     },
     trainingCaptions: {
       classroom: '篤子学校 カダワタ校 日本語専門教室',

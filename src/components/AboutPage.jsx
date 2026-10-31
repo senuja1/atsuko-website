@@ -528,34 +528,6 @@ export default function AboutPage({ lang, onOpenModal, onNavigate }) {
           </div>
         </div>
       </section>
-
-      {/* 7. Call to Action Banner */}
-      <section className="about-cta-section">
-        <div className="container">
-          <div className="about-cta-card">
-            <div>
-              <h3 className="about-cta-title">{h.ctaTitle}</h3>
-              <p className="about-cta-desc">
-                {h.ctaDesc}
-              </p>
-            </div>
-            <div className="about-cta-btn-group">
-              <button
-                onClick={() => onOpenModal('Official Consultation')}
-                className="btn btn-gold"
-              >
-                {h.ctaRegister}
-              </button>
-              <button
-                onClick={() => onNavigate && onNavigate('contact')}
-                className="btn btn-secondary-white"
-              >
-                {h.ctaVisitHeadOffice}
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

@@ -35,7 +35,7 @@ export const officialContacts = {
   secondaryEmail: "info@atsukojapan.com",
   
   // Sri Lanka Headquarters
-  headOfficeAddress: "191/3/1, Sirimavo Bandaranayake Mawatha, Mahara, Kadawatha, Sri Lanka, 11850",
+  headOfficeAddress: "191/3/1, Sirimavo Bandaranayake Mw, Mahara, Kadawatha, Sri Lanka",
   headOfficeCity: "Kadawatha, Sri Lanka",
   
   // Japan Operations
@@ -87,36 +87,42 @@ export const aboutUsData = {
       name: "Ito Tsuguki",
       role: "Director",
       title: "Director (Japan Operations)",
+      image: "/images/team/ito-tsuguki.png",
       focus: "Overseeing Japanese corporate employer relations, legal compliance under Japanese labor standards, and candidate reception."
     },
     {
       name: "Nguyen Thi Hanh",
       role: "Director",
       title: "Director (International Relations)",
+      image: "/images/team/nguyen-thi-hanh.png",
       focus: "International training standards, cross-border educational coordination, and candidate lifecycle management."
     },
     {
       name: "Herath Mudiyanselage Dushan Bandara",
       role: "Manager",
       title: "General Manager (Sri Lanka)",
+      image: "/images/team/dushan-bandara.png",
       focus: "Directing operations at Kadawatha Headquarters, student admissions, academic quality, and batch coordination."
     },
     {
       name: "Pathiraja Mudiyanselage Vimani Ivanthika Pathiraja",
       role: "Representative in Japan",
       title: "Representative in Japan (Sendai & Aichi)",
+      image: "/images/team/vimani-pathiraja.png",
       focus: "On-the-ground candidate reception, airport greeting, municipal resident registration, bank account setup, and student welfare."
     },
     {
       name: "Maddumage Ranudi Vihansa Ariyarathna",
       role: "SSW Coordinator",
       title: "SSW (Specified Skilled Worker) Coordinator",
+      image: "/images/team/ranudi-ariyarathna.png",
       focus: "Coordinating Caregiver (Kaigo) practical simulation lab, Food Service, Truck Driving, and Prometric CBT test readiness."
     },
     {
       name: "Thotage Imalsha Dulanjali",
       role: "Student Visa Coordinator",
       title: "Student Visa (Ryugaku) Coordinator",
+      image: "/images/team/imalsha-dulanjali.png",
       focus: "Managing Certificate of Eligibility (COE) filing for Jan, Apr, Jul, and Oct intakes, financial audit, and school placements."
     }
   ],
@@ -695,7 +701,7 @@ export const faqList = [
   },
   {
     q: "Where is Atsuko International's head operations center located?",
-    a: "Our head operations center and simulation training facility is located at 191/3/1, Sirimavo Bandaranayake Mawatha, Mahara, Kadawatha, Sri Lanka, 11850. You can reach our hotlines at (+94) 112 987 263, (+94) 777 933 352, or (+94) 767 763 352."
+    a: "Our head operations center and simulation training facility is located at 191/3/1, Sirimavo Bandaranayake Mw, Mahara, Kadawatha, Sri Lanka. You can reach our hotlines at (+94) 112 987 263, (+94) 777 933 352, or (+94) 767 763 352."
   },
   {
     q: "Does Atsuko International provide accommodation for students from outside Colombo?",
@@ -765,7 +771,7 @@ export const globalPresenceData = {
     companyName: "ATSUKO INTERNATIONAL (PVT) LTD",
     license: "SLBFE License No. 3293 (Renewed 2020 - 2026)",
     registration: "Company Registration No. PV 0217143",
-    address: "191/3/1, Sirimavo Bandaranayake Mawatha, Mahara, Kadawatha, Sri Lanka, 11850",
+    address: "191/3/1, Sirimavo Bandaranayake Mw, Mahara, Kadawatha, Sri Lanka",
     hotline: "(+94) 112 987 263",
     mobiles: ["(+94) 777 933 352", "(+94) 767 763 352"],
     email: "atsukoschooljapan@gmail.com",
@@ -809,7 +815,7 @@ export const branchesData = [
     name: "Kadawatha (Head Operations Center & Campus)",
     jpName: "カダワタ 本社運営センター・研修校舎",
     isHeadOffice: true,
-    address: "191/3/1, Sirimavo Bandaranayake Mawatha, Mahara, Kadawatha, Sri Lanka, 11850",
+    address: "191/3/1, Sirimavo Bandaranayake Mw, Mahara, Kadawatha, Sri Lanka",
     phone: "(+94) 112 987 263",
     whatsapp: "+94777933352",
     hours: "Mon - Sat: 8:30 AM - 5:30 PM | Sun: 8:30 AM - 2:00 PM",

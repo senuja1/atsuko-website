@@ -22,7 +22,6 @@ import { getUiText } from '../data/uiText';
 export default function StudentLifePage({ lang, onOpenModal, onNavigate }) {
   const tFull = getUiText(lang);
   const ui = tFull.pages.facilities;
-  const h = tFull.home;
 
   const quickIcons = [
     <Building2 size={20} style={{ color: '#0284c7' }} />,
@@ -322,34 +321,6 @@ export default function StudentLifePage({ lang, onOpenModal, onNavigate }) {
                 <p className="roadmap-desc">{step.desc}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 6. Call to Action Banner */}
-      <section className="about-cta-section">
-        <div className="container">
-          <div className="about-cta-card">
-            <div>
-              <h3 className="about-cta-title">{h.ctaTitle}</h3>
-              <p className="about-cta-desc">
-                {h.ctaDesc}
-              </p>
-            </div>
-            <div className="about-cta-btn-group">
-              <button
-                onClick={() => onOpenModal('Admissions & Housing Consultation')}
-                className="btn btn-gold"
-              >
-                {h.ctaRegister}
-              </button>
-              <button
-                onClick={() => onNavigate && onNavigate('contact')}
-                className="btn btn-secondary-white"
-              >
-                {h.ctaVisitHeadOffice}
-              </button>
-            </div>
           </div>
         </div>
       </section>
