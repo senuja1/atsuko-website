@@ -18,6 +18,8 @@ dist-ssr
 # Scratch & temporary assets
 plaque_crop.png
 *.local
+*.zip
+website-deploy.zip
 
 # Editor directories and files
 .vscode/*
