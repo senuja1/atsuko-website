@@ -203,16 +203,6 @@ export default function MainCoursesGrid({ lang, onNavigate }) {
                     {course.title}
                   </h3>
 
-                  {/* Japanese Subtitle */}
-                  <div className="atsuko-course-jp-title">
-                    {course.jpTitle}
-                  </div>
-
-                  {/* Compact Course Description */}
-                  <p className="atsuko-course-desc">
-                    {course.desc}
-                  </p>
-
                   {/* Compact Highlights Checklist (Pills) */}
                   <div className="atsuko-course-pills-list">
                     {course.highlights.map((item, idx) => (
