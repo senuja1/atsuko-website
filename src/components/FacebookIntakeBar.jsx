@@ -4,21 +4,36 @@ import {
   ShieldCheck,
   Globe2,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  ExternalLink
 } from 'lucide-react';
 import { officialContacts } from '../data/websiteData';
 import { FacebookIcon, InstagramIcon, YoutubeIcon, TikTokIcon, WhatsAppIcon } from './SocialIcons';
 
+// ============================================================================
+// AUTOMATIC FACEBOOK FEED CONFIGURATION (NAMECHEAP & CLIENT-SIDE READY)
+// ============================================================================
+// 1. To activate live auto-updating from Facebook:
+//    - Go to https://curator.io (Free plan supports public Facebook Pages)
+//    - Add Atsuko Facebook Page: https://www.facebook.com/AtsukoInternational
+//    - Put your Curator Feed ID or VITE_CURATOR_FEED_ID in a .env file or below.
+// 2. If no Feed ID is provided or if network fails, it seamlessly displays the
+//    high-res curated promotional billboard so the website NEVER breaks.
+// ============================================================================
+const CURATOR_FEED_ID = import.meta.env?.VITE_CURATOR_FEED_ID || '';
+
 export default function FacebookIntakeBar({ lang }) {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [livePosts, setLivePosts] = useState([]);
+  const [isLiveLoaded, setIsLiveLoaded] = useState(false);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
 
   const isSi = lang === 'si';
   const isJp = lang === 'jp';
 
-  // 4 Featured High-Impact Advertising Slides across the Full Bar (NSBM Presentation)
-  const posts = [
+  // Fallback Curated High-Impact Advertising Slides across the Full Bar (NSBM Presentation)
+  const defaultPosts = [
     {
       id: 'post-1',
       tabLabel: isSi ? '01 නව බඳවා ගැනීම්' : isJp ? '01 新規生募集' : '01 New Intake',
@@ -43,7 +58,8 @@ export default function FacebookIntakeBar({ lang }) {
         { label: 'SLBFE #3293', flag: '🇱🇰' },
         { label: 'Japan MOJ', flag: '🇯🇵' },
         { label: 'Sendai Office', flag: '🇯🇵' }
-      ]
+      ],
+      link: officialContacts.socials.facebook
     },
     {
       id: 'post-2',
@@ -69,7 +85,8 @@ export default function FacebookIntakeBar({ lang }) {
         { label: 'Kadawatha Campus', flag: '🇱🇰' },
         { label: 'JLPT / JFT', flag: '🇯🇵' },
         { label: 'Tokyo Partners', flag: '🇯🇵' }
-      ]
+      ],
+      link: officialContacts.socials.facebook
     },
     {
       id: 'post-3',
@@ -95,7 +112,8 @@ export default function FacebookIntakeBar({ lang }) {
         { label: 'Tokyo Academies', flag: '🇯🇵' },
         { label: 'Aichi Logistics', flag: '🇯🇵' },
         { label: 'Sendai Support', flag: '🇯🇵' }
-      ]
+      ],
+      link: officialContacts.socials.facebook
     },
     {
       id: 'post-4',
@@ -121,9 +139,87 @@ export default function FacebookIntakeBar({ lang }) {
         { label: 'Kaigo Lab Kadawatha', flag: '🇱🇰' },
         { label: 'Prometric CBT', flag: '🇯🇵' },
         { label: 'NVQ Level 3', flag: '🇱🇰' }
-      ]
+      ],
+      link: officialContacts.socials.facebook
     }
   ];
+
+  // --------------------------------------------------------------------------
+  // AUTOMATIC CLIENT-SIDE FACEBOOK FETCH (WORKS 100% ON NAMECHEAP)
+  // --------------------------------------------------------------------------
+  useEffect(() => {
+    if (!CURATOR_FEED_ID) return;
+
+    let isMounted = true;
+    const fetchFacebookFeed = async () => {
+      try {
+        const response = await fetch(
+          `https://api.curator.io/published/${CURATOR_FEED_ID}.json`
+        );
+        if (!response.ok) return;
+
+        const data = await response.json();
+        const postsList = data?.posts || data?.data || [];
+
+        if (Array.isArray(postsList) && postsList.length > 0) {
+          const formatted = postsList.slice(0, 5).map((post, index) => {
+            // Extract clean title / headline from Facebook text
+            const rawText = post.text || post.caption || '';
+            const textLines = rawText.split('\n').filter((l) => l.trim().length > 0);
+            const mainHeadline = textLines[0] || 'ATSUKO OFFICIAL UPDATE';
+            const secondLine = textLines[1] || 'RECENT FACEBOOK POST & ANNOUNCEMENT';
+            const snippet = textLines.slice(2, 5).join(' ') || rawText.slice(0, 180) + '...';
+
+            // Post date
+            const postDate = post.created_at || post.published_at || '';
+            let dateDisplay = 'LATEST ANNOUNCEMENT';
+            if (postDate) {
+              const d = new Date(postDate);
+              if (!isNaN(d.getTime())) {
+                dateDisplay = `POSTED: ${d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).toUpperCase()}`;
+              }
+            }
+
+            return {
+              id: `fb-live-${post.id || index}`,
+              tabLabel: `0${index + 1} Post`,
+              photo: post.image || post.thumbnail || '/images/batches/batch-17-completion.jpg',
+              photoPosition: 'center 25%',
+              headline: mainHeadline.toUpperCase().slice(0, 48),
+              headlineSub: secondLine.toUpperCase().slice(0, 60),
+              datePill: dateDisplay,
+              disciplines: [
+                'OFFICIAL POST',
+                'STUDENT UPDATES',
+                'VISA ADMISSIONS',
+                'ATSUKO GAKKO'
+              ],
+              adSubtitle: snippet,
+              partnerBadges: [
+                { label: 'SLBFE #3293', flag: '🇱🇰' },
+                { label: 'Facebook Live', flag: '🔵' }
+              ],
+              link: post.url || officialContacts.socials.facebook
+            };
+          });
+
+          if (isMounted && formatted.length > 0) {
+            setLivePosts(formatted);
+            setIsLiveLoaded(true);
+          }
+        }
+      } catch (err) {
+        console.warn('Facebook live feed fallback active:', err);
+      }
+    };
+
+    fetchFacebookFeed();
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  const posts = isLiveLoaded && livePosts.length > 0 ? livePosts : defaultPosts;
 
   // Auto-scroll automatically every 4.5 seconds continuously
   useEffect(() => {
@@ -152,7 +248,7 @@ export default function FacebookIntakeBar({ lang }) {
     else if (diff < -50) prevSlide();
   };
 
-  const active = posts[currentSlide];
+  const active = posts[currentSlide] || posts[0];
 
   return (
     <section className="fb-intake-banner-section" style={{ padding: '1.75rem 0 2.25rem', background: '#f8fafc' }}>
@@ -223,6 +319,43 @@ export default function FacebookIntakeBar({ lang }) {
               <p className="fb-fullbar-ad-subtitle">
                 {active.adSubtitle}
               </p>
+
+              {/* Direct Facebook Post Link Button (if live or linked) */}
+              {active.link && (
+                <div style={{ marginTop: '8px' }}>
+                  <a
+                    href={active.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      fontSize: '0.78rem',
+                      fontWeight: 700,
+                      color: 'rgba(255, 255, 255, 0.88)',
+                      textDecoration: 'none',
+                      padding: '4px 12px',
+                      borderRadius: '12px',
+                      background: 'rgba(255, 255, 255, 0.12)',
+                      border: '1px solid rgba(255, 255, 255, 0.22)',
+                      backdropFilter: 'blur(6px)',
+                      transition: 'all 0.2s ease'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = 'rgba(255, 255, 255, 0.22)';
+                      e.currentTarget.style.color = '#ffffff';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = 'rgba(255, 255, 255, 0.12)';
+                      e.currentTarget.style.color = 'rgba(255, 255, 255, 0.88)';
+                    }}
+                  >
+                    <span>{isSi ? 'ෆේස්බුක් පිටුවෙන් බලන්න' : 'View on Facebook'}</span>
+                    <ExternalLink size={12} />
+                  </a>
+                </div>
+              )}
             </div>
 
             {/* Right Column: Open space showcasing authentic background photo */}
