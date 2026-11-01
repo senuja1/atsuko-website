@@ -58,9 +58,8 @@ export const siteTranslations = {
     // Stats
     stats: {
       stat1: { number: "100%", label: "Zero Initial Fee Guarantee" },
-      stat2: { number: "Kadawatha HQ", label: "Practical Simulation Campus" },
-      stat3: { number: "SLBFE #3293", label: "Government Verified License" },
-      stat4: { number: "Sendai & Aichi", label: "Registered Support Org (登録支援機関)" }
+      stat2: { number: "1000+", label: "Success Stories" },
+      stat3: { number: "SLBFE #3293", label: "Government Verified License" }
     },
 
     // Eligibility Calculator
@@ -338,9 +337,8 @@ export const siteTranslations = {
     // Stats
     stats: {
       stat1: { number: "100%", label: "අනුමැතිය ලැබෙන තෙක් මුලික ගාස්තු ශුන්‍යයි" },
-      stat2: { number: "කඩවත මූලස්ථානය", label: "ප්‍රායෝගික පුහුණු විද්‍යාගාරය" },
-      stat3: { number: "SLBFE #3293", label: "රජයේ ලියාපදිංචි බලපත්‍රය" },
-      stat4: { number: "සෙන්ඩායි සහ අයිචි", label: "ජපානයේ ලියාපදිංචි ආධාරක ආයතනය" }
+      stat2: { number: "1000+", label: "සාර්ථක සිසු ජයග්‍රහණ" },
+      stat3: { number: "SLBFE #3293", label: "රජයේ ලියාපදිංචි බලපත්‍රය" }
     },
 
     // Eligibility Calculator
@@ -617,9 +615,8 @@ export const siteTranslations = {
     // Stats
     stats: {
       stat1: { number: "初期費用ゼロ", label: "ビザ認可まで一切不要" },
-      stat2: { number: "カダワタ本部", label: "介護・模擬実習センター" },
-      stat3: { number: "SLBFE #3293", label: "スリランカ海外雇用局認可" },
-      stat4: { number: "仙台・小牧", label: "登録支援機関（23登-008312）" }
+      stat2: { number: "1000+", label: "送り出し成功実績" },
+      stat3: { number: "SLBFE #3293", label: "スリランカ海外雇用局認可" }
     },
 
     // Eligibility Calculator

@@ -11,11 +11,10 @@ export default function StatsBar({ lang }) {
   const stats = [
     { ...t.stat1, animate: true },
     { ...t.stat2, animate: true },
-    { ...t.stat3, animate: false },
-    { ...t.stat4, animate: false }
+    { ...t.stat3, animate: false }
   ];
 
-  const delays = [0.1, 0.3, 0.5, 0.7];
+  const delays = [0.1, 0.3, 0.5];
 
   const renderAnimatedNumber = (stat) => {
     const str = stat?.number;
