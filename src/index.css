@@ -5935,19 +5935,23 @@ html[lang="jp"] .stat-label,
   filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.35));
 }
 
-/* 2. Japanese script kicker */
+/* 2. Japanese script kicker (Ultra High-Visibility Crimson & Gold Rim) */
 .kouki-jp-kicker {
   font-family: 'Noto Serif JP', serif;
-  font-size: clamp(16px, 1.8vw, 24px);
-  font-weight: 800;
-  color: #dc2626;
+  font-size: clamp(17px, 2vw, 26px);
+  font-weight: 900;
+  color: #b91c1c;
   letter-spacing: clamp(0.28em, 0.45vw, 0.48em);
   text-indent: clamp(0.28em, 0.45vw, 0.48em);
   margin-bottom: clamp(6px, 1vh, 12px);
-  text-shadow: 
-    0 1px 2px #ffffff,
-    0 0 10px rgba(255, 255, 255, 0.95),
-    0 2px 8px rgba(0, 0, 0, 0.35);
+  padding: 3px 18px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.08);
+  display: inline-block;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
 }
 
 /* 3. Grand Dual-Tone Regal Serif Title */
