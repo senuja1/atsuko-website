@@ -1,10 +1,9 @@
 import { useEffect, useRef } from 'react';
-import { CheckCircle2, Award, ShieldCheck, GraduationCap, Briefcase, FileCheck, Globe2, MapPin } from 'lucide-react';
+import { CheckCircle2, Award, GraduationCap, Briefcase, FileCheck, Globe2, MapPin } from 'lucide-react';
 import { siteTranslations } from '../data/translations';
-import { officialContacts } from '../data/websiteData';
 import { getUiText } from '../data/uiText';
 
-export default function Hero({ lang, onOpenModal, onScrollToEligibility }) {
+export default function Hero({ lang }) {
   const t = siteTranslations[lang]?.hero || siteTranslations.en.hero;
   const b = getUiText(lang).heroBadges;
   const videoRef = useRef(null);

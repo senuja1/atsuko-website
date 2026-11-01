@@ -10,7 +10,6 @@ import FloatingActions from './components/FloatingActions';
 const HomeView = lazy(() => import('./components/HomeView'));
 const AboutPage = lazy(() => import('./components/AboutPage'));
 const CoursesPage = lazy(() => import('./components/CoursesPage'));
-const VisaServicesPage = lazy(() => import('./components/VisaServicesPage'));
 const StudentVisaPage = lazy(() => import('./components/StudentVisaPage'));
 const JobVisaPage = lazy(() => import('./components/JobVisaPage'));
 const SuccessStoriesPage = lazy(() => import('./components/SuccessStoriesPage'));
@@ -24,8 +23,6 @@ export default function App() {
   const [currentPage, setCurrentPage] = useState('home');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalDefaultProgram, setModalDefaultProgram] = useState('');
-
-  const [visaInitialTab, setVisaInitialTab] = useState('student');
 
   // Synchronize document lang attribute for typography and accessibility
   useEffect(() => {

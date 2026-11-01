@@ -7,8 +7,6 @@ import {
   Calendar,
   CheckCircle2,
   Building2,
-  Award,
-  Send,
   Home,
   MapPin,
   Phone,
@@ -25,9 +23,8 @@ import StatsBar from './StatsBar';
 import RevealOnScroll from './RevealOnScroll';
 import FacebookIntakeBar from './FacebookIntakeBar';
 import MainCoursesGrid from './MainCoursesGrid';
-import BranchNetwork from './BranchNetwork';
 import FaqSection from './FaqSection';
-import { studentLifeData, globalPresenceData, officialContacts, studentSocialComments } from '../data/websiteData';
+import { officialContacts, studentSocialComments } from '../data/websiteData';
 import { getUiText } from '../data/uiText';
 
 export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligibility }) {
@@ -49,7 +46,6 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
       <RevealOnScroll delay={0.1}>
         <FacebookIntakeBar
           lang={lang}
-          onOpenModal={onOpenModal}
         />
       </RevealOnScroll>
 
@@ -229,6 +225,8 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
                             className="reply-logo-avatar"
                             width="22"
                             height="22"
+                            loading="lazy"
+                            decoding="async"
                           />
                         </div>
                         <div className="reply-text-content">

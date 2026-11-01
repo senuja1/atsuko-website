@@ -141,9 +141,9 @@ export default function SuccessStories({ lang, onNavigate }) {
           </div>
 
           <div className="stories-spotlight-img">
-            <img 
-              src="/images/student-success.jpg" 
-              alt="Atsuko International Students Holding Visas Departing for Tokyo at Colombo Airport" 
+            <img
+              src="/images/student-success.jpg"
+              alt="Atsuko International Students Holding Visas Departing for Tokyo at Colombo Airport"
               width="600"
               height="420"
               loading="lazy"
@@ -175,10 +175,10 @@ export default function SuccessStories({ lang, onNavigate }) {
 
               {c.link && c.link !== '#' && (
                 <div className="cohort-link-wrapper">
-                  <a 
-                    href={c.link} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
+                  <a
+                    href={c.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="cohort-channel-link"
                   >
                     <span>{t.btnVisitChannel}</span>

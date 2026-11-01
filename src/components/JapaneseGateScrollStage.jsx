@@ -1,136 +1,10 @@
 import { useEffect, useRef } from 'react';
-import { ArrowDown, Sparkles, ShieldCheck, Award } from 'lucide-react';
+import { ArrowDown, ShieldCheck } from 'lucide-react';
 import { getUiText } from '../data/uiText';
-
-/* ============================================================
-   PHOTOREALISTIC SVG CHOCHIN LANTERN (光 & 輝)
-   - Warm candle core (#ff9a3c -> #e03c1f -> #3d0705)
-   - Curved Q quadratic bamboo ribs at 0.45 opacity
-   - Matte black lacquered caps (#1a1615) with no yellow borders
-   - Dark iron hanging rod (#231f1e)
-   - Traditional Noto Serif JP calligraphy in deep sumi ink with paper bleed
-   - Directional contact shadow cast onto wooden pillar
-   ============================================================ */
-function PhotorealisticChochin({ kanji, idPrefix }) {
-  const gradientId = `${idPrefix}-core`;
-  const cylinderId = `${idPrefix}-cyl`;
-  const bleedId = `${idPrefix}-bleed`;
-  const clipId = `${idPrefix}-clip`;
-
-  return (
-    <svg
-      viewBox="0 0 120 184"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      style={{
-        width: '100%',
-        height: '100%',
-        display: 'block',
-        filter: 'drop-shadow(6px 14px 14px rgba(0, 0, 0, 0.78))',
-      }}
-    >
-      <defs>
-        {/* Warm internal candle core: #ff9a3c in center fading to #e03c1f vermilion and #3d0705 dark crimson */}
-        <radialGradient id={gradientId} cx="50%" cy="50%" r="55%" fx="48%" fy="48%">
-          <stop offset="0%" stopColor="#ff9a3c" stopOpacity="1" />
-          <stop offset="30%" stopColor="#f97316" stopOpacity="1" />
-          <stop offset="56%" stopColor="#e03c1f" stopOpacity="1" />
-          <stop offset="82%" stopColor="#991b1b" stopOpacity="1" />
-          <stop offset="100%" stopColor="#3d0705" stopOpacity="1" />
-        </radialGradient>
-
-        {/* 3D Cylindrical shading to match sunset lighting on wooden gate */}
-        <linearGradient id={cylinderId} x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#220403" stopOpacity="0.75" />
-          <stop offset="14%" stopColor="#3d0705" stopOpacity="0.22" />
-          <stop offset="48%" stopColor="#fed7aa" stopOpacity="0.18" />
-          <stop offset="82%" stopColor="#3d0705" stopOpacity="0.22" />
-          <stop offset="100%" stopColor="#220403" stopOpacity="0.75" />
-        </linearGradient>
-
-        {/* Traditional Sumi Ink Bleed into warm washi paper fibers */}
-        <filter id={bleedId} x="-20%" y="-20%" width="140%" height="140%">
-          <feGaussianBlur in="SourceAlpha" stdDeviation="0.8" result="blur" />
-          <feFlood floodColor="#7f1d1d" floodOpacity="0.4" result="bleedColor" />
-          <feComposite in="bleedColor" in2="blur" operator="in" result="bleed" />
-          <feMerge>
-            <feMergeNode in="bleed" />
-            <feMergeNode in="SourceGraphic" />
-          </feMerge>
-        </filter>
-
-        {/* Clip path for curved organic chochin body */}
-        <clipPath id={clipId}>
-          <path d="M 38 18 C 10 40, 5 76, 5 88 C 5 124, 18 146, 40 152 L 80 152 C 102 146, 115 124, 115 88 C 115 76, 110 40, 82 18 Z" />
-        </clipPath>
-      </defs>
-
-      {/* Dark Iron Hanging Rod (#231f1e) with eyelet ring */}
-      <path d="M 60 0 L 60 12" stroke="#231f1e" strokeWidth="2.8" strokeLinecap="round" />
-      <circle cx="60" cy="8" r="3.2" fill="none" stroke="#231f1e" strokeWidth="1.8" />
-
-      {/* Chochin Paper Body with Internal Candle Core */}
-      <g clipPath={`url(#${clipId})`}>
-        {/* Base Candle Core Gradient */}
-        <path
-          d="M 38 18 C 10 40, 5 76, 5 88 C 5 124, 18 146, 40 152 L 80 152 C 102 146, 115 124, 115 88 C 115 76, 110 40, 82 18 Z"
-          fill={`url(#${gradientId})`}
-        />
-
-        {/* Soft Inner Radiant Flame Glow */}
-        <ellipse cx="60" cy="88" rx="26" ry="38" fill="#ffedd5" opacity="0.32" />
-
-        {/* Curved Bamboo Ribs (Q quadratic curves at 0.45 opacity) */}
-        <path d="M 30 30 Q 60 38 90 30" stroke="#1f0705" strokeWidth="1.8" fill="none" opacity="0.45" strokeLinecap="round" />
-        <path d="M 20 46 Q 60 55 100 46" stroke="#1f0705" strokeWidth="1.8" fill="none" opacity="0.45" strokeLinecap="round" />
-        <path d="M 12 64 Q 60 74 108 64" stroke="#1f0705" strokeWidth="1.8" fill="none" opacity="0.45" strokeLinecap="round" />
-        <path d="M 6 82 Q 60 93 114 82" stroke="#1f0705" strokeWidth="1.8" fill="none" opacity="0.45" strokeLinecap="round" />
-        <path d="M 6 100 Q 60 111 114 100" stroke="#1f0705" strokeWidth="1.8" fill="none" opacity="0.45" strokeLinecap="round" />
-        <path d="M 12 118 Q 60 128 108 118" stroke="#1f0705" strokeWidth="1.8" fill="none" opacity="0.45" strokeLinecap="round" />
-        <path d="M 20 136 Q 60 144 100 136" stroke="#1f0705" strokeWidth="1.8" fill="none" opacity="0.45" strokeLinecap="round" />
-
-        {/* Traditional Serif Japanese Calligraphy ('Noto Serif JP', serif) in Deep Sumi Ink (#170b09 at 0.88 opacity) */}
-        <text
-          x="60"
-          y="93"
-          textAnchor="middle"
-          dominantBaseline="central"
-          fontFamily="'Noto Serif JP', serif"
-          fontWeight="900"
-          fontSize="46"
-          fill="#170b09"
-          opacity="0.88"
-          filter={`url(#${bleedId})`}
-          style={{ userSelect: 'none' }}
-        >
-          {kanji}
-        </text>
-
-        {/* 3D Cylindrical Edge Shading Overlay */}
-        <rect x="0" y="0" width="120" height="184" fill={`url(#${cylinderId})`} />
-      </g>
-
-      {/* Top Matte Black Lacquered Cap (#1a1615) with no yellow borders */}
-      <path d="M 34 12 L 86 12 L 82 18 L 38 18 Z" fill="#1a1615" />
-      <rect x="32" y="10" width="56" height="4" rx="2" fill="#25201e" />
-
-      {/* Bottom Matte Black Lacquered Cap (#1a1615) with no yellow borders */}
-      <path d="M 38 152 L 82 152 L 78 158 L 42 158 Z" fill="#1a1615" />
-      <rect x="36" y="157" width="48" height="3" rx="1.5" fill="#25201e" />
-
-      {/* Dark Iron Fitting & Deep Red Silk Tassel */}
-      <path d="M 60 160 L 60 166" stroke="#231f1e" strokeWidth="2.5" strokeLinecap="round" />
-      <path d="M 60 166 L 60 182" stroke="#7f1d1d" strokeWidth="2.8" strokeLinecap="round" opacity="0.95" />
-    </svg>
-  );
-}
 
 export default function JapaneseGateScrollStage({
   onEnterWebsite,
   lang = 'en',
-  onOpenModal,
-  onScrollToEligibility,
-  onNavigate
 }) {
   const gateText = getUiText(lang)?.gate || {};
   const g = {
@@ -552,41 +426,12 @@ export default function JapaneseGateScrollStage({
     };
   }, []);
 
-  const handleSkipToContent = () => {
-    if (!containerRef.current) return;
-    const target = containerRef.current.offsetTop + containerRef.current.offsetHeight - window.innerHeight + 20;
-    window.scrollTo({ top: target, behavior: 'smooth' });
-    if (onEnterWebsite) onEnterWebsite();
-  };
-
   // Smooth cinematic scroll through Torii Gate to reveal the Kouki-style hero
   const handleWalkThrough = () => {
     if (!containerRef.current) return;
     const totalScroll = containerRef.current.offsetHeight - window.innerHeight;
     const target = containerRef.current.offsetTop + totalScroll * 0.90;
     window.scrollTo({ top: target, behavior: 'smooth' });
-  };
-
-  const handleApplyNow = (e) => {
-    if (e) e.stopPropagation();
-    if (onScrollToEligibility) {
-      onScrollToEligibility();
-    } else {
-      const el = document.getElementById('eligibility') || document.getElementById('home-content-start');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-      else if (onEnterWebsite) onEnterWebsite();
-    }
-  };
-
-  const handleConsultation = (e) => {
-    if (e) e.stopPropagation();
-    if (onOpenModal) {
-      onOpenModal('Free Consultation');
-    } else {
-      const el = document.getElementById('home-content-start');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-      else if (onEnterWebsite) onEnterWebsite();
-    }
   };
 
   const getHeroContent = (currentLang) => {
@@ -597,8 +442,6 @@ export default function JapaneseGateScrollStage({
           t1: 'ජපන් භාෂාව',
           t2: 'ජපානයේ රැකියා',
           t3: 'ශිෂ්‍ය වීසා',
-          applyBtn: 'අයදුම් කරන්න',
-          consultBtn: 'නොමිලේ උපදේශනයක්',
         };
       case 'jp':
         return {
@@ -606,8 +449,6 @@ export default function JapaneseGateScrollStage({
           t1: '日本語教育',
           t2: '特定技能・就労',
           t3: '留学ビザ',
-          applyBtn: '今すぐ申し込む',
-          consultBtn: '無料相談を予約',
         };
       case 'en':
       default:
@@ -616,8 +457,6 @@ export default function JapaneseGateScrollStage({
           t1: 'LEARN JAPANESE',
           t2: 'WORK IN JAPAN',
           t3: 'STUDY IN JAPAN',
-          applyBtn: 'Apply Now',
-          consultBtn: 'Book a Free Consultation',
         };
     }
   };
@@ -680,6 +519,7 @@ export default function JapaneseGateScrollStage({
             ref={bgImgRef}
             src="/images/pagoda-cinematic.jpg"
             alt="Chureito Pagoda and Mount Fuji Japan"
+            decoding="async"
             style={{
               position: 'absolute',
               inset: 0,
@@ -804,6 +644,7 @@ export default function JapaneseGateScrollStage({
               <img
                 src="/images/torii-gate-ultra.png"
                 alt="Torii Gate"
+                decoding="async"
                 style={{
                   position: 'absolute',
                   inset: 0,
@@ -999,27 +840,6 @@ export default function JapaneseGateScrollStage({
               <span className="divider-line" />
               <span className="divider-diamond">◆</span>
               <span className="divider-line" />
-            </div>
-
-            {/* 5. Two Pill Call-To-Action Buttons */}
-            <div className="kouki-hero-actions">
-              <button
-                type="button"
-                onClick={handleApplyNow}
-                className="kouki-btn-primary"
-                id="hero-apply-btn"
-              >
-                <span>{heroContent.applyBtn}</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={handleConsultation}
-                className="kouki-btn-secondary"
-                id="hero-consult-btn"
-              >
-                <span>{heroContent.consultBtn}</span>
-              </button>
             </div>
           </div>
         </div>

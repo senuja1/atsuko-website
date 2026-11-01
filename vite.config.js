@@ -7,7 +7,21 @@ export default defineConfig({
   build: {
     // Disable source maps in production to prevent source code and path disclosure
     sourcemap: false,
-    // Ensure clean chunking
-    chunkSizeWarningLimit: 1000,
+    chunkSizeWarningLimit: 600,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules/react/') || id.includes('node_modules/react-dom/') || id.includes('node_modules/scheduler/')) {
+            return 'vendor-react';
+          }
+          if (id.includes('node_modules/framer-motion/')) {
+            return 'vendor-motion';
+          }
+          if (id.includes('node_modules/lucide-react/')) {
+            return 'vendor-icons';
+          }
+        },
+      },
+    },
   },
 })

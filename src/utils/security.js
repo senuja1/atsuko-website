@@ -20,6 +20,7 @@ export function sanitizeInput(input, maxLength = 500) {
     // Strip dangerous javascript: and data: URIs
     .replace(/(javascript|vbscript|data):/gi, '')
     // Strip null bytes and dangerous control characters
+    // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, '')
     // Normalize excessive whitespace
     .replace(/\s+/g, ' ')
