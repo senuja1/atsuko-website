@@ -47,6 +47,53 @@ export default function ConsultationModal({ lang, isOpen, onClose, defaultProgra
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  // Routing logic:
+  // - Language classes (JLPT N5, N4, N3, N2, N1, JFT-Basic, Spoken Japanese, Kaiwa) -> +94 70 363 4416 (070 363 4416)
+  // - All other courses (SSW, Caregiver, Truck Driver, Construction, Agriculture, Student Visa, TITP, etc.) -> +94 77 793 3352
+  const isLanguageProgram = (prog = '') => {
+    const p = prog.toLowerCase();
+    return (
+      p.includes('language') ||
+      p.includes('jlpt') ||
+      p.includes('jft') ||
+      p.includes('kaiwa') ||
+      p.includes('spoken') ||
+      p.includes('nihongo') ||
+      p.includes('japanese class') ||
+      p.includes('n5') ||
+      p.includes('n4') ||
+      p.includes('n3') ||
+      p.includes('n2') ||
+      p.includes('n1')
+    );
+  };
+
+  const getTargetWhatsAppNumber = () => {
+    if (isLanguageProgram(formData.program)) {
+      return '94703634416'; // 070 363 4416 for Language classes
+    }
+    return '94777933352'; // +94 77 793 3352 for all other courses & visa programs
+  };
+
+  const getWhatsAppLink = () => {
+    const targetNumber = getTargetWhatsAppNumber();
+    const isLang = isLanguageProgram(formData.program);
+
+    const text = `🎌 *NEW INQUIRY - ATSUKO INTERNATIONAL (PVT) LTD*
+━━━━━━━━━━━━━━━━━━━━━
+📍 *Department:* ${isLang ? 'Japanese Language Academy (JLPT / JFT / Spoken)' : 'Courses & Vocational / Visa Placements'}
+👤 *Full Name:* ${formData.name}
+📱 *Phone / WhatsApp:* ${formData.phone}
+🏢 *Nearest Center:* ${formData.branch}
+🎓 *Program of Interest:* ${formData.program}
+📜 *Highest Qualification:* ${formData.education}
+💬 *Special Note / Questions:* ${formData.notes || 'None provided'}
+━━━━━━━━━━━━━━━━━━━━━
+_Please schedule my consultation session with an Atsuko Counselor._`;
+
+    return `https://wa.me/${targetNumber}?text=${encodeURIComponent(text)}`;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const cleanData = sanitizeFormData(formData);
@@ -68,19 +115,14 @@ export default function ConsultationModal({ lang, isOpen, onClose, defaultProgra
       console.error(err);
     }
     setSubmitted(true);
-  };
 
-  const getWhatsAppLink = () => {
-    const text = `Hello Atsuko International! I have submitted my consultation application:
-• Name: ${formData.name}
-• Contact: ${formData.phone}
-• Preferred Center: ${formData.branch}
-• Program: ${formData.program}
-• Education: ${formData.education}
-• Note: ${formData.notes || 'None'}
-
-Please schedule my consultation session with an Atsuko Counselor.`;
-    return `https://wa.me/94777933352?text=${encodeURIComponent(text)}`;
+    // Automatically trigger WhatsApp direct message for immediate delivery
+    try {
+      const waUrl = getWhatsAppLink();
+      window.open(waUrl, '_blank', 'noopener,noreferrer');
+    } catch (err) {
+      console.warn('Auto WhatsApp popup blocked:', err);
+    }
   };
 
   const handleClose = () => {
