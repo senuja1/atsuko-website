@@ -219,9 +219,9 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
       {/* 2. Main Dual-Column: Official Locations & Contact Form */}
       <section className="section" style={{ background: '#ffffff' }}>
         <div className="container">
-          <div className="contact-main-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: 'clamp(1.5rem, 3vw, 2.5rem)' }}>
+          <div className="contact-main-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: 'clamp(1.5rem, 3vw, 2.5rem)', alignItems: 'stretch' }}>
             {/* Left Column: Official Sri Lanka & Japan Operating Bases */}
-            <div className="contact-offices-col">
+            <div className="contact-offices-col" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
 
               {/* Interactive Live Location Map Card */}
               <div
@@ -232,7 +232,10 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
                   border: '1px solid #e2e8f0',
                   borderRadius: 'var(--radius-xl)',
                   overflow: 'hidden',
-                  boxShadow: '0 4px 20px rgba(0,0,0,0.06)'
+                  boxShadow: '0 4px 20px rgba(0,0,0,0.06)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  height: '100%'
                 }}
               >
                 {/* Map Card Header with Live Indicator */}
@@ -244,7 +247,8 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
                   alignItems: 'center',
                   justifyContent: 'space-between',
                   flexWrap: 'wrap',
-                  gap: '0.65rem'
+                  gap: '0.65rem',
+                  flexShrink: 0
                 }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
                     <div style={{
@@ -306,7 +310,8 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
                   borderBottom: '1px solid #e2e8f0',
                   overflowX: 'auto',
                   whiteSpace: 'nowrap',
-                  scrollbarWidth: 'thin'
+                  scrollbarWidth: 'thin',
+                  flexShrink: 0
                 }}>
                   {/* Kadawatha Campus (Main) */}
                   <button
@@ -410,14 +415,14 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
                 </div>
 
                 {/* Live Google Map Interactive Frame */}
-                <div style={{ position: 'relative', width: '100%', height: '330px', background: '#e2e8f0' }}>
+                <div style={{ position: 'relative', width: '100%', minHeight: '340px', flex: '1 1 0%', background: '#e2e8f0' }}>
                   <iframe
                     key={currentMap.id}
                     title={`${currentMap.name} Live Location Map`}
                     src={currentMap.embedUrl}
                     width="100%"
                     height="100%"
-                    style={{ border: 0, display: 'block' }}
+                    style={{ border: 0, display: 'block', width: '100%', height: '100%' }}
                     allowFullScreen=""
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
@@ -433,7 +438,8 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
                   alignItems: 'center',
                   justifyContent: 'space-between',
                   flexWrap: 'wrap',
-                  gap: '0.85rem'
+                  gap: '0.85rem',
+                  flexShrink: 0
                 }}>
                   <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', flex: '1 1 250px' }}>
                     <Compass size={17} style={{ color: '#0284c7', flexShrink: 0, marginTop: '2px' }} />
@@ -470,18 +476,16 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
             </div>
 
             {/* Right Column: Interactive Consultation & Application Form */}
-            <div className="contact-form-col">
-              <div className="contact-form-card" style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: 'var(--radius-xl)', padding: '2rem', boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
-                <span className="section-badge badge-gold" style={{ marginBottom: '0.75rem' }}>
-                  <Sparkles size={14} />
-                  {ui.formBadge}
-                </span>
-                <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--navy-900)', margin: '0.25rem 0 0.5rem' }}>
-                  {ui.formTitle}
-                </h3>
-                <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '1.5rem', lineHeight: 1.5 }}>
-                  {ui.formSubtitle}
-                </p>
+            <div className="contact-form-col" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+              <div className="contact-form-card" style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: 'var(--radius-xl)', padding: '2rem', boxShadow: '0 4px 20px rgba(0,0,0,0.05)', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between' }}>
+                <div>
+                  <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--navy-900)', margin: '0 0 0.5rem' }}>
+                    {ui.formTitle}
+                  </h3>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '1.5rem', lineHeight: 1.5 }}>
+                    {ui.formSubtitle}
+                  </p>
+                </div>
 
                 {submitted ? (
                   <div style={{ textAlign: 'center', padding: '2rem 1rem' }}>
