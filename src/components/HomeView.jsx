@@ -76,7 +76,7 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
             </div>
 
             <div className="presence-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))' }}>
-              <div className="credentials-card" style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: 'var(--radius-xl)', padding: '1.75rem' }}>
+              <div className="credentials-card" style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: 'var(--radius-xl)', padding: 'clamp(1.15rem, 3.5vw, 1.75rem)' }}>
                 <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: '#fee2e2', color: '#b91c1c', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem' }}>
                   <Building2 size={24} />
                 </div>
@@ -95,7 +95,7 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
                 </button>
               </div>
 
-              <div className="credentials-card" style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: 'var(--radius-xl)', padding: '1.75rem' }}>
+              <div className="credentials-card" style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: 'var(--radius-xl)', padding: 'clamp(1.15rem, 3.5vw, 1.75rem)' }}>
                 <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: '#fef3c7', color: '#92400e', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem' }}>
                   <Sparkles size={24} />
                 </div>
@@ -114,7 +114,7 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
                 </button>
               </div>
 
-              <div className="credentials-card" style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: 'var(--radius-xl)', padding: '1.75rem' }}>
+              <div className="credentials-card" style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: 'var(--radius-xl)', padding: 'clamp(1.15rem, 3.5vw, 1.75rem)' }}>
                 <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: '#e0f2fe', color: '#0369a1', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem' }}>
                   <Users size={24} />
                 </div>

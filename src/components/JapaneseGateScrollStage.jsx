@@ -97,6 +97,9 @@ export default function JapaneseGateScrollStage({
     let isRunning = false;
     let containerTop = 0;
     let totalHeight = 0;
+    let lastWidth = typeof window !== 'undefined' ? window.innerWidth : 0;
+    const isTouchDevice = typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches;
+    const lerpFactor = isTouchDevice ? 0.24 : 0.12;
 
     const cacheMetrics = () => {
       if (!containerRef.current) return;
@@ -197,7 +200,7 @@ export default function JapaneseGateScrollStage({
         if (Math.abs(diff) < 0.0008) {
           currentP = targetP;
         } else {
-          currentP += diff * 0.12;
+          currentP += diff * lerpFactor;
         }
       }
 
@@ -264,6 +267,12 @@ export default function JapaneseGateScrollStage({
     };
 
     const handleResize = () => {
+      // Ignore mobile URL-bar vertical-only resize events to prevent mid-scroll gate jumping
+      const currentW = window.innerWidth;
+      if (isTouchDevice && Math.abs(currentW - lastWidth) < 2) {
+        return;
+      }
+      lastWidth = currentW;
       cacheMetrics();
       requestRender();
     };
@@ -294,6 +303,7 @@ export default function JapaneseGateScrollStage({
     const fgCtx = fgCanvas.getContext('2d');
     let animId;
     let isVisible = true;
+    const isMobileScreen = typeof window !== 'undefined' && window.innerWidth < 768;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -319,8 +329,11 @@ export default function JapaneseGateScrollStage({
       observer.observe(containerRef.current);
     }
 
+    let lastCanvasWidth = 0;
     const resize = () => {
       const w = window.innerWidth;
+      if (isMobileScreen && Math.abs(w - lastCanvasWidth) < 2 && lastCanvasWidth > 0) return;
+      lastCanvasWidth = w;
       const h = window.innerHeight;
       bgCanvas.width = w;
       bgCanvas.height = h;
@@ -328,10 +341,10 @@ export default function JapaneseGateScrollStage({
       fgCanvas.height = h;
     };
     resize();
-    window.addEventListener('resize', resize);
+    window.addEventListener('resize', resize, { passive: true });
 
-    // Background petals layer (behind the gate)
-    const bgPetals = Array.from({ length: 22 }, () => ({
+    // Background petals layer (behind the gate) — lighter count on mobile for 60fps smoothness
+    const bgPetals = Array.from({ length: isMobileScreen ? 12 : 22 }, () => ({
       x: Math.random() * window.innerWidth,
       y: Math.random() * window.innerHeight,
       size: 4 + Math.random() * 5,
@@ -342,8 +355,8 @@ export default function JapaneseGateScrollStage({
       opacity: 0.25 + Math.random() * 0.35,
     }));
 
-    // 4–5 slightly larger foreground petals drifting in front of the gate pillars
-    const fgPetals = Array.from({ length: 5 }, () => ({
+    // Slightly larger foreground petals drifting in front of the gate pillars
+    const fgPetals = Array.from({ length: isMobileScreen ? 3 : 5 }, () => ({
       x: Math.random() * window.innerWidth,
       y: Math.random() * window.innerHeight,
       size: 13 + Math.random() * 7,
@@ -474,11 +487,12 @@ export default function JapaneseGateScrollStage({
     >
       {/* Sticky 3D Stage Container with 1200px perspective wrapper */}
       <div
+        className="gate-sticky-stage"
         style={{
           position: 'sticky',
           top: 0,
-          height: '100dvh',
-          minHeight: '100dvh',
+          height: '100svh',
+          minHeight: '100svh',
           width: '100%',
           overflow: 'hidden',
           display: 'flex',
@@ -644,6 +658,7 @@ export default function JapaneseGateScrollStage({
               <img
                 src="/images/torii-gate-ultra.png"
                 alt="Torii Gate"
+                className="torii-gate-img"
                 decoding="async"
                 style={{
                   position: 'absolute',
@@ -666,6 +681,7 @@ export default function JapaneseGateScrollStage({
         {/* Foreground Sakura Petals Drifting in Front of Gate Pillars (Blurred for Depth) */}
         <canvas
           ref={fgCanvasRef}
+          className="gate-fg-canvas"
           style={{
             position: 'absolute',
             inset: 0,

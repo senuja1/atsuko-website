@@ -5743,7 +5743,7 @@ html[lang="jp"] .stat-label,
   .torii-gate-frame {
     width: auto;
     height: min(88vh, 185vw, 1050px);
-    height: min(88dvh, 185vw, 1050px);
+    height: min(88svh, 185vw, 1050px);
     bottom: -1%;
   }
 }
@@ -7916,7 +7916,8 @@ html[lang="jp"] .stat-label,
   will-change: transform;
 }
 
-.student-comments-marquee-wrapper:hover .student-comments-track {
+.student-comments-marquee-wrapper:hover .student-comments-track,
+.student-comments-marquee-wrapper:active .student-comments-track {
   animation-play-state: paused;
 }
 
@@ -7932,8 +7933,8 @@ html[lang="jp"] .stat-label,
 
 .student-comment-card {
   width: 350px;
-  min-height: 190px;
-  height: 198px;
+  min-height: 198px;
+  height: auto;
   max-width: 85vw;
   flex-shrink: 0;
   background: #ffffff;
@@ -8207,8 +8208,8 @@ html[lang="jp"] .stat-label,
 
   .student-comment-card {
     width: 300px;
-    min-height: 182px;
-    height: 188px;
+    min-height: 186px;
+    height: auto;
     padding: 0.95rem 1.05rem;
   }
 
@@ -8512,6 +8513,19 @@ html[lang="jp"] .stat-label,
     display: none !important;
   }
 
+  /* Mobile Gate Runway & GPU Filter Optimization */
+  .gate-scroll-runway {
+    height: 195vh !important;
+  }
+
+  .torii-gate-img {
+    filter: brightness(1.06) contrast(1.08) !important;
+  }
+
+  .gate-fg-canvas {
+    filter: none !important;
+  }
+
   /* Mobile Decoupled Layout (<= 768px): Title in Upper Torii Free Space, Actions in Lower Archway */
   .gate-intro-hint {
     position: absolute !important;
@@ -8536,7 +8550,7 @@ html[lang="jp"] .stat-label,
   /* 1. Upper Torii Archway Header Block (ATSUKO INTERNATIONAL) */
   .gate-intro-header-block {
     position: relative !important;
-    margin-top: clamp(88px, 12vh, 115px) !important;
+    margin-top: clamp(74px, 10svh, 102px) !important;
     width: min(92vw, 420px) !important;
     pointer-events: auto !important;
     z-index: 2;
@@ -8555,10 +8569,10 @@ html[lang="jp"] .stat-label,
     -webkit-backdrop-filter: blur(4px);
   }
 
-  /* 2. Lower Torii Archway Action Block (Description + License Badge + Button + Scroll Hint) */
+  /* 2. Lower Torii Archway Action Block (License Badge + Button + Scroll Hint) */
   .gate-intro-action-block {
     position: relative !important;
-    margin-bottom: clamp(78px, 12.5vh, 118px) !important;
+    margin-bottom: clamp(38px, 6.5svh, 68px) !important;
     width: min(92vw, 380px) !important;
     pointer-events: auto !important;
     z-index: 2;
@@ -8766,11 +8780,35 @@ html[lang="jp"] .stat-label,
   .cost-grid-items,
   .social-channels-grid,
   .intakes-grid-cards,
+  .visa-requirements-grid,
+  .roadmap-grid-enhanced,
+  .checklist-grid,
   .result-metrics,
   .success-cohorts-grid,
   .spotlight-stats-row {
     grid-template-columns: 1fr;
     gap: 16px;
+  }
+
+  .visa-highlights-row,
+  .ssw-sectors-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 14px;
+  }
+
+  /* Stack floating hero badges cleanly below drone video on all mobile phones */
+  .hero-image-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .floating-badge {
+    position: static;
+    width: 100%;
+    box-shadow: var(--shadow-sm);
+    padding: 10px 14px;
   }
 
   /* Keep stats bar as balanced 2x2 grid */
@@ -8930,7 +8968,7 @@ html[lang="jp"] .stat-label,
   /* 1. Upper Torii Archway Header Block (ATSUKO INTERNATIONAL) */
   .gate-intro-header-block {
     position: relative !important;
-    margin-top: clamp(84px, 11vh, 105px) !important;
+    margin-top: clamp(68px, 9.5svh, 92px) !important;
     width: min(92vw, 380px) !important;
     pointer-events: auto !important;
     z-index: 2;
@@ -8948,10 +8986,10 @@ html[lang="jp"] .stat-label,
     -webkit-backdrop-filter: blur(4px);
   }
 
-  /* 2. Lower Torii Archway Action Block (Description + License Badge + Button + Scroll Hint) */
+  /* 2. Lower Torii Archway Action Block (License Badge + Button + Scroll Hint) */
   .gate-intro-action-block {
     position: relative !important;
-    margin-bottom: clamp(74px, 12vh, 110px) !important;
+    margin-bottom: clamp(32px, 5.5svh, 54px) !important;
     width: min(92vw, 350px) !important;
     pointer-events: auto !important;
     z-index: 2;
@@ -9237,6 +9275,11 @@ html[lang="jp"] .stat-label,
   .program-card,
   .course-card,
   .roadmap-card,
+  .roadmap-card-enhanced,
+  .req-card,
+  .checklist-card,
+  .intake-detail-card,
+  .leader-card,
   .result-card,
   .visa-detail-header-card,
   .intakes-detailed-box,
@@ -9253,7 +9296,7 @@ html[lang="jp"] .stat-label,
   .checklist-cta-box,
   .stories-spotlight-content,
   .cohort-credibility-card {
-    padding: 20px 14px;
+    padding: 18px 15px !important;
   }
 
   .faq-question {
@@ -9319,12 +9362,12 @@ html[lang="jp"] .stat-label,
   }
 
   .gate-intro-header-block {
-    margin-top: clamp(76px, 10vh, 94px) !important;
+    margin-top: clamp(64px, 9svh, 84px) !important;
     width: min(96vw, 330px) !important;
   }
 
   .gate-intro-action-block {
-    margin-bottom: clamp(64px, 10vh, 90px) !important;
+    margin-bottom: clamp(26px, 5svh, 46px) !important;
     width: min(96vw, 310px) !important;
   }
 
@@ -10279,14 +10322,14 @@ html[lang="jp"] .stat-label,
 @media (max-width: 991px) {
   .fb-fullbar-stage {
     grid-template-columns: 1fr;
-    padding: 28px 20px 24px;
-    gap: 20px;
+    padding: 185px 22px 24px;
+    gap: 16px;
     min-height: auto;
   }
   .fb-fullbar-bg-photo {
     width: 100%;
     height: 100%;
-    object-position: center;
+    object-position: center 22%;
     filter: none !important;
     opacity: 1 !important;
   }
@@ -10294,18 +10337,14 @@ html[lang="jp"] .stat-label,
     width: 100%;
     background: linear-gradient(
       180deg,
-      rgba(11, 19, 41, 0.94) 0%,
-      rgba(11, 19, 41, 0.82) 55%,
-      rgba(11, 19, 41, 0.3) 100%
+      rgba(11, 19, 41, 0.04) 0%,
+      rgba(11, 19, 41, 0.16) 34%,
+      rgba(11, 19, 41, 0.86) 54%,
+      rgba(11, 19, 41, 0.97) 100%
     );
   }
   .fb-fullbar-right {
-    min-height: auto;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
+    display: none;
   }
   .fb-fullbar-photo-spacer {
     display: none;
@@ -10317,14 +10356,19 @@ html[lang="jp"] .stat-label,
     justify-content: flex-start;
   }
   .fb-slide-arrow {
+    top: 86px;
+    transform: none;
     width: 38px;
     height: 38px;
   }
+  .fb-slide-arrow:hover {
+    transform: scale(1.06);
+  }
   .fb-slide-arrow-left {
-    left: 8px;
+    left: 10px;
   }
   .fb-slide-arrow-right {
-    right: 8px;
+    right: 10px;
   }
   .fb-fullbar-tabs-bar {
     padding: 10px 16px;
@@ -10332,17 +10376,57 @@ html[lang="jp"] .stat-label,
   }
   .fb-intake-bottom-bar {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 14px;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+    padding: 14px 18px;
+  }
+  .fb-intake-affiliations {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.45;
+  }
+  .fb-intake-socials-group {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 14px;
+  }
+  .fb-intake-call-group {
+    width: 100%;
+  }
+  .fb-call-pill {
+    width: 100%;
+    justify-content: center;
   }
 }
 
 @media (max-width: 640px) {
   .fb-fullbar-stage {
-    padding: 24px 14px 20px;
+    padding: 160px 16px 20px;
+    gap: 12px;
+  }
+  .fb-slide-arrow {
+    top: 76px;
+    width: 36px;
+    height: 36px;
   }
   .fb-fullbar-headline {
-    font-size: 1.6rem;
+    font-size: clamp(1.35rem, 6vw, 1.65rem);
+    line-height: 1.15;
+  }
+  .fb-fullbar-headline-sub {
+    font-size: clamp(0.82rem, 3.6vw, 0.95rem);
+    margin-top: 4px;
+  }
+  .fb-fullbar-disciplines {
+    font-size: 0.7rem;
+    gap: 4px 8px;
+  }
+  .fb-fullbar-ad-subtitle {
+    font-size: 0.84rem;
+    line-height: 1.5;
   }
   .fb-fullbar-date-pill {
     font-size: 0.86rem;
@@ -10590,9 +10674,25 @@ html[lang="jp"] .stat-label,
 @media (max-width: 640px) {
   .atsuko-courses-grid {
     grid-template-columns: 1fr;
-    gap: 18px;
+    gap: 16px;
   }
   .atsuko-course-media {
-    min-height: 450px;
+    min-height: 410px;
+  }
+  .atsuko-course-pill-item {
+    max-width: 100%;
+  }
+  .atsuko-course-more-btn {
+    min-height: 40px;
+    padding: 8px 28px;
+    width: 100%;
+    max-width: 240px;
+  }
+  .atsuko-course-header-bar {
+    padding: 11px 14px;
+  }
+  .atsuko-course-category-text {
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
   }
 }
