@@ -297,7 +297,9 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
                     <Phone size={18} className="presence-icon" />
                     <div>
                       <strong>{h.globalPresence?.slHotlineLbl || 'Hotline & Mobiles:'}</strong>
-                      <p>{officialContacts.hotline} / {officialContacts.mobile1}</p>
+                      <p>
+                        <a href={`tel:${officialContacts.hotline.replace(/[^0-9+]/g, '')}`} style={{ color: 'inherit', textDecoration: 'none' }}>{officialContacts.hotline}</a> / <a href={`tel:${officialContacts.mobile1.replace(/[^0-9+]/g, '')}`} style={{ color: 'inherit', textDecoration: 'none' }}>{officialContacts.mobile1}</a> / <a href={`tel:${officialContacts.mobile2.replace(/[^0-9+]/g, '')}`} style={{ color: 'inherit', textDecoration: 'none' }}>{officialContacts.mobile2}</a>
+                      </p>
                     </div>
                   </div>
                   <div className="presence-detail-row">

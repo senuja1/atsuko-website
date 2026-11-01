@@ -166,7 +166,12 @@ export default function Footer({ lang, onOpenModal, onNavigate }) {
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <Phone size={15} style={{ color: '#38bdf8', flexShrink: 0 }} />
-                <span>{lang === 'si' ? 'ක්ෂණික ඇමතුම්:' : lang === 'jp' ? '総合窓口:' : 'Hotline:'} {officialContacts.hotline} / {officialContacts.mobile1}</span>
+                <span>
+                  {lang === 'si' ? 'ක්ෂණික ඇමතුම්:' : lang === 'jp' ? '総合窓口:' : 'Hotlines & Mobiles:'}{' '}
+                  <a href={`tel:${officialContacts.hotline.replace(/[^0-9+]/g, '')}`} style={{ color: 'inherit', textDecoration: 'none' }}>{officialContacts.hotline}</a> /{' '}
+                  <a href={`tel:${officialContacts.mobile1.replace(/[^0-9+]/g, '')}`} style={{ color: 'inherit', textDecoration: 'none' }}>{officialContacts.mobile1}</a> /{' '}
+                  <a href={`tel:${officialContacts.mobile2.replace(/[^0-9+]/g, '')}`} style={{ color: 'inherit', textDecoration: 'none' }}>{officialContacts.mobile2}</a>
+                </span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <Mail size={15} style={{ color: '#fbbf24', flexShrink: 0 }} />
