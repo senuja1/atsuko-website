@@ -11,16 +11,17 @@ import { officialContacts } from '../data/websiteData';
 import { FacebookIcon, InstagramIcon, YoutubeIcon, TikTokIcon, WhatsAppIcon } from './SocialIcons';
 
 // ============================================================================
-// AUTOMATIC FACEBOOK FEED CONFIGURATION (NAMECHEAP & CLIENT-SIDE READY)
+// AUTOMATIC SOCIAL FEED CONFIGURATION (INSTAGRAM & FACEBOOK - NAMECHEAP READY)
 // ============================================================================
-// 1. To activate live auto-updating from Facebook:
-//    - Go to https://curator.io (Free plan supports public Facebook Pages)
-//    - Add Atsuko Facebook Page: https://www.facebook.com/AtsukoInternational
-//    - Put your Curator Feed ID or VITE_CURATOR_FEED_ID in a .env file or below.
-// 2. If no Feed ID is provided or if network fails, it seamlessly displays the
-//    high-res curated promotional billboard so the website NEVER breaks.
+// Supports:
+// 1. Official Instagram Account: https://www.instagram.com/atsuko_gakkou/
+// 2. Official Facebook Page: https://www.facebook.com/AtsukoInternational
+// 3. Official Meta Basic Display API or Curator Feed Token
+// If no token is provided or during offline mode, it automatically displays
+// the high-res curated Atsuko promotional ads so the website NEVER breaks.
 // ============================================================================
-const CURATOR_FEED_ID = import.meta.env?.VITE_CURATOR_FEED_ID || '';
+const SOCIAL_FEED_ID = import.meta.env?.VITE_INSTAGRAM_FEED_ID || import.meta.env?.VITE_CURATOR_FEED_ID || '';
+const INSTAGRAM_ACCESS_TOKEN = import.meta.env?.VITE_INSTAGRAM_ACCESS_TOKEN || '';
 
 export default function FacebookIntakeBar({ lang }) {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -59,7 +60,8 @@ export default function FacebookIntakeBar({ lang }) {
         { label: 'Japan MOJ', flag: '🇯🇵' },
         { label: 'Sendai Office', flag: '🇯🇵' }
       ],
-      link: officialContacts.socials.facebook
+      link: officialContacts.socials.instagram || officialContacts.socials.facebook,
+      source: 'instagram'
     },
     {
       id: 'post-2',
@@ -86,7 +88,8 @@ export default function FacebookIntakeBar({ lang }) {
         { label: 'JLPT / JFT', flag: '🇯🇵' },
         { label: 'Tokyo Partners', flag: '🇯🇵' }
       ],
-      link: officialContacts.socials.facebook
+      link: officialContacts.socials.instagram || officialContacts.socials.facebook,
+      source: 'instagram'
     },
     {
       id: 'post-3',
@@ -113,7 +116,8 @@ export default function FacebookIntakeBar({ lang }) {
         { label: 'Aichi Logistics', flag: '🇯🇵' },
         { label: 'Sendai Support', flag: '🇯🇵' }
       ],
-      link: officialContacts.socials.facebook
+      link: officialContacts.socials.instagram || officialContacts.socials.facebook,
+      source: 'instagram'
     },
     {
       id: 'post-4',
@@ -140,80 +144,136 @@ export default function FacebookIntakeBar({ lang }) {
         { label: 'Prometric CBT', flag: '🇯🇵' },
         { label: 'NVQ Level 3', flag: '🇱🇰' }
       ],
-      link: officialContacts.socials.facebook
+      link: officialContacts.socials.instagram || officialContacts.socials.facebook,
+      source: 'instagram'
     }
   ];
 
   // --------------------------------------------------------------------------
-  // AUTOMATIC CLIENT-SIDE FACEBOOK FETCH (WORKS 100% ON NAMECHEAP)
+  // AUTOMATIC CLIENT-SIDE INSTAGRAM & SOCIAL POSTS FETCH (NAMECHEAP READY)
   // --------------------------------------------------------------------------
   useEffect(() => {
-    if (!CURATOR_FEED_ID) return;
-
     let isMounted = true;
-    const fetchFacebookFeed = async () => {
+
+    const fetchSocialFeed = async () => {
       try {
-        const response = await fetch(
-          `https://api.curator.io/published/${CURATOR_FEED_ID}.json`
-        );
-        if (!response.ok) return;
+        // 1. Direct Instagram Graph API (if user provides long-lived Instagram Token)
+        if (INSTAGRAM_ACCESS_TOKEN) {
+          const igRes = await fetch(
+            `https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,permalink,thumbnail_url,timestamp&access_token=${INSTAGRAM_ACCESS_TOKEN}&limit=5`
+          );
+          if (igRes.ok) {
+            const igData = await igRes.json();
+            const igPosts = igData?.data || [];
+            if (Array.isArray(igPosts) && igPosts.length > 0) {
+              const formatted = igPosts
+                .filter((p) => p.media_url || p.thumbnail_url)
+                .map((post, index) => {
+                  const rawText = post.caption || '';
+                  const lines = rawText.split('\n').filter((l) => l.trim().length > 0);
+                  const h1 = lines[0] || 'ATSUKO OFFICIAL UPDATE';
+                  const h2 = lines[1] || 'ATSUKO GAKKOU INSTAGRAM';
+                  const desc = lines.slice(2, 5).join(' ') || rawText.slice(0, 160) + '...';
 
-        const data = await response.json();
-        const postsList = data?.posts || data?.data || [];
+                  let dateStr = 'INSTAGRAM RECENT POST';
+                  if (post.timestamp) {
+                    const d = new Date(post.timestamp);
+                    if (!isNaN(d.getTime())) {
+                      dateStr = `POSTED: ${d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).toUpperCase()}`;
+                    }
+                  }
 
-        if (Array.isArray(postsList) && postsList.length > 0) {
-          const formatted = postsList.slice(0, 5).map((post, index) => {
-            // Extract clean title / headline from Facebook text
-            const rawText = post.text || post.caption || '';
-            const textLines = rawText.split('\n').filter((l) => l.trim().length > 0);
-            const mainHeadline = textLines[0] || 'ATSUKO OFFICIAL UPDATE';
-            const secondLine = textLines[1] || 'RECENT FACEBOOK POST & ANNOUNCEMENT';
-            const snippet = textLines.slice(2, 5).join(' ') || rawText.slice(0, 180) + '...';
+                  return {
+                    id: `ig-live-${post.id || index}`,
+                    tabLabel: `0${index + 1} Instagram`,
+                    photo: post.media_url || post.thumbnail_url,
+                    photoPosition: 'center 25%',
+                    headline: h1.toUpperCase().slice(0, 48),
+                    headlineSub: h2.toUpperCase().slice(0, 60),
+                    datePill: dateStr,
+                    disciplines: ['INSTAGRAM LIVE', 'STUDENT LIFE', 'ATSUKO GAKKOU', 'JAPAN DREAMS'],
+                    adSubtitle: desc,
+                    partnerBadges: [
+                      { label: '@atsuko_gakkou', flag: '📸' },
+                      { label: 'Instagram Live', flag: '🇯🇵' }
+                    ],
+                    link: post.permalink || officialContacts.socials.instagram,
+                    source: 'instagram'
+                  };
+                });
 
-            // Post date
-            const postDate = post.created_at || post.published_at || '';
-            let dateDisplay = 'LATEST ANNOUNCEMENT';
-            if (postDate) {
-              const d = new Date(postDate);
-              if (!isNaN(d.getTime())) {
-                dateDisplay = `POSTED: ${d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).toUpperCase()}`;
+              if (isMounted && formatted.length > 0) {
+                setLivePosts(formatted);
+                setIsLiveLoaded(true);
+                return;
               }
             }
+          }
+        }
 
-            return {
-              id: `fb-live-${post.id || index}`,
-              tabLabel: `0${index + 1} Post`,
-              photo: post.image || post.thumbnail || '/images/batches/batch-17-completion.jpg',
-              photoPosition: 'center 25%',
-              headline: mainHeadline.toUpperCase().slice(0, 48),
-              headlineSub: secondLine.toUpperCase().slice(0, 60),
-              datePill: dateDisplay,
-              disciplines: [
-                'OFFICIAL POST',
-                'STUDENT UPDATES',
-                'VISA ADMISSIONS',
-                'ATSUKO GAKKO'
-              ],
-              adSubtitle: snippet,
-              partnerBadges: [
-                { label: 'SLBFE #3293', flag: '🇱🇰' },
-                { label: 'Facebook Live', flag: '🔵' }
-              ],
-              link: post.url || officialContacts.socials.facebook
-            };
-          });
+        // 2. Feed Service (Curator or Social Proxy)
+        if (SOCIAL_FEED_ID) {
+          const response = await fetch(`https://api.curator.io/published/${SOCIAL_FEED_ID}.json`);
+          if (!response.ok) return;
 
-          if (isMounted && formatted.length > 0) {
-            setLivePosts(formatted);
-            setIsLiveLoaded(true);
+          const data = await response.json();
+          const postsList = data?.posts || data?.data || [];
+
+          if (Array.isArray(postsList) && postsList.length > 0) {
+            const formatted = postsList.slice(0, 5).map((post, index) => {
+              const rawText = post.text || post.caption || '';
+              const textLines = rawText.split('\n').filter((l) => l.trim().length > 0);
+              const mainHeadline = textLines[0] || 'ATSUKO OFFICIAL UPDATE';
+              const secondLine = textLines[1] || 'ATSUKO GAKKOU ANNOUNCEMENT';
+              const snippet = textLines.slice(2, 5).join(' ') || rawText.slice(0, 180) + '...';
+
+              const postDate = post.created_at || post.published_at || '';
+              let dateDisplay = 'RECENT ANNOUNCEMENT';
+              if (postDate) {
+                const d = new Date(postDate);
+                if (!isNaN(d.getTime())) {
+                  dateDisplay = `POSTED: ${d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).toUpperCase()}`;
+                }
+              }
+
+              const isIg = (post.network_name || '').toLowerCase().includes('instagram') || post.url?.includes('instagram.com');
+
+              return {
+                id: `social-live-${post.id || index}`,
+                tabLabel: `0${index + 1} Post`,
+                photo: post.image || post.thumbnail || '/images/batches/batch-17-completion.jpg',
+                photoPosition: 'center 25%',
+                headline: mainHeadline.toUpperCase().slice(0, 48),
+                headlineSub: secondLine.toUpperCase().slice(0, 60),
+                datePill: dateDisplay,
+                disciplines: [
+                  isIg ? 'INSTAGRAM POST' : 'FACEBOOK POST',
+                  'STUDENT UPDATES',
+                  'VISA ADMISSIONS',
+                  'ATSUKO GAKKO'
+                ],
+                adSubtitle: snippet,
+                partnerBadges: [
+                  { label: isIg ? '@atsuko_gakkou' : 'SLBFE #3293', flag: isIg ? '📸' : '🇱🇰' },
+                  { label: isIg ? 'Instagram' : 'Facebook', flag: isIg ? '✨' : '🔵' }
+                ],
+                link: post.url || officialContacts.socials.instagram,
+                source: isIg ? 'instagram' : 'facebook'
+              };
+            });
+
+            if (isMounted && formatted.length > 0) {
+              setLivePosts(formatted);
+              setIsLiveLoaded(true);
+            }
           }
         }
       } catch (err) {
-        console.warn('Facebook live feed fallback active:', err);
+        console.warn('Social live feed fallback active:', err);
       }
     };
 
-    fetchFacebookFeed();
+    fetchSocialFeed();
     return () => {
       isMounted = false;
     };
@@ -320,7 +380,7 @@ export default function FacebookIntakeBar({ lang }) {
                 {active.adSubtitle}
               </p>
 
-              {/* Direct Facebook Post Link Button (if live or linked) */}
+              {/* Direct Post Link Button (Instagram / Facebook) */}
               {active.link && (
                 <div style={{ marginTop: '8px' }}>
                   <a
@@ -351,7 +411,11 @@ export default function FacebookIntakeBar({ lang }) {
                       e.currentTarget.style.color = 'rgba(255, 255, 255, 0.88)';
                     }}
                   >
-                    <span>{isSi ? 'ෆේස්බුක් පිටුවෙන් බලන්න' : 'View on Facebook'}</span>
+                    <span>
+                      {active.source === 'instagram'
+                        ? isSi ? 'Instagram පිටුවෙන් බලන්න' : 'View on Instagram'
+                        : isSi ? 'Facebook පිටුවෙන් බලන්න' : 'View on Facebook'}
+                    </span>
                     <ExternalLink size={12} />
                   </a>
                 </div>

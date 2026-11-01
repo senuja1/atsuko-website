@@ -63,10 +63,6 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
         <section className="section section-alt">
           <div className="container">
             <div className="section-header">
-              <span className="section-badge badge-gold">
-                <Home size={14} />
-                {h.facilitiesPreview?.badge || 'Campus Facilities & Accommodation'}
-              </span>
               <h2 className="section-title">
                 {h.facilitiesPreview?.title || 'Comfortable Housing &'} <span className="text-gradient-red">{h.facilitiesPreview?.highlight || 'Student Life'}</span>
               </h2>
