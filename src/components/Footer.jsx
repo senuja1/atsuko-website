@@ -210,6 +210,10 @@ export default function Footer({ lang, onOpenModal, onNavigate }) {
               <span>{lang === 'si' ? 'නිල ශිෂ්‍ය එකමුතුව' : lang === 'jp' ? '公式 学生コミュニティ' : 'Student Community Group'}</span>
               <ExternalLink size={12} />
             </a>
+            <span>•</span>
+            <span style={{ color: '#94a3b8', fontWeight: 600 }}>
+              Developed by <strong style={{ color: '#f8fafc', fontWeight: 700 }}>VasterGlobal</strong>
+            </span>
           </div>
         </div>
       </div>
