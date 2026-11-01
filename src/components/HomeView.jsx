@@ -252,24 +252,6 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
               ))}
             </div>
           </div>
-
-          <div className="container" style={{ textAlign: 'center', marginTop: '1.5rem' }}>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.85rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-              <span className="student-comments-pause-hint">
-                {lang === 'si' ? '⏸️ නැරඹීමට හෝ කියවීමට මවුසය තබන්න / ස්පර්ශ කරන්න' : lang === 'jp' ? '⏸️ ホバーまたはタップで一時停止' : '⏸️ Hover or touch to pause roll'}
-              </span>
-              <button
-                onClick={() => onOpenModal('Student Community Feedback')}
-                className="btn btn-sm btn-secondary"
-                style={{ fontSize: '0.8rem', padding: '0.4rem 0.9rem' }}
-              >
-                <MessageSquare size={13} />
-                <span>{lang === 'si' ? 'ඔබේ අදහසත් පළකරන්න' : lang === 'jp' ? 'コメントを投稿する' : 'Leave a Comment'}</span>
-              </button>
-            </div>
-          </div>
-
-
         </section>
       </RevealOnScroll>
 

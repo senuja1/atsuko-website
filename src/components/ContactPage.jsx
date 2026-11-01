@@ -217,9 +217,9 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
       </section>
 
       {/* 2. Main Dual-Column: Official Locations & Contact Form */}
-      <section className="section" style={{ background: '#ffffff' }}>
-        <div className="container">
-          <div className="contact-main-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: 'clamp(1.5rem, 3vw, 2.5rem)', alignItems: 'stretch' }}>
+      <section className="section" style={{ background: '#ffffff', padding: 'clamp(2rem, 3.5vw, 3rem) 0' }}>
+        <div className="container" style={{ maxWidth: '1060px' }}>
+          <div className="contact-main-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: 'clamp(1.2rem, 2.5vw, 1.85rem)', alignItems: 'stretch' }}>
             {/* Left Column: Official Sri Lanka & Japan Operating Bases */}
             <div className="contact-offices-col" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
 
@@ -232,7 +232,7 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
                   border: '1px solid #e2e8f0',
                   borderRadius: 'var(--radius-xl)',
                   overflow: 'hidden',
-                  boxShadow: '0 4px 20px rgba(0,0,0,0.06)',
+                  boxShadow: '0 4px 18px rgba(0,0,0,0.05)',
                   display: 'flex',
                   flexDirection: 'column',
                   height: '100%'
@@ -240,14 +240,14 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
               >
                 {/* Map Card Header with Live Indicator */}
                 <div style={{
-                  padding: '1rem 1.25rem',
+                  padding: '0.75rem 1rem',
                   background: 'linear-gradient(135deg, #060d1f 0%, #1e293b 100%)',
                   color: '#ffffff',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between',
                   flexWrap: 'wrap',
-                  gap: '0.65rem',
+                  gap: '0.5rem',
                   flexShrink: 0
                 }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
@@ -304,8 +304,8 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
                 {/* Sub-Branch Switcher Tabs - Sri Lanka & Japan Operating Bases */}
                 <div style={{
                   display: 'flex',
-                  gap: '0.45rem',
-                  padding: '0.65rem 0.85rem',
+                  gap: '0.35rem',
+                  padding: '0.45rem 0.75rem',
                   background: '#f8fafc',
                   borderBottom: '1px solid #e2e8f0',
                   overflowX: 'auto',
@@ -318,8 +318,8 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
                     type="button"
                     onClick={() => { setMapLocationId('kadawatha'); setActiveLocation('srilanka'); }}
                     style={{
-                      padding: '0.35rem 0.75rem',
-                      fontSize: '0.78rem',
+                      padding: '0.25rem 0.65rem',
+                      fontSize: '0.74rem',
                       fontWeight: 700,
                       borderRadius: 'var(--radius-full)',
                       border: '1px solid',
@@ -329,12 +329,12 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
                       cursor: 'pointer',
                       display: 'inline-flex',
                       alignItems: 'center',
-                      gap: '0.35rem',
+                      gap: '0.3rem',
                       flexShrink: 0,
                       transition: 'all 0.15s ease'
                     }}
                   >
-                    <MapPin size={12} />
+                    <MapPin size={11} />
                     <span>Kadawatha Campus (Main)</span>
                   </button>
 
@@ -343,8 +343,8 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
                     type="button"
                     onClick={() => { setMapLocationId('kelaniya'); setActiveLocation('srilanka'); }}
                     style={{
-                      padding: '0.35rem 0.75rem',
-                      fontSize: '0.78rem',
+                      padding: '0.25rem 0.65rem',
+                      fontSize: '0.74rem',
                       fontWeight: 700,
                       borderRadius: 'var(--radius-full)',
                       border: '1px solid',
@@ -354,12 +354,12 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
                       cursor: 'pointer',
                       display: 'inline-flex',
                       alignItems: 'center',
-                      gap: '0.35rem',
+                      gap: '0.3rem',
                       flexShrink: 0,
                       transition: 'all 0.15s ease'
                     }}
                   >
-                    <Building2 size={12} />
+                    <Building2 size={11} />
                     <span>Kelaniya Office</span>
                   </button>
 
@@ -368,8 +368,8 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
                     type="button"
                     onClick={() => { setMapLocationId('sendai'); setActiveLocation('japan'); }}
                     style={{
-                      padding: '0.35rem 0.75rem',
-                      fontSize: '0.78rem',
+                      padding: '0.25rem 0.65rem',
+                      fontSize: '0.74rem',
                       fontWeight: 700,
                       borderRadius: 'var(--radius-full)',
                       border: '1px solid',
@@ -379,12 +379,12 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
                       cursor: 'pointer',
                       display: 'inline-flex',
                       alignItems: 'center',
-                      gap: '0.35rem',
+                      gap: '0.3rem',
                       flexShrink: 0,
                       transition: 'all 0.15s ease'
                     }}
                   >
-                    <Globe2 size={12} />
+                    <Globe2 size={11} />
                     <span>Japan (Sendai Center)</span>
                   </button>
 
@@ -393,8 +393,8 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
                     type="button"
                     onClick={() => { setMapLocationId('komaki'); setActiveLocation('japan'); }}
                     style={{
-                      padding: '0.35rem 0.75rem',
-                      fontSize: '0.78rem',
+                      padding: '0.25rem 0.65rem',
+                      fontSize: '0.74rem',
                       fontWeight: 700,
                       borderRadius: 'var(--radius-full)',
                       border: '1px solid',
@@ -404,18 +404,18 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
                       cursor: 'pointer',
                       display: 'inline-flex',
                       alignItems: 'center',
-                      gap: '0.35rem',
+                      gap: '0.3rem',
                       flexShrink: 0,
                       transition: 'all 0.15s ease'
                     }}
                   >
-                    <Building2 size={12} />
+                    <Building2 size={11} />
                     <span>Japan (Komaki Office)</span>
                   </button>
                 </div>
 
                 {/* Live Google Map Interactive Frame */}
-                <div style={{ position: 'relative', width: '100%', minHeight: '340px', flex: '1 1 0%', background: '#e2e8f0' }}>
+                <div style={{ position: 'relative', width: '100%', minHeight: '280px', flex: '1 1 0%', background: '#e2e8f0' }}>
                   <iframe
                     key={currentMap.id}
                     title={`${currentMap.name} Live Location Map`}
@@ -431,14 +431,14 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
 
                 {/* Transit Details & Action Footer */}
                 <div style={{
-                  padding: '1rem 1.25rem',
+                  padding: '0.75rem 1rem',
                   background: '#f8fafc',
                   borderTop: '1px solid #e2e8f0',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between',
                   flexWrap: 'wrap',
-                  gap: '0.85rem',
+                  gap: '0.65rem',
                   flexShrink: 0
                 }}>
                   <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', flex: '1 1 250px' }}>
@@ -477,25 +477,25 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
 
             {/* Right Column: Interactive Consultation & Application Form */}
             <div className="contact-form-col" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-              <div className="contact-form-card" style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: 'var(--radius-xl)', padding: '2rem', boxShadow: '0 4px 20px rgba(0,0,0,0.05)', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between' }}>
+              <div className="contact-form-card" style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: 'var(--radius-xl)', padding: '1.35rem 1.5rem', boxShadow: '0 4px 18px rgba(0,0,0,0.05)', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between' }}>
                 <div>
-                  <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--navy-900)', margin: '0 0 0.5rem' }}>
+                  <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--navy-900)', margin: '0 0 0.35rem' }}>
                     {ui.formTitle}
                   </h3>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '1.5rem', lineHeight: 1.5 }}>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.84rem', marginBottom: '1rem', lineHeight: 1.45 }}>
                     {ui.formSubtitle}
                   </p>
                 </div>
 
                 {submitted ? (
-                  <div style={{ textAlign: 'center', padding: '2rem 1rem' }}>
-                    <div style={{ width: '64px', height: '64px', background: '#dcfce7', color: '#16a34a', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.25rem' }}>
-                      <CheckCircle2 size={36} />
+                  <div style={{ textAlign: 'center', padding: '1.5rem 1rem' }}>
+                    <div style={{ width: '56px', height: '56px', background: '#dcfce7', color: '#16a34a', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1rem' }}>
+                      <CheckCircle2 size={32} />
                     </div>
-                    <h4 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--navy-900)', marginBottom: '0.5rem' }}>
+                    <h4 style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--navy-900)', marginBottom: '0.4rem' }}>
                       {ui.formSuccessTitle || 'Inquiry Generated & WhatsApp Launched!'}
                     </h4>
-                    <p style={{ color: 'var(--text-muted)', fontSize: '0.925rem', lineHeight: 1.6, marginBottom: '1.5rem' }}>
+                    <p style={{ color: 'var(--text-muted)', fontSize: '0.86rem', lineHeight: 1.5, marginBottom: '1.25rem' }}>
                       {ui.formSuccessDesc || 'Your inquiry details were formatted and forwarded to Atsuko International on WhatsApp. If WhatsApp did not open automatically, click the button below to send your message.'}
                     </p>
                     <a
@@ -506,18 +506,19 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
                       style={{
                         background: '#25D366',
                         color: '#ffffff',
-                        padding: '0.85rem',
+                        padding: '0.75rem',
                         fontWeight: 700,
+                        fontSize: '0.9rem',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        gap: '0.55rem',
+                        gap: '0.5rem',
                         borderRadius: 'var(--radius-md)',
                         textDecoration: 'none',
                         boxShadow: '0 4px 14px rgba(37, 211, 102, 0.35)'
                       }}
                     >
-                      <WhatsAppIcon size={18} />
+                      <WhatsAppIcon size={16} />
                       <span>{ui.socialsCards?.whatsapp?.btn || 'Open in WhatsApp Now'}</span>
                     </a>
                     <button
@@ -532,15 +533,15 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
                         });
                       }}
                       className="btn btn-secondary btn-block"
-                      style={{ marginTop: '0.75rem' }}
+                      style={{ marginTop: '0.65rem', fontSize: '0.82rem', padding: '0.55rem' }}
                     >
                       {ui.formReset || 'Send Another Inquiry'}
                     </button>
                   </div>
                 ) : (
-                  <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.15rem' }}>
+                  <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                     <div>
-                      <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--navy-900)', marginBottom: '0.35rem' }}>
+                      <label style={{ display: 'block', fontSize: '0.78rem', fontWeight: 700, color: 'var(--navy-900)', marginBottom: '0.2rem' }}>
                         {ui.formName} *
                       </label>
                       <input
@@ -551,12 +552,12 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
                         required
                         placeholder="e.g. Kasun Fernando"
                         className="form-input"
-                        style={{ width: '100%', padding: '0.75rem 1rem', borderRadius: 'var(--radius-md)', border: '1px solid #cbd5e1', fontSize: '0.95rem' }}
+                        style={{ width: '100%', padding: '0.55rem 0.85rem', borderRadius: 'var(--radius-md)', border: '1px solid #cbd5e1', fontSize: '0.88rem' }}
                       />
                     </div>
 
                     <div>
-                      <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--navy-900)', marginBottom: '0.35rem' }}>
+                      <label style={{ display: 'block', fontSize: '0.78rem', fontWeight: 700, color: 'var(--navy-900)', marginBottom: '0.2rem' }}>
                         {ui.formPhone} *
                       </label>
                       <input
@@ -567,12 +568,12 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
                         required
                         placeholder="e.g. 077 123 4567"
                         className="form-input"
-                        style={{ width: '100%', padding: '0.75rem 1rem', borderRadius: 'var(--radius-md)', border: '1px solid #cbd5e1', fontSize: '0.95rem' }}
+                        style={{ width: '100%', padding: '0.55rem 0.85rem', borderRadius: 'var(--radius-md)', border: '1px solid #cbd5e1', fontSize: '0.88rem' }}
                       />
                     </div>
 
                     <div>
-                      <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--navy-900)', marginBottom: '0.35rem' }}>
+                      <label style={{ display: 'block', fontSize: '0.78rem', fontWeight: 700, color: 'var(--navy-900)', marginBottom: '0.2rem' }}>
                         {ui.formEmail}
                       </label>
                       <input
@@ -582,12 +583,12 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
                         onChange={handleInputChange}
                         placeholder="e.g. kasun@example.com"
                         className="form-input"
-                        style={{ width: '100%', padding: '0.75rem 1rem', borderRadius: 'var(--radius-md)', border: '1px solid #cbd5e1', fontSize: '0.95rem' }}
+                        style={{ width: '100%', padding: '0.55rem 0.85rem', borderRadius: 'var(--radius-md)', border: '1px solid #cbd5e1', fontSize: '0.88rem' }}
                       />
                     </div>
 
                     <div>
-                      <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--navy-900)', marginBottom: '0.35rem' }}>
+                      <label style={{ display: 'block', fontSize: '0.78rem', fontWeight: 700, color: 'var(--navy-900)', marginBottom: '0.2rem' }}>
                         {ui.formPathway} *
                       </label>
                       <select
@@ -595,7 +596,7 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
                         value={formData.inquiryType}
                         onChange={handleInputChange}
                         className="form-select"
-                        style={{ width: '100%', padding: '0.75rem 1rem', borderRadius: 'var(--radius-md)', border: '1px solid #cbd5e1', fontSize: '0.95rem', background: '#ffffff' }}
+                        style={{ width: '100%', padding: '0.55rem 0.85rem', borderRadius: 'var(--radius-md)', border: '1px solid #cbd5e1', fontSize: '0.88rem', background: '#ffffff' }}
                       >
                         {pathways.map((p, idx) => (
                           <option key={idx} value={p.val}>{p.label}</option>
@@ -604,17 +605,17 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
                     </div>
 
                     <div>
-                      <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: 'var(--navy-900)', marginBottom: '0.35rem' }}>
+                      <label style={{ display: 'block', fontSize: '0.78rem', fontWeight: 700, color: 'var(--navy-900)', marginBottom: '0.2rem' }}>
                         {ui.formMessage}
                       </label>
                       <textarea
                         name="message"
-                        rows={3}
+                        rows={2}
                         value={formData.message}
                         onChange={handleInputChange}
                         placeholder="..."
                         className="form-textarea"
-                        style={{ width: '100%', padding: '0.75rem 1rem', borderRadius: 'var(--radius-md)', border: '1px solid #cbd5e1', fontSize: '0.95rem', resize: 'vertical' }}
+                        style={{ width: '100%', padding: '0.5rem 0.85rem', borderRadius: 'var(--radius-md)', border: '1px solid #cbd5e1', fontSize: '0.88rem', resize: 'vertical' }}
                       />
                     </div>
 
@@ -623,8 +624,8 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
                         type="submit"
                         className="btn btn-whatsapp btn-block"
                         style={{
-                          padding: '0.85rem 1.25rem',
-                          fontSize: '1rem',
+                          padding: '0.7rem 1rem',
+                          fontSize: '0.92rem',
                           fontWeight: 700,
                           background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
                           color: '#ffffff',
@@ -633,22 +634,22 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
-                          gap: '0.55rem',
+                          gap: '0.5rem',
                           cursor: 'pointer',
-                          boxShadow: '0 4px 16px rgba(37, 211, 102, 0.35)',
+                          boxShadow: '0 4px 14px rgba(37, 211, 102, 0.3)',
                           transition: 'all 0.2s ease',
                           width: '100%'
                         }}
                       >
-                        <WhatsAppIcon size={18} />
+                        <WhatsAppIcon size={16} />
                         <span>{ui.formSubmit || 'Send Inquiry via WhatsApp'}</span>
                       </button>
                       <span style={{
                         display: 'block',
-                        fontSize: '0.76rem',
+                        fontSize: '0.72rem',
                         color: 'var(--text-muted)',
                         textAlign: 'center',
-                        marginTop: '0.45rem'
+                        marginTop: '0.35rem'
                       }}>
                         ⚡ Automatically generates and opens your message in WhatsApp
                       </span>
