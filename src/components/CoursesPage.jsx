@@ -355,8 +355,6 @@ export default function CoursesPage({ lang, onOpenModal }) {
                     <th>{ui.thCourse || 'Course Name & Category'}</th>
                     <th>{ui.thSchedule || 'Days & Timing'}</th>
                     <th>{ui.modeLbl || 'Venue / Mode'}</th>
-                    <th>{ui.thIntake || 'Intake Cycle'}</th>
-                    <th>{ui.thStatus || 'Availability'}</th>
                     <th>{ui.thAction || 'Action'}</th>
                   </tr>
                 </thead>
@@ -380,14 +378,6 @@ export default function CoursesPage({ lang, onOpenModal }) {
                           <span>{batch.mode}</span>
                         </div>
                         <span className="batch-duration-badge">{batch.duration}</span>
-                      </td>
-                      <td className="cell-start">
-                        <span className="batch-start-date">{batch.startDate}</span>
-                      </td>
-                      <td className="cell-status">
-                        <span className={`status-badge status-${batch.badgeType}`}>
-                          {batch.badgeType === 'success' ? (ui.statusOpen || batch.seatsStatus) : (ui.statusLimited || batch.seatsStatus)}
-                        </span>
                       </td>
                       <td className="cell-action">
                         <button 
