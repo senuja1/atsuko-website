@@ -9895,3 +9895,497 @@ html[lang="jp"] .stat-label,
     letter-spacing: 0.08em;
   }
 }
+
+
+/* ==========================================================================
+   ATSUKO OFFICIAL INSTAGRAM IFRAME FEED SECTION
+   ========================================================================== */
+
+.atsuko-ig-iframe-section {
+  padding: 48px 20px 60px;
+  background: linear-gradient(180deg, rgba(10, 22, 40, 0.4) 0%, rgba(15, 23, 42, 0.85) 100%);
+  position: relative;
+  z-index: 10;
+}
+
+.atsuko-ig-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* Header */
+.atsuko-ig-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px 28px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.atsuko-ig-brand {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex: 1 1 500px;
+}
+
+.atsuko-ig-avatar-wrap {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.atsuko-ig-avatar-ring {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  padding: 3px;
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(220, 39, 67, 0.35);
+}
+
+.atsuko-ig-avatar-text {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #0f172a;
+  color: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: 0.05em;
+}
+
+.atsuko-ig-icon-badge {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #dc2743;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.atsuko-ig-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.atsuko-ig-pill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #f43f5e;
+  background: rgba(244, 63, 94, 0.12);
+  border: 1px solid rgba(244, 63, 94, 0.25);
+  padding: 3px 10px;
+  border-radius: 999px;
+  width: fit-content;
+}
+
+.atsuko-ig-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.atsuko-ig-handle {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.atsuko-ig-verified {
+  color: #38bdf8;
+  fill: #0284c7;
+}
+
+.atsuko-ig-community-tag {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.atsuko-ig-subhead {
+  font-size: 0.88rem;
+  color: #cbd5e1;
+  margin: 0;
+  line-height: 1.45;
+  max-width: 620px;
+}
+
+/* Actions */
+.atsuko-ig-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.atsuko-ig-view-toggle {
+  display: flex;
+  background: rgba(0, 0, 0, 0.35);
+  padding: 3px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.atsuko-ig-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: none;
+  background: transparent;
+  color: #94a3b8;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.atsuko-ig-toggle-btn.active {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.atsuko-ig-follow-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: 10px;
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(220, 39, 67, 0.35);
+  transition: all 0.2s ease;
+}
+
+.atsuko-ig-follow-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(220, 39, 67, 0.5);
+  color: #ffffff;
+}
+
+/* Tabs Bar */
+.atsuko-ig-tabs-bar {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+  margin-bottom: 18px;
+  scrollbar-width: thin;
+}
+
+.atsuko-ig-tab-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  color: #94a3b8;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.atsuko-ig-tab-pill:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #e2e8f0;
+}
+
+.atsuko-ig-tab-pill.active {
+  background: rgba(244, 63, 94, 0.15);
+  border-color: rgba(244, 63, 94, 0.4);
+  color: #fda4af;
+}
+
+.atsuko-ig-tab-index {
+  font-size: 0.72rem;
+  opacity: 0.7;
+}
+
+/* Grid Layout */
+.atsuko-ig-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.atsuko-ig-card {
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.atsuko-ig-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(220, 39, 67, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.atsuko-ig-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.atsuko-ig-card-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.1);
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+.atsuko-ig-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  color: #94a3b8;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.atsuko-ig-card-link:hover {
+  color: #f43f5e;
+}
+
+.atsuko-ig-iframe-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 480px;
+  background: #0b1120;
+}
+
+.atsuko-ig-iframe {
+  width: 100%;
+  height: 480px;
+  border: none;
+  display: block;
+}
+
+.atsuko-ig-card-footer {
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.02);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.atsuko-ig-card-title {
+  font-size: 0.82rem;
+  color: #cbd5e1;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.35;
+}
+
+/* Focus View */
+.atsuko-ig-focus-view {
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+.atsuko-ig-focus-card {
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.atsuko-ig-focus-index {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.atsuko-ig-focus-iframe-wrapper {
+  width: 100%;
+  min-height: 520px;
+  background: #0b1120;
+}
+
+.atsuko-ig-focus-footer {
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: rgba(255, 255, 255, 0.02);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.atsuko-ig-focus-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 4px;
+}
+
+.atsuko-ig-focus-subtitle {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.atsuko-ig-focus-nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.atsuko-ig-nav-btn {
+  padding: 6px 14px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e2e8f0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.atsuko-ig-nav-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+.atsuko-ig-nav-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* Bottom Bar */
+.atsuko-ig-bottom-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding: 12px 18px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.atsuko-ig-live-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  color: #94a3b8;
+}
+
+.atsuko-ig-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  animation: igPulse 2s infinite;
+}
+
+@keyframes igPulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+.atsuko-ig-direct-link {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #f43f5e;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.atsuko-ig-direct-link:hover {
+  color: #fb7185;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1200px) {
+  .atsuko-ig-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .atsuko-ig-iframe-section {
+    padding: 36px 14px 44px;
+  }
+  .atsuko-ig-header {
+    padding: 18px 16px;
+    gap: 16px;
+  }
+  .atsuko-ig-brand {
+    gap: 14px;
+  }
+  .atsuko-ig-handle {
+    font-size: 1.2rem;
+  }
+  .atsuko-ig-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .atsuko-ig-follow-btn {
+    flex: 1;
+    justify-content: center;
+  }
+  .atsuko-ig-grid {
+    grid-template-columns: 1fr;
+  }
+  .atsuko-ig-iframe-wrapper {
+    min-height: 460px;
+  }
+  .atsuko-ig-iframe {
+    height: 460px;
+  }
+}

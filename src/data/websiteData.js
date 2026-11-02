@@ -55,6 +55,41 @@ export const officialContacts = {
   }
 };
 
+// Official Instagram Feed Showcase Config
+export const instagramFeedData = {
+  profileUrl: "https://www.instagram.com/atsuko_gakkou/",
+  handle: "@atsuko_gakkou",
+  accountName: "Atsuko International (篤子 学校)",
+  followers: "12.4K+",
+  officialBadge: true,
+  posts: [
+    {
+      id: "DV0wLR8kYh1",
+      url: "https://www.instagram.com/p/DV0wLR8kYh1/",
+      title: "Student Visa Grant & Departure Prep",
+      tag: "Visa Approvals"
+    },
+    {
+      id: "DZ_jTzyCJha",
+      url: "https://www.instagram.com/p/DZ_jTzyCJha/",
+      title: "Interactive Classroom & Sensei Immersion",
+      tag: "JLPT & JFT Classes"
+    },
+    {
+      id: "DeQjepkEwiW",
+      url: "https://www.instagram.com/p/DeQjepkEwiW/",
+      title: "SSW Practical Caregiver Simulation Lab",
+      tag: "Skills Training"
+    },
+    {
+      id: "Da1rbndEvGK",
+      url: "https://www.instagram.com/p/Da1rbndEvGK/",
+      title: "Classroom Milestones & Batch Achievements",
+      tag: "Campus Highlights"
+    }
+  ]
+};
+
 // Vision & Mission (Verbatim from Leaflet Page 2 & 3)
 export const aboutUsData = {
   overview: "Atsuko International School is a premier, government-registered Japanese language academy and licensed foreign employment agency operating in Sri Lanka and Sendai, Japan. Incorporated under Sri Lanka Company Registration No. PV 0217143 and authorized under SLBFE License No. 3293, Atsuko International provides certified Japanese language training (JLPT & JFT), technical and vocational skills training, transparent visa processing, and direct placement coordination with Japanese language schools and enterprise employers.",
