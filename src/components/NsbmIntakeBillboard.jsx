@@ -19,6 +19,7 @@ export default function NsbmIntakeBillboard({ lang = 'en', onOpenModal }) {
   const slides = [
     {
       id: 'slide-1',
+      instagramId: 'DV0wLR8kYh1',
       bgImage: '/images/classroom-sensei.jpg',
       bgPosition: 'center 30%',
       kickerLine1: isSi ? 'ශ්‍රී ලංකාවෙන්' : isJp ? 'スリランカから' : 'FROM SRI LANKA',
@@ -39,6 +40,7 @@ export default function NsbmIntakeBillboard({ lang = 'en', onOpenModal }) {
     },
     {
       id: 'slide-2',
+      instagramId: 'DeQjepkEwiW',
       bgImage: '/images/caregiver-ssw.jpg',
       bgPosition: 'center center',
       kickerLine1: isSi ? 'ජපානයේ ඉහළම වැටුප් සහිත' : isJp ? '高収入・安定雇用' : 'DIRECT CAREER PATHWAY',
@@ -59,6 +61,7 @@ export default function NsbmIntakeBillboard({ lang = 'en', onOpenModal }) {
     },
     {
       id: 'slide-3',
+      instagramId: 'DZ_jTzyCJha',
       bgImage: '/images/batches/batch-17-completion.jpg',
       bgPosition: 'center 20%',
       kickerLine1: isSi ? 'සජීවී පන්ති කාමර' : isJp ? '実践的日本語指導' : 'NATIVE SENSEI',
@@ -79,6 +82,7 @@ export default function NsbmIntakeBillboard({ lang = 'en', onOpenModal }) {
     },
     {
       id: 'slide-4',
+      instagramId: 'Da1rbndEvGK',
       bgImage: '/images/batches/batch-11-graduation.jpg',
       bgPosition: 'center 25%',
       kickerLine1: isSi ? 'විශිෂ්ට ප්‍රතිඵල' : isJp ? '確かな実績' : '1000+ STUDENTS',
@@ -166,14 +170,14 @@ export default function NsbmIntakeBillboard({ lang = 'en', onOpenModal }) {
                     key={slide.id} 
                     className={`nsbm-billboard-slide ${isActive ? 'is-active' : ''}`}
                     style={{
-                      backgroundImage: `linear-gradient(90deg, rgba(2, 10, 28, 0.94) 0%, rgba(2, 12, 36, 0.88) 36%, rgba(2, 12, 36, 0.42) 65%, rgba(2, 12, 36, 0.85) 100%), url(${slide.bgImage})`,
+                      backgroundImage: `linear-gradient(90deg, rgba(2, 10, 28, 0.95) 0%, rgba(2, 12, 36, 0.88) 32%, rgba(2, 12, 36, 0.52) 65%, rgba(2, 12, 36, 0.88) 100%), url(${slide.bgImage})`,
                       backgroundSize: 'cover',
                       backgroundPosition: slide.bgPosition || 'center center',
                       backgroundRepeat: 'no-repeat'
                     }}
                   >
                     <div className="nsbm-slide-inner">
-                      {/* Main Content Split: Left Typography + Right Yellow Highlight Box */}
+                      {/* Main Content Layout: Left 3D Typography + Center Live Instagram Iframe + Right Yellow Box */}
                       <div className="nsbm-content-split">
                         {/* Left Column: 3D Typography & Program Details */}
                         <div className="nsbm-left-block">
@@ -199,6 +203,22 @@ export default function NsbmIntakeBillboard({ lang = 'en', onOpenModal }) {
                               <span className="nsbm-apply-tag">{slide.applyTag}</span>
                               <span className="nsbm-apply-text">{slide.applyText}</span>
                             </div>
+                          </div>
+                        </div>
+
+                        {/* Center Stage: Live Instagram Iframe Post */}
+                        <div className="nsbm-center-stage">
+                          <div className="nsbm-iframe-center-wrap">
+                            <iframe
+                              src={`https://www.instagram.com/p/${slide.instagramId}/embed/`}
+                              title={slide.programSub}
+                              className="nsbm-live-iframe-element"
+                              frameBorder="0"
+                              scrolling="no"
+                              allowTransparency="true"
+                              allow="encrypted-media; clipboard-write;"
+                              loading="lazy"
+                            />
                           </div>
                         </div>
 
