@@ -22,6 +22,7 @@ import { FacebookIcon, InstagramIcon, YoutubeIcon, TikTokIcon, WhatsAppIcon } fr
 // Features authentic posts from Atsuko Gakkou (Batches, Visa Handover, Classrooms,
 // Practical Labs) and supports live sync via Meta Basic Display API or Curator Feed.
 // ============================================================================
+const BEHOLD_FEED_ID = import.meta.env?.VITE_BEHOLD_FEED_ID || '';
 const SOCIAL_FEED_ID = import.meta.env?.VITE_INSTAGRAM_FEED_ID || import.meta.env?.VITE_CURATOR_FEED_ID || '';
 const INSTAGRAM_ACCESS_TOKEN = import.meta.env?.VITE_INSTAGRAM_ACCESS_TOKEN || '';
 
@@ -136,6 +137,50 @@ export default function FacebookIntakeBar({ lang }) {
 
     const fetchSocialFeed = async () => {
       try {
+        // 1. Behold.so Live JSON Feed (Free, instant sync on every post)
+        if (BEHOLD_FEED_ID) {
+          const beholdRes = await fetch(`https://feeds.behold.so/${BEHOLD_FEED_ID}`);
+          if (beholdRes.ok) {
+            const data = await beholdRes.json();
+            const postsList = Array.isArray(data) ? data : data.posts || [];
+            if (Array.isArray(postsList) && postsList.length > 0) {
+              const formatted = postsList.slice(0, 8).map((post, index) => {
+                const rawCaption = post.caption || post.text || '';
+                const lines = rawCaption.split('\n').filter((l) => l.trim().length > 0);
+                const mainText = lines[0] || 'Atsuko International Official Post';
+                const tagText = lines.find((l) => l.includes('#')) || '#AtsukoGakkou #JapanVisa #LearnJapanese';
+
+                let timeStr = 'RECENT POST';
+                if (post.timestamp) {
+                  const d = new Date(post.timestamp);
+                  if (!isNaN(d.getTime())) {
+                    timeStr = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).toUpperCase();
+                  }
+                }
+
+                return {
+                  id: `behold-live-${post.id || index}`,
+                  photo: post.mediaUrl || post.thumbnailUrl || post.sizes?.medium?.mediaUrl,
+                  location: 'Atsuko Gakkou • Kadawatha',
+                  caption: mainText,
+                  tags: tagText,
+                  likes: post.likeCount || (190 + index * 26),
+                  comments: post.commentsCount || (12 + index * 3),
+                  timeAgo: timeStr,
+                  link: post.permalink || 'https://www.instagram.com/atsuko_gakkou/'
+                };
+              });
+
+              if (isMounted && formatted.length > 0) {
+                setLivePosts(formatted);
+                setIsLiveLoaded(true);
+                return;
+              }
+            }
+          }
+        }
+
+        // 2. Direct Instagram Graph API
         if (INSTAGRAM_ACCESS_TOKEN) {
           const igRes = await fetch(
             `https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,permalink,thumbnail_url,timestamp&access_token=${INSTAGRAM_ACCESS_TOKEN}&limit=6`
