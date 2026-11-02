@@ -16,27 +16,31 @@ export default function NsbmIntakeBillboard({ lang = 'en' }) {
   const slides = [
     {
       id: 'slide-1',
-      instagramId: 'DV0wLR8kYh1',
-      title: 'Atsuko International Official 2027 Intake & SSW Post',
-      bgImage: '/images/classroom-sensei.jpg'
+      bgImage: '/images/classroom-sensei.jpg',
+      posts: [
+        {
+          id: 'DV0wLR8kYh1',
+          title: 'Atsuko International Official 2027 Intake & SSW Admissions'
+        },
+        {
+          id: 'DeQjepkEwiW',
+          title: 'SSW Practical Caregiver Simulation Lab & Kaigo Training'
+        }
+      ]
     },
     {
       id: 'slide-2',
-      instagramId: 'DeQjepkEwiW',
-      title: 'SSW Practical Caregiver Simulation Lab Training Post',
-      bgImage: '/images/caregiver-ssw.jpg'
-    },
-    {
-      id: 'slide-3',
-      instagramId: 'DZ_jTzyCJha',
-      title: 'Interactive Classroom & Sensei Immersion Post',
-      bgImage: '/images/batches/batch-17-completion.jpg'
-    },
-    {
-      id: 'slide-4',
-      instagramId: 'Da1rbndEvGK',
-      title: 'Official COE Grants & Pre-departure Batches Post',
-      bgImage: '/images/batches/batch-11-graduation.jpg'
+      bgImage: '/images/batches/batch-17-completion.jpg',
+      posts: [
+        {
+          id: 'DZ_jTzyCJha',
+          title: 'Interactive Spoken Kaiwa & Native Sensei Classroom Immersion'
+        },
+        {
+          id: 'Da1rbndEvGK',
+          title: 'Official COE Grants & Pre-departure Batches Placed in Japan'
+        }
+      ]
     }
   ];
 
@@ -54,12 +58,12 @@ export default function NsbmIntakeBillboard({ lang = 'en' }) {
     setCurrentSlide(index);
   };
 
-  // Autoplay timer: advances every 6s unless hovered or paused
+  // Autoplay timer: advances every 7s unless hovered or paused
   useEffect(() => {
     if (isHovered || isPaused) return;
     const timer = setInterval(() => {
       setCurrentSlide(prev => (prev + 1) % totalSlides);
-    }, 6000);
+    }, 7000);
     return () => clearInterval(timer);
   }, [isHovered, isPaused, totalSlides]);
 
@@ -113,19 +117,23 @@ export default function NsbmIntakeBillboard({ lang = 'en' }) {
                       backgroundRepeat: 'no-repeat'
                     }}
                   >
-                    <div className="nsbm-slide-inner full-post-slide">
-                      {/* Full Slideshow Instagram Post Frame */}
-                      <div className="nsbm-full-post-stage">
-                        <iframe
-                          src={`https://www.instagram.com/p/${slide.instagramId}/embed/`}
-                          title={slide.title}
-                          className="nsbm-full-post-iframe"
-                          frameBorder="0"
-                          scrolling="no"
-                          allowTransparency="true"
-                          allow="encrypted-media; clipboard-write;"
-                          loading="lazy"
-                        />
+                    <div className="nsbm-slide-inner dual-post-slide">
+                      {/* Dual Posts Row (Two Photos Per Slide Matching Website Width) */}
+                      <div className="nsbm-two-posts-row">
+                        {slide.posts.map((post) => (
+                          <div key={post.id} className="nsbm-dual-post-stage">
+                            <iframe
+                              src={`https://www.instagram.com/p/${post.id}/embed/`}
+                              title={post.title}
+                              className="nsbm-dual-post-iframe"
+                              frameBorder="0"
+                              scrolling="no"
+                              allowTransparency="true"
+                              allow="encrypted-media; clipboard-write;"
+                              loading="lazy"
+                            />
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </div>
