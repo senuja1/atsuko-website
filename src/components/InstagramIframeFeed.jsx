@@ -1,50 +1,113 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { instagramFeedData } from '../data/websiteData';
-import { ExternalLink, CheckCircle, Sparkles, Grid, Layers } from 'lucide-react';
+import { 
+  ChevronLeft, 
+  ChevronRight, 
+  Pause, 
+  Play, 
+  ExternalLink, 
+  CheckCircle, 
+  Sparkles 
+} from 'lucide-react';
 
 export default function InstagramIframeFeed({ lang = 'en' }) {
-  const [activePostIndex, setActivePostIndex] = useState(0);
-  const [viewMode, setViewMode] = useState('grid'); // 'grid' or 'focus'
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  
+  // Touch swipe state
+  const touchStartX = useRef(null);
+  const touchEndX = useRef(null);
+  const minSwipeDistance = 45;
 
   const labels = {
     en: {
-      badge: "LIVE INSTAGRAM FEED",
+      badge: "LIVE INSTAGRAM SLIDESHOW",
       heading: "Real-Time Updates & Student Moments",
       subheading: "Follow @atsuko_gakkou for official COE visa issuances, practical lab classes, and daily student life in Sri Lanka and Japan.",
       followBtn: "Follow on Instagram",
       viewPost: "View on Instagram",
-      gridMode: "Grid View",
-      focusMode: "Featured View",
-      allPosts: "All Posts"
+      prev: "Previous Post",
+      next: "Next Post",
+      play: "Resume Auto Slideshow",
+      pause: "Pause Auto Slideshow",
+      slide: "Post"
     },
     si: {
-      badge: "සජීවී ඉන්ස්ටග්‍රෑම් තොරතුරු",
+      badge: "සජීවී ඉන්ස්ටග්‍රෑම් විනිවිදිකාව",
       heading: "නවතම පුවත් සහ සිසුන්ගේ සජීවී අවස්ථා",
       subheading: "ශ්‍රී ලංකාවේ සහ ජපානයේ නිල COE වීසා අනුමැතීන්, ප්‍රායෝගික පුහුණු සහ සිසුන්ගේ දෛනික තොරතුරු සඳහා @atsuko_gakkou සමඟ එක්වන්න.",
       followBtn: "ඉන්ස්ටග්‍රෑම් පිටුවට",
       viewPost: "පෝස්ට් එක බලන්න",
-      gridMode: "සියලු පෝස්ට්",
-      focusMode: "විශේෂාංග පෝස්ට්",
-      allPosts: "සියල්ල"
+      prev: "පෙර පෝස්ට් එක",
+      next: "මීළඟ පෝස්ට් එක",
+      play: "ස්වයංක්‍රීයව ධාවනය",
+      pause: "විරාමය",
+      slide: "පෝස්ට්"
     },
     ja: {
-      badge: "公式インスタグラム",
+      badge: "公式インスタグラム スライドショー",
       heading: "最新の活動記録と学生の様子",
       subheading: "@atsuko_gakkou をフォローして、スリランカと日本でのCOEビザ交付、実技ラボ授業、日々のスクール生活をご確認ください。",
       followBtn: "Instagramでフォロー",
       viewPost: "Instagramで見る",
-      gridMode: "グリッド表示",
-      focusMode: "注目投稿",
-      allPosts: "すべて"
+      prev: "前の投稿",
+      next: "次の投稿",
+      play: "自動再生を再開",
+      pause: "一時停止",
+      slide: "投稿"
     }
   };
 
   const t = labels[lang] || labels.en;
   const posts = instagramFeedData.posts || [];
-  const activePost = posts[activePostIndex] || posts[0];
+  const totalSlides = posts.length;
+
+  const handleNext = () => {
+    setCurrentSlide(prev => (prev + 1) % totalSlides);
+  };
+
+  const handlePrev = () => {
+    setCurrentSlide(prev => (prev - 1 + totalSlides) % totalSlides);
+  };
+
+  const goToSlide = (idx) => {
+    setCurrentSlide(idx);
+  };
+
+  // Auto-play slideshow timer (advances every 6s unless paused or hovered)
+  useEffect(() => {
+    if (isPaused || isHovered || totalSlides <= 1) return;
+
+    const timer = setInterval(() => {
+      setCurrentSlide(prev => (prev + 1) % totalSlides);
+    }, 6000);
+
+    return () => clearInterval(timer);
+  }, [isPaused, isHovered, totalSlides]);
+
+  // Touch swipe handling
+  const handleTouchStart = (e) => {
+    touchEndX.current = null;
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+    const distance = touchStartX.current - touchEndX.current;
+    if (distance > minSwipeDistance) {
+      handleNext();
+    } else if (distance < -minSwipeDistance) {
+      handlePrev();
+    }
+  };
 
   return (
-    <section className="atsuko-ig-iframe-section" aria-label="Official Instagram Updates">
+    <section className="atsuko-ig-iframe-section" aria-label="Official Instagram Updates Slideshow">
       <div className="atsuko-ig-container">
         {/* Top Header Card */}
         <div className="atsuko-ig-header">
@@ -75,24 +138,39 @@ export default function InstagramIframeFeed({ lang = 'en' }) {
           </div>
 
           <div className="atsuko-ig-actions">
-            <div className="atsuko-ig-view-toggle">
-              <button 
+            {/* Slideshow Control Buttons */}
+            <div className="atsuko-ig-slideshow-controls">
+              <button
                 type="button"
-                className={`atsuko-ig-toggle-btn ${viewMode === 'grid' ? 'active' : ''}`}
-                onClick={() => setViewMode('grid')}
-                title={t.gridMode}
+                className="atsuko-ig-ctrl-btn"
+                onClick={handlePrev}
+                title={t.prev}
+                aria-label={t.prev}
               >
-                <Grid size={15} />
-                <span>{t.gridMode}</span>
+                <ChevronLeft size={18} />
               </button>
-              <button 
+
+              <button
                 type="button"
-                className={`atsuko-ig-toggle-btn ${viewMode === 'focus' ? 'active' : ''}`}
-                onClick={() => setViewMode('focus')}
-                title={t.focusMode}
+                className={`atsuko-ig-ctrl-btn play-pause-btn ${isPaused ? 'paused' : ''}`}
+                onClick={() => setIsPaused(prev => !prev)}
+                title={isPaused ? t.play : t.pause}
+                aria-label={isPaused ? t.play : t.pause}
               >
-                <Layers size={15} />
-                <span>{t.focusMode}</span>
+                {isPaused ? <Play size={14} /> : <Pause size={14} />}
+                <span className="atsuko-ig-ctrl-counter">
+                  0{currentSlide + 1} / 0{totalSlides}
+                </span>
+              </button>
+
+              <button
+                type="button"
+                className="atsuko-ig-ctrl-btn"
+                onClick={handleNext}
+                title={t.next}
+                aria-label={t.next}
+              >
+                <ChevronRight size={18} />
               </button>
             </div>
 
@@ -111,17 +189,14 @@ export default function InstagramIframeFeed({ lang = 'en' }) {
           </div>
         </div>
 
-        {/* Quick Post Filter Tabs */}
+        {/* Category Navigation Pills */}
         <div className="atsuko-ig-tabs-bar">
           {posts.map((post, idx) => (
             <button
               key={post.id}
               type="button"
-              className={`atsuko-ig-tab-pill ${viewMode === 'focus' && activePostIndex === idx ? 'active' : ''}`}
-              onClick={() => {
-                setActivePostIndex(idx);
-                setViewMode('focus');
-              }}
+              className={`atsuko-ig-tab-pill ${currentSlide === idx ? 'active' : ''}`}
+              onClick={() => goToSlide(idx)}
             >
               <span className="atsuko-ig-tab-index">0{idx + 1}</span>
               <span className="atsuko-ig-tab-tag">{post.tag}</span>
@@ -129,105 +204,128 @@ export default function InstagramIframeFeed({ lang = 'en' }) {
           ))}
         </div>
 
-        {/* Iframe Display Area */}
-        {viewMode === 'grid' ? (
-          <div className="atsuko-ig-grid">
-            {posts.map((post, idx) => (
-              <div key={post.id} className="atsuko-ig-card">
-                <div className="atsuko-ig-card-header">
-                  <span className="atsuko-ig-card-tag">{post.tag}</span>
-                  <a
-                    href={post.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="atsuko-ig-card-link"
-                    title={t.viewPost}
-                  >
-                    <span>{t.viewPost}</span>
-                    <ExternalLink size={12} />
-                  </a>
-                </div>
+        {/* Slideshow Carousel Stage */}
+        <div 
+          className="atsuko-ig-slideshow-stage"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
+          {/* Left Arrow Button */}
+          <button
+            type="button"
+            className="atsuko-ig-stage-arrow left"
+            onClick={handlePrev}
+            title={t.prev}
+            aria-label={t.prev}
+          >
+            <ChevronLeft size={26} />
+          </button>
 
-                <div className="atsuko-ig-iframe-wrapper">
-                  <iframe
-                    src={`https://www.instagram.com/p/${post.id}/embed/`}
-                    title={post.title}
-                    className="atsuko-ig-iframe"
-                    frameBorder="0"
-                    scrolling="no"
-                    allowTransparency="true"
-                    allow="encrypted-media; clipboard-write;"
-                    loading="lazy"
-                  />
-                </div>
+          {/* Right Arrow Button */}
+          <button
+            type="button"
+            className="atsuko-ig-stage-arrow right"
+            onClick={handleNext}
+            title={t.next}
+            aria-label={t.next}
+          >
+            <ChevronRight size={26} />
+          </button>
 
-                <div className="atsuko-ig-card-footer">
-                  <p className="atsuko-ig-card-title">{post.title}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div className="atsuko-ig-focus-view">
-            <div className="atsuko-ig-focus-card">
-              <div className="atsuko-ig-card-header">
-                <span className="atsuko-ig-card-tag">{activePost.tag}</span>
-                <span className="atsuko-ig-focus-index">Post {activePostIndex + 1} of {posts.length}</span>
-                <a
-                  href={activePost.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="atsuko-ig-card-link"
-                  title={t.viewPost}
-                >
-                  <span>{t.viewPost}</span>
-                  <ExternalLink size={13} />
-                </a>
-              </div>
+          {/* Viewport & Sliding Track */}
+          <div className="atsuko-ig-slideshow-viewport">
+            <div 
+              className="atsuko-ig-slideshow-track"
+              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+            >
+              {posts.map((post, idx) => {
+                const isActive = idx === currentSlide;
+                return (
+                  <div key={post.id} className={`atsuko-ig-slide-item ${isActive ? 'is-active' : ''}`}>
+                    <div className="atsuko-ig-slide-card">
+                      {/* Card Header */}
+                      <div className="atsuko-ig-card-header">
+                        <div className="atsuko-ig-card-tag-wrap">
+                          <span className="atsuko-ig-card-tag">{post.tag}</span>
+                          <span className="atsuko-ig-slide-badge">{t.slide} {idx + 1} / {totalSlides}</span>
+                        </div>
+                        <a
+                          href={post.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="atsuko-ig-card-link"
+                          title={t.viewPost}
+                        >
+                          <span>{t.viewPost}</span>
+                          <ExternalLink size={13} />
+                        </a>
+                      </div>
 
-              <div className="atsuko-ig-focus-iframe-wrapper">
-                <iframe
-                  key={activePost.id}
-                  src={`https://www.instagram.com/p/${activePost.id}/embed/`}
-                  title={activePost.title}
-                  className="atsuko-ig-iframe"
-                  frameBorder="0"
-                  scrolling="no"
-                  allowTransparency="true"
-                  allow="encrypted-media; clipboard-write;"
-                  loading="lazy"
-                />
-              </div>
+                      {/* Embedded Instagram Iframe */}
+                      <div className="atsuko-ig-slide-iframe-wrap">
+                        <iframe
+                          src={`https://www.instagram.com/p/${post.id}/embed/`}
+                          title={post.title}
+                          className="atsuko-ig-slide-iframe"
+                          frameBorder="0"
+                          scrolling="no"
+                          allowTransparency="true"
+                          allow="encrypted-media; clipboard-write;"
+                          loading="lazy"
+                        />
+                      </div>
 
-              <div className="atsuko-ig-focus-footer">
-                <div className="atsuko-ig-focus-title-group">
-                  <h3 className="atsuko-ig-focus-title">{activePost.title}</h3>
-                  <p className="atsuko-ig-focus-subtitle">
-                    Live update from Atsuko International Official Instagram Account (@atsuko_gakkou)
-                  </p>
-                </div>
-                <div className="atsuko-ig-focus-nav">
-                  <button
-                    type="button"
-                    className="atsuko-ig-nav-btn"
-                    disabled={activePostIndex === 0}
-                    onClick={() => setActivePostIndex(prev => Math.max(0, prev - 1))}
-                  >
-                    ← Previous
-                  </button>
-                  <button
-                    type="button"
-                    className="atsuko-ig-nav-btn"
-                    disabled={activePostIndex === posts.length - 1}
-                    onClick={() => setActivePostIndex(prev => Math.min(posts.length - 1, prev + 1))}
-                  >
-                    Next →
-                  </button>
-                </div>
-              </div>
+                      {/* Card Footer */}
+                      <div className="atsuko-ig-slide-footer">
+                        <div className="atsuko-ig-slide-info">
+                          <h3 className="atsuko-ig-slide-title">{post.title}</h3>
+                          <p className="atsuko-ig-slide-sub">
+                            Atsuko International Official Instagram (@atsuko_gakkou)
+                          </p>
+                        </div>
+                        <a
+                          href={post.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="atsuko-ig-slide-cta"
+                        >
+                          <span>Open Post</span>
+                          <ExternalLink size={13} />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
-        )}
+        </div>
+
+        {/* Slideshow Pagination Dots & Indicators */}
+        <div className="atsuko-ig-pagination">
+          <div className="atsuko-ig-dots-wrap">
+            {posts.map((post, idx) => (
+              <button
+                key={post.id}
+                type="button"
+                className={`atsuko-ig-dot ${currentSlide === idx ? 'active' : ''}`}
+                onClick={() => goToSlide(idx)}
+                title={`Go to slide ${idx + 1}: ${post.title}`}
+                aria-label={`Go to slide ${idx + 1}`}
+              >
+                <span className="atsuko-ig-dot-pill"></span>
+              </button>
+            ))}
+          </div>
+
+          <div className="atsuko-ig-pagination-note">
+            <span className="atsuko-ig-pulse-dot"></span>
+            <span>Swipe or click arrows to view more posts</span>
+          </div>
+        </div>
 
         {/* Bottom Assurance Note */}
         <div className="atsuko-ig-bottom-bar">

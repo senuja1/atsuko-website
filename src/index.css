@@ -9898,7 +9898,7 @@ html[lang="jp"] .stat-label,
 
 
 /* ==========================================================================
-   ATSUKO OFFICIAL INSTAGRAM IFRAME FEED SECTION
+   ATSUKO OFFICIAL INSTAGRAM IFRAME SLIDESHOW SECTION
    ========================================================================== */
 
 .atsuko-ig-iframe-section {
@@ -9924,7 +9924,7 @@ html[lang="jp"] .stat-label,
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 20px;
   backdrop-filter: blur(12px);
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   flex-wrap: wrap;
 }
 
@@ -10040,41 +10040,59 @@ html[lang="jp"] .stat-label,
   max-width: 620px;
 }
 
-/* Actions */
+/* Actions & Slideshow Controls */
 .atsuko-ig-actions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   flex-wrap: wrap;
 }
 
-.atsuko-ig-view-toggle {
+.atsuko-ig-slideshow-controls {
   display: flex;
-  background: rgba(0, 0, 0, 0.35);
-  padding: 3px;
-  border-radius: 10px;
+  align-items: center;
+  gap: 4px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 4px 6px;
+  border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.atsuko-ig-toggle-btn {
+.atsuko-ig-ctrl-btn {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
   border: none;
   background: transparent;
   color: #94a3b8;
-  font-size: 0.8rem;
-  font-weight: 600;
-  border-radius: 7px;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
-.atsuko-ig-toggle-btn.active {
+.atsuko-ig-ctrl-btn:hover {
   background: rgba(255, 255, 255, 0.12);
   color: #ffffff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.atsuko-ig-ctrl-btn.play-pause-btn {
+  width: auto;
+  gap: 6px;
+  padding: 0 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.atsuko-ig-ctrl-btn.play-pause-btn.paused {
+  color: #f59e0b;
+}
+
+.atsuko-ig-ctrl-counter {
+  font-size: 0.78rem;
+  font-variant-numeric: tabular-nums;
+  color: #cbd5e1;
 }
 
 .atsuko-ig-follow-btn {
@@ -10101,10 +10119,11 @@ html[lang="jp"] .stat-label,
 /* Tabs Bar */
 .atsuko-ig-tabs-bar {
   display: flex;
+  justify-content: center;
   gap: 8px;
   overflow-x: auto;
   padding-bottom: 12px;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
   scrollbar-width: thin;
 }
 
@@ -10112,12 +10131,12 @@ html[lang="jp"] .stat-label,
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 14px;
+  padding: 6px 16px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   color: #94a3b8;
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 600;
   cursor: pointer;
   white-space: nowrap;
@@ -10130,9 +10149,10 @@ html[lang="jp"] .stat-label,
 }
 
 .atsuko-ig-tab-pill.active {
-  background: rgba(244, 63, 94, 0.15);
-  border-color: rgba(244, 63, 94, 0.4);
+  background: rgba(244, 63, 94, 0.16);
+  border-color: rgba(244, 63, 94, 0.45);
   color: #fda4af;
+  box-shadow: 0 0 16px rgba(244, 63, 94, 0.25);
 }
 
 .atsuko-ig-tab-index {
@@ -10140,37 +10160,100 @@ html[lang="jp"] .stat-label,
   opacity: 0.7;
 }
 
-/* Grid Layout */
-.atsuko-ig-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+/* Slideshow Stage */
+.atsuko-ig-slideshow-stage {
+  position: relative;
+  max-width: 620px;
+  margin: 0 auto 24px;
 }
 
-.atsuko-ig-card {
-  background: rgba(15, 23, 42, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  border-radius: 16px;
+.atsuko-ig-stage-arrow {
+  position: absolute;
+  top: 48%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 15;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+  transition: all 0.2s ease;
+}
+
+.atsuko-ig-stage-arrow:hover {
+  background: rgba(244, 63, 94, 0.95);
+  border-color: #f43f5e;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 10px 28px rgba(244, 63, 94, 0.55);
+}
+
+.atsuko-ig-stage-arrow.left {
+  left: -24px;
+}
+
+.atsuko-ig-stage-arrow.right {
+  right: -24px;
+}
+
+/* Viewport and sliding track */
+.atsuko-ig-slideshow-viewport {
+  overflow: hidden;
+  width: 100%;
+  border-radius: 20px;
+}
+
+.atsuko-ig-slideshow-track {
+  display: flex;
+  width: 100%;
+  transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.atsuko-ig-slide-item {
+  flex: 0 0 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0 4px;
+}
+
+.atsuko-ig-slide-card {
+  width: 100%;
+  max-width: 520px;
+  background: rgba(15, 23, 42, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+  transition: border-color 0.25s ease;
 }
 
-.atsuko-ig-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(220, 39, 67, 0.4);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+.atsuko-ig-slide-card:hover {
+  border-color: rgba(244, 63, 94, 0.4);
 }
 
 .atsuko-ig-card-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 14px;
+  padding: 12px 18px;
   background: rgba(255, 255, 255, 0.02);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.atsuko-ig-card-tag-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .atsuko-ig-card-tag {
@@ -10178,15 +10261,21 @@ html[lang="jp"] .stat-label,
   font-weight: 700;
   color: #38bdf8;
   background: rgba(56, 189, 248, 0.1);
-  padding: 2px 8px;
+  padding: 3px 9px;
   border-radius: 6px;
+}
+
+.atsuko-ig-slide-badge {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  font-weight: 600;
 }
 
 .atsuko-ig-card-link {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  font-size: 0.75rem;
+  gap: 5px;
+  font-size: 0.78rem;
   color: #94a3b8;
   text-decoration: none;
   font-weight: 600;
@@ -10197,108 +10286,121 @@ html[lang="jp"] .stat-label,
   color: #f43f5e;
 }
 
-.atsuko-ig-iframe-wrapper {
+.atsuko-ig-slide-iframe-wrap {
   position: relative;
-  width: 100%;
-  min-height: 480px;
-  background: #0b1120;
-}
-
-.atsuko-ig-iframe {
-  width: 100%;
-  height: 480px;
-  border: none;
-  display: block;
-}
-
-.atsuko-ig-card-footer {
-  padding: 12px 14px;
-  background: rgba(255, 255, 255, 0.02);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.atsuko-ig-card-title {
-  font-size: 0.82rem;
-  color: #cbd5e1;
-  font-weight: 600;
-  margin: 0;
-  line-height: 1.35;
-}
-
-/* Focus View */
-.atsuko-ig-focus-view {
-  max-width: 580px;
-  margin: 0 auto;
-}
-
-.atsuko-ig-focus-card {
-  background: rgba(15, 23, 42, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
-}
-
-.atsuko-ig-focus-index {
-  font-size: 0.75rem;
-  color: #94a3b8;
-  font-weight: 600;
-}
-
-.atsuko-ig-focus-iframe-wrapper {
   width: 100%;
   min-height: 520px;
   background: #0b1120;
 }
 
-.atsuko-ig-focus-footer {
-  padding: 18px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+.atsuko-ig-slide-iframe {
+  width: 100%;
+  height: 520px;
+  border: none;
+  display: block;
+}
+
+.atsuko-ig-slide-footer {
+  padding: 16px 18px;
   background: rgba(255, 255, 255, 0.02);
   border-top: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 
-.atsuko-ig-focus-title {
-  font-size: 1.05rem;
+.atsuko-ig-slide-info {
+  flex: 1 1 240px;
+}
+
+.atsuko-ig-slide-title {
+  font-size: 0.96rem;
   font-weight: 700;
   color: #ffffff;
-  margin: 0 0 4px;
+  margin: 0 0 3px;
+  line-height: 1.35;
 }
 
-.atsuko-ig-focus-subtitle {
-  font-size: 0.8rem;
+.atsuko-ig-slide-sub {
+  font-size: 0.78rem;
   color: #94a3b8;
   margin: 0;
 }
 
-.atsuko-ig-focus-nav {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-}
-
-.atsuko-ig-nav-btn {
-  padding: 6px 14px;
+.atsuko-ig-slide-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #f43f5e;
+  background: rgba(244, 63, 94, 0.1);
+  border: 1px solid rgba(244, 63, 94, 0.25);
+  padding: 6px 12px;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #e2e8f0;
-  font-size: 0.8rem;
-  font-weight: 600;
-  cursor: pointer;
+  text-decoration: none;
   transition: all 0.2s ease;
+  white-space: nowrap;
 }
 
-.atsuko-ig-nav-btn:hover:not(:disabled) {
-  background: rgba(255, 255, 255, 0.15);
-  color: #ffffff;
+.atsuko-ig-slide-cta:hover {
+  background: rgba(244, 63, 94, 0.2);
+  color: #fda4af;
+  border-color: rgba(244, 63, 94, 0.4);
 }
 
-.atsuko-ig-nav-btn:disabled {
-  opacity: 0.35;
-  cursor: not-allowed;
+/* Pagination Dots */
+.atsuko-ig-pagination {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.atsuko-ig-dots-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.atsuko-ig-dot {
+  background: transparent;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.atsuko-ig-dot-pill {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  display: block;
+}
+
+.atsuko-ig-dot:hover .atsuko-ig-dot-pill {
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.atsuko-ig-dot.active .atsuko-ig-dot-pill {
+  width: 26px;
+  border-radius: 999px;
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  box-shadow: 0 0 10px rgba(220, 39, 67, 0.6);
+}
+
+.atsuko-ig-pagination-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.76rem;
+  color: #94a3b8;
 }
 
 /* Bottom Bar */
@@ -10306,7 +10408,7 @@ html[lang="jp"] .stat-label,
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 20px;
+  margin-top: 12px;
   padding: 12px 18px;
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.05);
@@ -10351,12 +10453,6 @@ html[lang="jp"] .stat-label,
 }
 
 /* Responsive Media Queries */
-@media (max-width: 1200px) {
-  .atsuko-ig-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
 @media (max-width: 768px) {
   .atsuko-ig-iframe-section {
     padding: 36px 14px 44px;
@@ -10379,13 +10475,20 @@ html[lang="jp"] .stat-label,
     flex: 1;
     justify-content: center;
   }
-  .atsuko-ig-grid {
-    grid-template-columns: 1fr;
+  .atsuko-ig-stage-arrow {
+    width: 38px;
+    height: 38px;
   }
-  .atsuko-ig-iframe-wrapper {
-    min-height: 460px;
+  .atsuko-ig-stage-arrow.left {
+    left: -10px;
   }
-  .atsuko-ig-iframe {
-    height: 460px;
+  .atsuko-ig-stage-arrow.right {
+    right: -10px;
+  }
+  .atsuko-ig-slide-iframe-wrap {
+    min-height: 470px;
+  }
+  .atsuko-ig-slide-iframe {
+    height: 470px;
   }
 }
