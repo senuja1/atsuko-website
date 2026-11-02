@@ -24,11 +24,25 @@ import RevealOnScroll from './RevealOnScroll';
 import NsbmIntakeBillboard from './NsbmIntakeBillboard';
 import MainCoursesGrid from './MainCoursesGrid';
 import FaqSection from './FaqSection';
-import { officialContacts, studentSocialComments } from '../data/websiteData';
+import { officialContacts, studentSocialComments, videoSuccessStories } from '../data/websiteData';
+import { YoutubeIcon } from './SocialIcons';
 import { getUiText } from '../data/uiText';
 
 export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligibility }) {
   const h = getUiText(lang).home;
+  const shortVideos = videoSuccessStories.filter((v) => v.type === 'short').slice(0, 4);
+
+  const getLocalizedTitle = (item) => {
+    if (lang === 'si' && item.titleSi) return item.titleSi;
+    if (lang === 'jp' && item.titleJp) return item.titleJp;
+    return item.title;
+  };
+
+  const getLocalizedDesc = (item) => {
+    if (lang === 'si' && item.descSi) return item.descSi;
+    if (lang === 'jp' && item.descJp) return item.descJp;
+    return item.description;
+  };
 
   return (
     <div className="home-view">
@@ -253,7 +267,101 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
         </section>
       </RevealOnScroll>
 
+      {/* 8.5. YouTube Shorts Showcase: "Take a Look at Our Success Stories" */}
+      <RevealOnScroll delay={0.1}>
+        <section className="shorts-showcase-section" id="home-success-stories" style={{ background: '#f8fafc', padding: '5rem 0' }}>
+          <div className="container">
+            <div className="section-header">
+              <span className="section-badge badge-red">
+                <YoutubeIcon size={14} />
+                {lang === 'si' ? 'වීසා සහ සාර්ථකත්වයේ සාක්ෂි' : lang === 'jp' ? '受講生のリアルな成功事例' : 'Real Success Stories'}
+              </span>
+              <h2 className="section-title">
+                {lang === 'si' ? 'අපගේ සාර්ථක කතා' : lang === 'jp' ? '私たちの' : 'Take a Look at Our'}{' '}
+                <span className="text-gradient-red">
+                  {lang === 'si' ? 'නරඹන්න' : lang === 'jp' ? '成功事例をご覧ください' : 'Success Stories'}
+                </span>
+              </h2>
+              <p className="section-subtitle">
+                {lang === 'si'
+                  ? 'අත්සුකෝ ජාත්‍යන්තර ආයතනය හරහා ජපානයට ගිය අපේම සිසුන්ගේ සැබෑ අත්දැකීම් සහ වීසා ජයග්‍රහණ කෙටි වීඩියෝ (Shorts) මඟින් නරඹන්න.'
+                  : lang === 'jp'
+                    ? 'アツコ・インターナショナルを通じて夢を叶えた受講生たちのリアルな声、授業風景、ビザ取得の瞬間をショート動画でご覧ください。'
+                    : 'Watch authentic video highlights, classroom journeys, and visa milestone moments shared by our students and candidates.'}
+              </p>
+            </div>
 
+            <div className="shorts-grid">
+              {shortVideos.map((short) => (
+                <div key={short.id} className="short-video-card">
+                  <div className="short-9-16-wrap">
+                    <iframe
+                      src={short.embedUrl}
+                      title={getLocalizedTitle(short)}
+                      loading="lazy"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+
+                  <div className="short-body">
+                    <h4 className="short-title">{getLocalizedTitle(short)}</h4>
+                    <p className="short-desc">{getLocalizedDesc(short)}</p>
+
+                    <a
+                      href={short.youtubeUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="short-footer-btn"
+                    >
+                      <YoutubeIcon size={14} />
+                      <span>
+                        {lang === 'si'
+                          ? 'YouTube හි නරඹන්න'
+                          : lang === 'jp'
+                            ? 'YouTubeで見る'
+                            : 'Watch on YouTube'}
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* View More to Success Stories Page Button */}
+            <div style={{ textAlign: 'center', marginTop: '3.5rem' }}>
+              <button
+                onClick={() => {
+                  onNavigate('stories');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                className="btn btn-primary"
+                style={{
+                  padding: '14px 34px',
+                  fontSize: '1rem',
+                  fontWeight: 600,
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '10px',
+                  boxShadow: '0 8px 24px rgba(220, 38, 38, 0.25)',
+                  borderRadius: '50px',
+                  cursor: 'pointer'
+                }}
+              >
+                <span>
+                  {lang === 'si'
+                    ? 'තවත් සාර්ථක කතා නරඹන්න'
+                    : lang === 'jp'
+                      ? '成功事例をもっと見る'
+                      : 'View More Success Stories'}
+                </span>
+                <ArrowRight size={18} />
+              </button>
+            </div>
+          </div>
+        </section>
+      </RevealOnScroll>
 
       {/* 9. Official Global Operating Bases (Sri Lanka & Japan) */}
       <RevealOnScroll delay={0.1}>
