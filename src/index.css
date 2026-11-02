@@ -9898,12 +9898,12 @@ html[lang="jp"] .stat-label,
 
 
 /* ==========================================================================
-   ATSUKO NSBM-STYLE INTAKE & LIVE INSTAGRAM SLIDE BAR
+   ATSUKO LIVE INSTAGRAM DUAL-POST SLIDESHOW
    ========================================================================== */
 
 .nsbm-intake-section {
-  padding: 36px 20px 48px;
-  background: linear-gradient(180deg, rgba(10, 22, 40, 0.4) 0%, rgba(15, 23, 42, 0.85) 100%);
+  padding: 2.5rem 0 3.5rem;
+  background: transparent;
   position: relative;
   z-index: 10;
 }
@@ -9911,26 +9911,23 @@ html[lang="jp"] .stat-label,
 .nsbm-intake-container {
   max-width: 1280px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 .nsbm-billboard-card {
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 4px 16px rgba(0, 0, 0, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: #020c24;
+  border-radius: 0;
+  overflow: visible;
+  box-shadow: none;
+  border: none;
+  background: transparent;
   position: relative;
-  transition: box-shadow 0.3s ease;
-}
-
-.nsbm-billboard-card:hover {
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65);
 }
 
 .nsbm-billboard-viewport {
   overflow: hidden;
   width: 100%;
   position: relative;
+  border-radius: 20px;
 }
 
 .nsbm-billboard-track {
@@ -9943,25 +9940,13 @@ html[lang="jp"] .stat-label,
   flex: 0 0 100%;
   width: 100%;
   box-sizing: border-box;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background: transparent;
   position: relative;
-}
-
-.nsbm-slide-inner {
-  padding: 56px 64px 60px;
-  min-height: 480px;
-  display: flex;
-  align-items: center;
-  box-sizing: border-box;
-  width: 100%;
-  position: relative;
-  z-index: 2;
 }
 
 .nsbm-slide-inner.dual-post-slide {
-  padding: 30px 24px 56px;
-  min-height: 660px;
+  padding: 10px 10px 48px;
+  min-height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9983,10 +9968,11 @@ html[lang="jp"] .stat-label,
   flex: 1 1 500px;
   max-width: 530px;
   height: 610px;
-  border-radius: 18px;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.14);
-  background: #0b1120;
+  box-shadow: 0 10px 32px rgba(15, 23, 42, 0.08), 0 2px 8px rgba(15, 23, 42, 0.04);
+  border: 1.5px solid #e2e8f0;
+  background: #ffffff;
 }
 
 .nsbm-dual-post-iframe {
@@ -10280,59 +10266,59 @@ html[lang="jp"] .stat-label,
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 46px;
-  height: 46px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  background: rgba(2, 12, 36, 0.88);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  color: #ffffff;
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  color: #0f172a;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   z-index: 20;
-  backdrop-filter: blur(8px);
   transition: all 0.2s ease;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.55);
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.12);
 }
 
 .nsbm-slide-arrow:hover {
   background: #0284c7;
-  border-color: #38bdf8;
-  transform: translateY(-50%) scale(1.1);
-  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.65);
+  border-color: #0284c7;
+  color: #ffffff;
+  transform: translateY(-50%) scale(1.08);
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.45);
 }
 
 .nsbm-slide-arrow.left {
-  left: 14px;
+  left: 6px;
 }
 
 .nsbm-slide-arrow.right {
-  right: 14px;
+  right: 6px;
 }
 
 /* Floating Slide Pagination Indicator Dots */
 .nsbm-floating-dots {
   position: absolute;
-  bottom: 18px;
+  bottom: 12px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   align-items: center;
   gap: 8px;
-  background: rgba(2, 12, 36, 0.75);
-  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 6px 16px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(8px);
+  border: 1.5px solid #e2e8f0;
+  backdrop-filter: blur(10px);
   z-index: 15;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
 }
 
 .nsbm-play-toggle-btn {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: #cbd5e1;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  color: #334155;
   width: 24px;
   height: 24px;
   border-radius: 50%;
@@ -10345,15 +10331,15 @@ html[lang="jp"] .stat-label,
 }
 
 .nsbm-play-toggle-btn:hover {
-  background: rgba(255, 255, 255, 0.2);
-  color: #ffffff;
+  background: #e2e8f0;
+  color: #0f172a;
 }
 
 .nsbm-dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.25);
+  background: #cbd5e1;
   border: none;
   cursor: pointer;
   padding: 0;
@@ -10361,19 +10347,19 @@ html[lang="jp"] .stat-label,
 }
 
 .nsbm-dot:hover {
-  background: rgba(255, 255, 255, 0.5);
+  background: #94a3b8;
 }
 
 .nsbm-dot.active {
   width: 26px;
   border-radius: 999px;
-  background: #38bdf8;
-  box-shadow: 0 0 10px #38bdf8;
+  background: #0284c7;
+  box-shadow: 0 0 10px rgba(2, 132, 199, 0.4);
 }
 
 .nsbm-counter-text {
   font-size: 0.76rem;
-  color: #94a3b8;
+  color: #64748b;
   font-weight: 700;
   margin-left: 6px;
 }

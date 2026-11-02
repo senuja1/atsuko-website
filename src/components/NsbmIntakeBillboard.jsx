@@ -16,7 +16,6 @@ export default function NsbmIntakeBillboard({ lang = 'en' }) {
   const slides = [
     {
       id: 'slide-1',
-      bgImage: '/images/classroom-sensei.jpg',
       posts: [
         {
           id: 'DV0wLR8kYh1',
@@ -30,7 +29,6 @@ export default function NsbmIntakeBillboard({ lang = 'en' }) {
     },
     {
       id: 'slide-2',
-      bgImage: '/images/batches/batch-17-completion.jpg',
       posts: [
         {
           id: 'DZ_jTzyCJha',
@@ -110,12 +108,6 @@ export default function NsbmIntakeBillboard({ lang = 'en' }) {
                   <div 
                     key={slide.id} 
                     className={`nsbm-billboard-slide ${isActive ? 'is-active' : ''}`}
-                    style={{
-                      backgroundImage: `linear-gradient(135deg, rgba(2, 10, 28, 0.90) 0%, rgba(3, 14, 38, 0.85) 50%, rgba(2, 10, 28, 0.92) 100%), url(${slide.bgImage})`,
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center center',
-                      backgroundRepeat: 'no-repeat'
-                    }}
                   >
                     <div className="nsbm-slide-inner dual-post-slide">
                       {/* Dual Posts Row (Two Photos Per Slide Matching Website Width) */}
