@@ -21,7 +21,6 @@ import {
 import Hero from './Hero';
 import StatsBar from './StatsBar';
 import RevealOnScroll from './RevealOnScroll';
-import FacebookIntakeBar from './FacebookIntakeBar';
 import MainCoursesGrid from './MainCoursesGrid';
 import FaqSection from './FaqSection';
 import { officialContacts, studentSocialComments } from '../data/websiteData';
@@ -42,14 +41,7 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
       {/* 2. Trust & Official Credentials Bar */}
       <StatsBar lang={lang} />
 
-      {/* 3. Real-Time Facebook Updates & Intake Announcement Bar (NSBM Style) */}
-      <RevealOnScroll delay={0.1}>
-        <FacebookIntakeBar
-          lang={lang}
-        />
-      </RevealOnScroll>
-
-      {/* 4. Complete List of Academic Classes & Courses (NSBM 4-Column Style) */}
+      {/* 3. Complete List of Academic Classes & Courses (NSBM 4-Column Style) */}
       <RevealOnScroll delay={0.1}>
         <MainCoursesGrid
           lang={lang}
