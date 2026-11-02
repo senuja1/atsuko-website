@@ -9943,16 +9943,20 @@ html[lang="jp"] .stat-label,
   flex: 0 0 100%;
   width: 100%;
   box-sizing: border-box;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
 }
 
 .nsbm-slide-inner {
-  padding: 28px 36px 24px;
-  background: linear-gradient(135deg, rgba(3, 14, 38, 0.97) 0%, rgba(10, 25, 60, 0.94) 50%, rgba(2, 10, 28, 0.98) 100%);
-  min-height: 520px;
+  padding: 56px 64px 60px;
+  min-height: 480px;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
   box-sizing: border-box;
+  width: 100%;
+  position: relative;
+  z-index: 2;
 }
 
 /* Top Row: Partner Badges, NSBM Apply Pill & Instagram Pill */
@@ -10198,78 +10202,13 @@ html[lang="jp"] .stat-label,
   line-height: 1;
 }
 
-/* Right Column: Live Instagram Iframe Embedded Inside the Slide Bar */
+/* Right Column: NSBM Yellow Highlight Box & Bullet Triangles */
 .nsbm-right-block {
-  flex: 0 0 380px;
-  max-width: 420px;
+  flex: 0 0 460px;
+  max-width: 500px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
-}
-
-.nsbm-iframe-container {
-  width: 100%;
-  background: rgba(15, 23, 42, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(10px);
-}
-
-.nsbm-iframe-card-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 8px 14px;
-  background: rgba(255, 255, 255, 0.04);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.nsbm-iframe-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: #38bdf8;
-}
-
-.nsbm-ig-live-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #10b981;
-  box-shadow: 0 0 8px #10b981;
-}
-
-.nsbm-iframe-open-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 0.74rem;
-  font-weight: 700;
-  color: #f43f5e;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.nsbm-iframe-open-btn:hover {
-  color: #fda4af;
-}
-
-.nsbm-iframe-stage {
-  width: 100%;
-  height: 460px;
-  background: #0b1120;
-  position: relative;
-}
-
-.nsbm-live-iframe {
-  width: 100%;
-  height: 460px;
-  border: none;
-  display: block;
 }
 
 /* Navigation Arrows on Left and Right edges */
@@ -10308,44 +10247,22 @@ html[lang="jp"] .stat-label,
   right: 14px;
 }
 
-/* Bottom Dark Navy Ribbon */
-.nsbm-bottom-ribbon {
-  background: #020c24;
-  padding: 14px 32px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  flex-wrap: wrap;
-  position: relative;
-  z-index: 5;
-}
-
-.nsbm-ribbon-left {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.nsbm-sparkle-icon {
-  color: #38bdf8;
-  flex-shrink: 0;
-}
-
-.nsbm-ribbon-text {
-  color: #ffffff;
-  font-size: 0.96rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-/* Slide Pagination Indicator Dots */
-.nsbm-dots-row {
+/* Floating Slide Pagination Indicator Dots */
+.nsbm-floating-dots {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   align-items: center;
   gap: 8px;
+  background: rgba(2, 12, 36, 0.75);
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  z-index: 15;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 
 .nsbm-play-toggle-btn {
@@ -10397,57 +10314,6 @@ html[lang="jp"] .stat-label,
   margin-left: 6px;
 }
 
-/* Right: Green Circular Call Hotline */
-.nsbm-ribbon-right {
-  display: flex;
-  align-items: center;
-}
-
-.nsbm-call-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  text-decoration: none;
-  transition: transform 0.2s ease;
-}
-
-.nsbm-call-button:hover {
-  transform: translateY(-1px);
-}
-
-.nsbm-call-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: #10b981;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff;
-  box-shadow: 0 0 14px rgba(16, 185, 129, 0.6);
-  flex-shrink: 0;
-}
-
-.nsbm-call-meta {
-  display: flex;
-  flex-direction: column;
-}
-
-.nsbm-call-label {
-  font-size: 0.68rem;
-  color: #94a3b8;
-  text-transform: uppercase;
-  font-weight: 700;
-  display: block;
-}
-
-.nsbm-call-numbers {
-  font-size: 0.98rem;
-  font-weight: 900;
-  color: #ffffff;
-  letter-spacing: 0.02em;
-}
-
 /* Responsive Media Queries */
 @media (max-width: 992px) {
   .nsbm-content-split {
@@ -10477,14 +10343,17 @@ html[lang="jp"] .stat-label,
     padding: 24px 14px 36px;
   }
   .nsbm-slide-inner {
-    padding: 20px 16px;
+    padding: 32px 20px 52px;
     min-height: auto;
   }
-  .nsbm-top-bar {
-    margin-bottom: 16px;
+  .nsbm-content-split {
+    flex-direction: column;
+    gap: 20px;
   }
-  .nsbm-logo-box {
-    padding: 5px 12px 5px 6px;
+  .nsbm-left-block,
+  .nsbm-right-block {
+    flex: 1 1 100%;
+    max-width: 100%;
   }
   .nsbm-kicker-3d {
     font-size: 1.85rem;
@@ -10505,21 +10374,6 @@ html[lang="jp"] .stat-label,
   }
   .nsbm-bullet-item {
     font-size: 0.8rem;
-  }
-  .nsbm-iframe-stage {
-    height: 440px;
-  }
-  .nsbm-live-iframe {
-    height: 440px;
-  }
-  .nsbm-bottom-ribbon {
-    padding: 14px 16px;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 14px;
-  }
-  .nsbm-call-button {
-    justify-content: center;
   }
   .nsbm-slide-arrow {
     width: 36px;
