@@ -351,10 +351,10 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
               >
                 <span>
                   {lang === 'si'
-                    ? 'තවත් සාර්ථක කතා නරඹන්න'
+                    ? 'තවත් බලන්න...'
                     : lang === 'jp'
-                      ? '成功事例をもっと見る'
-                      : 'View More Success Stories'}
+                      ? 'もっと見る...'
+                      : 'View More...'}
                 </span>
                 <ArrowRight size={18} />
               </button>
