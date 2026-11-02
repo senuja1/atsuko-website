@@ -31,8 +31,8 @@ export const officialContacts = {
   mobile2: "(+94) 767 763 352",
   whatsapp1: "+94 77 793 3352",
   whatsapp2: "+94 76 776 3352",
-  email: "atsukoschooljapan@gmail.com",
-  secondaryEmail: "info@atsukojapan.com",
+  email: "info@atsukointernational.com",
+  secondaryEmail: "info@atsukointernational.com",
   
   // Sri Lanka Headquarters
   headOfficeAddress: "191/3/1, Sirimavo Bandaranayake Mw, Mahara, Kadawatha, Sri Lanka",
@@ -809,7 +809,7 @@ export const globalPresenceData = {
     address: "191/3/1, Sirimavo Bandaranayake Mw, Mahara, Kadawatha, Sri Lanka",
     hotline: "(+94) 112 987 263",
     mobiles: ["(+94) 777 933 352", "(+94) 767 763 352"],
-    email: "atsukoschooljapan@gmail.com",
+    email: "info@atsukointernational.com",
     website: "www.atsukojapan.com",
     hours: "Mon - Sat: 8:30 AM - 5:30 PM | Sun: 8:30 AM - 2:00 PM",
     facilities: [
