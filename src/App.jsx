@@ -1,5 +1,6 @@
 import { useState, useEffect, lazy, Suspense } from 'react';
 import './index.css';
+import TopBar from './components/TopBar';
 import Navbar from './components/Navbar';
 import JapaneseGateScrollStage from './components/JapaneseGateScrollStage';
 import Footer from './components/Footer';
@@ -85,6 +86,12 @@ export default function App() {
 
   return (
     <div className="app-root">
+
+      {/* Gentleman Navy Top Utility Bar (Above Navbar) */}
+      <TopBar 
+        lang={lang} 
+        onNavigate={handleNavigate} 
+      />
 
       {/* Primary Navigation Bar */}
       <Navbar 

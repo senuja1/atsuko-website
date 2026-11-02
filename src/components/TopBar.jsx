@@ -1,62 +1,133 @@
-import { ShieldCheck, Phone, MessageSquare, Globe } from 'lucide-react';
-import { siteTranslations } from '../data/translations';
+import React from 'react';
+import { MapPin, Mail, Phone, ShieldCheck } from 'lucide-react';
 import { officialContacts } from '../data/websiteData';
+import { FacebookIcon, InstagramIcon, YoutubeIcon, TikTokIcon, WhatsAppIcon } from './SocialIcons';
 
-export default function TopBar({ lang, setLang }) {
-  const t = siteTranslations[lang] || siteTranslations.en;
+export default function TopBar({ lang = 'en', onNavigate }) {
+  const isSi = lang === 'si';
+  const isJp = lang === 'jp';
+
+  const t = {
+    followUs: isSi ? 'අප අනුගමනය කරන්න :' : isJp ? '公式SNS :' : 'Follow Us :',
+    address: isSi 
+      ? '191/3/1, සිරිමාවෝ බණ්ඩාරනායක මාවත, මහර, කඩවත, ශ්‍රී ලංකාව'
+      : isJp
+      ? '191/3/1, Sirimavo Bandaranaike Mw, Mahara, Kadawatha, Sri Lanka'
+      : '191/3/1, Sirimavo Bandaranaike Mw, Mahara, Kadawatha, Sri Lanka',
+    licBadge: isSi ? 'SLBFE බලපත්‍ර #3293' : isJp ? 'SLBFE認可 #3293' : 'SLBFE Lic. #3293'
+  };
+
+  const handleAddressClick = (e) => {
+    if (onNavigate) {
+      e.preventDefault();
+      onNavigate('contact');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
 
   return (
-    <div className="top-bar">
-      <div className="container top-bar-inner">
-        <div className="top-bar-left">
-          <span className="license-badge">
-            <ShieldCheck size={14} />
-            {t.slbfeBadge || 'SLBFE Lic. 3293 • PV 0217143'}
-          </span>
-          <span className="top-bar-subtitle">
-            {t.topBarSubtitle}
-          </span>
+    <div className="gentleman-topbar" role="region" aria-label="Official Contact and Social Bar">
+      <div className="container gentleman-topbar-inner">
+        {/* Left Side: Follow Us & Social Icons */}
+        <div className="gentleman-topbar-left">
+          <span className="gentleman-follow-label">{t.followUs}</span>
+          <div className="gentleman-social-icons">
+            <a
+              href={officialContacts.socials.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="gentleman-social-link"
+              title="Official Facebook Page"
+              aria-label="Facebook"
+            >
+              <FacebookIcon size={14} />
+            </a>
+            <a
+              href={officialContacts.socials.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="gentleman-social-link"
+              title="Official Instagram (@atsuko_gakkou)"
+              aria-label="Instagram"
+            >
+              <InstagramIcon size={14} />
+            </a>
+            <a
+              href={officialContacts.socials.youtube}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="gentleman-social-link"
+              title="Official YouTube Channel"
+              aria-label="YouTube"
+            >
+              <YoutubeIcon size={14} />
+            </a>
+            <a
+              href={officialContacts.socials.tiktok}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="gentleman-social-link"
+              title="Official TikTok"
+              aria-label="TikTok"
+            >
+              <TikTokIcon size={14} />
+            </a>
+            <a
+              href={officialContacts.socials.whatsappChannel}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="gentleman-social-link"
+              title="WhatsApp Channel"
+              aria-label="WhatsApp"
+            >
+              <WhatsAppIcon size={14} />
+            </a>
+          </div>
         </div>
 
-        <div className="top-bar-right">
-          <a href={`tel:${officialContacts.hotline.replace(/[^0-9+]/g, '')}`} className="top-contact-link">
-            <Phone size={13} style={{ color: '#ef4444' }} />
-            <span>{officialContacts.hotline}</span>
-          </a>
-
+        {/* Right Side: Address | Email | Phone | License */}
+        <div className="gentleman-topbar-right">
+          {/* Head Office Address */}
           <a 
-            href="https://wa.me/94777933352?text=Hello%20Atsuko%20International,%20I%20would%20like%20information%20regarding%20studying%20and%20working%20in%20Japan." 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="top-contact-link"
+            href="#contact-section" 
+            onClick={handleAddressClick}
+            className="gentleman-info-item gentleman-address"
+            title="View Campus Location"
           >
-            <MessageSquare size={13} style={{ color: '#22c55e' }} />
-            <span>{officialContacts.whatsapp1}</span>
+            <MapPin size={13} className="gentleman-icon" />
+            <span className="gentleman-info-text">{t.address}</span>
           </a>
 
-          {/* Multi-language Selector */}
-          <div className="lang-selector">
-            <button 
-              className={`lang-btn ${lang === 'en' ? 'active' : ''}`}
-              onClick={() => setLang('en')}
-              title="English"
-            >
-              EN
-            </button>
-            <button 
-              className={`lang-btn ${lang === 'si' ? 'active' : ''}`}
-              onClick={() => setLang('si')}
-              title="සිංහල (Sinhala)"
-            >
-              සිං
-            </button>
-            <button 
-              className={`lang-btn ${lang === 'jp' ? 'active' : ''}`}
-              onClick={() => setLang('jp')}
-              title="日本語 (Japanese)"
-            >
-              日本語
-            </button>
+          <span className="gentleman-divider" aria-hidden="true">|</span>
+
+          {/* Email */}
+          <a 
+            href={`mailto:${officialContacts.email}`}
+            className="gentleman-info-item gentleman-email"
+            title="Send Email to Atsuko International"
+          >
+            <Mail size={13} className="gentleman-icon" />
+            <span className="gentleman-info-text">{officialContacts.email}</span>
+          </a>
+
+          <span className="gentleman-divider" aria-hidden="true">|</span>
+
+          {/* Phone Hotline */}
+          <a 
+            href="tel:+94777933352"
+            className="gentleman-info-item gentleman-phone"
+            title="Call Registrations Hotline"
+          >
+            <Phone size={13} className="gentleman-icon" />
+            <span className="gentleman-info-text">{officialContacts.whatsapp1}</span>
+          </a>
+
+          <span className="gentleman-divider" aria-hidden="true">|</span>
+
+          {/* Government License Badge */}
+          <div className="gentleman-info-item gentleman-lic" title="Government Registered Agency">
+            <ShieldCheck size={13} className="gentleman-icon gold" />
+            <span className="gentleman-info-text highlight">{t.licBadge}</span>
           </div>
         </div>
       </div>
