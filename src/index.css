@@ -9668,7 +9668,7 @@ html[lang="jp"] .stat-label,
 .atsuko-courses-section {
   position: relative;
   background: #f8fafc;
-  padding: clamp(2rem, 3.5vw, 3rem) 0 clamp(2.5rem, 4vw, 3.5rem);
+  padding: clamp(3rem, 4.5vw, 4.5rem) 0 clamp(3.5rem, 5vw, 5rem);
   border-top: 1px solid rgba(226, 232, 240, 0.8);
   border-bottom: 1px solid rgba(226, 232, 240, 0.8);
 }
@@ -9902,56 +9902,24 @@ html[lang="jp"] .stat-label,
    ========================================================================== */
 
 .nsbm-intake-section {
-  padding: 2.5rem 0 3.5rem;
+  padding: 1.5rem 0 3rem;
   background: transparent;
   position: relative;
   z-index: 10;
 }
 
 .nsbm-intake-container {
-  max-width: 1280px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px;
 }
 
-.nsbm-billboard-card {
-  border-radius: 0;
-  overflow: visible;
-  box-shadow: none;
-  border: none;
-  background: transparent;
-  position: relative;
-}
-
-.nsbm-billboard-viewport {
-  overflow: hidden;
+.nsbm-four-posts-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
   width: 100%;
-  position: relative;
-  border-radius: 20px;
-}
-
-.nsbm-billboard-track {
-  display: flex;
-  width: 100%;
-  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-.nsbm-billboard-slide {
-  flex: 0 0 100%;
-  width: 100%;
-  box-sizing: border-box;
-  background: transparent;
-  position: relative;
-}
-
-.nsbm-slide-inner.dual-post-slide {
-  padding: 10px 10px 48px;
-  min-height: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  width: 100%;
+  margin: 0 auto;
 }
 
 .nsbm-two-posts-row {
@@ -9964,20 +9932,43 @@ html[lang="jp"] .stat-label,
   margin: 0 auto;
 }
 
+.nsbm-post-stage,
 .nsbm-dual-post-stage {
-  flex: 1 1 500px;
-  max-width: 530px;
-  height: 610px;
-  border-radius: 20px;
+  width: 100%;
+  aspect-ratio: 1 / 1.155;
+  max-height: 380px;
+  border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 10px 32px rgba(15, 23, 42, 0.08), 0 2px 8px rgba(15, 23, 42, 0.04);
+  position: relative;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08), 0 2px 6px rgba(15, 23, 42, 0.04);
   border: 1.5px solid #e2e8f0;
   background: #ffffff;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
+.nsbm-post-stage:hover,
+.nsbm-dual-post-stage:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12), 0 4px 12px rgba(15, 23, 42, 0.06);
+}
+
+.nsbm-post-stage::after,
+.nsbm-dual-post-stage::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: #ffffff;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.nsbm-post-iframe,
 .nsbm-dual-post-iframe {
   width: 100%;
-  height: 100%;
+  height: 560px;
   border: none;
   display: block;
 }
@@ -10290,11 +10281,11 @@ html[lang="jp"] .stat-label,
 }
 
 .nsbm-slide-arrow.left {
-  left: 6px;
+  left: 0;
 }
 
 .nsbm-slide-arrow.right {
-  right: 6px;
+  right: 0;
 }
 
 /* Floating Slide Pagination Indicator Dots */
@@ -10388,27 +10379,47 @@ html[lang="jp"] .stat-label,
   }
 }
 
-@media (max-width: 768px) {
-  .nsbm-intake-section {
-    padding: 24px 14px 36px;
+@media (max-width: 1080px) {
+  .nsbm-intake-container {
+    padding: 0 24px;
   }
-  .nsbm-slide-inner {
-    padding: 32px 20px 52px;
-    min-height: auto;
-  }
-  .nsbm-slide-inner.dual-post-slide {
-    padding: 18px 12px 50px;
-    min-height: auto;
-  }
-  .nsbm-two-posts-row {
-    flex-direction: column;
+  .nsbm-four-posts-row {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 720px;
     gap: 16px;
   }
-  .nsbm-dual-post-stage {
-    flex: 1 1 100%;
-    max-width: 100%;
-    height: 520px;
+}
+
+@media (max-width: 680px) {
+  .nsbm-intake-section {
+    padding: 1.5rem 0 2.5rem;
   }
+  .nsbm-intake-container {
+    padding: 0 16px;
+  }
+  .nsbm-four-posts-row {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 14px;
+    padding-bottom: 12px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .nsbm-four-posts-row::-webkit-scrollbar {
+    display: none;
+  }
+  .nsbm-post-stage,
+  .nsbm-dual-post-stage {
+    flex: 0 0 85%;
+    max-width: 320px;
+    scroll-snap-align: center;
+    aspect-ratio: 1 / 1.155;
+    max-height: 380px;
+  }
+}
+
+@media (max-width: 768px) {
   .nsbm-content-split {
     flex-direction: column;
     gap: 20px;
