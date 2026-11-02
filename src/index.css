@@ -9898,7 +9898,7 @@ html[lang="jp"] .stat-label,
 
 
 /* ==========================================================================
-   ATSUKO NSBM-STYLE INTAKE & ADMISSIONS BILLBOARD SLIDESHOW
+   ATSUKO NSBM-STYLE INTAKE & LIVE INSTAGRAM SLIDE BAR
    ========================================================================== */
 
 .nsbm-intake-section {
@@ -9916,7 +9916,7 @@ html[lang="jp"] .stat-label,
 .nsbm-billboard-card {
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45), 0 4px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 4px 16px rgba(0, 0, 0, 0.25);
   border: 1px solid rgba(255, 255, 255, 0.14);
   background: #020c24;
   position: relative;
@@ -9924,29 +9924,45 @@ html[lang="jp"] .stat-label,
 }
 
 .nsbm-billboard-card:hover {
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65);
 }
 
-.nsbm-billboard-visual {
-  min-height: 410px;
-  padding: 28px 36px 24px;
-  background-size: cover;
-  background-repeat: no-repeat;
+.nsbm-billboard-viewport {
+  overflow: hidden;
+  width: 100%;
   position: relative;
+}
+
+.nsbm-billboard-track {
+  display: flex;
+  width: 100%;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.nsbm-billboard-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.nsbm-slide-inner {
+  padding: 28px 36px 24px;
+  background: linear-gradient(135deg, rgba(3, 14, 38, 0.97) 0%, rgba(10, 25, 60, 0.94) 50%, rgba(2, 10, 28, 0.98) 100%);
+  min-height: 520px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: background-image 0.5s ease-in-out;
+  box-sizing: border-box;
 }
 
-/* Top Row: Partner Badges & Apply Pill */
+/* Top Row: Partner Badges, NSBM Apply Pill & Instagram Pill */
 .nsbm-top-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 16px;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   position: relative;
   z-index: 5;
 }
@@ -10006,9 +10022,11 @@ html[lang="jp"] .stat-label,
   display: block;
 }
 
-.nsbm-apply-wrap {
+.nsbm-top-actions {
   display: flex;
   align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 .nsbm-apply-pill {
@@ -10049,25 +10067,49 @@ html[lang="jp"] .stat-label,
   letter-spacing: 0.03em;
 }
 
-/* Middle Content Row: Left 3D Typography + Right Yellow Highlight Box */
-.nsbm-content-row {
+.nsbm-ig-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: linear-gradient(45deg, #f09433, #dc2743, #bc1888);
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 3px 10px rgba(220, 39, 67, 0.4);
+  transition: all 0.2s ease;
+}
+
+.nsbm-ig-pill-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 16px rgba(220, 39, 67, 0.55);
+  color: #ffffff;
+}
+
+/* Main Content Split: Left NSBM Typography + Right Live Instagram Iframe */
+.nsbm-content-split {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
-  gap: 32px;
-  flex-wrap: wrap;
-  margin-bottom: 12px;
+  gap: 36px;
+  flex: 1;
+  margin-bottom: 8px;
   position: relative;
   z-index: 5;
 }
 
 .nsbm-left-block {
-  flex: 1 1 480px;
+  flex: 1 1 540px;
   max-width: 650px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .nsbm-kicker-3d {
-  font-size: 2.9rem;
+  font-size: 2.8rem;
   font-weight: 900;
   font-style: italic;
   line-height: 0.95;
@@ -10075,12 +10117,12 @@ html[lang="jp"] .stat-label,
   color: #ffffff;
   text-shadow: 0 4px 14px rgba(0, 0, 0, 0.8), 0 2px 4px rgba(0, 0, 0, 0.6);
   letter-spacing: -0.02em;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .nsbm-kicker-highlight {
   display: block;
-  font-size: 3.8rem;
+  font-size: 3.6rem;
   background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 50%, #38bdf8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -10091,6 +10133,7 @@ html[lang="jp"] .stat-label,
   display: flex;
   flex-direction: column;
   gap: 4px;
+  margin-bottom: 12px;
 }
 
 .nsbm-program-sub {
@@ -10112,15 +10155,6 @@ html[lang="jp"] .stat-label,
   line-height: 1.25;
 }
 
-/* Right Column: Yellow Highlight Box & Bullet Triangles */
-.nsbm-right-block {
-  flex: 0 1 440px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  align-items: flex-start;
-}
-
 .nsbm-yellow-box {
   background: #facc15;
   color: #000000;
@@ -10131,6 +10165,7 @@ html[lang="jp"] .stat-label,
   border-radius: 14px;
   box-shadow: 0 8px 24px rgba(250, 204, 21, 0.35);
   line-height: 1.25;
+  margin-bottom: 14px;
   width: 100%;
 }
 
@@ -10163,15 +10198,89 @@ html[lang="jp"] .stat-label,
   line-height: 1;
 }
 
+/* Right Column: Live Instagram Iframe Embedded Inside the Slide Bar */
+.nsbm-right-block {
+  flex: 0 0 380px;
+  max-width: 420px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nsbm-iframe-container {
+  width: 100%;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(10px);
+}
+
+.nsbm-iframe-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.nsbm-iframe-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #38bdf8;
+}
+
+.nsbm-ig-live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+}
+
+.nsbm-iframe-open-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #f43f5e;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nsbm-iframe-open-btn:hover {
+  color: #fda4af;
+}
+
+.nsbm-iframe-stage {
+  width: 100%;
+  height: 460px;
+  background: #0b1120;
+  position: relative;
+}
+
+.nsbm-live-iframe {
+  width: 100%;
+  height: 460px;
+  border: none;
+  display: block;
+}
+
 /* Navigation Arrows on Left and Right edges */
 .nsbm-slide-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 44px;
-  height: 44px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
-  background: rgba(2, 12, 36, 0.85);
+  background: rgba(2, 12, 36, 0.88);
   border: 1px solid rgba(255, 255, 255, 0.25);
   color: #ffffff;
   display: flex;
@@ -10181,14 +10290,14 @@ html[lang="jp"] .stat-label,
   z-index: 20;
   backdrop-filter: blur(8px);
   transition: all 0.2s ease;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.55);
 }
 
 .nsbm-slide-arrow:hover {
   background: #0284c7;
   border-color: #38bdf8;
   transform: translateY(-50%) scale(1.1);
-  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.6);
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.65);
 }
 
 .nsbm-slide-arrow.left {
@@ -10239,6 +10348,26 @@ html[lang="jp"] .stat-label,
   gap: 8px;
 }
 
+.nsbm-play-toggle-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #cbd5e1;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-right: 4px;
+  transition: all 0.2s ease;
+}
+
+.nsbm-play-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
 .nsbm-dot {
   width: 8px;
   height: 8px;
@@ -10259,6 +10388,13 @@ html[lang="jp"] .stat-label,
   border-radius: 999px;
   background: #38bdf8;
   box-shadow: 0 0 10px #38bdf8;
+}
+
+.nsbm-counter-text {
+  font-size: 0.76rem;
+  color: #94a3b8;
+  font-weight: 700;
+  margin-left: 6px;
 }
 
 /* Right: Green Circular Call Hotline */
@@ -10314,14 +10450,22 @@ html[lang="jp"] .stat-label,
 
 /* Responsive Media Queries */
 @media (max-width: 992px) {
-  .nsbm-content-row {
+  .nsbm-content-split {
     flex-direction: column;
     align-items: stretch;
-    gap: 20px;
+    gap: 24px;
+  }
+  .nsbm-left-block {
+    flex: 1 1 auto;
+    max-width: 100%;
   }
   .nsbm-right-block {
     flex: 1 1 auto;
     max-width: 100%;
+    justify-content: center;
+  }
+  .nsbm-iframe-container {
+    max-width: 420px;
   }
   .nsbm-yellow-box {
     max-width: 100%;
@@ -10332,7 +10476,7 @@ html[lang="jp"] .stat-label,
   .nsbm-intake-section {
     padding: 24px 14px 36px;
   }
-  .nsbm-billboard-visual {
+  .nsbm-slide-inner {
     padding: 20px 16px;
     min-height: auto;
   }
@@ -10361,6 +10505,12 @@ html[lang="jp"] .stat-label,
   }
   .nsbm-bullet-item {
     font-size: 0.8rem;
+  }
+  .nsbm-iframe-stage {
+    height: 440px;
+  }
+  .nsbm-live-iframe {
+    height: 440px;
   }
   .nsbm-bottom-ribbon {
     padding: 14px 16px;
