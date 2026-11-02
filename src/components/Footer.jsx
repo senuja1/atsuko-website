@@ -211,9 +211,35 @@ export default function Footer({ lang, onOpenModal, onNavigate }) {
               <ExternalLink size={12} />
             </a>
             <span>•</span>
-            <span style={{ color: '#94a3b8', fontWeight: 600 }}>
-              Developed by <strong style={{ color: '#f8fafc', fontWeight: 700 }}>VasterGlobal</strong>
-            </span>
+            <a
+              href="https://vasterglobal.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                color: '#94a3b8',
+                fontWeight: 600,
+                textDecoration: 'none',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '4px',
+                transition: 'all 0.2s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = '#38bdf8';
+                const strong = e.currentTarget.querySelector('strong');
+                if (strong) strong.style.color = '#38bdf8';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = '#94a3b8';
+                const strong = e.currentTarget.querySelector('strong');
+                if (strong) strong.style.color = '#f8fafc';
+              }}
+              title="Developed by VasterGlobal (vasterglobal.com)"
+            >
+              <span>Developed by</span>
+              <strong style={{ color: '#f8fafc', fontWeight: 700, transition: 'color 0.2s ease' }}>VasterGlobal</strong>
+              <ExternalLink size={11} style={{ opacity: 0.8 }} />
+            </a>
           </div>
         </div>
       </div>
