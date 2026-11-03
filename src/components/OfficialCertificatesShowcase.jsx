@@ -119,10 +119,10 @@ export default function OfficialCertificatesShowcase({ lang = 'en' }) {
     authority: 'Tertiary and Vocational Education Commission (TVEC), Ministry of Education, Sri Lanka',
     image: '/images/certificates/tvec_caregiver_nvq3_p1.jpg',
     desc: lang === 'si'
-      ? '1990 අංක 20 දරන TVEC පනතේ 13(1) වගන්තිය යටතේ සාත්තු සේවක (Caregiver) NVQ Level 3 ජාතික වෘත්තීය පාඨමාලාව පැවැත්වීම සඳහා අධ්‍යාපන අමාත්‍යාංශයේ තෘතීයික හා වෘත්තීය අධ්‍යාපන කොමිෂන් සභාවෙන් පූර්ණ ප්‍රතීතනය ලත් ආයතනයකි (ලියාපදිංචි අංක: P02/0603).'
+      ? 'සාත්තු සේවක (Caregiver) NVQ Level 3 පාඨමාලාව සඳහා TVEC ප්‍රතීතනය ලත් ආයතනයකි (P02/0603). 2028 දක්වා වලංගුයි.'
       : lang === 'jp'
-        ? '1990年第20号TVEC法第13条(1)に基づき、スリランカ教育省・高等職業教育訓練委員会（TVEC）より介護士国家資格（Caregiver NVQ Level 3・標準コード: N85S010.1）の正規養成施設として認定されています（認定番号: P02/0603、有効期限: 2028年7月15日）。'
-        : 'Officially certified under Section 13(1) of the TVEC Act No. 20 of 1990 as an accredited training institute delivering the national NVQ Level 3 Caregiver qualification (NCS code: N85S010.1). Valid through 15 July 2028.'
+        ? 'TVEC認定の介護士（NVQ Level 3）正規養成訓練施設（P02/0603、2028年7月まで有効）。'
+        : 'TVEC-accredited institute under Section 13(1) for Caregiver NVQ Level 3 (Center: P02/0603, Cert: N85S010-1). Valid to July 2028.'
   };
 
   const currentSlbfe = slbfeCertificates[selectedSlbfeYear];
@@ -211,17 +211,17 @@ export default function OfficialCertificatesShowcase({ lang = 'en' }) {
 
             <p className="cert-card-desc">
               {lang === 'si'
-                ? '2007 අංක 07 දරන සමාගම් පනත යටතේ ශ්‍රී ලංකා සමාගම් රෙජිස්ට්‍රාර් දෙපාර්තමේන්තුවේ 2019 නොවැම්බර් 01 දින Atsuko International (Pvt) Ltd නමින් ලියාපදිංචි සමාගමකි (සමාගම් අංකය: PV 0217143). ජපානයේ ලියාපදිංචි අපගේ සහෝදර සමාගම (株式会社 Atsuko International, සංස්ථාපිත අංකය: 3700-01-048848) සමඟ සෘජුව ක්‍රියාත්මක වේ.'
+                ? '2007 අංක 07 දරන සමාගම් පනත යටතේ ලියාපදිංචි සමාගමකි (PV 0217143). ජපානයේ අපගේ සහෝදර ආයතනය (株式会社 Atsuko International) සමඟ සෘජුව ක්‍රියාත්මක වේ.'
                 : lang === 'jp'
-                  ? '2007年第7号会社法に基づき、スリランカ会社登記局にて2019年11月1日に正式認可・登記された法人です（Atsuko International Pvt Ltd、法人番号: PV 0217143）。日本現地法人「株式会社 Atsuko International」（法人番号: 3700-01-048848）との緊密な連携により、双方で正規法務手続きを完結しています。'
-                  : 'Incorporated on 01 November 2019 under the Companies Act No. 7 of 2007 by the Department of the Registrar of Companies Sri Lanka as Atsuko International (Pvt) Ltd (Company Reg: PV 0217143). Operating in full bilateral coordination with our registered support entity in Japan (株式会社 Atsuko International, Corporate No: 3700-01-048848).'}
+                  ? '2007年第7号会社法に基づく正規登記法人（PV 0217143）。日本現地法人「株式会社 Atsuko International」と直接連携。'
+                  : 'Incorporated under Companies Act No. 7 of 2007 (PV 0217143). Operating with our dual-entity Japan corporate office (No: 3700-01-048848).'}
             </p>
 
             {/* Official BR Certificate Shield / Emblem Visual */}
             <div className="br-emblem-showcase-box" onClick={() => setBrModalOpen(true)}>
               <div className="br-emblem-badge">
                 <div className="br-emblem-icon-ring">
-                  <Building2 size={34} />
+                  <Building2 size={24} />
                 </div>
                 <div className="br-emblem-text">
                   <span className="br-gov-title">DEMOCRATIC SOCIALIST REPUBLIC OF SRI LANKA</span>
@@ -360,10 +360,10 @@ export default function OfficialCertificatesShowcase({ lang = 'en' }) {
 
             <p className="cert-card-desc">
               {lang === 'si'
-                ? 'ශ්‍රී ලංකා විදේශ සේවා නියුක්ති කාර්යාංශයේ (SLBFE) අංක 3293 දරන නිල බලපත්‍රය යටතේ අප ආයතනය ක්‍රියාත්මක වේ. 2024 සිට 2026/2027 දක්වා අඛණ්ඩව අලුත් කරන ලද රජයේ නිල බලපත්‍ර සහතික මාලාව පහතින් තෝරා පරීක්ෂා කළ හැක.'
+                ? 'විදේශ සේවා නියුක්ති කාර්යාංශයේ (SLBFE) අංක 3293 දරන නිල බලපත්‍රලාභී ආයතනයකි. 2026/2027 දක්වා අඛණ්ඩව අලුත් කරන ලද බලපත්‍ර පෙළ.'
                 : lang === 'jp'
-                  ? 'スリランカ海外雇用局（SLBFE）より発給された正規海外雇用斡旋ライセンス（認可番号: 3293）。2024年〜2026/2027年に至る毎年の公式更新証を重ねて公開しており、継続的な法適合性を証明しています。'
-                  : 'Atsuko International (Pvt) Ltd operates under official SLBFE License No. 3293. Browse our continuous stack of government renewal certificates below, demonstrating unbroken legal compliance and active government registration through 2026/2027.'}
+                  ? '海外雇用局（SLBFE）公認ライセンス（第3293号）。2026/2027年まで年次更新された正規認可証一式。'
+                  : 'SLBFE License No. 3293. Continuous government annual renewal certificates verifying unbroken legal compliance through 2026/2027.'}
             </p>
 
             {/* Interactive Stack Year Tabs & Page Switcher */}

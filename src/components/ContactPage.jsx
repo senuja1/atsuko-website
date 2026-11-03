@@ -218,8 +218,8 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
 
       {/* 2. Main Dual-Column: Official Locations & Contact Form */}
       <section className="section" style={{ background: '#ffffff', padding: 'clamp(2rem, 3.5vw, 3rem) 0' }}>
-        <div className="container" style={{ maxWidth: '1240px' }}>
-          <div className="contact-main-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 340px), 1fr))', gap: 'clamp(2.75rem, 5.5vw, 5rem)', alignItems: 'stretch' }}>
+        <div className="container" style={{ maxWidth: '1280px' }}>
+          <div className="contact-main-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 340px), 1fr))', gap: 'clamp(3.5rem, 7vw, 6.5rem)', alignItems: 'stretch' }}>
             {/* Left Column: Official Sri Lanka & Japan Operating Bases */}
             <div className="contact-offices-col" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
 
