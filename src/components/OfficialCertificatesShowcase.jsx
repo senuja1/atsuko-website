@@ -190,17 +190,6 @@ export default function OfficialCertificatesShowcase({ lang = 'en' }) {
               PART 1: BUSINESS REGISTRATION (BR)
               ======================================================== */}
           <div className="cert-card cert-card-br">
-            <div className="cert-card-tag-row">
-              <span className="cert-badge-part part-emerald">
-                <Building2 size={13} />
-                {lang === 'si' ? '01 වන කොටස • ව්‍යාපාර ලියාපදිංචිය' : lang === 'jp' ? '第1部 • 会社法人登記（BR）' : 'Part 01 • Business Registration'}
-              </span>
-              <span className="cert-status-pill status-verified">
-                <CheckCircle2 size={12} />
-                {lang === 'si' ? 'රජයේ ලියාපදිංචි' : lang === 'jp' ? '政府登記済' : 'Govt. Registered'}
-              </span>
-            </div>
-
             <h3 className="cert-card-title">
               {lang === 'si'
                 ? 'ශ්‍රී ලංකා රජයේ නිල සමාගම් ලියාපදිංචිය (BR)'
@@ -263,17 +252,6 @@ export default function OfficialCertificatesShowcase({ lang = 'en' }) {
               PART 2: TVEC ACCREDITATION CERTIFICATE (NVQ-3)
               ======================================================== */}
           <div className="cert-card cert-card-tvec">
-            <div className="cert-card-tag-row">
-              <span className="cert-badge-part part-blue">
-                <Award size={13} />
-                {lang === 'si' ? '02 වන කොටස • TVEC පාඨමාලා ප්‍රතීතනය' : lang === 'jp' ? '第2部 • TVEC国家資格認定証' : 'Part 02 • TVEC Accreditation'}
-              </span>
-              <span className="cert-status-pill status-active">
-                <CheckCircle2 size={12} />
-                {lang === 'si' ? '2028 දක්වා වලංගුයි' : lang === 'jp' ? '2028年まで有効' : 'Valid Thru July 2028'}
-              </span>
-            </div>
-
             <h3 className="cert-card-title">
               {tvecData.title}
             </h3>
@@ -339,17 +317,6 @@ export default function OfficialCertificatesShowcase({ lang = 'en' }) {
               PART 3: SLBFE AGENCY LICENSE (ANNUAL RENEWALS STACK)
               ======================================================== */}
           <div className="cert-card cert-card-slbfe">
-            <div className="cert-card-tag-row">
-              <span className="cert-badge-part part-crimson">
-                <Layers size={13} />
-                {lang === 'si' ? '03 වන කොටස • SLBFE වාර්ෂික අලුත්කිරීම් මාලාව' : lang === 'jp' ? '第3部 • SLBFE年次更新歴一式' : 'Part 03 • SLBFE Annual Renewal Stack'}
-              </span>
-              <span className={`cert-status-pill status-${currentSlbfe.statusType}`}>
-                <CheckCircle2 size={12} />
-                {currentSlbfe.status}
-              </span>
-            </div>
-
             <h3 className="cert-card-title">
               {lang === 'si'
                 ? 'විදේශ සේවා නියුක්ති කාර්යාංශයේ (SLBFE) නිල බලපත්‍රය'
