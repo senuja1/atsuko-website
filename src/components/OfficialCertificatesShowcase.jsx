@@ -57,8 +57,8 @@ export default function OfficialCertificatesShowcase({ lang = 'en' }) {
       validTo: '30/09/2026',
       issueDate: '28/08/2025',
       authority: 'Sri Lanka Bureau of Foreign Employment (SLBFE)',
-      p1: '/images/certificates/slbfe_license_2025_p1.jpg',
-      p2: '/images/certificates/slbfe_license_2025_p2.jpg',
+      p1: '/images/certificates/slbfe_license_2025_p2.jpg',
+      p2: '/images/certificates/slbfe_license_2025_p1.jpg',
       hasBack: true,
       title: lang === 'si'
         ? 'SLBFE නිල බලපත්‍රය 2025/2026 (අංක 3293)'
