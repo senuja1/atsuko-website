@@ -11504,3 +11504,204 @@ html[lang="jp"] .stat-label,
     text-align: left;
   }
 }
+
+
+/* ========================================================
+   CLEAN PROTECTED DOCUMENT VIEWER (ANTI-SCREENSHOT & WATERMARK)
+   ======================================================== */
+.clean-protected-viewer-overlay {
+  position: fixed;
+  inset: 0;
+  background: #000000;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}
+
+.clean-protected-close-btn {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 1000002;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
+}
+
+.clean-protected-close-btn:hover {
+  background: rgba(239, 68, 68, 0.85);
+  border-color: rgba(239, 68, 68, 1);
+  transform: scale(1.08);
+}
+
+.clean-protected-sec-pill {
+  position: fixed;
+  top: 1.5rem;
+  left: 1.5rem;
+  z-index: 1000002;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  color: #93c5fd;
+  padding: 8px 16px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  backdrop-filter: blur(8px);
+  pointer-events: none;
+}
+
+.clean-protected-stage {
+  position: relative;
+  max-width: 96vw;
+  max-height: 94vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95);
+  border-radius: 6px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.clean-protected-img {
+  max-width: 96vw;
+  max-height: 94vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  pointer-events: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  transition: filter 0.15s ease, opacity 0.15s ease;
+}
+
+/* Glass shield blocking clicks and element inspection */
+.protective-glass-shield {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  background: transparent;
+  cursor: default;
+}
+
+/* Forensic Diagonal Watermark Grid */
+.security-watermark-overlay {
+  position: absolute;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  z-index: 8;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  transform: rotate(-25deg);
+  opacity: 0.18;
+  overflow: hidden;
+}
+
+.security-watermark-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  white-space: nowrap;
+  font-family: 'Cabinet Grotesk', system-ui, sans-serif;
+  font-size: 12.5px;
+  font-weight: 900;
+  letter-spacing: 2.5px;
+  color: #1e3a8a;
+  text-transform: uppercase;
+}
+
+.security-watermark-line .dot {
+  color: #ef4444;
+  font-weight: bold;
+}
+
+/* Screenshot & Snipping Tool Blackout Shield */
+.clean-protected-stage.is-obscured .clean-protected-img,
+.clean-protected-stage.is-obscured .security-watermark-overlay {
+  filter: blur(80px);
+  opacity: 0;
+}
+
+.screenshot-blackout-shield {
+  position: absolute;
+  inset: 0;
+  background: #090d16;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  color: #ffffff;
+}
+
+.screenshot-blackout-shield .shield-icon {
+  color: #ef4444;
+  margin-bottom: 1rem;
+  animation: pulse-shield 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse-shield {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+
+.screenshot-blackout-shield h3 {
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.screenshot-blackout-shield p {
+  font-size: 13.5px;
+  color: #94a3b8;
+  max-width: 420px;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.screenshot-blackout-shield .shield-hint {
+  font-size: 11px;
+  background: rgba(59, 130, 246, 0.15);
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  color: #60a5fa;
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-weight: 600;
+}
+
+/* Print Protection: Blank out certificates when printing or saving as PDF */
+@media print {
+  .clean-protected-viewer-overlay,
+  .cert-doc-img-container,
+  .cert-card-tvec,
+  .cert-card-slbfe {
+    display: none !important;
+    visibility: hidden !important;
+  }
+}

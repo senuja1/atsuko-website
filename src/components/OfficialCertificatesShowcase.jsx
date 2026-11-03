@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   ShieldCheck,
   Award,
@@ -6,6 +6,7 @@ import {
   FileCheck,
   X,
   Calendar,
+  Lock,
   ExternalLink
 } from 'lucide-react';
 
@@ -16,6 +17,10 @@ export default function OfficialCertificatesShowcase({ lang = 'en' }) {
 
   // BR Info Modal state
   const [brModalOpen, setBrModalOpen] = useState(false);
+
+  // Clean Protected Document Viewer state (anti-screenshot, anti-screen-recording)
+  const [protectedViewer, setProtectedViewer] = useState(null);
+  const [isObscured, setIsObscured] = useState(false);
 
   // Certificate registry data
   const slbfeCertificates = {
@@ -115,6 +120,78 @@ export default function OfficialCertificatesShowcase({ lang = 'en' }) {
 
   const currentSlbfe = slbfeCertificates[selectedSlbfeYear];
   const activeSlbfeImage = (slbfePage === 'p2' && currentSlbfe.hasBack) ? currentSlbfe.p2 : currentSlbfe.p1;
+
+  // Anti-Screenshot & Screen-Recording Deterrence
+  useEffect(() => {
+    if (!protectedViewer) return;
+
+    // Detect when Snipping Tool, screenshot overlay, or screen capture steals OS focus
+    const handleBlur = () => {
+      setIsObscured(true);
+    };
+
+    const handleFocus = () => {
+      setIsObscured(false);
+    };
+
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        setIsObscured(true);
+      } else {
+        setIsObscured(false);
+      }
+    };
+
+    // Intercept keyboard shortcuts: PrintScreen, Ctrl+S, Ctrl+P, Ctrl+U, F12, DevTools
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setProtectedViewer(null);
+      }
+
+      if (e.key === 'PrintScreen') {
+        setIsObscured(true);
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText('').catch(() => {});
+        }
+      }
+
+      if ((e.ctrlKey || e.metaKey) && ['s', 'p', 'u'].includes(e.key.toLowerCase())) {
+        e.preventDefault();
+      }
+
+      if (e.key === 'F12' || ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key.toLowerCase() === 'i')) {
+        e.preventDefault();
+      }
+    };
+
+    const handleKeyUp = (e) => {
+      if (e.key === 'PrintScreen') {
+        setIsObscured(true);
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText('').catch(() => {});
+        }
+      }
+    };
+
+    window.addEventListener('blur', handleBlur);
+    window.addEventListener('focus', handleFocus);
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('keyup', handleKeyUp);
+
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      window.removeEventListener('blur', handleBlur);
+      window.removeEventListener('focus', handleFocus);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('keyup', handleKeyUp);
+      document.body.style.overflow = '';
+      setIsObscured(false);
+    };
+  }, [protectedViewer]);
+
 
 
 
@@ -223,25 +300,32 @@ export default function OfficialCertificatesShowcase({ lang = 'en' }) {
               {tvecData.desc}
             </p>
 
-            {/* Document Thumbnail Preview - Opens raw scan directly in new tab */}
-            <a 
-              href={tvecData.image}
-              target="_blank"
-              rel="noopener noreferrer"
+            {/* Document Thumbnail Preview - Protected Inspection */}
+            <div 
               className="cert-doc-preview-wrapper"
-              title={lang === 'si' ? 'මුල් සහතික පින්තූරය බැලීමට ක්ලික් කරන්න' : lang === 'jp' ? 'クリックして原本画像を表示' : 'Click to inspect raw certificate picture'}
+              onClick={() => setProtectedViewer({
+                src: tvecData.image,
+                title: tvecData.title,
+                sub: `Center Reg: ${tvecData.centerReg} • Cert No: ${tvecData.certNo} • Validity: Up to 15/Jul/2028`,
+                badge: 'TVEC NVQ-3 CAREGIVER'
+              })}
+              onContextMenu={(e) => e.preventDefault()}
+              title={lang === 'si' ? 'මුල් සහතිකය පරීක්ෂා කරන්න (ආරක්ෂිත)' : lang === 'jp' ? '原本画像を確認（保護表示）' : 'Inspect Raw Pic (Protected View)'}
             >
-              <div className="cert-doc-img-container">
+              <div className="cert-doc-img-container" onContextMenu={(e) => e.preventDefault()}>
                 <img
                   src={tvecData.image}
                   alt="TVEC Accreditation Certificate - Atsuko International Caregiver NVQ Level 3"
                   className="cert-doc-img"
                   loading="lazy"
                   decoding="async"
+                  draggable="false"
+                  onContextMenu={(e) => e.preventDefault()}
+                  onDragStart={(e) => e.preventDefault()}
                 />
                 <div className="cert-doc-hover-overlay">
                   <div className="cert-zoom-btn">
-                    <ExternalLink size={14} />
+                    <ShieldCheck size={14} />
                     <span>Inspect Raw Pic</span>
                   </div>
                 </div>
@@ -250,7 +334,7 @@ export default function OfficialCertificatesShowcase({ lang = 'en' }) {
                 <Award size={14} />
                 <span>TVEC CERTIFIED P02/0603</span>
               </div>
-            </a>
+            </div>
 
             {/* Quick Metadata Table */}
             <div className="cert-meta-grid">
@@ -348,25 +432,32 @@ export default function OfficialCertificatesShowcase({ lang = 'en' }) {
               <div className="slbfe-stack-shadow-layer layer-2" aria-hidden="true" />
               <div className="slbfe-stack-shadow-layer layer-1" aria-hidden="true" />
 
-              {/* Main Visible Active Certificate Card - Opens raw scan directly in new tab */}
-              <a
-                href={activeSlbfeImage}
-                target="_blank"
-                rel="noopener noreferrer"
+              {/* Main Visible Active Certificate Card - Protected Inspection */}
+              <div
                 className="slbfe-active-card-wrap"
-                title={lang === 'si' ? 'මුල් බලපත්‍ර පින්තූරය බැලීමට ක්ලික් කරන්න' : lang === 'jp' ? 'クリックして原本画像を表示' : 'Click to inspect raw license picture'}
+                onClick={() => setProtectedViewer({
+                  src: activeSlbfeImage,
+                  title: `${currentSlbfe.title} - ${slbfePage === 'p2' ? 'Reverse Page' : 'Front Page'}`,
+                  sub: `License No: 3293 • Serial: ${currentSlbfe.serial} • Valid: ${currentSlbfe.validFrom} to ${currentSlbfe.validTo}`,
+                  badge: `SLBFE #${currentSlbfe.licenseNo} (${currentSlbfe.year})`
+                })}
+                onContextMenu={(e) => e.preventDefault()}
+                title={lang === 'si' ? 'මුල් බලපත්‍රය පරීක්ෂා කරන්න (ආරක්ෂිත)' : lang === 'jp' ? '原本画像を確認（保護表示）' : 'Inspect Raw Pic (Protected View)'}
               >
-                <div className="cert-doc-img-container">
+                <div className="cert-doc-img-container" onContextMenu={(e) => e.preventDefault()}>
                   <img
                     src={activeSlbfeImage}
                     alt={`${currentSlbfe.title} - Atsuko International`}
                     className="cert-doc-img"
                     loading="lazy"
                     decoding="async"
+                    draggable="false"
+                    onContextMenu={(e) => e.preventDefault()}
+                    onDragStart={(e) => e.preventDefault()}
                   />
                   <div className="cert-doc-hover-overlay">
                     <div className="cert-zoom-btn">
-                      <ExternalLink size={14} />
+                      <ShieldCheck size={14} />
                       <span>Inspect Raw Pic</span>
                     </div>
                   </div>
@@ -376,7 +467,7 @@ export default function OfficialCertificatesShowcase({ lang = 'en' }) {
                   <ShieldCheck size={14} />
                   <span>SLBFE LICENSED #{currentSlbfe.licenseNo}</span>
                 </div>
-              </a>
+              </div>
             </div>
 
             {/* Quick Metadata Table */}
@@ -403,6 +494,94 @@ export default function OfficialCertificatesShowcase({ lang = 'en' }) {
       </div>
 
       
+
+      {/* ========================================================
+          CLEAN PROTECTED DOCUMENT VIEWER (ANTI-SCREENSHOT & WATERMARK)
+          ======================================================== */}
+      {protectedViewer && (
+        <div 
+          className="clean-protected-viewer-overlay"
+          onClick={() => setProtectedViewer(null)}
+          onContextMenu={(e) => e.preventDefault()}
+          role="dialog"
+          aria-modal="true"
+        >
+          {/* Subtle Close button in top-right */}
+          <button 
+            type="button" 
+            className="clean-protected-close-btn"
+            onClick={() => setProtectedViewer(null)}
+            title="Close (Esc)"
+          >
+            <X size={22} />
+          </button>
+
+          {/* Discreet security indicator badge */}
+          <div className="clean-protected-sec-pill">
+            <Lock size={13} />
+            <span>{lang === 'si' ? 'ආරක්ෂිත නිල ලේඛනය • පිටපත් කිරීම සහ Screen Capture තහනම්' : lang === 'jp' ? '公認原本保護表示 • キャプチャ・複製禁止' : 'Protected Official Document • Copy & Capture Restricted'}</span>
+          </div>
+
+          {/* Centered Document Stage */}
+          <div 
+            className={`clean-protected-stage ${isObscured ? 'is-obscured' : ''}`}
+            onClick={(e) => e.stopPropagation()}
+            onContextMenu={(e) => e.preventDefault()}
+          >
+            {/* Forensic Anti-Theft Watermark Matrix */}
+            <div className="security-watermark-overlay" aria-hidden="true">
+              {Array.from({ length: 14 }).map((_, idx) => (
+                <div key={idx} className="security-watermark-line">
+                  <span>ATSUKO INTERNATIONAL (PVT) LTD</span>
+                  <span className="dot">•</span>
+                  <span>FOR OFFICIAL VERIFICATION ONLY</span>
+                  <span className="dot">•</span>
+                  <span>REPRODUCTION PROHIBITED</span>
+                  <span className="dot">•</span>
+                  <span>LICENSE NO. 3293</span>
+                  <span className="dot">•</span>
+                  <span>PV 0217143</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Transparent Glass Shield Overlay (blocks right clicks & touch interactions) */}
+            <div 
+              className="protective-glass-shield"
+              onContextMenu={(e) => e.preventDefault()}
+              onDragStart={(e) => e.preventDefault()}
+            />
+
+            {/* Pristine Document Scan */}
+            <img
+              src={protectedViewer.src}
+              alt={protectedViewer.title}
+              className="clean-protected-img"
+              draggable="false"
+              onContextMenu={(e) => e.preventDefault()}
+              onDragStart={(e) => e.preventDefault()}
+            />
+
+            {/* Blackout Shield activated on Snipping Tool or screenshot detection */}
+            {isObscured && (
+              <div className="screenshot-blackout-shield">
+                <ShieldCheck size={52} className="shield-icon" />
+                <h3>{lang === 'si' ? 'තිර ග්‍රහණ ආරක්ෂණ පද්ධතිය සක්‍රියයි' : lang === 'jp' ? '画面キャプチャ保護が作動中' : 'Screen Capture Protection Active'}</h3>
+                <p>
+                  {lang === 'si'
+                    ? 'කවුළුව අක්‍රිය වූ විට හෝ Snipping Tool / Screenshot හඳුනාගත් විට ලේඛනය ස්වයංක්‍රීයව සඟවනු ලැබේ.'
+                    : lang === 'jp'
+                      ? 'ウィンドウ非アクティブ時やキャプチャソフト起動時は原本保護のため一時非表示になります。'
+                      : 'Document is automatically obscured while window is inactive or screenshot software is open.'}
+                </p>
+                <span className="shield-hint">
+                  {lang === 'si' ? 'නැවත බැලීමට කවුළුව මත ක්ලික් කරන්න' : lang === 'jp' ? 'クリックして表示を再開' : 'Click inside window to resume viewing'}
+                </span>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
 
       {/* ========================================================
           BR REGISTRY BREAKDOWN MODAL (PART 1 DETAILS)
