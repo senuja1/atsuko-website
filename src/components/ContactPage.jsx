@@ -624,8 +624,8 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
                         type="submit"
                         className="btn btn-whatsapp btn-block"
                         style={{
-                          padding: '0.7rem 1rem',
-                          fontSize: '0.92rem',
+                          padding: '0.75rem 1rem',
+                          fontSize: '0.95rem',
                           fontWeight: 700,
                           background: 'linear-gradient(135deg, #25D366 0%, #128C7E 100%)',
                           color: '#ffffff',
@@ -638,21 +638,13 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
                           cursor: 'pointer',
                           boxShadow: '0 4px 14px rgba(37, 211, 102, 0.3)',
                           transition: 'all 0.2s ease',
-                          width: '100%'
+                          width: '100%',
+                          textDecoration: 'none'
                         }}
                       >
                         <WhatsAppIcon size={16} />
-                        <span>{ui.formSubmit || 'Send Inquiry via WhatsApp'}</span>
+                        <span>{ui.formSubmit || 'Send Message'}</span>
                       </button>
-                      <span style={{
-                        display: 'block',
-                        fontSize: '0.72rem',
-                        color: 'var(--text-muted)',
-                        textAlign: 'center',
-                        marginTop: '0.35rem'
-                      }}>
-                        ⚡ Automatically generates and opens your message in WhatsApp
-                      </span>
                     </div>
                   </form>
                 )}
