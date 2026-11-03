@@ -6,7 +6,6 @@ import {
   FileCheck,
   X,
   Calendar,
-  Lock,
   ExternalLink
 } from 'lucide-react';
 
@@ -515,12 +514,6 @@ export default function OfficialCertificatesShowcase({ lang = 'en' }) {
           >
             <X size={22} />
           </button>
-
-          {/* Discreet security indicator badge */}
-          <div className="clean-protected-sec-pill">
-            <Lock size={13} />
-            <span>{lang === 'si' ? 'ආරක්ෂිත නිල ලේඛනය • පිටපත් කිරීම සහ Screen Capture තහනම්' : lang === 'jp' ? '公認原本保護表示 • キャプチャ・複製禁止' : 'Protected Official Document • Copy & Capture Restricted'}</span>
-          </div>
 
           {/* Centered Document Stage */}
           <div 
