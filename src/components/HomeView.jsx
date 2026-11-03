@@ -24,6 +24,7 @@ import RevealOnScroll from './RevealOnScroll';
 import NsbmIntakeBillboard from './NsbmIntakeBillboard';
 import MainCoursesGrid from './MainCoursesGrid';
 import FaqSection from './FaqSection';
+import OfficialCertificatesShowcase from './OfficialCertificatesShowcase';
 import { officialContacts, studentSocialComments, videoSuccessStories } from '../data/websiteData';
 import { YoutubeIcon } from './SocialIcons';
 import { getUiText } from '../data/uiText';
@@ -469,6 +470,11 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
             </div>
           </div>
         </section>
+      </RevealOnScroll>
+
+      {/* 9.5. Official Government Credentials & Accreditation Showcase (BR, TVEC, SLBFE Stack) */}
+      <RevealOnScroll delay={0.1}>
+        <OfficialCertificatesShowcase lang={lang} />
       </RevealOnScroll>
 
       {/* 10. Frequently Asked Questions & SLBFE Guidance */}
