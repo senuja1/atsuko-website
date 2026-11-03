@@ -53,7 +53,7 @@ export default function Navbar({
       };
 
       const handleResize = () => {
-        if (window.innerWidth > 1024) {
+        if (window.innerWidth > 1040) {
           setMobileMenuOpen(false);
         }
       };

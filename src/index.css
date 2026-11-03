@@ -382,8 +382,7 @@ html[lang="jp"] .stat-label,
   align-items: center;
   gap: 10px;
   text-decoration: none;
-  flex-shrink: 1;
-  min-width: 0;
+  flex-shrink: 0;
   cursor: pointer;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
@@ -473,6 +472,7 @@ html[lang="jp"] .stat-label,
   display: flex;
   align-items: center;
   gap: 2px;
+  flex-shrink: 0;
 }
 
 .nav-link-btn {
@@ -8293,15 +8293,31 @@ html[lang="jp"] .stat-label,
    responsiveness on laptops, tablets, and all mobile screens.
    ============================================================ */
 
-/* Desktop & Laptop Adaptations (1025px - 1240px) */
-@media (max-width: 1240px) {
+/* Desktop & Laptop Adaptations (1025px - 1320px) */
+@media (max-width: 1320px) {
+  .navbar-inner {
+    gap: 10px;
+    padding: 0 16px;
+  }
+
   .nav-link-btn {
     padding: 5px 8px;
     font-size: 13px;
   }
+}
 
-  .navbar-inner {
-    gap: 8px;
+@media (max-width: 1220px) {
+  .brand-kanji-pill {
+    display: none;
+  }
+
+  .nav-link-btn {
+    padding: 5px 6px;
+    font-size: 12.5px;
+  }
+
+  .nav-actions {
+    gap: 6px;
   }
 
   .footer-grid {
@@ -8310,17 +8326,45 @@ html[lang="jp"] .stat-label,
   }
 }
 
-@media (max-width: 1120px) {
-  .nav-btn-secondary {
+@media (max-width: 1140px) {
+  .brand-sub {
     display: none;
+  }
+
+  .nav-btn-student-login span {
+    display: none;
+  }
+
+  .nav-btn-student-login {
+    padding: 6px 10px;
   }
 }
 
-/* Tablet Landscape & Medium Desktops (769px - 1024px) */
-@media (max-width: 1024px) {
+/* Tablet Landscape & Medium Desktops (769px - 1040px) */
+@media (max-width: 1040px) {
 
   .nav-links {
     display: none;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .brand-kanji-pill {
+    display: inline-block;
+  }
+
+  .brand-sub {
+    display: block;
+  }
+
+  .nav-btn-student-login span {
+    display: inline;
   }
 
   .mobile-menu-btn {
