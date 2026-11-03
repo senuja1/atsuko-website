@@ -1,17 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import {
   ShieldCheck,
   Award,
   Building2,
   FileCheck,
-  ZoomIn,
-  ZoomOut,
-  RotateCcw,
   X,
-  ChevronLeft,
-  ChevronRight,
-  CheckCircle2,
-  Layers,
   Calendar,
   ExternalLink
 } from 'lucide-react';
@@ -20,11 +13,6 @@ export default function OfficialCertificatesShowcase({ lang = 'en' }) {
   // SLBFE interactive stack state
   const [selectedSlbfeYear, setSelectedSlbfeYear] = useState('2026');
   const [slbfePage, setSlbfePage] = useState('p1'); // 'p1' (front) or 'p2' (back)
-
-  // Lightbox Modal state
-  const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [lightboxItem, setLightboxItem] = useState(null);
-  const [zoomLevel, setZoomLevel] = useState(1);
 
   // BR Info Modal state
   const [brModalOpen, setBrModalOpen] = useState(false);
@@ -128,32 +116,7 @@ export default function OfficialCertificatesShowcase({ lang = 'en' }) {
   const currentSlbfe = slbfeCertificates[selectedSlbfeYear];
   const activeSlbfeImage = (slbfePage === 'p2' && currentSlbfe.hasBack) ? currentSlbfe.p2 : currentSlbfe.p1;
 
-  // Handle Lightbox opening
-  const openLightbox = (item) => {
-    setLightboxItem(item);
-    setZoomLevel(1);
-    setLightboxOpen(true);
-    document.body.style.overflow = 'hidden';
-  };
 
-  const closeLightbox = () => {
-    setLightboxOpen(false);
-    setLightboxItem(null);
-    setZoomLevel(1);
-    document.body.style.overflow = '';
-  };
-
-  // Keyboard navigation for lightbox
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (!lightboxOpen) return;
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === '+' || e.key === '=') setZoomLevel((z) => Math.min(z + 0.3, 3));
-      if (e.key === '-') setZoomLevel((z) => Math.max(z - 0.3, 0.7));
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [lightboxOpen]);
 
   return (
     <section className="section official-certificates-section" id="official-credentials">
@@ -260,16 +223,13 @@ export default function OfficialCertificatesShowcase({ lang = 'en' }) {
               {tvecData.desc}
             </p>
 
-            {/* Document Thumbnail Preview with Hover Lightbox Trigger */}
-            <div 
+            {/* Document Thumbnail Preview - Opens raw scan directly in new tab */}
+            <a 
+              href={tvecData.image}
+              target="_blank"
+              rel="noopener noreferrer"
               className="cert-doc-preview-wrapper"
-              onClick={() => openLightbox({
-                src: tvecData.image,
-                title: tvecData.title,
-                sub: `Center Reg: ${tvecData.centerReg} • Cert No: ${tvecData.certNo} • Validity: Up to 15/Jul/2028`,
-                badge: 'TVEC NVQ-3 CAREGIVER'
-              })}
-              title={lang === 'si' ? 'සහතිකය විශාල කර බැලීමට ක්ලික් කරන්න' : lang === 'jp' ? 'クリックして認定証を拡大表示' : 'Click to inspect full high-resolution certificate'}
+              title={lang === 'si' ? 'මුල් සහතික පින්තූරය බැලීමට ක්ලික් කරන්න' : lang === 'jp' ? 'クリックして原本画像を表示' : 'Click to inspect raw certificate picture'}
             >
               <div className="cert-doc-img-container">
                 <img
@@ -281,8 +241,8 @@ export default function OfficialCertificatesShowcase({ lang = 'en' }) {
                 />
                 <div className="cert-doc-hover-overlay">
                   <div className="cert-zoom-btn">
-                    <ZoomIn size={18} />
-                    <span>{lang === 'si' ? 'විශාල කර බලන්න' : lang === 'jp' ? '高画質で拡大' : 'Inspect High-Res Scan'}</span>
+                    <ExternalLink size={14} />
+                    <span>Inspect Raw Pic</span>
                   </div>
                 </div>
               </div>
@@ -290,7 +250,7 @@ export default function OfficialCertificatesShowcase({ lang = 'en' }) {
                 <Award size={14} />
                 <span>TVEC CERTIFIED P02/0603</span>
               </div>
-            </div>
+            </a>
 
             {/* Quick Metadata Table */}
             <div className="cert-meta-grid">
@@ -388,16 +348,13 @@ export default function OfficialCertificatesShowcase({ lang = 'en' }) {
               <div className="slbfe-stack-shadow-layer layer-2" aria-hidden="true" />
               <div className="slbfe-stack-shadow-layer layer-1" aria-hidden="true" />
 
-              {/* Main Visible Active Certificate Card */}
-              <div
+              {/* Main Visible Active Certificate Card - Opens raw scan directly in new tab */}
+              <a
+                href={activeSlbfeImage}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="slbfe-active-card-wrap"
-                onClick={() => openLightbox({
-                  src: activeSlbfeImage,
-                  title: `${currentSlbfe.title} - ${slbfePage === 'p2' ? 'Reverse Page' : 'Front Page'}`,
-                  sub: `License No: 3293 • Serial: ${currentSlbfe.serial} • Valid: ${currentSlbfe.validFrom} to ${currentSlbfe.validTo}`,
-                  badge: `SLBFE #${currentSlbfe.licenseNo} (${currentSlbfe.year})`
-                })}
-                title={lang === 'si' ? 'සහතිකය විශාල කර බැලීමට ක්ලික් කරන්න' : lang === 'jp' ? 'クリックしてライセンス証を拡大表示' : 'Click to inspect full high-resolution license'}
+                title={lang === 'si' ? 'මුල් බලපත්‍ර පින්තූරය බැලීමට ක්ලික් කරන්න' : lang === 'jp' ? 'クリックして原本画像を表示' : 'Click to inspect raw license picture'}
               >
                 <div className="cert-doc-img-container">
                   <img
@@ -409,8 +366,8 @@ export default function OfficialCertificatesShowcase({ lang = 'en' }) {
                   />
                   <div className="cert-doc-hover-overlay">
                     <div className="cert-zoom-btn">
-                      <ZoomIn size={18} />
-                      <span>{lang === 'si' ? 'විශාල කර බලන්න' : lang === 'jp' ? '高画質で拡大' : 'Inspect High-Res Scan'}</span>
+                      <ExternalLink size={14} />
+                      <span>Inspect Raw Pic</span>
                     </div>
                   </div>
                 </div>
@@ -419,7 +376,7 @@ export default function OfficialCertificatesShowcase({ lang = 'en' }) {
                   <ShieldCheck size={14} />
                   <span>SLBFE LICENSED #{currentSlbfe.licenseNo}</span>
                 </div>
-              </div>
+              </a>
             </div>
 
             {/* Quick Metadata Table */}
@@ -445,101 +402,7 @@ export default function OfficialCertificatesShowcase({ lang = 'en' }) {
         </div>
       </div>
 
-      {/* ========================================================
-          FULLSCREEN HIGH-DEFINITION LIGHTBOX MODAL
-          ======================================================== */}
-      {lightboxOpen && lightboxItem && (
-        <div 
-          className="cert-lightbox-backdrop" 
-          onClick={closeLightbox}
-          role="dialog"
-          aria-modal="true"
-        >
-          <div 
-            className="cert-lightbox-container" 
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Lightbox Header Bar */}
-            <div className="cert-lightbox-header">
-              <div className="cert-lightbox-title-group">
-                <span className="cert-lightbox-badge">{lightboxItem.badge || 'OFFICIAL DOCUMENT'}</span>
-                <h4 className="cert-lightbox-title">{lightboxItem.title}</h4>
-                {lightboxItem.sub && (
-                  <span className="cert-lightbox-sub">{lightboxItem.sub}</span>
-                )}
-              </div>
-
-              {/* Zoom & Close Controls */}
-              <div className="cert-lightbox-controls">
-                <button
-                  type="button"
-                  className="cert-control-btn"
-                  onClick={() => setZoomLevel((z) => Math.min(z + 0.3, 3))}
-                  title="Zoom In (+)"
-                >
-                  <ZoomIn size={18} />
-                </button>
-                <button
-                  type="button"
-                  className="cert-control-btn"
-                  onClick={() => setZoomLevel((z) => Math.max(z - 0.3, 0.7))}
-                  title="Zoom Out (-)"
-                >
-                  <ZoomOut size={18} />
-                </button>
-                <button
-                  type="button"
-                  className="cert-control-btn"
-                  onClick={() => setZoomLevel(1)}
-                  title="Reset Zoom"
-                >
-                  <RotateCcw size={18} />
-                </button>
-                <button
-                  type="button"
-                  className="cert-control-btn btn-close"
-                  onClick={closeLightbox}
-                  title="Close (Esc)"
-                >
-                  <X size={20} />
-                </button>
-              </div>
-            </div>
-
-            {/* Lightbox Body with Zoomable Image */}
-            <div className="cert-lightbox-body">
-              <div 
-                className="cert-lightbox-viewport"
-                style={{
-                  transform: `scale(${zoomLevel})`,
-                  transformOrigin: 'center center',
-                  transition: 'transform 0.15s ease'
-                }}
-              >
-                <img
-                  src={lightboxItem.src}
-                  alt={lightboxItem.title}
-                  className="cert-lightbox-img"
-                />
-              </div>
-            </div>
-
-            {/* Lightbox Footer Instruction */}
-            <div className="cert-lightbox-footer">
-              <span>{lang === 'si' ? 'සූම් කිරීමට + සහ - භාවිතා කරන්න | වැසීමට Esc ඔබන්න' : lang === 'jp' ? 'ズーム: ＋／ーボタン | 閉じる: Escキー' : 'Use +/- to zoom, drag to inspect seal & signatures • Press Esc to close'}</span>
-              <a
-                href={lightboxItem.src}
-                target="_blank"
-                rel="noreferrer"
-                className="cert-lightbox-raw-link"
-              >
-                <span>{lang === 'si' ? 'සම්පූර්ණ ප්‍රමාණයෙන් විවෘත කරන්න' : lang === 'jp' ? '元画像を開く' : 'Open Full Raw Image'}</span>
-                <ExternalLink size={13} />
-              </a>
-            </div>
-          </div>
-        </div>
-      )}
+      
 
       {/* ========================================================
           BR REGISTRY BREAKDOWN MODAL (PART 1 DETAILS)

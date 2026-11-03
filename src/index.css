@@ -10893,6 +10893,8 @@ html[lang="jp"] .stat-label,
   display: flex;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
+  color: inherit;
 }
 
 .cert-doc-img-container {
@@ -11145,6 +11147,9 @@ html[lang="jp"] .stat-label,
   background: white;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
   cursor: pointer;
+  display: block;
+  text-decoration: none;
+  color: inherit;
 }
 
 /* Callout Notice */
