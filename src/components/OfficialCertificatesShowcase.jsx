@@ -210,7 +210,7 @@ export default function OfficialCertificatesShowcase({ lang = 'en' }) {
             <div className="br-emblem-showcase-box" onClick={() => setBrModalOpen(true)}>
               <div className="br-emblem-badge">
                 <div className="br-emblem-icon-ring">
-                  <Building2 size={24} />
+                  <Building2 size={20} />
                 </div>
                 <div className="br-emblem-text">
                   <span className="br-gov-title">DEMOCRATIC SOCIALIST REPUBLIC OF SRI LANKA</span>
@@ -441,29 +441,6 @@ export default function OfficialCertificatesShowcase({ lang = 'en' }) {
                 <strong className="meta-val">{currentSlbfe.issueDate}</strong>
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* Official Authority Trust Notice Banner */}
-        <div className="cert-verification-callout">
-          <div className="cert-callout-icon">
-            <ShieldCheck size={28} />
-          </div>
-          <div className="cert-callout-text">
-            <h4 className="cert-callout-title">
-              {lang === 'si'
-                ? 'රජයේ නිල පරීක්ෂාව සහ තහවුරු කිරීම්'
-                : lang === 'jp'
-                  ? '政府公式機関による直接の身元確認案内'
-                  : 'Independent Government Verification'}
-            </h4>
-            <p className="cert-callout-desc">
-              {lang === 'si'
-                ? 'ඕනෑම සිසුවෙකුට, දෙමාපියෙකුට හෝ ජපානයේ සේවායෝජක ආයතනයකට ශ්‍රී ලංකා විදේශ සේවා නියුක්ති කාර්යාංශයේ (SLBFE Hotline: 1989 / +94 11 2864101) හෝ TVEC අධ්‍යාපන කොමිෂන් සභාව (+94 11 2760760) ඔස්සේ අත්සුකෝ ජාත්‍යන්තර ආයතනයේ ලියාපදිංචිය සෘජුවම සනාථ කරගත හැක.'
-                : lang === 'jp'
-                  ? '受講生、保護者、および日本の受入企業・監理団体の皆様は、スリランカ海外雇用局（SLBFE ホットライン: 1989 / +94 11 2864101）または高等職業教育訓練委員会（TVEC: +94 11 2760760）を通じて、アツコ・インターナショナルの正規認可状況を直接ご確認いただけます。'
-                  : 'Prospective students, candidates, and Japanese employers can independently verify Atsuko International directly with the Sri Lanka Bureau of Foreign Employment (SLBFE Hotline: 1989 / +94 11 2864101) or TVEC Sri Lanka (+94 11 2760760).'}
-            </p>
           </div>
         </div>
       </div>
