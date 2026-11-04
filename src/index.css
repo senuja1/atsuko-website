@@ -5700,6 +5700,34 @@ html[lang="jp"] .stat-label,
 }
 
 /* ============================================================
+   TORII GATE HERO STICKY VIEWPORT & LAYER SYNCHRONIZATION
+   ============================================================ */
+.torii-hero-sticky-viewport {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  overflow: clip;
+  display: grid;
+  place-items: center;
+}
+
+.hero-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 48%;
+  transform-origin: 50% 48%;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* ============================================================
    TORII GATE HERO STAGE RESPONSIVE FRAME SYSTEM
    Single fluid formula per orientation (no per-device overrides):
    - Landscape: width-led, capped so the gate is never taller than
@@ -5714,19 +5742,19 @@ html[lang="jp"] .stat-label,
   bottom: -4%;
   left: 50%;
   transform: translateX(-50%);
-  width: min(155vw, 168vh, 2600px);
-  width: min(155vw, 168dvh, 2600px);
+  width: min(155vw, 168vh, 3200px);
+  width: min(155vw, 168svh, 3200px);
   height: auto;
   aspect-ratio: 1376 / 830;
   pointer-events: none;
-  transform-origin: 50% 100%;
+  transform-origin: 50% 48%;
 }
 
 /* Short landscape (phones on their side, small laptop windows): let the gate fill more height */
 @media (orientation: landscape) and (max-height: 550px) {
   .torii-gate-frame {
     width: min(150vw, 175vh);
-    width: min(150vw, 175dvh);
+    width: min(150vw, 175svh);
     bottom: -3%;
   }
 }
@@ -8547,6 +8575,7 @@ html[lang="jp"] .stat-label,
   /* Mobile Gate Runway & GPU Filter Optimization */
   .gate-scroll-runway {
     height: 195vh !important;
+    height: 195svh !important;
   }
 
   .torii-gate-img {
@@ -8821,25 +8850,81 @@ html[lang="jp"] .stat-label,
     gap: 16px;
   }
 
-  .visa-highlights-row,
-  .ssw-sectors-cards-grid {
+  .visa-highlights-row {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
     padding: 14px;
   }
 
-  /* Stack floating hero badges cleanly below drone video on all mobile phones */
+  .ssw-sectors-cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(6px, 2vw, 10px);
+    padding: 0;
+  }
+
+  .ssw-cat-card {
+    padding: clamp(10px, 2.5vw, 14px) clamp(6px, 1.5vw, 10px);
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  /* Layered Hero Composition: Scale floating UI badges proportionally without collapsing */
   .hero-image-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
   }
 
   .floating-badge {
-    position: static;
-    width: 100%;
-    box-shadow: var(--shadow-sm);
-    padding: 10px 14px;
+    position: absolute;
+    padding: clamp(6px, 1.8vw, 10px) clamp(8px, 2.4vw, 14px);
+    border-radius: clamp(10px, 2.2vw, 14px);
+    gap: clamp(6px, 1.8vw, 10px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.96);
+    z-index: 3;
+    max-width: calc(100% - 20px);
+  }
+
+  .badge-top-right {
+    top: clamp(-8px, -1.5vw, -4px);
+    right: clamp(4px, 1.5vw, 10px);
+  }
+
+  .badge-bottom-left {
+    bottom: clamp(-8px, -1.5vw, -4px);
+    left: clamp(4px, 1.5vw, 10px);
+  }
+
+  .floating-badge .badge-val {
+    font-size: clamp(10px, 2.4vw, 12.5px);
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .floating-badge .badge-lbl {
+    font-size: clamp(8px, 2vw, 10px);
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .badge-icon-box {
+    width: clamp(26px, 6vw, 36px);
+    height: clamp(26px, 6vw, 36px);
+    border-radius: clamp(8px, 1.8vw, 10px);
+    flex-shrink: 0;
+  }
+
+  .badge-icon-box svg {
+    width: clamp(14px, 3.2vw, 18px);
+    height: clamp(14px, 3.2vw, 18px);
   }
 
   /* Keep stats bar as balanced 2x2 grid */
@@ -9176,18 +9261,16 @@ html[lang="jp"] .stat-label,
     min-height: 38px;
   }
 
-  /* Floating badges convert to relative cards on narrow screens to eliminate overlap and overflow */
+  /* Maintain proportional layered positioning on narrow mobile */
   .hero-image-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    position: relative;
+    width: 100%;
   }
 
   .floating-badge {
-    position: static;
-    width: 100%;
-    box-shadow: var(--shadow-sm);
-    padding: 10px 14px;
+    position: absolute;
+    padding: clamp(5px, 1.6vw, 8px) clamp(7px, 2.2vw, 12px);
+    max-width: calc(100% - 16px);
   }
 
   /* Stats Bar Mobile */

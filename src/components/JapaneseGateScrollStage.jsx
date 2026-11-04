@@ -481,23 +481,22 @@ export default function JapaneseGateScrollStage({
       className="gate-scroll-runway"
       style={{
         position: 'relative',
-        height: '240vh',
+        height: '240svh',
         background: '#070d1e',
       }}
     >
       {/* Sticky 3D Stage Container with 1200px perspective wrapper */}
       <div
-        className="gate-sticky-stage"
+        className="gate-sticky-stage torii-hero-sticky-viewport"
         style={{
           position: 'sticky',
           top: 0,
           height: '100svh',
           minHeight: '100svh',
           width: '100%',
-          overflow: 'hidden',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
+          overflow: 'clip',
+          display: 'grid',
+          placeItems: 'center',
           perspective: '1200px',
           transformStyle: 'preserve-3d',
         }}
@@ -534,17 +533,21 @@ export default function JapaneseGateScrollStage({
             src="/images/pagoda-cinematic.jpg"
             alt="Chureito Pagoda and Mount Fuji Japan"
             decoding="async"
+            className="hero-layer hero-bg-img"
             style={{
               position: 'absolute',
               inset: 0,
               width: '100%',
               height: '100%',
               objectFit: 'cover',
-              objectPosition: 'center 48%',
-              transformOrigin: 'center 48%',
+              objectPosition: '50% 48%',
+              transformOrigin: '50% 48%',
               filter: 'brightness(1.02) contrast(1.04) saturate(1.06)',
               imageRendering: 'auto',
               willChange: 'transform',
+              backfaceVisibility: 'hidden',
+              WebkitBackfaceVisibility: 'hidden',
+              transform: 'translateZ(0)',
             }}
           />
 
@@ -643,8 +646,11 @@ export default function JapaneseGateScrollStage({
               position: 'absolute',
               inset: 0,
               pointerEvents: 'none',
-              transformOrigin: '50% 65%',
+              transformOrigin: '50% 48%',
               willChange: 'transform, opacity',
+              backfaceVisibility: 'hidden',
+              WebkitBackfaceVisibility: 'hidden',
+              transform: 'translateZ(0)',
             }}
           >
             {/* Gate Bounding Frame for Consistent Responsive Anchor */}
@@ -658,7 +664,7 @@ export default function JapaneseGateScrollStage({
               <img
                 src="/images/torii-gate-ultra.png"
                 alt="Torii Gate"
-                className="torii-gate-img"
+                className="torii-gate-img hero-layer"
                 decoding="async"
                 style={{
                   position: 'absolute',
@@ -666,12 +672,15 @@ export default function JapaneseGateScrollStage({
                   width: '100%',
                   height: '100%',
                   objectFit: 'contain',
+                  objectPosition: '50% 48%',
+                  transformOrigin: '50% 48%',
                   userSelect: 'none',
                   display: 'block',
                   filter: 'brightness(1.06) contrast(1.08) drop-shadow(0 25px 40px rgba(0, 0, 0, 0.85))',
                   backfaceVisibility: 'hidden',
                   WebkitBackfaceVisibility: 'hidden',
                   willChange: 'transform',
+                  transform: 'translateZ(0)',
                 }}
               />
             </div>
