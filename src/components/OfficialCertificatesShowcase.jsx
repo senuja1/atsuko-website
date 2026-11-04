@@ -33,8 +33,8 @@ export default function OfficialCertificatesShowcase({ lang = 'en' }) {
       validTo: '30/09/2027',
       issueDate: '14/09/2026',
       authority: 'Sri Lanka Bureau of Foreign Employment (SLBFE)',
-      p1: '/images/certificates/slbfe_license_2026_front.jpg?v=2',
-      p2: '/images/certificates/slbfe_license_2026_back.jpg?v=2',
+      p1: '/images/certificates/slbfe_license_2026_front.jpg?v=3',
+      p2: '/images/certificates/slbfe_license_2026_back.jpg?v=3',
       hasBack: true,
       title: lang === 'si'
         ? 'SLBFE නිල බලපත්‍රය 2026/2027 (අංක 3293)'
@@ -57,8 +57,8 @@ export default function OfficialCertificatesShowcase({ lang = 'en' }) {
       validTo: '30/09/2026',
       issueDate: '28/08/2025',
       authority: 'Sri Lanka Bureau of Foreign Employment (SLBFE)',
-      p1: '/images/certificates/slbfe_license_2025_front.jpg?v=2',
-      p2: '/images/certificates/slbfe_license_2025_back.jpg?v=2',
+      p1: '/images/certificates/slbfe_license_2025_front.jpg?v=3',
+      p2: '/images/certificates/slbfe_license_2025_back.jpg?v=3',
       hasBack: true,
       title: lang === 'si'
         ? 'SLBFE නිල බලපත්‍රය 2025/2026 (අංක 3293)'
@@ -81,7 +81,7 @@ export default function OfficialCertificatesShowcase({ lang = 'en' }) {
       validTo: '30/09/2025',
       issueDate: '10/10/2024',
       authority: 'Sri Lanka Bureau of Foreign Employment (SLBFE)',
-      p1: '/images/certificates/slbfe_license_2024_front.jpg?v=2',
+      p1: '/images/certificates/slbfe_license_2024_front.jpg?v=3',
       p2: null,
       hasBack: false,
       title: lang === 'si'
