@@ -642,6 +642,7 @@ export default function JapaneseGateScrollStage({
           {/* Scroll Zoom-Through Container */}
           <div
             ref={gateLayerRef}
+            className="torii-gate-layer"
             style={{
               position: 'absolute',
               inset: 0,

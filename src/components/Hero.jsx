@@ -93,7 +93,7 @@ export default function Hero({ lang }) {
         </div>
 
         {/* Right Column: Hero Visual Graphic */}
-        <div className="hero-image-wrapper">
+        <div className="hero-image-wrapper floating-composition-wrapper">
           <div className="hero-image-card">
             <video 
               ref={videoRef}

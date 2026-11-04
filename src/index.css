@@ -1,3 +1,12 @@
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  margin: 0;
+  padding: 0;
+  -webkit-text-size-adjust: 100%;
+}
+
 /* ============================================================
    ATSUKO INTERNATIONAL (PVT) LTD - 篤子 学校 (ATSUKO GAKKO)
    Official Digital Presence & Web Portal
@@ -13,6 +22,13 @@
 }
 
 :root {
+  /* Fluid Typography & Layout Spacing System */
+  --title-xl: clamp(1.75rem, 4.5vw + 0.5rem, 4.75rem);
+  --title-md: clamp(1.25rem, 2.5vw + 0.4rem, 2.5rem);
+  --body-text: clamp(0.85rem, 0.9vw + 0.5rem, 1.125rem);
+  --section-pad-y: clamp(2.5rem, 6vw, 7rem);
+  --section-pad-x: clamp(1rem, 4vw, 5rem);
+  --grid-gap: clamp(0.75rem, 2vw, 2.5rem);
   /* Brand Primary Colors */
   --navy-950: #060d1f;
   --navy-900: #0b1528;
@@ -130,7 +146,7 @@ body {
   width: 100%;
   max-width: 1320px;
   margin: 0 auto;
-  padding: 0 clamp(1.125rem, 3.5vw, 2.5rem);
+  padding: 0 var(--section-pad-x);
 }
 
 /* ============================================================
@@ -1566,7 +1582,7 @@ html[lang="jp"] .stat-label,
 }
 
 .hero-title {
-  font-size: clamp(2.1rem, 4.2vw + 0.5rem, 3.5rem);
+  font-size: var(--title-xl);
   font-weight: 800;
   color: var(--navy-950);
   line-height: 1.12;
@@ -1589,7 +1605,7 @@ html[lang="jp"] .stat-label,
 }
 
 .hero-desc {
-  font-size: clamp(0.95rem, 1.2vw + 0.15rem, 1.125rem);
+  font-size: var(--body-text);
   line-height: 1.65;
   color: var(--text-muted);
   margin-bottom: 28px;
@@ -1692,6 +1708,15 @@ html[lang="jp"] .stat-label,
 .hero-trust-icon {
   color: #10b981;
   flex-shrink: 0;
+}
+
+
+/* Floating Hero Badges / Layered Callouts: Keep exact desktop composition */
+.floating-composition-wrapper {
+  position: relative;
+  width: 100%;
+  transform-origin: center center;
+  transform: scale(clamp(0.68, 0.85vw + 0.4, 1));
 }
 
 .hero-image-wrapper {
@@ -1843,7 +1868,7 @@ html[lang="jp"] .stat-label,
    7. SECTION COMMONS & BADGES
    ============================================================ */
 .section {
-  padding: 80px 0;
+  padding: var(--section-pad-y) 0;
 }
 
 .section-alt {
@@ -1904,7 +1929,7 @@ html[lang="jp"] .stat-label,
 }
 
 .section-title {
-  font-size: clamp(28px, 3.5vw, 42px);
+  font-size: var(--title-md);
   font-weight: 800;
   color: var(--navy-950);
   line-height: 1.2;
@@ -1913,7 +1938,7 @@ html[lang="jp"] .stat-label,
 }
 
 .section-subtitle {
-  font-size: 16px;
+  font-size: var(--body-text);
   line-height: 1.7;
   color: var(--text-muted);
 }
@@ -5766,6 +5791,41 @@ html[lang="jp"] .stat-label,
     height: min(88vh, 185vw, 1050px);
     height: min(88svh, 185vw, 1050px);
     bottom: -1%;
+  }
+}
+
+
+/* ============================================================
+   TORII GATE ASPECT-RATIO & RESPONSIVE ALIGNMENT PRESERVATION
+   ============================================================ */
+/* Preserve Torii Gate Pillars on Tall Portrait Phones */
+@media (max-aspect-ratio: 3/4) {
+  .torii-gate-layer {
+    width: 135% !important;
+    left: -17.5% !important;
+    max-width: none !important;
+  }
+}
+
+/* Tablet Portrait Focal Adjustments: prevent top crossbeam (kasagi) clipping */
+@media (min-width: 600px) and (max-width: 1024px) and (orientation: portrait) {
+  .torii-gate-layer,
+  .torii-gate-img,
+  .hero-layer {
+    object-position: 50% 35% !important;
+  }
+}
+
+/* Ultrawide Focal Adjustments & Container Constraint */
+@media (min-aspect-ratio: 21/9), (min-width: 1920px) {
+  .container {
+    max-width: 1600px !important;
+    margin-inline: auto !important;
+  }
+  .torii-gate-layer,
+  .torii-gate-img,
+  .hero-layer {
+    object-position: 50% 45% !important;
   }
 }
 
@@ -11786,5 +11846,22 @@ html[lang="jp"] .stat-label,
   .cert-card-slbfe {
     display: none !important;
     visibility: hidden !important;
+  }
+}
+
+
+/* Mobile Touch Targets & Form Inputs */
+@media (max-width: 768px) {
+  button:not(.slbfe-page-btn):not(.slbfe-year-tab),
+  .btn,
+  .nav-btn-primary,
+  .nav-btn-student-login,
+  .gate-walk-btn,
+  .nav-toggle,
+  .form-input,
+  .form-select,
+  .form-textarea {
+    min-height: 44px;
+    box-sizing: border-box;
   }
 }
