@@ -11865,3 +11865,197 @@ html[lang="jp"] .stat-label,
     box-sizing: border-box;
   }
 }
+
+
+/* ============================================================
+   PREMIUM JAPANESE CINEMATIC SITE LOADING SCREEN
+   Preloads Torii gate & high-res visuals seamlessly in background
+   ============================================================ */
+.site-loader-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000000;
+  background: #060d1f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 24px;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.site-loader-overlay.loader-fading {
+  opacity: 0;
+  transform: scale(1.03);
+  pointer-events: none;
+}
+
+.loader-ambient-glow {
+  position: absolute;
+  width: min(600px, 90vw);
+  height: min(600px, 90vw);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(220, 38, 38, 0.16) 0%, rgba(245, 158, 11, 0.12) 35%, transparent 70%);
+  filter: blur(50px);
+  pointer-events: none;
+  animation: loaderAuraPulse 3s ease-in-out infinite;
+}
+
+@keyframes loaderAuraPulse {
+  0%, 100% {
+    transform: scale(0.92);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+}
+
+.loader-center-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 440px;
+  width: 100%;
+}
+
+.loader-logo-wrap {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader-logo-img {
+  width: 84px;
+  height: 84px;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.6));
+}
+
+.loader-pulse-ring {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(251, 191, 36, 0.45);
+  animation: loaderRingPulse 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+.loader-pulse-ring-outer {
+  position: absolute;
+  inset: -14px;
+  border-radius: 50%;
+  border: 1px solid rgba(220, 38, 38, 0.3);
+  animation: loaderRingPulse 2s cubic-bezier(0.16, 1, 0.3, 1) infinite 0.4s;
+}
+
+@keyframes loaderRingPulse {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+}
+
+.loader-jp-kicker {
+  font-family: var(--font-jp);
+  color: #ef4444;
+  font-size: clamp(11.5px, 2.2vw, 13px);
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-indent: 0.22em;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  text-shadow: 0 0 12px rgba(239, 68, 68, 0.35);
+}
+
+.loader-title {
+  font-family: 'Cinzel', 'Plus Jakarta Sans', serif;
+  font-size: clamp(20px, 4.5vw, 26px);
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+  margin: 0 0 6px;
+}
+
+.loader-brand-blue {
+  color: #38bdf8;
+}
+
+.loader-subtitle {
+  color: #94a3b8;
+  font-size: clamp(12px, 2.2vw, 13.5px);
+  line-height: 1.5;
+  margin: 0 0 14px;
+  max-width: 380px;
+}
+
+.loader-cert-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(251, 191, 36, 0.4);
+  padding: 4px 12px;
+  border-radius: 999px;
+  color: #fbbf24;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.loader-progress-track {
+  width: min(280px, 78vw);
+  height: 3px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 99px;
+  overflow: hidden;
+  position: relative;
+}
+
+.loader-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #38bdf8 0%, #fbbf24 65%, #ef4444 100%);
+  border-radius: 99px;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.7);
+  transition: width 0.08s linear;
+}
+
+.loader-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(280px, 78vw);
+  margin-top: 8px;
+  font-size: 11px;
+  color: #64748b;
+  font-family: var(--font-sans);
+}
+
+.loader-status-text {
+  letter-spacing: 0.2px;
+}
+
+.loader-percent {
+  font-weight: 700;
+  color: #38bdf8;
+  font-variant-numeric: tabular-nums;
+}

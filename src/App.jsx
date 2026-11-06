@@ -6,6 +6,7 @@ import JapaneseGateScrollStage from './components/JapaneseGateScrollStage';
 import Footer from './components/Footer';
 import ConsultationModal from './components/ConsultationModal';
 import FloatingActions from './components/FloatingActions';
+import SiteLoadingScreen from './components/SiteLoadingScreen';
 
 // Lazy-load all page-level components — only parsed when first visited
 const HomeView = lazy(() => import('./components/HomeView'));
@@ -86,6 +87,8 @@ export default function App() {
 
   return (
     <div className="app-root">
+      {/* Cinematic Gateway Loading Screen (Preloads Torii gate & high-res visuals) */}
+      <SiteLoadingScreen lang={lang} minDuration={2400} />
 
       {/* Gentleman Navy Top Utility Bar (Above Navbar) */}
       <TopBar 
