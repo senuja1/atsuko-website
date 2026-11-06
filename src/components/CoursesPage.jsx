@@ -115,7 +115,7 @@ export default function CoursesPage({ lang, onOpenModal }) {
           suitableFor: 'ඉක්මනින් SSW විභාගය ලිවීමට අපේක්ෂා කරන සිසුන්',
           description: 'ජපන් පදනම (The Japan Foundation) විසින් පවත්වනු ලබන පරිගණක පාදක (CBT) විභාගය සඳහා විශේෂිත පුහුණුව.',
           features: [
-            'කඩවත කැම්පස් පරිගණක විද්‍යාගාරයේ CBT පරිගණක විභාග පෙරහුරුව',
+            'අත්සුකෝ ප්‍රධාන මූලස්ථානයේ (Atsuko Main) CBT පරිගණක විභාග පෙරහුරුව',
             'Irodori (ජපානයේ ජීවිතය සඳහා ජපන්) නිල විෂය නිර්දේශය',
             'ක්ෂණික ශ්‍රව්‍ය ප්‍රතිචාර සහ තිරය හරහා ප්‍රශ්නවලට පිළිතුරු දීම',
             'Prometric විභාග ලියාපදිංචි කිරීමේ සම්පූර්ණ මඟපෙන්වීම',
@@ -488,7 +488,7 @@ export default function CoursesPage({ lang, onOpenModal }) {
                   <div className="proof-footer">
                     <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
                       <MapPin size={12} style={{ color: '#0284c7' }} />
-                      <span>Kadawatha Campus</span>
+                      <span>Atsuko Main</span>
                     </span>
                     <span style={{ color: '#059669', fontWeight: 700 }}>Verified Batch</span>
                   </div>

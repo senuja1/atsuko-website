@@ -99,7 +99,7 @@ export default function EligibilityChecker({ lang, onOpenModal }) {
         jpName = "特定技能1号 - 介護分野 (Kaigo Healthcare)";
         timeline = "මාස 6 - 9";
         earning = "මසකට රු. 480,000 - 620,000 (මූලික වැටුප් + අතිකාල දීමනා)";
-        advice = "අත්සුකෝ කඩවත ප්‍රධාන මධ්‍යස්ථානයේ පිහිටි ප්‍රායෝගික සාත්තු සේවා විද්‍යාගාරයට සම්බන්ධ වී JFT-Basic විභාගයට මුහුණ දෙන්න.";
+        advice = "අත්සුකෝ ප්‍රධාන මධ්‍යස්ථානයේ (Atsuko Main) පිහිටි ප්‍රායෝගික සාත්තු සේවා පුහුණුවට සම්බන්ධ වී JFT-Basic විභාගයට මුහුණ දෙන්න.";
         visaType = "SSW විශේෂිත කුසලතා (Tokutei Ginou)";
       } else if (goal === 'driver') {
         pathway = "SSW ලොජිස්ටික්ස් සහ බර වාහන රියදුරු රැකියා වීසා";
@@ -136,7 +136,7 @@ export default function EligibilityChecker({ lang, onOpenModal }) {
         jpName = "特定技能1号 - 介護分野 (Kaigo Healthcare)";
         timeline = "6〜9ヶ月";
         earning = "月収 210,000〜270,000 円（基本給＋夜勤・資格手当）";
-        advice = "カダワタ本社校の介護実技シミュレーション実習室で技術を習得し、仙台の日本法人を通じて直接マッチング。";
+        advice = "アツコ本校（Atsuko Main）の介護実技シミュレーション施設で技術を習得し、仙台の日本法人を通じて直接マッチング。";
         visaType = "特定技能1号（介護）";
       } else if (goal === 'driver') {
         pathway = "特定技能「自動車運送業（トラック・バス）」";
@@ -167,7 +167,7 @@ export default function EligibilityChecker({ lang, onOpenModal }) {
         jpName = "特定技能1号 - 介護分野 (Kaigo Healthcare)";
         timeline = "6 - 9 Months";
         earning = "JPY 210,000 - 270,000 / month (Full-time + Overtime + Shift allowance)";
-        advice = "Join the Atsuko International Caregiver Practical Simulation Training Center in Kadawatha with simultaneous JFT-Basic language training.";
+        advice = "Join the Atsuko International Caregiver Practical Simulation Training at Atsuko Main with simultaneous JFT-Basic language training.";
         visaType = "SSW (特定技能1号)";
       } else if (goal === 'driver') {
         pathway = "SSW Logistics & Commercial Vehicle Driving in Japan";
@@ -181,7 +181,7 @@ export default function EligibilityChecker({ lang, onOpenModal }) {
         jpName = "特定技能1号 - 外食業 (Food Service Industry)";
         timeline = "6 - 8 Months";
         earning = "JPY 190,000 - 240,000 / month";
-        advice = "Fast-track your Japanese to N4 level and take the Prometric Food Service Skills Exam with our Kadawatha CBT lab.";
+        advice = "Fast-track your Japanese to N4 level and take the Prometric Food Service Skills Exam with Atsuko Main.";
         visaType = "SSW Food Service (外食業)";
       } else {
         pathway = "Specified Skilled Worker (SSW) or TITP Technical Internship";

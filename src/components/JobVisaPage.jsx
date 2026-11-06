@@ -74,7 +74,7 @@ export default function JobVisaPage({ lang, onOpenModal, onNavigate }) {
       icon: Heart,
       color: 'text-red',
       name: 'Nursing Care / Caregiver (Kaigo 介護)',
-      desc: lang === 'si' ? 'ජපානයේ වැඩිහිටි නිවාස සහ රෝහල් ආශ්‍රිත ඉහළම ඉල්ලුමක් ඇති ක්ෂේත්‍රය. කඩවත අපගේ ජාත්‍යන්තර රෝහල් සමාකරණ විද්‍යාගාරයේ ප්‍රායෝගික පුහුණුව.' : 'Highest demand sector in Japan. Work in accredited nursing homes and eldercare facilities. Practical training at our Kadawatha hospital ward lab.',
+      desc: lang === 'si' ? 'ජපානයේ වැඩිහිටි නිවාස සහ රෝහල් ආශ්‍රිත ඉහළම ඉල්ලුමක් ඇති ක්ෂේත්‍රය. අත්සුකෝ ප්‍රධාන මධ්‍යස්ථානයේ (Atsuko Main) ප්‍රායෝගික පුහුණුව.' : 'Highest demand sector in Japan. Work in accredited nursing homes and eldercare facilities. Practical training at Atsuko Main.',
       test: 'JLPT N4 / JFT + Prometric Nursing Skills & Japanese',
       salary: '¥190,000 – ¥240,000 / mo + Overtime'
     },

@@ -149,9 +149,9 @@ export const siteTranslations = {
         "Free textbooks, Hiragana/Katakana writing kits, and digital mock test papers"
       ],
       btnJoinLanguage: "Join Next Japanese Language Batch",
-      feature2Tag: "Kadawatha Head Operations Exclusive",
-      feature2Title: "Sri Lanka's Premier SSW Caregiver (Kaigo) Practical Lab",
-      feature2Desc: "Our Kadawatha campus houses an authentic Japanese caregiving simulation unit equipped with Japanese medical beds, specialized mobility wheelchairs, bath assistance gear, and vital-sign monitoring apparatus to ensure our students pass Prometric exams with top marks.",
+      feature2Tag: "Atsuko Main Exclusive",
+      feature2Title: "Sri Lanka's Premier SSW Caregiver (Kaigo) Practical Simulation Training",
+      feature2Desc: "Atsuko Main houses an authentic Japanese caregiving simulation unit equipped with Japanese medical beds, specialized mobility wheelchairs, bath assistance gear, and vital-sign monitoring apparatus to ensure our students pass Prometric exams with top marks.",
       feature2Points: [
         "Hands-on bed-to-wheelchair transfer, feeding ergonomics, and Japanese patient care etiquette",
         "Specialized Nursing Japanese terminology (Kaigo no Nihongo) vocabulary preparation",
@@ -427,9 +427,9 @@ export const siteTranslations = {
         "නොමිලේ පෙළපොත්, හිරගනා/කටකනා අභ්‍යාස කට්ටල සහ ආදර්ශ විභාග ප්‍රශ්න පත්‍ර"
       ],
       btnJoinLanguage: "මීළඟ භාෂා පන්තියට එක්වන්න",
-      feature2Tag: "කඩවත ප්‍රධාන මෙහෙයුම් මධ්‍යස්ථානයේ විශේෂ පහසුකම",
-      feature2Title: "ලංකාවේ ප්‍රමුඛතම SSW සාත්තු සේවා (Kaigo) ප්‍රායෝගික විද්‍යාගාරය",
-      feature2Desc: "අපගේ කඩවත මධ්‍යස්ථානයේ පිහිටි ජපන් රෝහල් ඇඳන්, රෝද පුටු සහ රෝගී සත්කාරක උපකරණවලින් සමන්විත ප්‍රායෝගික විද්‍යාගාරය මඟින් Prometric විභාග ඉහළින්ම සමත් වීමට මඟ සලසයි.",
+      feature2Tag: "අත්සුකෝ ප්‍රධාන මූලස්ථානයේ (Atsuko Main) විශේෂ පහසුකම",
+      feature2Title: "ලංකාවේ ප්‍රමුඛතම SSW සාත්තු සේවා (Kaigo) ප්‍රායෝගික පුහුණුව",
+      feature2Desc: "අපගේ අත්සුකෝ ප්‍රධාන මධ්‍යස්ථානයේ (Atsuko Main) පිහිටි ජපන් රෝහල් ඇඳන්, රෝද පුටු සහ රෝගී සත්කාරක උපකරණවලින් සමන්විත ප්‍රායෝගික ඒකකය මඟින් Prometric විභාග ඉහළින්ම සමත් වීමට මඟ සලසයි.",
       feature2Points: [
         "රෝගීන් හැසිරවීම, රෝද පුටු භාවිතය සහ ජපන් රෝහල් සත්කාරක පිළිවෙත් ප්‍රායෝගිකව හැදෑරීම",
         "සාත්තු සේවා සඳහා වන විශේෂිත ජපන් භාෂා වචන (Kaigo no Nihongo) පුහුණුව",
@@ -705,9 +705,9 @@ export const siteTranslations = {
         "オリジナル教材、ひらがな・カタカナ練習帳、模擬試験問題の無償提供"
       ],
       btnJoinLanguage: "次回日本語クラスに参加する",
-      feature2Tag: "カダワタ本社校 独自設備",
+      feature2Tag: "アツコ本校（Atsuko Main）独自設備",
       feature2Title: "スリランカ屈指の特定技能「介護」実技シミュレーション施設",
-      feature2Desc: "カダワタ校には日本の医療用ベッド、介護用車いす、入浴・食事補助器具を完備した模擬病室があり、プロメトリック実技試験に万全の体制で臨めます。",
+      feature2Desc: "アツコ本校（Atsuko Main）には日本の医療用ベッド、介護用車いす、入浴・食事補助器具を完備した模擬病室があり、プロメトリック実技試験に万全の体制で臨めます。",
       feature2Points: [
         "ベッドから車いすへの移乗介助、食事介助の実技実践トレーニング",
         "介護の現場で必須となる専門日本語（介護の日本語）指導",

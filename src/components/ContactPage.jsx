@@ -39,9 +39,9 @@ export default function ContactPage({ lang }) {
   const mapLocations = {
     kadawatha: {
       id: 'kadawatha',
-      name: ui.liveMapBranches?.kadawatha || 'Kadawatha Campus (Headquarters)',
+      name: ui.liveMapBranches?.kadawatha || 'Atsuko Main',
       country: 'Sri Lanka',
-      badge: 'Main Campus & Simulation Lab',
+      badge: 'Main Headquarters & Training Center',
       address: '191/3/1, Sirimavo Bandaranayake Mw, Mahara, Kadawatha, Sri Lanka',
       embedUrl: 'https://www.google.com/maps/embed?origin=mfe&pb=!1m3!2m1!1s191/3/1,+Sirimavo+Bandaranayake+Mawatha,+Mahara,+Kadawatha,+Sri+Lanka!6i16',
       mapsUrl: 'https://www.google.com/maps/search/?api=1&query=191%2F3%2F1+Sirimavo+Bandaranayake+Mawatha+Mahara+Kadawatha',
@@ -313,7 +313,7 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
                   scrollbarWidth: 'thin',
                   flexShrink: 0
                 }}>
-                  {/* Kadawatha Campus (Main) */}
+                  {/* Atsuko Main */}
                   <button
                     type="button"
                     onClick={() => { setMapLocationId('kadawatha'); setActiveLocation('srilanka'); }}
@@ -335,7 +335,7 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
                     }}
                   >
                     <MapPin size={11} />
-                    <span>Kadawatha Campus (Main)</span>
+                    <span>Atsuko Main</span>
                   </button>
 
                   {/* Kelaniya Office */}

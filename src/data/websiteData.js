@@ -256,7 +256,7 @@ export const coursesData = {
       title: "JFT-Basic A2 Exam Preparation",
       jpTitle: "国際交流基金日本語基礎テスト (JFT-Basic)",
       duration: "2.5 Months Intensive",
-      mode: "Kadawatha CBT Computer Lab Practice",
+      mode: "Atsuko Main CBT Practice",
       description: "Specially formulated for the Japan Foundation Test for Basic Japanese (JFT-Basic) administered via Prometric computer testing centers for Specified Skilled Worker (SSW) applicants.",
       features: [
         "Simulated CBT computer test practice replicating Prometric format",
@@ -423,9 +423,9 @@ export const activeCourseSchedules = [
   },
   {
     id: "batch-jft-cbt",
-    course: "JFT-Basic A2 Computer Lab Batch",
+    course: "JFT-Basic A2 Computer Batch",
     category: "Prometric CBT Prep",
-    mode: "Kadawatha CBT Computer Lab",
+    mode: "Atsuko Main CBT Center",
     days: "Mon, Wed & Friday",
     time: "9:00 AM - 12:30 PM",
     startDate: "Bi-Weekly Intake",
@@ -728,7 +728,7 @@ export const faqList = [
   },
   {
     q: "What are the requirements for the SSW Caregiver (Kaigo) Visa?",
-    a: "To obtain the Specified Skilled Worker (SSW) Caregiver visa, candidates must pass two examinations: 1) Japanese Language Test (either JLPT N4 or JFT-Basic A2), and 2) Prometric Nursing Care Skills Evaluation Test + Nursing Care Japanese Evaluation Test. Atsuko International provides classroom training, practical hospital simulation lab training at Kadawatha, and employer interview placement."
+    a: "To obtain the Specified Skilled Worker (SSW) Caregiver visa, candidates must pass two examinations: 1) Japanese Language Test (either JLPT N4 or JFT-Basic A2), and 2) Prometric Nursing Care Skills Evaluation Test + Nursing Care Japanese Evaluation Test. Atsuko International provides classroom training, practical hospital simulation training at Atsuko Main, and employer interview placement."
   },
   {
     q: "Which other SSW sectors can I apply for through Atsuko International?",
@@ -770,7 +770,7 @@ export const targetAudiencePathways = [
     tag: "High Demand Sectors",
     description: "Skilled workers and job seekers seeking legal employment under Japan's Specified Skilled Worker (SSW) programs with attractive Japanese standard wages.",
     points: [
-      "Caregiving (Kaigo) with on-site practical simulation lab in Kadawatha",
+      "Caregiving (Kaigo) with on-site practical simulation training at Atsuko Main",
       "Food Service (Gaishoku) & Restaurant Operations",
       "Commercial Truck Driving & Logistics Operations",
       "Accommodation (Hospitality), Agriculture & Construction",
@@ -815,7 +815,7 @@ export const globalPresenceData = {
     facilities: [
       "Modern Audio & Language Classrooms",
       "Hospital & Caregiving Practical Simulation Ward",
-      "Computer-Based Testing (CBT) Prometric Exam Lab",
+      "Computer-Based Testing (CBT) Prometric Exam Center",
       "Comfortable On-Campus Student Accommodation & Dining",
       "Visa Legal Documentation & Counseling Chambers"
     ]
@@ -847,7 +847,7 @@ export const globalPresenceData = {
 export const branchesData = [
   {
     id: "kadawatha",
-    name: "Kadawatha (Head Operations Center & Campus)",
+    name: "Atsuko Main",
     jpName: "カダワタ 本社運営センター・研修校舎",
     isHeadOffice: true,
     address: "191/3/1, Sirimavo Bandaranayake Mw, Mahara, Kadawatha, Sri Lanka",
@@ -1061,7 +1061,7 @@ export const successStoriesData = [
     workplace: "Commercial Kitchen & Restaurant Operations",
     monthlyEarnings: "¥218,000 / month (~LKR 445,000)",
     image: "/images/real/office_Atsuko_International.jpg",
-    quote: "I prepared for the computer Prometric test at Atsuko's CBT Lab in Kadawatha. Within 4 months of clearing the exam, my visa arrived. Atsuko's Komaki office staff came to Nagoya station to escort me to my apartment.",
+    quote: "I prepared for the computer Prometric test at Atsuko Main. Within 4 months of clearing the exam, my visa arrived. Atsuko's Komaki office staff came to Nagoya station to escort me to my apartment.",
     highlights: ["Food hygiene & HACCP certified", "Near Atsuko Komaki headquarters", "Subsidized staff meals included"]
   },
   {

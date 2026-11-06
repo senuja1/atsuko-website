@@ -267,7 +267,7 @@ export default function VisaServicesPage({ lang, onOpenModal, initialTab = 'stud
                   <div className="ssw-cat-card">
                     <div className="ssw-cat-icon"></div>
                     <h4>1. Nursing Care / Caregiver (Kaigo)</h4>
-                    <p>{lang === 'si' ? 'ජපානයේ ඉහළම ඉල්ලුමක් ඇති ක්ෂේත්‍රය. කඩවත අපගේ රෝහල් සමාකරණ විද්‍යාගාරයේ ප්‍රායෝගික පුහුණුව.' : 'Highest demand sector in Japan. Work in accredited nursing homes and eldercare facilities. Practical training at our Kadawatha hospital ward simulation lab.'}</p>
+                    <p>{lang === 'si' ? 'ජපානයේ ඉහළම ඉල්ලුමක් ඇති ක්ෂේත්‍රය. අත්සුකෝ ප්‍රධාන මධ්‍යස්ථානයේ (Atsuko Main) ප්‍රායෝගික පුහුණුව.' : 'Highest demand sector in Japan. Work in accredited nursing homes and eldercare facilities. Practical simulation training at Atsuko Main.'}</p>
                     <span className="ssw-cat-test">Test: JLPT N4 / JFT + Prometric Nursing Skills</span>
                   </div>
 

@@ -56,7 +56,7 @@ export const uiText = {
           tag: 'High Demand Sectors',
           description: "Skilled workers and job seekers seeking legal employment under Japan's Specified Skilled Worker (SSW) programs with attractive Japanese wage standards.",
           points: [
-            'Caregiving (Kaigo) with on-site practical simulation lab in Kadawatha',
+            'Caregiving (Kaigo) with on-site practical simulation training',
             'Food Service (Gaishoku) & Restaurant Operations',
             'Commercial Truck Driving & Logistics Operations',
             'Accommodation (Hospitality), Agriculture & Construction',
@@ -142,7 +142,7 @@ export const uiText = {
         'TITP Technical Internship',
       ],
       colContact: 'Headquarters & Japan Office',
-      kadawathaCampusLbl: 'Kadawatha Campus:',
+      kadawathaCampusLbl: 'Atsuko Main:',
       japanEntityLbl: 'Japan Support Entity:',
       hotlineLbl: 'Hotline:',
       hoursVal: 'Mon-Sat: 8:30 AM - 5:30 PM | Sun: 8:30 AM - 2:00 PM',
@@ -209,9 +209,8 @@ export const uiText = {
         subtitle: 'Comprehensive Japanese language preparation (JLPT & JFT) and government-certified Specified Skilled Worker (SSW) vocational simulation training designed for maximum pass rates and immediate employer selection.',
         stats: [
           { num: 'JLPT N5 / N4', lbl: 'Foundation to SSW Benchmark' },
-          { num: 'JFT-Basic A2', lbl: 'Computer-Based CBT Lab Prep' },
+          { num: 'JFT-Basic A2', lbl: 'Computer-Based CBT Prep' },
           { num: '6 SSW Sectors', lbl: 'Caregiver, Food, Driving, Hotel, Farm, Build' },
-          { num: 'Kadawatha Lab', lbl: 'Hospital Bed & Wheelchair Unit' },
         ],
         langBadge: 'Pillar 1: Japanese Language',
         langTitle: 'Japanese Language',
@@ -437,7 +436,7 @@ export const uiText = {
         liveMapGetDirections: 'Get Directions',
         liveMapOpenGmaps: 'Open in Google Maps',
         liveMapBranches: {
-          kadawatha: 'Kadawatha Campus (Headquarters)',
+          kadawatha: 'Atsuko Main',
           kelaniya: 'Kelaniya Office (Thorana Junc.)',
           sendai: 'Sendai Center (Tohoku, Japan)',
           komaki: 'Komaki Office (Aichi, Japan)'
@@ -613,7 +612,7 @@ export const uiText = {
         'TITP කාර්මික පුහුණුව',
       ],
       colContact: 'ප්‍රධාන කාර්යාලය සහ ජපන් ආයතනය',
-      kadawathaCampusLbl: 'කඩවත මූලස්ථානය:',
+      kadawathaCampusLbl: 'අත්සුකෝ ප්‍රධාන මූලස්ථානය (Atsuko Main):',
       japanEntityLbl: 'ජපානයේ ආයතනය:',
       hotlineLbl: 'ක්ෂණික ඇමතුම්:',
       hoursVal: 'සඳුදා - සෙනසුරාදා: පෙ.ව 8:30 - ප.ව 5:30 | ඉරිදා: පෙ.ව 8:30 - ප.ව 2:00',
@@ -682,7 +681,6 @@ export const uiText = {
           { num: 'JLPT N5 / N4', lbl: 'මූලික මට්ටමේ සිට SSW මිණුම් ලකුණ දක්වා' },
           { num: 'JFT-Basic A2', lbl: 'CBT පරිගණක විභාග පෙරහුරුව' },
           { num: 'SSW ක්ෂේත්‍ර 6ක්', lbl: 'සාත්තු සේවා, ආහාර, රියදුරු, හෝටල්, ගොවිපළ, ඉදිකිරීම්' },
-          { num: 'කඩවත විද්‍යාගාරය', lbl: 'රෝහල් ඇඳන් සහ උපකරණ සහිත පුහුණු ඒකකය' },
         ],
         langBadge: '1 වන අදියර: ජපන් භාෂා පාඨමාලා',
         langTitle: 'ජපන් භාෂා',
@@ -908,7 +906,7 @@ export const uiText = {
         liveMapGetDirections: 'මාර්ගය සොයන්න',
         liveMapOpenGmaps: 'Google Maps හි බලන්න',
         liveMapBranches: {
-          kadawatha: 'කඩවත කැම්පස් (ප්‍රධාන මූලස්ථානය)',
+          kadawatha: 'අත්සුකෝ ප්‍රධාන මූලස්ථානය (Atsuko Main)',
           kelaniya: 'කැලණිය කාර්යාලය (තොරණ හන්දිය)',
           sendai: 'සෙන්ඩායි මධ්‍යස්ථානය (ජපානය)',
           komaki: 'කොමාකි කාර්යාලය (අයිචි, ජපානය)'
@@ -1084,7 +1082,7 @@ export const uiText = {
         '技能実習（TITP）',
       ],
       colContact: 'カダワタ本社・日本支援窓口',
-      kadawathaCampusLbl: 'カダワタ本部校:',
+      kadawathaCampusLbl: 'アツコ本校 (Atsuko Main):',
       japanEntityLbl: '日本法人拠点:',
       hotlineLbl: '総合案内:',
       hoursVal: '月〜土: 8:30 - 17:30 | 日: 8:30 - 14:00',
@@ -1153,7 +1151,6 @@ export const uiText = {
           { num: 'JLPT N5 / N4', lbl: '基礎から特定技能基準まで' },
           { num: 'JFT-Basic A2', lbl: 'CBTコンピューター模擬試験対応' },
           { num: '特定技能 6分野', lbl: '介護・外食・運送・宿泊・農業・建設' },
-          { num: 'カダワタ実習室', lbl: '介護用ベッド・車椅子完備の実習病棟' },
         ],
         langBadge: '第一の柱：日本語教育',
         langTitle: '日本語能力試験',
@@ -1379,7 +1376,7 @@ export const uiText = {
         liveMapGetDirections: 'ルート案内・道順',
         liveMapOpenGmaps: 'Googleマップで開く',
         liveMapBranches: {
-          kadawatha: 'カダワタ本社校（本部・研修施設）',
+          kadawatha: 'アツコ本校 (Atsuko Main)',
           kelaniya: 'ケラニヤ事務所（登録窓口）',
           sendai: '仙台支援センター（東北・宮城）',
           komaki: '小牧事務所（愛知・中部）'

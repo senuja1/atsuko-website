@@ -158,7 +158,7 @@ export default function Footer({ lang, onOpenModal, onNavigate }) {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', fontSize: '0.85rem' }}>
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem' }}>
                 <MapPin size={16} style={{ color: '#0284c7', flexShrink: 0, marginTop: '3px' }} />
-                <span><strong>{lang === 'si' ? 'කඩවත මූලස්ථානය:' : lang === 'jp' ? 'カダワタ本校:' : 'Kadawatha Campus:'}</strong> {officialContacts.headOfficeAddress}</span>
+                <span><strong>{lang === 'si' ? 'අත්සුකෝ ප්‍රධාන මූලස්ථානය (Atsuko Main):' : lang === 'jp' ? 'アツコ本校 (Atsuko Main):' : 'Atsuko Main:'}</strong> {officialContacts.headOfficeAddress}</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem' }}>
                 <MapPin size={16} style={{ color: '#38bdf8', flexShrink: 0, marginTop: '3px' }} />

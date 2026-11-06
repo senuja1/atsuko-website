@@ -8,7 +8,7 @@ export default function ConsultationModal({ lang, isOpen, onClose, defaultProgra
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
-    branch: 'Kadawatha (Head Operations Center)',
+    branch: 'Atsuko Main',
     program: defaultProgram || 'JLPT N5 Comprehensive Batch',
     education: 'G.C.E. A/L Passed',
     notes: ''
@@ -196,8 +196,8 @@ _Please schedule my consultation session with an Atsuko Counselor._`;
                     value={formData.branch}
                     onChange={handleChange}
                   >
-                    <option value="Kadawatha (Head Operations Center & Campus)">
-                      {lang === 'si' ? 'කඩවත ප්‍රධාන මූලස්ථානය (Kadawatha Head Center)' : lang === 'jp' ? 'カダワタ本部・研修センター (Kadawatha Center)' : 'Kadawatha (Head Operations Center & Campus)'}
+                    <option value="Atsuko Main">
+                      {lang === 'si' ? 'අත්සුකෝ ප්‍රධාන මූලස්ථානය (Atsuko Main)' : lang === 'jp' ? 'アツコ本校 (Atsuko Main)' : 'Atsuko Main'}
                     </option>
                     <option value="Kelaniya (Registered Office)">
                       {lang === 'si' ? 'කැලණිය ලියාපදිංචි කාර්යාලය (PV 0217143)' : lang === 'jp' ? 'ケラニヤ登記事務所 (Kelaniya Office)' : 'Kelaniya (Registered Office - PV 0217143)'}
