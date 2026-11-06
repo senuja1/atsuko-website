@@ -12,7 +12,7 @@ import {
   Calendar,
   FolderOpen
 } from 'lucide-react';
-import { studentVisaIntakes, visaDocumentChecklist, roadmapSteps } from '../data/websiteData';
+import { studentVisaIntakes, visaDocumentChecklist, roadmapSteps, siRoadmap, jpRoadmap, siVisaDocumentChecklist, jpVisaDocumentChecklist } from '../data/websiteData';
 import { getUiText } from '../data/uiText';
 
 export default function VisaServicesPage({ lang, onOpenModal, initialTab = 'student' }) {
@@ -20,6 +20,9 @@ export default function VisaServicesPage({ lang, onOpenModal, initialTab = 'stud
   const ui = tFull.pages.visa;
   const h = tFull.home;
   const [activeVisaTab, setActiveVisaTab] = useState(initialTab || 'student');
+
+  const activeRoadmap = lang === 'si' ? siRoadmap : lang === 'jp' ? jpRoadmap : roadmapSteps;
+  const activeChecklist = lang === 'si' ? siVisaDocumentChecklist : lang === 'jp' ? jpVisaDocumentChecklist : visaDocumentChecklist;
 
   useEffect(() => {
     if (initialTab) {
@@ -391,7 +394,7 @@ export default function VisaServicesPage({ lang, onOpenModal, initialTab = 'stud
           </div>
 
           <div className="roadmap-grid-enhanced">
-            {roadmapSteps.map((item, idx) => (
+            {activeRoadmap.map((item, idx) => (
               <div key={idx} className="roadmap-card-enhanced">
                 <div className="roadmap-num-badge">{item.step}</div>
                 <div className="roadmap-jp-text">{item.jp}</div>
@@ -420,7 +423,7 @@ export default function VisaServicesPage({ lang, onOpenModal, initialTab = 'stud
           </div>
 
           <div className="checklist-grid">
-            {visaDocumentChecklist.map((group, idx) => (
+            {activeChecklist.map((group, idx) => (
               <div key={idx} className="checklist-card">
                 <h3 className="checklist-category-title">{group.category}</h3>
                 <ul className="checklist-items">

@@ -325,7 +325,7 @@ export default function OfficialCertificatesShowcase({ lang = 'en' }) {
                 <div className="cert-doc-hover-overlay">
                   <div className="cert-zoom-btn">
                     <ShieldCheck size={14} />
-                    <span>Inspect Raw Pic</span>
+                    <span>{lang === 'si' ? 'මුල් සහතිකය පරීක්ෂා කරන්න' : lang === 'jp' ? '原本画像を確認' : 'Inspect Raw Pic'}</span>
                   </div>
                 </div>
               </div>
@@ -457,7 +457,7 @@ export default function OfficialCertificatesShowcase({ lang = 'en' }) {
                   <div className="cert-doc-hover-overlay">
                     <div className="cert-zoom-btn">
                       <ShieldCheck size={14} />
-                      <span>Inspect Raw Pic</span>
+                      <span>{lang === 'si' ? 'මුල් බලපත්‍රය පරීක්ෂා කරන්න' : lang === 'jp' ? '原本画像を確認' : 'Inspect Raw Pic'}</span>
                     </div>
                   </div>
                 </div>
@@ -593,11 +593,15 @@ export default function OfficialCertificatesShowcase({ lang = 'en' }) {
           >
             <div className="cert-lightbox-header">
               <div className="cert-lightbox-title-group">
-                <span className="cert-lightbox-badge">LEGAL CORPORATE REGISTRY</span>
+                <span className="cert-lightbox-badge">
+                  {lang === 'si' ? 'නීත්‍යානුකූල සමාගම් ලියාපදිංචිය' : lang === 'jp' ? '公式法人登記証' : 'LEGAL CORPORATE REGISTRY'}
+                </span>
                 <h4 className="cert-lightbox-title">
                   {lang === 'si' ? 'Atsuko International (Pvt) Ltd නීත්‍යානුකූල සමාගම් තොරතුරු' : lang === 'jp' ? 'Atsuko International (Pvt) Ltd 正式登記データ' : 'Atsuko International (Pvt) Ltd Official Registry Data'}
                 </h4>
-                <span className="cert-lightbox-sub">Department of the Registrar of Companies Sri Lanka • Companies Act No. 7 of 2007</span>
+                <span className="cert-lightbox-sub">
+                  {lang === 'si' ? 'ශ්‍රී ලංකා සමාගම් රෙජිස්ට්‍රාර් දෙපාර්තමේන්තුව • 2007 අංක 7 දරන සමාගම් පනත' : lang === 'jp' ? 'スリランカ会社登記局 • 2007年第7号会社法' : 'Department of the Registrar of Companies Sri Lanka • Companies Act No. 7 of 2007'}
+                </span>
               </div>
               <button
                 type="button"
@@ -666,7 +670,9 @@ export default function OfficialCertificatesShowcase({ lang = 'en' }) {
                   </div>
                   <div className="br-modal-row">
                     <span className="br-lbl">{lang === 'si' ? 'ජපාන කාර්යාල:' : lang === 'jp' ? '所在地:' : 'Japan Locations:'}</span>
-                    <strong className="br-val">Sendai (Miyagi Prefecture) & Komaki (Aichi Prefecture)</strong>
+                    <strong className="br-val">
+                      {lang === 'si' ? 'සෙන්ඩායි (මියාගි ප්‍රාන්තය) සහ කොමාකි (අයිචි ප්‍රාන්තය)' : lang === 'jp' ? '仙台（宮城県）および小牧（愛知県）' : 'Sendai (Miyagi Prefecture) & Komaki (Aichi Prefecture)'}
+                    </strong>
                   </div>
                 </div>
               </div>

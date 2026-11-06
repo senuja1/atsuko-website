@@ -3,6 +3,6 @@ Contact: mailto:info@atsukointernational.com
 Contact: mailto:security@atsukointernational.com
 Expires: 2027-12-31T23:59:59.000Z
 Preferred-Languages: en, ja, si
-Canonical: https://www.atsukojapan.com/.well-known/security.txt
-Policy: https://www.atsukojapan.com/#about
-Acknowledgments: https://www.atsukojapan.com/#about
+Canonical: https://www.atsukointernational.com/.well-known/security.txt
+Policy: https://www.atsukointernational.com/#about
+Acknowledgments: https://www.atsukointernational.com/#about

@@ -13,7 +13,7 @@ export default function MainCoursesGrid({ lang, onNavigate }) {
       accentColor: '#0284c7',
       bgImage: '/images/courses/course-japanese-language.jpg',
       title: isSi
-        ? 'Japanese Language Course 3 Month'
+        ? 'මාස 3 ක ජපන් භාෂා පාඨමාලාව'
         : isJp
           ? '3ヶ月集中・日本語マスターコース'
           : 'Japanese Language Course 3 Month',
@@ -25,9 +25,9 @@ export default function MainCoursesGrid({ lang, onNavigate }) {
           : 'Foundational N5/N4, JFT-Basic A2, and daily spoken Kaiwa classes for life and work in Japan.',
       highlights: isSi
         ? [
-          'JLPT N5 & N4 Prep',
-          'JFT-Basic A2 Ready',
-          'Spoken Kaiwa Practice'
+          'JLPT N5 සහ N4 විභාග සූදානම',
+          'JFT-Basic A2 පූර්ණ ආවරණය',
+          'දෛනික කථන (Kaiwa) පුහුණුව'
         ]
         : isJp
           ? [
@@ -49,7 +49,7 @@ export default function MainCoursesGrid({ lang, onNavigate }) {
       accentColor: '#d97706',
       bgImage: '/images/courses/course-ssw-truck.jpg',
       title: isSi
-        ? 'SSW Skill Courses'
+        ? 'SSW නිපුණතා වෘත්තීය පාඨමාලා'
         : isJp
           ? '特定技能 職能訓練コース'
           : 'SSW Skill Courses',
@@ -61,9 +61,9 @@ export default function MainCoursesGrid({ lang, onNavigate }) {
           : 'Vocational skills training focused on Caregiver and Truck Driving, plus Food Service and Hospitality.',
       highlights: isSi
         ? [
-          'Kaigo Simulation Lab',
-          'Truck Driving & Logistics',
-          'Food Service & Hospitality'
+          'සාත්තු සේවා (Kaigo) ප්‍රායෝගික පුහුණුව',
+          'වාණිජ රියදුරු සහ ප්‍රවාහන සේවා',
+          'ආහාර සහ හෝටල් සේවා පුහුණුව'
         ]
         : isJp
           ? [
@@ -85,21 +85,21 @@ export default function MainCoursesGrid({ lang, onNavigate }) {
       accentColor: '#059669',
       bgImage: '/images/courses/course-nvq-nursing.jpg',
       title: isSi
-        ? 'NVQ Level 3 Nursing Classes'
+        ? 'NVQ Level 3 සාත්තු සේවා පන්ති'
         : isJp
           ? 'NVQ レベル3 介護看護実習'
           : 'NVQ Level 3 Nursing Classes',
       jpTitle: '国家資格 NVQ Level 3 看護・介護実習',
       desc: isSi
-        ? 'ජපන් රෝහල් ඇඳන් සහිත ප්‍රායෝගික විද්‍යාගාරයේ NVQ Level 3 ජාතික වෘත්තීය සාත්තු සේවා සුදුසුකම.'
+        ? 'ජපන් රෝහල් ඇඳන් සහිත ප්‍රායෝගික පුහුණු ඒකකයේ NVQ Level 3 ජාතික වෘත්තීය සාත්තු සේවා සුදුසුකම.'
         : isJp
           ? '国家資格NVQレベル3取得と日本仕様医療ベッドによる即戦力養成。'
           : 'Hands-on hospital training preparing candidates for National Vocational Qualification (NVQ Level 3).',
       highlights: isSi
         ? [
-          'NVQ Level 3 Certification',
-          'Hospital Bed Practical Lab',
-          'Kaigo Etiquette & Ethics'
+          'NVQ Level 3 ජාතික සහතිකය',
+          'ජපන් රෝහල් ඇඳන් සහිත ප්‍රායෝගික පුහුණුව',
+          'සාත්තු සේවා ආචාරධර්ම හා පුහුණුව'
         ]
         : isJp
           ? [
@@ -121,7 +121,7 @@ export default function MainCoursesGrid({ lang, onNavigate }) {
       accentColor: '#1d4ed8',
       bgImage: '/images/courses/course-interview-practice.jpg',
       title: isSi
-        ? 'Revision & Interview Practice'
+        ? 'පුනරීක්ෂණ සහ සම්මුඛ පරීක්ෂණ පෙරහුරු'
         : isJp
           ? '復習・面接特訓クラス'
           : 'Revision & Interview Practice',
@@ -133,9 +133,9 @@ export default function MainCoursesGrid({ lang, onNavigate }) {
           : 'Focused review classes and tailored mock Mensetsu interview sessions for embassy visa placements.',
       highlights: isSi
         ? [
-          'Tailored Mock Mensetsu',
-          'Embassy & Sponsor Prep',
-          'CBT Exam Confidence'
+          'ආදර්ශ Mensetsu සම්මුඛ පෙරහුරු',
+          'තානාපති කාර්යාල සහ ආයතනික සම්මුඛ සූදානම',
+          'CBT විභාග ජයගැනීමේ විශ්වාසය'
         ]
         : isJp
           ? [

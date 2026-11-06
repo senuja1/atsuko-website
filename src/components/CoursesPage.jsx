@@ -141,6 +141,108 @@ export default function CoursesPage({ lang, onOpenModal }) {
     return c;
   });
 
+  const localizedSswCourses = coursesData.sswVocational.map(c => {
+    if (lang === 'si') {
+      if (c.id === 'ssw-caregiver') {
+        return {
+          ...c,
+          badge: 'ඉහළ ඉල්ලුමක් ඇති ක්ෂේත්‍රය',
+          title: 'සාත්තු සේවා (Kaigo) ප්‍රායෝගික පුහුණුව',
+          duration: 'මාස 3 ක ප්‍රායෝගික + සාත්තු ජපන් භාෂාව',
+          mode: 'අත්සුකෝ ප්‍රධාන මූලස්ථානයේ ප්‍රායෝගික පුහුණු ඒකකය',
+          description: 'ජපානයේ වැඩිහිටි නිවාස සහ රෝහල් ආශ්‍රිත සාත්තු සේවාව සඳහා පූර්ණ සූදානම. ජපන් රෝහල් ඇඳන් සහිත ප්‍රායෝගික පුහුණුව, සාත්තු භාෂා දැනුම සහ Prometric CBT විභාග මඟපෙන්වීම.',
+          features: [
+            'ජපන් රෝහල් ඇඳන්, රෝද පුටු භාවිතය සහ රෝගී සත්කාරක ප්‍රායෝගික පුහුණුව',
+            'සාත්තු සේවා සඳහා වන විශේෂිත ජපන් භාෂා (Kaigo no Nihongo) දැනුම',
+            'Prometric සාත්තු සත්කාරක නිපුණතා ඇගයීම් විභාගය සඳහා සූදානම',
+            'ජපානයේ අපගේම සෙන්ඩායි ආයතනය හරහා පිළිගත් වෛද්‍ය ආයතන වෙත සෘජු සම්බන්ධීකරණය'
+          ]
+        };
+      }
+      if (c.id === 'ssw-food') {
+        return {
+          ...c,
+          badge: 'හෝටල් සහ ආහාර සේවා',
+          title: 'ආහාර සේවා (Gaishoku) සහ ආගන්තුක සත්කාරය',
+          duration: 'මාස 2 ක සූදානම + Prometric විභාගය',
+          mode: 'අත්සුකෝ ප්‍රධාන මූලස්ථානය සහ මාර්ගගත Zoom පන්ති',
+          description: 'ජපානයේ ප්‍රමුඛ පෙළේ අවන්හල් ජාල, හෝටල් මුළුතැන්ගෙවල් සහ ආහාර නිෂ්පාදන ආයතනවල රැකියා සඳහා පුහුණුව. ජපන් ආහාර සුරක්ෂිතතාව (HACCP) සහ සනීපාරක්ෂක ප්‍රමිතීන්.',
+          features: [
+            'ජපන් ආහාර සනීපාරක්ෂාව (HACCP) සහ මුළුතැන්ගෙයි ආරක්ෂිත ක්‍රමවේද',
+            'අවන්හල් පාරිභෝගික සත්කාරක වචන මාලා සහ ඇණවුම් ලබාගැනීම',
+            'Prometric ආහාර සේවා කුසලතා ඇගයීම් විභාග ප්‍රශ්න පත්‍ර පෙරහුරුව',
+            'SLBFE බලපත්‍ර අංක 3293 යටතේ සෘජු නීත්‍යානුකූල රැකියා ගිවිසුම්'
+          ]
+        };
+      }
+      if (c.id === 'ssw-driving') {
+        return {
+          ...c,
+          badge: 'ප්‍රවාහන සහ ලොජිස්ටික්ස්',
+          title: 'වාණිජ භාණ්ඩ ප්‍රවාහන හා රියදුරු සේවා',
+          duration: 'මාස 2.5 ක න්‍යායාත්මක + ජපන් භාෂාව',
+          mode: 'අත්සුකෝ ප්‍රධාන මූලස්ථානය සහ රියදුරු නීති න්‍යාය පත්‍රය',
+          description: 'ජපානයේ නව නීතිමය සංශෝධන යටතේ විවෘත වූ ඉහළ ඉල්ලුමක් ඇති වාණිජ භාණ්ඩ ප්‍රවාහන රියදුරු, බස් රථ ධාවන සහ ලොජිස්ටික්ස් ගබඩා මෙහෙයුම්.',
+          features: [
+            'ජපන් මාර්ග සංඥා, රථවාහන නීති සහ ආරක්ෂිත ප්‍රමිතීන් හැදෑරීම',
+            'ලොජිස්ටික්ස් කළමනාකරණය, භාණ්ඩ බෙදාහැරීම සහ ඩිජිටල් ස්කෑනර් භාවිතය',
+            'ජපන් වාණිජ රියදුරු බලපත්‍ර ලබාගැනීමේ නිල ක්‍රමවේදය සඳහා මඟපෙන්වීම',
+            'SLBFE බලපත්‍ර අංක 3293 යටතේ රජයේ අනුමැතිය ලත් සේවා ගිවිසුම්'
+          ]
+        };
+      }
+      if (c.id === 'ssw-accommodation') {
+        return {
+          ...c,
+          badge: 'හෝටල් සහ සංචාරක සේවා',
+          title: 'හෝටල් සහ ආගන්තුක සත්කාරය (Shukuhaku)',
+          duration: 'මාස 2 ක පුහුණුව',
+          mode: 'ආගන්තුක සත්කාරක ආචාරධර්ම ඒකකය',
+          description: 'ජපානයේ තරු පන්තියේ හෝටල්, සංචාරක නිවාඩු නිකේතන සහ සම්ප්‍රදායික රියෝකාන් (Ryokan) ආශ්‍රිත පිළිගැනීමේ නිලධාරී සහ ආගන්තුක සත්කාරක රැකියා.',
+          features: [
+            'ජපන් ආගන්තුක සත්කාරක ආචාරධර්ම (Omotenashi) සහ ගෞරවාන්විත කථනය (Keigo)',
+            'හෝටල් කාමර වෙන්කිරීම් සහ පාරිභෝගික සේවා කළමනාකරණය',
+            'Prometric නවාතැන් සේවා නිපුණතා ඇගයීම් විභාග සූදානම',
+            'ජපානයේ ප්‍රධාන සංචාරක කලාපවල රැකියා ස්ථානගත කිරීම්'
+          ]
+        };
+      }
+      if (c.id === 'ssw-agriculture') {
+        return {
+          ...c,
+          badge: 'කෘෂිකාර්මික ක්ෂේත්‍රය',
+          title: 'කෘෂිකර්මාන්තය සහ බෝග වගාව (Nōgyō)',
+          duration: 'මාස 2 ක පුහුණුව',
+          mode: 'පූර්ණ කෘෂිකාර්මික සූදානම',
+          description: 'ජපානයේ ඉබරාකි, නගානෝ, අයිචි ආදී ප්‍රධාන කෘෂිකාර්මික ප්‍රාන්තවල ස්වයංක්‍රීය හරිතාගාර එළවළු වගාව, පලතුරු නෙලීම සහ පශු සම්පත් කළමනාකරණය.',
+          features: [
+            'ජපන් ගොවිපළ උපකරණ ආරක්ෂාව, බෝග වර්ග සහ වාරිමාර්ග තාක්ෂණික වචන',
+            'Prometric කෘෂිකාර්මික නිපුණතා ඇගයීම් විභාග පෙරහුරුව',
+            'ජපන් කම්කරු නීති සහ ජාතික සෞඛ්‍ය රක්ෂණය යටතේ පූර්ණ රැකවරණය',
+            'අත්සුකෝ ජපන් කාර්යාලය මඟින් සේවා කාලය පුරා නිරන්තර සුබසාධනය'
+          ]
+        };
+      }
+      if (c.id === 'ssw-construction') {
+        return {
+          ...c,
+          badge: 'ඉදිකිරීම් සහ සිවිල් ඉංජිනේරු',
+          title: 'ඉදිකිරීම් සහ සිවිල් ඉංජිනේරු ශිල්පය',
+          duration: 'මාස 2.5 ක තාක්ෂණික පුහුණුව',
+          mode: 'ආරක්ෂිත සහ තාක්ෂණික වචන මාලා ඒකකය',
+          description: 'ජපාන ආරක්ෂිත ප්‍රමිතීන්ට අනුකූලව සිවිල් ඉංජිනේරු ව්‍යුහ එකලස් කිරීම, අභ්‍යන්තර නිමවුම් සහ විදුලි උපකරණ සවි කිරීම්.',
+          features: [
+            'සේවා ස්ථාන ආරක්ෂණ ක්‍රමවේද (Anzen Daiichi) සහ මෙවලම් හැසිරවීම',
+            'Prometric ඉදිකිරීම් නිපුණතා ඇගයීම් විභාග පෙරහුරුව',
+            'අතිකාල දීමනා සහිත ආකර්ෂණීය ජපන් වැටුප් හිමිකම',
+            'SLBFE බලපත්‍ර අංක 3293 යටතේ පූර්ණ නීත්‍යානුකූල ලියකියවිලි සැකසීම'
+          ]
+        };
+      }
+    }
+    return c;
+  });
+
   return (
     <div className="page-container courses-page">
       {/* 1. Page Hero Banner */}
@@ -255,7 +357,7 @@ export default function CoursesPage({ lang, onOpenModal }) {
           </div>
 
           <div className="courses-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: '1.75rem' }}>
-            {coursesData.sswVocational.map((course) => (
+            {localizedSswCourses.map((course) => (
               <div key={course.id} className="course-card" style={{ background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: 'var(--radius-xl)', padding: '1.75rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 4px 15px rgba(0,0,0,0.03)' }}>
                 <div>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
@@ -359,36 +461,79 @@ export default function CoursesPage({ lang, onOpenModal }) {
                   </tr>
                 </thead>
                 <tbody>
-                  {filterSchedules.map((batch) => (
-                    <tr key={batch.id} className="schedule-row">
-                      <td className="cell-course">
-                        <div className="batch-name">{batch.course}</div>
-                        <span className="batch-cat-tag">{batch.category}</span>
-                      </td>
-                      <td className="cell-time">
-                        <div className="batch-days">{batch.days}</div>
-                        <div className="batch-time-clock">
-                          <Clock size={13} />
-                          <span>{batch.time}</span>
-                        </div>
-                      </td>
-                      <td className="cell-mode">
-                        <div className="batch-mode-text">
-                          <MapPin size={13} />
-                          <span>{batch.mode}</span>
-                        </div>
-                        <span className="batch-duration-badge">{batch.duration}</span>
-                      </td>
-                      <td className="cell-action">
-                        <button 
-                          onClick={() => onOpenModal(`Batch Registration: ${batch.course}`)}
-                          className="btn btn-sm btn-primary"
-                        >
-                          <span>{ui.btnEnrollNow || 'Apply'}</span>
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
+                  {filterSchedules.map((batch) => {
+                    const courseName = lang === 'si'
+                      ? (batch.id.includes('n5-weekend') ? 'JLPT N5 සති අන්ත මූලික පාඨමාලාව'
+                         : batch.id.includes('n5-weekday') ? 'JLPT N5 කඩිනම් සතියේ දින පාඨමාලාව'
+                         : batch.id.includes('n4') ? 'JLPT N4 මධ්‍යම ප්‍රමිති පාඨමාලාව'
+                         : batch.id.includes('jft') ? 'JFT-Basic A2 පරිගණක (CBT) පාඨමාලාව'
+                         : batch.id.includes('caregiver') ? 'SSW සාත්තු සේවා (Kaigo) ප්‍රායෝගික පුහුණුව'
+                         : batch.id.includes('food') ? 'SSW ආහාර සේවා සහ ආගන්තුක සත්කාරය'
+                         : batch.id.includes('driving') ? 'SSW වාණිජ රියදුරු සහ ප්‍රවාහන න්‍යාය'
+                         : batch.course)
+                      : batch.course;
+                    const catName = lang === 'si'
+                      ? (batch.category.includes('Language & SSW') ? 'ජපන් භාෂාව සහ SSW'
+                         : batch.category.includes('Language') ? 'ජපන් භාෂාව'
+                         : batch.category.includes('CBT') ? 'Prometric CBT පෙරහුරු'
+                         : 'SSW වෘත්තීය පුහුණුව')
+                      : batch.category;
+                    const daysName = lang === 'si'
+                      ? (batch.days.includes('Saturday & Sunday') ? 'සෙනසුරාදා සහ ඉරිදා'
+                         : batch.days.includes('Tuesday & Thursday') ? 'අඟහරුවාදා සහ බ්‍රහස්පතින්දා'
+                         : batch.days.includes('Mon, Wed & Friday') ? 'සඳුදා, බදාදා සහ සිකුරාදා'
+                         : batch.days.includes('Saturday Full Day') ? 'සෙනසුරාදා පූර්ණ දින + ප්‍රායෝගික'
+                         : batch.days.includes('Sunday Mornings') ? 'ඉරිදා උදෑසන'
+                         : batch.days.includes('Weekend Evenings') ? 'සති අන්ත සවස් කාලය'
+                         : batch.days)
+                      : batch.days;
+                    const modeName = lang === 'si'
+                      ? (batch.mode.includes('Live Zoom') ? 'අත්සුකෝ ප්‍රධාන මූලස්ථානය + සජීවී Zoom'
+                         : batch.mode.includes('Simulation Ward') ? 'අත්සුකෝ ප්‍රධාන ප්‍රායෝගික පුහුණු ඒකකය'
+                         : batch.mode.includes('CBT Center') ? 'අත්සුකෝ ප්‍රධාන CBT විභාග මධ්‍යස්ථානය'
+                         : batch.mode.includes('Zoom Theory') ? 'අත්සුකෝ ප්‍රධාන මූලස්ථානය සහ Zoom'
+                         : 'අත්සුකෝ ප්‍රධාන මූලස්ථානය')
+                      : batch.mode;
+                    const durationText = lang === 'si'
+                      ? (batch.duration.includes('4 Months') ? 'මාස 4 (පැය 160)'
+                         : batch.duration.includes('3.5 Months') ? 'මාස 3.5 ක කඩිනම්'
+                         : batch.duration.includes('2.5 Months') ? 'මාස 2.5 ක කඩිනම්'
+                         : batch.duration.includes('3 Months') ? 'මාස 3 ක ප්‍රායෝගික + සාත්තු ජපන්'
+                         : batch.duration.includes('2 Months') ? 'මාස 2 ක සූදානම'
+                         : batch.duration)
+                      : batch.duration;
+
+                    return (
+                      <tr key={batch.id} className="schedule-row">
+                        <td className="cell-course">
+                          <div className="batch-name">{courseName}</div>
+                          <span className="batch-cat-tag">{catName}</span>
+                        </td>
+                        <td className="cell-time">
+                          <div className="batch-days">{daysName}</div>
+                          <div className="batch-time-clock">
+                            <Clock size={13} />
+                            <span>{batch.time}</span>
+                          </div>
+                        </td>
+                        <td className="cell-mode">
+                          <div className="batch-mode-text">
+                            <MapPin size={13} />
+                            <span>{modeName}</span>
+                          </div>
+                          <span className="batch-duration-badge">{durationText}</span>
+                        </td>
+                        <td className="cell-action">
+                          <button 
+                            onClick={() => onOpenModal(`Batch Registration: ${courseName}`)}
+                            className="btn btn-sm btn-primary"
+                          >
+                            <span>{ui.btnEnrollNow || 'Apply'}</span>
+                          </button>
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>

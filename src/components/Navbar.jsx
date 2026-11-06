@@ -272,7 +272,7 @@ export default function Navbar({
           )}
 
           <a 
-            href={officialContacts.studentPortalUrl || "https://portal.atsukojapan.com"}
+            href={officialContacts.studentPortalUrl || "https://portal.atsukointernational.com"}
             target="_blank"
             rel="noopener noreferrer"
             className="nav-btn-student-login"
@@ -434,7 +434,7 @@ export default function Navbar({
 
             <div className="mobile-menu-actions">
               <a 
-                href={officialContacts.studentPortalUrl || "https://portal.atsukojapan.com"}
+                href={officialContacts.studentPortalUrl || "https://portal.atsukointernational.com"}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}

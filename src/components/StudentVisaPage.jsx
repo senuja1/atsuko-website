@@ -11,12 +11,15 @@ import {
   Globe2,
   Briefcase
 } from 'lucide-react';
-import { studentVisaIntakes, visaDocumentChecklist, roadmapSteps } from '../data/websiteData';
+import { studentVisaIntakes, visaDocumentChecklist, roadmapSteps, siRoadmap, jpRoadmap, siVisaDocumentChecklist, jpVisaDocumentChecklist } from '../data/websiteData';
 import { getUiText } from '../data/uiText';
 
 export default function StudentVisaPage({ lang, onOpenModal, onNavigate }) {
   const tFull = getUiText(lang);
   const ui = tFull.pages.visa;
+
+  const activeRoadmap = lang === 'si' ? siRoadmap : lang === 'jp' ? jpRoadmap : roadmapSteps;
+  const activeChecklist = lang === 'si' ? siVisaDocumentChecklist : lang === 'jp' ? jpVisaDocumentChecklist : visaDocumentChecklist;
 
   const studentReqs = lang === 'si' ? [
     'අවම වශයෙන් වසර 12 ක පාසල් අධ්‍යාපනයක් සම්පූර්ණ කර තිබීම (අ.පො.ස. උ/පෙළ හෝ ඊට සමාන සුදුසුකම්).',
@@ -152,39 +155,79 @@ export default function StudentVisaPage({ lang, onOpenModal, onNavigate }) {
               </p>
 
               <div className="intakes-grid-cards">
-                {studentVisaIntakes.map((intake, idx) => (
-                  <div key={idx} className="intake-detail-card">
-                    <div className="intake-card-top">
-                      <span className={`intake-cycle-pill intake-${intake.badgeColor}`}>
-                        {intake.status}
-                      </span>
-                      <span className="intake-jp-term">{intake.jpTerm}</span>
-                    </div>
-                    <h4 className="intake-name">{intake.intake}</h4>
-                    <p className="intake-season">{intake.season}</p>
-                    <p className="intake-desc">{intake.description}</p>
+                {studentVisaIntakes.map((intake, idx) => {
+                  const intakeName = lang === 'si'
+                    ? (intake.intake.includes('April') ? 'අප්‍රේල් වාරය'
+                       : intake.intake.includes('July') ? 'ජූලි වාරය'
+                       : intake.intake.includes('October') ? 'ඔක්තෝබර් වාරය'
+                       : 'ජනවාරි වාරය')
+                    : intake.intake;
+                  const seasonName = lang === 'si'
+                    ? (intake.season.includes('Spring') ? 'වසන්ත / ප්‍රධාන අධ්‍යයන වාරය'
+                       : intake.season.includes('Summer') ? 'ග්‍රීෂ්ම වාරය'
+                       : intake.season.includes('Autumn') ? 'සරත් / දෙවන ප්‍රධාන වාරය'
+                       : 'ශීත ඍතු වාරය')
+                    : intake.season;
+                  const descText = lang === 'si'
+                    ? (intake.intake.includes('April') ? 'ජපානයේ ප්‍රධානතම හා විශාලතම අධ්‍යයන වාරය. විශ්වවිද්‍යාල උපාධි හෝ Senmon Gakko ඩිප්ලෝමා දක්වා ඉදිරියට යාමට අපේක්ෂිත සිසුන්ට වඩාත් සුදුසුය.'
+                       : intake.intake.includes('July') ? 'ද්විතීයික වාරය. කෙටි කාලයකින් ජපානයට ගොස් භාෂාව හැදෑරීමට අපේක්ෂා කරන සිසුන් සඳහා වඩාත් උචිතය.'
+                       : intake.intake.includes('October') ? 'දෙවන විශාලතම අධ්‍යයන වාරය. උසස් පෙළින් පසු සූදානම් වන සිසුන්ට වඩාත් ගැලපෙන වාරයකි.'
+                       : 'වසර 1 යි මාස 3 ක කඩිනම් භාෂා අධ්‍යයන වාරය. ඉක්මනින් විශ්වවිද්‍යාල හෝ රැකියා මාවතට පිවිසීමට කැමති සිසුන්ට.')
+                    : intake.description;
+                  const statusText = lang === 'si' ? 'ඇතුළත් කිරීම් විවෘතයි' : intake.status;
+                  const coeText = lang === 'si'
+                    ? (intake.coeRelease.includes('Late February') ? 'පෙබරවාරි අග'
+                       : intake.coeRelease.includes('Late May') ? 'මැයි අග'
+                       : intake.coeRelease.includes('Late August') ? 'අගෝස්තු අග'
+                       : 'නොවැම්බර් අග')
+                    : intake.coeRelease;
+                  const depText = lang === 'si'
+                    ? (intake.departure.includes('Late March') ? 'මාර්තු අග'
+                       : intake.departure.includes('Late June') ? 'ජූනි අග'
+                       : intake.departure.includes('Late September') ? 'සැප්තැම්බර් අග'
+                       : 'දෙසැම්බර් අග')
+                    : intake.departure;
+                  const studyText = lang === 'si'
+                    ? (intake.studyPeriod.includes('2 Years') ? 'වසර 2 ක පාඨමාලාව'
+                       : intake.studyPeriod.includes('1.75 Years') ? 'වසර 1.75 ක පාඨමාලාව'
+                       : intake.studyPeriod.includes('1.5 Years') ? 'වසර 1.5 ක පාඨමාලාව'
+                       : 'වසර 1.25 ක පාඨමාලාව')
+                    : intake.studyPeriod;
 
-                    <div className="intake-timeline-meta">
-                      <div>
-                        <strong>COE Result:</strong> {intake.coeRelease}
+                  return (
+                    <div key={idx} className="intake-detail-card">
+                      <div className="intake-card-top">
+                        <span className={`intake-cycle-pill intake-${intake.badgeColor}`}>
+                          {statusText}
+                        </span>
+                        <span className="intake-jp-term">{intake.jpTerm}</span>
                       </div>
-                      <div>
-                        <strong>Departure to Japan:</strong> {intake.departure}
-                      </div>
-                      <div>
-                        <strong>Course Length:</strong> {intake.studyPeriod}
-                      </div>
-                    </div>
+                      <h4 className="intake-name">{intakeName}</h4>
+                      <p className="intake-season">{seasonName}</p>
+                      <p className="intake-desc">{descText}</p>
 
-                    <button
-                      onClick={() => onOpenModal(`Student Visa - ${intake.intake}`)}
-                      className="btn btn-primary btn-block btn-sm"
-                      style={{ marginTop: '1rem' }}
-                    >
-                      {lang === 'si' ? `${intake.intake.split(' ')[0]} වාරයට අයදුම් කරන්න` : `Apply for ${intake.intake.split(' ')[0]} Intake`}
-                    </button>
-                  </div>
-                ))}
+                      <div className="intake-timeline-meta">
+                        <div>
+                          <strong>{lang === 'si' ? 'COE ප්‍රතිඵල:' : lang === 'jp' ? '在留資格発表:' : 'COE Result:'}</strong> {coeText}
+                        </div>
+                        <div>
+                          <strong>{lang === 'si' ? 'ජපානයට පිටත්වීම:' : lang === 'jp' ? '日本渡航時期:' : 'Departure to Japan:'}</strong> {depText}
+                        </div>
+                        <div>
+                          <strong>{lang === 'si' ? 'පාඨමාලා කාලය:' : lang === 'jp' ? '就学期間:' : 'Course Length:'}</strong> {studyText}
+                        </div>
+                      </div>
+
+                      <button
+                        onClick={() => onOpenModal(`Student Visa - ${intake.intake}`)}
+                        className="btn btn-primary btn-block btn-sm"
+                        style={{ marginTop: '1rem' }}
+                      >
+                        {lang === 'si' ? `${intakeName.split(' ')[0]} වාරයට අයදුම් කරන්න` : `Apply for ${intake.intake.split(' ')[0]} Intake`}
+                      </button>
+                    </div>
+                  );
+                })}
               </div>
             </div>
 
@@ -239,7 +282,7 @@ export default function StudentVisaPage({ lang, onOpenModal, onNavigate }) {
               </div>
 
               <div className="roadmap-grid-enhanced">
-                {roadmapSteps.map((step, idx) => (
+                {activeRoadmap.map((step, idx) => (
                   <div key={idx} className="roadmap-card-enhanced">
                     <div>
                       <div className="roadmap-num-badge">{step.step}</div>
@@ -265,7 +308,7 @@ export default function StudentVisaPage({ lang, onOpenModal, onNavigate }) {
               </div>
 
               <div className="checklist-grid">
-                {visaDocumentChecklist.map((group, idx) => (
+                {activeChecklist.map((group, idx) => (
                   <div key={idx} className="checklist-card">
                     <h3 className="checklist-category-title">{group.category}</h3>
                     <ul className="checklist-items">

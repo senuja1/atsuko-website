@@ -356,15 +356,15 @@ export default function AboutPage({ lang, onOpenModal, onNavigate }) {
                   )}
                   <div>
                     <span style={{ display: 'inline-block', background: '#e0f2fe', color: '#0369a1', fontSize: '0.75rem', fontWeight: 700, padding: '0.2rem 0.55rem', borderRadius: 'var(--radius-full)' }}>
-                      {member.role}
+                      {lang === 'si' ? (member.roleSi || member.role) : lang === 'jp' ? (member.roleJp || member.role) : member.role}
                     </span>
                     <h3 style={{ fontSize: '1.05rem', fontWeight: 800, color: 'var(--navy-900)', margin: '0.25rem 0 0' }}>
-                      {member.name}
+                      {lang === 'si' ? (member.nameSi || member.name) : lang === 'jp' ? (member.nameJp || member.name) : member.name}
                     </h3>
                   </div>
                 </div>
                 <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem', lineHeight: 1.6, margin: 0 }}>
-                  {member.focus}
+                  {lang === 'si' ? (member.focusSi || member.focus) : lang === 'jp' ? (member.focusJp || member.focus) : member.focus}
                 </p>
               </div>
             ))}

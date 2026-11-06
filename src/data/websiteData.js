@@ -22,8 +22,8 @@ export const officialContacts = {
   japanCorporateNo: "3700-01-048848",
   japanSupportOrgNo: "23登-008312",
   japanPaidEmploymentNo: "04-ユ-300338",
-  domain: "www.atsukojapan.com",
-  studentPortalUrl: "https://portal.atsukojapan.com",
+  domain: "www.atsukointernational.com",
+  studentPortalUrl: "https://portal.atsukointernational.com",
   
   // Official Leaflet Hotlines & Contacts (Page 18)
   hotline: "(+94) 112 987 263",
@@ -113,52 +113,93 @@ export const aboutUsData = {
   teamMembers: [
     {
       name: "Herath Mudiyanselage Dulaj Bandara",
+      nameSi: "හේරත් මුදියන්සේලාගේ දුලාජ් බණ්ඩාර",
+      nameJp: "ヘラス・ムディヤンセラゲ・ドゥラージ・バンダラ",
       role: "Managing Director",
+      roleSi: "කළමනාකාර අධ්‍යක්ෂ",
+      roleJp: "代表取締役",
       title: "Managing Director & Executive Head",
+      titleSi: "කළමනාකාර අධ්‍යක්ෂ සහ ප්‍රධාන විධායක",
+      titleJp: "マネージングディレクター兼統括責任者",
       image: "/images/managing-director-dulaj-bandara.png",
-      focus: "Overall leadership, bilateral Sri Lanka–Japan relations, SLBFE regulatory compliance, and institutional partnerships."
-    },
-    {
-      name: "Ito Tsuguki",
-      role: "Director",
-      title: "Director (Japan Operations)",
-      image: "/images/team/ito-tsuguki.png",
-      focus: "Overseeing Japanese corporate employer relations, legal compliance under Japanese labor standards, and candidate reception."
+      focus: "Overall leadership, bilateral Sri Lanka–Japan relations, SLBFE regulatory compliance, and institutional partnerships.",
+      focusSi: "සමස්ත ආයතනික නායකත්වය, ශ්‍රී ලංකා - ජපන් ද්විපාර්ශ්වික සබඳතා, SLBFE නීතිමය ප්‍රමිතීන් සහ ජාත්‍යන්තර හවුල්කාරිත්වයන් මෙහෙයවීම.",
+      focusJp: "全体統括、スリランカ・日本二国間連携推進、SLBFE法的コンプライアンス管理、教育・受入提携機関との連携業務。"
     },
     {
       name: "Nguyen Thi Hanh",
+      nameSi: "නගුයෙන් ති හැන්",
+      nameJp: "グエン・ティ・ハン",
       role: "Director",
+      roleSi: "අධ්‍යක්ෂිකා (ජාත්‍යන්තර සබඳතා)",
+      roleJp: "取締役（国際関係統括）",
       title: "Director (International Relations)",
+      titleSi: "අධ්‍යක්ෂිකා (ජාත්‍යන්තර සබඳතා සහ ගෝලීය පුහුණු ප්‍රමිති)",
+      titleJp: "取締役（国際関係・グローバル教育推進担当）",
       image: "/images/team/nguyen-thi-hanh.png",
-      focus: "International training standards, cross-border educational coordination, and candidate lifecycle management."
+      focus: "International training standards, cross-border educational coordination, and candidate lifecycle management.",
+      focusSi: "ජාත්‍යන්තර පුහුණු ප්‍රමිතීන්, දේශසීමා අධ්‍යාපනික සම්බන්ධීකරණය සහ අපේක්ෂකයින්ගේ කුසලතා සංවර්ධනය අධීක්ෂණය කිරීම.",
+      focusJp: "国際研修基準の策定、国境を越えた教育連携、候補者の選考および研修カリキュラムの品質管理。"
     },
     {
       name: "Herath Mudiyanselage Dushan Bandara",
-      role: "Manager",
+      nameSi: "හේරත් මුදියන්සේලාගේ දුෂාන් බණ්ඩාර",
+      nameJp: "ヘラス・ムディヤンセラゲ・ドゥシャン・バンダラ",
+      role: "General Manager",
+      roleSi: "සාමාන්‍යාධිකාරී (ශ්‍රී ලංකා)",
+      roleJp: "ゼネラルマネージャー（スリランカ統括）",
       title: "General Manager (Sri Lanka)",
+      titleSi: "සාමාන්‍යාධිකාරී (ශ්‍රී ලංකා මෙහෙයුම්)",
+      titleJp: "スリランカ総支配人",
       image: "/images/team/dushan-bandara.png",
-      focus: "Directing operations at Kadawatha Headquarters, student admissions, academic quality, and batch coordination."
+      focus: "Directing operations at Kadawatha Headquarters, student admissions, academic quality, and batch coordination.",
+      focusSi: "කඩවත ප්‍රධාන මූලස්ථානයේ මෙහෙයුම්, සිසුන් බඳවාගැනීම්, අධ්‍යාපනික ගුණාත්මකභාවය සහ කණ්ඩායම් සම්බන්ධීකරණය අධීක්ෂණය කිරීම.",
+      focusJp: "カダワタ本校の運営統括、入校手続き、学術水準の維持、受講期生全体の進行管理。"
     },
     {
       name: "Pathiraja Mudiyanselage Vimani Ivanthika Pathiraja",
+      nameSi: "පතිරාජ මුදියන්සේලාගේ විමානි ඉවන්තිකා පතිරාජ",
+      nameJp: "パティラジャ・ムディヤンセラゲ・ヴィマニ・イヴァンティカ・パティラジャ",
       role: "Representative in Japan",
+      roleSi: "ජපානයේ නිල නියෝජිතවරිය",
+      roleJp: "日本現地代表窓口",
       title: "Representative in Japan (Sendai & Aichi)",
+      titleSi: "ජපානයේ නිල නියෝජිතවරිය (සෙන්ඩායි සහ අයිචි)",
+      titleJp: "日本代表（宮城仙台・愛知小牧拠点統括）",
       image: "/images/team/vimani-pathiraja.png",
-      focus: "On-the-ground candidate reception, airport greeting, municipal resident registration, bank account setup, and student welfare."
+      focus: "On-the-ground candidate reception, airport greeting, municipal resident registration, bank account setup, and student welfare.",
+      focusSi: "ජපානයේ ගුවන් තොටුපළින් පිළිගැනීම, නගර සභා නේවාසික ලියාපදිංචිය, බැංකු ගිණුම් ආරම්භ කිරීම සහ ශිෂ්‍ය සුබසාධන කටයුතු සෘජුව මෙහෙයවීම.",
+      focusJp: "日本到着時の空港出迎え、住民登録、銀行口座開設、社宅手配、および滞在中の生活相談・定着支援。"
     },
     {
       name: "Maddumage Ranudi Vihansa Ariyarathna",
+      nameSi: "මද්දුමගේ රනුදි විහංසා ආරියරත්න",
+      nameJp: "マッドゥマゲ・ラヌディ・ヴィハンサ・アリヤラトナ",
       role: "SSW Coordinator",
+      roleSi: "SSW රැකියා සම්බන්ධීකාරක",
+      roleJp: "特定技能コーディネーター",
       title: "SSW (Specified Skilled Worker) Coordinator",
+      titleSi: "SSW විශේෂිත කුසලතා රැකියා සම්බන්ධීකාරක",
+      titleJp: "特定技能専門コーディネーター",
       image: "/images/team/ranudi-ariyarathna.png",
-      focus: "Coordinating Caregiver (Kaigo) practical simulation lab, Food Service, Truck Driving, and Prometric CBT test readiness."
+      focus: "Coordinating Caregiver (Kaigo) practical simulation lab, Food Service, Truck Driving, and Prometric CBT test readiness.",
+      focusSi: "සාත්තු සේවා (Kaigo) ප්‍රායෝගික පුහුණු ඒකකය, ආහාර සේවා, වාණිජ රියදුරු සහ Prometric CBT විභාග සූදානම සම්බන්ධීකරණය.",
+      focusJp: "介護実習シミュレーション、外食、自動車運送などの特定技能試験対策およびプロメトリックCBT受験支援。"
     },
     {
       name: "Thotage Imalsha Dulanjali",
+      nameSi: "තෝටගේ ඉමල්ෂා දුලංජලී",
+      nameJp: "トータゲ・イマルシャ・ドゥランジャリ",
       role: "Student Visa Coordinator",
+      roleSi: "ශිෂ්‍ය වීසා සම්බන්ධීකාරිකා",
+      roleJp: "留学ビザコーディネーター",
       title: "Student Visa (Ryugaku) Coordinator",
+      titleSi: "ශිෂ්‍ය වීසා (Ryugaku) සම්බන්ධීකාරිකා",
+      titleJp: "留学（就学）ビザ担当コーディネーター",
       image: "/images/team/imalsha-dulanjali.png",
-      focus: "Managing Certificate of Eligibility (COE) filing for Jan, Apr, Jul, and Oct intakes, financial audit, and school placements."
+      focus: "Managing Certificate of Eligibility (COE) filing for Jan, Apr, Jul, and Oct intakes, financial audit, and school placements.",
+      focusSi: "ජනවාරි, අප්‍රේල්, ජූලි සහ ඔක්තෝබර් වාර සඳහා COE අයදුම්පත් සකස් කිරීම, මූල්‍ය විගණනය සහ භාෂා පාසල් ඇතුළත් කිරීම් කළමනාකරණය.",
+      focusJp: "1月・4月・7月・10月生の在留資格（COE）申請書類作成、経費支弁審査、および提携校マッチング業務。"
     }
   ],
 
@@ -290,7 +331,7 @@ export const coursesData = {
       title: "Caregiving (Kaigo) Skills Training",
       jpTitle: "特定技能 - 介護分野 (Kaigo)",
       duration: "3 Months Practical + Nursing Japanese",
-      mode: "Kadawatha Practical Simulation Ward",
+      mode: "Atsuko Main Practical Simulation Ward",
       description: "Comprehensive preparation for Japan's thriving nursing and elderly care sector. Includes hospital simulation lab practicals, nursing care Japanese vocabulary, and Prometric test coaching.",
       features: [
         "Hands-on practice with hospital beds, wheelchairs, and transfer techniques",
@@ -306,7 +347,7 @@ export const coursesData = {
       title: "Food Service (Gaishoku) & Hospitality",
       jpTitle: "特定技能 - 外食業分野 (Gaishoku)",
       duration: "2 Months Prep + Prometric Exam",
-      mode: "Kadawatha Classroom & Zoom Theory",
+      mode: "Atsuko Main & Zoom Theory",
       description: "Training for employment in Japanese restaurants, food preparation companies, and catering chains. Covers Japanese food safety standards, hygiene, and customer hospitality.",
       features: [
         "Japanese food hygiene (HACCP) standards and kitchen safety",
@@ -389,7 +430,7 @@ export const activeCourseSchedules = [
     id: "batch-n5-weekend",
     course: "JLPT N5 Weekend Foundation",
     category: "Japanese Language",
-    mode: "Kadawatha Head Office + Live Zoom",
+    mode: "Atsuko Main Head Office + Live Zoom",
     days: "Saturday & Sunday",
     time: "8:30 AM - 1:30 PM",
     startDate: "1st Weekend of Every Month",
@@ -401,7 +442,7 @@ export const activeCourseSchedules = [
     id: "batch-n5-weekday",
     course: "JLPT N5 Fast-Track Weekday",
     category: "Japanese Language",
-    mode: "Kadawatha Head Office",
+    mode: "Atsuko Main Head Office",
     days: "Tuesday & Thursday",
     time: "9:00 AM - 1:00 PM",
     startDate: "Mid-Month Cohorts",
@@ -413,7 +454,7 @@ export const activeCourseSchedules = [
     id: "batch-n4-intermediate",
     course: "JLPT N4 Intermediate Standard",
     category: "Japanese Language & SSW",
-    mode: "Kadawatha + Hybrid Zoom",
+    mode: "Atsuko Main + Hybrid Zoom",
     days: "Saturday & Sunday",
     time: "2:00 PM - 6:30 PM",
     startDate: "Ongoing Cohorts",
@@ -437,7 +478,7 @@ export const activeCourseSchedules = [
     id: "batch-caregiver-sim",
     course: "SSW Caregiver (Kaigo) Practical Simulation Lab",
     category: "SSW Skills Training",
-    mode: "Kadawatha Practical Simulation Ward",
+    mode: "Atsuko Main Practical Simulation Ward",
     days: "Saturday Full Day + Lab Practicals",
     time: "8:30 AM - 4:30 PM",
     startDate: "Monthly New Cohort",
@@ -449,7 +490,7 @@ export const activeCourseSchedules = [
     id: "batch-food-service",
     course: "SSW Food Service & Hospitality Skills",
     category: "SSW Skills Training",
-    mode: "Kadawatha Center & Zoom Theory",
+    mode: "Atsuko Main & Zoom Theory",
     days: "Sunday Mornings",
     time: "9:00 AM - 1:00 PM",
     startDate: "Monthly Cohort",
@@ -461,7 +502,7 @@ export const activeCourseSchedules = [
     id: "batch-driving-logistics",
     course: "SSW Automobile Transport & Truck Driving Theory",
     category: "SSW Skills Training",
-    mode: "Kadawatha Classroom & Theory Tests",
+    mode: "Atsuko Main Classroom & Theory Tests",
     days: "Weekend Evenings",
     time: "3:00 PM - 6:30 PM",
     startDate: "Monthly Cohort",
@@ -665,6 +706,85 @@ export const roadmapSteps = [
   }
 ];
 
+// Localized 6-Step Roadmap (Sinhala & Japanese)
+export const siRoadmap = [
+  {
+    step: "01",
+    title: "නොමිලේ වෘත්තීය ඇගයීම",
+    jp: "カウンセリング",
+    desc: "කඩවත අපගේ ප්‍රධාන මූලස්ථානයේදී ඔබගේ අධ්‍යාපන සහතික පරීක්ෂා කර ශිෂ්‍ය වීසා හෝ SSW රැකියා වීසා අතුරින් වඩාත් සුදුසු මඟ තීරණය කිරීම."
+  },
+  {
+    step: "02",
+    title: "JLPT / JFT පන්ති සහ නිපුණතා පුහුණුව",
+    jp: "日本語学習・技能訓練",
+    desc: "ජපන් සහ දේශීය ගුරු මණ්ඩලය යටතේ විභාග සහ සම්මුඛ පරීක්ෂණ (Mensetsu) කථන පුහුණුව හා SSW ප්‍රායෝගික පුහුණුව ලබාගැනීම."
+  },
+  {
+    step: "03",
+    title: "පාසල් සහ ආයතනික සම්මුඛ පරීක්ෂණ",
+    jp: "学校・企業面接",
+    desc: "ජපානයේ පිළිගත් භාෂා පාසල් හෝ සත්කාරක ආයතන සමඟ සෘජු සම්මුඛ පරීක්ෂණවලට මුහුණ දී තේරී පත්වීම."
+  },
+  {
+    step: "04",
+    title: "ජපාන ආගමන කාර්යාංශයට COE අයදුම්පත",
+    jp: "在留資格認定証明書 (COE)",
+    desc: "අපගේ නීතිමය ලේඛන අංශය මඟින් ජපාන ආගමන විගමන කාර්යාංශය වෙත නියමිත කාලයට පෙර COE ලිපිගොනුව යොමු කිරීම."
+  },
+  {
+    step: "05",
+    title: "තානාපති කාර්යාල වීසා සහ SLBFE අනුමැතිය",
+    jp: "ビザ発給・海外雇用局承認",
+    desc: "කොළඹ ජපන් තානාපති කාර්යාලයෙන් වීසා ලබාගෙන SLBFE 3293 බලපත්‍රය යටතේ රජයේ අනුමැතිය සහ විදේශගතවීමේ සහතිකය ලබාගැනීම."
+  },
+  {
+    step: "06",
+    title: "ජපානයට පිටත්වීම සහ පූර්ණ රැකවරණය",
+    jp: "日本渡航・登録支援機関サポート",
+    desc: "ජපානයට ළඟාවී අපගේ සෙන්ඩායි සහ අයිචි ලියාපදිංචි ආයතනය (株式会社 Atsuko International) මඟින් නවාතැන්, නගර සභා සහ බැංකු කටයුතු සම්පූර්ණ කිරීම."
+  }
+];
+
+export const jpRoadmap = [
+  {
+    step: "01",
+    title: "進路・適性カウンセリング",
+    jp: "カウンセリング",
+    desc: "カダワタ本社校および各窓口で学歴と適性を精査し、留学または特定技能の最適ルートを選定。"
+  },
+  {
+    step: "02",
+    title: "JLPT / JFT 集中講義・技能実習",
+    jp: "日本語学習・技能訓練",
+    desc: "日本人講師・現地専任講師による語学・実技および日本ビジネスマナー指導。"
+  },
+  {
+    step: "03",
+    title: "日本受入機関との面接",
+    jp: "学校・企業面接",
+    desc: "提携日本語学校および優良受入企業とのオンライン直接面接を実施。"
+  },
+  {
+    step: "04",
+    title: "出入国在留管理局へのCOE申請",
+    jp: "在留資格認定証明書 (COE)",
+    desc: "正規書類を作成し、東京・仙台などの出入国在留管理局へCOE申請。"
+  },
+  {
+    step: "05",
+    title: "査証発給と海外雇用局承認",
+    jp: "ビザ発給・海外雇用局承認",
+    desc: "在スリランカ日本国大使館にてビザ取得、SLBFE No.3293正規承認と渡航前研修。"
+  },
+  {
+    step: "06",
+    title: "日本渡航・現地生活スタート",
+    jp: "日本渡航・登録支援機関サポート",
+    desc: "仙台・小牧の日本法人「株式会社 Atsuko International」が空港出迎えから生活基盤をサポート。"
+  }
+];
+
 // Document Checklist
 export const visaDocumentChecklist = [
   {
@@ -700,6 +820,83 @@ export const visaDocumentChecklist = [
       "Sponsor's Employment / Business Income Verification letter",
       "Affidavit of Financial Support (Relationship Certificate)",
       "Police Clearance Certificate & SLBFE Registration under License No. 3293"
+    ]
+  }
+];
+
+// Localized Document Checklist (Sinhala & Japanese)
+export const siVisaDocumentChecklist = [
+  {
+    category: "පුද්ගලික අනන්‍යතාව සහ සිවිල් ලේඛන",
+    items: [
+      "අවම වශයෙන් වසර 2ක් වලංගු මුල් විදේශ ගමන් බලපත්‍රය (Passport)",
+      "ජාතික හැඳුනුම්පත (NIC) සහ එහි සහතික කළ ඉංග්‍රීසි පරිවර්තනය",
+      "මුල් උප්පැන්න සහතිකය සහ එහි සහතික කළ ඉංග්‍රීසි පරිවර්තනය",
+      "ජපාන ආගමන විගමන ප්‍රමිතියට අනුව ලබාගත් 45mm x 35mm ප්‍රමාණයේ ඡායාරූප"
+    ]
+  },
+  {
+    category: "අධ්‍යාපනික සහතිකපත්",
+    items: [
+      "අ.පො.ස. සාමාන්‍ය පෙළ (O/L) සහතිකය (මුල් පිටපත සහ ඉංග්‍රීසි පරිවර්තනය)",
+      "අ.පො.ස. උසස් පෙළ (A/L) සහතිකය (වසර 12ක පාසල් අධ්‍යාපනය තහවුරු කිරීම)",
+      "පාසල් හැරයාමේ සහතිකය සහ චරිත සහතිකය",
+      "ඩිප්ලෝමා, NVQ සහතික හෝ උපාධි සහතික (අදාළ වන්නේ නම්)"
+    ]
+  },
+  {
+    category: "භාෂා සහ වෘත්තීය නිපුණතා සහතික",
+    items: [
+      "JLPT සහතිකය (N5/N4/N3) හෝ JFT-Basic A2 සමත් ලකුණු වාර්තාව",
+      "අත්සුකෝ ජාත්‍යන්තර ආයතනයෙන් ලබාගත් පැය 150+ ජපන් භාෂා හැදෑරීමේ සහතිකය",
+      "Prometric නිපුණතා ඇගයීම් විභාග සහතිකය (SSW සාත්තු සේවා, ආහාර සේවා ආදී ක්ෂේත්‍ර සඳහා)"
+    ]
+  },
+  {
+    category: "මූල්‍ය අනුග්‍රාහකත්වය සහ නීතිමය නිෂ්කාශනය",
+    items: [
+      "අනුග්‍රාහකයාගේ බැංකු ශේෂ සහතිකය සහ මාස 6 ක ගිණුම් ප්‍රකාශනය",
+      "අනුග්‍රාහකයාගේ රැකියා හෝ ව්‍යාපාර ආදායම් තහවුරු කිරීමේ ලිපිය",
+      "දිවුරුම් ප්‍රකාශය (Affidavit of Financial Support) සහ ඥාතීත්ව සහතිකය",
+      "පොලිස් වාර්තාව (Police Clearance) සහ SLBFE 3293 ලියාපදිංචිය"
+    ]
+  }
+];
+
+export const jpVisaDocumentChecklist = [
+  {
+    category: "身元証明・公的身分書類",
+    items: [
+      "残存有効期間2年以上の原本旅券（パスポート）",
+      "スリランカ国民身分証（NIC）および公認英語翻訳文",
+      "原本出生証明書および公認英語翻訳文",
+      "出入国在留管理庁規定写真（縦45mm×横35mm・白背景）"
+    ]
+  },
+  {
+    category: "学歴・就学歴証明書類",
+    items: [
+      "G.C.E. O/L（中等教育修了）証明書原本および英語翻訳文",
+      "G.C.E. A/L（高等教育修了）証明書（12年以上の正規就学証明）",
+      "最終出身校の卒業証明書および人物品行証明書",
+      "高専・大学の学位記、NVQ技能資格証明書（該当者のみ）"
+    ]
+  },
+  {
+    category: "日本語能力・職能評価証明書類",
+    items: [
+      "JLPT認定結果通知書（N5・N4・N3）またはJFT-Basic A2判定結果通知書",
+      "篤子学校発行の150時間以上日本語学習履修証明書",
+      "プロメトリック実施の特定技能評価試験合格証（介護・外食・運送等）"
+    ]
+  },
+  {
+    category: "経費支弁・身元保証および送出公認書類",
+    items: [
+      "経費支弁者の預金残高証明書および過去6ヶ月間の入出金明細書",
+      "経費支弁者の在職・在宅証明書および年間所得課税証明書",
+      "親族関係立証書類および経費支弁書（署名捺印済原本）",
+      "無犯罪経歴証明書（ポリスリポート）および海外雇用局（SLBFE No.3293）公認登録証"
     ]
   }
 ];
@@ -810,7 +1007,7 @@ export const globalPresenceData = {
     hotline: "(+94) 112 987 263",
     mobiles: ["(+94) 777 933 352", "(+94) 767 763 352"],
     email: "info@atsukointernational.com",
-    website: "www.atsukojapan.com",
+    website: "www.atsukointernational.com",
     hours: "Mon - Sat: 8:30 AM - 5:30 PM | Sun: 8:30 AM - 2:00 PM",
     facilities: [
       "Modern Audio & Language Classrooms",
@@ -848,83 +1045,103 @@ export const branchesData = [
   {
     id: "kadawatha",
     name: "Atsuko Main",
+    siName: "අත්සුකෝ ප්‍රධාන මූලස්ථානය (Atsuko Main)",
     jpName: "カダワタ 本社運営センター・研修校舎",
     isHeadOffice: true,
     address: "191/3/1, Sirimavo Bandaranayake Mw, Mahara, Kadawatha, Sri Lanka",
+    siAddress: "191/3/1, සිරිමාවෝ බණ්ඩාරනායක මාවත, මහඅර, කඩවත, ශ්‍රී ලංකාව",
     phone: "(+94) 112 987 263",
     whatsapp: "+94777933352",
     hours: "Mon - Sat: 8:30 AM - 5:30 PM | Sun: 8:30 AM - 2:00 PM",
+    siHours: "සඳුදා - සෙනසුරාදා: පෙ.ව 8:30 - ප.ව 5:30 | ඉරිදා: පෙ.ව 8:30 - ප.ව 2:00",
     facilities: [
       "Caregiver (Kaigo) Practical Simulation Ward",
       "Computer-Based Testing (CBT) Prometric Exam Lab",
       "Visa Legal Wing & Interview (Mensetsu) Chamber",
       "On-Campus Student Hostel & Meal Facilities"
-    ]
-  },
-  {
-    id: "kelaniya",
-    name: "Kelaniya (Registered Corporate Office)",
-    jpName: "ケラニヤ 登記本社事務所",
-    isHeadOffice: false,
-    address: "712/B/1/1, Thorana Junction, Kelaniya, Western Province, Sri Lanka",
-    phone: "(+94) 767 763 352",
-    whatsapp: "+94767763352",
-    hours: "Mon - Sat: 8:30 AM - 5:00 PM",
-    facilities: [
-      "SLBFE License Registration Office (Lic. #3293)",
-      "Company Registration Desk (PV 0217143)",
-      "Direct Student & Worker Consultations",
-      "Official Document Verification"
+    ],
+    siFacilities: [
+      "සාත්තු සේවා (Kaigo) ප්‍රායෝගික පුහුණු ඒකකය",
+      "පරිගණක ආශ්‍රිත (CBT) Prometric විභාග මධ්‍යස්ථානය",
+      "වීසා නීතිමය උපදේශන සහ සම්මුඛ පරීක්ෂණ (Mensetsu) ශාලාව",
+      "නේවාසිකාගාර සහ පෝෂ්‍යදායී ආපනශාලා පහසුකම්"
     ]
   },
   {
     id: "sendai-japan",
     name: "Sendai, Miyagi, Japan (東北・仙台 支援センター)",
+    siName: "සෙන්ඩායි, මියාගි, ජපානය (ඊසානදිග ආධාරක මධ්‍යස්ථානය)",
     jpName: "日本法人：株式会社 Atsuko International（宮城県仙台市）",
     isHeadOffice: false,
     isJapanEntity: true,
     address: "Sendai City, Miyagi Prefecture, Japan (登録支援機関 No. 23登-008312)",
+    siAddress: "සෙන්ඩායි නගරය, මියාගි ප්‍රාන්තය, ජපානය (ලියාපදිංචි ආධාරක ආයතන අංක: 23登-008312)",
     phone: "+81 90-2958-4420",
     whatsapp: "+94777933352",
     hours: "Japan Standard Time (JST): 9:00 AM - 6:00 PM",
+    siHours: "ජපාන සම්මත වේලාව (JST): පෙ.ව 9:00 - ප.ව 6:00",
     facilities: [
       "Registered Support Organization (登録支援機関 No. 23登-008312)",
       "Healthcare Facility Coordination for SSW Caregivers",
       "Municipal City Hall Registration & Bank Account Setup",
       "On-the-ground Candidate Pastoral Care"
+    ],
+    siFacilities: [
+      "නිල ලියාපදිංචි ආධාරක ආයතනය (23登-008312)",
+      "SSW සාත්තු සේවකයන් සඳහා රෝහල් හා සෞඛ්‍ය ආයතන සම්බන්ධීකරණය",
+      "නගර සභා (City Hall) ලියාපදිංචිය සහ ජපන් බැංකු ගිණුම් ආරම්භ කිරීම",
+      "ජපානය තුළ නිරන්තර සුබසාධනය සහ නීතිමය සහාය"
     ]
   },
   {
     id: "komaki-japan",
     name: "Komaki, Aichi, Japan (愛知県小牧市 駐在事務所)",
+    siName: "කොමාකි, අයිචි, ජපානය (අයිචි නේවාසික කාර්යාලය)",
     jpName: "日本法人：株式会社 Atsuko International（愛知県小牧市）",
     isHeadOffice: false,
     isJapanEntity: true,
     address: "Komaki City, Aichi Prefecture, Japan (Postcode: 485-0041)",
+    siAddress: "කොමාකි නගරය, අයිචි ප්‍රාන්තය, ජපානය (තැපැල් අංකය: 485-0041)",
     phone: "+81 90-2958-4420",
     whatsapp: "+94777933352",
     hours: "Japan Standard Time (JST): 9:00 AM - 6:00 PM",
+    siHours: "ජපාන සම්මත වේලාව (JST): පෙ.ව 9:00 - ප.ව 6:00",
     facilities: [
       "Paid Employment Agency License (有料職業紹介 No. 04-ユ-300338)",
       "Chubu & Aichi Region Corporate Employer Liaison",
       "Nagoya Centrair & Kansai Airport Reception",
       "SSW Job Placement & Enterprise Matching"
+    ],
+    siFacilities: [
+      "ගෙවීම් සහිත රැකියා බලපත්‍රය (04-ユ-300338)",
+      "චූබු සහ අයිචි කලාපීය සේවායෝජක ආයතන සම්බන්ධීකරණය",
+      "නගෝයා සහ කැන්සායි ගුවන් තොටුපළින් පිළිගැනීමේ සේවාව",
+      "SSW සෘජු ආයතනික රැකියා අවස්ථා සලසා දීම"
     ]
   },
   {
     id: "online-campus",
     name: "Island-wide Online Interactive Campus",
+    siName: "දිවයින පුරා සජීවී මාර්ගගත අධ්‍යයන මණ්ඩපය",
     jpName: "スリランカ全土 オンライン・インタラクティブ校",
     isHeadOffice: false,
     address: "Accessible across all 25 districts in Sri Lanka via Live Zoom Platform",
+    siAddress: "සජීවී Zoom තාක්ෂණය ඔස්සේ ශ්‍රී ලංකාවේ දිස්ත්‍රික්ක 25 පුරා ඕනෑම තැනක සිට",
     phone: "(+94) 112 987 263",
     whatsapp: "+94777933352",
     hours: "Daily: Morning & Evening Flexible Batches",
+    siHours: "දිනපතා: උදෑසන සහ සවස පහසු වේලාවන්හි",
     facilities: [
       "Live HD Zoom Classroom with Kadawatha Native/Certified Sensei",
       "Digital LMS Study Packs, Audio Drills & Recorded Lectures",
       "Weekly Online Vocabulary Checks & Simulated Prometric CBTs",
       "Direct Guidance for Outstation Students Relocating to Hostel"
+    ],
+    siFacilities: [
+      "සහතිකලත් ගුරු මණ්ඩලය මෙහෙයවන සජීවී HD Zoom පන්ති",
+      "ඩිජිටල් LMS අධ්‍යයන කට්ටල, ශ්‍රව්‍ය අභ්‍යාස සහ පටිගත කළ දේශන",
+      "සතිපතා මාර්ගගත වචන මාලා පරික්ෂා සහ ආදර්ශ CBT විභාග",
+      "දුරබැහැර සිසුන්ට කඩවත නේවාසිකාගාර වෙත පැමිණීමට මඟපෙන්වීම"
     ]
   }
 ];

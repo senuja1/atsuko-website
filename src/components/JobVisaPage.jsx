@@ -15,12 +15,15 @@ import {
   Truck,
   HardHat
 } from 'lucide-react';
-import { visaDocumentChecklist, roadmapSteps } from '../data/websiteData';
+import { visaDocumentChecklist, roadmapSteps, siRoadmap, jpRoadmap, siVisaDocumentChecklist, jpVisaDocumentChecklist } from '../data/websiteData';
 import { getUiText } from '../data/uiText';
 
 export default function JobVisaPage({ lang, onOpenModal, onNavigate }) {
   const tFull = getUiText(lang);
   const ui = tFull.pages.visa;
+
+  const activeRoadmap = lang === 'si' ? siRoadmap : lang === 'jp' ? jpRoadmap : roadmapSteps;
+  const activeChecklist = lang === 'si' ? siVisaDocumentChecklist : lang === 'jp' ? jpVisaDocumentChecklist : visaDocumentChecklist;
 
   const sswReqs = lang === 'si' ? [
     'අයදුම් කරන අවස්ථාවේ වයස අවුරුදු 18 සම්පූර්ණ වී තිබීම (අ.පො.ස. සා/පෙළ හෝ උ/පෙළ අධ්‍යාපනික පසුබිම).',
@@ -74,41 +77,56 @@ export default function JobVisaPage({ lang, onOpenModal, onNavigate }) {
       icon: Heart,
       color: 'text-red',
       name: 'Nursing Care / Caregiver (Kaigo 介護)',
+      nameSi: 'සාත්තු සේවක (Kaigo 介護)',
       desc: lang === 'si' ? 'ජපානයේ වැඩිහිටි නිවාස සහ රෝහල් ආශ්‍රිත ඉහළම ඉල්ලුමක් ඇති ක්ෂේත්‍රය. අත්සුකෝ ප්‍රධාන මධ්‍යස්ථානයේ (Atsuko Main) ප්‍රායෝගික පුහුණුව.' : 'Highest demand sector in Japan. Work in accredited nursing homes and eldercare facilities. Practical training at Atsuko Main.',
       test: 'JLPT N4 / JFT + Prometric Nursing Skills & Japanese',
-      salary: '¥190,000 – ¥240,000 / mo + Overtime'
+      testSi: 'JLPT N4 / JFT + Prometric සාත්තු විභාග',
+      salary: '¥190,000 – ¥240,000 / mo + Overtime',
+      salarySi: 'මසකට ¥190,000 – ¥240,000 + අතිකාල දීමනා'
     },
     {
       icon: UtensilsCrossed,
       color: 'text-gold',
       name: 'Food Service & Restaurants (Gaishoku 外食業)',
+      nameSi: 'ආහාර සේවා සහ අවන්හල් (Gaishoku 外食業)',
       desc: lang === 'si' ? 'ජපානයේ ප්‍රමුඛ පෙළේ අවන්හල් ජාල සහ හෝටල් මුළුතැන්ගෙයි සේවා. පාරිභෝගික සත්කාරය සහ ආහාර සනීපාරක්ෂාව.' : 'Employment across reputable dining chains, family restaurants, and hotel kitchens. Encompasses customer service, food prep, and kitchen sanitation.',
       test: 'JLPT N4 / JFT + Prometric Food Service Skills Exam',
-      salary: '¥185,000 – ¥235,000 / mo + Meals'
+      testSi: 'JLPT N4 / JFT + Prometric ආහාර සේවා විභාගය',
+      salary: '¥185,000 – ¥235,000 / mo + Meals',
+      salarySi: 'මසකට ¥185,000 – ¥235,000 + ආහාර පහසුකම්'
     },
     {
       icon: Sprout,
       color: 'text-emerald',
       name: 'Agriculture & Livestock (Nogyo 農業)',
+      nameSi: 'කෘෂිකර්මාන්තය සහ පශු සම්පත් (Nogyo 農業)',
       desc: lang === 'si' ? 'ස්වයංක්‍රීය හරිතාගාර එළවළු වගාව, පලතුරු නෙලීම සහ පශු සම්පත් කළමනාකරණය (ඉබරාකි, නගානෝ, අයිචි).' : 'Automated greenhouse crop cultivation, fruit picking, and livestock management in leading prefectures like Ibaraki, Nagano, and Aichi.',
       test: 'JLPT N4 / JFT + Prometric Agriculture Exam',
-      salary: '¥180,000 – ¥220,000 / mo + Housing Subsidy'
+      testSi: 'JLPT N4 / JFT + Prometric කෘෂිකාර්මික විභාගය',
+      salary: '¥180,000 – ¥220,000 / mo + Housing Subsidy',
+      salarySi: 'මසකට ¥180,000 – ¥220,000 + නිවාස සහනාධාර'
     },
     {
       icon: Truck,
       color: 'text-blue',
       name: 'Commercial Truck Driving & Transport (Jidosha Unso)',
+      nameSi: 'වාණිජ ප්‍රවාහන හා රියදුරු සේවා (Jidosha Unso)',
       desc: lang === 'si' ? 'ජපානයේ 2024 නව නීතිමය සංශෝධන යටතේ විවෘත වූ ඉහළ ඉල්ලුමක් ඇති ලොජිස්ටික්ස් සහ වාණිජ භාණ්ඩ ප්‍රවාහන රියදුරු ක්ෂේත්‍රය.' : 'High-demand logistics sector under Japan’s newly expanded SSW framework. Operating commercial vehicles and modern warehouse distribution.',
       test: 'JLPT N4 / JFT + Automobile Transport Driver Exam',
-      salary: '¥220,000 – ¥320,000 / mo + Overtime'
+      testSi: 'JLPT N4 / JFT + මෝටර් රථ ප්‍රවාහන රියදුරු විභාගය',
+      salary: '¥220,000 – ¥320,000 / mo + Overtime',
+      salarySi: 'මසකට ¥220,000 – ¥320,000 + අතිකාල දීමනා'
     },
     {
       icon: HardHat,
       color: 'text-gold',
       name: 'Construction & Civil Engineering (Kensetsu 建設業)',
+      nameSi: 'ඉදිකිරීම් සහ සිවිල් ඉංජිනේරු (Kensetsu 建設業)',
       desc: lang === 'si' ? 'ජපන් ආරක්ෂිත ප්‍රමිතීන්ට අනුකූලව ඉදිකිරීම් එකලස් කිරීම, සිවිල් ඉංජිනේරු ශිල්පය සහ අභ්‍යන්තර නිමවුම්.' : 'Structural assembly, concrete formwork, civil engineering, interior finishing, and equipment handling under strict Japanese safety standards.',
       test: 'JLPT N4 / JFT + Construction Skills Exam',
-      salary: '¥210,000 – ¥280,000 / mo + Safety Bonus'
+      testSi: 'JLPT N4 / JFT + ඉදිකිරීම් නිපුණතා විභාගය',
+      salary: '¥210,000 – ¥280,000 / mo + Safety Bonus',
+      salarySi: 'මසකට ¥210,000 – ¥280,000 + ආරක්ෂණ බෝනස්'
     }
   ];
 
@@ -207,14 +225,14 @@ export default function JobVisaPage({ lang, onOpenModal, onNavigate }) {
                         <IconComp size={22} className={sec.color} />
                       </div>
                       <h4 style={{ fontSize: '15px', fontWeight: 800, color: 'var(--navy-950)', marginBottom: '8px' }}>
-                        {sec.name}
+                        {lang === 'si' ? (sec.nameSi || sec.name) : sec.name}
                       </h4>
                       <p style={{ fontSize: '12.5px', color: 'var(--text-muted)', lineHeight: 1.5, marginBottom: '12px' }}>
                         {sec.desc}
                       </p>
-                      <div className="ssw-cat-test">Test: {sec.test}</div>
+                      <div className="ssw-cat-test">{lang === 'si' ? 'අවශ්‍ය විභාග:' : 'Test:'} {lang === 'si' ? (sec.testSi || sec.test) : sec.test}</div>
                       <div style={{ fontSize: '12px', fontWeight: 700, color: 'var(--emerald-600, #059669)', marginTop: '6px' }}>
-                        Pay: {sec.salary}
+                        {lang === 'si' ? 'මූලික වැටුප:' : 'Pay:'} {lang === 'si' ? (sec.salarySi || sec.salary) : sec.salary}
                       </div>
 
                       <button
@@ -331,7 +349,7 @@ export default function JobVisaPage({ lang, onOpenModal, onNavigate }) {
               </div>
 
               <div className="roadmap-grid-enhanced">
-                {roadmapSteps.map((step, idx) => (
+                {activeRoadmap.map((step, idx) => (
                   <div key={idx} className="roadmap-card-enhanced">
                     <div>
                       <div className="roadmap-num-badge">{step.step}</div>
@@ -357,7 +375,7 @@ export default function JobVisaPage({ lang, onOpenModal, onNavigate }) {
               </div>
 
               <div className="checklist-grid">
-                {visaDocumentChecklist.map((group, idx) => (
+                {activeChecklist.map((group, idx) => (
                   <div key={idx} className="checklist-card">
                     <h3 className="checklist-category-title">{group.category}</h3>
                     <ul className="checklist-items">

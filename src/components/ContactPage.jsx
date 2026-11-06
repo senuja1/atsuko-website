@@ -48,17 +48,6 @@ export default function ContactPage({ lang }) {
       directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=191%2F3%2F1+Sirimavo+Bandaranayake+Mawatha+Mahara+Kadawatha',
       transitHint: ui.liveMapHintSl || 'Sirimavo Bandaranayake Mawatha, Mahara, Kadawatha (Near Kandy Road & Kadawatha Interchange)'
     },
-    kelaniya: {
-      id: 'kelaniya',
-      name: ui.liveMapBranches?.kelaniya || 'Kelaniya Office (Thorana Junc.)',
-      country: 'Sri Lanka',
-      badge: 'Registered Corporate Office',
-      address: '712/B/1/1, Thorana Junction, Kelaniya, Western Province',
-      embedUrl: 'https://www.google.com/maps/embed?origin=mfe&pb=!1m3!2m1!1s712/B/1/1,+Thorana+Junction,+Kelaniya,+Sri+Lanka!6i16',
-      mapsUrl: 'https://www.google.com/maps/search/?api=1&query=712%2FB%2F1%2F1+Thorana+Junction+Kelaniya',
-      directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=712%2FB%2F1%2F1+Thorana+Junction+Kelaniya',
-      transitHint: 'Thorana Junction commercial area • Direct access from Colombo-Kandy main bus route'
-    },
     sendai: {
       id: 'sendai',
       name: ui.liveMapBranches?.sendai || 'Sendai Center (Tohoku, Japan)',
@@ -108,7 +97,7 @@ export default function ContactPage({ lang }) {
 📝 *Questions / Message:*
 ${(formData.message || '').trim() || 'I would like to inquire about eligibility, course schedules, and visa procedures.'}
 ────────────────────────
-📍 Sent via: www.atsukojapan.com`;
+📍 Sent via: www.atsukointernational.com`;
     return `https://wa.me/94777933352?text=${encodeURIComponent(text)}`;
   };
 
@@ -335,32 +324,7 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
                     }}
                   >
                     <MapPin size={11} />
-                    <span>Atsuko Main</span>
-                  </button>
-
-                  {/* Kelaniya Office */}
-                  <button
-                    type="button"
-                    onClick={() => { setMapLocationId('kelaniya'); setActiveLocation('srilanka'); }}
-                    style={{
-                      padding: '0.25rem 0.65rem',
-                      fontSize: '0.74rem',
-                      fontWeight: 700,
-                      borderRadius: 'var(--radius-full)',
-                      border: '1px solid',
-                      borderColor: mapLocationId === 'kelaniya' ? '#ef4444' : '#cbd5e1',
-                      background: mapLocationId === 'kelaniya' ? '#fee2e2' : '#ffffff',
-                      color: mapLocationId === 'kelaniya' ? '#b91c1c' : '#475569',
-                      cursor: 'pointer',
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '0.3rem',
-                      flexShrink: 0,
-                      transition: 'all 0.15s ease'
-                    }}
-                  >
-                    <Building2 size={11} />
-                    <span>Kelaniya Office</span>
+                    <span>{lang === 'si' ? 'අත්සුකෝ ප්‍රධාන මූලස්ථානය' : lang === 'jp' ? 'アツコ本校' : 'Atsuko Main'}</span>
                   </button>
 
                   {/* Sendai Center (Japan) */}
@@ -385,7 +349,7 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
                     }}
                   >
                     <Globe2 size={11} />
-                    <span>Japan (Sendai Center)</span>
+                    <span>{lang === 'si' ? 'සෙන්ඩායි මධ්‍යස්ථානය (ජපානය)' : lang === 'jp' ? '仙台支援センター（日本）' : 'Japan (Sendai Center)'}</span>
                   </button>
 
                   {/* Komaki Office (Japan) */}
@@ -410,7 +374,7 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
                     }}
                   >
                     <Building2 size={11} />
-                    <span>Japan (Komaki Office)</span>
+                    <span>{lang === 'si' ? 'කොමාකි කාර්යාලය (ජපානය)' : lang === 'jp' ? '小牧事務所（日本）' : 'Japan (Komaki Office)'}</span>
                   </button>
                 </div>
 

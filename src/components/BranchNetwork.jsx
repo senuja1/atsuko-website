@@ -57,9 +57,9 @@ export default function BranchNetwork({ lang, onOpenModal }) {
                 boxShadow: selectedBranchId === branch.id ? 'var(--shadow-md)' : 'none'
               }}
             >
-              {lang === 'jp' ? (branch.jpName || branch.name) : branch.name}
-              {branch.isHeadOffice && <span style={{ marginLeft: '6px', fontSize: '0.72rem', color: '#b45309', background: '#fef3c7', padding: '1px 6px', borderRadius: '4px', fontWeight: 700 }}>HQ</span>}
-              {branch.isJapanEntity && <span style={{ marginLeft: '6px', fontSize: '0.72rem', color: '#0369a1', background: '#e0f2fe', padding: '1px 6px', borderRadius: '4px', fontWeight: 700 }}>Japan</span>}
+              {lang === 'si' ? (branch.siName || branch.name) : lang === 'jp' ? (branch.jpName || branch.name) : branch.name}
+              {branch.isHeadOffice && <span style={{ marginLeft: '6px', fontSize: '0.72rem', color: '#b45309', background: '#fef3c7', padding: '1px 6px', borderRadius: '4px', fontWeight: 700 }}>{lang === 'si' ? 'ප්‍රධාන' : lang === 'jp' ? '本校' : 'HQ'}</span>}
+              {branch.isJapanEntity && <span style={{ marginLeft: '6px', fontSize: '0.72rem', color: '#0369a1', background: '#e0f2fe', padding: '1px 6px', borderRadius: '4px', fontWeight: 700 }}>{lang === 'si' ? 'ජපානය' : lang === 'jp' ? '日本' : 'Japan'}</span>}
             </button>
           ))}
         </div>
@@ -95,17 +95,17 @@ export default function BranchNetwork({ lang, onOpenModal }) {
             </div>
 
             <h3 style={{ fontSize: '1.85rem', fontWeight: 800, color: 'var(--navy-900)', marginBottom: '1rem' }}>
-              {lang === 'jp' ? selectedBranch.jpName : selectedBranch.name}
+              {lang === 'si' ? (selectedBranch.siName || selectedBranch.name) : lang === 'jp' ? selectedBranch.jpName : selectedBranch.name}
             </h3>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '1.5rem', color: 'var(--text-muted)', fontSize: '0.925rem' }}>
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.65rem' }}>
                 <MapPin size={18} style={{ color: '#0284c7', flexShrink: 0, marginTop: '2px' }} />
-                <span>{selectedBranch.address}</span>
+                <span>{lang === 'si' ? (selectedBranch.siAddress || selectedBranch.address) : selectedBranch.address}</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
                 <Clock size={18} style={{ color: '#d97706', flexShrink: 0 }} />
-                <span>{selectedBranch.hours}</span>
+                <span>{lang === 'si' ? (selectedBranch.siHours || selectedBranch.hours) : selectedBranch.hours}</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
                 <Phone size={18} style={{ color: '#2563eb', flexShrink: 0 }} />
@@ -133,7 +133,7 @@ export default function BranchNetwork({ lang, onOpenModal }) {
               </a>
 
               <button
-                onClick={() => onOpenModal(`Appointment at ${selectedBranch.name}`)}
+                onClick={() => onOpenModal(`Appointment at ${lang === 'si' ? (selectedBranch.siName || selectedBranch.name) : selectedBranch.name}`)}
                 className="btn btn-primary"
               >
                 {t.btnBook}
@@ -149,11 +149,11 @@ export default function BranchNetwork({ lang, onOpenModal }) {
             border: '1px solid var(--border-light)'
           }}>
             <h4 style={{ fontSize: '1.05rem', fontWeight: 800, color: 'var(--navy-900)', marginBottom: '1.25rem' }}>
-              {t.facilitiesTitle} {selectedBranch.name}:
+              {t.facilitiesTitle} {lang === 'si' ? (selectedBranch.siName || selectedBranch.name) : selectedBranch.name}:
             </h4>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
-              {selectedBranch.facilities.map((fac, i) => (
+              {(lang === 'si' && selectedBranch.siFacilities ? selectedBranch.siFacilities : selectedBranch.facilities).map((fac, i) => (
                 <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
                   <CheckCircle2 size={16} style={{ color: '#10b981' }} />
                   <span style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--navy-800)' }}>{fac}</span>

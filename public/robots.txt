@@ -10,4 +10,4 @@ Allow: /
 Allow: /images/
 Allow: /videos/
 
-Sitemap: https://www.atsukojapan.com/sitemap.xml
+Sitemap: https://www.atsukointernational.com/sitemap.xml

@@ -24,8 +24,8 @@ export const uiText = {
       licenseLbl: 'Government Verified License',
       slAddressVal: '191/3/1, Sirimavo Bandaranayake Mw',
       slAddressLbl: 'Mahara, Kadawatha, Sri Lanka',
-      japanVal: '191/3/1, Sirimavo Bandaranayake Mw',
-      japanLbl: 'Mahara, Kadawatha, Sri Lanka',
+      japanVal: 'Sendai (Miyagi) & Komaki (Aichi)',
+      japanLbl: 'Registered Support Org (Japan)',
     },
     trainingCaptions: {
       classroom: 'Authentic Japanese Immersion Classroom at Atsuko Kadawatha',
@@ -114,7 +114,7 @@ export const uiText = {
         jpRegLbl: 'Corporate Reg & Licenses:',
         jpRegVal: 'Corporate ID: 3700-01-048848 • Registered Support Org: 23登-008312 • Paid Placement: 04-ユ-300338',
       },
-      ctaBadge: 'SLBFE License No. 3293 • PV 0217143 • www.atsukojapan.com',
+      ctaBadge: 'SLBFE License No. 3293 • PV 0217143 • www.atsukointernational.com',
       ctaTitle: 'Your Official Pathway to Japan Starts Today',
       ctaDesc: 'Begin your journey with Sri Lanka’s premier government-licensed agency and Japanese language school under 100% legal protection.',
       ctaRegister: 'Register for Next Intake',
@@ -437,7 +437,6 @@ export const uiText = {
         liveMapOpenGmaps: 'Open in Google Maps',
         liveMapBranches: {
           kadawatha: 'Atsuko Main',
-          kelaniya: 'Kelaniya Office (Thorana Junc.)',
           sendai: 'Sendai Center (Tohoku, Japan)',
           komaki: 'Komaki Office (Aichi, Japan)'
         },
@@ -494,8 +493,8 @@ export const uiText = {
       licenseLbl: 'රජයේ ලියාපදිංචි බලපත්‍රය',
       slAddressVal: '191/3/1, සිරිමාවෝ බණ්ඩාරනායක මාවත',
       slAddressLbl: 'මහර, කඩවත, ශ්‍රී ලංකාව',
-      japanVal: '191/3/1, සිරිමාවෝ බණ්ඩාරනායක මාවත',
-      japanLbl: 'මහර, කඩවත, ශ්‍රී ලංකාව',
+      japanVal: 'සෙන්ඩායි (මියාගි) සහ කොමාකි (අයිචි)',
+      japanLbl: 'ලියාපදිංචි ආධාරක ආයතනය (ජපානය)',
     },
     trainingCaptions: {
       classroom: 'කඩවත අත්සුකෝ ජපන් භාෂා පන්ති කාමරය',
@@ -584,7 +583,7 @@ export const uiText = {
         jpRegLbl: 'සමාගම් ලියාපදිංචිය සහ බලපත්‍ර:',
         jpRegVal: 'සමාගම් අංකය: 3700-01-048848 • ලියාපදිංචි ආධාරක අංකය: 23登-008312 • රැකියා බලපත්‍රය: 04-ユ-300338',
       },
-      ctaBadge: 'SLBFE ලියාපදිංචි අංක 3293 • PV 0217143 • www.atsukojapan.com',
+      ctaBadge: 'SLBFE ලියාපදිංචි අංක 3293 • PV 0217143 • www.atsukointernational.com',
       ctaTitle: 'ජපානයට යාමේ නිවැරදි මාවත අදම අරඹන්න',
       ctaDesc: '100% නීත්‍යානුකූල රාජ්‍ය ලියාපදිංචිය සහිත අත්සුකෝ ජාත්‍යන්තර ආයතනය සමඟ විශ්වාසයෙන් එක්වන්න.',
       ctaRegister: 'ලියාපදිංචි වන්න',
@@ -907,7 +906,6 @@ export const uiText = {
         liveMapOpenGmaps: 'Google Maps හි බලන්න',
         liveMapBranches: {
           kadawatha: 'අත්සුකෝ ප්‍රධාන මූලස්ථානය (Atsuko Main)',
-          kelaniya: 'කැලණිය කාර්යාලය (තොරණ හන්දිය)',
           sendai: 'සෙන්ඩායි මධ්‍යස්ථානය (ජපානය)',
           komaki: 'කොමාකි කාර්යාලය (අයිචි, ජපානය)'
         },
@@ -964,8 +962,8 @@ export const uiText = {
       licenseLbl: '政府公認ライセンス',
       slAddressVal: '191/3/1, Sirimavo Bandaranayake Mw',
       slAddressLbl: 'マハラ・カダワタ、スリランカ',
-      japanVal: '191/3/1, Sirimavo Bandaranayake Mw',
-      japanLbl: 'マハラ・カダワタ、スリランカ',
+      japanVal: '宮城県仙台市・愛知県小牧市',
+      japanLbl: '登録支援機関（株式会社 Atsuko）',
     },
     trainingCaptions: {
       classroom: '篤子学校 カダワタ校 日本語専門教室',
@@ -1054,7 +1052,7 @@ export const uiText = {
         jpRegLbl: '法人登録・許認可一覧:',
         jpRegVal: '法人番号: 3700-01-048848 • 登録支援機関: 23登-008312 • 有料職業紹介: 04-ユ-300338',
       },
-      ctaBadge: 'SLBFE License No. 3293 • PV 0217143 • www.atsukojapan.com',
+      ctaBadge: 'SLBFE License No. 3293 • PV 0217143 • www.atsukointernational.com',
       ctaTitle: '日本への第一歩を、篤子学校と共に',
       ctaDesc: '政府公認ライセンスと日本現地の万全な受入体制で、安全・安心な日本渡航を実現します。',
       ctaRegister: '受講相談・お申し込み',
@@ -1377,7 +1375,6 @@ export const uiText = {
         liveMapOpenGmaps: 'Googleマップで開く',
         liveMapBranches: {
           kadawatha: 'アツコ本校 (Atsuko Main)',
-          kelaniya: 'ケラニヤ事務所（登録窓口）',
           sendai: '仙台支援センター（東北・宮城）',
           komaki: '小牧事務所（愛知・中部）'
         },
