@@ -141,13 +141,6 @@ export default function SiteLoadingScreen({ minDuration = 2400 }) {
             </div>
           </div>
         </div>
-
-        {/* Click to Enter caption below the orb */}
-        <div className="loader-bottom-controls">
-          <div className="loader-enter-caption" lang="ja">
-            入る · CLICK TO ENTER
-          </div>
-        </div>
       </div>
     </div>
   );
