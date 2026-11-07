@@ -403,6 +403,17 @@ export default function VisaServicesPage({ lang, onOpenModal, initialTab = 'stud
               </div>
             ))}
           </div>
+
+          <div className="roadmap-help-banner">
+            <CheckCircle2 size={18} className="roadmap-help-icon" />
+            <span>
+              {lang === 'si'
+                ? 'මෙම සියලුම පියවරයන් සඳහා අපි ඔබට පූර්ණ සහාය ලබා දෙන්නෙමු.'
+                : lang === 'jp'
+                  ? 'これらすべてのステップを私たちが全面的にサポートいたします。'
+                  : 'We will help you with all these things.'}
+            </span>
+          </div>
         </div>
       </section>
 
