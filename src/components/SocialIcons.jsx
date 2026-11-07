@@ -86,3 +86,18 @@ export function InstagramIcon({ size = 22, className = '', color = 'currentColor
     </svg>
   );
 }
+
+export function LinktreeIcon({ size = 22, className = '', color = 'currentColor' }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill={color}
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M13.736 5.853l4.005-4.117 2.325 2.38-4.2 4.005h5.908v3.305h-5.937l4.229 4.108-2.325 2.334-5.741-5.769-5.741 5.769-2.325-2.325 4.229-4.108H2.226V8.121h5.909l-4.2-4.004 2.324-2.381 4.005 4.117V0h3.472v5.853zM10.264 16.158h3.472V24h-3.472v-7.842z" />
+    </svg>
+  );
+}

@@ -7348,6 +7348,14 @@ html[lang="jp"] .stat-label,
   box-shadow: 0 16px 30px -4px rgba(37, 211, 102, 0.24), 0 8px 14px -3px rgba(37, 211, 102, 0.12);
 }
 
+.social-card-linktree::before {
+  background: linear-gradient(90deg, #43e660, #16a34a);
+}
+.social-card-linktree:hover {
+  border-color: #86efac;
+  box-shadow: 0 16px 30px -4px rgba(67, 230, 96, 0.26), 0 8px 14px -3px rgba(22, 163, 74, 0.14);
+}
+
 .social-icon-wrapper {
   width: 52px;
   height: 52px;
@@ -7388,6 +7396,12 @@ html[lang="jp"] .stat-label,
 .social-icon-wa {
   background: linear-gradient(135deg, #25d366, #128c7e);
   box-shadow: 0 8px 18px -3px rgba(37, 211, 102, 0.35);
+}
+
+.social-icon-linktree {
+  background: linear-gradient(135deg, #43e660, #16a34a);
+  color: #052e16;
+  box-shadow: 0 8px 18px -3px rgba(67, 230, 96, 0.38);
 }
 
 .social-card-name {

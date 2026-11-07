@@ -19,7 +19,7 @@ import {
 import confetti from 'canvas-confetti';
 import { officialContacts } from '../data/websiteData';
 import { getUiText } from '../data/uiText';
-import { FacebookIcon, YoutubeIcon, TikTokIcon, InstagramIcon, WhatsAppIcon } from './SocialIcons';
+import { FacebookIcon, YoutubeIcon, TikTokIcon, InstagramIcon, WhatsAppIcon, LinktreeIcon } from './SocialIcons';
 import { sanitizeFormData } from '../utils/security';
 
 export default function ContactPage({ lang }) {
@@ -188,6 +188,15 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
               <a href={`mailto:${officialContacts.email}`} className="touchpoint-pill">
                 <Mail size={15} className="text-gold" />
                 <span>{ui.emailPill}</span>
+              </a>
+              <a
+                href={officialContacts.socials.linktree}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="touchpoint-pill"
+              >
+                <LinktreeIcon size={15} className="text-emerald" />
+                <span>linktr.ee/atsukointernational</span>
               </a>
               <div className="touchpoint-pill">
                 <ShieldCheck size={15} className="text-gold" />
@@ -684,6 +693,23 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
               <span className="social-card-handle">+94 77 793 3352</span>
               <span className="social-card-action-chip">
                 <span>{ui.socialsCards?.whatsapp?.btn || 'Chat'}</span>
+                <ExternalLink size={11} />
+              </span>
+            </a>
+
+            <a
+              href={officialContacts.socials.linktree}
+              target="_blank"
+              rel="noreferrer"
+              className="social-connect-card social-card-linktree"
+            >
+              <div className="social-icon-wrapper social-icon-linktree">
+                <LinktreeIcon size={23} />
+              </div>
+              <h4 className="social-card-name">Linktree</h4>
+              <span className="social-card-handle">@atsukointernational</span>
+              <span className="social-card-action-chip">
+                <span>{ui.socialsCards?.linktree?.btn || 'Open Linktree'}</span>
                 <ExternalLink size={11} />
               </span>
             </a>

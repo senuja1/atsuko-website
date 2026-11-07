@@ -54,7 +54,8 @@ export const officialContacts = {
     youtube: "https://www.youtube.com/@ATSUKOINTERNATIONAL",
     instagram: "https://www.instagram.com/atsuko_gakkou/",
     tiktok: "https://www.tiktok.com/@atsuko_international",
-    whatsappChannel: "https://wa.me/94777933352"
+    whatsappChannel: "https://wa.me/94777933352",
+    linktree: "https://linktr.ee/atsukointernational?utm_source=linktree_profile_share&ltsid=917f1cdf-374a-4696-ab7a-4d4b2d4b0202"
   }
 };
 
