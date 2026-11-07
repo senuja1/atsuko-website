@@ -60,7 +60,11 @@ export default function StatsBar({ lang }) {
       <div className="container">
         <div className="stats-grid">
           {stats.map((stat, i) => (
-            <RevealOnScroll key={i} delay={delays[i] || 0.1}>
+            <RevealOnScroll
+              key={i}
+              delay={delays[i] || 0.1}
+              className={`stat-grid-cell ${i === 2 ? 'stat-grid-cell-center' : ''}`}
+            >
               <div className="stat-item">
                 <div className="stat-num" style={{ color: '#fb7185' }}>
                   {renderAnimatedNumber(stat)}

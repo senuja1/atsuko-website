@@ -1835,13 +1835,16 @@ html[lang="jp"] .stat-label,
   text-align: center;
 }
 
-.stat-item {
-  padding: 10px;
-  border-right: 1px solid rgba(255, 255, 255, 0.08);
+.stat-grid-cell {
+  width: 100%;
 }
 
-.stat-item:last-child {
-  border-right: none;
+.stat-item {
+  padding: 10px;
+}
+
+.stat-grid-cell:not(:last-child) .stat-item {
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .stat-num {
@@ -8422,11 +8425,6 @@ html[lang="jp"] .stat-label,
 
 /* Tablet refinements (481px - 1024px) */
 @media (min-width: 481px) and (max-width: 1024px) {
-  .stats-grid .stat-item:nth-last-child(-n+2) {
-    border-bottom: none;
-    padding-bottom: 0;
-  }
-
   .target-gateway-grid {
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
   }
@@ -8534,13 +8532,45 @@ html[lang="jp"] .stat-label,
   /* Progressive 2-column grids for tablets (no dead zone!) */
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 0;
   }
 
-  .stat-item {
+  .stat-grid-cell {
+    width: 100%;
+  }
+
+  .stat-grid-cell:nth-child(1) .stat-item {
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 16px 12px;
+  }
+
+  .stat-grid-cell:nth-child(2) .stat-item {
     border-right: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    padding-bottom: 16px;
+    padding: 16px 12px;
+  }
+
+  /* SLBFE #3293: Centered spanning across both columns */
+  .stat-grid-cell-center,
+  .stat-grid-cell:nth-child(3),
+  .stats-grid > :last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .stat-grid-cell-center .stat-item,
+  .stat-grid-cell:nth-child(3) .stat-item,
+  .stats-grid > :last-child:nth-child(odd) .stat-item {
+    border-right: none;
+    border-bottom: none;
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 16px 12px;
   }
 
   .target-gateway-grid {
@@ -8916,24 +8946,47 @@ html[lang="jp"] .stat-label,
     max-height: 340px;
   }
 
-  /* Stats Bar 2x2 Clean Borders */
+  /* Stats Bar 2-column + centered bottom stat */
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 0;
   }
 
-  .stat-item {
+  .stat-grid-cell {
+    width: 100%;
+  }
+
+  .stat-grid-cell:nth-child(1) .stat-item {
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 16px 12px;
+  }
+
+  .stat-grid-cell:nth-child(2) .stat-item {
     border-right: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     padding: 16px 12px;
   }
 
-  .stat-item:nth-child(odd) {
-    border-right: 1px solid rgba(255, 255, 255, 0.08);
+  .stat-grid-cell-center,
+  .stat-grid-cell:nth-child(3),
+  .stats-grid > :last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    width: 100%;
   }
 
-  .stat-item:nth-last-child(-n+2) {
+  .stat-grid-cell-center .stat-item,
+  .stat-grid-cell:nth-child(3) .stat-item,
+  .stats-grid > :last-child:nth-child(odd) .stat-item {
+    border-right: none;
     border-bottom: none;
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 16px 12px;
   }
 }
 
