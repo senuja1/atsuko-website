@@ -62,6 +62,127 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
         <NsbmIntakeBillboard lang={lang} onOpenModal={onOpenModal} />
       </RevealOnScroll>
 
+      {/* 3.5. Official Overview Video: All About Atsuko International */}
+      <RevealOnScroll delay={0.1}>
+        <section className="section atsuko-intro-video-section" style={{ background: '#ffffff', paddingBottom: '1.5rem' }}>
+          <div className="container">
+            <div className="section-header" style={{ marginBottom: '2rem' }}>
+              <span className="section-badge badge-blue">
+                <YoutubeIcon size={14} />
+                {lang === 'si'
+                  ? 'නිල ආයතනික හඳුන්වාදීම'
+                  : lang === 'jp'
+                    ? '公式学校案内ムービー'
+                    : 'Official Institutional Overview'}
+              </span>
+              <h2 className="section-title">
+                {lang === 'si'
+                  ? 'අත්සුකෝ ඉන්ටර්නැෂනල් පිළිබඳ'
+                  : lang === 'jp'
+                    ? 'アツコ・インターナショナルの'
+                    : 'Discover Everything About'}{' '}
+                <span className="text-gradient-red">
+                  {lang === 'si'
+                    ? 'සියලු තොරතුරු දැනගන්න'
+                    : lang === 'jp'
+                      ? 'すべてを知る'
+                      : 'Atsuko International'}
+                </span>
+              </h2>
+              <p className="section-subtitle">
+                {lang === 'si'
+                  ? 'රජයේ ලියාපදිංචි ජපන් භාෂා ඇකඩමිය, අත්සුකෝ ප්‍රධාන මධ්‍යස්ථානයේ (Atsuko Main) ප්‍රායෝගික වෘත්තීය පුහුණුව, නේවාසිකාගාර පහසුකම් සහ ජපාන වීසා මාවත් පිළිබඳ සම්පූර්ණ විස්තරය මෙම වීඩියෝවෙන් නරඹන්න.'
+                  : lang === 'jp'
+                    ? 'スリランカ政府公認（SLBFE No. 3293）の日本語教育、アツコ本校での特定技能実習、学生寮、そして日本現地法人と直結した安心の渡航サポートについて動画でご紹介します。'
+                    : 'Watch our official overview video covering our government-licensed Japanese language academy, specialized SSW vocational training at Atsuko Main, student accommodation, and direct visa pathways to Japan.'}
+              </p>
+            </div>
+
+            <div
+              className="featured-video-card"
+              style={{
+                maxWidth: '940px',
+                margin: '0 auto',
+                borderRadius: '20px',
+                overflow: 'hidden',
+                border: '1px solid rgba(2, 132, 199, 0.18)',
+                boxShadow: '0 20px 50px rgba(6, 13, 31, 0.12)',
+                background: '#060d1f'
+              }}
+            >
+              <div className="video-embed-responsive-16-9">
+                <iframe
+                  src="https://www.youtube-nocookie.com/embed/de-r5nNP2xs?rel=0"
+                  title={
+                    lang === 'si'
+                      ? 'අත්සුකෝ ඉන්ටර්නැෂනල් නිල හඳුන්වාදීමේ වීඩියෝව'
+                      : lang === 'jp'
+                        ? 'アツコ・インターナショナル 公式紹介ビデオ'
+                        : 'All About Atsuko International — Official Overview'
+                  }
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                ></iframe>
+              </div>
+
+              <div
+                style={{
+                  display: 'flex',
+                  flexWrap: 'wrap',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  gap: '12px',
+                  padding: '14px 22px',
+                  background: 'linear-gradient(90deg, #060d1f 0%, #0b1528 100%)',
+                  borderTop: '1px solid rgba(56, 189, 248, 0.16)'
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#e0f2fe', fontSize: '0.88rem', fontWeight: 600 }}>
+                  <ShieldCheck size={17} style={{ color: '#38bdf8', flexShrink: 0 }} />
+                  <span>
+                    {lang === 'si'
+                      ? 'SLBFE බලපත්‍ර අංක 3293 • අත්සුකෝ ප්‍රධාන මූලස්ථානය සහ ජපාන කාර්යාලය'
+                      : lang === 'jp'
+                        ? 'SLBFE 認可番号 3293 • アツコ本校 ＆ 日本法人（愛知県小牧市）'
+                        : 'SLBFE License No. 3293 • Atsuko Main & Japan Office (Komaki, Aichi)'}
+                  </span>
+                </div>
+
+                <a
+                  href="https://www.youtube.com/watch?v=de-r5nNP2xs"
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '7px',
+                    padding: '7px 16px',
+                    borderRadius: '999px',
+                    background: 'rgba(14, 165, 233, 0.16)',
+                    border: '1px solid rgba(56, 189, 248, 0.35)',
+                    color: '#38bdf8',
+                    fontSize: '0.82rem',
+                    fontWeight: 700,
+                    textDecoration: 'none'
+                  }}
+                >
+                  <YoutubeIcon size={14} />
+                  <span>
+                    {lang === 'si'
+                      ? 'YouTube හි නරඹන්න'
+                      : lang === 'jp'
+                        ? 'YouTubeで見る'
+                        : 'Watch on YouTube'}
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </RevealOnScroll>
+
       {/* 4. Complete List of Academic Classes & Courses (NSBM 4-Column Style) */}
       <RevealOnScroll delay={0.1}>
         <MainCoursesGrid
