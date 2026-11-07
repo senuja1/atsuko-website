@@ -374,10 +374,10 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
                 {h.globalPresence?.badge || 'Dual-Nation Structure'}
               </span>
               <h2 className="section-title">
-                {h.globalPresence?.title || 'Global Presence in'} <span className="text-gradient-red">{h.globalPresence?.highlight || 'Sri Lanka & Sendai, Japan'}</span>
+                {h.globalPresence?.title || 'Global Presence in'} <span className="text-gradient-red">{h.globalPresence?.highlight || 'Sri Lanka & Komaki, Japan'}</span>
               </h2>
               <p className="section-subtitle">
-                {h.globalPresence?.subtitle || 'Atsuko International operates between our Kadawatha Headquarters and our registered support corporation in Sendai & Aichi, Japan.'}
+                {h.globalPresence?.subtitle || 'Atsuko International operates between our Kadawatha Headquarters and our registered support corporation in Komaki, Aichi Prefecture, Japan.'}
               </p>
             </div>
 
@@ -455,7 +455,7 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
                     <Phone size={18} className="presence-icon" />
                     <div>
                       <strong>{h.globalPresence?.jpContactLbl || 'Direct Contact in Japan:'}</strong>
-                      <p>{officialContacts.japanPhone}</p>
+                      <p>{officialContacts.japanPhone} • {officialContacts.japanEmail}</p>
                     </div>
                   </div>
                   <div className="presence-detail-row">

@@ -13,8 +13,8 @@ export default function SuccessStories({ lang, onNavigate }) {
       link: "https://www.facebook.com/groups/studentsofatsukointernational"
     },
     {
-      title: "කොමාකි (අයිචි) සහ සෙන්ඩායි ලියාපදිංචි ආයතනය",
-      sub: "株式会社 篤子インターナショナル (Komaki, Aichi & Sendai)",
+      title: "කොමාකි (අයිචි ප්‍රාන්තය) ලියාපදිංචි ආයතනය",
+      sub: "株式会社 篤子インターナショナル (2-41 Komaki, Komaki City, Aichi)",
       desc: "කටුනායකින් සේවය අවසන් කරන සාමාන්‍ය ඒජන්සි මෙන් නොව, ජපානය තුළදීද අඛණ්ඩව රැකවරණය සහ නීතිමය සහාය සලසන අපගේම ලියාපදිංචි ආයතනය.",
       stat: "ලියාපදිංචි ආයතනය (登録支援機関)",
       link: "#"
@@ -37,8 +37,8 @@ export default function SuccessStories({ lang, onNavigate }) {
       link: "https://www.facebook.com/groups/studentsofatsukointernational"
     },
     {
-      title: "小牧市・仙台市の日本法人直結",
-      sub: "株式会社 篤子インターナショナル（愛知県小牧市・宮城県仙台市）",
+      title: "愛知県小牧市の日本法人直結",
+      sub: "株式会社 篤子インターナショナル（〒485-0041 愛知県小牧市小牧2-41 サンシャイン小牧棟 2階西号室）",
       desc: "出国時のみならず、日本入国後の生活支援、住居手配、受入企業との調整を一貫して実施する登録支援機関。",
       stat: "登録支援機関（出入国在留管理庁）",
       link: "#"
@@ -61,8 +61,8 @@ export default function SuccessStories({ lang, onNavigate }) {
       link: "https://www.facebook.com/groups/studentsofatsukointernational"
     },
     {
-      title: "Komaki & Sendai Registered Support Office",
-      sub: "株式会社 篤子インターナショナル (Komaki, Aichi & Sendai, Japan)",
+      title: "Komaki, Aichi Registered Support Office",
+      sub: "株式会社 篤子インターナショナル (2-41 Komaki, Komaki City, Aichi, Japan)",
       desc: "Unlike standard agents that end support at the Colombo airport, Atsuko's registered Japanese entity provides continuous welfare, legal documentation, and employer coordination inside Japan.",
       stat: "Registered Support Org (登録支援機関)",
       link: "#"

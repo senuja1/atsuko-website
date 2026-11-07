@@ -32,7 +32,7 @@ export default function ContactPage({ lang }) {
     if (loc === 'srilanka') {
       setMapLocationId('kadawatha');
     } else {
-      setMapLocationId('sendai');
+      setMapLocationId('komaki');
     }
   };
 
@@ -48,27 +48,20 @@ export default function ContactPage({ lang }) {
       directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=191%2F3%2F1+Sirimavo+Bandaranayake+Mawatha+Mahara+Kadawatha',
       transitHint: ui.liveMapHintSl || 'Sirimavo Bandaranayake Mawatha, Mahara, Kadawatha (Near Kandy Road & Kadawatha Interchange)'
     },
-    sendai: {
-      id: 'sendai',
-      name: ui.liveMapBranches?.sendai || 'Sendai Center (Tohoku, Japan)',
-      country: 'Japan',
-      badge: 'Registered Support Organization (23登-008312)',
-      address: 'Sendai City, Miyagi Prefecture, Japan',
-      embedUrl: 'https://www.google.com/maps/embed?origin=mfe&pb=!1m3!2m1!1sSendai,+Miyagi+Prefecture,+Japan!6i12',
-      mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Sendai+Miyagi+Prefecture+Japan',
-      directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=Sendai+Miyagi+Prefecture+Japan',
-      transitHint: ui.liveMapHintJp || 'Sendai City, Miyagi Prefecture Support Entity'
-    },
     komaki: {
       id: 'komaki',
       name: ui.liveMapBranches?.komaki || 'Komaki Office (Aichi, Japan)',
       country: 'Japan',
-      badge: 'Chubu Regional Office',
-      address: 'Komaki City, Aichi Prefecture, Japan',
-      embedUrl: 'https://www.google.com/maps/embed?origin=mfe&pb=!1m3!2m1!1sKomaki,+Aichi+Prefecture,+Japan!6i12',
-      mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Komaki+Aichi+Prefecture+Japan',
-      directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=Komaki+Aichi+Prefecture+Japan',
-      transitHint: 'Aichi / Chubu Industrial and Nursing Network liaison'
+      badge: 'Registered Support Organization (23登-008312)',
+      address: lang === 'si'
+        ? 'තැපැල් කේතය 485-0041, සන්ෂයින් කොමාකි ගොඩනැගිල්ල, 2 වන මහල (බටහිර කාමරය), 2-41 කොමාකි, කොමාකි නගරය, අයිචි ප්‍රාන්තය, ජපානය'
+        : lang === 'jp'
+          ? '〒485-0041 愛知県小牧市小牧2-41 サンシャイン小牧棟 2階西号室'
+          : 'Postcode-485-0041, Sunshine Komaki Building, 2nd Floor, West Room, 2-41 Komaki, Komaki City, Aichi Prefecture, Japan',
+      embedUrl: 'https://www.google.com/maps/embed?origin=mfe&pb=!1m3!2m1!1s2-41+Komaki,+Komaki+City,+Aichi+485-0041,+Japan!6i16',
+      mapsUrl: 'https://www.google.com/maps/search/?api=1&query=2-41+Komaki+Komaki+City+Aichi+485-0041+Japan',
+      directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=2-41+Komaki+Komaki+City+Aichi+485-0041+Japan',
+      transitHint: '〒485-0041 愛知県小牧市小牧2-41 サンシャイン小牧棟 2階西号室 • Tel: +81 90-2958-4420 • atsukoschooljapan@gmail.com'
     }
   };
 
@@ -327,31 +320,6 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
                     <span>{lang === 'si' ? 'අත්සුකෝ ප්‍රධාන මූලස්ථානය' : lang === 'jp' ? 'アツコ本校' : 'Atsuko Main'}</span>
                   </button>
 
-                  {/* Sendai Center (Japan) */}
-                  <button
-                    type="button"
-                    onClick={() => { setMapLocationId('sendai'); setActiveLocation('japan'); }}
-                    style={{
-                      padding: '0.25rem 0.65rem',
-                      fontSize: '0.74rem',
-                      fontWeight: 700,
-                      borderRadius: 'var(--radius-full)',
-                      border: '1px solid',
-                      borderColor: mapLocationId === 'sendai' ? '#0284c7' : '#cbd5e1',
-                      background: mapLocationId === 'sendai' ? '#e0f2fe' : '#ffffff',
-                      color: mapLocationId === 'sendai' ? '#0369a1' : '#475569',
-                      cursor: 'pointer',
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '0.3rem',
-                      flexShrink: 0,
-                      transition: 'all 0.15s ease'
-                    }}
-                  >
-                    <Globe2 size={11} />
-                    <span>{lang === 'si' ? 'සෙන්ඩායි මධ්‍යස්ථානය (ජපානය)' : lang === 'jp' ? '仙台支援センター（日本）' : 'Japan (Sendai Center)'}</span>
-                  </button>
-
                   {/* Komaki Office (Japan) */}
                   <button
                     type="button"
@@ -374,7 +342,7 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
                     }}
                   >
                     <Building2 size={11} />
-                    <span>{lang === 'si' ? 'කොමාකි කාර්යාලය (ජපානය)' : lang === 'jp' ? '小牧事務所（日本）' : 'Japan (Komaki Office)'}</span>
+                    <span>{lang === 'si' ? 'ජපාන කාර්යාලය (කොමාකි, අයිචි)' : lang === 'jp' ? '日本事務所（愛知県小牧市）' : 'Japan Office (Komaki, Aichi)'}</span>
                   </button>
                 </div>
 

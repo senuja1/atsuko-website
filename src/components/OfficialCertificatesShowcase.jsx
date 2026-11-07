@@ -669,9 +669,9 @@ export default function OfficialCertificatesShowcase({ lang = 'en' }) {
                     <strong className="br-val">04-ユ-300338</strong>
                   </div>
                   <div className="br-modal-row">
-                    <span className="br-lbl">{lang === 'si' ? 'ජපාන කාර්යාල:' : lang === 'jp' ? '所在地:' : 'Japan Locations:'}</span>
+                    <span className="br-lbl">{lang === 'si' ? 'ජපාන කාර්යාලය:' : lang === 'jp' ? '所在地:' : 'Japan Location:'}</span>
                     <strong className="br-val">
-                      {lang === 'si' ? 'සෙන්ඩායි (මියාගි ප්‍රාන්තය) සහ කොමාකි (අයිචි ප්‍රාන්තය)' : lang === 'jp' ? '仙台（宮城県）および小牧（愛知県）' : 'Sendai (Miyagi Prefecture) & Komaki (Aichi Prefecture)'}
+                      {lang === 'si' ? 'තැපැල් කේතය 485-0041, සන්ෂයින් කොමාකි ගොඩනැගිල්ල, 2 වන මහල (බටහිර කාමරය), 2-41 කොමාකි, කොමාකි නගරය, අයිචි ප්‍රාන්තය, ජපානය' : lang === 'jp' ? '〒485-0041 愛知県小牧市小牧2-41 サンシャイン小牧棟 2階西号室' : 'Postcode-485-0041, Sunshine Komaki Building, 2nd Floor, West Room, 2-41 Komaki, Komaki City, Aichi Prefecture, Japan'}
                     </strong>
                   </div>
                 </div>

@@ -199,11 +199,8 @@ _Please schedule my consultation session with an Atsuko Counselor._`;
                     <option value="Atsuko Main">
                       {lang === 'si' ? 'අත්සුකෝ ප්‍රධාන මූලස්ථානය (Atsuko Main)' : lang === 'jp' ? 'アツコ本校 (Atsuko Main)' : 'Atsuko Main'}
                     </option>
-                    <option value="Sendai, Japan Support Hub">
-                      {lang === 'si' ? 'ජපානය - සෙන්ඩායි ආධාරක මධ්‍යස්ථානය' : lang === 'jp' ? '日本・仙台支援センター (Sendai Hub)' : 'Sendai, Japan Support Hub (東北支援センター)'}
-                    </option>
                     <option value="Komaki, Aichi (Japan Office)">
-                      {lang === 'si' ? 'ජපානය - අයිචි කොමාකි කාර්යාලය' : lang === 'jp' ? '日本・愛知小牧事務所 (Komaki Office)' : 'Komaki, Aichi (Japan Resident Office)'}
+                      {lang === 'si' ? 'ජපානය - අයිචි කොමාකි කාර්යාලය (Sunshine Komaki Bldg)' : lang === 'jp' ? '日本事務所（愛知県小牧市小牧2-41 サンシャイン小牧棟 2階西号室）' : 'Komaki, Aichi (Japan Office - Sunshine Komaki Bldg)'}
                     </option>
                     <option value="Online Live Zoom Batches (Island-wide)">
                       {lang === 'si' ? 'දිවයින පුරා සජීවී Zoom මාර්ගගත පන්ති' : lang === 'jp' ? '全国オンラインZoomクラス (Online Classes)' : 'Online Live Zoom Batches (Island-wide)'}

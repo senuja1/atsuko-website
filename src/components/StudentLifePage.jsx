@@ -306,7 +306,7 @@ export default function StudentLifePage({ lang, onOpenModal, onNavigate }) {
               {lang === 'si' ? 'අත්සුකෝ ජපාන සමාගම' : lang === 'jp' ? '株式会社 Atsuko International' : '株式会社 Atsuko International'}
             </span>
             <h2 className="section-title">
-              {lang === 'si' ? 'ජපානයේ ජීවිතය:' : lang === 'jp' ? '日本での生活支援:' : 'Living in Japan:'} <span className="text-gradient-red">{lang === 'si' ? 'සෙන්ඩායි සහ අයිචි හි අඛණ්ඩ රැකවරණය' : lang === 'jp' ? '仙台・愛知での手厚いサポート' : 'Continuous Care in Sendai & Aichi'}</span>
+              {lang === 'si' ? 'ජපානයේ ජීවිතය:' : lang === 'jp' ? '日本での生活支援:' : 'Living in Japan:'} <span className="text-gradient-red">{lang === 'si' ? 'කොමාකි (අයිචි ප්‍රාන්තය) හි අඛණ්ඩ රැකවරණය' : lang === 'jp' ? '愛知県小牧市での手厚いサポート' : 'Continuous Care in Komaki, Aichi'}</span>
             </h2>
             <p className="section-subtitle">
               {lang === 'si' ? 'ගුවන් තොටුපළෙන් සේවාව අවසන් කරන සාමාන්‍ය ඒජන්සි මෙන් නොව, ඔබ ජපානයට ගොඩබසින මොහොතේ සිට අපගේ ලියාපදිංචි සමාගම ඔබට සහාය වේ.' : lang === 'jp' ? '空港での見送りで終わる仲介業者とは異なり、日本到着の瞬間から当校の現地法人が伴走支援します。' : 'Unlike ordinary agents whose service ends at the airport, our registered support corporation in Japan assists you from the moment you land.'}

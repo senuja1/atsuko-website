@@ -52,13 +52,13 @@ export default function JobVisaPage({ lang, onOpenModal, onNavigate }) {
     'ජපන් කම්කරු නීතියට අනුව ජපන් ජාතිකයන්ට හිමි සමාන හෝ ඊට වැඩි වැටුපක් සහ පූර්ණ සෞඛ්‍ය/විශ්‍රාම වැටුප් ආවරණය සහතික කිරීම.',
     'සෑම මාස 3 කට වරක්ම සිදුකරන සේවා ස්ථාන නිරීක්ෂණ සහ 24/7 ක්‍රියාත්මක සිංහල/ජපන් හදිසි උපකාරක සේවාව.',
   ] : lang === 'jp' ? [
-    '愛知県小牧市および宮城県仙台市の自社登録支援機関（登録番号：23登-008312）による完全直接支援。',
+    '愛知県小牧市（〒485-0041 愛知県小牧市小牧2-41 サンシャイン小牧棟 2階西号室）の自社登録支援機関（登録番号：23登-008312）による完全直接支援。',
     '中部国際空港・成田・羽田・関西国際空港での出迎えおよび配属先企業への安全送迎。',
     '市区町村役場での転入届・住民登録、銀行口座開設、携帯電話契約、社宅・アパート手配。',
     '日本人と同等以上の適正給与、健康保険・厚生年金の法令遵守の徹底確保。',
     '3ヶ月ごとの定期面談・職場巡回および24時間対応の緊急ホットライン体制。',
   ] : [
-    'Direct legal custody by our own Registered Support Organization in Komaki, Aichi & Sendai (登録支援機関 No. 23登-008312).',
+    'Direct legal custody by our own Registered Support Organization in Komaki City, Aichi Prefecture (登録支援機関 No. 23登-008312).',
     'Airport reception at Nagoya Chubu Centrair, Tokyo Narita/Haneda, or Kansai KIX with direct company transfer.',
     'Municipal resident registration (Juminhyo), Japanese bank account opening, SIM card activation, and furnished apartment setup.',
     'Guaranteed wage parity equal to or higher than Japanese nationals under Japanese labor law, with full health & pension coverage.',
@@ -158,7 +158,7 @@ export default function JobVisaPage({ lang, onOpenModal, onNavigate }) {
               </div>
               <div className="touchpoint-pill">
                 <Building size={15} className="text-blue" />
-                <span>Japan RSO: 23登-008312 (Komaki & Sendai)</span>
+                <span>Japan RSO: 23登-008312 (Komaki, Aichi)</span>
               </div>
               <div className="touchpoint-pill">
                 <Clock size={15} className="text-red" />

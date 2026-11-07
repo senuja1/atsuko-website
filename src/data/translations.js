@@ -35,7 +35,7 @@ export const siteTranslations = {
       titlePre: "Your Official Pathway to",
       titleHighlight: "Study & Work in Japan",
       titleJp: "日本への架け橋 - 篤子学校 (ATSUKO GAKKO)",
-      desc: "Atsuko International (Pvt) Ltd is a government-registered Japanese language academy and overseas employment agency (SLBFE License No. 3293). Backed by our registered support company in Sendai, Japan (株式会社 Atsuko International), we provide accredited JLPT/JFT training, Student Visas, and Specified Skilled Worker (SSW) job placements.",
+      desc: "Atsuko International (Pvt) Ltd is a government-registered Japanese language academy and overseas employment agency (SLBFE License No. 3293). Backed by our registered support company in Komaki, Aichi Prefecture, Japan (株式会社 Atsuko International), we provide accredited JLPT/JFT training, Student Visas, and Specified Skilled Worker (SSW) job placements.",
       pill1: "Comprehensive Visa Processing: Full application support for Student, Specified Skilled Worker, and professional employment visas.",
       pill2: "Japanese Language Education: Structured academic courses covering N5, N4, and JFT Basics to build essential communication skills.",
       pill3: "Targeted Vocational Training: Practical and theoretical instruction for high demand industries like caregiving and agriculture.",
@@ -51,7 +51,7 @@ export const siteTranslations = {
       checkEligibilityBtn: "Check Visa Eligibility",
       talkAdvisorBtn: "Contact Admissions Officer",
       whatsappBtn: "WhatsApp Advisor",
-      trustQuote: "Supported by our registered support company in Sendai, Japan (株式会社 Atsuko International)",
+      trustQuote: "Supported by our registered support company in Komaki, Aichi, Japan (株式会社 Atsuko International)",
       droneTourTag: "4K Drone Tour • Atsuko HQ"
     },
 
@@ -155,7 +155,7 @@ export const siteTranslations = {
       feature2Points: [
         "Hands-on bed-to-wheelchair transfer, feeding ergonomics, and Japanese patient care etiquette",
         "Specialized Nursing Japanese terminology (Kaigo no Nihongo) vocabulary preparation",
-        "Direct matching with accredited Japanese nursing care facilities via our Sendai office",
+        "Direct matching with accredited Japanese nursing care facilities via our Komaki, Aichi office",
         "Assistance with Prometric CBT exam booking and government documentation"
       ],
       btnJoinCaregiver: "Register for Caregiver Practical Batch"
@@ -197,13 +197,13 @@ export const siteTranslations = {
       badge: "Verified Track Record & Community",
       title: "Direct Representation in",
       titleHighlight: "Sri Lanka and Japan",
-      subtitle: "Atsuko International is uniquely positioned with an official registered entity in Sendai, Japan (株式会社 篤子インターナショナル) and an active community of over 17,000 followers and students.",
+      subtitle: "Atsuko International is uniquely positioned with an official registered entity in Komaki City, Aichi Prefecture, Japan (株式会社 篤子インターナショナル) and an active community of over 17,000 followers and students.",
       airportPill: "Direct Flight Deployments • Bandaranaike International Airport (CMB) to Tokyo & Kansai",
       airportTitle: "From Kadawatha to Japan: Complete Legal Guidance",
       airportDesc: "Every cohort departing from Atsuko International travels with an authentic Certificate of Eligibility (COE) issued by the Immigration Services Agency of Japan, visa stamped by the Embassy of Japan in Colombo, and official clearance from the Sri Lanka Bureau of Foreign Employment (SLBFE License No. 3293).",
       airportBadge1Val: "SLBFE #3293",
       airportBadge1Lbl: "Government Licensed",
-      airportBadge2Val: "Sendai, Japan",
+      airportBadge2Val: "Komaki, Aichi",
       airportBadge2Lbl: "登録支援機関 Support Entity",
       airportPoint: "Full airport reception, accommodation check-in & bank account setup handled upon arrival",
       btnVisitChannel: "Visit Official Channel"
@@ -214,7 +214,7 @@ export const siteTranslations = {
       badge: "Island-wide Presence",
       title: "Visit Your Nearest",
       titleHighlight: "Atsuko Center",
-      subtitle: "With centers operating across Sri Lanka and our registered support organization in Sendai, Japan, you receive dedicated guidance close to home.",
+      subtitle: "With centers operating across Sri Lanka and our registered support organization in Komaki City, Aichi Prefecture, Japan, you receive dedicated guidance close to home.",
       headOfficeTag: "Official Head Operations Center",
       regionalTag: "Regional Center",
       japanTag: "Registered Entity in Japan",
@@ -257,7 +257,7 @@ export const siteTranslations = {
 
     // Footer
     footer: {
-      desc: "Sri Lanka's trusted Japanese Language Academy and government-authorized foreign employment agency. Licensed by the Sri Lanka Bureau of Foreign Employment (SLBFE Lic. No: 3293). Backed by our registered support company in Sendai, Japan.",
+      desc: "Sri Lanka's trusted Japanese Language Academy and government-authorized foreign employment agency. Licensed by the Sri Lanka Bureau of Foreign Employment (SLBFE Lic. No: 3293). Backed by our registered support company in Komaki, Aichi Prefecture, Japan.",
       licenseBadge: "SLBFE License No: 3293 (Verified)",
       colPrograms: "Japan Programs",
       colBranches: "Centers & Network",
@@ -314,7 +314,7 @@ export const siteTranslations = {
       titlePre: "ජපානයට යාමේ ඔබේ සිහිනයට",
       titleHighlight: "නියමිත නීත්‍යානුකූල දොරටුව",
       titleJp: "スリランカから日本へ - 篤子学校 (ATSUKO GAKKO)",
-      desc: "ශ්‍රී ලංකා විදේශ සේවා නියුක්ති කාර්යාංශයේ (SLBFE) නිල ලියාපදිංචි අංක 3293 දරන අත්සුකෝ ජපන් භාෂා ඇකඩමිය. ජපානයේ සෙන්ඩායි නුවර පිහිටි අපගේම ලියාපදිංචි ආයතනය (株式会社 Atsuko International) හරහා පිළිගත් JLPT/JFT විභාග පුහුණුව, ශිෂ්‍ය වීසා සහ SSW රැකියා අවස්ථා සලසා දෙයි.",
+      desc: "ශ්‍රී ලංකා විදේශ සේවා නියුක්ති කාර්යාංශයේ (SLBFE) නිල ලියාපදිංචි අංක 3293 දරන අත්සුකෝ ජපන් භාෂා ඇකඩමිය. ජපානයේ අයිචි ප්‍රාන්තයේ කොමාකි නගරයේ පිහිටි අපගේම ලියාපදිංචි ආයතනය (株式会社 Atsuko International) හරහා පිළිගත් JLPT/JFT විභාග පුහුණුව, ශිෂ්‍ය වීසා සහ SSW රැකියා අවස්ථා සලසා දෙයි.",
       pill1: "සමස්ත වීසා සැකසුම් සේවාව: ශිෂ්‍ය, SSW විශේෂිත කුසලතා සහ වෘත්තීය රැකියා වීසා සඳහා පූර්ණ අයදුම්පත් සහය.",
       pill2: "ජපන් භාෂා අධ්‍යාපනය: සන්නිවේදන හැකියාව ගොඩනැගීම සඳහා JLPT N5, N4 සහ JFT-Basic ක්‍රමානුකූල පාඨමාලා.",
       pill3: "ඉලක්කගත වෘත්තීය පුහුණුව: සාත්තු සේවා (Kaigo) සහ කෘෂිකර්මාන්තය වැනි ඉහළ ඉල්ලුමක් ඇති ක්ෂේත්‍ර සඳහා ප්‍රායෝගික පුහුණුව.",
@@ -330,7 +330,7 @@ export const siteTranslations = {
       checkEligibilityBtn: "වීසා සුදුසුකම් පරීක්ෂා කරන්න",
       talkAdvisorBtn: "ඇතුළත් කිරීම් නිලධාරී අමතන්න",
       whatsappBtn: "වට්ස්ඇප් උපදේශක",
-      trustQuote: "ජපානයේ සෙන්ඩායි නුවර අපගේම ලියාපදිංචි ආයතනය (株式会社 Atsuko International) මඟින් පූර්ණ රැකවරණය",
+      trustQuote: "ජපානයේ අයිචි ප්‍රාන්තයේ කොමාකි නගරයේ අපගේම ලියාපදිංචි ආයතනය (株式会社 Atsuko International) මඟින් පූර්ණ රැකවරණය",
       droneTourTag: "4K ඩ්‍රෝන දර්ශන • අත්සුකෝ මූලස්ථානය"
     },
 
@@ -433,7 +433,7 @@ export const siteTranslations = {
       feature2Points: [
         "රෝගීන් හැසිරවීම, රෝද පුටු භාවිතය සහ ජපන් රෝහල් සත්කාරක පිළිවෙත් ප්‍රායෝගිකව හැදෑරීම",
         "සාත්තු සේවා සඳහා වන විශේෂිත ජපන් භාෂා වචන (Kaigo no Nihongo) පුහුණුව",
-        "ජපානයේ සෙන්ඩායි කාර්යාලය හරහා පිළිගත් සෞඛ්‍ය සේවා ආයතන සමඟ සෘජු සම්බන්ධීකරණය",
+        "ජපානයේ කොමාකි (අයිචි ප්‍රාන්තය) කාර්යාලය හරහා පිළිගත් සෞඛ්‍ය සේවා ආයතන සමඟ සෘජු සම්බන්ධීකරණය",
         "Prometric CBT පරිගණක විභාග ලියාපදිංචිය සහ රජයේ ලියකියවිලි කටයුතු සඳහා සහාය"
       ],
       btnJoinCaregiver: "සාත්තු සේවා පන්තියට ලියාපදිංචි වන්න"
@@ -475,13 +475,13 @@ export const siteTranslations = {
       badge: "විශ්වාසනීය වාර්තාව සහ ප්‍රජාව",
       title: "ලංකාවේ සහ ජපානයේ",
       titleHighlight: "සෘජු නියෝජනය",
-      subtitle: "අත්සුකෝ ආයතනය ජපානයේ සෙන්ඩායි නුවර පිහිටි ලියාපදිංචි ආයතනය (株式会社 篤子インターナショナル) සහ 17,000කට අධික සාමාජික පිරිසක් සහිත ප්‍රබල ප්‍රජාවකින් සමන්විතය.",
+      subtitle: "අත්සුකෝ ආයතනය ජපානයේ අයිචි ප්‍රාන්තයේ කොමාකි නගරයේ පිහිටි ලියාපදිංචි ආයතනය (株式会社 篤子インターナショナル) සහ 17,000කට අධික සාමාජික පිරිසක් සහිත ප්‍රබල ප්‍රජාවකින් සමන්විතය.",
       airportPill: "කටුනායක ජාත්‍යන්තර ගුවන්තොටුපොළේ (CMB) සිට ටෝකියෝ සහ කැන්සායි බලා සෘජු පිටත්වීම්",
       airportTitle: "කඩවත සිට ජපානය දක්වා: පූර්ණ නීත්‍යානුකූල මඟපෙන්වීම",
       airportDesc: "අත්සුකෝ වෙතින් පිටත්වන සෑම කණ්ඩායමක්ම ජපාන ආගමන විගමන කාර්යාංශයේ නීත්‍යානුකූල COE සහතිකය, කොළඹ ජපන් තානාපති කාර්යාලයේ වීසා මුද්‍රාව සහ ශ්‍රී ලංකා විදේශ සේවා නියුක්ති කාර්යාංශයේ (SLBFE Lic. 3293) පූර්ණ අනුමැතිය සහිතව ගමන් කරයි.",
       airportBadge1Val: "SLBFE #3293",
       airportBadge1Lbl: "රජයේ ලියාපදිංචි අංකය",
-      airportBadge2Val: "සෙන්ඩායි, ජපානය",
+      airportBadge2Val: "කොමාකි, අයිචි",
       airportBadge2Lbl: "ලියාපදිංචි ආයතනික රැකවරණය (登録支援機関)",
       airportPoint: "ජපානයට ළඟාවූ පසු ගුවන්තොටුපොළෙන් පිළිගැනීම, නවාතැන් සහ බැංකු ගිණුම් කටයුතු සඳහා පූර්ණ සහාය",
       btnVisitChannel: "නිල පිටුවට පිවිසෙන්න"
@@ -492,7 +492,7 @@ export const siteTranslations = {
       badge: "දිවයින පුරා සේවාව",
       title: "ඔබට ළඟම පිහිටි",
       titleHighlight: "අත්සුකෝ මධ්‍යස්ථානයට එන්න",
-      subtitle: "ලංකාව පුරා පිහිටි මධ්‍යස්ථාන සහ ජපානයේ සෙන්ඩායි නුවර ලියාපදිංචි ආයතනය හරහා ඔබට නිවැරදිම මඟපෙන්වීම හිමිවේ.",
+      subtitle: "ලංකාව පුරා පිහිටි මධ්‍යස්ථාන සහ ජපානයේ අයිචි ප්‍රාන්තයේ කොමාකි නගරයේ ලියාපදිංචි ආයතනය හරහා ඔබට නිවැරදිම මඟපෙන්වීම හිමිවේ.",
       headOfficeTag: "ප්‍රධාන මෙහෙයුම් මධ්‍යස්ථානය",
       regionalTag: "ප්‍රාදේශීය මධ්‍යස්ථානය",
       japanTag: "ජපානයේ ලියාපදිංචි ආයතනය",
@@ -535,7 +535,7 @@ export const siteTranslations = {
 
     // Footer
     footer: {
-      desc: "ශ්‍රී ලංකා විදේශ සේවා නියුක්ති කාර්යාංශයේ (SLBFE Lic. 3293) ලියාපදිංචි විශ්වාසනීය ජපන් භාෂා ඇකඩමිය. ජපානයේ සෙන්ඩායි හා අයිචි නුවර පිහිටි අපගේ ලියාපදිංචි ආයතනය (株式会社 Atsuko International) මඟින් ජපානය තුළ පූර්ණ රැකවරණය.",
+      desc: "ශ්‍රී ලංකා විදේශ සේවා නියුක්ති කාර්යාංශයේ (SLBFE Lic. 3293) ලියාපදිංචි විශ්වාසනීය ජපන් භාෂා ඇකඩමිය. ජපානයේ අයිචි ප්‍රාන්තයේ කොමාකි නගරයේ පිහිටි අපගේ ලියාපදිංචි ආයතනය (株式会社 Atsuko International) මඟින් ජපානය තුළ පූර්ණ රැකවරණය.",
       licenseBadge: "SLBFE ලියාපදිංචි අංක: 3293 (තහවුරුයි)",
       colPrograms: "ජපාන පාඨමාලා",
       colBranches: "මධ්‍යස්ථාන ජාලය",
@@ -592,7 +592,7 @@ export const siteTranslations = {
       titlePre: "スリランカから日本への",
       titleHighlight: "確かな留学・特定技能就労",
       titleJp: "日本への架け橋 - 篤子インターナショナル (ATSUKO GAKKO)",
-      desc: "スリランカ海外雇用局（SLBFE No. 3293）公認。宮城県仙台市および愛知県小牧市の日本法人（株式会社 Atsuko International）と直結し、確かな日本語教育（JLPT/JFT）と特定技能（介護・外食・運送等）・留学ビザ申請まで日本政府公認の万全な体制で支援いたします。",
+      desc: "スリランカ海外雇用局（SLBFE No. 3293）公認。愛知県小牧市の日本法人（株式会社 Atsuko International）と直結し、確かな日本語教育（JLPT/JFT）と特定技能（介護・外食・運送等）・留学ビザ申請まで日本政府公認の万全な体制で支援いたします。",
       pill1: "総合ビザ申請サポート: 留学、特定技能、および技術・人文知識・国際業務ビザの申請を完全支援。",
       pill2: "体系的な日本語教育: JLPT N5・N4およびJFT-Basic対応の基礎〜実践コミュニケーション講座。",
       pill3: "特定分野の技能訓練: 介護や農業など、需要の高い特定技能分野の実技・理論教育を提供。",
@@ -608,7 +608,7 @@ export const siteTranslations = {
       checkEligibilityBtn: "ビザ適性診断を始める",
       talkAdvisorBtn: "進路指導員に相談する",
       whatsappBtn: "WhatsAppでお問い合わせ",
-      trustQuote: "日本法人：宮城県仙台市・愛知県小牧市「株式会社 Atsuko International」（登録支援機関）が日本現地で万全サポート",
+      trustQuote: "日本法人：愛知県小牧市「株式会社 Atsuko International」（登録支援機関）が日本現地で万全サポート",
       droneTourTag: "4K ドローン映像 • アツコ本部"
     },
 
@@ -711,7 +711,7 @@ export const siteTranslations = {
       feature2Points: [
         "ベッドから車いすへの移乗介助、食事介助の実技実践トレーニング",
         "介護の現場で必須となる専門日本語（介護の日本語）指導",
-        "仙台の日本法人を通じた日本各地の優良介護施設との直接マッチング",
+        "愛知県小牧市の日本法人を通じた日本各地の優良介護施設との直接マッチング",
         "プロメトリックCBT試験の予約代行および申請手続き支援"
       ],
       btnJoinCaregiver: "介護実技クラスに申し込む"
@@ -753,13 +753,13 @@ export const siteTranslations = {
       badge: "実績とコミュニティ",
       title: "スリランカと日本現地を結ぶ",
       titleHighlight: "確かなネットワーク",
-      subtitle: "宮城県仙台市に設立した日本法人「株式会社 篤子インターナショナル」（登録支援機関）と、17,000人超の公式コミュニティがあなたの挑戦を支えます。",
+      subtitle: "愛知県小牧市に設立した日本法人「株式会社 篤子インターナショナル」（登録支援機関）と、17,000人超の公式コミュニティがあなたの挑戦を支えます。",
       airportPill: "バンダラナイケ国際空港（CMB）から成田・関西国際空港へ出発",
       airportTitle: "カダワタから日本へ：安心・確実な公式ルート",
       airportDesc: "篤子学校から日本へ出発するすべての研修生・留学生は、出入国在留管理庁公認の在留資格認定証明書（COE）、在スリランカ日本国大使館の正規査証、スリランカ海外雇用局（SLBFE No. 3293）の出航許可を得て出発します。",
       airportBadge1Val: "SLBFE #3293",
       airportBadge1Lbl: "政府公認ライセンス",
-      airportBadge2Val: "宮城県仙台市",
+      airportBadge2Val: "愛知県小牧市",
       airportBadge2Lbl: "日本法人（登録支援機関）",
       airportPoint: "日本到着時の空港出迎え、寮への入居サポート、銀行口座開設まで現地スタッフが伴走します",
       btnVisitChannel: "公式コミュニティを見る"
@@ -770,7 +770,7 @@ export const siteTranslations = {
       badge: "スリランカ国内・日本拠点",
       title: "お近くの篤子学校",
       titleHighlight: "校舎・窓口のご案内",
-      subtitle: "スリランカ国内9拠点および日本（仙台市）の支援拠点を通じて、安心してご相談いただけます。",
+      subtitle: "スリランカ国内拠点および日本（愛知県小牧市）の支援拠点を通じて、安心してご相談いただけます。",
       headOfficeTag: "本社運営センター",
       regionalTag: "地方校舎・相談窓口",
       japanTag: "日本法人（登録支援機関）",
@@ -813,7 +813,7 @@ export const siteTranslations = {
 
     // Footer
     footer: {
-      desc: "スリランカ海外雇用局（SLBFE Lic. No: 3293）公認の日本語教育機関・送り出し機関。宮城県仙台市および愛知県小牧市の日本法人（株式会社 Atsuko International）とともに、日本での安心な生活とキャリアを支援します。",
+      desc: "スリランカ海外雇用局（SLBFE Lic. No: 3293）公認の日本語教育機関・送り出し機関。愛知県小牧市の日本法人（株式会社 Atsuko International）とともに、日本での安心な生活とキャリアを支援します。",
       licenseBadge: "SLBFE認可ライセンス No: 3293（確認済み）",
       colPrograms: "プログラム一覧",
       colBranches: "校舎・ネットワーク",

@@ -39,7 +39,10 @@ export const officialContacts = {
   headOfficeCity: "Kadawatha, Sri Lanka",
   
   // Japan Operations
-  japanAddress: "Sendai City, Miyagi Prefecture & Komaki City, Aichi Prefecture, Japan",
+  japanAddress: "Postcode-485-0041, Sunshine Komaki Building, 2nd Floor, West Room, 2-41 Komaki, Komaki City, Aichi Prefecture (〒485-0041 愛知県小牧市小牧2-41 サンシャイン小牧棟 2階西号室)",
+  japanAddressJp: "〒485-0041 愛知県小牧市小牧2-41 サンシャイン小牧棟 2階西号室",
+  japanAddressSi: "තැපැල් කේතය 485-0041, සන්ෂයින් කොමාකි ගොඩනැගිල්ල, 2 වන මහල (බටහිර කාමරය), 2-41 කොමාකි, කොමාකි නගරය, අයිචි ප්‍රාන්තය, ජපානය",
+  japanEmail: "atsukoschooljapan@gmail.com",
   japanPhone: "+81 90-2958-4420",
 
   // Key Assurance from Leaflet (Page 17)
@@ -92,7 +95,7 @@ export const instagramFeedData = {
 
 // Vision & Mission (Verbatim from Leaflet Page 2 & 3)
 export const aboutUsData = {
-  overview: "Atsuko International School is a premier, government-registered Japanese language academy and licensed foreign employment agency operating in Sri Lanka and Sendai, Japan. Incorporated under Sri Lanka Company Registration No. PV 0217143 and authorized under SLBFE License No. 3293, Atsuko International provides certified Japanese language training (JLPT & JFT), technical and vocational skills training, transparent visa processing, and direct placement coordination with Japanese language schools and enterprise employers.",
+  overview: "Atsuko International School is a premier, government-registered Japanese language academy and licensed foreign employment agency operating in Sri Lanka and Komaki, Aichi Prefecture, Japan. Incorporated under Sri Lanka Company Registration No. PV 0217143 and authorized under SLBFE License No. 3293, Atsuko International provides certified Japanese language training (JLPT & JFT), technical and vocational skills training, transparent visa processing, and direct placement coordination with Japanese language schools and enterprise employers.",
   
   vision: "To be a leader in Sri Lanka in providing the right guidance and vocational education for Sri Lankan students and Sri Lankan workers to be confidently directed to Japan.",
   visionJp: "スリランカの学生と労働者が自信を持って日本へ向かえるよう、適切な指導と職業教育を提供する事でスリランカのリーダーとなること。",
@@ -163,9 +166,9 @@ export const aboutUsData = {
       role: "Representative in Japan",
       roleSi: "ජපානයේ නිල නියෝජිතවරිය",
       roleJp: "日本現地代表窓口",
-      title: "Representative in Japan (Sendai & Aichi)",
-      titleSi: "ජපානයේ නිල නියෝජිතවරිය (සෙන්ඩායි සහ අයිචි)",
-      titleJp: "日本代表（宮城仙台・愛知小牧拠点統括）",
+      title: "Representative in Japan (Komaki, Aichi)",
+      titleSi: "ජපානයේ නිල නියෝජිතවරිය (කොමාකි, අයිචි)",
+      titleJp: "日本代表（愛知県小牧市拠点統括）",
       image: "/images/team/vimani-pathiraja.png",
       focus: "On-the-ground candidate reception, airport greeting, municipal resident registration, bank account setup, and student welfare.",
       focusSi: "ජපානයේ ගුවන් තොටුපළින් පිළිගැනීම, නගර සභා නේවාසික ලියාපදිංචිය, බැංකු ගිණුම් ආරම්භ කිරීම සහ ශිෂ්‍ය සුබසාධන කටයුතු සෘජුව මෙහෙයවීම.",
@@ -228,7 +231,7 @@ export const aboutUsData = {
       id: "coordination",
       title: "Coordination with Japanese Institutions",
       jp: "日本現地機関との連携",
-      desc: "Direct agreements with Japanese language schools and enterprise employers, backed by our registered support corporation in Sendai & Aichi."
+      desc: "Direct agreements with Japanese language schools and enterprise employers, backed by our registered support corporation in Komaki, Aichi Prefecture."
     }
   ],
 
@@ -702,7 +705,7 @@ export const roadmapSteps = [
     step: "06",
     title: "Arrival in Japan & Ongoing Support",
     jp: "日本渡航・登録支援機関サポート",
-    desc: "Fly to Japan, received at the airport, and supported by our registered support corporation (株式会社 Atsuko International) in Sendai & Aichi for housing, bank accounts, and living adjustment."
+    desc: "Fly to Japan, received at the airport, and supported by our registered support corporation (株式会社 Atsuko International) in Komaki, Aichi Prefecture for housing, bank accounts, and living adjustment."
   }
 ];
 
@@ -742,7 +745,7 @@ export const siRoadmap = [
     step: "06",
     title: "ජපානයට පිටත්වීම සහ පූර්ණ රැකවරණය",
     jp: "日本渡航・登録支援機関サポート",
-    desc: "ජපානයට ළඟාවී අපගේ සෙන්ඩායි සහ අයිචි ලියාපදිංචි ආයතනය (株式会社 Atsuko International) මඟින් නවාතැන්, නගර සභා සහ බැංකු කටයුතු සම්පූර්ණ කිරීම."
+    desc: "ජපානයට ළඟාවී අපගේ අයිචි ප්‍රාන්තයේ කොමාකි ලියාපදිංචි ආයතනය (株式会社 Atsuko International) මඟින් නවාතැන්, නගර සභා සහ බැංකු කටයුතු සම්පූර්ණ කිරීම."
   }
 ];
 
@@ -913,7 +916,7 @@ export const faqList = [
   },
   {
     q: "Does Atsuko International have an official registered office in Japan?",
-    a: "Yes. In Japan, our associated corporate entity is 株式会社 Atsuko International (Corporate No. 3700-01-048848), operating in Sendai (Miyagi Prefecture) and Komaki (Aichi Prefecture). It holds an official Paid Employment Agency License (No. 04-ユ-300338) and is recognized as a Registered Support Organization (登録支援機関 No. 23登-008312) under the Immigration Services Agency of Japan."
+    a: "Yes. In Japan, our associated corporate entity is 株式会社 Atsuko International (Corporate No. 3700-01-048848), located at Postcode-485-0041, Sunshine Komaki Building, 2nd Floor, West Room, 2-41 Komaki, Komaki City, Aichi Prefecture (〒485-0041 愛知県小牧市小牧2-41 サンシャイン小牧棟 2階西号室). It holds an official Paid Employment Agency License (No. 04-ユ-300338) and is recognized as a Registered Support Organization (登録支援機関 No. 23登-008312) under the Immigration Services Agency of Japan."
   },
   {
     q: "What are the four student visa intake cycles for Japan?",
@@ -987,7 +990,7 @@ export const targetAudiencePathways = [
       "SLBFE Registered License No. 3293 (Renewed through 2026)",
       "Company Registration PV 0217143 (Incorporated Nov 1, 2019)",
       "Zero initial setup fee—no service charges until visa approval",
-      "Official support office in Sendai & Aichi, Japan for student welfare"
+      "Official support office in Komaki, Aichi Prefecture, Japan for student welfare"
     ],
     ctaText: "Verify Credentials",
     targetTab: "about"
@@ -1025,7 +1028,8 @@ export const globalPresenceData = {
     corporateNumber: "3700-01-048848",
     supportOrgNumber: "23登-008312 (登録支援機関)",
     paidEmploymentLicense: "04-ユ-300338 (有料職業紹介事業許可証)",
-    locations: "Sendai City, Miyagi Prefecture & Komaki City, Aichi Prefecture, Japan",
+    locations: "Postcode-485-0041, Sunshine Komaki Building, 2nd Floor, West Room, 2-41 Komaki, Komaki City, Aichi Prefecture (〒485-0041 愛知県小牧市小牧2-41 サンシャイン小牧棟 2階西号室)",
+    email: "atsukoschooljapan@gmail.com",
     phone: "+81 90-2958-4420",
     hours: "Japan Standard Time (JST): 9:00 AM - 6:00 PM",
     services: [
@@ -1068,55 +1072,30 @@ export const branchesData = [
     ]
   },
   {
-    id: "sendai-japan",
-    name: "Sendai, Miyagi, Japan (東北・仙台 支援センター)",
-    siName: "සෙන්ඩායි, මියාගි, ජපානය (ඊසානදිග ආධාරක මධ්‍යස්ථානය)",
-    jpName: "日本法人：株式会社 Atsuko International（宮城県仙台市）",
+    id: "komaki-japan",
+    name: "Komaki, Aichi, Japan (愛知県小牧市 駐在事務所)",
+    siName: "කොමාකි, අයිචි, ජපානය (ජපාන කාර්යාලය)",
+    jpName: "日本法人：株式会社 Atsuko International（愛知県小牧市）",
     isHeadOffice: false,
     isJapanEntity: true,
-    address: "Sendai City, Miyagi Prefecture, Japan (登録支援機関 No. 23登-008312)",
-    siAddress: "සෙන්ඩායි නගරය, මියාගි ප්‍රාන්තය, ජපානය (ලියාපදිංචි ආධාරක ආයතන අංක: 23登-008312)",
+    address: "Postcode-485-0041, Sunshine Komaki Building, 2nd Floor, West Room, 2-41 Komaki, Komaki City, Aichi Prefecture (〒485-0041 愛知県小牧市小牧2-41 サンシャイン小牧棟 2階西号室)",
+    siAddress: "තැපැල් කේතය 485-0041, සන්ෂයින් කොමාකි ගොඩනැගිල්ල, 2 වන මහල (බටහිර කාමරය), 2-41 කොමාකි, කොමාකි නගරය, අයිචි ප්‍රාන්තය, ජපානය (〒485-0041 愛知県小牧市小牧2-41 サンシャイン小牧棟 2階西号室)",
     phone: "+81 90-2958-4420",
+    email: "atsukoschooljapan@gmail.com",
     whatsapp: "+94777933352",
     hours: "Japan Standard Time (JST): 9:00 AM - 6:00 PM",
     siHours: "ජපාන සම්මත වේලාව (JST): පෙ.ව 9:00 - ප.ව 6:00",
     facilities: [
       "Registered Support Organization (登録支援機関 No. 23登-008312)",
-      "Healthcare Facility Coordination for SSW Caregivers",
+      "Paid Employment Agency License (有料職業紹介 No. 04-ユ-300338)",
       "Municipal City Hall Registration & Bank Account Setup",
-      "On-the-ground Candidate Pastoral Care"
+      "On-the-ground Candidate Reception & Pastoral Care"
     ],
     siFacilities: [
       "නිල ලියාපදිංචි ආධාරක ආයතනය (23登-008312)",
-      "SSW සාත්තු සේවකයන් සඳහා රෝහල් හා සෞඛ්‍ය ආයතන සම්බන්ධීකරණය",
+      "ගෙවීම් සහිත රැකියා බලපත්‍රය (04-ユ-300338)",
       "නගර සභා (City Hall) ලියාපදිංචිය සහ ජපන් බැංකු ගිණුම් ආරම්භ කිරීම",
       "ජපානය තුළ නිරන්තර සුබසාධනය සහ නීතිමය සහාය"
-    ]
-  },
-  {
-    id: "komaki-japan",
-    name: "Komaki, Aichi, Japan (愛知県小牧市 駐在事務所)",
-    siName: "කොමාකි, අයිචි, ජපානය (අයිචි නේවාසික කාර්යාලය)",
-    jpName: "日本法人：株式会社 Atsuko International（愛知県小牧市）",
-    isHeadOffice: false,
-    isJapanEntity: true,
-    address: "Komaki City, Aichi Prefecture, Japan (Postcode: 485-0041)",
-    siAddress: "කොමාකි නගරය, අයිචි ප්‍රාන්තය, ජපානය (තැපැල් අංකය: 485-0041)",
-    phone: "+81 90-2958-4420",
-    whatsapp: "+94777933352",
-    hours: "Japan Standard Time (JST): 9:00 AM - 6:00 PM",
-    siHours: "ජපාන සම්මත වේලාව (JST): පෙ.ව 9:00 - ප.ව 6:00",
-    facilities: [
-      "Paid Employment Agency License (有料職業紹介 No. 04-ユ-300338)",
-      "Chubu & Aichi Region Corporate Employer Liaison",
-      "Nagoya Centrair & Kansai Airport Reception",
-      "SSW Job Placement & Enterprise Matching"
-    ],
-    siFacilities: [
-      "ගෙවීම් සහිත රැකියා බලපත්‍රය (04-ユ-300338)",
-      "චූබු සහ අයිචි කලාපීය සේවායෝජක ආයතන සම්බන්ධීකරණය",
-      "නගෝයා සහ කැන්සායි ගුවන් තොටුපළින් පිළිගැනීමේ සේවාව",
-      "SSW සෘජු ආයතනික රැකියා අවස්ථා සලසා දීම"
     ]
   },
   {

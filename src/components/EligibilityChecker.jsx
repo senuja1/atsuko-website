@@ -136,7 +136,7 @@ export default function EligibilityChecker({ lang, onOpenModal }) {
         jpName = "特定技能1号 - 介護分野 (Kaigo Healthcare)";
         timeline = "6〜9ヶ月";
         earning = "月収 210,000〜270,000 円（基本給＋夜勤・資格手当）";
-        advice = "アツコ本校（Atsuko Main）の介護実技シミュレーション施設で技術を習得し、仙台の日本法人を通じて直接マッチング。";
+        advice = "アツコ本校（Atsuko Main）の介護実技シミュレーション施設で技術を習得し、愛知県小牧市の日本法人を通じて直接マッチング。";
         visaType = "特定技能1号（介護）";
       } else if (goal === 'driver') {
         pathway = "特定技能「自動車運送業（トラック・バス）」";
@@ -150,7 +150,7 @@ export default function EligibilityChecker({ lang, onOpenModal }) {
         jpName = "特定技能1号 / 技能実習プログラム";
         timeline = "6〜8ヶ月";
         earning = "月収 190,000〜250,000 円";
-        advice = "スリランカ海外雇用局認可ライセンス3293および仙台の登録支援機関が万全のサポートを提供します。";
+        advice = "スリランカ海外雇用局認可ライセンス3293および愛知県小牧市の登録支援機関が万全のサポートを提供します。";
         visaType = "特定技能 / 技人国";
       }
     } else {

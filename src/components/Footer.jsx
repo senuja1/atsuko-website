@@ -162,7 +162,14 @@ export default function Footer({ lang, onOpenModal, onNavigate }) {
               </div>
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem' }}>
                 <MapPin size={16} style={{ color: '#38bdf8', flexShrink: 0, marginTop: '3px' }} />
-                <span><strong>{lang === 'si' ? 'ජපානයේ ආයතනය:' : lang === 'jp' ? '日本支援法人:' : 'Japan Support Entity:'}</strong> {officialContacts.japanAddress}</span>
+                <span>
+                  <strong>{lang === 'si' ? 'ජපාන කාර්යාලය:' : lang === 'jp' ? '日本事務所:' : 'Japan Office:'}</strong>{' '}
+                  {lang === 'si'
+                    ? `${officialContacts.japanAddressSi} (${officialContacts.japanAddressJp})`
+                    : lang === 'jp'
+                      ? officialContacts.japanAddressJp
+                      : officialContacts.japanAddress}
+                </span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <Phone size={15} style={{ color: '#38bdf8', flexShrink: 0 }} />
