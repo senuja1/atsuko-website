@@ -611,7 +611,7 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
             </p>
           </div>
 
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '1.25rem', flexWrap: 'wrap', marginTop: '2rem' }}>
+          <div className="social-connect-row" style={{ marginTop: '2rem' }}>
             <a
               href={officialContacts.socials.facebook}
               target="_blank"
