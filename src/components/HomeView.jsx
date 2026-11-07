@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from 'react';
 import {
   GraduationCap,
   Briefcase,
@@ -32,6 +33,37 @@ import { getUiText } from '../data/uiText';
 export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligibility }) {
   const h = getUiText(lang).home;
   const shortVideos = videoSuccessStories.filter((v) => v.type === 'short').slice(0, 4);
+  const videoContainerRef = useRef(null);
+  const iframeRef = useRef(null);
+  const [shouldAutoplay, setShouldAutoplay] = useState(false);
+
+  useEffect(() => {
+    const node = videoContainerRef.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldAutoplay(true);
+          if (iframeRef.current && iframeRef.current.contentWindow) {
+            iframeRef.current.contentWindow.postMessage(
+              JSON.stringify({ event: 'command', func: 'playVideo', args: [] }),
+              '*'
+            );
+          }
+        } else if (iframeRef.current && iframeRef.current.contentWindow) {
+          iframeRef.current.contentWindow.postMessage(
+            JSON.stringify({ event: 'command', func: 'pauseVideo', args: [] }),
+            '*'
+          );
+        }
+      },
+      { threshold: 0.35 }
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
 
   const getLocalizedTitle = (item) => {
     if (lang === 'si' && item.titleSi) return item.titleSi;
@@ -99,6 +131,7 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
             </div>
 
             <div
+              ref={videoContainerRef}
               className="featured-video-card"
               style={{
                 maxWidth: '940px',
@@ -112,7 +145,12 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
             >
               <div className="video-embed-responsive-16-9">
                 <iframe
-                  src="https://www.youtube-nocookie.com/embed/de-r5nNP2xs?rel=0"
+                  ref={iframeRef}
+                  src={
+                    shouldAutoplay
+                      ? 'https://www.youtube-nocookie.com/embed/de-r5nNP2xs?autoplay=1&mute=1&playsinline=1&enablejsapi=1&rel=0&loop=1&playlist=de-r5nNP2xs'
+                      : 'https://www.youtube-nocookie.com/embed/de-r5nNP2xs?enablejsapi=1&playsinline=1&rel=0'
+                  }
                   title={
                     lang === 'si'
                       ? 'අත්සුකෝ ඉන්ටර්නැෂනල් නිල හඳුන්වාදීමේ වීඩියෝව'
@@ -120,63 +158,10 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
                         ? 'アツコ・インターナショナル 公式紹介ビデオ'
                         : 'All About Atsuko International — Official Overview'
                   }
-                  loading="lazy"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   referrerPolicy="strict-origin-when-cross-origin"
                   allowFullScreen
                 ></iframe>
-              </div>
-
-              <div
-                style={{
-                  display: 'flex',
-                  flexWrap: 'wrap',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  gap: '12px',
-                  padding: '14px 22px',
-                  background: 'linear-gradient(90deg, #060d1f 0%, #0b1528 100%)',
-                  borderTop: '1px solid rgba(56, 189, 248, 0.16)'
-                }}
-              >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#e0f2fe', fontSize: '0.88rem', fontWeight: 600 }}>
-                  <ShieldCheck size={17} style={{ color: '#38bdf8', flexShrink: 0 }} />
-                  <span>
-                    {lang === 'si'
-                      ? 'SLBFE බලපත්‍ර අංක 3293 • අත්සුකෝ ප්‍රධාන මූලස්ථානය සහ ජපාන කාර්යාලය'
-                      : lang === 'jp'
-                        ? 'SLBFE 認可番号 3293 • アツコ本校 ＆ 日本法人（愛知県小牧市）'
-                        : 'SLBFE License No. 3293 • Atsuko Main & Japan Office (Komaki, Aichi)'}
-                  </span>
-                </div>
-
-                <a
-                  href="https://www.youtube.com/watch?v=de-r5nNP2xs"
-                  target="_blank"
-                  rel="noreferrer"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '7px',
-                    padding: '7px 16px',
-                    borderRadius: '999px',
-                    background: 'rgba(14, 165, 233, 0.16)',
-                    border: '1px solid rgba(56, 189, 248, 0.35)',
-                    color: '#38bdf8',
-                    fontSize: '0.82rem',
-                    fontWeight: 700,
-                    textDecoration: 'none'
-                  }}
-                >
-                  <YoutubeIcon size={14} />
-                  <span>
-                    {lang === 'si'
-                      ? 'YouTube හි නරඹන්න'
-                      : lang === 'jp'
-                        ? 'YouTubeで見る'
-                        : 'Watch on YouTube'}
-                  </span>
-                </a>
               </div>
             </div>
           </div>
