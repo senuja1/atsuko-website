@@ -1,25 +1,150 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 
-export default function NsbmIntakeBillboard({ lang = 'en' }) {
-  // Official Atsuko International Instagram Post Highlights (4 Unique Posts)
-  const posts = [
-    {
-      id: 'DeQjepkEwiW',
-      title: 'Caregiver (SSW Visa) Practical Training - Atsuko International'
-    },
-    {
-      id: 'DV0wLR8kYh1',
-      title: 'Official 2027 April Intake & SSW Admissions - Atsuko International'
-    },
-    {
-      id: 'Da1rbndEvGK',
-      title: 'Food Service (SSW Visa) Approvals - Atsuko International'
-    },
-    {
-      id: 'DZ_jTzyCJha',
-      title: 'Batch 17 Native Sensei Classroom Immersion - Atsuko International'
+const FALLBACK_POSTS = [
+  {
+    id: 'DeQjepkEwiW',
+    type: 'p',
+    title: 'Caregiver (SSW Visa) Practical Training - Atsuko International'
+  },
+  {
+    id: 'DV0wLR8kYh1',
+    type: 'p',
+    title: 'Official 2027 April Intake & SSW Admissions - Atsuko International'
+  },
+  {
+    id: 'Da1rbndEvGK',
+    type: 'p',
+    title: 'Food Service (SSW Visa) Approvals - Atsuko International'
+  },
+  {
+    id: 'DZ_jTzyCJha',
+    type: 'p',
+    title: 'Batch 17 Native Sensei Classroom Immersion - Atsuko International'
+  }
+];
+
+function extractInstagramPost(item, index) {
+  if (!item) return null;
+  if (typeof item === 'string') {
+    const match = item.match(/instagram\.com\/(p|reel|tv)\/([A-Za-z0-9_-]+)/i);
+    if (match) {
+      return { id: match[2], type: match[1].toLowerCase(), title: `Atsuko International Instagram Post ${index + 1}` };
     }
-  ];
+    return { id: item.trim(), type: 'p', title: `Atsuko International Instagram Post ${index + 1}` };
+  }
+
+  const permalink = item.permalink || item.url || item.link || '';
+  const match = permalink.match(/instagram\.com\/(p|reel|tv)\/([A-Za-z0-9_-]+)/i);
+  if (match) {
+    return {
+      id: match[2],
+      type: match[1].toLowerCase(),
+      title: (item.caption || item.title || `Atsuko International Instagram Post ${index + 1}`).slice(0, 100)
+    };
+  }
+
+  if (item.shortcode || item.id) {
+    return {
+      id: item.shortcode || item.id,
+      type: item.type === 'reel' ? 'reel' : 'p',
+      title: (item.caption || item.title || `Atsuko International Instagram Post ${index + 1}`).slice(0, 100)
+    };
+  }
+
+  return null;
+}
+
+function normalizeFeedPayload(data) {
+  const rawList = Array.isArray(data)
+    ? data
+    : Array.isArray(data?.posts)
+      ? data.posts
+      : Array.isArray(data?.data)
+        ? data.data
+        : [];
+
+  const parsed = rawList
+    .map((item, idx) => extractInstagramPost(item, idx))
+    .filter((p) => p && p.id);
+
+  // Deduplicate by shortcode ID and keep latest 4
+  const seen = new Set();
+  const unique = [];
+  for (const post of parsed) {
+    if (!seen.has(post.id)) {
+      seen.add(post.id);
+      unique.push(post);
+    }
+    if (unique.length === 4) break;
+  }
+  return unique;
+}
+
+export default function NsbmIntakeBillboard() {
+  const [posts, setPosts] = useState(FALLBACK_POSTS);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    async function loadLiveInstagramPosts() {
+      try {
+        // 1. Check local config (/instagram-feed.json) or env variable (VITE_INSTAGRAM_FEED_URL)
+        let feedUrl = import.meta.env.VITE_INSTAGRAM_FEED_URL || '';
+
+        const configRes = await fetch(`/instagram-feed.json?t=${Date.now()}`, {
+          cache: 'no-store'
+        });
+
+        let configData = null;
+        if (configRes.ok) {
+          configData = await configRes.json();
+          if (!feedUrl && configData?.beholdFeedUrl) {
+            feedUrl = configData.beholdFeedUrl.trim();
+          }
+        }
+
+        // 2. If a live Behold.so / Instagram Graph JSON URL is configured, fetch the latest 4 posts from it
+        if (feedUrl) {
+          const liveRes = await fetch(feedUrl, { cache: 'no-store' });
+          if (liveRes.ok) {
+            const liveData = await liveRes.json();
+            const livePosts = normalizeFeedPayload(liveData);
+            if (isMounted && livePosts.length > 0) {
+              setPosts(
+                livePosts.length >= 4
+                  ? livePosts.slice(0, 4)
+                  : [...livePosts, ...FALLBACK_POSTS].slice(0, 4)
+              );
+              return;
+            }
+          }
+        }
+
+        // 3. Otherwise use posts from /instagram-feed.json if provided
+        if (configData) {
+          const configPosts = normalizeFeedPayload(configData);
+          if (isMounted && configPosts.length > 0) {
+            setPosts(
+              configPosts.length >= 4
+                ? configPosts.slice(0, 4)
+                : [...configPosts, ...FALLBACK_POSTS].slice(0, 4)
+            );
+          }
+        }
+      } catch {
+        // Keep FALLBACK_POSTS silently if offline or unconfigured
+      }
+    }
+
+    loadLiveInstagramPosts();
+
+    // Auto-refresh every 5 minutes while page is open
+    const intervalId = setInterval(loadLiveInstagramPosts, 5 * 60 * 1000);
+    return () => {
+      isMounted = false;
+      clearInterval(intervalId);
+    };
+  }, []);
 
   return (
     <section className="nsbm-intake-section" aria-label="Atsuko Admissions & Live Instagram Showcase">
@@ -29,7 +154,7 @@ export default function NsbmIntakeBillboard({ lang = 'en' }) {
           {posts.map((post) => (
             <div key={post.id} className="nsbm-post-stage">
               <iframe
-                src={`https://www.instagram.com/p/${post.id}/embed/`}
+                src={`https://www.instagram.com/${post.type || 'p'}/${post.id}/embed/`}
                 title={post.title}
                 className="nsbm-post-iframe"
                 frameBorder="0"
