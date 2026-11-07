@@ -12,7 +12,7 @@ import {
   Heart,
   UtensilsCrossed,
   Sprout,
-  Truck,
+  Building2,
   HardHat
 } from 'lucide-react';
 import { visaDocumentChecklist, roadmapSteps, siRoadmap, jpRoadmap, siVisaDocumentChecklist, jpVisaDocumentChecklist } from '../data/websiteData';
@@ -107,15 +107,15 @@ export default function JobVisaPage({ lang, onOpenModal, onNavigate }) {
       salarySi: 'මසකට ¥180,000 – ¥220,000 + නිවාස සහනාධාර'
     },
     {
-      icon: Truck,
+      icon: Building2,
       color: 'text-blue',
-      name: 'Commercial Truck Driving & Transport (Jidosha Unso)',
-      nameSi: 'වාණිජ ප්‍රවාහන හා රියදුරු සේවා (Jidosha Unso)',
-      desc: lang === 'si' ? 'ජපානයේ 2024 නව නීතිමය සංශෝධන යටතේ විවෘත වූ ඉහළ ඉල්ලුමක් ඇති ලොජිස්ටික්ස් සහ වාණිජ භාණ්ඩ ප්‍රවාහන රියදුරු ක්ෂේත්‍රය.' : 'High-demand logistics sector under Japan’s newly expanded SSW framework. Operating commercial vehicles and modern warehouse distribution.',
-      test: 'JLPT N4 / JFT + Automobile Transport Driver Exam',
-      testSi: 'JLPT N4 / JFT + මෝටර් රථ ප්‍රවාහන රියදුරු විභාගය',
-      salary: '¥220,000 – ¥320,000 / mo + Overtime',
-      salarySi: 'මසකට ¥220,000 – ¥320,000 + අතිකාල දීමනා'
+      name: 'Accommodation & Hospitality (Shukuhaku 宿泊業)',
+      nameSi: 'හෝටල් සහ ආගන්තුක සත්කාරය (Shukuhaku 宿泊業)',
+      desc: lang === 'si' ? 'ජපානයේ තරු පන්තියේ හෝටල්, සංචාරක නිවාඩු නිකේතන සහ සම්ප්‍රදායික රියෝකාන් (Ryokan) ආශ්‍රිත පිළිගැනීමේ නිලධාරී සහ ආගන්තුක සත්කාරක රැකියා.' : 'Front office, guest hospitality, housekeeping, and concierge roles at Japanese hotels, resorts, and traditional Ryokan inns.',
+      test: 'JLPT N4 / JFT + Prometric Accommodation Exam',
+      testSi: 'JLPT N4 / JFT + Prometric නවාතැන් සේවා විභාගය',
+      salary: '¥190,000 – ¥250,000 / mo + Housing',
+      salarySi: 'මසකට ¥190,000 – ¥250,000 + නවාතැන් සහනාධාර'
     },
     {
       icon: HardHat,

@@ -105,7 +105,7 @@ export const siteTranslations = {
       goalOptions: [
         { id: 'student', label: 'Study in Japan (Student Visa)', desc: 'Language School + Part-time work (28h/w) + Degree progression' },
         { id: 'caregiver', label: 'SSW Caregiver (Kaigo)', desc: 'High salary in healthcare, stable employment & PR opportunity' },
-        { id: 'driver', label: 'SSW Logistics & Truck Driver', desc: 'New high-demand 2024/2025 category with excellent pay' },
+        { id: 'agriculture', label: 'SSW Agriculture & Crop Farming', desc: 'Automated greenhouse farming & harvest operations in Japan' },
         { id: 'food', label: 'SSW Food Service / Hospitality', desc: 'Restaurants, catering & hotels across Tokyo & Osaka' },
         { id: 'engineer', label: 'IT, Engineering or Corporate', desc: 'For university degree holders seeking professional roles in Japan' },
       ],
@@ -383,7 +383,7 @@ export const siteTranslations = {
       goalOptions: [
         { id: 'student', label: 'ජපානයේ උසස් අධ්‍යාපනය (ශිෂ්‍ය වීසා)', desc: 'භාෂා පාසල + සතියට පැය 28 රැකියාව + උපාධිය දක්වා ඉදිරියට යාම' },
         { id: 'caregiver', label: 'SSW සාත්තු සේවා (Kaigo)', desc: 'සෞඛ්‍ය අංශයේ ඉහළ වැටුප්, ස්ථිර රැකියාව සහ PR අවස්ථාව' },
-        { id: 'driver', label: 'SSW ලොජිස්ටික්ස් සහ බර වාහන රියදුරු', desc: 'ජපානයේ ඉහළ ඉල්ලුමක් සහිත නවතම රැකියා අවස්ථාව' },
+        { id: 'agriculture', label: 'SSW කෘෂිකර්මාන්තය සහ බෝග වගාව', desc: 'ජපානයේ හරිතාගාර වගාව සහ අස්වනු නෙලීමේ ක්ෂේත්‍රය' },
         { id: 'food', label: 'SSW හෝටල් සහ ආහාර සේවා', desc: 'ටෝකියෝ සහ ඔසාකා හි අවන්හල් සහ හෝටල් ක්ෂේත්‍රයේ රැකියා' },
         { id: 'engineer', label: 'IT, ඉංජිනේරු හෝ ආයතනික රැකියා', desc: 'උපාධිධාරීන් සඳහා සෘජු ආයතනික රැකියා වීසා' },
       ],
@@ -661,7 +661,7 @@ export const siteTranslations = {
       goalOptions: [
         { id: 'student', label: '日本留学（留学ビザ）', desc: '日本語学校進学＋週28時間合法就労＋大学・専門学校進学' },
         { id: 'caregiver', label: '特定技能1号「介護」', desc: '医療介護施設での安定雇用・高給与および永住への道' },
-        { id: 'driver', label: '特定技能「自動車運送業（トラック・バス）」', desc: '日本で新設された物流高収入分野' },
+        { id: 'agriculture', label: '特定技能1号「農業（耕種・畜産）」', desc: '日本各地の先進温室栽培および農作業分野' },
         { id: 'food', label: '特定技能1号「外食業」', desc: '東京・大阪などの外食レストランチェーンでの就業' },
         { id: 'engineer', label: 'IT・エンジニア・企業就職', desc: '学士号保持者向けの正規雇用（技術・人文知識・国際業務）' },
       ],

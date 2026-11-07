@@ -16,7 +16,6 @@ import {
   Filter,
   GraduationCap,
   HeartPulse,
-  Truck,
   Utensils,
   Hotel,
   Hammer,
@@ -77,9 +76,10 @@ export default function CoursesPage({ lang, onOpenModal }) {
   // Localized Course Content overrides for Sinhala & Japanese
   const localizedLangCourses = coursesData.language.map(c => {
     if (lang === 'si') {
-      if (c.id === 'n5') {
+      if (c.id === 'jlpt-n5' || c.id === 'n5' || c.id.includes('n5')) {
         return {
           ...c,
+          badge: 'මූලික JLPT',
           title: 'JLPT N5 මූලික පාඨමාලාව',
           duration: 'මාස 4 (පැය 160)',
           suitableFor: 'පාසල් හැරගිය සිසුන්, ආධුනිකයින්, ශිෂ්‍ය වීසා අපේක්ෂකයින්',
@@ -92,9 +92,10 @@ export default function CoursesPage({ lang, onOpenModal }) {
           ]
         };
       }
-      if (c.id === 'n4') {
+      if (c.id === 'jlpt-n4' || c.id === 'n4' || c.id.includes('n4')) {
         return {
           ...c,
+          badge: 'SSW සහ ශිෂ්‍ය මිණුම්දණ්ඩ',
           title: 'JLPT N4 මධ්‍යම පාඨමාලාව',
           duration: 'මාස 4 (පැය 160)',
           suitableFor: 'N5 සමතුන්, SSW රැකියා වීසා අපේක්ෂකයින්',
@@ -107,11 +108,12 @@ export default function CoursesPage({ lang, onOpenModal }) {
           ]
         };
       }
-      if (c.id === 'jft') {
+      if (c.id === 'jft-basic' || c.id === 'jft' || c.id.includes('jft')) {
         return {
           ...c,
+          badge: 'Prometric CBT විභාගය',
           title: 'JFT-Basic A2 වේගවත් පාඨමාලාව',
-          duration: 'මාස 3 (පැය 120)',
+          duration: 'මාස 2.5 ක කඩිනම් (පැය 120)',
           suitableFor: 'ඉක්මනින් SSW විභාගය ලිවීමට අපේක්ෂා කරන සිසුන්',
           description: 'ජපන් පදනම (The Japan Foundation) විසින් පවත්වනු ලබන පරිගණක පාදක (CBT) විභාගය සඳහා විශේෂිත පුහුණුව.',
           features: [
@@ -122,11 +124,12 @@ export default function CoursesPage({ lang, onOpenModal }) {
           ]
         };
       }
-      if (c.id === 'spoken') {
+      if (c.id === 'spoken-kaiwa' || c.id === 'spoken' || c.id.includes('spoken') || c.id.includes('kaiwa')) {
         return {
           ...c,
+          badge: 'චතුර කථන පුහුණුව',
           title: 'ප්‍රායෝගික කථන ජපන් සහ සම්මුඛ පරීක්ෂණ',
-          duration: 'මාස 2 (පැය 60)',
+          duration: 'සතිපතා අඛණ්ඩ පන්ති (පැය 60)',
           suitableFor: 'වීසා සම්මුඛ පරීක්ෂණ හා ජපන් සේවායෝජක සම්මුඛ පරීක්ෂණ සඳහා',
           description: 'ජපන් හාම්පුතුන් සහ පාසල් විදුහල්පතිවරුන් සමඟ පවත්වන සජීවී Zoom සම්මුඛ පරීක්ෂණ ජයගැනීමේ විශේෂිත කථන පුහුණුව.',
           features: [
@@ -134,6 +137,71 @@ export default function CoursesPage({ lang, onOpenModal }) {
             'ස්වයං හැඳින්වීම (Jikoshoukai) සහ සාමාන්‍ය ප්‍රශ්නවලට චතුර පිළිතුරු',
             'සේවා ස්ථානවල භාවිත වන කීර්තිමත් ගෞරව භාෂාව (Keigo)',
             'වීඩියෝ පටිගත කිරීම් හරහා උච්චාරණ නිවැරදි කිරීම',
+          ]
+        };
+      }
+    } else if (lang === 'jp') {
+      if (c.id === 'jlpt-n5' || c.id === 'n5' || c.id.includes('n5')) {
+        return {
+          ...c,
+          badge: 'JLPT基礎',
+          title: 'JLPT N5 基礎コース',
+          duration: '4ヶ月 (160時間)',
+          suitableFor: '未経験者・高校卒業生・留学ビザ申請希望者',
+          description: 'ゼロから日本語を学ぶ受講生のための基礎プログラム。ひらがな・カタカナ、必須漢字100字、基本文法、聴解、日常会話を体系的に習得。',
+          features: [
+            'ひらがな・カタカナ完全習得ワークブック教材',
+            '基礎漢字100字および必須語彙800語の徹底暗記',
+            '公式模試演習およびリスニング専用ブースでの聴解特訓',
+            '経験豊富な講師陣による実践会話（カイワ）',
+          ]
+        };
+      }
+      if (c.id === 'jlpt-n4' || c.id === 'n4' || c.id.includes('n4')) {
+        return {
+          ...c,
+          badge: '特定技能・留学基準',
+          title: 'JLPT N4 中級コース',
+          duration: '4ヶ月 (160時間)',
+          suitableFor: 'N5取得者・特定技能（SSW）就労ビザ希望者',
+          description: '特定技能（SSW）就労ビザ取得基準となる公認中級プログラム。日常生活や職場での自然なコミュニケーション力、複文構造、漢字300字を習得。',
+          features: [
+            'N4重要漢字300字および語彙1,500語の網羅',
+            '複雑な文法構造および職場での丁寧語・敬語基礎',
+            '日本大使館ビザ面接および企業面接（面接）の模擬特訓',
+            '音響ブースでのJLPT本番同様リスニング試験シミュレーション',
+          ]
+        };
+      }
+      if (c.id === 'jft-basic' || c.id === 'jft' || c.id.includes('jft')) {
+        return {
+          ...c,
+          badge: 'プロメトリックCBT試験',
+          title: 'JFT-Basic A2 集中対策コース',
+          duration: '2.5ヶ月 (120時間)',
+          suitableFor: '短期間で特定技能試験の合格を目指す受講生',
+          description: '国際交流基金が実施するプロメトリックCBT（コンピュータ試験）形式の日本語基礎テスト対策。',
+          features: [
+            'アツコ本校（Atsuko Main）PC端末による本番仕様CBT演習',
+            '生活日本語「いろどり」準拠の即戦力カリキュラム',
+            '即時フィードバックによる画面上での解答力強化',
+            'プロメトリック公式試験予約・登録の完全サポート',
+          ]
+        };
+      }
+      if (c.id === 'spoken-kaiwa' || c.id === 'spoken' || c.id.includes('spoken') || c.id.includes('kaiwa')) {
+        return {
+          ...c,
+          badge: '実戦会話・面接対策',
+          title: '実戦会話・面接指導クラス',
+          duration: '週次継続レッスン (60時間)',
+          suitableFor: 'ビザ面接・提携日本語学校長／企業面接を控えた全候補者',
+          description: '日本語学校長や病院・受入企業面接を突破するための実践的スピーキング特訓。',
+          features: [
+            '自然な発音・イントネーション・お辞儀マナーの体得',
+            '大使館想定質問に対するマンツーマン模擬面接',
+            '履歴書（Rirekisho）作成および自己紹介（Jikoshoukai）特訓',
+            'ネイティブ講師・熟練講師による実戦的会話演習',
           ]
         };
       }
@@ -172,22 +240,6 @@ export default function CoursesPage({ lang, onOpenModal }) {
             'අවන්හල් පාරිභෝගික සත්කාරක වචන මාලා සහ ඇණවුම් ලබාගැනීම',
             'Prometric ආහාර සේවා කුසලතා ඇගයීම් විභාග ප්‍රශ්න පත්‍ර පෙරහුරුව',
             'SLBFE බලපත්‍ර අංක 3293 යටතේ සෘජු නීත්‍යානුකූල රැකියා ගිවිසුම්'
-          ]
-        };
-      }
-      if (c.id === 'ssw-driving') {
-        return {
-          ...c,
-          badge: 'ප්‍රවාහන සහ ලොජිස්ටික්ස්',
-          title: 'වාණිජ භාණ්ඩ ප්‍රවාහන හා රියදුරු සේවා',
-          duration: 'මාස 2.5 ක න්‍යායාත්මක + ජපන් භාෂාව',
-          mode: 'අත්සුකෝ ප්‍රධාන මූලස්ථානය සහ රියදුරු නීති න්‍යාය පත්‍රය',
-          description: 'ජපානයේ නව නීතිමය සංශෝධන යටතේ විවෘත වූ ඉහළ ඉල්ලුමක් ඇති වාණිජ භාණ්ඩ ප්‍රවාහන රියදුරු, බස් රථ ධාවන සහ ලොජිස්ටික්ස් ගබඩා මෙහෙයුම්.',
-          features: [
-            'ජපන් මාර්ග සංඥා, රථවාහන නීති සහ ආරක්ෂිත ප්‍රමිතීන් හැදෑරීම',
-            'ලොජිස්ටික්ස් කළමනාකරණය, භාණ්ඩ බෙදාහැරීම සහ ඩිජිටල් ස්කෑනර් භාවිතය',
-            'ජපන් වාණිජ රියදුරු බලපත්‍ර ලබාගැනීමේ නිල ක්‍රමවේදය සඳහා මඟපෙන්වීම',
-            'SLBFE බලපත්‍ර අංක 3293 යටතේ රජයේ අනුමැතිය ලත් සේවා ගිවිසුම්'
           ]
         };
       }
@@ -236,6 +288,87 @@ export default function CoursesPage({ lang, onOpenModal }) {
             'Prometric ඉදිකිරීම් නිපුණතා ඇගයීම් විභාග පෙරහුරුව',
             'අතිකාල දීමනා සහිත ආකර්ෂණීය ජපන් වැටුප් හිමිකම',
             'SLBFE බලපත්‍ර අංක 3293 යටතේ පූර්ණ නීත්‍යානුකූල ලියකියවිලි සැකසීම'
+          ]
+        };
+      }
+    } else if (lang === 'jp') {
+      if (c.id === 'ssw-caregiver') {
+        return {
+          ...c,
+          badge: '重点受入分野',
+          title: '特定技能 介護実務・看護日本語研修',
+          duration: '3ヶ月 実務演習＋介護日本語',
+          mode: 'アツコ本校 介護実習シミュレーション病棟',
+          description: '日本の特別養護老人ホームや医療施設で即戦力となるための実践研修。日本仕様の介護ベッド・車椅子を用いた実技、介護の専門日本語、プロメトリックCBT試験対策を網羅。',
+          features: [
+            '日本仕様介護ベッド・車椅子を用いた移乗・介助実技訓練',
+            '介護現場で使われる専門用語・記録・申し送りの日本語',
+            'プロメトリック介護技能評価試験および介護日本語試験対策',
+            '日本現地法人（株式会社Atsuko International）を通じた優良医療・福祉施設への直結マッチング'
+          ]
+        };
+      }
+      if (c.id === 'ssw-food') {
+        return {
+          ...c,
+          badge: '外食・ホテル分野',
+          title: '特定技能 外食業・食品衛生実務',
+          duration: '2ヶ月 対策＋プロメトリック試験',
+          mode: 'アツコ本校実習室およびオンライン講義',
+          description: '日本の大手外食チェーン、ホテル厨房、食品加工企業への就労を目指すカリキュラム。日本の衛生管理基準（HACCP）や接客マナーを指導。',
+          features: [
+            'HACCPに基づく衛生管理基準および厨房内安全衛生教育',
+            '接客サービス用語、オーダーテイク、敬語応対実習',
+            'プロメトリック外食業技能評価試験の過去問演習',
+            'SLBFE許可No.3293に基づく合法的な雇用契約手続き'
+          ]
+        };
+      }
+      if (c.id === 'ssw-accommodation') {
+        return {
+          ...c,
+          badge: '宿泊・観光分野',
+          title: '特定技能 宿泊業（ホテル・旅館接遇）',
+          duration: '2ヶ月 専門研修',
+          mode: 'アツコ本校 ホテル接遇演習室',
+          description: '日本のホテル、リゾート、老舗旅館でのフロント、客室管理、接客サービスに対応するおもてなし教育プログラム。',
+          features: [
+            '日本のおもてなし精神、接遇マナー、美しい敬語表現',
+            'ホテル宿泊管理システム、チェックイン予約応対',
+            'プロメトリック宿泊業技能評価試験の徹底演習',
+            '全国の主要観光地・リゾートホテルへの配属支援'
+          ]
+        };
+      }
+      if (c.id === 'ssw-agriculture') {
+        return {
+          ...c,
+          badge: '農業・畜産分野',
+          title: '特定技能 農業分野（耕種・畜産）',
+          duration: '2ヶ月 専門研修',
+          mode: 'アツコ本校 農業総合カリキュラム',
+          description: '茨城、長野、愛知などの農業先進地における自動温室栽培、野菜・果樹収穫、畜産管理に向けた実践講習。',
+          features: [
+            '日本の農業機械安全使用、作物管理、潅水設備の専門用語',
+            'プロメトリック農業技能評価試験（耕種・畜産）対策',
+            '日本の労働基準法および社会保険・国民健康保険による完全保護',
+            '日本現地法人（小牧市拠点）による渡航後の継続的巡回・生活支援'
+          ]
+        };
+      }
+      if (c.id === 'ssw-construction') {
+        return {
+          ...c,
+          badge: '建設・土木分野',
+          title: '特定技能 建設・土木施工分野',
+          duration: '2.5ヶ月 技術安全研修',
+          mode: 'アツコ本校 安全工学・専門用語講義',
+          description: '日本の厳格な安全基準に基づく型枠施工、鉄筋、内装仕上、土木工事のための実践講習。',
+          features: [
+            '安全第一（ゼロ災害）現場マナー、安全帯・保護具の使用基準',
+            'プロメトリック建設分野特定技能評価試験対策',
+            '時間外割増賃金が保証された適正な日本基準給与',
+            'SLBFE許可No.3293に基づく完全な出国審査および就労保護'
           ]
         };
       }
@@ -469,15 +602,27 @@ export default function CoursesPage({ lang, onOpenModal }) {
                          : batch.id.includes('jft') ? 'JFT-Basic A2 පරිගණක (CBT) පාඨමාලාව'
                          : batch.id.includes('caregiver') ? 'SSW සාත්තු සේවා (Kaigo) ප්‍රායෝගික පුහුණුව'
                          : batch.id.includes('food') ? 'SSW ආහාර සේවා සහ ආගන්තුක සත්කාරය'
-                         : batch.id.includes('driving') ? 'SSW වාණිජ රියදුරු සහ ප්‍රවාහන න්‍යාය'
                          : batch.course)
-                      : batch.course;
+                      : lang === 'jp'
+                        ? (batch.id.includes('n5-weekend') ? 'JLPT N5 週末基礎コース'
+                           : batch.id.includes('n5-weekday') ? 'JLPT N5 平日速成コース'
+                           : batch.id.includes('n4') ? 'JLPT N4 中級標準コース'
+                           : batch.id.includes('jft') ? 'JFT-Basic A2 CBT対策コース'
+                           : batch.id.includes('caregiver') ? '特定技能 介護実務・看護日本語研修'
+                           : batch.id.includes('food') ? '特定技能 外食業・食品衛生実務'
+                           : batch.course)
+                        : batch.course;
                     const catName = lang === 'si'
                       ? (batch.category.includes('Language & SSW') ? 'ජපන් භාෂාව සහ SSW'
                          : batch.category.includes('Language') ? 'ජපන් භාෂාව'
                          : batch.category.includes('CBT') ? 'Prometric CBT පෙරහුරු'
                          : 'SSW වෘත්තීය පුහුණුව')
-                      : batch.category;
+                      : lang === 'jp'
+                        ? (batch.category.includes('Language & SSW') ? '日本語 & 特定技能'
+                           : batch.category.includes('Language') ? '日本語教育'
+                           : batch.category.includes('CBT') ? 'CBT試験対策'
+                           : '特定技能職能研修')
+                        : batch.category;
                     const daysName = lang === 'si'
                       ? (batch.days.includes('Saturday & Sunday') ? 'සෙනසුරාදා සහ ඉරිදා'
                          : batch.days.includes('Tuesday & Thursday') ? 'අඟහරුවාදා සහ බ්‍රහස්පතින්දා'
@@ -486,14 +631,28 @@ export default function CoursesPage({ lang, onOpenModal }) {
                          : batch.days.includes('Sunday Mornings') ? 'ඉරිදා උදෑසන'
                          : batch.days.includes('Weekend Evenings') ? 'සති අන්ත සවස් කාලය'
                          : batch.days)
-                      : batch.days;
+                      : lang === 'jp'
+                        ? (batch.days.includes('Saturday & Sunday') ? '土曜・日曜'
+                           : batch.days.includes('Tuesday & Thursday') ? '火曜・木曜'
+                           : batch.days.includes('Mon, Wed & Friday') ? '月・水・金曜'
+                           : batch.days.includes('Saturday Full Day') ? '土曜終日＋実習'
+                           : batch.days.includes('Sunday Mornings') ? '日曜午前'
+                           : batch.days.includes('Weekend Evenings') ? '週末夕方'
+                           : batch.days)
+                        : batch.days;
                     const modeName = lang === 'si'
                       ? (batch.mode.includes('Live Zoom') ? 'අත්සුකෝ ප්‍රධාන මූලස්ථානය + සජීවී Zoom'
                          : batch.mode.includes('Simulation Ward') ? 'අත්සුකෝ ප්‍රධාන ප්‍රායෝගික පුහුණු ඒකකය'
                          : batch.mode.includes('CBT Center') ? 'අත්සුකෝ ප්‍රධාන CBT විභාග මධ්‍යස්ථානය'
                          : batch.mode.includes('Zoom Theory') ? 'අත්සුකෝ ප්‍රධාන මූලස්ථානය සහ Zoom'
                          : 'අත්සුකෝ ප්‍රධාන මූලස්ථානය')
-                      : batch.mode;
+                      : lang === 'jp'
+                        ? (batch.mode.includes('Live Zoom') ? 'アツコ本校＋Zoom'
+                           : batch.mode.includes('Simulation Ward') ? 'アツコ本校 介護実習病棟'
+                           : batch.mode.includes('CBT Center') ? 'アツコ本校 CBT試験ラボ'
+                           : batch.mode.includes('Zoom Theory') ? 'アツコ本校＋Zoom講義'
+                           : 'アツコ本校')
+                        : batch.mode;
                     const durationText = lang === 'si'
                       ? (batch.duration.includes('4 Months') ? 'මාස 4 (පැය 160)'
                          : batch.duration.includes('3.5 Months') ? 'මාස 3.5 ක කඩිනම්'
@@ -501,7 +660,14 @@ export default function CoursesPage({ lang, onOpenModal }) {
                          : batch.duration.includes('3 Months') ? 'මාස 3 ක ප්‍රායෝගික + සාත්තු ජපන්'
                          : batch.duration.includes('2 Months') ? 'මාස 2 ක සූදානම'
                          : batch.duration)
-                      : batch.duration;
+                      : lang === 'jp'
+                        ? (batch.duration.includes('4 Months') ? '4ヶ月 (160時間)'
+                           : batch.duration.includes('3.5 Months') ? '3.5ヶ月 短期集中'
+                           : batch.duration.includes('2.5 Months') ? '2.5ヶ月 集中対策'
+                           : batch.duration.includes('3 Months') ? '3ヶ月 実習＋介護日本語'
+                           : batch.duration.includes('2 Months') ? '2ヶ月 集中対策'
+                           : batch.duration)
+                        : batch.duration;
 
                     return (
                       <tr key={batch.id} className="schedule-row">

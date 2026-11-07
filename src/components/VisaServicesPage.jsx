@@ -290,9 +290,9 @@ export default function VisaServicesPage({ lang, onOpenModal, initialTab = 'stud
 
                   <div className="ssw-cat-card">
                     <div className="ssw-cat-icon"></div>
-                    <h4>4. Commercial Truck Driving & Transport</h4>
-                    <p>{lang === 'si' ? 'ඉහළ වැටුප් සහිත ලොජිස්ටික්ස් ක්ෂේත්‍රය. වාණිජ වාහන ධාවනය සහ ප්‍රවාහන සේවා.' : 'High-demand logistics sector. Operating commercial vehicles under Japanese transportation standards. Requires driving aptitude and road law study.'}</p>
-                    <span className="ssw-cat-test">Test: JLPT N4 / JFT + Automobile Transport Exam</span>
+                    <h4>4. Accommodation & Hospitality (Shukuhaku)</h4>
+                    <p>{lang === 'si' ? 'ජපානයේ තරු පන්තියේ හෝටල්, සංචාරක නිකේතන සහ සම්ප්‍රදායික රියෝකාන් (Ryokan) ආශ්‍රිත පිළිගැනීමේ නිලධාරී සහ ආගන්තුක සත්කාරක රැකියා.' : 'Front desk, guest hospitality, housekeeping, and concierge roles at Japanese hotels, resorts, and traditional Ryokan inns.'}</p>
+                    <span className="ssw-cat-test">Test: JLPT N4 / JFT + Prometric Accommodation Exam</span>
                   </div>
 
                   <div className="ssw-cat-card">

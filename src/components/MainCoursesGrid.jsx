@@ -47,7 +47,7 @@ export default function MainCoursesGrid({ lang, onNavigate }) {
       jpBadge: '特定技能',
       headerGradient: 'linear-gradient(135deg, #d97706 0%, #b45309 100%)',
       accentColor: '#d97706',
-      bgImage: '/images/courses/course-ssw-truck.jpg',
+      bgImage: '/images/caregiver-ssw.jpg',
       title: isSi
         ? 'SSW නිපුණතා වෘත්තීය පාඨමාලා'
         : isJp
@@ -55,26 +55,26 @@ export default function MainCoursesGrid({ lang, onNavigate }) {
           : 'SSW Skill Courses',
       jpTitle: '特定技能1号 職能別訓練 (Prometric)',
       desc: isSi
-        ? 'සාත්තු සේවා (Kaigo) සහ වාණිජ රියදුරු (Truck Driving) ප්‍රමුඛ නිල Prometric CBT වෘත්තීය නිපුණතා පුහුණුව.'
+        ? 'සාත්තු සේවා (Kaigo), ආහාර සේවා (Food Service) සහ හෝටල් ආගන්තුක සත්කාරය ප්‍රමුඛ නිල Prometric CBT වෘත්තීය නිපුණතා පුහුණුව.'
         : isJp
-          ? '介護および自動車運送分野を中心に特定技能主要職種を実践指導。'
-          : 'Vocational skills training focused on Caregiver and Truck Driving, plus Food Service and Hospitality.',
+          ? '介護、外食、宿泊業を中心に特定技能主要職種を実践指導。'
+          : 'Vocational skills training focused on Caregiver, Food Service, Hospitality, Agriculture, and Construction.',
       highlights: isSi
         ? [
           'සාත්තු සේවා (Kaigo) ප්‍රායෝගික පුහුණුව',
-          'වාණිජ රියදුරු සහ ප්‍රවාහන සේවා',
-          'ආහාර සහ හෝටල් සේවා පුහුණුව'
+          'ආහාර සහ හෝටල් සේවා පුහුණුව',
+          'කෘෂිකාර්මික හා ඉදිකිරීම් ක්ෂේත්‍ර'
         ]
         : isJp
           ? [
             '介護実習シミュレーション',
-            '大型トラック運送実技',
-            '外食・宿泊・農業指導'
+            '外食・宿泊実務指導',
+            '農業・建設分野対策'
           ]
           : [
             'Kaigo Simulation Lab',
-            'Truck Driving & Logistics',
-            'Food Service & Hospitality'
+            'Food Service & Hospitality',
+            'Agriculture & Construction'
           ]
     },
     {

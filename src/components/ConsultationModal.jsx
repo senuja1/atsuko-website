@@ -231,9 +231,6 @@ _Please schedule my consultation session with an Atsuko Counselor._`;
                     <option value="SSW Caregiver (Kaigo)">
                       {lang === 'si' ? 'SSW සාත්තු සේවා (Kaigo රෝහල් සමාකරණ)' : lang === 'jp' ? '特定技能 介護（模擬病棟実習）' : 'SSW Caregiver (Kaigo Healthcare Simulation)'}
                     </option>
-                    <option value="SSW Truck Driver & Logistics">
-                      {lang === 'si' ? 'SSW වාණිජ රියදුරු සහ ප්‍රවාහන' : lang === 'jp' ? '特定技能 自動車運送・物流' : 'SSW Logistics & Commercial Driver'}
-                    </option>
                     <option value="SSW Food Service / Hospitality">
                       {lang === 'si' ? 'SSW ආහාර සැකසුම් හා අවන්හල් සේවා' : lang === 'jp' ? '特定技能 外食業・ホスピタリティ' : 'SSW Food Service & Hospitality Operations'}
                     </option>

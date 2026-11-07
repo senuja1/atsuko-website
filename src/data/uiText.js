@@ -58,8 +58,8 @@ export const uiText = {
           points: [
             'Caregiving (Kaigo) with on-site practical simulation training',
             'Food Service (Gaishoku) & Restaurant Operations',
-            'Commercial Truck Driving & Logistics Operations',
-            'Accommodation (Hospitality), Agriculture & Construction',
+            'Accommodation (Hospitality) & Tourism Services',
+            'Agriculture, Livestock & Construction',
           ],
           ctaText: 'Explore SSW Pathways',
         },
@@ -137,7 +137,7 @@ export const uiText = {
         'Student Visa (Jan/Apr/Jul/Oct)',
         'SSW Caregiver (Kaigo)',
         'SSW Food Service Industry',
-        'SSW Automobile Transport & Truck',
+        'SSW Agriculture & Farming',
         'SSW Accommodation & Hospitality',
         'TITP Technical Internship',
       ],
@@ -210,7 +210,7 @@ export const uiText = {
         stats: [
           { num: 'JLPT N5 / N4', lbl: 'Foundation to SSW Benchmark' },
           { num: 'JFT-Basic A2', lbl: 'Computer-Based CBT Prep' },
-          { num: '6 SSW Sectors', lbl: 'Caregiver, Food, Driving, Hotel, Farm, Build' },
+          { num: '5 SSW Sectors', lbl: 'Caregiver, Food, Hotel, Farm, Build' },
         ],
         langBadge: 'Pillar 1: Japanese Language',
         langTitle: 'Japanese Language',

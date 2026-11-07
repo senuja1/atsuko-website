@@ -186,9 +186,9 @@ export const aboutUsData = {
       titleSi: "SSW විශේෂිත කුසලතා රැකියා සම්බන්ධීකාරක",
       titleJp: "特定技能専門コーディネーター",
       image: "/images/team/ranudi-ariyarathna.png",
-      focus: "Coordinating Caregiver (Kaigo) practical simulation lab, Food Service, Truck Driving, and Prometric CBT test readiness.",
-      focusSi: "සාත්තු සේවා (Kaigo) ප්‍රායෝගික පුහුණු ඒකකය, ආහාර සේවා, වාණිජ රියදුරු සහ Prometric CBT විභාග සූදානම සම්බන්ධීකරණය.",
-      focusJp: "介護実習シミュレーション、外食、自動車運送などの特定技能試験対策およびプロメトリックCBT受験支援。"
+      focus: "Coordinating Caregiver (Kaigo) practical simulation lab, Food Service, Hospitality, and Prometric CBT test readiness.",
+      focusSi: "සාත්තු සේවා (Kaigo) ප්‍රායෝගික පුහුණු ඒකකය, ආහාර සේවා, හෝටල් සේවා සහ Prometric CBT විභාග සූදානම සම්බන්ධීකරණය.",
+      focusJp: "介護実習シミュレーション、外食、宿泊などの特定技能試験対策およびプロメトリックCBT受験支援。"
     },
     {
       name: "Thotage Imalsha Dulanjali",
@@ -220,7 +220,7 @@ export const aboutUsData = {
       id: "vocational",
       title: "Technical & Vocational Training",
       jp: "特定技能・職業訓練",
-      desc: "Government-aligned SSW skills training in Caregiving (practical simulation lab), Food Service, Truck Driving, Accommodation, Agriculture, and Construction."
+      desc: "Government-aligned SSW skills training in Caregiving (practical simulation lab), Food Service, Accommodation, Agriculture, and Construction."
     },
     {
       id: "visa",
@@ -362,22 +362,6 @@ export const coursesData = {
       suitableFor: "Young candidates interested in culinary and hospitality careers in Japan"
     },
     {
-      id: "ssw-driving",
-      badge: "Logistics & Transport",
-      title: "Automobile Transport & Truck Driving",
-      jpTitle: "特定技能 - 自動車運送業 (トラック・バス)",
-      duration: "2.5 Months Theory + Japanese",
-      mode: "Classroom & Road Regulations Theory",
-      description: "Preparation for Japan's high-demand commercial transport sector, including truck driving, bus transport, and logistics dispatch operations.",
-      features: [
-        "Study of Japanese traffic signs, road laws, and safety regulations",
-        "Logistics handling, delivery scanning, and cargo transport terms",
-        "Guidance on Japanese commercial driving license procedures",
-        "Full contract verification under SLBFE License No. 3293"
-      ],
-      suitableFor: "Licensed commercial drivers seeking high-paying logistics jobs in Japan"
-    },
-    {
       id: "ssw-accommodation",
       badge: "Hotel & Tourism",
       title: "Accommodation (Hotel & Hospitality)",
@@ -501,18 +485,6 @@ export const activeCourseSchedules = [
     duration: "2 Months Prep + Prometric Exam",
     seatsStatus: "Enrollment Open",
     badgeType: "open"
-  },
-  {
-    id: "batch-driving-logistics",
-    course: "SSW Automobile Transport & Truck Driving Theory",
-    category: "SSW Skills Training",
-    mode: "Atsuko Main Classroom & Theory Tests",
-    days: "Weekend Evenings",
-    time: "3:00 PM - 6:30 PM",
-    startDate: "Monthly Cohort",
-    duration: "2.5 Months Theory + Japanese",
-    seatsStatus: "Few Seats Left",
-    badgeType: "limited"
   }
 ];
 
@@ -933,7 +905,7 @@ export const faqList = [
   },
   {
     q: "Which other SSW sectors can I apply for through Atsuko International?",
-    a: "In addition to Caregiving, we provide preparation and placement for Food Service (Gaishoku), Commercial Automobile Transport / Truck Driving, Accommodation / Hospitality, Agriculture, and Construction."
+    a: "In addition to Caregiving, we provide preparation and placement for Food Service (Gaishoku), Accommodation / Hospitality, Agriculture, and Construction."
   },
   {
     q: "Where is Atsuko International's head operations center located?",
@@ -973,7 +945,6 @@ export const targetAudiencePathways = [
     points: [
       "Caregiving (Kaigo) with on-site practical simulation training at Atsuko Main",
       "Food Service (Gaishoku) & Restaurant Operations",
-      "Commercial Truck Driving & Logistics Operations",
       "Accommodation (Hospitality), Agriculture & Construction",
       "Zero initial fee guarantee—pay only after visa approval"
     ],

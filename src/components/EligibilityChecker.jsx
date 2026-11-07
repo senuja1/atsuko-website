@@ -16,7 +16,7 @@ import {
   GraduationCap,
   FileText,
   HeartPulse,
-  Truck,
+  Sprout,
   Utensils,
   Laptop,
   Languages,
@@ -49,7 +49,7 @@ export default function EligibilityChecker({ lang, onOpenModal }) {
       case 'degree': return <Award size={22} />;
       case 'student': return <GraduationCap size={22} />;
       case 'caregiver': return <HeartPulse size={22} />;
-      case 'driver': return <Truck size={22} />;
+      case 'agriculture': return <Sprout size={22} />;
       case 'food': return <Utensils size={22} />;
       case 'engineer': return <Laptop size={22} />;
       case 'beginner': return <BookOpen size={22} />;
@@ -101,13 +101,13 @@ export default function EligibilityChecker({ lang, onOpenModal }) {
         earning = "මසකට රු. 480,000 - 620,000 (මූලික වැටුප් + අතිකාල දීමනා)";
         advice = "අත්සුකෝ ප්‍රධාන මධ්‍යස්ථානයේ (Atsuko Main) පිහිටි ප්‍රායෝගික සාත්තු සේවා පුහුණුවට සම්බන්ධ වී JFT-Basic විභාගයට මුහුණ දෙන්න.";
         visaType = "SSW විශේෂිත කුසලතා (Tokutei Ginou)";
-      } else if (goal === 'driver') {
-        pathway = "SSW ලොජිස්ටික්ස් සහ බර වාහන රියදුරු රැකියා වීසා";
-        jpName = "特定技能 - 自動車運送業 (トラック・バス)";
-        timeline = "මාස 7 - 10";
-        earning = "මසකට රු. 520,000 - 700,000 + ප්‍රසාද දීමනා";
-        advice = "ඔබගේ රියදුරු බලපත්‍රය ජපානයේදී පරිවර්තනය කිරීමට මඟපෙන්වන අතරතුර JFT / N4 භාෂා පන්තියට එක්වන්න.";
-        visaType = "SSW ප්‍රවාහන (自動車運送)";
+      } else if (goal === 'agriculture') {
+        pathway = "SSW කෘෂිකර්මාන්තය සහ බෝග වගා රැකියා වීසා";
+        jpName = "特定技能1号 - 農業分野 (Agriculture & Farming)";
+        timeline = "මාස 6 - 8";
+        earning = "මසකට රු. 420,000 - 550,000 (මූලික වැටුප් + නිවාස සහනාධාර)";
+        advice = "අත්සුකෝ හි JFT-Basic හෝ JLPT N4 භාෂා පන්තිය හදාරා කෘෂිකාර්මික කුසලතා විභාගය සඳහා ලියාපදිංචි වන්න.";
+        visaType = "SSW කෘෂිකර්මාන්තය (農業)";
       } else if (goal === 'food') {
         pathway = "SSW හෝටල් සහ ආහාර සැපයුම් සේවා (Food Service)";
         jpName = "特定技能1号 - 外食業 (Food Service Industry)";
@@ -138,13 +138,13 @@ export default function EligibilityChecker({ lang, onOpenModal }) {
         earning = "月収 210,000〜270,000 円（基本給＋夜勤・資格手当）";
         advice = "アツコ本校（Atsuko Main）の介護実技シミュレーション施設で技術を習得し、愛知県小牧市の日本法人を通じて直接マッチング。";
         visaType = "特定技能1号（介護）";
-      } else if (goal === 'driver') {
-        pathway = "特定技能「自動車運送業（トラック・バス）」";
-        jpName = "特定技能 - 自動車運送業 (トラック・バス)";
-        timeline = "7〜10ヶ月";
-        earning = "月収 230,000〜300,000 円＋各種手当";
-        advice = "スリランカの運転免許を日本の免許へ切り替える支援を行いつつ、JFT-Basic合格を目指します。";
-        visaType = "特定技能（自動車運送）";
+      } else if (goal === 'agriculture') {
+        pathway = "特定技能1号「農業（耕種・畜産分野）」";
+        jpName = "特定技能1号 - 農業分野";
+        timeline = "6〜8ヶ月";
+        earning = "月収 190,000〜250,000 円＋住居補助";
+        advice = "JFT-BasicまたはJLPT N4の合格を目指し、農業技能評価試験の対策を行います。";
+        visaType = "特定技能1号（農業）";
       } else {
         pathway = "特定技能1号「外食・農業・製造分野」";
         jpName = "特定技能1号 / 技能実習プログラム";
@@ -169,13 +169,13 @@ export default function EligibilityChecker({ lang, onOpenModal }) {
         earning = "JPY 210,000 - 270,000 / month (Full-time + Overtime + Shift allowance)";
         advice = "Join the Atsuko International Caregiver Practical Simulation Training at Atsuko Main with simultaneous JFT-Basic language training.";
         visaType = "SSW (特定技能1号)";
-      } else if (goal === 'driver') {
-        pathway = "SSW Logistics & Commercial Vehicle Driving in Japan";
-        jpName = "特定技能 - 自動車運送業 (トラック・バス)";
-        timeline = "7 - 10 Months";
-        earning = "JPY 230,000 - 300,000 / month + Bonus";
-        advice = "Prepare for JFT-Basic / JLPT N4 while our team coordinates your Sri Lankan commercial license conversion for Japan.";
-        visaType = "SSW Transport (自動車運送)";
+      } else if (goal === 'agriculture') {
+        pathway = "SSW Agriculture & Crop Farming in Japan";
+        jpName = "特定技能1号 - 農業分野 (Agriculture & Farming)";
+        timeline = "6 - 8 Months";
+        earning = "JPY 190,000 - 250,000 / month + Housing Subsidy";
+        advice = "Prepare for JFT-Basic / JLPT N4 while completing Prometric Agriculture Skills Evaluation exam preparation.";
+        visaType = "SSW Agriculture (農業)";
       } else if (goal === 'food') {
         pathway = "SSW Food Service & Hospitality Operations";
         jpName = "特定技能1号 - 外食業 (Food Service Industry)";
