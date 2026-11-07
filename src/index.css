@@ -11868,14 +11868,14 @@ html[lang="jp"] .stat-label,
 
 
 /* ============================================================
-   PREMIUM JAPANESE HINOMARU CINEMATIC SITE LOADING SCREEN
+   PREMIUM JAPANESE HINOMARU CINEMATIC SITE LOADING SCREEN (ATSUKO BLUE THEME)
    Preloads Torii gate & high-res visuals seamlessly in background
    ============================================================ */
 .site-loader-overlay {
   position: fixed;
   inset: 0;
   z-index: 10000000;
-  background: #0b0b0e;
+  background: var(--navy-950, #060d1f);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11894,13 +11894,13 @@ html[lang="jp"] .stat-label,
   pointer-events: none;
 }
 
-/* Subtle architectural grid lines across dark backdrop */
+/* Subtle architectural grid lines across Atsuko deep navy backdrop */
 .loader-grid-backdrop {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.032) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.032) 1px, transparent 1px);
+    linear-gradient(to right, rgba(56, 189, 248, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.045) 1px, transparent 1px);
   background-size: 72px 72px;
   background-position: center center;
   pointer-events: none;
@@ -11916,22 +11916,22 @@ html[lang="jp"] .stat-label,
   transform: translateX(-50%);
   background: linear-gradient(
     to bottom,
-    rgba(255, 255, 255, 0.05) 0%,
-    rgba(255, 255, 255, 0.16) 35%,
-    rgba(255, 255, 255, 0.22) 65%,
-    rgba(255, 255, 255, 0.08) 100%
+    rgba(56, 189, 248, 0.05) 0%,
+    rgba(56, 189, 248, 0.22) 35%,
+    rgba(186, 230, 253, 0.28) 65%,
+    rgba(56, 189, 248, 0.08) 100%
   );
   pointer-events: none;
   z-index: 1;
 }
 
-/* Warm crimson glow rising from the bottom horizon + behind the sun */
+/* Atsuko Azure & Sky-Blue glow rising from the bottom horizon + behind the central orb */
 .loader-bottom-crimson-wash {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 50% 44%, rgba(225, 15, 33, 0.24) 0%, rgba(185, 10, 25, 0.08) 28%, transparent 58%),
-    linear-gradient(to top, rgba(153, 17, 28, 0.36) 0%, rgba(120, 12, 22, 0.12) 22%, transparent 50%);
+    radial-gradient(circle at 50% 44%, rgba(14, 165, 233, 0.28) 0%, rgba(2, 132, 199, 0.1) 30%, transparent 60%),
+    linear-gradient(to top, rgba(3, 105, 161, 0.42) 0%, rgba(12, 74, 110, 0.16) 24%, transparent 52%);
   pointer-events: none;
   z-index: 1;
 }
@@ -11946,15 +11946,15 @@ html[lang="jp"] .stat-label,
   text-align: center;
 }
 
-/* Outer delicate concentric circle around the red sun */
+/* Outer delicate concentric circle around the Atsuko blue sun orb */
 .loader-orbit-ring {
   position: absolute;
   top: -22px;
   width: clamp(244px, 56vw, 316px);
   height: clamp(244px, 56vw, 316px);
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  box-shadow: 0 0 40px rgba(225, 15, 33, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  box-shadow: 0 0 44px rgba(14, 165, 233, 0.16);
   pointer-events: none;
   animation: loaderOrbitBreathe 4s ease-in-out infinite;
 }
@@ -11962,11 +11962,11 @@ html[lang="jp"] .stat-label,
 @keyframes loaderOrbitBreathe {
   0%, 100% {
     transform: scale(1);
-    border-color: rgba(255, 255, 255, 0.14);
+    border-color: rgba(56, 189, 248, 0.2);
   }
   50% {
     transform: scale(1.02);
-    border-color: rgba(255, 255, 255, 0.22);
+    border-color: rgba(186, 230, 253, 0.34);
   }
 }
 
@@ -11975,38 +11975,39 @@ html[lang="jp"] .stat-label,
   left: 16%;
   bottom: 27%;
   font-size: 14px;
-  color: rgba(255, 182, 193, 0.78);
-  filter: drop-shadow(0 0 6px rgba(255, 105, 135, 0.6));
+  color: rgba(186, 230, 253, 0.9);
+  filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.75));
   animation: loaderSakuraFloat 3.6s ease-in-out infinite;
 }
 
 @keyframes loaderSakuraFloat {
   0%, 100% {
     transform: translateY(0) rotate(0deg);
-    opacity: 0.7;
+    opacity: 0.75;
   }
   50% {
     transform: translateY(-5px) rotate(18deg);
-    opacity: 0.95;
+    opacity: 1;
   }
 }
 
-/* Glowing Japanese Rising Sun Crimson Circle */
+/* Glowing Atsuko Official Blue Sun Disc */
 .loader-sun-disc {
   position: relative;
   width: clamp(200px, 46vw, 272px);
   height: clamp(200px, 46vw, 272px);
   border-radius: 50%;
   background: radial-gradient(
-    circle at 50% 42%,
-    #ff1e34 0%,
-    #e60019 56%,
-    #b50012 100%
+    circle at 50% 40%,
+    #38bdf8 0%,
+    #0ea5e9 34%,
+    #0284c7 70%,
+    #0369a1 100%
   );
   box-shadow:
-    0 0 65px rgba(230, 0, 25, 0.48),
-    0 0 130px rgba(230, 0, 25, 0.22),
-    inset 0 0 32px rgba(255, 120, 120, 0.22);
+    0 0 70px rgba(14, 165, 233, 0.52),
+    0 0 140px rgba(2, 132, 199, 0.26),
+    inset 0 0 34px rgba(224, 242, 254, 0.28);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12014,7 +12015,7 @@ html[lang="jp"] .stat-label,
   padding-bottom: 18px;
 }
 
-/* Imperial Kanji (篤子) inside Sun Disc */
+/* Imperial Kanji (篤子) inside Blue Sun Disc */
 .loader-kanji-main {
   font-family: 'Noto Serif JP', 'Cinzel', serif;
   font-size: clamp(3.3rem, 8vw, 4.9rem);
@@ -12023,7 +12024,7 @@ html[lang="jp"] .stat-label,
   line-height: 1.05;
   letter-spacing: 0.12em;
   text-indent: 0.12em;
-  text-shadow: 0 4px 24px rgba(120, 0, 10, 0.45);
+  text-shadow: 0 4px 24px rgba(8, 47, 73, 0.45);
   margin-bottom: 8px;
 }
 
@@ -12032,7 +12033,7 @@ html[lang="jp"] .stat-label,
   font-family: 'Cinzel', 'Noto Serif JP', Georgia, serif;
   font-size: clamp(0.95rem, 2.2vw, 1.3rem);
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.96);
+  color: rgba(255, 255, 255, 0.98);
   letter-spacing: 0.36em;
   text-indent: 0.36em;
   line-height: 1.2;
@@ -12044,7 +12045,7 @@ html[lang="jp"] .stat-label,
   font-family: 'Cinzel', 'Noto Serif JP', Georgia, serif;
   font-size: clamp(0.62rem, 1.4vw, 0.78rem);
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.88);
+  color: rgba(240, 249, 255, 0.92);
   letter-spacing: 0.42em;
   text-indent: 0.42em;
   white-space: nowrap;
@@ -12067,7 +12068,7 @@ html[lang="jp"] .stat-label,
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(255, 255, 255, 0.38) 50%,
+    rgba(224, 242, 254, 0.48) 50%,
     transparent 100%
   );
 }
@@ -12080,16 +12081,16 @@ html[lang="jp"] .stat-label,
   font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
   font-size: clamp(0.58rem, 1.2vw, 0.68rem);
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(240, 249, 255, 0.9);
   letter-spacing: 0.28em;
   text-transform: uppercase;
 }
 
 .loader-route-arrow {
-  color: #ef4444;
+  color: #38bdf8;
   font-weight: 700;
   letter-spacing: 0;
-  text-shadow: 0 0 8px rgba(239, 68, 68, 0.6);
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.75);
 }
 
 /* Bottom Progress Bar & Click to Enter Caption */
@@ -12104,7 +12105,7 @@ html[lang="jp"] .stat-label,
 .loader-hinomaru-bar-track {
   width: clamp(150px, 34vw, 190px);
   height: 2px;
-  background: rgba(255, 255, 255, 0.14);
+  background: rgba(56, 189, 248, 0.18);
   border-radius: 99px;
   overflow: hidden;
   position: relative;
@@ -12112,9 +12113,9 @@ html[lang="jp"] .stat-label,
 
 .loader-hinomaru-bar-fill {
   height: 100%;
-  background: linear-gradient(90deg, #dc2626 0%, #ef4444 45%, #ffffff 100%);
+  background: linear-gradient(90deg, #0284c7 0%, #38bdf8 55%, #ffffff 100%);
   border-radius: 99px;
-  box-shadow: 0 0 10px rgba(239, 68, 68, 0.7);
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.8);
   transition: width 0.06s linear;
 }
 
@@ -12124,11 +12125,11 @@ html[lang="jp"] .stat-label,
   font-weight: 400;
   letter-spacing: 0.26em;
   text-indent: 0.26em;
-  color: rgba(255, 255, 255, 0.34);
+  color: rgba(186, 230, 253, 0.46);
   text-transform: uppercase;
   transition: color 0.25s ease;
 }
 
 .site-loader-overlay:hover .loader-enter-caption {
-  color: rgba(255, 255, 255, 0.68);
+  color: rgba(224, 242, 254, 0.82);
 }
