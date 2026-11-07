@@ -120,9 +120,7 @@ export default function SiteLoadingScreen({ minDuration = 2400 }) {
           </svg>
 
           {/* Continuously rotating orbital highlight ring */}
-          <div className="loader-orbit-spinner" aria-hidden="true">
-            <span className="loader-sakura-accent">✿</span>
-          </div>
+          <div className="loader-orbit-spinner" aria-hidden="true" />
 
           {/* Glowing Atsuko Official Blue Sun Disc */}
           <div className="loader-sun-disc">

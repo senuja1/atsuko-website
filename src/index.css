@@ -11971,15 +11971,6 @@ html[lang="jp"] .stat-label,
   }
 }
 
-.loader-sakura-accent {
-  position: absolute;
-  top: 9%;
-  right: 14%;
-  font-size: 13px;
-  color: rgba(224, 242, 254, 0.95);
-  filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.9));
-}
-
 /* Glowing Atsuko Official Blue Sun Disc */
 .loader-sun-disc {
   position: relative;
