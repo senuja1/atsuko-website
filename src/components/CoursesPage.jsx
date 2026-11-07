@@ -801,7 +801,6 @@ export default function CoursesPage({ lang, onOpenModal }) {
                       <MapPin size={12} style={{ color: '#0284c7' }} />
                       <span>Atsuko Main</span>
                     </span>
-                    <span style={{ color: '#059669', fontWeight: 700 }}>Verified Batch</span>
                   </div>
                 </div>
               </div>
