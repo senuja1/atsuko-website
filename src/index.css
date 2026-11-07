@@ -11908,31 +11908,12 @@ html[lang="jp"] .stat-label,
   pointer-events: none;
 }
 
-/* Full-height center vertical axis line */
-.loader-vertical-axis {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 1px;
-  transform: translateX(-50%);
-  background: linear-gradient(
-    to bottom,
-    rgba(56, 189, 248, 0.05) 0%,
-    rgba(56, 189, 248, 0.22) 35%,
-    rgba(186, 230, 253, 0.28) 65%,
-    rgba(56, 189, 248, 0.08) 100%
-  );
-  pointer-events: none;
-  z-index: 1;
-}
-
 /* Atsuko Azure & Sky-Blue glow rising from the bottom horizon + behind the central orb */
 .loader-bottom-crimson-wash {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 50% 44%, rgba(14, 165, 233, 0.28) 0%, rgba(2, 132, 199, 0.1) 30%, transparent 60%),
+    radial-gradient(circle at 50% 46%, rgba(14, 165, 233, 0.28) 0%, rgba(2, 132, 199, 0.1) 30%, transparent 60%),
     linear-gradient(to top, rgba(3, 105, 161, 0.42) 0%, rgba(12, 74, 110, 0.16) 24%, transparent 52%);
   pointer-events: none;
   z-index: 1;
@@ -11948,56 +11929,62 @@ html[lang="jp"] .stat-label,
   text-align: center;
 }
 
-/* Outer delicate concentric circle around the Atsuko blue sun orb */
-.loader-orbit-ring {
-  position: absolute;
-  top: -22px;
-  width: clamp(244px, 56vw, 316px);
-  height: clamp(244px, 56vw, 316px);
-  border-radius: 50%;
-  border: 1px solid rgba(56, 189, 248, 0.22);
-  box-shadow: 0 0 44px rgba(14, 165, 233, 0.16);
-  pointer-events: none;
-  animation: loaderOrbitBreathe 4s ease-in-out infinite;
+/* Concentric container for the round orb + circular orbiting line */
+.loader-orb-concentric-wrap {
+  position: relative;
+  width: clamp(248px, 56vw, 324px);
+  height: clamp(248px, 56vw, 324px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-@keyframes loaderOrbitBreathe {
-  0%, 100% {
-    transform: scale(1);
-    border-color: rgba(56, 189, 248, 0.2);
+/* SVG Circular Progress Line Circling Around the Round Orb */
+.loader-circular-ring-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+  pointer-events: none;
+  filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.65));
+}
+
+/* Continuously circling luminous orbital ring around the orb */
+.loader-orbit-spinner {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid transparent;
+  border-top-color: rgba(224, 242, 254, 0.78);
+  border-right-color: rgba(56, 189, 248, 0.35);
+  pointer-events: none;
+  animation: loaderCircleOrbit 3.2s linear infinite;
+}
+
+@keyframes loaderCircleOrbit {
+  0% {
+    transform: rotate(0deg);
   }
-  50% {
-    transform: scale(1.02);
-    border-color: rgba(186, 230, 253, 0.34);
+  100% {
+    transform: rotate(360deg);
   }
 }
 
 .loader-sakura-accent {
   position: absolute;
-  left: 16%;
-  bottom: 27%;
-  font-size: 14px;
-  color: rgba(186, 230, 253, 0.9);
-  filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.75));
-  animation: loaderSakuraFloat 3.6s ease-in-out infinite;
-}
-
-@keyframes loaderSakuraFloat {
-  0%, 100% {
-    transform: translateY(0) rotate(0deg);
-    opacity: 0.75;
-  }
-  50% {
-    transform: translateY(-5px) rotate(18deg);
-    opacity: 1;
-  }
+  top: 9%;
+  right: 14%;
+  font-size: 13px;
+  color: rgba(224, 242, 254, 0.95);
+  filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.9));
 }
 
 /* Glowing Atsuko Official Blue Sun Disc */
 .loader-sun-disc {
   position: relative;
-  width: clamp(200px, 46vw, 272px);
-  height: clamp(200px, 46vw, 272px);
+  width: clamp(204px, 46vw, 274px);
+  height: clamp(204px, 46vw, 274px);
   border-radius: 50%;
   background: radial-gradient(
     circle at 50% 40%,
@@ -12014,38 +12001,38 @@ html[lang="jp"] .stat-label,
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-bottom: 18px;
+  padding-top: 8px;
 }
 
 /* Imperial Kanji (篤子) inside Blue Sun Disc */
 .loader-kanji-main {
   font-family: 'Noto Serif JP', 'Cinzel', serif;
-  font-size: clamp(3.3rem, 8vw, 4.9rem);
+  font-size: clamp(3.2rem, 7.6vw, 4.7rem);
   font-weight: 700;
   color: #ffffff;
   line-height: 1.05;
   letter-spacing: 0.12em;
   text-indent: 0.12em;
   text-shadow: 0 4px 24px rgba(8, 47, 73, 0.45);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 /* Spaced Serif Brand Name (ATSUKO) */
 .loader-roman-brand {
   font-family: 'Cinzel', 'Noto Serif JP', Georgia, serif;
-  font-size: clamp(0.95rem, 2.2vw, 1.3rem);
+  font-size: clamp(0.92rem, 2.1vw, 1.25rem);
   font-weight: 500;
   color: rgba(255, 255, 255, 0.98);
   letter-spacing: 0.36em;
   text-indent: 0.36em;
   line-height: 1.2;
-  margin-bottom: 5px;
+  margin-bottom: 4px;
 }
 
 /* Spaced Serif Sub-title (INTERNATIONAL) spanning across the disc */
 .loader-roman-sub {
   font-family: 'Cinzel', 'Noto Serif JP', Georgia, serif;
-  font-size: clamp(0.62rem, 1.4vw, 0.78rem);
+  font-size: clamp(0.6rem, 1.35vw, 0.76rem);
   font-weight: 400;
   color: rgba(240, 249, 255, 0.92);
   letter-spacing: 0.42em;
@@ -12053,19 +12040,19 @@ html[lang="jp"] .stat-label,
   white-space: nowrap;
 }
 
-/* Lower Route Section overlapping bottom of Sun Disc */
+/* Lower Route Section inside Sun Disc */
 .loader-route-wrap {
   position: relative;
   z-index: 3;
-  margin-top: -32px;
+  margin-top: 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .loader-route-divider {
-  width: clamp(130px, 30vw, 175px);
+  width: clamp(120px, 28vw, 165px);
   height: 1px;
   background: linear-gradient(
     90deg,
@@ -12079,46 +12066,28 @@ html[lang="jp"] .stat-label,
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 14px;
+  gap: 12px;
   font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-  font-size: clamp(0.58rem, 1.2vw, 0.68rem);
+  font-size: clamp(0.55rem, 1.15vw, 0.65rem);
   font-weight: 500;
-  color: rgba(240, 249, 255, 0.9);
-  letter-spacing: 0.28em;
+  color: rgba(240, 249, 255, 0.92);
+  letter-spacing: 0.26em;
   text-transform: uppercase;
 }
 
 .loader-route-arrow {
-  color: #38bdf8;
+  color: #bae6fd;
   font-weight: 700;
   letter-spacing: 0;
   text-shadow: 0 0 10px rgba(56, 189, 248, 0.75);
 }
 
-/* Bottom Progress Bar & Click to Enter Caption */
+/* Click to Enter Caption Below Orb */
 .loader-bottom-controls {
-  margin-top: 38px;
+  margin-top: 26px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 14px;
-}
-
-.loader-hinomaru-bar-track {
-  width: clamp(150px, 34vw, 190px);
-  height: 2px;
-  background: rgba(56, 189, 248, 0.18);
-  border-radius: 99px;
-  overflow: hidden;
-  position: relative;
-}
-
-.loader-hinomaru-bar-fill {
-  height: 100%;
-  background: linear-gradient(90deg, #0284c7 0%, #38bdf8 55%, #ffffff 100%);
-  border-radius: 99px;
-  box-shadow: 0 0 12px rgba(56, 189, 248, 0.8);
-  transition: width 0.06s linear;
 }
 
 .loader-enter-caption {
