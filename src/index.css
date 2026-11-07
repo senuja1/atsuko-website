@@ -11868,194 +11868,267 @@ html[lang="jp"] .stat-label,
 
 
 /* ============================================================
-   PREMIUM JAPANESE CINEMATIC SITE LOADING SCREEN
+   PREMIUM JAPANESE HINOMARU CINEMATIC SITE LOADING SCREEN
    Preloads Torii gate & high-res visuals seamlessly in background
    ============================================================ */
 .site-loader-overlay {
   position: fixed;
   inset: 0;
   z-index: 10000000;
-  background: #060d1f;
+  background: #0b0b0e;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   padding: 24px;
+  cursor: pointer;
   user-select: none;
   -webkit-user-select: none;
-  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
 .site-loader-overlay.loader-fading {
   opacity: 0;
-  transform: scale(1.03);
+  transform: scale(1.04);
   pointer-events: none;
 }
 
-.loader-ambient-glow {
+/* Subtle architectural grid lines across dark backdrop */
+.loader-grid-backdrop {
   position: absolute;
-  width: min(600px, 90vw);
-  height: min(600px, 90vw);
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(220, 38, 38, 0.16) 0%, rgba(245, 158, 11, 0.12) 35%, transparent 70%);
-  filter: blur(50px);
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.032) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.032) 1px, transparent 1px);
+  background-size: 72px 72px;
+  background-position: center center;
   pointer-events: none;
-  animation: loaderAuraPulse 3s ease-in-out infinite;
 }
 
-@keyframes loaderAuraPulse {
-  0%, 100% {
-    transform: scale(0.92);
-    opacity: 0.7;
-  }
-  50% {
-    transform: scale(1.08);
-    opacity: 1;
-  }
+/* Full-height center vertical axis line */
+.loader-vertical-axis {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.16) 35%,
+    rgba(255, 255, 255, 0.22) 65%,
+    rgba(255, 255, 255, 0.08) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
 }
 
-.loader-center-content {
+/* Warm crimson glow rising from the bottom horizon + behind the sun */
+.loader-bottom-crimson-wash {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 44%, rgba(225, 15, 33, 0.24) 0%, rgba(185, 10, 25, 0.08) 28%, transparent 58%),
+    linear-gradient(to top, rgba(153, 17, 28, 0.36) 0%, rgba(120, 12, 22, 0.12) 22%, transparent 50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.loader-hinomaru-stage {
   position: relative;
   z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
-  max-width: 440px;
-  width: 100%;
 }
 
-.loader-logo-wrap {
+/* Outer delicate concentric circle around the red sun */
+.loader-orbit-ring {
+  position: absolute;
+  top: -22px;
+  width: clamp(244px, 56vw, 316px);
+  height: clamp(244px, 56vw, 316px);
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 0 40px rgba(225, 15, 33, 0.12);
+  pointer-events: none;
+  animation: loaderOrbitBreathe 4s ease-in-out infinite;
+}
+
+@keyframes loaderOrbitBreathe {
+  0%, 100% {
+    transform: scale(1);
+    border-color: rgba(255, 255, 255, 0.14);
+  }
+  50% {
+    transform: scale(1.02);
+    border-color: rgba(255, 255, 255, 0.22);
+  }
+}
+
+.loader-sakura-accent {
+  position: absolute;
+  left: 16%;
+  bottom: 27%;
+  font-size: 14px;
+  color: rgba(255, 182, 193, 0.78);
+  filter: drop-shadow(0 0 6px rgba(255, 105, 135, 0.6));
+  animation: loaderSakuraFloat 3.6s ease-in-out infinite;
+}
+
+@keyframes loaderSakuraFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-5px) rotate(18deg);
+    opacity: 0.95;
+  }
+}
+
+/* Glowing Japanese Rising Sun Crimson Circle */
+.loader-sun-disc {
   position: relative;
-  width: 96px;
-  height: 96px;
-  margin-bottom: 18px;
+  width: clamp(200px, 46vw, 272px);
+  height: clamp(200px, 46vw, 272px);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 50% 42%,
+    #ff1e34 0%,
+    #e60019 56%,
+    #b50012 100%
+  );
+  box-shadow:
+    0 0 65px rgba(230, 0, 25, 0.48),
+    0 0 130px rgba(230, 0, 25, 0.22),
+    inset 0 0 32px rgba(255, 120, 120, 0.22);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 18px;
+}
+
+/* Imperial Kanji (篤子) inside Sun Disc */
+.loader-kanji-main {
+  font-family: 'Noto Serif JP', 'Cinzel', serif;
+  font-size: clamp(3.3rem, 8vw, 4.9rem);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.05;
+  letter-spacing: 0.12em;
+  text-indent: 0.12em;
+  text-shadow: 0 4px 24px rgba(120, 0, 10, 0.45);
+  margin-bottom: 8px;
+}
+
+/* Spaced Serif Brand Name (ATSUKO) */
+.loader-roman-brand {
+  font-family: 'Cinzel', 'Noto Serif JP', Georgia, serif;
+  font-size: clamp(0.95rem, 2.2vw, 1.3rem);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.96);
+  letter-spacing: 0.36em;
+  text-indent: 0.36em;
+  line-height: 1.2;
+  margin-bottom: 5px;
+}
+
+/* Spaced Serif Sub-title (INTERNATIONAL) spanning across the disc */
+.loader-roman-sub {
+  font-family: 'Cinzel', 'Noto Serif JP', Georgia, serif;
+  font-size: clamp(0.62rem, 1.4vw, 0.78rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.88);
+  letter-spacing: 0.42em;
+  text-indent: 0.42em;
+  white-space: nowrap;
+}
+
+/* Lower Route Section overlapping bottom of Sun Disc */
+.loader-route-wrap {
+  position: relative;
+  z-index: 3;
+  margin-top: -32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.loader-route-divider {
+  width: clamp(130px, 30vw, 175px);
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.38) 50%,
+    transparent 100%
+  );
+}
+
+.loader-route-text {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.loader-logo-img {
-  width: 84px;
-  height: 84px;
-  object-fit: contain;
-  position: relative;
-  z-index: 2;
-  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.6));
-}
-
-.loader-pulse-ring {
-  position: absolute;
-  inset: -6px;
-  border-radius: 50%;
-  border: 1.5px solid rgba(251, 191, 36, 0.45);
-  animation: loaderRingPulse 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
-}
-
-.loader-pulse-ring-outer {
-  position: absolute;
-  inset: -14px;
-  border-radius: 50%;
-  border: 1px solid rgba(220, 38, 38, 0.3);
-  animation: loaderRingPulse 2s cubic-bezier(0.16, 1, 0.3, 1) infinite 0.4s;
-}
-
-@keyframes loaderRingPulse {
-  0% {
-    transform: scale(0.9);
-    opacity: 0.8;
-  }
-  100% {
-    transform: scale(1.35);
-    opacity: 0;
-  }
-}
-
-.loader-jp-kicker {
-  font-family: var(--font-jp);
-  color: #ef4444;
-  font-size: clamp(11.5px, 2.2vw, 13px);
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  text-indent: 0.22em;
-  margin-bottom: 6px;
+  gap: 14px;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-size: clamp(0.58rem, 1.2vw, 0.68rem);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.28em;
   text-transform: uppercase;
-  text-shadow: 0 0 12px rgba(239, 68, 68, 0.35);
 }
 
-.loader-title {
-  font-family: 'Cinzel', 'Plus Jakarta Sans', serif;
-  font-size: clamp(20px, 4.5vw, 26px);
-  font-weight: 800;
-  color: #ffffff;
-  letter-spacing: 0.06em;
-  line-height: 1.2;
-  margin: 0 0 6px;
-}
-
-.loader-brand-blue {
-  color: #38bdf8;
-}
-
-.loader-subtitle {
-  color: #94a3b8;
-  font-size: clamp(12px, 2.2vw, 13.5px);
-  line-height: 1.5;
-  margin: 0 0 14px;
-  max-width: 380px;
-}
-
-.loader-cert-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: rgba(15, 23, 42, 0.75);
-  border: 1px solid rgba(251, 191, 36, 0.4);
-  padding: 4px 12px;
-  border-radius: 999px;
-  color: #fbbf24;
-  font-size: 10.5px;
+.loader-route-arrow {
+  color: #ef4444;
   font-weight: 700;
-  letter-spacing: 0.6px;
-  margin-bottom: 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  letter-spacing: 0;
+  text-shadow: 0 0 8px rgba(239, 68, 68, 0.6);
 }
 
-.loader-progress-track {
-  width: min(280px, 78vw);
-  height: 3px;
-  background: rgba(255, 255, 255, 0.12);
+/* Bottom Progress Bar & Click to Enter Caption */
+.loader-bottom-controls {
+  margin-top: 38px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.loader-hinomaru-bar-track {
+  width: clamp(150px, 34vw, 190px);
+  height: 2px;
+  background: rgba(255, 255, 255, 0.14);
   border-radius: 99px;
   overflow: hidden;
   position: relative;
 }
 
-.loader-progress-fill {
+.loader-hinomaru-bar-fill {
   height: 100%;
-  background: linear-gradient(90deg, #38bdf8 0%, #fbbf24 65%, #ef4444 100%);
+  background: linear-gradient(90deg, #dc2626 0%, #ef4444 45%, #ffffff 100%);
   border-radius: 99px;
-  box-shadow: 0 0 12px rgba(56, 189, 248, 0.7);
-  transition: width 0.08s linear;
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.7);
+  transition: width 0.06s linear;
 }
 
-.loader-meta-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: min(280px, 78vw);
-  margin-top: 8px;
-  font-size: 11px;
-  color: #64748b;
-  font-family: var(--font-sans);
+.loader-enter-caption {
+  font-family: 'Plus Jakarta Sans', 'Noto Sans JP', sans-serif;
+  font-size: 9.5px;
+  font-weight: 400;
+  letter-spacing: 0.26em;
+  text-indent: 0.26em;
+  color: rgba(255, 255, 255, 0.34);
+  text-transform: uppercase;
+  transition: color 0.25s ease;
 }
 
-.loader-status-text {
-  letter-spacing: 0.2px;
-}
-
-.loader-percent {
-  font-weight: 700;
-  color: #38bdf8;
-  font-variant-numeric: tabular-nums;
+.site-loader-overlay:hover .loader-enter-caption {
+  color: rgba(255, 255, 255, 0.68);
 }
