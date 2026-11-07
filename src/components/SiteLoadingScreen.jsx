@@ -68,8 +68,7 @@ export default function SiteLoadingScreen({ minDuration = 2400 }) {
       role="status"
       aria-label="Loading Atsuko International Portal — Click to Enter"
     >
-      {/* Architectural dark grid & vertical axis line */}
-      <div className="loader-grid-backdrop" aria-hidden="true" />
+      {/* Vertical axis line & ambient horizon glow */}
       <div className="loader-vertical-axis" aria-hidden="true" />
       <div className="loader-bottom-crimson-wash" aria-hidden="true" />
 

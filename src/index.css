@@ -11894,18 +11894,6 @@ html[lang="jp"] .stat-label,
   pointer-events: none;
 }
 
-/* Subtle architectural grid lines across Atsuko deep navy backdrop */
-.loader-grid-backdrop {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(to right, rgba(56, 189, 248, 0.045) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(56, 189, 248, 0.045) 1px, transparent 1px);
-  background-size: 72px 72px;
-  background-position: center center;
-  pointer-events: none;
-}
-
 /* Full-height center vertical axis line */
 .loader-vertical-axis {
   position: absolute;
