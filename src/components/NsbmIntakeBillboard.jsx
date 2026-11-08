@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 const FALLBACK_POSTS = [
   {
@@ -82,6 +82,26 @@ function normalizeFeedPayload(data) {
 
 export default function NsbmIntakeBillboard() {
   const [posts, setPosts] = useState(FALLBACK_POSTS);
+  const [shouldMountIframes, setShouldMountIframes] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const node = sectionRef.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldMountIframes(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '350px 0px' }
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     let isMounted = true;
@@ -91,8 +111,8 @@ export default function NsbmIntakeBillboard() {
         // 1. Check local config (/instagram-feed.json) or env variable (VITE_INSTAGRAM_FEED_URL)
         let feedUrl = import.meta.env.VITE_INSTAGRAM_FEED_URL || '';
 
-        const configRes = await fetch(`/instagram-feed.json?t=${Date.now()}`, {
-          cache: 'no-store'
+        const configRes = await fetch('/instagram-feed.json', {
+          cache: 'no-cache'
         });
 
         let configData = null;
@@ -105,7 +125,7 @@ export default function NsbmIntakeBillboard() {
 
         // 2. If a live Behold.so / Instagram Graph JSON URL is configured, fetch the latest 4 posts from it
         if (feedUrl) {
-          const liveRes = await fetch(feedUrl, { cache: 'no-store' });
+          const liveRes = await fetch(feedUrl, { cache: 'no-cache' });
           if (liveRes.ok) {
             const liveData = await liveRes.json();
             const livePosts = normalizeFeedPayload(liveData);
@@ -147,22 +167,26 @@ export default function NsbmIntakeBillboard() {
   }, []);
 
   return (
-    <section className="nsbm-intake-section" aria-label="Atsuko Admissions & Live Instagram Showcase">
+    <section ref={sectionRef} className="nsbm-intake-section" aria-label="Atsuko Admissions & Live Instagram Showcase">
       <div className="nsbm-intake-container">
         {/* 4 Posts Row Matching Website Width (No Repeating Posts) */}
         <div className="nsbm-four-posts-row">
           {posts.map((post) => (
             <div key={post.id} className="nsbm-post-stage">
-              <iframe
-                src={`https://www.instagram.com/${post.type || 'p'}/${post.id}/embed/`}
-                title={post.title}
-                className="nsbm-post-iframe"
-                frameBorder="0"
-                scrolling="no"
-                allowTransparency="true"
-                allow="encrypted-media; clipboard-write;"
-                loading="lazy"
-              />
+              {shouldMountIframes ? (
+                <iframe
+                  src={`https://www.instagram.com/${post.type || 'p'}/${post.id}/embed/`}
+                  title={post.title}
+                  className="nsbm-post-iframe"
+                  frameBorder="0"
+                  scrolling="no"
+                  allowTransparency="true"
+                  allow="encrypted-media; clipboard-write;"
+                  loading="lazy"
+                />
+              ) : (
+                <div className="nsbm-post-iframe" style={{ background: '#f8fafc' }} aria-hidden="true" />
+              )}
             </div>
           ))}
         </div>

@@ -35,13 +35,24 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
   const shortVideos = videoSuccessStories.filter((v) => v.type === 'short').slice(0, 4);
   const videoContainerRef = useRef(null);
   const iframeRef = useRef(null);
+  const [isVideoNear, setIsVideoNear] = useState(false);
   const [shouldAutoplay, setShouldAutoplay] = useState(false);
 
   useEffect(() => {
     const node = videoContainerRef.current;
     if (!node) return;
 
-    const observer = new IntersectionObserver(
+    const nearObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVideoNear(true);
+          nearObserver.disconnect();
+        }
+      },
+      { rootMargin: '400px 0px' }
+    );
+
+    const playObserver = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setShouldAutoplay(true);
@@ -61,8 +72,12 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
       { threshold: 0.35 }
     );
 
-    observer.observe(node);
-    return () => observer.disconnect();
+    nearObserver.observe(node);
+    playObserver.observe(node);
+    return () => {
+      nearObserver.disconnect();
+      playObserver.disconnect();
+    };
   }, []);
 
   const getLocalizedTitle = (item) => {
@@ -144,24 +159,27 @@ export default function HomeView({ lang, onOpenModal, onNavigate, scrollToEligib
               }}
             >
               <div className="video-embed-responsive-16-9">
-                <iframe
-                  ref={iframeRef}
-                  src={
-                    shouldAutoplay
-                      ? 'https://www.youtube-nocookie.com/embed/de-r5nNP2xs?autoplay=1&mute=1&playsinline=1&enablejsapi=1&rel=0&loop=1&playlist=de-r5nNP2xs'
-                      : 'https://www.youtube-nocookie.com/embed/de-r5nNP2xs?enablejsapi=1&playsinline=1&rel=0'
-                  }
-                  title={
-                    lang === 'si'
-                      ? 'අත්සුකෝ ඉන්ටර්නැෂනල් නිල හඳුන්වාදීමේ වීඩියෝව'
-                      : lang === 'jp'
-                        ? 'アツコ・インターナショナル 公式紹介ビデオ'
-                        : 'All About Atsuko International — Official Overview'
-                  }
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
-                ></iframe>
+                {isVideoNear ? (
+                  <iframe
+                    ref={iframeRef}
+                    src={
+                      shouldAutoplay
+                        ? 'https://www.youtube-nocookie.com/embed/de-r5nNP2xs?autoplay=1&mute=1&playsinline=1&enablejsapi=1&rel=0&loop=1&playlist=de-r5nNP2xs'
+                        : 'https://www.youtube-nocookie.com/embed/de-r5nNP2xs?enablejsapi=1&playsinline=1&rel=0'
+                    }
+                    title={
+                      lang === 'si'
+                        ? 'අත්සුකෝ ඉන්ටර්නැෂනල් නිල හඳුන්වාදීමේ වීඩියෝව'
+                        : lang === 'jp'
+                          ? 'アツコ・インターナショナル 公式紹介ビデオ'
+                          : 'All About Atsuko International — Official Overview'
+                    }
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                  ></iframe>
+                ) : null}
               </div>
             </div>
           </div>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+>
+  <!-- 1. Home Page / Official Portal -->
+  <url>
+    <loc>https://www.atsukointernational.com/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.atsukointernational.com/" />
+    <xhtml:link rel="alternate" hreflang="si" href="https://www.atsukointernational.com/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://www.atsukointernational.com/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.atsukointernational.com/" />
+    <image:image>
+      <image:loc>https://www.atsukointernational.com/images/atsuko-official-logo.png</image:loc>
+      <image:title>Atsuko International (PVT) LTD | 篤子 学校 (ATSUKO GAKKO) Official Emblem</image:title>
+      <image:caption>Government-Registered Japanese Language Academy &amp; Overseas Employment Agency (SLBFE License No. 3293 • PV 0217143)</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.atsukointernational.com/images/atsuko-drone-wide.jpg</image:loc>
+      <image:title>Atsuko International Headquarters in Kadawatha, Sri Lanka</image:title>
+    </image:image>
+  </url>
+
+  <!-- 2. About Us & Official SLBFE / Japan Licensure -->
+  <url>
+    <loc>https://www.atsukointernational.com/#about</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 3. Courses & Vocational Training (JLPT N5/N4, JFT-Basic, SSW Caregiver, NVQ Level 3) -->
+  <url>
+    <loc>https://www.atsukointernational.com/#courses</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- 4. Japan Student Visa Pathway (Ryugaku) -->
+  <url>
+    <loc>https://www.atsukointernational.com/#student-visa</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- 5. Japan Job Visa Pathway (SSW Specified Skilled Worker & TITP) -->
+  <url>
+    <loc>https://www.atsukointernational.com/#job-visa</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- 6. Campus Facilities & Student Life -->
+  <url>
+    <loc>https://www.atsukointernational.com/#facilities</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 7. Candidate Success Stories & Airport Deployments -->
+  <url>
+    <loc>https://www.atsukointernational.com/#stories</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 8. Sri Lanka & Japan Branch Network -->
+  <url>
+    <loc>https://www.atsukointernational.com/#branches</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 9. Contact Us & Admissions Consultation -->
+  <url>
+    <loc>https://www.atsukointernational.com/#contact</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+</urlset>

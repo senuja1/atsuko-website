@@ -12450,3 +12450,21 @@ html[lang="jp"] .stat-label,
     gap: 16px;
   }
 }
+
+/* ============================================================
+   MOBILE PERFORMANCE & BELOW-THE-FOLD RENDERING OPTIMIZATIONS
+   ============================================================ */
+.atsuko-intro-video-section,
+.student-comments-section,
+.candidates-gallery-section,
+.official-certificates-section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto none auto 600px;
+}
+
+@media (max-width: 768px) {
+  .torii-gate-img,
+  .loader-circular-ring-svg {
+    filter: none !important;
+  }
+}

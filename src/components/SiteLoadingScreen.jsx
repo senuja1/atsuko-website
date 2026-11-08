@@ -1,9 +1,13 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 
-export default function SiteLoadingScreen({ minDuration = 2400 }) {
-  const [progress, setProgress] = useState(0);
+export default function SiteLoadingScreen({ minDuration = 1200 }) {
   const [isFading, setIsFading] = useState(false);
   const [isDone, setIsDone] = useState(false);
+  const progressArcRef = useRef(null);
+
+  // SVG circular orbit geometry (radius = 156 inside 360x360 viewBox)
+  const radius = 156;
+  const circumference = 2 * Math.PI * radius;
 
   const triggerExit = useCallback(() => {
     setIsFading((prev) => {
@@ -11,7 +15,7 @@ export default function SiteLoadingScreen({ minDuration = 2400 }) {
       setTimeout(() => {
         setIsDone(true);
         document.body.style.overflow = '';
-      }, 720);
+      }, 650);
       return true;
     });
   }, []);
@@ -20,11 +24,10 @@ export default function SiteLoadingScreen({ minDuration = 2400 }) {
     // 1. Prevent background scroll while loading
     document.body.style.overflow = 'hidden';
 
-    // 2. Preload critical visual assets so they are hot in memory before reveal
+    // 2. Preload critical above-the-fold visual assets only
     const criticalImages = [
       '/images/torii-gate-ultra.png',
       '/images/pagoda-cinematic.jpg',
-      '/images/atsuko-drone-wide.jpg',
       '/images/atsuko-official-logo.png',
     ];
 
@@ -33,38 +36,36 @@ export default function SiteLoadingScreen({ minDuration = 2400 }) {
       img.src = src;
     });
 
-    // 3. Smooth progress animation from 0% to 100%
+    // 3. Direct DOM progress animation from 0% to 100% (zero React re-renders per frame)
     const startTime = performance.now();
     let rafId;
 
     const tick = (now) => {
       const elapsed = now - startTime;
       const pct = Math.min(100, (elapsed / minDuration) * 100);
-      setProgress(pct);
+      if (progressArcRef.current) {
+        const offset = circumference - (pct / 100) * circumference;
+        progressArcRef.current.style.strokeDashoffset = `${offset}`;
+      }
       if (pct < 100) {
         rafId = requestAnimationFrame(tick);
       }
     };
     rafId = requestAnimationFrame(tick);
 
-    // 4. Seamless automatic exit after minDuration (or earlier if user clicks)
+    // 4. Seamless automatic exit after minDuration (or earlier if user taps/clicks)
     const exitTimer = setTimeout(() => {
       triggerExit();
-    }, minDuration + 350);
+    }, minDuration + 250);
 
     return () => {
       cancelAnimationFrame(rafId);
       clearTimeout(exitTimer);
       document.body.style.overflow = '';
     };
-  }, [minDuration, triggerExit]);
+  }, [minDuration, circumference, triggerExit]);
 
   if (isDone) return null;
-
-  // SVG circular orbit geometry (radius = 156 inside 360x360 viewBox)
-  const radius = 156;
-  const circumference = 2 * Math.PI * radius;
-  const strokeDashoffset = circumference - (progress / 100) * circumference;
 
   return (
     <div
@@ -182,6 +183,7 @@ export default function SiteLoadingScreen({ minDuration = 2400 }) {
 
             {/* Animated Circular Progress Line Sweeping 360° Around the Official Round Logo */}
             <circle
+              ref={progressArcRef}
               className="loader-circular-progress-arc"
               cx="180"
               cy="180"
@@ -191,7 +193,7 @@ export default function SiteLoadingScreen({ minDuration = 2400 }) {
               strokeWidth="2.8"
               strokeLinecap="round"
               strokeDasharray={circumference}
-              strokeDashoffset={strokeDashoffset}
+              strokeDashoffset={circumference}
             />
           </svg>
 

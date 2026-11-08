@@ -17,29 +17,36 @@
   <meta http-equiv="X-Content-Type-Options" content="nosniff" />
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(self 'https://www.google.com' 'https://maps.google.com'), payment=(), usb=()" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://connect.facebook.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob: https://*.fbcdn.net https://*.facebook.com https://*.cdninstagram.com https://*.instagram.com; media-src 'self' data: https: blob:; frame-src 'self' https://www.youtube.com https://youtube.com https://*.youtube.com https://www.youtube-nocookie.com https://youtube-nocookie.com https://*.youtube-nocookie.com https://maps.google.com https://www.google.com https://www.facebook.com https://web.facebook.com https://*.facebook.com https://www.instagram.com https://instagram.com https://*.instagram.com; child-src 'self' https://www.youtube.com https://youtube.com https://*.youtube.com https://www.youtube-nocookie.com https://youtube-nocookie.com https://*.youtube-nocookie.com https://maps.google.com https://www.google.com https://www.facebook.com https://web.facebook.com https://*.facebook.com https://www.instagram.com https://instagram.com https://*.instagram.com; connect-src 'self' https://wa.me https://api.whatsapp.com https://fonts.googleapis.com https://fonts.gstatic.com https://*.youtube.com https://*.youtube-nocookie.com https://www.youtube.com https://www.youtube-nocookie.com https://*.googlevideo.com https://maps.google.com https://www.google.com https://www.facebook.com https://web.facebook.com https://*.facebook.com https://www.instagram.com https://instagram.com https://*.instagram.com https://*.cdninstagram.com https://feeds.behold.so https://*.behold.so https://graph.instagram.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://wa.me https://api.whatsapp.com;" />
-  <link rel="canonical" href="https://www.atsukointernational.com" />
+  <link rel="canonical" href="https://www.atsukointernational.com/" />
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+  <link rel="alternate" hreflang="en" href="https://www.atsukointernational.com/" />
+  <link rel="alternate" hreflang="si" href="https://www.atsukointernational.com/" />
+  <link rel="alternate" hreflang="ja" href="https://www.atsukointernational.com/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.atsukointernational.com/" />
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.atsukointernational.com" />
+  <meta property="og:url" content="https://www.atsukointernational.com/" />
   <meta property="og:site_name" content="Atsuko International | 篤子 学校" />
   <meta property="og:title"
     content="Atsuko International (PVT) LTD | 篤子 学校 (ATSUKO GAKKO) - Official Pathway to Study & Work in Japan" />
   <meta property="og:description"
     content="Government-registered Japanese Language Academy & Overseas Employment Agency. SLBFE Lic 3293 • PV 0217143 • OTIT LKA000076. Kadawatha, Sri Lanka & Komaki City, Aichi Prefecture, Japan." />
-  <meta property="og:image" content="/images/atsuko-official-logo.png" />
+  <meta property="og:image" content="https://www.atsukointernational.com/images/atsuko-official-logo.png" />
   <meta property="og:image:width" content="512" />
   <meta property="og:image:height" content="512" />
   <meta property="og:image:alt" content="Atsuko International Official Emblem & Seal" />
   <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="si_LK" />
+  <meta property="og:locale:alternate" content="ja_JP" />
 
   <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="https://www.atsukointernational.com" />
+  <meta name="twitter:url" content="https://www.atsukointernational.com/" />
   <meta name="twitter:title" content="Atsuko International | 篤子 学校 - Official Gateway to Japan" />
   <meta name="twitter:description"
     content="Study and work in Japan with verified government licensure. SLBFE Lic 3293 • PV 0217143 • OTIT LKA000076. Language training, student visas & SSW placements." />
-  <meta name="twitter:image" content="/images/atsuko-official-logo.png" />
+  <meta name="twitter:image" content="https://www.atsukointernational.com/images/atsuko-official-logo.png" />
 
   <!-- Apple Touch Icon & PWA hints -->
   <link rel="apple-touch-icon" href="/images/atsuko-official-logo.png" />
@@ -60,12 +67,72 @@
   <noscript>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@400;700;900&family=Noto+Sans+Sinhala:wght@400;600;700&display=swap" rel="stylesheet">
   </noscript>
-  <!-- Preload LCP image: Torii gate is first heavy visual -->
+  <!-- Preload critical LCP visual assets only (avoid network contention on mobile) -->
   <link rel="preload" href="/images/torii-gate-ultra.png" as="image" fetchpriority="high">
   <link rel="preload" href="/images/pagoda-cinematic.jpg" as="image" fetchpriority="high">
   <link rel="preload" href="/images/atsuko-official-logo.png" as="image">
-  <!-- Preload hero video poster so first frame shows immediately -->
-  <link rel="preload" href="/images/atsuko-drone-wide.jpg" as="image">
+
+  <!-- Structured Data (JSON-LD) for Search Engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["EducationalOrganization", "EmploymentAgency"],
+        "@id": "https://www.atsukointernational.com/#organization",
+        "name": "Atsuko International (PVT) LTD",
+        "alternateName": ["ATSUKO GAKKO", "篤子 学校", "Atsuko Japanese Language Academy"],
+        "url": "https://www.atsukointernational.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.atsukointernational.com/images/atsuko-official-logo.png",
+          "width": 512,
+          "height": 512
+        },
+        "image": "https://www.atsukointernational.com/images/atsuko-drone-wide.jpg",
+        "description": "Government-registered Japanese Language Training Center and Overseas Employment Agency in Sri Lanka (SLBFE License No. 3293, PV 0217143, OTIT No. LKA000076) with a Registered Support Organization in Komaki City, Aichi Prefecture, Japan (23登-008312 / 04-ユ-300338).",
+        "telephone": ["+94-112-923414", "+94-703-634416", "+94-705-634414", "+81-90-1410-9657"],
+        "email": "atsukointernational@gmail.com",
+        "address": [
+          {
+            "@type": "PostalAddress",
+            "streetAddress": "No. 471/D/2, Kandy Road, Ranmuthugala",
+            "addressLocality": "Kadawatha",
+            "addressRegion": "Western Province",
+            "addressCountry": "LK"
+          },
+          {
+            "@type": "PostalAddress",
+            "streetAddress": "4-174-1 Komaki",
+            "addressLocality": "Komaki City",
+            "addressRegion": "Aichi Prefecture",
+            "postalCode": "485-0041",
+            "addressCountry": "JP"
+          }
+        ],
+        "sameAs": [
+          "https://www.facebook.com/AtsukoInternational",
+          "https://www.facebook.com/groups/studentsofatsukointernational",
+          "https://www.instagram.com/atsuko_gakkou/",
+          "https://www.youtube.com/@ATSUKOINTERNATIONAL",
+          "https://www.tiktok.com/@atsuko_international",
+          "https://linktr.ee/atsukointernational",
+          "https://search.google.com/local/writereview?placeid=ChIJM4KdxshZ4joRtZ1R51qYi_w"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.atsukointernational.com/#website",
+        "url": "https://www.atsukointernational.com/",
+        "name": "Atsuko International | 篤子 学校 (ATSUKO GAKKO)",
+        "publisher": {
+          "@id": "https://www.atsukointernational.com/#organization"
+        },
+        "inLanguage": ["en", "si", "ja"]
+      }
+    ]
+  }
+  </script>
 
   <title>Atsuko International (PVT) LTD | 篤子 学校 (ATSUKO GAKKO) - Official Pathway to Study & Work in Japan</title>
 </head>

@@ -8,26 +8,41 @@ export default function Hero({ lang }) {
   const b = getUiText(lang).heroBadges;
   const videoRef = useRef(null);
 
-  // Mobile smoothness: Play video only when in viewport, pause when offscreen
-  // to eliminate mobile background decoding stalls, GPU hitching, and network buffering
+  // Mobile smoothness: Defer video source fetch until near viewport, play only when visible,
+  // and pause when offscreen to eliminate mobile background decoding stalls and network buffering
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
 
+    const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let hasLoadedSource = false;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          const playPromise = video.play();
-          if (playPromise !== undefined) {
-            playPromise.catch(() => {
-              // Gracefully handle browser autoplay policies or low power mode
-            });
+          if (!hasLoadedSource) {
+            const source = video.querySelector('source[data-src]');
+            if (source && source.dataset.src) {
+              source.src = source.dataset.src;
+              delete source.dataset.src;
+              video.preload = 'metadata';
+              video.load();
+            }
+            hasLoadedSource = true;
+          }
+          if (!reducedMotionQuery.matches) {
+            const playPromise = video.play();
+            if (playPromise !== undefined) {
+              playPromise.catch(() => {
+                // Gracefully handle browser autoplay policies or low power mode
+              });
+            }
           }
         } else {
           video.pause();
         }
       },
-      { threshold: 0.15 }
+      { rootMargin: '250px 0px', threshold: 0.05 }
     );
 
     observer.observe(video);
@@ -97,17 +112,19 @@ export default function Hero({ lang }) {
           <div className="hero-image-card">
             <video 
               ref={videoRef}
+              width="1280"
+              height="720"
               poster="/images/atsuko-drone-wide.jpg"
-              autoPlay 
               loop 
               muted 
               playsInline
               webkit-playsinline="true"
-              preload="metadata"
+              preload="none"
+              {...({ loading: 'lazy' })}
               className="hero-main-video"
               title="Atsuko International Headquarters - Drone Video"
             >
-              <source src="/videos/atsuko-drone-intro.mp4" type="video/mp4" />
+              <source data-src="/videos/atsuko-drone-intro.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
             <div className="hero-image-glow" aria-hidden="true"></div>

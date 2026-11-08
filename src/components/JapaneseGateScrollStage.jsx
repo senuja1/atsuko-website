@@ -99,7 +99,7 @@ export default function JapaneseGateScrollStage({
     let totalHeight = 0;
     let lastWidth = typeof window !== 'undefined' ? window.innerWidth : 0;
     const isTouchDevice = typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches;
-    const lerpFactor = isTouchDevice ? 0.24 : 0.12;
+    const lerpFactor = isTouchDevice ? 0.38 : 0.14;
 
     const cacheMetrics = () => {
       if (!containerRef.current) return;
@@ -148,7 +148,9 @@ export default function JapaneseGateScrollStage({
         const hintOpacity = Math.max(0, 1 - p * 4.5);
         const hintY = -25 * Math.min(1, p * 4.5);
         hintRef.current.style.opacity = hintOpacity;
-        hintRef.current.style.transform = `translate3d(calc(var(--mouse-x, 0) * 16px), calc(var(--mouse-y, 0) * 10px + ${hintY}px), 35px)`;
+        hintRef.current.style.transform = isTouchDevice
+          ? `translate3d(0, ${hintY}px, 0)`
+          : `translate3d(calc(var(--mouse-x, 0) * 16px), calc(var(--mouse-y, 0) * 10px + ${hintY}px), 35px)`;
         hintRef.current.style.pointerEvents = hintOpacity < 0.05 ? 'none' : 'auto';
         hintRef.current.style.visibility = hintOpacity <= 0.01 ? 'hidden' : 'visible';
       }
@@ -532,6 +534,8 @@ export default function JapaneseGateScrollStage({
             ref={bgImgRef}
             src="/images/pagoda-cinematic.jpg"
             alt="Chureito Pagoda and Mount Fuji Japan"
+            width="1920"
+            height="1080"
             decoding="async"
             className="hero-layer hero-bg-img"
             style={{
@@ -665,6 +669,9 @@ export default function JapaneseGateScrollStage({
               <img
                 src="/images/torii-gate-ultra.png"
                 alt="Torii Gate"
+                width="1536"
+                height="927"
+                fetchPriority="high"
                 className="torii-gate-img hero-layer"
                 decoding="async"
                 style={{
@@ -677,7 +684,6 @@ export default function JapaneseGateScrollStage({
                   transformOrigin: '50% 48%',
                   userSelect: 'none',
                   display: 'block',
-                  filter: 'brightness(1.06) contrast(1.08) drop-shadow(0 25px 40px rgba(0, 0, 0, 0.85))',
                   backfaceVisibility: 'hidden',
                   WebkitBackfaceVisibility: 'hidden',
                   willChange: 'transform',

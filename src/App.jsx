@@ -26,10 +26,56 @@ export default function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalDefaultProgram, setModalDefaultProgram] = useState('');
 
-  // Synchronize document lang attribute for typography and accessibility
+  // Synchronize document lang attribute & dynamic SEO title/meta description per route
   useEffect(() => {
-    document.documentElement.lang = lang;
-  }, [lang]);
+    document.documentElement.lang = lang === 'jp' ? 'ja' : lang;
+
+    const seoMap = {
+      home: {
+        title: 'Atsuko International (PVT) LTD | 篤子 学校 (ATSUKO GAKKO) - Official Pathway to Study & Work in Japan',
+        desc: 'Government-registered Japanese Language Academy & Overseas Employment Agency (SLBFE License No. 3293 • PV 0217143 • OTIT LKA000076). JLPT/JFT training, Student Visas & SSW Caregiver Placements.'
+      },
+      about: {
+        title: 'About Us & Official Licensure | Atsuko International (SLBFE No. 3293)',
+        desc: 'Learn about Atsuko International (PVT) LTD (PV 0217143, SLBFE License 3293) in Kadawatha, Sri Lanka and our Registered Support Organization (23登-008312) in Komaki, Aichi, Japan. Loan facilities available.'
+      },
+      courses: {
+        title: 'Japanese Language (JLPT/JFT) & SSW Vocational Courses | Atsuko International',
+        desc: 'Full-time Japanese language courses (1-Month JLPT N5, 50-Day JFT-Basic & N4), SSW Caregiver (Kaigo), NVQ Level 3 Nursing, Food Service & Agriculture training in Kadawatha.'
+      },
+      'student-visa': {
+        title: 'Japan Student Visa (Ryugaku) Pathway | Atsuko International',
+        desc: 'Study in Japan at accredited language schools and universities in Tokyo, Osaka, Nagoya & Sendai with legal part-time work permission and COE processing by Atsuko International.'
+      },
+      'job-visa': {
+        title: 'Japan SSW Work Visa & Caregiver Placements | Atsuko International',
+        desc: '5-year Specified Skilled Worker (SSW) work visas for Caregiver (Kaigo), Food & Accommodation, and Agriculture & Livestock with direct support in Komaki, Aichi, Japan.'
+      },
+      facilities: {
+        title: 'Campus Facilities, Caregiver Lab & Student Hostels | Atsuko International',
+        desc: 'Explore Atsuko International’s Kadawatha campus featuring our Kaigo hospital simulation ward, CBT Prometric exam lab, audio classrooms, and safe student hostels.'
+      },
+      stories: {
+        title: 'Success Stories & Candidate Deployments to Japan | Atsuko International',
+        desc: 'Watch real student testimonials, JFT/JLPT achievers, and airport departure stories of Sri Lankan candidates successfully placed in Japan through Atsuko International.'
+      },
+      branches: {
+        title: 'Sri Lanka & Japan Branch Network | Atsuko International',
+        desc: 'Visit Atsuko International Head Center in Kadawatha, Sri Lanka or our Japan Resident Support Office at Sunshine Komaki Building, Komaki City, Aichi Prefecture.'
+      },
+      contact: {
+        title: 'Contact Us & Book Free Consultation | Atsuko International',
+        desc: 'Contact Atsuko International (PVT) LTD at 191/3/1, Sirimavo Bandaranayake Mw, Mahara, Kadawatha (+94 112 987 263 / +94 77 793 3352) or our Komaki, Aichi Japan office.'
+      }
+    };
+
+    const meta = seoMap[currentPage] || seoMap.home;
+    document.title = meta.title;
+    const descTag = document.querySelector('meta[name="description"]');
+    if (descTag) {
+      descTag.setAttribute('content', meta.desc);
+    }
+  }, [lang, currentPage]);
 
   // Synchronize with URL hash for browser navigation
   useEffect(() => {
@@ -64,7 +110,7 @@ export default function App() {
     }
     setCurrentPage(targetPage);
     window.location.hash = targetPage;
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
   const handleOpenModal = (program = '') => {
@@ -88,7 +134,7 @@ export default function App() {
   return (
     <div className="app-root">
       {/* Cinematic Gateway Loading Screen (Preloads Torii gate & high-res visuals) */}
-      <SiteLoadingScreen lang={lang} minDuration={2400} />
+      <SiteLoadingScreen lang={lang} minDuration={1200} />
 
       {/* Gentleman Navy Top Utility Bar (Above Navbar) */}
       <TopBar 
