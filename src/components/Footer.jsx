@@ -242,6 +242,26 @@ export default function Footer({ lang, onOpenModal, onNavigate }) {
         <div className="footer-bottom">
           <p>© {new Date().getFullYear()} {officialContacts.companyName} ({officialContacts.kanjiName}). {lang === 'si' ? 'සියලුම හිමිකම් ඇවිරිණි.' : lang === 'jp' ? '無断転載を禁じます。' : 'All Rights Reserved.'}</p>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
+            <a
+              href="#privacy"
+              onClick={(e) => handleLinkClick(e, 'privacy')}
+              style={{ color: '#cbd5e1', textDecoration: 'none', transition: 'color 0.2s ease', fontWeight: 600 }}
+              onMouseEnter={(e) => e.currentTarget.style.color = '#38bdf8'}
+              onMouseLeave={(e) => e.currentTarget.style.color = '#cbd5e1'}
+            >
+              {lang === 'si' ? 'පෞද්ගලිකත්ව ප්‍රතිපත්තිය' : lang === 'jp' ? 'プライバシーポリシー' : 'Privacy Policy'}
+            </a>
+            <span>•</span>
+            <a
+              href="#terms"
+              onClick={(e) => handleLinkClick(e, 'terms')}
+              style={{ color: '#cbd5e1', textDecoration: 'none', transition: 'color 0.2s ease', fontWeight: 600 }}
+              onMouseEnter={(e) => e.currentTarget.style.color = '#38bdf8'}
+              onMouseLeave={(e) => e.currentTarget.style.color = '#cbd5e1'}
+            >
+              {lang === 'si' ? 'සේවා කොන්දේසි' : lang === 'jp' ? '利用規約' : 'Terms & Conditions'}
+            </a>
+            <span>•</span>
             <span>{officialContacts.slbfeLicense}</span>
             <span>•</span>
             <span>{lang === 'si' ? 'සමාගම් ලියාපදිංචිය:' : lang === 'jp' ? '会社登記:' : 'Company Reg:'} {officialContacts.companyReg}</span>

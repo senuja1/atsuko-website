@@ -19,6 +19,7 @@ const BranchNetwork = lazy(() => import('./components/BranchNetwork'));
 const ContactPage = lazy(() => import('./components/ContactPage'));
 const StudentLifePage = lazy(() => import('./components/StudentLifePage'));
 const VisaAgencyLanding = lazy(() => import('./components/VisaAgencyLanding'));
+const LegalPage = lazy(() => import('./components/LegalPage'));
 
 export default function App() {
   const [lang, setLang] = useState('en');
@@ -66,6 +67,14 @@ export default function App() {
       contact: {
         title: 'Contact Us & Book Free Consultation | Atsuko International',
         desc: 'Contact Atsuko International (PVT) LTD at 191/3/1, Sirimavo Bandaranayake Road, Mahara, Kadawatha, 11850 Sri Lanka. (+94 112 987 263 / +94 77 793 3352) or our Komaki, Aichi Japan office.'
+      },
+      privacy: {
+        title: 'Official Privacy Policy & Data Protection | Atsuko International (PDPA & APPI)',
+        desc: 'Read how Atsuko International (PVT) LTD (Sri Lanka) and 株式会社 Atsuko International (Japan) safeguard and process personal data in compliance with the Sri Lanka PDPA and Japan APPI.'
+      },
+      terms: {
+        title: 'Terms & Conditions of Service | Atsuko International (SLBFE Lic. #3293)',
+        desc: 'Official Terms & Conditions governing course enrollment, zero initial fee recruitment policy, and legal visa & employment placement services by Atsuko International.'
       }
     };
 
@@ -87,7 +96,9 @@ export default function App() {
         setCurrentPage('job-visa');
       } else if (hash === 'visa') {
         setCurrentPage('student-visa');
-      } else if (['home', 'about', 'courses', 'facilities', 'stories', 'branches', 'contact', 'landing', 'student-visa', 'job-visa'].includes(hash)) {
+      } else if (hash === 'legal') {
+        setCurrentPage('privacy');
+      } else if (['home', 'about', 'courses', 'facilities', 'stories', 'branches', 'contact', 'landing', 'student-visa', 'job-visa', 'privacy', 'terms'].includes(hash)) {
         setCurrentPage(hash);
       } else if (!hash) {
         setCurrentPage('home');
@@ -233,6 +244,17 @@ export default function App() {
         {currentPage === 'landing' && (
           <Suspense fallback={<div style={{ minHeight: '60vh' }} />}>
             <VisaAgencyLanding onApply={() => handleOpenModal('Visa Application')} />
+          </Suspense>
+        )}
+        {/* INTERNATIONAL STANDARD LEGAL PAGES: PRIVACY POLICY & TERMS OF SERVICE */}
+        {(currentPage === 'privacy' || currentPage === 'terms' || currentPage === 'legal') && (
+          <Suspense fallback={<div style={{ minHeight: '60vh' }} />}>
+            <LegalPage 
+              lang={lang} 
+              initialTab={currentPage === 'terms' ? 'terms' : 'privacy'} 
+              onNavigate={handleNavigate} 
+              onOpenModal={handleOpenModal} 
+            />
           </Suspense>
         )}
       </main>
