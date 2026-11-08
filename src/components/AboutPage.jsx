@@ -14,7 +14,8 @@ import {
   MessageSquare,
   Sparkles,
   Phone,
-  Mail
+  Mail,
+  Landmark
 } from 'lucide-react';
 import { aboutUsData, officialContacts, globalPresenceData } from '../data/websiteData';
 import { getUiText } from '../data/uiText';
@@ -76,6 +77,25 @@ export default function AboutPage({ lang, onOpenModal, onNavigate }) {
               {ui.subtitle}
             </p>
 
+            {/* Simple Line: Loan facilities available */}
+            <div style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.65rem',
+              background: 'rgba(245, 158, 11, 0.12)',
+              border: '1px solid rgba(245, 158, 11, 0.4)',
+              borderRadius: 'var(--radius-full)',
+              padding: '0.5rem 1.35rem',
+              marginTop: '1.25rem',
+              marginBottom: '1.75rem',
+              boxShadow: '0 4px 14px rgba(0, 0, 0, 0.15)'
+            }}>
+              <Landmark size={18} style={{ color: '#fbbf24', flexShrink: 0 }} />
+              <span style={{ fontSize: '0.95rem', fontWeight: 700, color: '#fef3c7', letterSpacing: '0.3px' }}>
+                {ui.loanLine || 'Loan facilities available'}
+              </span>
+            </div>
+
             <div className="about-quick-badges">
               {ui.badges.map((b, idx) => (
                 <div key={idx} className="about-badge-item">
@@ -109,6 +129,27 @@ export default function AboutPage({ lang, onOpenModal, onNavigate }) {
               <p className="about-body-p">
                 {ui.profileP2}
               </p>
+
+              {/* Simple Loan Facility Line */}
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.75rem',
+                padding: '0.75rem 1.15rem',
+                background: '#fefce8',
+                border: '1px solid #fde047',
+                borderLeft: '4px solid #f59e0b',
+                borderRadius: '8px',
+                marginTop: '1.15rem',
+                marginBottom: '1.5rem',
+                color: 'var(--navy-900)',
+                fontSize: '0.92rem'
+              }}>
+                <Landmark size={20} style={{ color: '#d97706', flexShrink: 0 }} />
+                <span>
+                  <strong style={{ color: '#92400e' }}>{ui.loanLine || 'Loan facilities available'}</strong>: {ui.loanLineDetail || 'Bank loan facilities available for eligible students and visa applicants.'}
+                </span>
+              </div>
 
               {/* Vision & Mission Cards */}
               <div className="mission-vision-grid">

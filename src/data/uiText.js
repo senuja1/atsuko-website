@@ -158,10 +158,12 @@ export const uiText = {
         titlePre: 'About',
         titleHighlight: 'Atsuko International',
         subtitle: 'Bridging Sri Lankan talent with legitimate education and career pathways across Japan. A premier, government-registered Japanese language academy and licensed foreign employment agency.',
+        loanLine: 'Loan facilities available',
+        loanLineDetail: 'Bank loan facilities available for eligible students and visa applicants.',
         badges: [
           { val: 'SLBFE License No. 3293', sub: 'Renewed 2020 – 2026' },
           { val: 'Business Reg. PV 0217143', sub: 'Inc. 01 November 2019' },
-          { val: 'Japan Support Entity', sub: 'Sendai & Aichi, Japan' },
+          { val: 'Japan Support Entity', sub: 'Komaki, Aichi, Japan' },
           { val: 'Zero Initial Fee', sub: 'Pay only after visa approval' },
         ],
         profileBadge: 'Official Company Profile',
@@ -632,6 +634,8 @@ export const uiText = {
         titlePre: 'අප ගැන',
         titleHighlight: 'අත්සුකෝ ඉන්ටර්නැෂනල්',
         subtitle: 'ශ්‍රී ලාංකික තරුණ පරපුරට ජපානයේ නිල අධ්‍යාපන සහ රැකියා අවස්ථා විවර කරන රජයේ ලියාපදිංචි ප්‍රමුඛතම ආයතනය.',
+        loanLine: 'බැංකු ණය පහසුකම් ලබාගත හැක (Loan facilities available)',
+        loanLineDetail: 'සුදුසුකම්ලත් සිසුන් සහ රැකියා අපේක්ෂකයින් සඳහා සහනදායී බැංකු ණය පහසුකම් ලබාගත හැක.',
         badges: [
           { val: 'SLBFE බලපත්‍ර අංක 3293', sub: '2020 – 2026 දක්වා අලුත් කර ඇත' },
           { val: 'සමාගම් ලියාපදිංචි PV 0217143', sub: '2019 නොවැම්බර් 01 දින පිහිටුවන ලදී' },
@@ -1106,6 +1110,8 @@ export const uiText = {
         titlePre: '会社概要',
         titleHighlight: '篤子学校 (ATSUKO GAKKO)',
         subtitle: 'スリランカの優秀な人材と日本の教育・産業界を直結する、政府公認の日本語教育機関および海外送出機関。',
+        loanLine: '教育ローン・融資制度のご案内可能 (Loan facilities available)',
+        loanLineDetail: '受講生および特定技能・留学渡航者のための提携教育ローン・融資制度をご案内しています。',
         badges: [
           { val: 'SLBFE 認可 No. 3293', sub: '2020〜2026年継続更新' },
           { val: '法人登記 PV 0217143', sub: '2019年11月1日設立' },
