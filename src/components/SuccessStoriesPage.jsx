@@ -47,6 +47,13 @@ export default function SuccessStoriesPage({ lang, onOpenModal }) {
     return item.description;
   };
 
+  const getLocalizedCategory = (item) => {
+    if (!item) return '';
+    if (lang === 'si' && item.categorySi) return item.categorySi;
+    if ((lang === 'jp' || lang === 'ja') && item.categoryJp) return item.categoryJp;
+    return item.categoryLabel || item.category;
+  };
+
   const getCandidateTitle = (item) => {
     if (!item) return '';
     if (lang === 'si' && item.titleSi) return item.titleSi;
@@ -133,8 +140,8 @@ export default function SuccessStoriesPage({ lang, onOpenModal }) {
 
                   <div className="featured-video-info">
                     <div className="featured-video-meta">
-                      <span className="video-tag-pill">{video.category}</span>
-                      <span className="video-tag-sub">{video.location}</span>
+                      <span className="video-tag-pill">{getLocalizedCategory(video)}</span>
+                      {video.location && <span className="video-tag-sub">{video.location}</span>}
                     </div>
 
                     <h3 className="featured-video-title">{getLocalizedTitle(video)}</h3>
