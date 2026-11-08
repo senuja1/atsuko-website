@@ -107,18 +107,8 @@ export default function SiteLoadingScreen({ minDuration = 2400 }) {
         />
       </svg>
 
-      {/* 4. Top SLBFE Official Crest Pill & Ambient Vertical Tategaki */}
+      {/* 4. Ambient Vertical Japanese Tategaki Watermarks (Matching Hero Stage) */}
       <div className="loader-frame-decor" aria-hidden="true">
-        {/* Official Government License Crest Pill matching Website Hero Theme */}
-        <div className="loader-top-crest-pill">
-          <span className="loader-crest-diamond">◆</span>
-          <span>SLBFE LICENSE NO. 3293</span>
-          <span className="loader-crest-sep">•</span>
-          <span lang="ja">篤子 学校</span>
-          <span className="loader-crest-diamond">◆</span>
-        </div>
-
-        {/* Left & Right Ambient Vertical Japanese Tategaki Watermarks (Matching Hero Stage) */}
         <div className="loader-tategaki loader-tategaki-left">
           <span className="loader-tategaki-line" />
           <span className="loader-tategaki-text" lang="ja">
@@ -135,10 +125,10 @@ export default function SiteLoadingScreen({ minDuration = 2400 }) {
         </div>
       </div>
 
-      {/* 5. Central Atsuko Kamon Medallion & Concentric Circular Progress Orbit */}
+      {/* 5. Central Atsuko Official Logo Round Emblem & Concentric Circular Progress Orbit */}
       <div className="loader-hinomaru-stage">
         <div className="loader-orb-concentric-wrap">
-          {/* SVG Concentric Precision Compass & 360° Progress Ring Circling Around the Orb */}
+          {/* SVG Concentric Precision Compass & 360° Progress Ring Circling Around the Logo */}
           <svg
             className="loader-circular-ring-svg"
             viewBox="0 0 360 360"
@@ -153,8 +143,8 @@ export default function SiteLoadingScreen({ minDuration = 2400 }) {
               </linearGradient>
               <linearGradient id="atsukoInnerGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stopColor="rgba(251, 191, 36, 0.48)" />
-                <stop offset="50%" stopColor="rgba(56, 189, 248, 0.25)" />
-                <stop offset="100%" stopColor="rgba(251, 191, 36, 0.12)" />
+                <stop offset="50%" stopColor="rgba(56, 189, 248, 0.35)" />
+                <stop offset="100%" stopColor="rgba(251, 191, 36, 0.15)" />
               </linearGradient>
             </defs>
 
@@ -190,7 +180,7 @@ export default function SiteLoadingScreen({ minDuration = 2400 }) {
               strokeWidth="1"
             />
 
-            {/* Animated Circular Progress Line Sweeping 360° Around the Round Medallion */}
+            {/* Animated Circular Progress Line Sweeping 360° Around the Official Round Logo */}
             <circle
               className="loader-circular-progress-arc"
               cx="180"
@@ -211,75 +201,17 @@ export default function SiteLoadingScreen({ minDuration = 2400 }) {
           {/* Counter-Rotating Inner Subtle Gold-Azure Accent Ring */}
           <div className="loader-orbit-spinner-reverse" aria-hidden="true" />
 
-          {/* Luxury Deep-Sapphire & Atsuko Royal Blue Medallion Disc */}
-          <div className="loader-sun-disc">
-            {/* Etched Inner Watermark: Torii Gate & Mount Fuji Motif inside Medallion */}
-            <svg
-              className="loader-disc-inner-motif"
-              viewBox="0 0 240 240"
-              aria-hidden="true"
-            >
-              {/* Subtle Sunburst Rays */}
-              <circle
-                cx="120"
-                cy="98"
-                r="58"
-                fill="none"
-                stroke="rgba(255, 255, 255, 0.07)"
-                strokeWidth="0.75"
-                strokeDasharray="3 6"
-              />
-              {/* Minimalist Torii Arch Watermark */}
-              <path
-                d="M78,162 Q120,154 162,162 M86,172 L154,172 M95,161 L92,202 M145,161 L148,202 M120,160 L120,172"
-                fill="none"
-                stroke="rgba(186, 230, 253, 0.12)"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-              />
-              {/* Minimalist Seigaiha Curve at Bottom */}
-              <path
-                d="M42,196 Q81,182 120,196 T198,196"
-                fill="none"
-                stroke="rgba(251, 191, 36, 0.16)"
-                strokeWidth="1"
-              />
-            </svg>
-
-            {/* Top Regal Crown Ornament */}
-            <div className="loader-disc-crown" aria-hidden="true">
-              <span className="loader-crown-line" />
-              <span className="loader-crown-diamond">◆</span>
-              <span className="loader-crown-line" />
-            </div>
-
-            {/* Imperial Kanji (篤子) */}
-            <div className="loader-kanji-main" lang="ja">
-              篤子
-            </div>
-
-            {/* Spaced Serif Brand Name (ATSUKO) */}
-            <div className="loader-roman-brand">ATSUKO</div>
-
-            {/* Spaced Serif Sub-title (INTERNATIONAL) */}
-            <div className="loader-roman-sub">INTERNATIONAL</div>
-
-            {/* Kouki-Style Diamond Divider & Sri Lanka -> Japan Route */}
-            <div className="loader-route-wrap">
-              <div className="loader-route-divider-row" aria-hidden="true">
-                <span className="loader-route-divider" />
-                <span className="loader-route-diamond">◆</span>
-                <span className="loader-route-divider" />
-              </div>
-              <div className="loader-route-text">
-                <span>SRI LANKA</span>
-                <span className="loader-route-arrow">→</span>
-                <span>JAPAN</span>
-              </div>
-              <div className="loader-progress-pct" aria-live="off">
-                {Math.round(progress)}%
-              </div>
-            </div>
+          {/* Official Atsuko International (篤子 学校) Round Logo Disc */}
+          <div className="loader-sun-disc loader-logo-disc">
+            <img
+              src="/images/atsuko-official-logo.png"
+              alt="Atsuko International (篤子 学校) Official Emblem"
+              className="loader-official-logo-img"
+              width="260"
+              height="260"
+              decoding="sync"
+              fetchPriority="high"
+            />
           </div>
         </div>
       </div>

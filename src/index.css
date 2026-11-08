@@ -12063,42 +12063,6 @@ html[lang="jp"] .stat-label,
   }
 }
 
-/* Top Official Government License Crest Pill matching Website Hero */
-.loader-top-crest-pill {
-  position: absolute;
-  top: clamp(2px, 1vh, 10px);
-  left: 50%;
-  transform: translateX(-50%);
-  display: inline-flex;
-  align-items: center;
-  gap: clamp(6px, 1.2vw, 10px);
-  padding: 5px 16px;
-  border-radius: 999px;
-  background: rgba(11, 21, 40, 0.72);
-  border: 1px solid rgba(251, 191, 36, 0.34);
-  box-shadow:
-    0 6px 20px rgba(0, 0, 0, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  font-family: var(--font-sans);
-  font-size: clamp(9.5px, 1.05vw, 11.5px);
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  color: rgba(240, 249, 255, 0.9);
-  white-space: nowrap;
-}
-
-.loader-crest-diamond {
-  color: var(--gold-400, #fbbf24);
-  font-size: 8px;
-  line-height: 1;
-}
-
-.loader-crest-sep {
-  color: rgba(56, 189, 248, 0.65);
-}
-
 /* Side Vertical Japanese Tategaki Watermarks (Matching Hero Stage) */
 .loader-tategaki {
   position: absolute;
@@ -12258,197 +12222,36 @@ html[lang="jp"] .stat-label,
   }
 }
 
-/* Luxury Deep-Sapphire & Atsuko Royal Blue Medallion Disc */
+/* Official Atsuko International (篤子 学校) Round Logo Medallion Disc */
 .loader-sun-disc {
   position: relative;
-  width: clamp(212px, 49vw, 280px);
-  height: clamp(212px, 49vw, 280px);
+  width: clamp(204px, 47vw, 266px);
+  height: clamp(204px, 47vw, 266px);
   border-radius: 50%;
-  background:
-    radial-gradient(circle at 50% 22%, rgba(56, 189, 248, 0.48) 0%, rgba(14, 165, 233, 0.18) 36%, transparent 65%),
-    radial-gradient(circle at 50% 50%, #075985 0%, #0c4a6e 48%, #082f49 78%, #06182c 100%);
-  border: 1px solid rgba(186, 230, 253, 0.36);
+  background: #ffffff;
+  border: 2px solid rgba(56, 189, 248, 0.72);
   box-shadow:
-    0 0 65px rgba(14, 165, 233, 0.42),
-    0 0 130px rgba(2, 132, 199, 0.22),
-    inset 0 2px 18px rgba(186, 230, 253, 0.32),
-    inset 0 -14px 28px rgba(4, 9, 21, 0.65);
+    0 0 55px rgba(14, 165, 233, 0.5),
+    0 0 120px rgba(2, 132, 199, 0.25),
+    0 12px 32px rgba(4, 9, 21, 0.65);
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 14px 16px 10px;
+  padding: 0;
   overflow: hidden;
 }
 
-/* Inner Gold Specular Hairline Ring inside the Medallion */
-.loader-sun-disc::before {
-  content: '';
-  position: absolute;
-  inset: 7px;
-  border-radius: 50%;
-  border: 1px solid rgba(251, 191, 36, 0.22);
-  pointer-events: none;
-}
-
-/* Etched Inner Motif (Torii & Wave Watermark) */
-.loader-disc-inner-motif {
-  position: absolute;
-  inset: 0;
+.loader-official-logo-img {
   width: 100%;
   height: 100%;
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* Top Regal Crown Ornament inside Medallion */
-.loader-disc-crown {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  margin-bottom: 4px;
-}
-
-.loader-crown-line {
-  width: 18px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.65), transparent);
-}
-
-.loader-crown-diamond {
-  color: var(--gold-400, #fbbf24);
-  font-size: 7.5px;
-  line-height: 1;
-  text-shadow: 0 0 8px rgba(251, 191, 36, 0.6);
-}
-
-/* Imperial Kanji (篤子) inside Medallion */
-.loader-kanji-main {
-  position: relative;
-  z-index: 2;
-  font-family: 'Noto Serif JP', 'Cinzel', serif;
-  font-size: clamp(2.55rem, 6.4vw, 3.85rem);
-  font-weight: 700;
-  color: #ffffff;
-  line-height: 1.04;
-  letter-spacing: 0.14em;
-  text-indent: 0.14em;
-  text-shadow:
-    0 2px 14px rgba(56, 189, 248, 0.42),
-    0 6px 24px rgba(4, 9, 21, 0.65);
-  margin-bottom: 5px;
-}
-
-/* Spaced Serif Brand Name (ATSUKO) */
-.loader-roman-brand {
-  position: relative;
-  z-index: 2;
-  font-family: 'Cinzel', 'Lora', 'Noto Serif JP', Georgia, serif;
-  font-size: clamp(0.86rem, 1.95vw, 1.16rem);
-  font-weight: 700;
-  color: #ffffff;
-  letter-spacing: 0.34em;
-  text-indent: 0.34em;
-  line-height: 1.15;
-  margin-bottom: 3px;
-}
-
-/* Spaced Serif Sub-title (INTERNATIONAL) */
-.loader-roman-sub {
-  position: relative;
-  z-index: 2;
-  font-family: 'Cinzel', 'Lora', 'Noto Serif JP', Georgia, serif;
-  font-size: clamp(0.52rem, 1.18vw, 0.68rem);
-  font-weight: 600;
-  color: #7dd3fc;
-  letter-spacing: 0.38em;
-  text-indent: 0.38em;
-  white-space: nowrap;
-}
-
-/* Lower Route & Progress Section inside Medallion */
-.loader-route-wrap {
-  position: relative;
-  z-index: 2;
-  margin-top: clamp(7px, 1.4vw, 11px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 5px;
-}
-
-.loader-route-divider-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-}
-
-.loader-route-divider {
-  width: clamp(38px, 9vw, 56px);
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(186, 230, 253, 0.55) 100%
-  );
-}
-
-.loader-route-divider:last-child {
-  background: linear-gradient(
-    90deg,
-    rgba(186, 230, 253, 0.55) 0%,
-    transparent 100%
-  );
-}
-
-.loader-route-diamond {
-  color: var(--gold-400, #fbbf24);
-  font-size: 6.5px;
-  line-height: 1;
-}
-
-.loader-route-text {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  font-family: var(--font-sans);
-  font-size: clamp(0.5rem, 1.05vw, 0.6rem);
-  font-weight: 700;
-  color: rgba(240, 249, 255, 0.94);
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-}
-
-.loader-route-arrow {
-  color: var(--gold-400, #fbbf24);
-  font-weight: 800;
-  letter-spacing: 0;
-  text-shadow: 0 0 10px rgba(251, 191, 36, 0.65);
-}
-
-.loader-progress-pct {
-  font-family: var(--font-sans);
-  font-size: clamp(0.52rem, 1.05vw, 0.62rem);
-  font-weight: 700;
-  font-variant-numeric: tabular-nums;
-  letter-spacing: 0.16em;
-  color: rgba(186, 230, 253, 0.78);
-  margin-top: 1px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  transform: scale(1.012);
 }
 
 @media (max-width: 640px) {
   .loader-tategaki {
     display: none;
-  }
-
-  .loader-top-crest-pill {
-    padding: 4px 12px;
-    font-size: 9px;
-    letter-spacing: 0.1em;
   }
 }
