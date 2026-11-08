@@ -54,7 +54,7 @@ export default function FaqSection({ lang }) {
     },
     {
       q: "スリランカ国内の拠点および本部はどこにありますか？",
-      a: "本社運営センター・実習施設はカダワタ（191/3/1, Sirimavo Bandaranaike Mawatha, Mahara, Kadawatha）に所在しています。また、キャンディ、ゴール、ガンパハ、バドゥッラ、マータラ、ラトナプラ、トリンコマリーに相談窓口を設置しています。"
+      a: "本社運営センター・実習施設はカダワタ（191/3/1, Sirimavo Bandaranayake Road, Mahara, Kadawatha, 11850 Sri Lanka.）に所在しています。また、キャンディ、ゴール、ガンパハ、バドゥッラ、マータラ、ラトナプラ、トリンコマリーに相談窓口を設置しています。"
     },
     {
       q: "問い合わせ窓口と次回開講スケジュールの確認方法は？",

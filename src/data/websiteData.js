@@ -35,7 +35,7 @@ export const officialContacts = {
   secondaryEmail: "info@atsukointernational.com",
   
   // Sri Lanka Headquarters
-  headOfficeAddress: "191/3/1, Sirimavo Bandaranayake Mw, Mahara, Kadawatha, Sri Lanka",
+  headOfficeAddress: "191/3/1, Sirimavo Bandaranayake Road, Mahara, Kadawatha, 11850 Sri Lanka.",
   headOfficeCity: "Kadawatha, Sri Lanka",
   
   // Japan Operations
@@ -877,7 +877,7 @@ export const faqList = [
   },
   {
     q: "Where is Atsuko International's head operations center located?",
-    a: "Our head operations center and simulation training facility is located at 191/3/1, Sirimavo Bandaranayake Mw, Mahara, Kadawatha, Sri Lanka. You can reach our hotlines at (+94) 112 987 263, (+94) 777 933 352, or (+94) 767 763 352."
+    a: "Our head operations center and simulation training facility is located at 191/3/1, Sirimavo Bandaranayake Road, Mahara, Kadawatha, 11850 Sri Lanka. You can reach our hotlines at (+94) 112 987 263, (+94) 777 933 352, or (+94) 767 763 352."
   },
   {
     q: "Does Atsuko International provide accommodation for students from outside Colombo?",
@@ -946,7 +946,7 @@ export const globalPresenceData = {
     companyName: "ATSUKO INTERNATIONAL (PVT) LTD",
     license: "SLBFE License No. 3293 (Renewed 2020 - 2026)",
     registration: "Company Registration No. PV 0217143",
-    address: "191/3/1, Sirimavo Bandaranayake Mw, Mahara, Kadawatha, Sri Lanka",
+    address: "191/3/1, Sirimavo Bandaranayake Road, Mahara, Kadawatha, 11850 Sri Lanka.",
     hotline: "(+94) 112 987 263",
     mobiles: ["(+94) 777 933 352", "(+94) 767 763 352"],
     email: "info@atsukointernational.com",
@@ -992,8 +992,8 @@ export const branchesData = [
     siName: "අත්සුකෝ ප්‍රධාන මූලස්ථානය (Atsuko Main)",
     jpName: "カダワタ 本社運営センター・研修校舎",
     isHeadOffice: true,
-    address: "191/3/1, Sirimavo Bandaranayake Mw, Mahara, Kadawatha, Sri Lanka",
-    siAddress: "191/3/1, සිරිමාවෝ බණ්ඩාරනායක මාවත, මහඅර, කඩවත, ශ්‍රී ලංකාව",
+    address: "191/3/1, Sirimavo Bandaranayake Road, Mahara, Kadawatha, 11850 Sri Lanka.",
+    siAddress: "191/3/1, Sirimavo Bandaranayake Road, Mahara, Kadawatha, 11850 Sri Lanka.",
     phone: "(+94) 112 987 263",
     whatsapp: "+94777933352",
     hours: "Mon - Sat: 8:30 AM - 5:30 PM | Sun: 8:30 AM - 2:00 PM",

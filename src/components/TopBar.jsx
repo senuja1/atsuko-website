@@ -9,11 +9,7 @@ export default function TopBar({ lang = 'en', onNavigate }) {
 
   const t = {
     followUs: isSi ? 'අප අනුගමනය කරන්න :' : isJp ? '公式SNS :' : 'Follow Us :',
-    address: isSi 
-      ? '191/3/1, සිරිමාවෝ බණ්ඩාරනායක මාවත, මහර, කඩවත, ශ්‍රී ලංකාව'
-      : isJp
-      ? '191/3/1, Sirimavo Bandaranaike Mw, Mahara, Kadawatha, Sri Lanka'
-      : '191/3/1, Sirimavo Bandaranaike Mw, Mahara, Kadawatha, Sri Lanka',
+    address: '191/3/1, Sirimavo Bandaranayake Road, Mahara, Kadawatha, 11850 Sri Lanka.',
     licBadge: isSi ? 'SLBFE බලපත්‍ර #3293' : isJp ? 'SLBFE認可 #3293' : 'SLBFE Lic. #3293'
   };
 

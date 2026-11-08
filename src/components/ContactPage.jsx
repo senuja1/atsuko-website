@@ -42,11 +42,11 @@ export default function ContactPage({ lang }) {
       name: ui.liveMapBranches?.kadawatha || 'Atsuko Main',
       country: 'Sri Lanka',
       badge: 'Main Headquarters & Training Center',
-      address: '191/3/1, Sirimavo Bandaranayake Mw, Mahara, Kadawatha, Sri Lanka',
-      embedUrl: 'https://www.google.com/maps/embed?origin=mfe&pb=!1m3!2m1!1s191/3/1,+Sirimavo+Bandaranayake+Mawatha,+Mahara,+Kadawatha,+Sri+Lanka!6i16',
-      mapsUrl: 'https://www.google.com/maps/search/?api=1&query=191%2F3%2F1+Sirimavo+Bandaranayake+Mawatha+Mahara+Kadawatha',
-      directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=191%2F3%2F1+Sirimavo+Bandaranayake+Mawatha+Mahara+Kadawatha',
-      transitHint: ui.liveMapHintSl || 'Sirimavo Bandaranayake Mawatha, Mahara, Kadawatha (Near Kandy Road & Kadawatha Interchange)'
+      address: '191/3/1, Sirimavo Bandaranayake Road, Mahara, Kadawatha, 11850 Sri Lanka.',
+      embedUrl: 'https://www.google.com/maps/embed?origin=mfe&pb=!1m3!2m1!1s191/3/1,+Sirimavo+Bandaranayake+Road,+Mahara,+Kadawatha,+11850+Sri+Lanka!6i16',
+      mapsUrl: 'https://www.google.com/maps/search/?api=1&query=191%2F3%2F1+Sirimavo+Bandaranayake+Road+Mahara+Kadawatha+11850+Sri+Lanka',
+      directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=191%2F3%2F1+Sirimavo+Bandaranayake+Road+Mahara+Kadawatha+11850+Sri+Lanka',
+      transitHint: ui.liveMapHintSl || '191/3/1, Sirimavo Bandaranayake Road, Mahara, Kadawatha, 11850 Sri Lanka.'
     },
     komaki: {
       id: 'komaki',

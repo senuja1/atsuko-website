@@ -65,7 +65,7 @@ export default function App() {
       },
       contact: {
         title: 'Contact Us & Book Free Consultation | Atsuko International',
-        desc: 'Contact Atsuko International (PVT) LTD at 191/3/1, Sirimavo Bandaranayake Mw, Mahara, Kadawatha (+94 112 987 263 / +94 77 793 3352) or our Komaki, Aichi Japan office.'
+        desc: 'Contact Atsuko International (PVT) LTD at 191/3/1, Sirimavo Bandaranayake Road, Mahara, Kadawatha, 11850 Sri Lanka. (+94 112 987 263 / +94 77 793 3352) or our Komaki, Aichi Japan office.'
       }
     };
 

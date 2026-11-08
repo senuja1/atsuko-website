@@ -637,7 +637,7 @@ export default function OfficialCertificatesShowcase({ lang = 'en' }) {
                   </div>
                   <div className="br-modal-row">
                     <span className="br-lbl">{lang === 'si' ? 'ලියාපදිංචි කාර්යාලය:' : lang === 'jp' ? '登記住所:' : 'Registered Office:'}</span>
-                    <strong className="br-val">No. 204/C, Kandy Road, Kadawatha, Sri Lanka</strong>
+                    <strong className="br-val">191/3/1, Sirimavo Bandaranayake Road, Mahara, Kadawatha, 11850 Sri Lanka.</strong>
                   </div>
                   <div className="br-modal-row">
                     <span className="br-lbl">{lang === 'si' ? 'SLBFE බලපත්‍රය:' : lang === 'jp' ? '海外雇用局認可:' : 'SLBFE Agency License:'}</span>
