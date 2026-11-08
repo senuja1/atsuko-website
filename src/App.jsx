@@ -142,29 +142,35 @@ export default function App() {
     }
   };
 
+  const isLegalPage = currentPage === 'privacy' || currentPage === 'terms' || currentPage === 'legal';
+
   return (
-    <div className="app-root">
+    <div className={`app-root ${isLegalPage ? 'app-root-legal-mode' : ''}`}>
       {/* Cinematic Gateway Loading Screen (Preloads Torii gate & high-res visuals) */}
-      <SiteLoadingScreen lang={lang} minDuration={1200} />
+      {!isLegalPage && <SiteLoadingScreen lang={lang} minDuration={1200} />}
 
-      {/* Gentleman Navy Top Utility Bar (Above Navbar) */}
-      <TopBar 
-        lang={lang} 
-        onNavigate={handleNavigate} 
-      />
+      {/* Gentleman Navy Top Utility Bar (Hidden in Document Mode) */}
+      {!isLegalPage && (
+        <TopBar 
+          lang={lang} 
+          onNavigate={handleNavigate} 
+        />
+      )}
 
-      {/* Primary Navigation Bar */}
-      <Navbar 
-        lang={lang}
-        setLang={setLang}
-        currentPage={currentPage}
-        onNavigate={handleNavigate}
-        onOpenModal={handleOpenModal}
-        onScrollToEligibility={scrollToEligibility}
-      />
+      {/* Primary Navigation Bar (Hidden in Document Mode) */}
+      {!isLegalPage && (
+        <Navbar 
+          lang={lang}
+          setLang={setLang}
+          currentPage={currentPage}
+          onNavigate={handleNavigate}
+          onOpenModal={handleOpenModal}
+          onScrollToEligibility={scrollToEligibility}
+        />
+      )}
 
-      {/* 3. Main 6-Page Platform Body */}
-      <main className="main-content">
+      {/* 3. Main Platform Body */}
+      <main className={isLegalPage ? "main-content-legal-doc" : "main-content"}>
         {/* PAGE 1: HOME PAGE WITH 3D GATE SCROLL-THROUGH STAGE */}
         {currentPage === 'home' && (
           <div>
@@ -246,11 +252,12 @@ export default function App() {
             <VisaAgencyLanding onApply={() => handleOpenModal('Visa Application')} />
           </Suspense>
         )}
-        {/* INTERNATIONAL STANDARD LEGAL PAGES: PRIVACY POLICY & TERMS OF SERVICE */}
+        {/* STANDALONE OFFICIAL DOCUMENT VIEWER: PRIVACY POLICY & TERMS OF SERVICE */}
         {(currentPage === 'privacy' || currentPage === 'terms' || currentPage === 'legal') && (
-          <Suspense fallback={<div style={{ minHeight: '60vh' }} />}>
+          <Suspense fallback={<div style={{ minHeight: '100vh', background: '#eef2f6' }} />}>
             <LegalPage 
               lang={lang} 
+              setLang={setLang}
               initialTab={currentPage === 'terms' ? 'terms' : 'privacy'} 
               onNavigate={handleNavigate} 
               onOpenModal={handleOpenModal} 
@@ -259,15 +266,17 @@ export default function App() {
         )}
       </main>
 
-      {/* 5. Master Footer with Legal SLBFE Lic 3293 & Multi-Location Scope */}
-      <Footer 
-        lang={lang}
-        onOpenModal={() => handleOpenModal('General Consultation')}
-        onNavigate={handleNavigate}
-      />
+      {/* 5. Master Footer (Hidden on Standalone Document Pages) */}
+      {!isLegalPage && (
+        <Footer 
+          lang={lang}
+          onOpenModal={() => handleOpenModal('General Consultation')}
+          onNavigate={handleNavigate}
+        />
+      )}
 
-      {/* 6. Floating Action Buttons (Instant WhatsApp & Phone Hotline) */}
-      <FloatingActions lang={lang} />
+      {/* 6. Floating Action Buttons (Hidden on Standalone Document Pages) */}
+      {!isLegalPage && <FloatingActions lang={lang} />}
 
       {/* 7. Interactive Consultation & Fast Registration Modal */}
       <ConsultationModal 

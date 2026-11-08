@@ -136,7 +136,8 @@ body {
   overflow-x: clip;
 }
 
-.main-content {
+.main-content,
+.main-content-legal-doc {
   flex: 1 0 auto;
   width: 100%;
   overflow-x: clip;
