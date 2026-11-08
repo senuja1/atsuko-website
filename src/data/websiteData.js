@@ -48,6 +48,9 @@ export const officialContacts = {
   // Key Assurance from Leaflet (Page 17)
   zeroFeeGuarantee: "Zero Initial Fee: The cost is until approval is granted. We won't take any before the approval. (初期費用ゼロ: 承認されるまで費用は発生しません。承認前は一切費用をいただきません。)",
   
+  // Google Business Review Direct URL
+  googleReviewUrl: "https://search.google.com/local/writereview?placeid=ChIJM4KdxshZ4joRtZ1R51qYi_w",
+
   socials: {
     facebook: "https://www.facebook.com/AtsukoInternational",
     facebookGroup: "https://www.facebook.com/groups/studentsofatsukointernational",
@@ -55,6 +58,7 @@ export const officialContacts = {
     instagram: "https://www.instagram.com/atsuko_gakkou/",
     tiktok: "https://www.tiktok.com/@atsuko_international",
     whatsappChannel: "https://wa.me/94777933352",
+    googleReview: "https://search.google.com/local/writereview?placeid=ChIJM4KdxshZ4joRtZ1R51qYi_w",
     linktree: "https://linktr.ee/atsukointernational?utm_source=linktree_profile_share&ltsid=917f1cdf-374a-4696-ab7a-4d4b2d4b0202"
   }
 };

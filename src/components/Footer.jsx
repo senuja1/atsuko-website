@@ -1,7 +1,7 @@
 import { ShieldCheck, MapPin, Phone, Mail, Clock, Globe2, ExternalLink } from 'lucide-react';
 import { siteTranslations } from '../data/translations';
 import { officialContacts } from '../data/websiteData';
-import { FacebookIcon, WhatsAppIcon, YoutubeIcon, TikTokIcon, InstagramIcon } from './SocialIcons';
+import { FacebookIcon, WhatsAppIcon, YoutubeIcon, TikTokIcon, InstagramIcon, GoogleIcon } from './SocialIcons';
 
 export default function Footer({ lang, onOpenModal, onNavigate }) {
   const t = siteTranslations[lang]?.footer || siteTranslations.en.footer;
@@ -44,7 +44,7 @@ export default function Footer({ lang, onOpenModal, onNavigate }) {
             </div>
 
             <p className="footer-desc">
-              {t.tagline}
+              {t.desc || t.tagline}
             </p>
 
             <div className="footer-badges-wrap" style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1.25rem' }}>
@@ -122,7 +122,45 @@ export default function Footer({ lang, onOpenModal, onNavigate }) {
               >
                 <InstagramIcon size={21} />
               </a>
+
+              {/* Google Reviews */}
+              <a
+                href={officialContacts.googleReviewUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-social-btn google"
+                title="Rate Atsuko International on Google"
+                aria-label="Rate Atsuko International on Google Reviews"
+              >
+                <GoogleIcon size={20} />
+              </a>
             </div>
+
+            {/* Google Reviews Trust Card */}
+            <a
+              href={officialContacts.googleReviewUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-google-review-card"
+              title={lang === 'si' ? 'Google Reviews හි අපව අගයන්න' : lang === 'jp' ? 'Googleでクチコミ・評価を投稿' : 'Rate Us on Google Reviews'}
+              aria-label="Rate Atsuko International on Google Reviews"
+            >
+              <div className="google-icon-box">
+                <GoogleIcon size={22} />
+              </div>
+              <div className="google-review-content">
+                <div className="google-review-stars-wrap">
+                  <span className="google-score">5.0</span>
+                  <div className="google-stars-icons" aria-hidden="true">
+                    ★★★★★
+                  </div>
+                </div>
+                <div className="google-review-action">
+                  <span>{lang === 'si' ? 'Google හි අපව අගයන්න' : lang === 'jp' ? 'Googleで評価・レビュー' : 'Rate Us on Google'}</span>
+                  <ExternalLink size={12} className="google-ext-icon" />
+                </div>
+              </div>
+            </a>
           </div>
 
           {/* Platform Pages Navigation */}
@@ -216,6 +254,18 @@ export default function Footer({ lang, onOpenModal, onNavigate }) {
             >
               <span>{lang === 'si' ? 'නිල ශිෂ්‍ය එකමුතුව' : lang === 'jp' ? '公式 学生コミュニティ' : 'Student Community Group'}</span>
               <ExternalLink size={12} />
+            </a>
+            <span>•</span>
+            <a
+              href={officialContacts.googleReviewUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-bottom-google-link"
+              title="Rate Atsuko on Google"
+            >
+              <GoogleIcon size={12} />
+              <span>{lang === 'si' ? 'Google හි අගයන්න' : lang === 'jp' ? 'Googleクチコミ' : 'Rate us on Google'}</span>
+              <ExternalLink size={11} style={{ opacity: 0.8 }} />
             </a>
             <span>•</span>
             <a

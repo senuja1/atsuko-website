@@ -19,7 +19,7 @@ import {
 import confetti from 'canvas-confetti';
 import { officialContacts } from '../data/websiteData';
 import { getUiText } from '../data/uiText';
-import { FacebookIcon, YoutubeIcon, TikTokIcon, InstagramIcon, WhatsAppIcon, LinktreeIcon } from './SocialIcons';
+import { FacebookIcon, YoutubeIcon, TikTokIcon, InstagramIcon, WhatsAppIcon, LinktreeIcon, GoogleIcon } from './SocialIcons';
 import { sanitizeFormData } from '../utils/security';
 
 export default function ContactPage({ lang }) {
@@ -409,6 +409,26 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
                     <Navigation size={14} />
                     <span>{ui.liveMapGetDirections}</span>
                   </a>
+                  <a
+                    href={officialContacts.googleReviewUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-outline"
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '0.45rem',
+                      padding: '0.55rem 1rem',
+                      fontSize: '0.825rem',
+                      fontWeight: 700,
+                      borderRadius: 'var(--radius-md)',
+                      borderColor: '#cbd5e1'
+                    }}
+                    title="Write a Google Review for Atsuko"
+                  >
+                    <GoogleIcon size={15} />
+                    <span>{lang === 'si' ? 'Google හි අපව අගයන්න' : lang === 'jp' ? 'Googleクチコミ' : 'Rate on Google'}</span>
+                  </a>
                 </div>
               </div>
             </div>
@@ -690,6 +710,23 @@ ${(formData.message || '').trim() || 'I would like to inquire about eligibility,
               <span className="social-card-handle">+94 77 793 3352</span>
               <span className="social-card-action-chip">
                 <span>{ui.socialsCards?.whatsapp?.btn || 'Chat'}</span>
+                <ExternalLink size={11} />
+              </span>
+            </a>
+
+            <a
+              href={officialContacts.googleReviewUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="social-connect-card social-card-google"
+            >
+              <div className="social-icon-wrapper social-icon-google">
+                <GoogleIcon size={24} />
+              </div>
+              <h4 className="social-card-name">Google Reviews</h4>
+              <span className="social-card-handle">5.0 ★★★★★ Verified</span>
+              <span className="social-card-action-chip">
+                <span>{lang === 'si' ? 'අගයන්න' : lang === 'jp' ? 'レビュー' : 'Rate Us'}</span>
                 <ExternalLink size={11} />
               </span>
             </a>
