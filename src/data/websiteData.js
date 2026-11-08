@@ -1452,6 +1452,90 @@ export const videoSuccessStories = [
   }
 ];
 
+// Employed & Deployed Candidates in Japan Gallery (Airport Departures)
+export const deployedCandidatesGallery = [
+  {
+    id: "candidate-deploy-1",
+    image: "/images/deployments/candidate-1.jpg",
+    badge: "SSW Work Visa",
+    badgeSi: "SSW රැකියා වීසා",
+    badgeJp: "特定技能 就労ビザ",
+    tag: "SLBFE Lic. #3293 Verified",
+    title: "SSW Caregiver Candidate Departure to Japan",
+    titleSi: "SSW සාත්තු සේවා රැකියා වීසා යටතේ ජපානය බලා පිටත්වීම",
+    titleJp: "特定技能「介護分野」就職決定 日本への出発",
+    sector: "Caregiver (Kaigo 介護)",
+    sectorSi: "සාත්තු සේවය (Kaigo)",
+    sectorJp: "介護職",
+    description: "Successfully cleared JFT-Basic & Prometric Caregiver examination at Atsuko International, received COE & SLBFE clearance, and departed for direct healthcare employment in Japan.",
+    descSi: "කඩවත අත්සුකෝ මධ්‍යස්ථානයෙන් JFT-Basic සහ සාත්තු සේවා නිපුණතා විභාග සමත්ව, COE සහ SLBFE අනුමැතිය ලබා ජපානයේ සෘජු රැකියාව සඳහා පිටත්වූ අපේක්ෂිකාව.",
+    descJp: "アツコ校にてJFT-Basic及び介護技能評価試験に合格し、出入国在留管理庁の在留資格（COE）とSLBFE許可を取得。日本現地の介護施設での就業に向けて出発。",
+    destination: "Japan Healthcare Facility • Nagoya & Aichi Region",
+    destinationSi: "ජපානයේ සෞඛ්‍ය හා සාත්තු සේවා ආයතනය • අයිචි ප්‍රාන්තය",
+    destinationJp: "日本現地医療・介護施設（愛知県・名古屋地域）"
+  },
+  {
+    id: "candidate-deploy-2",
+    image: "/images/deployments/candidate-2.jpg",
+    badge: "Student Visa",
+    badgeSi: "ශිෂ්‍ය වීසා",
+    badgeJp: "留学ビザ",
+    tag: "Higher Education",
+    title: "Student Visa Candidate Japan Departure",
+    titleSi: "ශිෂ්‍ය වීසා (Ryugaku) යටතේ උසස් අධ්‍යාපනය සඳහා ජපානය බලා පිටත්වීම",
+    titleJp: "日本語学校・高等教育進学 留学ビザ取得者の出発",
+    sector: "Japanese Language & Higher Education",
+    sectorSi: "ජපන් භාෂාව සහ උසස් අධ්‍යාපනය",
+    sectorJp: "日本語教育・大学進学進路",
+    description: "Completed intensive Japanese language preparation at Atsuko International, received student COE and Embassy visa stamping, and departed for Japanese language school intake.",
+    descSi: "කඩවත අත්සුකෝ ආයතනයෙන් ජපන් භාෂා පුහුණුව සාර්ථකව අවසන් කර, COE සහ තානාපති කාර්යාල වීසා මුද්‍රාව සමඟ ජපානයේ උසස් අධ්‍යාපනයට පිටත්වූ ශිෂ්‍යයා.",
+    descJp: "アツコ校での集中日本語コースを修了し、適法な留学ビザを取得。日本の提携日本語学校への入学に向けて出国。",
+    destination: "Japanese Language Academy • Tokyo Region",
+    destinationSi: "ජපන් භාෂා ඇකඩමිය • ටෝකියෝ කලාපය",
+    destinationJp: "提携日本語教育機関（東京地域）"
+  },
+  {
+    id: "candidate-deploy-3",
+    image: "/images/deployments/candidate-3.jpg",
+    badge: "Career Placement",
+    badgeSi: "රැකියා නියුක්තිය",
+    badgeJp: "就職・渡航決定",
+    tag: "Komaki Support Entity",
+    title: "Successful Candidate Airport Deployment to Japan",
+    titleSi: "වීසා අනුමැතිය ලබා සාර්ථකව ජපානය බලා පිටත්වීම",
+    titleJp: "日本到着・就業への第一歩 空港出発記念",
+    sector: "SSW Direct Employment / Career Track",
+    sectorSi: "SSW සෘජු රැකියා මාවත",
+    sectorJp: "特定技能・企業配属",
+    description: "Armed with full Japanese qualifications, official COE, and pre-departure orientation, supported on arrival by Atsuko International Komaki, Aichi Prefecture.",
+    descSi: "නීත්‍යානුකූල COE සහ වීසා බලපත්‍ර සහිතව ජපානය බලා පිටත්වීම. ජපානයේ කොමාකි හි පිහිටි අපගේ ලියාපදිංචි ආයතනය මඟින් ගුවන්තොටුපළෙන් පිළිගෙන නවාතැන් පහසුකම් සලසනු ලැබේ.",
+    descJp: "正規の在留資格（COE）と査証を携え日本へ。愛知県小牧市の現地法人（登録支援機関）が到着時の出迎えと生活立ち上げを万全にサポート。",
+    destination: "Atsuko Registered Support • Komaki, Aichi Prefecture",
+    destinationSi: "කොමාකි, අයිචි ප්‍රාන්තය (株式会社 Atsuko International)",
+    destinationJp: "愛知県小牧市（株式会社 Atsuko International 現地直轄）"
+  },
+  {
+    id: "candidate-deploy-4",
+    image: "/images/deployments/candidate-4.jpg",
+    badge: "Student Visa",
+    badgeSi: "ශිෂ්‍ය වීසා",
+    badgeJp: "留学ビザ",
+    tag: "Embassy Approved",
+    title: "Student Visa Candidate Airport Departure",
+    titleSi: "ශිෂ්‍ය වීසා ලබා ජපානය බලා පිටත්වීම",
+    titleJp: "留学生 日本への渡航・新生活スタート",
+    sector: "Higher Studies & Career in Japan",
+    sectorSi: "ජපානයේ උසස් අධ්‍යාපනය සහ වෘත්තීය මාවත",
+    sectorJp: "留学・現地キャリア進路",
+    description: "Departing Colombo with Japanese student visa in hand, joining her Japanese educational academy with housing and student life backed by Atsuko International.",
+    descSi: "කොළඹ තානාපති කාර්යාලයෙන් ජපන් ශිෂ්‍ය වීසා බලපත්‍රය ලබාගෙන ජපානයේ අධ්‍යාපන ආයතනය වෙත පිටත්වූ සිසුවිය.",
+    descJp: "在スリランカ日本国大使館での査証発給を経て、新たな夢へ向けて出発。現地での住居や学生生活もアツコが継続支援。",
+    destination: "Language Academy & Student Life • Kansai Region",
+    destinationSi: "ජපන් අධ්‍යාපන ආයතනය • කැන්සායි කලාපය",
+    destinationJp: "日本語教育機関（関西地域・大阪）"
+  }
+];
+
 export const studentSocialComments = [
   {
     id: "comment-thakshi",
