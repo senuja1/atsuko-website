@@ -95,33 +95,33 @@ export default function EligibilityChecker({ lang, onOpenModal }) {
         advice = "ජපානයේ ටෝකියෝ හෝ ඔසාකා පිළිගත් භාෂා පාසලකට ඇතුළත් වීමට අත්සුකෝ හි JLPT N5 කණ්ඩායමට වහාම ලියාපදිංචි වන්න.";
         visaType = "ශිෂ්‍ය වීසා (Student Visa)";
       } else if (goal === 'caregiver') {
-        pathway = "SSW සාත්තු සේවා (Kaigo) - වසර 5ක දීර්ඝ කළ හැකි ජපාන සෞඛ්‍ය රැකියා වීසා";
+        pathway = "SSW සාත්තු සේවා (Kaigo) - වසර 5ක දීර්ඝ කළ හැකි ජපාන සෞඛ්‍ය රැකියා වීසා (SSW 1)";
         jpName = "特定技能1号 - 介護分野 (Kaigo Healthcare)";
         timeline = "මාස 6 - 9";
-        earning = "මසකට රු. 480,000 - 620,000 (මූලික වැටුප් + අතිකාල දීමනා)";
-        advice = "අත්සුකෝ ප්‍රධාන මධ්‍යස්ථානයේ (Atsuko Main) පිහිටි ප්‍රායෝගික සාත්තු සේවා පුහුණුවට සම්බන්ධ වී JFT-Basic විභාගයට මුහුණ දෙන්න.";
-        visaType = "SSW විශේෂිත කුසලතා (Tokutei Ginou)";
+        earning = "මසකට ¥180,000 - ¥240,000 + අතිකාල දීමනා";
+        advice = "අත්සුකෝ ප්‍රධාන මධ්‍යස්ථානයේ (Atsuko Main) පිහිටි ප්‍රායෝගික සාත්තු සේවා / NVQ Level 3 පුහුණුවට සහ දින 50 (මාස 2) පූර්ණකාලීන JFT-Basic පාඨමාලාවට සම්බන්ධ වන්න.";
+        visaType = "SSW 1 විශේෂිත කුසලතා (特定技能1号)";
       } else if (goal === 'agriculture') {
-        pathway = "SSW කෘෂිකර්මාන්තය සහ බෝග වගා රැකියා වීසා";
-        jpName = "特定技能1号 - 農業分野 (Agriculture & Farming)";
+        pathway = "SSW බෝග වගාව සහ පශු සම්පත් රැකියා වීසා (Crop Farming & Livestock)";
+        jpName = "特定技能1号 - 農業分野（耕種・畜産）";
         timeline = "මාස 6 - 8";
-        earning = "මසකට රු. 420,000 - 550,000 (මූලික වැටුප් + නිවාස සහනාධාර)";
-        advice = "අත්සුකෝ හි JFT-Basic හෝ JLPT N4 භාෂා පන්තිය හදාරා කෘෂිකාර්මික කුසලතා විභාගය සඳහා ලියාපදිංචි වන්න.";
-        visaType = "SSW කෘෂිකර්මාන්තය (農業)";
+        earning = "මසකට ¥180,000 - ¥220,000 + නිවාස සහනාධාර";
+        advice = "අත්සුකෝ හි දින 50 (මාස 2) පූර්ණකාලීන JFT-Basic / JLPT N4 පාඨමාලාව හදාරා බෝග වගාව සහ පශු සම්පත් කුසලතා විභාගය සඳහා ලියාපදිංචි වන්න.";
+        visaType = "SSW 1 බෝග වගාව සහ පශු සම්පත් (農業)";
       } else if (goal === 'food') {
-        pathway = "SSW හෝටල් සහ ආහාර සැපයුම් සේවා (Food Service)";
-        jpName = "特定技能1号 - 外食業 (Food Service Industry)";
+        pathway = "SSW ආහාර සේවා සහ නවාතැන් පහසුකම් (Food Service & Accommodation)";
+        jpName = "特定技能1号 - 外食業・宿泊業";
         timeline = "මාස 6 - 8";
-        earning = "මසකට රු. 420,000 - 550,000";
-        advice = "JLPT N4 මට්ටම හදාරා කොළඹ Prometric මධ්‍යස්ථානයේ ආහාර සේවා විභාගය සඳහා සූදානම් වන්න.";
-        visaType = "SSW ආහාර සේවා (外食業)";
+        earning = "මසකට ¥185,000 - ¥250,000";
+        advice = "දින 50 (මාස 2) පූර්ණකාලීන JFT / JLPT N4 පාඨමාලාව හදාරා Prometric ආහාර සේවා සහ නවාතැන් විභාගය සඳහා සූදානම් වන්න.";
+        visaType = "SSW 1 ආහාර සහ නවාතැන් (外食・宿泊)";
       } else {
-        pathway = "Specified Skilled Worker (SSW) හෝ TITP කාර්මික පුහුණු වැඩසටහන";
-        jpName = "特定技能 / 技能実習プログラム";
+        pathway = "Specified Skilled Worker (SSW 1) හෝ TITP කාර්මික පුහුණු වැඩසටහන";
+        jpName = "特定技能1号 / 技能実習プログラム";
         timeline = "මාස 6 - 9";
-        earning = "මසකට රු. 400,000 - 520,000";
+        earning = "මසකට ¥180,000 - ¥240,000";
         advice = "SLBFE බලපත්‍ර අංක 3293 යටතේ සම්පූර්ණ නීත්‍යානුකූල ගිවිසුම් සහිතව ඔබට අත්සුකෝ මඟපෙන්වයි.";
-        visaType = "SSW / කාර්මික පුහුණු වීසා";
+        visaType = "SSW 1 / කාර්මික පුහුණු වීසා";
       }
     } else if (lang === 'jp') {
       if (goal === 'student') {
@@ -129,29 +129,29 @@ export default function EligibilityChecker({ lang, onOpenModal }) {
         jpName = "留学ビザ - 日本語学校・大学進学コース";
         timeline = "6〜8ヶ月（4月・10月期生受付中）";
         earning = "月収 130,000〜160,000 円（週28時間合法アルバイト）";
-        advice = "篤子学校のJLPT N5集中コースを受講し、提携校へのCOE（在留資格認定証明書）申請を進めます。";
+        advice = "篤子学校の1ヶ月全日制JLPT/NAT N5コースを受講し、提携校へのCOE（在留資格認定証明書）申請を進めます。";
         visaType = "留学ビザ (Student Visa)";
       } else if (goal === 'caregiver') {
-        pathway = "特定技能1号「介護」 - 最長5年（更新可・永住への道）";
+        pathway = "特定技能1号 (SSW 1)「介護」 - 5年間直接雇用（更新・永住への道）";
         jpName = "特定技能1号 - 介護分野 (Kaigo Healthcare)";
         timeline = "6〜9ヶ月";
-        earning = "月収 210,000〜270,000 円（基本給＋夜勤・資格手当）";
-        advice = "アツコ本校（Atsuko Main）の介護実技シミュレーション施設で技術を習得し、愛知県小牧市の日本法人を通じて直接マッチング。";
-        visaType = "特定技能1号（介護）";
+        earning = "月給 180,000〜240,000 円＋残業・夜勤手当";
+        advice = "アツコ本校（Atsuko Main）の介護実技・NVQ Level 3施設と50日間JFT対策で技術を習得し、愛知県小牧市の日本法人を通じて直接マッチング。";
+        visaType = "特定技能1号 (SSW 1・介護)";
       } else if (goal === 'agriculture') {
-        pathway = "特定技能1号「農業（耕種・畜産分野）」";
-        jpName = "特定技能1号 - 農業分野";
+        pathway = "特定技能1号 (SSW 1)「耕種農業・畜産分野」";
+        jpName = "特定技能1号 - 農業分野（耕種・畜産）";
         timeline = "6〜8ヶ月";
-        earning = "月収 190,000〜250,000 円＋住居補助";
-        advice = "JFT-BasicまたはJLPT N4の合格を目指し、農業技能評価試験の対策を行います。";
-        visaType = "特定技能1号（農業）";
+        earning = "月給 180,000〜220,000 円＋住居補助";
+        advice = "50日間（2ヶ月）全日制コースでJFT-Basic / JLPT N4の合格を目指し、耕種・畜産技能評価試験の対策を行います。";
+        visaType = "特定技能1号 (SSW 1・農業)";
       } else {
-        pathway = "特定技能1号「外食・農業・製造分野」";
+        pathway = "特定技能1号 (SSW 1)「外食業・宿泊業・建設分野」";
         jpName = "特定技能1号 / 技能実習プログラム";
         timeline = "6〜8ヶ月";
-        earning = "月収 190,000〜250,000 円";
+        earning = "月給 185,000〜250,000 円";
         advice = "スリランカ海外雇用局認可ライセンス3293および愛知県小牧市の登録支援機関が万全のサポートを提供します。";
-        visaType = "特定技能 / 技人国";
+        visaType = "特定技能1号 (SSW 1)";
       }
     } else {
       // English default
@@ -160,36 +160,36 @@ export default function EligibilityChecker({ lang, onOpenModal }) {
         jpName = "留学ビザ - 日本語学校・大学進学コース";
         timeline = "6 - 8 Months (Next April / October Intakes)";
         earning = "JPY 130,000 - 160,000 / month (28 hrs/week legal work)";
-        advice = "Enroll in Atsuko International's JLPT N5 Intensive Batch to secure your Certificate of Eligibility (COE) with our partner Tokyo / Osaka schools.";
+        advice = "Enroll in Atsuko International's 1-Month Full-Time JLPT N5 / NAT N5 Course (9 AM – 5 PM, 5 days/week) to secure your COE with our partner Japanese schools.";
         visaType = "Student Visa (留学)";
       } else if (goal === 'caregiver') {
-        pathway = "SSW Caregiver (Kaigo) - 5-Year Renewable Japanese Healthcare Employment";
+        pathway = "SSW Caregiver (Kaigo) - 5-Year Direct Employment (SSW 1) in Japan";
         jpName = "特定技能1号 - 介護分野 (Kaigo Healthcare)";
         timeline = "6 - 9 Months";
-        earning = "JPY 210,000 - 270,000 / month (Full-time + Overtime + Shift allowance)";
-        advice = "Join the Atsuko International Caregiver Practical Simulation Training at Atsuko Main with simultaneous JFT-Basic language training.";
-        visaType = "SSW (特定技能1号)";
+        earning = "JPY 180,000 - 240,000 / month + Overtime";
+        advice = "Join the Atsuko International Caregiver Practical Simulation & NVQ Level 3 Course at Atsuko Main alongside our 50-Day (2-Month) full-time JFT-Basic / JLPT N4 course.";
+        visaType = "SSW 1 (特定技能1号)";
       } else if (goal === 'agriculture') {
-        pathway = "SSW Agriculture & Crop Farming in Japan";
-        jpName = "特定技能1号 - 農業分野 (Agriculture & Farming)";
+        pathway = "SSW Crop Farming & Livestock in Japan (SSW 1)";
+        jpName = "特定技能1号 - 農業分野（耕種・畜産）";
         timeline = "6 - 8 Months";
-        earning = "JPY 190,000 - 250,000 / month + Housing Subsidy";
-        advice = "Prepare for JFT-Basic / JLPT N4 while completing Prometric Agriculture Skills Evaluation exam preparation.";
-        visaType = "SSW Agriculture (農業)";
+        earning = "JPY 180,000 - 220,000 / month + Housing Subsidy";
+        advice = "Complete our 50-Day (2-Month) full-time JFT-Basic / JLPT N4 course while preparing for the Prometric Crop Farming & Livestock Skills Evaluation exam.";
+        visaType = "SSW 1 Crop Farming & Livestock (農業)";
       } else if (goal === 'food') {
-        pathway = "SSW Food Service & Hospitality Operations";
-        jpName = "特定技能1号 - 外食業 (Food Service Industry)";
+        pathway = "SSW Food Service & Accommodation (SSW 1)";
+        jpName = "特定技能1号 - 外食業・宿泊業 (Food Service & Accommodation)";
         timeline = "6 - 8 Months";
-        earning = "JPY 190,000 - 240,000 / month";
-        advice = "Fast-track your Japanese to N4 level and take the Prometric Food Service Skills Exam with Atsuko Main.";
-        visaType = "SSW Food Service (外食業)";
+        earning = "JPY 185,000 - 250,000 / month";
+        advice = "Fast-track your Japanese in our 50-Day (2-Month) full-time JFT / N4 course and take the Prometric Food Service & Accommodation Skills Exam with Atsuko Main.";
+        visaType = "SSW 1 Food & Accommodation (外食・宿泊)";
       } else {
-        pathway = "Specified Skilled Worker (SSW) or TITP Technical Internship";
-        jpName = "特定技能 / 技能実習プログラム";
+        pathway = "Specified Skilled Worker (SSW 1) or TITP Technical Internship";
+        jpName = "特定技能1号 / 技能実習プログラム";
         timeline = "6 - 9 Months";
-        earning = "JPY 180,000 - 230,000 / month";
+        earning = "JPY 180,000 - 240,000 / month";
         advice = "Atsuko International will assist you step-by-step from zero Japanese to complete visa issuance under SLBFE License 3293.";
-        visaType = "SSW / Technical Intern";
+        visaType = "SSW 1 / Technical Intern";
       }
     }
 

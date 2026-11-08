@@ -26,23 +26,23 @@ export default function JobVisaPage({ lang, onOpenModal, onNavigate }) {
   const activeChecklist = lang === 'si' ? siVisaDocumentChecklist : lang === 'jp' ? jpVisaDocumentChecklist : visaDocumentChecklist;
 
   const sswReqs = lang === 'si' ? [
-    'අයදුම් කරන අවස්ථාවේ වයස අවුරුදු 18 සම්පූර්ණ වී තිබීම (අ.පො.ස. සා/පෙළ හෝ උ/පෙළ අධ්‍යාපනික පසුබිම).',
-    'ජපන් භාෂා ප්‍රවීණතාව: JFT-Basic A2 (පරිගණක විභාගය) හෝ JLPT N4 සමත් සහතිකයක් තිබීම.',
+    'අයදුම් කරන අවස්ථාවේ වයස අවුරුදු 18 සම්පූර්ණ වී තිබීම සහ අ.පො.ස. උසස් පෙළ (A/L) දක්වා පාසල් ගොස් තිබීම (ඩිප්ලෝමා සහතික අවශ්‍ය නොවේ).',
+    'ජපන් භාෂා ප්‍රවීණතාව: JFT-Basic A2 (පරිගණක විභාගය) හෝ JLPT N4 සමත් සහතිකයක් තිබීම (අත්සුකෝ හි දින 50 / මාස 2 පූර්ණකාලීන පාඨමාලාව).',
     'ඔබ තෝරාගත් ක්ෂේත්‍රය සඳහා Prometric නිපුණතා ඇගයීම් පරීක්ෂණය (Skills Evaluation Test) සමත්වීම.',
-    'ශ්‍රී ලංකා පොලිස් දෙපාර්තමේන්තුවෙන් ලබාගත් පිරිසිදු පොලිස් නිෂ්කාශන වාර්තාවක් සහ යහපත් සෞඛ්‍ය වාර්තාවක් තිබීම.',
-    'ජපානයේ කම්කරු නීතියට අනුව වසර 5 ක පූර්ණකාලීන රැකියාවක නිරත වීමේ අවංක කැපවීම.',
+    'යහපත් කායික හා මානසික සෞඛ්‍ය තත්ත්වයකින් යුක්ත වීම.',
+    'ජපානයේ කම්කරු නීතියට අනුව වසර 5 ක පූර්ණකාලීන රැකියාවක (SSW 1) නිරත වීමේ අවංක කැපවීම.',
   ] : lang === 'jp' ? [
-    '申請時点で満18歳以上であること（高校卒業以上の学歴）。',
-    '国際交流基金日本語基礎テスト（JFT-Basic A2）または日本語能力試験（JLPT N4）合格。',
+    '申請時点で満18歳以上であり、高校課程（G.C.E. A/L）まで就学していること（専門ディプロマ等は不要）。',
+    '国際交流基金日本語基礎テスト（JFT-Basic A2）または日本語能力試験（JLPT N4）合格（当校の2ヶ月／50日間全日制コースで対策）。',
     '希望業種の特定技能評価試験（プロメトリック試験）に合格すること。',
-    '良好な健康状態およびスリランカ警察による無犯罪証明（警察証明）の提出。',
-    '日本での5年間の法令遵守に基づく真摯な就労意欲。',
+    '日本での就労に適した良好な健康状態であること。',
+    '特定技能1号（SSW 1）として5年間の法令遵守に基づく真摯な就労意欲。',
   ] : [
-    'Minimum age 18 years at the time of application; G.C.E. O/L or A/L educational background.',
-    'Pass JFT-Basic A2 (Computer-based test) or JLPT N4 Japanese proficiency exam.',
+    'Minimum age 18 years at the time of application; attended school up to G.C.E. A/L (prior Diploma certificates are NOT required).',
+    'Pass JFT-Basic A2 (Computer-based test) or JLPT N4 Japanese proficiency exam (covered in our 50-Day / 2-Month full-time course).',
     'Pass Prometric Skills Evaluation Test for your chosen employment sector.',
-    'Good medical health clearance and clean Sri Lanka Police clearance record.',
-    'Genuine commitment to full-time career placement in Japan under Japanese labor standards.',
+    'Good medical health clearance fit for full-time employment in Japan.',
+    'Genuine commitment to 5-year full-time career placement (SSW 1) in Japan under Japanese labor standards.',
   ];
 
   const sswSupport = lang === 'si' ? [
@@ -78,44 +78,33 @@ export default function JobVisaPage({ lang, onOpenModal, onNavigate }) {
       color: 'text-red',
       name: 'Nursing Care / Caregiver (Kaigo 介護)',
       nameSi: 'සාත්තු සේවක (Kaigo 介護)',
-      desc: lang === 'si' ? 'ජපානයේ වැඩිහිටි නිවාස සහ රෝහල් ආශ්‍රිත ඉහළම ඉල්ලුමක් ඇති ක්ෂේත්‍රය. අත්සුකෝ ප්‍රධාන මධ්‍යස්ථානයේ (Atsuko Main) ප්‍රායෝගික පුහුණුව.' : 'Highest demand sector in Japan. Work in accredited nursing homes and eldercare facilities. Practical training at Atsuko Main.',
+      desc: lang === 'si' ? 'ජපානයේ වැඩිහිටි නිවාස සහ රෝහල් ආශ්‍රිත ඉහළම ඉල්ලුමක් ඇති ක්ෂේත්‍රය. අත්සුකෝ ප්‍රධාන මධ්‍යස්ථානයේ (Atsuko Main) ප්‍රායෝගික පුහුණුව සහ NVQ Level 3 පාඨමාලා පහසුකම.' : 'Highest demand sector in Japan. Work in accredited nursing homes and eldercare facilities. Practical simulation & NVQ Level 3 training at Atsuko Main.',
       test: 'JLPT N4 / JFT + Prometric Nursing Skills & Japanese',
       testSi: 'JLPT N4 / JFT + Prometric සාත්තු විභාග',
-      salary: '¥190,000 – ¥240,000 / mo + Overtime',
-      salarySi: 'මසකට ¥190,000 – ¥240,000 + අතිකාල දීමනා'
+      salary: '¥180,000 – ¥240,000 / mo + Overtime',
+      salarySi: 'මසකට ¥180,000 – ¥240,000 + අතිකාල දීමනා'
     },
     {
       icon: UtensilsCrossed,
       color: 'text-gold',
-      name: 'Food Service & Restaurants (Gaishoku 外食業)',
-      nameSi: 'ආහාර සේවා සහ අවන්හල් (Gaishoku 外食業)',
-      desc: lang === 'si' ? 'ජපානයේ ප්‍රමුඛ පෙළේ අවන්හල් ජාල සහ හෝටල් මුළුතැන්ගෙයි සේවා. පාරිභෝගික සත්කාරය සහ ආහාර සනීපාරක්ෂාව.' : 'Employment across reputable dining chains, family restaurants, and hotel kitchens. Encompasses customer service, food prep, and kitchen sanitation.',
-      test: 'JLPT N4 / JFT + Prometric Food Service Skills Exam',
-      testSi: 'JLPT N4 / JFT + Prometric ආහාර සේවා විභාගය',
-      salary: '¥185,000 – ¥235,000 / mo + Meals',
-      salarySi: 'මසකට ¥185,000 – ¥235,000 + ආහාර පහසුකම්'
+      name: 'Food Service & Accommodation (Gaishoku & Shukuhaku 外食・宿泊業)',
+      nameSi: 'ආහාර සේවා සහ නවාතැන් පහසුකම් (Gaishoku & Shukuhaku 外食・宿泊業)',
+      desc: lang === 'si' ? 'ජපානයේ ප්‍රමුඛ පෙළේ අවන්හල් ජාල, තරු පන්තියේ හෝටල්, නිවාඩු නිකේතන සහ හෝටල් මුළුතැන්ගෙයි සේවා. පාරිභෝගික සත්කාරය, ආගන්තුක සත්කාරය සහ ආහාර සනීපාරක්ෂාව.' : 'Employment across reputable dining chains, family restaurants, hotel kitchens, Japanese hotels, resorts, and traditional Ryokan hospitality.',
+      test: 'JLPT N4 / JFT + Prometric Food Service / Accommodation Exam',
+      testSi: 'JLPT N4 / JFT + Prometric ආහාර සේවා / නවාතැන් විභාගය',
+      salary: '¥185,000 – ¥250,000 / mo + Meals / Housing',
+      salarySi: 'මසකට ¥185,000 – ¥250,000 + ආහාර සහ නවාතැන් පහසුකම්'
     },
     {
       icon: Sprout,
       color: 'text-emerald',
-      name: 'Agriculture & Livestock (Nogyo 農業)',
-      nameSi: 'කෘෂිකර්මාන්තය සහ පශු සම්පත් (Nogyo 農業)',
-      desc: lang === 'si' ? 'ස්වයංක්‍රීය හරිතාගාර එළවළු වගාව, පලතුරු නෙලීම සහ පශු සම්පත් කළමනාකරණය (ඉබරාකි, නගානෝ, අයිචි).' : 'Automated greenhouse crop cultivation, fruit picking, and livestock management in leading prefectures like Ibaraki, Nagano, and Aichi.',
-      test: 'JLPT N4 / JFT + Prometric Agriculture Exam',
-      testSi: 'JLPT N4 / JFT + Prometric කෘෂිකාර්මික විභාගය',
+      name: 'Crop Farming & Livestock (Nogyo 農業)',
+      nameSi: 'බෝග වගාව සහ පශු සම්පත් (Nogyo 農業)',
+      desc: lang === 'si' ? 'ස්වයංක්‍රීය හරිතාගාර බෝග වගාව, එළවළු හා පලතුරු නෙලීම සහ පශු සම්පත් කළමනාකරණය (ඉබරාකි, නගානෝ, අයිචි).' : 'Automated greenhouse crop farming, vegetable & fruit harvesting, and livestock management in leading prefectures like Ibaraki, Nagano, and Aichi.',
+      test: 'JLPT N4 / JFT + Prometric Crop Farming & Livestock Exam',
+      testSi: 'JLPT N4 / JFT + Prometric බෝග වගාව සහ පශු සම්පත් විභාගය',
       salary: '¥180,000 – ¥220,000 / mo + Housing Subsidy',
       salarySi: 'මසකට ¥180,000 – ¥220,000 + නිවාස සහනාධාර'
-    },
-    {
-      icon: Building2,
-      color: 'text-blue',
-      name: 'Accommodation & Hospitality (Shukuhaku 宿泊業)',
-      nameSi: 'හෝටල් සහ ආගන්තුක සත්කාරය (Shukuhaku 宿泊業)',
-      desc: lang === 'si' ? 'ජපානයේ තරු පන්තියේ හෝටල්, සංචාරක නිවාඩු නිකේතන සහ සම්ප්‍රදායික රියෝකාන් (Ryokan) ආශ්‍රිත පිළිගැනීමේ නිලධාරී සහ ආගන්තුක සත්කාරක රැකියා.' : 'Front office, guest hospitality, housekeeping, and concierge roles at Japanese hotels, resorts, and traditional Ryokan inns.',
-      test: 'JLPT N4 / JFT + Prometric Accommodation Exam',
-      testSi: 'JLPT N4 / JFT + Prometric නවාතැන් සේවා විභාගය',
-      salary: '¥190,000 – ¥250,000 / mo + Housing',
-      salarySi: 'මසකට ¥190,000 – ¥250,000 + නවාතැන් සහනාධාර'
     },
     {
       icon: HardHat,
@@ -184,13 +173,13 @@ export default function JobVisaPage({ lang, onOpenModal, onNavigate }) {
                 <span>{lang === 'si' ? 'SSW රැකියා වීසා සාරාංශය' : lang === 'jp' ? '特定技能ビザ概要' : 'Specified Skilled Worker (SSW - 特定技能)'}</span>
               </div>
               <h2 className="visa-title-lg">
-                {lang === 'si' ? 'ජපානයේ වසර 5 ක පූර්ණකාලීන රැකියා සහ' : lang === 'jp' ? '日本人と同等以上の適正給与と' : '5-Year Direct Employment with'} <span className="text-gradient-red">{lang === 'si' ? 'නීතිමය ආධාරක සහතිකය' : lang === 'jp' ? '手厚い生活支援' : 'Equal Japanese Pay'}</span>
+                {lang === 'si' ? 'ජපානයේ වසර 5 ක පූර්ණකාලීන රැකියා (SSW 1) සහ' : lang === 'jp' ? '特定技能1号 (SSW 1) 5年間直接雇用と' : '5-Year Direct Employment (SSW 1) with'} <span className="text-gradient-red">{lang === 'si' ? 'නීතිමය ආධාරක සහතිකය' : lang === 'jp' ? '日本人と同等以上の適正給与' : 'Equal Japanese Pay'}</span>
               </h2>
               <p className="visa-lead-p">
                 {lang === 'si'
-                  ? 'SSW වැඩසටහන හරහා ශ්‍රී ලාංකික තරුණ තරුණියන්ට ජපානයේ රෝහල්, වැඩිහිටි නිවාස, අවන්හල් ජාල, කෘෂිකාර්මික හා ප්‍රවාහන ආයතන තුළ ජපන් ජාතිකයන්ට හිමි සමාන වැටුප් හා පූර්ණ සෞඛ්‍ය රක්ෂණ සහිතව සේවය කළ හැක. ජපානයේ අපගේම ලියාපදිංචි ආධාරක සංවිධානය (RSO No. 23登-008312) මඟින් නවාතැන්, බැංකු ගිණුම් සහ සේවා ස්ථාන සුබසාධනය සෘජුවම බලාගනු ලැබේ.'
+                  ? 'SSW වැඩසටහන හරහා ශ්‍රී ලාංකික තරුණ තරුණියන්ට ජපානයේ රෝහල්, වැඩිහිටි නිවාස, ආහාර සේවා හා නවාතැන් පහසුකම්, බෝග වගාව සහ පශු සම්පත් ආශ්‍රිත ආයතන තුළ ජපන් ජාතිකයන්ට හිමි සමාන වැටුප් හා පූර්ණ සෞඛ්‍ය රක්ෂණ සහිතව සේවය කළ හැක. ජපානයේ අපගේම ලියාපදිංචි ආධාරක සංවිධානය (RSO No. 23登-008312) මඟින් නවාතැන්, බැංකු ගිණුම් සහ සේවා ස්ථාන සුබසාධනය සෘජුවම බලාගනු ලැබේ.'
                   : lang === 'jp'
-                  ? '特定技能1号制度に基づき、介護、外食、農業、自動車運送、建設などの分野で、日本人と同等以上の適正給与・社会保険完備で就労可能。愛知・仙台の自社登録支援機関が、住居確保から生活立ち上げまで手厚くサポートします。'
+                  ? '特定技能1号 (SSW 1) 制度に基づき、介護、外食・宿泊、農業（耕種・畜産）、建設などの分野で、日本人と同等以上の適正給与・社会保険完備で就労可能。愛知・仙台の自社登録支援機関が、住居確保から生活立ち上げまで手厚くサポートします。'
                   : 'Under the Specified Skilled Worker (SSW 1 & 2) status, qualified candidates earn equal or higher wages than Japanese nationals with full pension and national health coverage. Directly managed by Atsuko International Japan (RSO No. 23登-008312).'}
               </p>
 
@@ -204,11 +193,11 @@ export default function JobVisaPage({ lang, onOpenModal, onNavigate }) {
               </div>
             </div>
 
-            {/* 3. 5 Core SSW Employment Sectors */}
+            {/* 3. Core SSW Employment Sectors */}
             <div className="ssw-sectors-breakdown">
               <h3 className="section-title-sm">
                 <Briefcase size={18} className="text-red" />
-                {lang === 'si' ? 'අත්සුකෝ හරහා මෙහෙයවන ප්‍රධාන SSW ක්ෂේත්‍ර 5' : lang === 'jp' ? '篤子インターナショナルが手掛ける特定技能重点5分野' : '5 Core SSW Employment Sectors Managed by Atsuko'}
+                {lang === 'si' ? 'අත්සුකෝ හරහා මෙහෙයවන ප්‍රධාන SSW ක්ෂේත්‍ර' : lang === 'jp' ? '篤子インターナショナルが手掛ける特定技能重点分野' : 'Core SSW Employment Sectors Managed by Atsuko'}
               </h3>
               <p style={{ fontSize: '13px', color: 'var(--text-muted)', marginBottom: '18px', lineHeight: 1.6 }}>
                 {lang === 'si'

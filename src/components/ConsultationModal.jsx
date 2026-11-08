@@ -49,7 +49,7 @@ export default function ConsultationModal({ lang, isOpen, onClose, defaultProgra
 
   // Routing logic:
   // - Language classes (JLPT N5, N4, N3, N2, N1, JFT-Basic, Spoken Japanese, Kaiwa) -> +94 70 363 4416 (070 363 4416)
-  // - All other courses (SSW, Caregiver, Truck Driver, Construction, Agriculture, Student Visa, TITP, etc.) -> +94 77 793 3352
+  // - All other courses (SSW, Caregiver, NVQ Level 3, Food & Accommodation, Crop Farming & Livestock, Student Visa, TITP, etc.) -> +94 77 793 3352
   const isLanguageProgram = (prog = '') => {
     const p = prog.toLowerCase();
     return (
@@ -219,23 +219,20 @@ _Please schedule my consultation session with an Atsuko Counselor._`;
                     <option value="Student Visa - April / July / Oct Intakes">
                       {lang === 'si' ? 'ජපන් ශිෂ්‍ය වීසා (ජන/අප්‍රේල්/ජූලි/ඔක්)' : lang === 'jp' ? '日本留学・学生ビザ (1・4・7・10月期)' : 'Study in Japan - Student Visa (Jan/Apr/Jul/Oct Intakes)'}
                     </option>
-                    <option value="JLPT N5 Comprehensive Batch">
-                      {lang === 'si' ? 'JLPT N5 මූලික පාඨමාලාව (ආධුනික)' : lang === 'jp' ? 'JLPT N5 基礎コース (入門)' : 'JLPT N5 Comprehensive Batch (Beginner)'}
-                    </option>
-                    <option value="JLPT N4 Intermediate Batch">
-                      {lang === 'si' ? 'JLPT N4 මධ්‍යම පාඨමාලාව (SSW ප්‍රමිතිය)' : lang === 'jp' ? 'JLPT N4 中級コース (特定技能標準)' : 'JLPT N4 Intermediate Batch (SSW Standard)'}
-                    </option>
-                    <option value="JFT-Basic Fast-Track">
-                      {lang === 'si' ? 'JFT-Basic A2 වේගවත් පරිගණක පුහුණුව' : lang === 'jp' ? 'JFT-Basic A2 速成CBT演習' : 'JFT-Basic Fast-Track (CBT Lab Prep)'}
+                    <option value="Japanese Language & JFT Course (1 Month N5 / 50 Days JFT & N4)">
+                      {lang === 'si' ? 'ජපන් භාෂා සහ JFT පාඨමාලාව (මාස 1 N5 / දින 50 JFT & N4)' : lang === 'jp' ? '総合日本語・JFT集中コース（1ヶ月N5 / 50日間JFT・N4）' : 'Japanese Language & JFT Course (1 Month N5 / 50 Days JFT & N4)'}
                     </option>
                     <option value="SSW Caregiver (Kaigo)">
                       {lang === 'si' ? 'SSW සාත්තු සේවා (Kaigo රෝහල් සමාකරණ)' : lang === 'jp' ? '特定技能 介護（模擬病棟実習）' : 'SSW Caregiver (Kaigo Healthcare Simulation)'}
                     </option>
-                    <option value="SSW Food Service / Hospitality">
-                      {lang === 'si' ? 'SSW ආහාර සැකසුම් හා අවන්හල් සේවා' : lang === 'jp' ? '特定技能 外食業・ホスピタリティ' : 'SSW Food Service & Hospitality Operations'}
+                    <option value="NVQ Level 3 Nursing Care Course">
+                      {lang === 'si' ? 'NVQ Level 3 සාත්තු සේවා පාඨමාලාව' : lang === 'jp' ? 'NVQ Level 3 看護・介護実務コース' : 'NVQ Level 3 Nursing Care Course'}
                     </option>
-                    <option value="SSW Agriculture & Farming">
-                      {lang === 'si' ? 'SSW කෘෂිකර්මාන්තය සහ හරිතාගාර' : lang === 'jp' ? '特定技能 農業・施設園芸' : 'SSW Agriculture & Greenhouse Farming'}
+                    <option value="SSW Food Service & Accommodation">
+                      {lang === 'si' ? 'SSW ආහාර සේවා සහ නවාතැන් පහසුකම්' : lang === 'jp' ? '特定技能 外食業・宿泊分野' : 'SSW Food Service & Accommodation'}
+                    </option>
+                    <option value="SSW Crop Farming & Livestock">
+                      {lang === 'si' ? 'SSW බෝග වගාව සහ පශු සම්පත්' : lang === 'jp' ? '特定技能 耕種農業・畜産分野' : 'SSW Crop Farming & Livestock'}
                     </option>
                     <option value="SSW Construction & Civil Works">
                       {lang === 'si' ? 'SSW ඉදිකිරීම් සහ සිවිල් ඉංජිනේරු' : lang === 'jp' ? '特定技能 建設・土木' : 'SSW Construction & Civil Works'}
@@ -256,13 +253,13 @@ _Please schedule my consultation session with an Atsuko Counselor._`;
                   onChange={handleChange}
                 >
                   <option value="G.C.E. A/L Passed">
-                    {lang === 'si' ? 'අ.පො.ස. උ/පෙළ සමත් (ඕනෑම විෂය ධාරාවකින්)' : lang === 'jp' ? '高等学校卒業（G.C.E. A/L合格）' : 'G.C.E. A/L Passed (Any stream)'}
+                    {lang === 'si' ? 'අ.පො.ස. උ/පෙළ දක්වා පාසල් අධ්‍යාපනය (ඩිප්ලෝමා අවශ්‍ය නොවේ)' : lang === 'jp' ? '高校課程（G.C.E. A/L）まで就学（ディプロマ不要）' : 'Attended School up to G.C.E. A/L (No Diploma Required)'}
                   </option>
                   <option value="G.C.E. O/L Completed">
                     {lang === 'si' ? 'අ.පො.ස. සා/පෙළ සම්පූර්ණ' : lang === 'jp' ? '中学校卒業（G.C.E. O/L修了）' : 'G.C.E. O/L Completed'}
                   </option>
-                  <option value="Diploma / NVQ 3/4/5">
-                    {lang === 'si' ? 'ඩිප්ලෝමා / NVQ 3/4/5 මට්ටම' : lang === 'jp' ? '専門学校・NVQ Level 3/4/5' : 'Diploma / NVQ Level 3/4/5'}
+                  <option value="NVQ Level 3 / Vocational">
+                    {lang === 'si' ? 'NVQ Level 3 / වෘත්තීය පුහුණුව' : lang === 'jp' ? 'NVQ Level 3 / 職業訓練修了' : 'NVQ Level 3 / Vocational Training'}
                   </option>
                   <option value="Bachelor's Degree / Graduate">
                     {lang === 'si' ? 'උපාධිය / පශ්චාත් උපාධි' : lang === 'jp' ? '大学卒業（学士・修士以上）' : "Bachelor's Degree / Higher"}

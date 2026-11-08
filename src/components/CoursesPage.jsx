@@ -76,132 +76,62 @@ export default function CoursesPage({ lang, onOpenModal }) {
   // Localized Course Content overrides for Sinhala & Japanese
   const localizedLangCourses = coursesData.language.map(c => {
     if (lang === 'si') {
-      if (c.id === 'jlpt-n5' || c.id === 'n5' || c.id.includes('n5')) {
+      if (c.id === 'japanese-language-course') {
         return {
           ...c,
-          badge: 'මූලික JLPT',
-          title: 'JLPT N5 මූලික පාඨමාලාව',
-          duration: 'මාස 4 (පැය 160)',
-          suitableFor: 'පාසල් හැරගිය සිසුන්, ආධුනිකයින්, ශිෂ්‍ය වීසා අපේක්ෂකයින්',
-          description: 'ජපන් භාෂාව මුලසිට (හිරගනා, කටකනා) ඉගෙන ගන්නා සිසුන් සඳහා මූලික පදනම. කන්ජි 100+, මූලික ව්‍යාකරණ, ශ්‍රව්‍ය පරීක්ෂණ සහ දෛනික සංවාද පුහුණුව.',
+          badge: 'පූර්ණකාලීන • පෙ.ව 9:00 – ප.ව 5:00 (සතියට දින 5)',
+          title: 'ජපන් භාෂා සහ JFT පාඨමාලාව (Japanese Language & JFT Course)',
+          duration: 'මාස 1 (N5) • දින 50 / මාස 2 (JFT / N4)',
+          mode: 'අත්සුකෝ ප්‍රධාන මූලස්ථානය (සඳුදා – සිකුරාදා, පෙ.ව 9:00 – ප.ව 5:00)',
+          suitableFor: 'අ.පො.ස. උසස් පෙළ (A/L) දක්වා පාසල් ගිය සිසුන් (ඩිප්ලෝමා සහතික අවශ්‍ය නොවේ) — ශිෂ්‍ය වීසා සහ SSW අයදුම්කරුවන්',
+          description: 'සතියට දින 5ක් (සඳුදා සිට සිකුරාදා දක්වා) පෙ.ව 9:00 සිට ප.ව 5:00 දක්වා පැවැත්වෙන පූර්ණකාලීන ජපන් භාෂා පාඨමාලාව. මාස 1කින් ශිෂ්‍ය වීසා මට්ටම (JLPT N5 / NAT N5) සහ මාස 2කින් (දින 50කින්) SSW රැකියා වීසා මට්ටම (JFT-Basic A2 / JLPT N4) සම්පූර්ණ කෙරේ.',
+          milestones: [
+            {
+              tag: 'මාස 1 ක පූර්ණකාලීන',
+              title: 'JLPT N5 / NAT N5 විෂය නිර්දේශය',
+              sub: 'ශිෂ්‍ය වීසා නිල මිණුම් ලකුණ (Student Visa Benchmark)'
+            },
+            {
+              tag: 'දින 50 (මාස 2)',
+              title: 'JFT-Basic A2 / JLPT N4 විෂය නිර්දේශය',
+              sub: 'SSW රැකියා වීසා නිල මිණුම් ලකුණ (SSW Work Visa Benchmark)'
+            }
+          ],
           features: [
-            'හිරගනා සහ කටකනා අභ්‍යාස පොත් කට්ටලයක් සමඟ සම්පූර්ණ දැනුම',
-            'මූලික කන්ජි 100+ සහ අත්‍යවශ්‍ය වචන 800+ කටපාඩම් කරවීම',
-            'නිල පසුගිය විභාග ප්‍රශ්න පත්‍ර සහ ශ්‍රව්‍යාගාර පෙරහුරුව',
-            'සුදුසුකම්ලත් සෙන්සෙයිවරුන් සමඟ දෛනික කතාබහ (Kaiwa)',
-          ]
-        };
-      }
-      if (c.id === 'jlpt-n4' || c.id === 'n4' || c.id.includes('n4')) {
-        return {
-          ...c,
-          badge: 'SSW සහ ශිෂ්‍ය මිණුම්දණ්ඩ',
-          title: 'JLPT N4 මධ්‍යම පාඨමාලාව',
-          duration: 'මාස 4 (පැය 160)',
-          suitableFor: 'N5 සමතුන්, SSW රැකියා වීසා අපේක්ෂකයින්',
-          description: 'SSW රැකියා වීසා සඳහා අවශ්‍ය නිල භාෂා ප්‍රමිතිය. සංකීර්ණ ව්‍යාකරණ, කන්ජි 300+, සහ ජපන් සේවා ස්ථානවල භාවිත වන ප්‍රායෝගික භාෂා දැනුම.',
-          features: [
-            'N4 මට්ටමේ කන්ජි 300+ සහ වචන මාලා 1,500+ පරිපූර්ණ හැදෑරීම',
-            'රැකියා ස්ථානයට අදාළ දෛනික සන්නිවේදනය සහ ආචාර විධි',
-            'Prometric හා සමාන පරිගණක (CBT) සහ ලිඛිත විභාග පෙරහුරු',
-            'තානාපති කාර්යාල සම්මුඛ පරීක්ෂණ පෙරහුරු (Mensetsu)',
-          ]
-        };
-      }
-      if (c.id === 'jft-basic' || c.id === 'jft' || c.id.includes('jft')) {
-        return {
-          ...c,
-          badge: 'Prometric CBT විභාගය',
-          title: 'JFT-Basic A2 වේගවත් පාඨමාලාව',
-          duration: 'මාස 2.5 ක කඩිනම් (පැය 120)',
-          suitableFor: 'ඉක්මනින් SSW විභාගය ලිවීමට අපේක්ෂා කරන සිසුන්',
-          description: 'ජපන් පදනම (The Japan Foundation) විසින් පවත්වනු ලබන පරිගණක පාදක (CBT) විභාගය සඳහා විශේෂිත පුහුණුව.',
-          features: [
-            'අත්සුකෝ ප්‍රධාන මූලස්ථානයේ (Atsuko Main) CBT පරිගණක විභාග පෙරහුරුව',
-            'Irodori (ජපානයේ ජීවිතය සඳහා ජපන්) නිල විෂය නිර්දේශය',
-            'ක්ෂණික ශ්‍රව්‍ය ප්‍රතිචාර සහ තිරය හරහා ප්‍රශ්නවලට පිළිතුරු දීම',
-            'Prometric විභාග ලියාපදිංචි කිරීමේ සම්පූර්ණ මඟපෙන්වීම',
-          ]
-        };
-      }
-      if (c.id === 'spoken-kaiwa' || c.id === 'spoken' || c.id.includes('spoken') || c.id.includes('kaiwa')) {
-        return {
-          ...c,
-          badge: 'චතුර කථන පුහුණුව',
-          title: 'ප්‍රායෝගික කථන ජපන් සහ සම්මුඛ පරීක්ෂණ',
-          duration: 'සතිපතා අඛණ්ඩ පන්ති (පැය 60)',
-          suitableFor: 'වීසා සම්මුඛ පරීක්ෂණ හා ජපන් සේවායෝජක සම්මුඛ පරීක්ෂණ සඳහා',
-          description: 'ජපන් හාම්පුතුන් සහ පාසල් විදුහල්පතිවරුන් සමඟ පවත්වන සජීවී Zoom සම්මුඛ පරීක්ෂණ ජයගැනීමේ විශේෂිත කථන පුහුණුව.',
-          features: [
-            'ජපන් ආචාර විධි (Ojigi), ශරීර භාෂාව සහ වෘත්තීය ගෞරවය',
-            'ස්වයං හැඳින්වීම (Jikoshoukai) සහ සාමාන්‍ය ප්‍රශ්නවලට චතුර පිළිතුරු',
-            'සේවා ස්ථානවල භාවිත වන කීර්තිමත් ගෞරව භාෂාව (Keigo)',
-            'වීඩියෝ පටිගත කිරීම් හරහා උච්චාරණ නිවැරදි කිරීම',
+            'සතියට දින 5ක් (සඳුදා – සිකුරාදා) පෙ.ව 9:00 සිට ප.ව 5:00 දක්වා පූර්ණකාලීන පන්ති',
+            'මාස 1කින් සම්පූර්ණ JLPT N5 සහ NAT N5 විෂය නිර්දේශය ආවරණය කෙරේ (ශිෂ්‍ය වීසා මිණුම් ලකුණ)',
+            'මාස 2කින් (දින 50කින්) JFT-Basic A2 සහ JLPT N4 විෂය නිර්දේශය ආවරණය කෙරේ (SSW රැකියා වීසා මිණුම් ලකුණ)',
+            'ප්‍රායෝගික කථන පුහුණුව (Kaiwa), CBT පරිගණක විභාග පෙරහුරු සහ තානාපති/ආයතනික සම්මුඛ පරීක්ෂණ (Mensetsu) පුහුණුව ඇතුළත් වේ',
           ]
         };
       }
     } else if (lang === 'jp') {
-      if (c.id === 'jlpt-n5' || c.id === 'n5' || c.id.includes('n5')) {
+      if (c.id === 'japanese-language-course') {
         return {
           ...c,
-          badge: 'JLPT基礎',
-          title: 'JLPT N5 基礎コース',
-          duration: '4ヶ月 (160時間)',
-          suitableFor: '未経験者・高校卒業生・留学ビザ申請希望者',
-          description: 'ゼロから日本語を学ぶ受講生のための基礎プログラム。ひらがな・カタカナ、必須漢字100字、基本文法、聴解、日常会話を体系的に習得。',
+          badge: '全日制 • 9:00 – 17:00（週5日・月〜金）',
+          title: '総合日本語・JFT集中コース',
+          duration: '1ヶ月 (N5) • 50日間 / 2ヶ月 (JFT / N4)',
+          mode: 'アツコ本校（月曜〜金曜 9:00 – 17:00）',
+          suitableFor: '高校課程（G.C.E. A/L）まで就学した方（ディプロマ不要）— 留学・特定技能申請希望者',
+          description: '週5日（月〜金）9:00〜17:00の全日制集中プログラム。1ヶ月で留学ビザ基準（JLPT N5 / NAT N5）、2ヶ月（50日間）で特定技能就労ビザ基準（JFT-Basic A2 / JLPT N4）のカリキュラムを完全習得します。',
+          milestones: [
+            {
+              tag: '1ヶ月 全日制',
+              title: 'JLPT N5 / NAT N5 カリキュラム',
+              sub: '日本留学ビザ 公式基準'
+            },
+            {
+              tag: '50日間（2ヶ月）',
+              title: 'JFT-Basic A2 / JLPT N4 カリキュラム',
+              sub: '特定技能（SSW）就労ビザ 公式基準'
+            }
+          ],
           features: [
-            'ひらがな・カタカナ完全習得ワークブック教材',
-            '基礎漢字100字および必須語彙800語の徹底暗記',
-            '公式模試演習およびリスニング専用ブースでの聴解特訓',
-            '経験豊富な講師陣による実践会話（カイワ）',
-          ]
-        };
-      }
-      if (c.id === 'jlpt-n4' || c.id === 'n4' || c.id.includes('n4')) {
-        return {
-          ...c,
-          badge: '特定技能・留学基準',
-          title: 'JLPT N4 中級コース',
-          duration: '4ヶ月 (160時間)',
-          suitableFor: 'N5取得者・特定技能（SSW）就労ビザ希望者',
-          description: '特定技能（SSW）就労ビザ取得基準となる公認中級プログラム。日常生活や職場での自然なコミュニケーション力、複文構造、漢字300字を習得。',
-          features: [
-            'N4重要漢字300字および語彙1,500語の網羅',
-            '複雑な文法構造および職場での丁寧語・敬語基礎',
-            '日本大使館ビザ面接および企業面接（面接）の模擬特訓',
-            '音響ブースでのJLPT本番同様リスニング試験シミュレーション',
-          ]
-        };
-      }
-      if (c.id === 'jft-basic' || c.id === 'jft' || c.id.includes('jft')) {
-        return {
-          ...c,
-          badge: 'プロメトリックCBT試験',
-          title: 'JFT-Basic A2 集中対策コース',
-          duration: '2.5ヶ月 (120時間)',
-          suitableFor: '短期間で特定技能試験の合格を目指す受講生',
-          description: '国際交流基金が実施するプロメトリックCBT（コンピュータ試験）形式の日本語基礎テスト対策。',
-          features: [
-            'アツコ本校（Atsuko Main）PC端末による本番仕様CBT演習',
-            '生活日本語「いろどり」準拠の即戦力カリキュラム',
-            '即時フィードバックによる画面上での解答力強化',
-            'プロメトリック公式試験予約・登録の完全サポート',
-          ]
-        };
-      }
-      if (c.id === 'spoken-kaiwa' || c.id === 'spoken' || c.id.includes('spoken') || c.id.includes('kaiwa')) {
-        return {
-          ...c,
-          badge: '実戦会話・面接対策',
-          title: '実戦会話・面接指導クラス',
-          duration: '週次継続レッスン (60時間)',
-          suitableFor: 'ビザ面接・提携日本語学校長／企業面接を控えた全候補者',
-          description: '日本語学校長や病院・受入企業面接を突破するための実践的スピーキング特訓。',
-          features: [
-            '自然な発音・イントネーション・お辞儀マナーの体得',
-            '大使館想定質問に対するマンツーマン模擬面接',
-            '履歴書（Rirekisho）作成および自己紹介（Jikoshoukai）特訓',
-            'ネイティブ講師・熟練講師による実戦的会話演習',
+            '週5日（月曜〜金曜）9:00〜17:00の全日制集中クラス',
+            '1ヶ月でJLPT N5・NAT N5カリキュラムを網羅（留学ビザ基準）',
+            '2ヶ月（50日間）でJFT-Basic A2・JLPT N4カリキュラムを網羅（特定技能ビザ基準）',
+            '実践会話（カイワ）、CBTパソコン模擬試験、大使館・企業面接（面接）対策を含む',
           ]
         };
       }
@@ -215,47 +145,47 @@ export default function CoursesPage({ lang, onOpenModal }) {
         return {
           ...c,
           badge: 'ඉහළ ඉල්ලුමක් ඇති ක්ෂේත්‍රය',
-          title: 'සාත්තු සේවා (Kaigo) ප්‍රායෝගික පුහුණුව',
-          duration: 'මාස 3 ක ප්‍රායෝගික + සාත්තු ජපන් භාෂාව',
+          title: 'SSW සාත්තු සේවා (Kaigo) පාඨමාලාව',
+          duration: 'ප්‍රායෝගික පුහුණුව + සාත්තු ජපන් භාෂාව',
           mode: 'අත්සුකෝ ප්‍රධාන මූලස්ථානයේ ප්‍රායෝගික පුහුණු ඒකකය',
-          description: 'ජපානයේ වැඩිහිටි නිවාස සහ රෝහල් ආශ්‍රිත සාත්තු සේවාව සඳහා පූර්ණ සූදානම. ජපන් රෝහල් ඇඳන් සහිත ප්‍රායෝගික පුහුණුව, සාත්තු භාෂා දැනුම සහ Prometric CBT විභාග මඟපෙන්වීම.',
+          description: 'ජපානයේ වැඩිහිටි නිවාස සහ රෝහල් ආශ්‍රිත සාත්තු සේවාව සඳහා පූර්ණ සූදානම (වැටුප් ¥180,000 – ¥240,000 / මසකට). ජපන් රෝහල් ඇඳන් සහිත ප්‍රායෝගික පුහුණුව, සාත්තු භාෂා දැනුම සහ Prometric CBT විභාග මඟපෙන්වීම.',
           features: [
             'ජපන් රෝහල් ඇඳන්, රෝද පුටු භාවිතය සහ රෝගී සත්කාරක ප්‍රායෝගික පුහුණුව',
             'සාත්තු සේවා සඳහා වන විශේෂිත ජපන් භාෂා (Kaigo no Nihongo) දැනුම',
             'Prometric සාත්තු සත්කාරක නිපුණතා ඇගයීම් විභාගය සඳහා සූදානම',
-            'ජපානයේ අපගේම සෙන්ඩායි ආයතනය හරහා පිළිගත් වෛද්‍ය ආයතන වෙත සෘජු සම්බන්ධීකරණය'
+            'ජපානයේ අපගේම කොමාකි ආයතනය හරහා පිළිගත් වෛද්‍ය ආයතන වෙත සෘජු සම්බන්ධීකරණය'
+          ]
+        };
+      }
+      if (c.id === 'nvq-nursing') {
+        return {
+          ...c,
+          badge: 'ජාතික වෘත්තීය සුදුසුකම',
+          title: 'NVQ Level 3 සාත්තු සේවා පාඨමාලාව',
+          duration: 'ප්‍රායෝගික සායනික සහ වාට්ටු පුහුණුව',
+          mode: 'අත්සුකෝ ප්‍රධාන මූලස්ථානයේ රෝහල් සමාකරණ ඒකකය',
+          description: 'ජපාන සෞඛ්‍ය සේවා ප්‍රමිතීන්ට අනුකූලව පිළිගත් NVQ Level 3 ජාතික වෘත්තීය සුදුසුකම සඳහා අපේක්ෂකයින් සූදානම් කරන ප්‍රායෝගික හෙද හා සාත්තු සේවා පාඨමාලාව.',
+          features: [
+            'පිළිගත් NVQ Level 3 හෙද හා සාත්තු සේවා ජාතික සහතිකපත් මාවත',
+            'ජපන් ප්‍රමිතියේ රෝහල් වාට්ටු උපකරණ භාවිතයෙන් ප්‍රායෝගික සායනික පුහුණුව',
+            'රෝගී සනීපාරක්ෂාව, ජීව දත්ත පරීක්ෂාව, වැඩිහිටි ආරක්ෂාව සහ සෞඛ්‍ය ආචාරධර්ම',
+            'ජපානයේ සෞඛ්‍ය ක්ෂේත්‍රයේ රැකියා සඳහා කදිම වෘත්තීය පදනම (පෙර ඩිප්ලෝමා අවශ්‍ය නොවේ)'
           ]
         };
       }
       if (c.id === 'ssw-food') {
         return {
           ...c,
-          badge: 'හෝටල් සහ ආහාර සේවා',
-          title: 'ආහාර සේවා (Gaishoku) සහ ආගන්තුක සත්කාරය',
+          badge: 'ආහාර සහ නවාතැන් සේවා',
+          title: 'ආහාර සේවා සහ නවාතැන් පහසුකම් (Food Service & Accommodation)',
           duration: 'මාස 2 ක සූදානම + Prometric විභාගය',
           mode: 'අත්සුකෝ ප්‍රධාන මූලස්ථානය සහ මාර්ගගත Zoom පන්ති',
-          description: 'ජපානයේ ප්‍රමුඛ පෙළේ අවන්හල් ජාල, හෝටල් මුළුතැන්ගෙවල් සහ ආහාර නිෂ්පාදන ආයතනවල රැකියා සඳහා පුහුණුව. ජපන් ආහාර සුරක්ෂිතතාව (HACCP) සහ සනීපාරක්ෂක ප්‍රමිතීන්.',
+          description: 'ජපානයේ ප්‍රමුඛ පෙළේ අවන්හල් ජාල, හෝටල් මුළුතැන්ගෙවල්, තරු පන්තියේ හෝටල් සහ සම්ප්‍රදායික රියෝකාන් (Ryokan) ආශ්‍රිත රැකියා සඳහා පුහුණුව. ජපන් ආහාර සුරක්ෂිතතාව (HACCP) සහ ආගන්තුක සත්කාරක (Omotenashi) ප්‍රමිතීන්.',
           features: [
-            'ජපන් ආහාර සනීපාරක්ෂාව (HACCP) සහ මුළුතැන්ගෙයි ආරක්ෂිත ක්‍රමවේද',
-            'අවන්හල් පාරිභෝගික සත්කාරක වචන මාලා සහ ඇණවුම් ලබාගැනීම',
-            'Prometric ආහාර සේවා කුසලතා ඇගයීම් විභාග ප්‍රශ්න පත්‍ර පෙරහුරුව',
+            'ජපන් ආහාර සනීපාරක්ෂාව (HACCP), මුළුතැන්ගෙයි ආරක්ෂාව සහ පාරිභෝගික සේවාව',
+            'හෝටල් පිළිගැනීමේ ආචාරධර්ම (Omotenashi) සහ කාමර කළමනාකරණ ප්‍රමිතීන්',
+            'Prometric ආහාර සේවා සහ නවාතැන් නිපුණතා ඇගයීම් විභාග ප්‍රශ්න පත්‍ර පෙරහුරුව',
             'SLBFE බලපත්‍ර අංක 3293 යටතේ සෘජු නීත්‍යානුකූල රැකියා ගිවිසුම්'
-          ]
-        };
-      }
-      if (c.id === 'ssw-accommodation') {
-        return {
-          ...c,
-          badge: 'හෝටල් සහ සංචාරක සේවා',
-          title: 'හෝටල් සහ ආගන්තුක සත්කාරය (Shukuhaku)',
-          duration: 'මාස 2 ක පුහුණුව',
-          mode: 'ආගන්තුක සත්කාරක ආචාරධර්ම ඒකකය',
-          description: 'ජපානයේ තරු පන්තියේ හෝටල්, සංචාරක නිවාඩු නිකේතන සහ සම්ප්‍රදායික රියෝකාන් (Ryokan) ආශ්‍රිත පිළිගැනීමේ නිලධාරී සහ ආගන්තුක සත්කාරක රැකියා.',
-          features: [
-            'ජපන් ආගන්තුක සත්කාරක ආචාරධර්ම (Omotenashi) සහ ගෞරවාන්විත කථනය (Keigo)',
-            'හෝටල් කාමර වෙන්කිරීම් සහ පාරිභෝගික සේවා කළමනාකරණය',
-            'Prometric නවාතැන් සේවා නිපුණතා ඇගයීම් විභාග සූදානම',
-            'ජපානයේ ප්‍රධාන සංචාරක කලාපවල රැකියා ස්ථානගත කිරීම්'
           ]
         };
       }
@@ -263,13 +193,13 @@ export default function CoursesPage({ lang, onOpenModal }) {
         return {
           ...c,
           badge: 'කෘෂිකාර්මික ක්ෂේත්‍රය',
-          title: 'කෘෂිකර්මාන්තය සහ බෝග වගාව (Nōgyō)',
+          title: 'බෝග වගාව සහ පශු සම්පත් (Crop Farming & Livestock)',
           duration: 'මාස 2 ක පුහුණුව',
           mode: 'පූර්ණ කෘෂිකාර්මික සූදානම',
-          description: 'ජපානයේ ඉබරාකි, නගානෝ, අයිචි ආදී ප්‍රධාන කෘෂිකාර්මික ප්‍රාන්තවල ස්වයංක්‍රීය හරිතාගාර එළවළු වගාව, පලතුරු නෙලීම සහ පශු සම්පත් කළමනාකරණය.',
+          description: 'ජපානයේ ඉබරාකි, නගානෝ, අයිචි ආදී ප්‍රධාන කෘෂිකාර්මික ප්‍රාන්තවල ස්වයංක්‍රීය හරිතාගාර බෝග වගාව, එළවළු හා පලතුරු නෙලීම සහ පශු සම්පත් කළමනාකරණය.',
           features: [
-            'ජපන් ගොවිපළ උපකරණ ආරක්ෂාව, බෝග වර්ග සහ වාරිමාර්ග තාක්ෂණික වචන',
-            'Prometric කෘෂිකාර්මික නිපුණතා ඇගයීම් විභාග පෙරහුරුව',
+            'ජපන් බෝග වගා උපකරණ ආරක්ෂාව, හරිතාගාර වගාව සහ පශු සම්පත් රැකවරණය',
+            'Prometric බෝග වගාව සහ පශු සම්පත් නිපුණතා ඇගයීම් විභාග පෙරහුරුව',
             'ජපන් කම්කරු නීති සහ ජාතික සෞඛ්‍ය රක්ෂණය යටතේ පූර්ණ රැකවරණය',
             'අත්සුකෝ ජපන් කාර්යාලය මඟින් සේවා කාලය පුරා නිරන්තර සුබසාධනය'
           ]
@@ -296,10 +226,10 @@ export default function CoursesPage({ lang, onOpenModal }) {
         return {
           ...c,
           badge: '重点受入分野',
-          title: '特定技能 介護実務・看護日本語研修',
-          duration: '3ヶ月 実務演習＋介護日本語',
+          title: '特定技能 介護（Kaigo）実践コース',
+          duration: '実務演習＋介護日本語',
           mode: 'アツコ本校 介護実習シミュレーション病棟',
-          description: '日本の特別養護老人ホームや医療施設で即戦力となるための実践研修。日本仕様の介護ベッド・車椅子を用いた実技、介護の専門日本語、プロメトリックCBT試験対策を網羅。',
+          description: '日本の特別養護老人ホームや医療施設で即戦力となるための実践研修（月給180,000〜240,000円）。日本仕様の介護ベッド・車椅子を用いた実技、介護の専門日本語、プロメトリックCBT試験対策を網羅。',
           features: [
             '日本仕様介護ベッド・車椅子を用いた移乗・介助実技訓練',
             '介護現場で使われる専門用語・記録・申し送りの日本語',
@@ -308,49 +238,49 @@ export default function CoursesPage({ lang, onOpenModal }) {
           ]
         };
       }
-      if (c.id === 'ssw-food') {
+      if (c.id === 'nvq-nursing') {
         return {
           ...c,
-          badge: '外食・ホテル分野',
-          title: '特定技能 外食業・食品衛生実務',
-          duration: '2ヶ月 対策＋プロメトリック試験',
-          mode: 'アツコ本校実習室およびオンライン講義',
-          description: '日本の大手外食チェーン、ホテル厨房、食品加工企業への就労を目指すカリキュラム。日本の衛生管理基準（HACCP）や接客マナーを指導。',
+          badge: '国家資格コース',
+          title: 'NVQ Level 3 看護・介護実務コース',
+          duration: '臨床・病棟実技実習',
+          mode: 'アツコ本校 病院シミュレーション実習室',
+          description: '日本の医療・介護基準に沿った実践的な看護・介護ケアを学び、国家資格NVQ Level 3の取得を目指す専門コース。',
           features: [
-            'HACCPに基づく衛生管理基準および厨房内安全衛生教育',
-            '接客サービス用語、オーダーテイク、敬語応対実習',
-            'プロメトリック外食業技能評価試験の過去問演習',
-            'SLBFE許可No.3293に基づく合法的な雇用契約手続き'
+            '公認国家資格 NVQ Level 3（看護・介護）取得カリキュラム',
+            '日本仕様の医療ベッド・機器を用いた実践的な臨床ケア訓練',
+            '患者の衛生管理、バイタルサイン測定、高齢者安全ケア、医療倫理',
+            '日本での医療・福祉キャリアに向けた確かな基礎（事前の専門ディプロマ不要）'
           ]
         };
       }
-      if (c.id === 'ssw-accommodation') {
+      if (c.id === 'ssw-food') {
         return {
           ...c,
-          badge: '宿泊・観光分野',
-          title: '特定技能 宿泊業（ホテル・旅館接遇）',
-          duration: '2ヶ月 専門研修',
-          mode: 'アツコ本校 ホテル接遇演習室',
-          description: '日本のホテル、リゾート、老舗旅館でのフロント、客室管理、接客サービスに対応するおもてなし教育プログラム。',
+          badge: '外食・宿泊分野',
+          title: '特定技能 外食業・宿泊分野（Food Service & Accommodation）',
+          duration: '2ヶ月 対策＋プロメトリック試験',
+          mode: 'アツコ本校実習室およびオンライン講義',
+          description: '日本の大手外食チェーン、ホテル厨房、リゾートホテル、老舗旅館への就労を目指す総合カリキュラム。日本の衛生管理基準（HACCP）やおもてなし接遇マナーを指導。',
           features: [
-            '日本のおもてなし精神、接遇マナー、美しい敬語表現',
-            'ホテル宿泊管理システム、チェックイン予約応対',
-            'プロメトリック宿泊業技能評価試験の徹底演習',
-            '全国の主要観光地・リゾートホテルへの配属支援'
+            'HACCPに基づく衛生管理基準、厨房安全衛生、および接客サービス',
+            'ホテルフロント接遇（おもてなし）、客室管理、丁寧な敬語表現',
+            'プロメトリック外食業・宿泊業技能評価試験の過去問演習',
+            'SLBFE許可No.3293に基づく合法的な雇用契約手続き'
           ]
         };
       }
       if (c.id === 'ssw-agriculture') {
         return {
           ...c,
-          badge: '農業・畜産分野',
-          title: '特定技能 農業分野（耕種・畜産）',
+          badge: '耕種・畜産分野',
+          title: '特定技能 耕種農業・畜産（Crop Farming & Livestock）',
           duration: '2ヶ月 専門研修',
           mode: 'アツコ本校 農業総合カリキュラム',
-          description: '茨城、長野、愛知などの農業先進地における自動温室栽培、野菜・果樹収穫、畜産管理に向けた実践講習。',
+          description: '茨城、長野、愛知などの農業先進地における自動温室栽培、野菜・果樹収穫、および畜産管理に向けた実践講習。',
           features: [
-            '日本の農業機械安全使用、作物管理、潅水設備の専門用語',
-            'プロメトリック農業技能評価試験（耕種・畜産）対策',
+            '日本の農業機械安全使用、施設園芸（耕種）、および畜産飼養管理の専門用語',
+            'プロメトリック農業技能評価試験（耕種農業・畜産農業）対策',
             '日本の労働基準法および社会保険・国民健康保険による完全保護',
             '日本現地法人（小牧市拠点）による渡航後の継続的巡回・生活支援'
           ]
@@ -421,11 +351,11 @@ export default function CoursesPage({ lang, onOpenModal }) {
             </p>
           </div>
 
-          <div className="courses-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '1.75rem' }}>
+          <div className="courses-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '1.75rem', maxWidth: localizedLangCourses.length === 1 ? '860px' : undefined, margin: localizedLangCourses.length === 1 ? '0 auto' : undefined }}>
             {localizedLangCourses.map((course) => (
               <div key={course.id} className="course-card" style={{ background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: 'var(--radius-xl)', padding: '1.75rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                 <div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.75rem' }}>
                     <span style={{ background: '#fee2e2', color: '#b91c1c', fontSize: '0.75rem', fontWeight: 700, padding: '0.25rem 0.65rem', borderRadius: 'var(--radius-full)' }}>
                       {course.badge}
                     </span>
@@ -434,16 +364,34 @@ export default function CoursesPage({ lang, onOpenModal }) {
                     </span>
                   </div>
 
-                  <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--navy-900)', margin: '0.25rem 0 0.5rem' }}>
+                  <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--navy-900)', margin: '0.25rem 0 0.5rem' }}>
                     {course.title}
                   </h3>
                   <div style={{ fontFamily: 'var(--font-jp)', fontSize: '0.85rem', color: '#b45309', fontWeight: 700, marginBottom: '0.75rem' }}>
                     {course.jpTitle}
                   </div>
 
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.6, marginBottom: '1.25rem' }}>
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', lineHeight: 1.65, marginBottom: '1.25rem' }}>
                     {course.description}
                   </p>
+
+                  {course.milestones && course.milestones.length > 0 && (
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))', gap: '0.85rem', marginBottom: '1.25rem' }}>
+                      {course.milestones.map((m, mIdx) => (
+                        <div key={mIdx} style={{ background: '#ffffff', border: '1px solid #cbd5e1', borderLeft: mIdx === 0 ? '4px solid #0284c7' : '4px solid #e11d48', borderRadius: 'var(--radius-md)', padding: '0.85rem 1rem' }}>
+                          <span style={{ display: 'inline-block', fontSize: '0.72rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.04em', color: mIdx === 0 ? '#0284c7' : '#e11d48', marginBottom: '0.2rem' }}>
+                            {m.tag}
+                          </span>
+                          <div style={{ fontSize: '0.95rem', fontWeight: 800, color: 'var(--navy-900)', marginBottom: '0.15rem' }}>
+                            {m.title}
+                          </div>
+                          <div style={{ fontSize: '0.78rem', color: '#64748b', fontWeight: 600 }}>
+                            {m.sub}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
 
                   <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 1.5rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                     {course.features.map((feat, idx) => (
@@ -596,20 +544,20 @@ export default function CoursesPage({ lang, onOpenModal }) {
                 <tbody>
                   {filterSchedules.map((batch) => {
                     const courseName = lang === 'si'
-                      ? (batch.id.includes('n5-weekend') ? 'JLPT N5 සති අන්ත මූලික පාඨමාලාව'
-                         : batch.id.includes('n5-weekday') ? 'JLPT N5 කඩිනම් සතියේ දින පාඨමාලාව'
-                         : batch.id.includes('n4') ? 'JLPT N4 මධ්‍යම ප්‍රමිති පාඨමාලාව'
-                         : batch.id.includes('jft') ? 'JFT-Basic A2 පරිගණක (CBT) පාඨමාලාව'
-                         : batch.id.includes('caregiver') ? 'SSW සාත්තු සේවා (Kaigo) ප්‍රායෝගික පුහුණුව'
-                         : batch.id.includes('food') ? 'SSW ආහාර සේවා සහ ආගන්තුක සත්කාරය'
+                      ? (batch.id.includes('n5-fulltime') ? 'ජපන් භාෂා පාඨමාලාව — ශිෂ්‍ය වීසා මට්ටම (JLPT N5 / NAT N5)'
+                         : batch.id.includes('jft-ssw-fulltime') ? 'ජපන් භාෂා සහ JFT පාඨමාලාව — SSW මට්ටම (JFT-Basic / JLPT N4)'
+                         : batch.id.includes('caregiver') ? 'SSW සාත්තු සේවා (Kaigo) ප්‍රායෝගික පාඨමාලාව'
+                         : batch.id.includes('nvq-nursing') ? 'NVQ Level 3 සාත්තු සේවා පාඨමාලාව'
+                         : batch.id.includes('food') ? 'SSW ආහාර සේවා සහ නවාතැන් පහසුකම් පුහුණුව'
+                         : batch.id.includes('crop-livestock') ? 'SSW බෝග වගාව සහ පශු සම්පත් පුහුණුව'
                          : batch.course)
                       : lang === 'jp'
-                        ? (batch.id.includes('n5-weekend') ? 'JLPT N5 週末基礎コース'
-                           : batch.id.includes('n5-weekday') ? 'JLPT N5 平日速成コース'
-                           : batch.id.includes('n4') ? 'JLPT N4 中級標準コース'
-                           : batch.id.includes('jft') ? 'JFT-Basic A2 CBT対策コース'
-                           : batch.id.includes('caregiver') ? '特定技能 介護実務・看護日本語研修'
-                           : batch.id.includes('food') ? '特定技能 外食業・食品衛生実務'
+                        ? (batch.id.includes('n5-fulltime') ? '総合日本語コース — 留学基準 (JLPT N5 / NAT N5)'
+                           : batch.id.includes('jft-ssw-fulltime') ? '総合日本語・JFTコース — 特定技能基準 (JFT-Basic / JLPT N4)'
+                           : batch.id.includes('caregiver') ? '特定技能 介護（Kaigo）実践コース'
+                           : batch.id.includes('nvq-nursing') ? 'NVQ Level 3 看護・介護実務コース'
+                           : batch.id.includes('food') ? '特定技能 外食業・宿泊分野コース'
+                           : batch.id.includes('crop-livestock') ? '特定技能 耕種農業・畜産分野コース'
                            : batch.course)
                         : batch.course;
                     const catName = lang === 'si'
@@ -624,48 +572,46 @@ export default function CoursesPage({ lang, onOpenModal }) {
                            : '特定技能職能研修')
                         : batch.category;
                     const daysName = lang === 'si'
-                      ? (batch.days.includes('Saturday & Sunday') ? 'සෙනසුරාදා සහ ඉරිදා'
-                         : batch.days.includes('Tuesday & Thursday') ? 'අඟහරුවාදා සහ බ්‍රහස්පතින්දා'
-                         : batch.days.includes('Mon, Wed & Friday') ? 'සඳුදා, බදාදා සහ සිකුරාදා'
-                         : batch.days.includes('Saturday Full Day') ? 'සෙනසුරාදා පූර්ණ දින + ප්‍රායෝගික'
-                         : batch.days.includes('Sunday Mornings') ? 'ඉරිදා උදෑසන'
-                         : batch.days.includes('Weekend Evenings') ? 'සති අන්ත සවස් කාලය'
+                      ? (batch.days.includes('Monday – Friday') ? 'සඳුදා – සිකුරාදා (සතියට දින 5)'
+                         : batch.days.includes('Full-Time / Practical') ? 'පූර්ණකාලීන / ප්‍රායෝගික වාට්ටු පුහුණු සැසි'
+                         : batch.days.includes('Weekday & Practical') ? 'සතියේ දින සහ ප්‍රායෝගික වාට්ටු පුහුණු සැසි'
+                         : batch.days.includes('Scheduled CBT & Practical') ? 'CBT සහ ප්‍රායෝගික පුහුණු සැසි'
+                         : batch.days.includes('Scheduled CBT & Theory') ? 'CBT සහ න්‍යායාත්මක පුහුණු සැසි'
                          : batch.days)
                       : lang === 'jp'
-                        ? (batch.days.includes('Saturday & Sunday') ? '土曜・日曜'
-                           : batch.days.includes('Tuesday & Thursday') ? '火曜・木曜'
-                           : batch.days.includes('Mon, Wed & Friday') ? '月・水・金曜'
-                           : batch.days.includes('Saturday Full Day') ? '土曜終日＋実習'
-                           : batch.days.includes('Sunday Mornings') ? '日曜午前'
-                           : batch.days.includes('Weekend Evenings') ? '週末夕方'
+                        ? (batch.days.includes('Monday – Friday') ? '月曜〜金曜（週5日・全日制）'
+                           : batch.days.includes('Full-Time / Practical') ? '全日制・病棟実習セッション'
+                           : batch.days.includes('Weekday & Practical') ? '平日講義＆病棟実習セッション'
+                           : batch.days.includes('Scheduled CBT & Practical') ? 'CBT対策＆実技セッション'
+                           : batch.days.includes('Scheduled CBT & Theory') ? 'CBT対策＆理論セッション'
                            : batch.days)
                         : batch.days;
                     const modeName = lang === 'si'
-                      ? (batch.mode.includes('Live Zoom') ? 'අත්සුකෝ ප්‍රධාන මූලස්ථානය + සජීවී Zoom'
-                         : batch.mode.includes('Simulation Ward') ? 'අත්සුකෝ ප්‍රධාන ප්‍රායෝගික පුහුණු ඒකකය'
+                      ? (batch.mode.includes('CBT Lab') ? 'අත්සුකෝ ප්‍රධාන මූලස්ථානය සහ CBT විද්‍යාගාරය'
+                         : batch.mode.includes('Simulation Ward') || batch.mode.includes('Simulation Lab') ? 'අත්සුකෝ ප්‍රධාන ප්‍රායෝගික පුහුණු ඒකකය'
                          : batch.mode.includes('CBT Center') ? 'අත්සුකෝ ප්‍රධාන CBT විභාග මධ්‍යස්ථානය'
                          : batch.mode.includes('Zoom Theory') ? 'අත්සුකෝ ප්‍රධාන මූලස්ථානය සහ Zoom'
                          : 'අත්සුකෝ ප්‍රධාන මූලස්ථානය')
                       : lang === 'jp'
-                        ? (batch.mode.includes('Live Zoom') ? 'アツコ本校＋Zoom'
-                           : batch.mode.includes('Simulation Ward') ? 'アツコ本校 介護実習病棟'
+                        ? (batch.mode.includes('CBT Lab') ? 'アツコ本校＆CBTラボ'
+                           : batch.mode.includes('Simulation Ward') || batch.mode.includes('Simulation Lab') ? 'アツコ本校 介護実習病棟'
                            : batch.mode.includes('CBT Center') ? 'アツコ本校 CBT試験ラボ'
                            : batch.mode.includes('Zoom Theory') ? 'アツコ本校＋Zoom講義'
                            : 'アツコ本校')
                         : batch.mode;
                     const durationText = lang === 'si'
-                      ? (batch.duration.includes('4 Months') ? 'මාස 4 (පැය 160)'
-                         : batch.duration.includes('3.5 Months') ? 'මාස 3.5 ක කඩිනම්'
-                         : batch.duration.includes('2.5 Months') ? 'මාස 2.5 ක කඩිනම්'
-                         : batch.duration.includes('3 Months') ? 'මාස 3 ක ප්‍රායෝගික + සාත්තු ජපන්'
-                         : batch.duration.includes('2 Months') ? 'මාස 2 ක සූදානම'
+                      ? (batch.duration.includes('1 Month') ? 'මාස 1 ක පූර්ණකාලීන'
+                         : batch.duration.includes('50 Days') ? 'දින 50 (මාස 2)'
+                         : batch.duration.includes('Practical + Prometric') ? 'ප්‍රායෝගික + Prometric විභාගය'
+                         : batch.duration.includes('NVQ Level 3') ? 'NVQ Level 3 සහතිකකරණය'
+                         : batch.duration.includes('2 Months') ? 'මාස 2 ක සූදානම + Prometric'
                          : batch.duration)
                       : lang === 'jp'
-                        ? (batch.duration.includes('4 Months') ? '4ヶ月 (160時間)'
-                           : batch.duration.includes('3.5 Months') ? '3.5ヶ月 短期集中'
-                           : batch.duration.includes('2.5 Months') ? '2.5ヶ月 集中対策'
-                           : batch.duration.includes('3 Months') ? '3ヶ月 実習＋介護日本語'
-                           : batch.duration.includes('2 Months') ? '2ヶ月 集中対策'
+                        ? (batch.duration.includes('1 Month') ? '1ヶ月 全日制'
+                           : batch.duration.includes('50 Days') ? '50日間（2ヶ月）'
+                           : batch.duration.includes('Practical + Prometric') ? '実技＋プロメトリック試験'
+                           : batch.duration.includes('NVQ Level 3') ? 'NVQ Level 3 資格取得'
+                           : batch.duration.includes('2 Months') ? '2ヶ月対策＋試験'
                            : batch.duration)
                         : batch.duration;
 

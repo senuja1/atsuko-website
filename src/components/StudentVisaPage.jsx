@@ -22,21 +22,21 @@ export default function StudentVisaPage({ lang, onOpenModal, onNavigate }) {
   const activeChecklist = lang === 'si' ? siVisaDocumentChecklist : lang === 'jp' ? jpVisaDocumentChecklist : visaDocumentChecklist;
 
   const studentReqs = lang === 'si' ? [
-    'අවම වශයෙන් වසර 12 ක පාසල් අධ්‍යාපනයක් සම්පූර්ණ කර තිබීම (අ.පො.ස. උ/පෙළ හෝ ඊට සමාන සුදුසුකම්).',
+    'අ.පො.ස. උසස් පෙළ (A/L) දක්වා පාසල් අධ්‍යාපනය ලබා තිබීම (වසර 12 ක පාසල් අධ්‍යාපනය — ඩිප්ලෝමා සහතික අවශ්‍ය නොවේ).',
     'අයදුම් කරන අවස්ථාවේ වයස අවුරුදු 18 ත් 28 ත් අතර වීම.',
-    'අවම වශයෙන් පැය 150 ක ජපන් භාෂා හැදෑරීමේ සහතිකයක් (අත්සුකෝ ආයතනයෙන්) හෝ JLPT N5 / JFT-Basic සමත් සහතිකයක් තිබීම.',
+    'JLPT N5 / NAT N5 සමත් සහතිකයක් (අත්සුකෝ හි මාස 1 ක පූර්ණකාලීන පාඨමාලාව — පෙ.ව 9:00 සිට ප.ව 5:00, සතියට දින 5) හෝ පැය 150+ ජපන් භාෂා හැදෑරීමේ සහතිකයක් තිබීම.',
     'තහවුරු කළ බැංකු ශේෂයක් සහිත පිළිගත් මූල්‍ය අනුග්‍රාහකයෙකු (දෙමාපියන් හෝ ළඟම ඥාතීන්) සිටීම.',
     'ජපානයේ පිළිගත් භාෂා පාසලක වසර 1 සිට 2 දක්වා පූර්ණකාලීන අධ්‍යාපනයක් හැදෑරීමේ අවංක අභිප්‍රාය.',
   ] : lang === 'jp' ? [
-    '12年以上の学校教育（高等学校卒業以上または同等の資格）を修了していること。',
+    'G.C.E. A/L（高校課程・12年以上の正規学校教育）まで就学していること（専門ディプロマ等は不要）。',
     '申請時点で満18歳以上28歳以下であること。',
-    '150時間以上の公認日本語学習歴（当校発行）またはJLPT N5・JFT-Basic合格証書。',
+    'JLPT N5 / NAT N5合格証（当校の1ヶ月全日制コース：週5日 9:00〜17:00）または150時間以上の公認日本語学習歴。',
     '預金残高や資金形成過程を証明できる確実な経費支弁者（両親または親族）。',
     '日本語教育機関修了後、大学・大学院・専門学校への進学意思。',
   ] : [
-    'Completed at least 12 years of formal schooling (G.C.E. A/L or recognized equivalent).',
+    'Attended school up to G.C.E. A/L (12 years of formal schooling — prior Diploma certificates are NOT required).',
     'Age between 18 and 28 years at the time of application.',
-    'Minimum 150 hours of certified Japanese language study (from Atsuko) or JLPT N5 / JFT-Basic pass certificate.',
+    'JLPT N5 / NAT N5 pass benchmark (covered in 1 Month Full-Time at Atsuko, 9:00 AM – 5:00 PM, 5 days/week) or 150+ hours certified Japanese study.',
     'Genuine financial sponsor (parents or close relatives) with verified bank funds.',
     'Clear academic intent to complete 1-2 years of intensive Japanese language studies.',
   ];

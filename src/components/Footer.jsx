@@ -145,9 +145,9 @@ export default function Footer({ lang, onOpenModal, onNavigate }) {
             <ul className="footer-links">
               <li><a href="#student-visa" onClick={(e) => handleLinkClick(e, 'student-visa')}>{lang === 'si' ? 'ශිෂ්‍ය වීසා (ජන/අප්‍රේල්/ජූලි/ඔක්)' : lang === 'jp' ? '留学ビザ (1・4・7・10月期)' : 'Student Visa (Jan/Apr/Jul/Oct)'}</a></li>
               <li><a href="#job-visa" onClick={(e) => handleLinkClick(e, 'job-visa')}>{lang === 'si' ? 'SSW සාත්තු සේවා (Kaigo)' : lang === 'jp' ? '特定技能 介護 (Kaigo)' : 'SSW Caregiver (Kaigo)'}</a></li>
-              <li><a href="#job-visa" onClick={(e) => handleLinkClick(e, 'job-visa')}>{lang === 'si' ? 'SSW ආහාර සැකසුම් ක්ෂේත්‍රය' : lang === 'jp' ? '特定技能 外食業' : 'SSW Food Service Industry'}</a></li>
-              <li><a href="#job-visa" onClick={(e) => handleLinkClick(e, 'job-visa')}>{lang === 'si' ? 'SSW කෘෂිකාර්මික ක්ෂේත්‍රය' : lang === 'jp' ? '特定技能 農業分野' : 'SSW Agriculture & Farming'}</a></li>
-              <li><a href="#job-visa" onClick={(e) => handleLinkClick(e, 'job-visa')}>{lang === 'si' ? 'SSW හෝටල් සහ සංචාරක සේවා' : lang === 'jp' ? '特定技能 宿泊業' : 'SSW Accommodation (Hotel)'}</a></li>
+              <li><a href="#courses" onClick={(e) => handleLinkClick(e, 'courses')}>{lang === 'si' ? 'NVQ Level 3 සාත්තු සේවා පාඨමාලාව' : lang === 'jp' ? 'NVQ Level 3 看護・介護コース' : 'NVQ Level 3 Nursing Care'}</a></li>
+              <li><a href="#job-visa" onClick={(e) => handleLinkClick(e, 'job-visa')}>{lang === 'si' ? 'SSW ආහාර සේවා සහ නවාතැන් පහසුකම්' : lang === 'jp' ? '特定技能 外食業・宿泊業' : 'SSW Food Service & Accommodation'}</a></li>
+              <li><a href="#job-visa" onClick={(e) => handleLinkClick(e, 'job-visa')}>{lang === 'si' ? 'SSW බෝග වගාව සහ පශු සම්පත්' : lang === 'jp' ? '特定技能 耕種農業・畜産' : 'SSW Crop Farming & Livestock'}</a></li>
               <li><a href="#job-visa" onClick={(e) => handleLinkClick(e, 'job-visa')}>{lang === 'si' ? 'TITP කාර්මික පුහුණුව' : lang === 'jp' ? '技能実習制度 (TITP)' : 'TITP Technical Internship'}</a></li>
             </ul>
           </div>

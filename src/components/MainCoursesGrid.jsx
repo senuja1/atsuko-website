@@ -7,38 +7,38 @@ export default function MainCoursesGrid({ lang, onNavigate }) {
   const courses = [
     {
       id: 'japanese-language',
-      category: isSi ? 'ජපන් භාෂාව' : isJp ? '日本語教育' : 'JAPANESE LANGUAGE',
+      category: isSi ? 'ජපන් භාෂාව සහ JFT' : isJp ? '日本語・JFT教育' : 'JAPANESE LANGUAGE & JFT',
       jpBadge: '日本語',
       headerGradient: 'linear-gradient(135deg, #0284c7 0%, #0369a1 100%)',
       accentColor: '#0284c7',
       bgImage: '/images/courses/course-japanese-language.jpg',
       title: isSi
-        ? 'මාස 3 ක ජපන් භාෂා පාඨමාලාව'
+        ? 'ජපන් භාෂා සහ JFT පාඨමාලාව'
         : isJp
-          ? '3ヶ月集中・日本語マスターコース'
-          : 'Japanese Language Course 3 Month',
+          ? '総合日本語・JFT集中コース'
+          : 'Japanese Language & JFT Course',
       jpTitle: '日本語集中プログラム (N5・N4・JFT)',
       desc: isSi
-        ? 'N5, N4, JFT Basics සහ දිනපතා කථන (Kaiwa) පුහුණුව සමගින් ජපානයේ ජීවිතයට සහ රැකියාවට සූදානම් වීම.'
+        ? 'සතියට දින 5ක් (පෙ.ව 9:00 – ප.ව 5:00) පැවැත්වෙන පූර්ණකාලීන පාඨමාලාව: මාස 1කින් N5 සහ දින 50කින් (මාස 2කින්) JFT / N4.'
         : isJp
-          ? 'N5・N4・JFT-A2および実戦会話（カイワ）を短期間で網羅指導。'
-          : 'Foundational N5/N4, JFT-Basic A2, and daily spoken Kaiwa classes for life and work in Japan.',
+          ? '週5日（9:00〜17:00）全日制：1ヶ月でN5、50日間（2ヶ月）でJFT / N4を習得。'
+          : 'Full-time (9:00 AM – 5:00 PM, 5 days/week): 1 Month for JLPT/NAT N5 and 50 Days (2 Months) for JFT-Basic / JLPT N4.',
       highlights: isSi
         ? [
-          'JLPT N5 සහ N4 විභාග සූදානම',
-          'JFT-Basic A2 පූර්ණ ආවරණය',
-          'දෛනික කථන (Kaiwa) පුහුණුව'
+          'පෙ.ව 9:00 – ප.ව 5:00 (සතියට දින 5)',
+          'මාස 1: JLPT N5 / NAT N5 (ශිෂ්‍ය වීසා)',
+          'දින 50 (මාස 2): JFT-Basic / JLPT N4 (SSW)'
         ]
         : isJp
           ? [
-            'JLPT N5・N4 対策',
-            'JFT-Basic A2 準備',
-            '生きた会話 (カイワ) 特訓'
+            '全日制 9:00 – 17:00（週5日）',
+            '1ヶ月：JLPT N5 / NAT N5（留学）',
+            '50日間（2ヶ月）：JFT / N4（特定技能）'
           ]
           : [
-            'JLPT N5 & N4 Prep',
-            'JFT-Basic A2 Ready',
-            'Spoken Kaiwa Practice'
+            'Full-Time: 9:00 AM – 5:00 PM (5 Days/Wk)',
+            '1 Month: JLPT N5 / NAT N5 (Student Visa)',
+            '50 Days (2 Months): JFT / JLPT N4 (SSW)'
           ]
     },
     {
@@ -55,26 +55,26 @@ export default function MainCoursesGrid({ lang, onNavigate }) {
           : 'SSW Skill Courses',
       jpTitle: '特定技能1号 職能別訓練 (Prometric)',
       desc: isSi
-        ? 'සාත්තු සේවා (Kaigo), ආහාර සේවා (Food Service) සහ හෝටල් ආගන්තුක සත්කාරය ප්‍රමුඛ නිල Prometric CBT වෘත්තීය නිපුණතා පුහුණුව.'
+        ? 'සාත්තු සේවා (Kaigo), ආහාර සේවා සහ නවාතැන් පහසුකම්, බෝග වගාව සහ පශු සම්පත් ප්‍රමුඛ නිල Prometric CBT වෘත්තීය නිපුණතා පුහුණුව.'
         : isJp
-          ? '介護、外食、宿泊業を中心に特定技能主要職種を実践指導。'
-          : 'Vocational skills training focused on Caregiver, Food Service, Hospitality, Agriculture, and Construction.',
+          ? '介護、外食・宿泊、耕種農業・畜産を中心に特定技能主要職種を実践指導。'
+          : 'Vocational skills training focused on Caregiver, Food Service & Accommodation, and Crop Farming & Livestock.',
       highlights: isSi
         ? [
           'සාත්තු සේවා (Kaigo) ප්‍රායෝගික පුහුණුව',
-          'ආහාර සහ හෝටල් සේවා පුහුණුව',
-          'කෘෂිකාර්මික හා ඉදිකිරීම් ක්ෂේත්‍ර'
+          'ආහාර සේවා සහ නවාතැන් පහසුකම්',
+          'බෝග වගාව සහ පශු සම්පත්'
         ]
         : isJp
           ? [
             '介護実習シミュレーション',
-            '外食・宿泊実務指導',
-            '農業・建設分野対策'
+            '外食業・宿泊分野実務',
+            '耕種農業・畜産分野対策'
           ]
           : [
-            'Kaigo Simulation Lab',
-            'Food Service & Hospitality',
-            'Agriculture & Construction'
+            'Caregiver (Kaigo) Simulation Lab',
+            'Food Service & Accommodation',
+            'Crop Farming & Livestock'
           ]
     },
     {

@@ -31,19 +31,19 @@ export default function VisaServicesPage({ lang, onOpenModal, initialTab = 'stud
   }, [initialTab]);
 
   const studentReqs = lang === 'si' ? [
-    'අවම වශයෙන් වසර 12 ක පාසල් අධ්‍යාපනයක් සම්පූර්ණ කර තිබීම (අ.පො.ස. උ/පෙළ හෝ ඊට සමාන සුදුසුකම්).',
+    'අ.පො.ස. උසස් පෙළ (A/L) දක්වා පාසල් අධ්‍යාපනය ලබා තිබීම (වසර 12 ක පාසල් අධ්‍යාපනය — ඩිප්ලෝමා සහතික අවශ්‍ය නොවේ).',
     'අයදුම් කරන අවස්ථාවේ වයස අවුරුදු 18 ත් 28 ත් අතර වීම.',
-    'අවම වශයෙන් පැය 150 ක ජපන් භාෂා හැදෑරීමේ සහතිකයක් හෝ JLPT N5 / JFT-Basic සමත් සහතිකයක් තිබීම.',
+    'JLPT N5 / NAT N5 සමත් සහතිකයක් (අත්සුකෝ හි මාස 1 ක පූර්ණකාලීන පාඨමාලාව) හෝ පැය 150 ක ජපන් භාෂා හැදෑරීමේ සහතිකයක් තිබීම.',
     'තහවුරු කළ බැංකු ශේෂයක් සහිත පිළිගත් මූල්‍ය අනුග්‍රාහකයෙකු (දෙමාපියන් හෝ ළඟම ඥාතීන්) සිටීම.',
   ] : lang === 'jp' ? [
-    '12年以上の学校教育（高等学校卒業以上または同等の資格）を修了していること。',
+    'G.C.E. A/L（高校課程・12年以上の正規学校教育）まで就学していること（専門ディプロマ等は不要）。',
     '申請時点で満18歳以上28歳以下であること。',
-    '150時間以上の公認日本語学習歴またはJLPT N5・JFT-Basic合格証書。',
+    'JLPT N5 / NAT N5合格証（当校1ヶ月全日制コース）または150時間以上の公認日本語学習歴。',
     '預金残高や資金形成過程を証明できる確実な経費支弁者（両親または親族）。',
   ] : [
-    'Completed at least 12 years of formal schooling (G.C.E. A/L or recognized equivalent).',
+    'Attended school up to G.C.E. A/L (12 years of formal schooling — prior Diploma certificates are NOT required).',
     'Age between 18 and 28 years at the time of application.',
-    'Minimum 150 hours of certified Japanese language study or JLPT N5 / JFT-Basic pass certificate.',
+    'JLPT N5 / NAT N5 pass certificate (1-Month Full-Time benchmark) or 150+ hours of certified Japanese language study.',
     'Genuine financial sponsor (parents or close relatives) with verified bank funds.',
   ];
 
@@ -65,20 +65,20 @@ export default function VisaServicesPage({ lang, onOpenModal, initialTab = 'stud
   ];
 
   const sswReqs = lang === 'si' ? [
-    'අවම වයස අවුරුදු 18 සම්පූර්ණ වී තිබීම; අ.පො.ස. සා/පෙළ හෝ උ/පෙළ අධ්‍යාපනික පසුබිම.',
-    'JFT-Basic A2 (පරිගණක විභාගය) හෝ JLPT N4 ජපන් භාෂා ප්‍රවීණතා විභාගය සමත්වීම.',
+    'අවම වයස අවුරුදු 18 සම්පූර්ණ වී තිබීම; අ.පො.ස. උසස් පෙළ (A/L) දක්වා පාසල් ගොස් තිබීම (ඩිප්ලෝමා සහතික අවශ්‍ය නොවේ).',
+    'JFT-Basic A2 (පරිගණක විභාගය) හෝ JLPT N4 ජපන් භාෂා ප්‍රවීණතා විභාගය සමත්වීම (දින 50 / මාස 2 පූර්ණකාලීන පාඨමාලාව).',
     'ඔබ තෝරාගත් ක්ෂේත්‍රය සඳහා Prometric නිපුණතා ඇගයීම් පරීක්ෂණය සමත්වීම.',
-    'යහපත් සෞඛ්‍ය තත්ත්වයක් සහ පොලිස් නිෂ්කාශන වාර්තාවක් තිබීම.',
+    'යහපත් කායික හා මානසික සෞඛ්‍ය තත්ත්වයකින් යුක්ත වීම.',
   ] : lang === 'jp' ? [
-    '満18歳以上であること；高卒以上の学歴。',
-    '国際交流基金日本語基礎テスト（JFT-Basic A2）またはJLPT N4合格。',
+    '満18歳以上であり、G.C.E. A/L（高校課程）まで就学していること（ディプロマ不要）。',
+    '国際交流基金日本語基礎テスト（JFT-Basic A2）またはJLPT N4合格（50日間／2ヶ月全日制コース）。',
     '希望分野の特定技能評価試験（プロメトリック試験）に合格すること。',
-    '良好な健康状態および無犯罪証明（警察証明）の提出。',
+    '日本での就労に適した良好な健康状態であること。',
   ] : [
-    'Minimum age 18 years; O/L or A/L educational background.',
-    'Pass JFT-Basic A2 (Computer test) or JLPT N4 Japanese proficiency.',
+    'Minimum age 18 years; attended school up to G.C.E. A/L (prior Diploma certificates are NOT required).',
+    'Pass JFT-Basic A2 (Computer test) or JLPT N4 Japanese proficiency (50-Day / 2-Month full-time course).',
     'Pass Prometric Skills Evaluation Test for your chosen sector.',
-    'Good medical health and clean police criminal record.',
+    'Good medical health clearance fit for employment in Japan.',
   ];
 
   const sswSupport = lang === 'si' ? [
@@ -261,43 +261,36 @@ export default function VisaServicesPage({ lang, onOpenModal, initialTab = 'stud
                 </div>
               </div>
 
-              {/* 5 SSW Sectors Spotlight */}
+              {/* Core SSW Sectors Spotlight */}
               <div className="ssw-sectors-breakdown">
                 <h3 className="section-title-sm">
-                  {lang === 'si' ? 'අත්සුකෝ හරහා මෙහෙයවන ප්‍රධාන SSW ක්ෂේත්‍ර 5' : lang === 'jp' ? '篤子が手掛ける特定技能5分野' : '5 Core SSW Employment Sectors Managed by Atsuko'}
+                  {lang === 'si' ? 'අත්සුකෝ හරහා මෙහෙයවන ප්‍රධාන SSW ක්ෂේත්‍ර' : lang === 'jp' ? '篤子が手掛ける特定技能重点分野' : 'Core SSW Employment Sectors Managed by Atsuko'}
                 </h3>
                 <div className="ssw-sectors-cards-grid">
                   <div className="ssw-cat-card">
                     <div className="ssw-cat-icon"></div>
                     <h4>1. Nursing Care / Caregiver (Kaigo)</h4>
-                    <p>{lang === 'si' ? 'ජපානයේ ඉහළම ඉල්ලුමක් ඇති ක්ෂේත්‍රය. අත්සුකෝ ප්‍රධාන මධ්‍යස්ථානයේ (Atsuko Main) ප්‍රායෝගික පුහුණුව.' : 'Highest demand sector in Japan. Work in accredited nursing homes and eldercare facilities. Practical simulation training at Atsuko Main.'}</p>
+                    <p>{lang === 'si' ? 'ජපානයේ ඉහළම ඉල්ලුමක් ඇති ක්ෂේත්‍රය (මසකට ¥180,000 – ¥240,000). අත්සුකෝ ප්‍රධාන මධ්‍යස්ථානයේ (Atsuko Main) ප්‍රායෝගික පුහුණුව සහ NVQ Level 3 පාඨමාලාව.' : 'Highest demand sector in Japan (¥180,000 – ¥240,000 / mo). Work in accredited nursing homes and eldercare facilities. Practical simulation & NVQ Level 3 training at Atsuko Main.'}</p>
                     <span className="ssw-cat-test">Test: JLPT N4 / JFT + Prometric Nursing Skills</span>
                   </div>
 
                   <div className="ssw-cat-card">
                     <div className="ssw-cat-icon"></div>
-                    <h4>2. Food Service & Restaurants (Gaishoku)</h4>
-                    <p>{lang === 'si' ? 'ජපානයේ ප්‍රමුඛ පෙළේ අවන්හල් ජාල සහ හෝටල් මුළුතැන්ගෙයි සේවා. පාරිභෝගික සත්කාරය සහ ආහාර සනීපාරක්ෂාව.' : 'Employment in dining chains, family restaurants, and hotel kitchens across Japan. Involves customer service, food prep, and kitchen sanitation.'}</p>
-                    <span className="ssw-cat-test">Test: JLPT N4 / JFT + Prometric Food Service</span>
+                    <h4>2. Food Service & Accommodation (Gaishoku & Shukuhaku)</h4>
+                    <p>{lang === 'si' ? 'ජපානයේ ප්‍රමුඛ පෙළේ අවන්හල් ජාල, හෝටල්, නිවාඩු නිකේතන සහ මුළුතැන්ගෙයි සේවා. පාරිභෝගික සත්කාරය, ආගන්තුක සත්කාරය සහ ආහාර සනීපාරක්ෂාව.' : 'Employment in dining chains, family restaurants, hotel kitchens, Japanese hotels, resorts, and traditional Ryokan hospitality across Japan.'}</p>
+                    <span className="ssw-cat-test">Test: JLPT N4 / JFT + Prometric Food Service / Accommodation</span>
                   </div>
 
                   <div className="ssw-cat-card">
                     <div className="ssw-cat-icon"></div>
-                    <h4>3. Agriculture & Livestock Farming</h4>
-                    <p>{lang === 'si' ? 'ස්වයංක්‍රීය හරිතාගාර එළවළු වගාව, පලතුරු නෙලීම සහ පශු සම්පත් කළමනාකරණය.' : 'Automated greenhouse vegetable cultivation, fruit picking, and livestock management in leading agricultural prefectures like Ibaraki and Nagano.'}</p>
-                    <span className="ssw-cat-test">Test: JLPT N4 / JFT + Prometric Agriculture Exam</span>
+                    <h4>3. Crop Farming & Livestock (Nogyo)</h4>
+                    <p>{lang === 'si' ? 'ස්වයංක්‍රීය හරිතාගාර බෝග වගාව, එළවළු හා පලතුරු නෙලීම සහ පශු සම්පත් කළමනාකරණය.' : 'Automated greenhouse crop farming, vegetable & fruit harvesting, and livestock management in leading agricultural prefectures like Ibaraki and Nagano.'}</p>
+                    <span className="ssw-cat-test">Test: JLPT N4 / JFT + Prometric Crop Farming & Livestock Exam</span>
                   </div>
 
                   <div className="ssw-cat-card">
                     <div className="ssw-cat-icon"></div>
-                    <h4>4. Accommodation & Hospitality (Shukuhaku)</h4>
-                    <p>{lang === 'si' ? 'ජපානයේ තරු පන්තියේ හෝටල්, සංචාරක නිකේතන සහ සම්ප්‍රදායික රියෝකාන් (Ryokan) ආශ්‍රිත පිළිගැනීමේ නිලධාරී සහ ආගන්තුක සත්කාරක රැකියා.' : 'Front desk, guest hospitality, housekeeping, and concierge roles at Japanese hotels, resorts, and traditional Ryokan inns.'}</p>
-                    <span className="ssw-cat-test">Test: JLPT N4 / JFT + Prometric Accommodation Exam</span>
-                  </div>
-
-                  <div className="ssw-cat-card">
-                    <div className="ssw-cat-icon"></div>
-                    <h4>5. Construction & Civil Engineering</h4>
+                    <h4>4. Construction & Civil Engineering (Kensetsu)</h4>
                     <p>{lang === 'si' ? 'ජපන් ආරක්ෂිත ප්‍රමිතීන්ට අනුකූලව ඉදිකිරීම් එකලස් කිරීම, සිවිල් ඉංජිනේරු ශිල්පය සහ අභ්‍යන්තර නිමවුම්.' : 'Structural assembly, civil engineering, interior finishing, and equipment handling under rigorous Japanese workplace safety standards.'}</p>
                     <span className="ssw-cat-test">Test: JLPT N4 / JFT + Construction Skills Exam</span>
                   </div>
