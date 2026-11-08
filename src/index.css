@@ -12063,52 +12063,6 @@ html[lang="jp"] .stat-label,
   }
 }
 
-.loader-corner {
-  position: absolute;
-  width: clamp(20px, 3vw, 32px);
-  height: clamp(20px, 3vw, 32px);
-  border-color: rgba(56, 189, 248, 0.28);
-  border-style: solid;
-}
-
-.loader-corner::after {
-  content: '';
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: var(--gold-400, #fbbf24);
-  box-shadow: 0 0 8px rgba(251, 191, 36, 0.75);
-}
-
-.loader-corner-tl {
-  top: 0;
-  left: 0;
-  border-width: 1px 0 0 1px;
-}
-.loader-corner-tl::after { top: -2px; left: -2px; }
-
-.loader-corner-tr {
-  top: 0;
-  right: 0;
-  border-width: 1px 1px 0 0;
-}
-.loader-corner-tr::after { top: -2px; right: -2px; }
-
-.loader-corner-bl {
-  bottom: 0;
-  left: 0;
-  border-width: 0 0 1px 1px;
-}
-.loader-corner-bl::after { bottom: -2px; left: -2px; }
-
-.loader-corner-br {
-  bottom: 0;
-  right: 0;
-  border-width: 0 1px 1px 0;
-}
-.loader-corner-br::after { bottom: -2px; right: -2px; }
-
 /* Top Official Government License Crest Pill matching Website Hero */
 .loader-top-crest-pill {
   position: absolute;

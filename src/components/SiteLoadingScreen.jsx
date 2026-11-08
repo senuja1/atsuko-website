@@ -107,13 +107,8 @@ export default function SiteLoadingScreen({ minDuration = 2400 }) {
         />
       </svg>
 
-      {/* 4. Architectural Shoji Frame Corners & Top SLBFE Official Crest Pill */}
+      {/* 4. Top SLBFE Official Crest Pill & Ambient Vertical Tategaki */}
       <div className="loader-frame-decor" aria-hidden="true">
-        <span className="loader-corner loader-corner-tl" />
-        <span className="loader-corner loader-corner-tr" />
-        <span className="loader-corner loader-corner-bl" />
-        <span className="loader-corner loader-corner-br" />
-
         {/* Official Government License Crest Pill matching Website Hero Theme */}
         <div className="loader-top-crest-pill">
           <span className="loader-crest-diamond">◆</span>
