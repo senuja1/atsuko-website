@@ -9,8 +9,7 @@ import {
   Users,
   Video,
   Globe2,
-  Camera,
-  MapPin
+  Camera
 } from 'lucide-react';
 import { videoSuccessStories, deployedCandidatesGallery } from '../data/websiteData';
 import { getUiText } from '../data/uiText';
@@ -53,34 +52,6 @@ export default function SuccessStoriesPage({ lang, onOpenModal }) {
     if (lang === 'si' && item.titleSi) return item.titleSi;
     if ((lang === 'jp' || lang === 'ja') && item.titleJp) return item.titleJp;
     return item.title;
-  };
-
-  const getCandidateDesc = (item) => {
-    if (!item) return '';
-    if (lang === 'si' && item.descSi) return item.descSi;
-    if ((lang === 'jp' || lang === 'ja') && item.descJp) return item.descJp;
-    return item.description;
-  };
-
-  const getCandidateBadge = (item) => {
-    if (!item) return '';
-    if (lang === 'si' && item.badgeSi) return item.badgeSi;
-    if ((lang === 'jp' || lang === 'ja') && item.badgeJp) return item.badgeJp;
-    return item.badge;
-  };
-
-  const getCandidateSector = (item) => {
-    if (!item) return '';
-    if (lang === 'si' && item.sectorSi) return item.sectorSi;
-    if ((lang === 'jp' || lang === 'ja') && item.sectorJp) return item.sectorJp;
-    return item.sector;
-  };
-
-  const getCandidateDest = (item) => {
-    if (!item) return '';
-    if (lang === 'si' && item.destinationSi) return item.destinationSi;
-    if ((lang === 'jp' || lang === 'ja') && item.destinationJp) return item.destinationJp;
-    return item.destination;
   };
 
   const quickIcons = [
@@ -281,25 +252,6 @@ export default function SuccessStoriesPage({ lang, onOpenModal }) {
                       loading="lazy"
                       decoding="async"
                     />
-
-                    {/* Floating Visa Badge */}
-                    <div className="candidate-badge-overlay">
-                      <span className={`badge ${candidate.badge.includes('SSW') ? 'badge-red' : 'badge-blue'}`}>
-                        {getCandidateBadge(candidate)}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="candidate-card-info">
-                    <div className="candidate-card-meta-row">
-                      <span className="candidate-sector-tag">{getCandidateSector(candidate)}</span>
-                      <span className="candidate-tag-badge">{candidate.tag}</span>
-                    </div>
-                    <h3 className="candidate-card-title">{getCandidateTitle(candidate)}</h3>
-                    <div className="candidate-destination-row">
-                      <MapPin size={13} style={{ color: '#ef4444', flexShrink: 0 }} />
-                      <span>{getCandidateDest(candidate)}</span>
-                    </div>
                   </div>
                 </div>
               ))}
