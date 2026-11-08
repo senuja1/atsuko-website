@@ -8,8 +8,8 @@ export default function SuccessStories({ lang, onNavigate }) {
     {
       title: "නිල ශිෂ්‍ය ප්‍රජාව",
       sub: "Facebook Group: Students of Atsuko International",
-      desc: "17,000කට අධික අනාගත සිසුන්, ආදි සිසුන් සහ දැනට ජපානයේ සේවය කරන පිරිස් එක්වී ඇති ශක්තිමත් ප්‍රජාව.",
-      stat: "17K+ සාමාජිකයින්",
+      desc: "20,000කට අධික අනාගත සිසුන්, ආදි සිසුන් සහ දැනට ජපානයේ සේවය කරන පිරිස් එක්වී ඇති ශක්තිමත් ප්‍රජාව.",
+      stat: "20K+ සාමාජිකයින්",
       link: "https://www.facebook.com/groups/studentsofatsukointernational"
     },
     {
@@ -32,8 +32,8 @@ export default function SuccessStories({ lang, onNavigate }) {
     {
       title: "公式受講生・修了生コミュニティ",
       sub: "Facebook Group: Students of Atsuko International",
-      desc: "17,000名を超えるスリランカ国内の受講希望者・日本渡航済みの卒業生が繋がる公式グループ。",
-      stat: "17,000名超の登録者",
+      desc: "20,000名を超えるスリランカ国内の受講希望者・日本渡航済みの卒業生が繋がる公式グループ。",
+      stat: "20,000名超の登録者",
       link: "https://www.facebook.com/groups/studentsofatsukointernational"
     },
     {
@@ -56,8 +56,8 @@ export default function SuccessStories({ lang, onNavigate }) {
     {
       title: "Official Student Community",
       sub: "Facebook Group: Students of Atsuko International",
-      desc: "Over 17,000 prospective students, alumni, and current workers in Japan actively exchange updates on batches, job vacancies, and study experiences.",
-      stat: "17K+ Followers",
+      desc: "Over 20,000 prospective students, alumni, and current workers in Japan actively exchange updates on batches, job vacancies, and study experiences.",
+      stat: "20K+ Followers",
       link: "https://www.facebook.com/groups/studentsofatsukointernational"
     },
     {
