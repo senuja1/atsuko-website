@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import {
   Play,
   ExternalLink,
@@ -11,12 +10,7 @@ import {
   Video,
   Globe2,
   Camera,
-  Maximize2,
-  X,
-  ChevronLeft,
-  ChevronRight,
-  MapPin,
-  Briefcase
+  MapPin
 } from 'lucide-react';
 import { videoSuccessStories, deployedCandidatesGallery } from '../data/websiteData';
 import { getUiText } from '../data/uiText';
@@ -41,40 +35,6 @@ export default function SuccessStoriesPage({ lang, onOpenModal }) {
   const s = getUiText(lang).pages.stories;
   const featureVideos = videoSuccessStories.filter(v => v.type === 'feature');
   const shortVideos = videoSuccessStories.filter(v => v.type === 'short');
-
-  const [lightboxIndex, setLightboxIndex] = useState(null);
-  const lightboxCandidate = lightboxIndex !== null ? deployedCandidatesGallery[lightboxIndex] : null;
-
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (lightboxIndex === null) return;
-      if (e.key === 'Escape') setLightboxIndex(null);
-      if (e.key === 'ArrowLeft') {
-        setLightboxIndex((prev) => (prev > 0 ? prev - 1 : deployedCandidatesGallery.length - 1));
-      }
-      if (e.key === 'ArrowRight') {
-        setLightboxIndex((prev) => (prev < deployedCandidatesGallery.length - 1 ? prev + 1 : 0));
-      }
-    };
-    if (lightboxIndex !== null) {
-      document.body.style.overflow = 'hidden';
-      window.addEventListener('keydown', handleKeyDown);
-    }
-    return () => {
-      document.body.style.overflow = '';
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [lightboxIndex]);
-
-  const handlePrevCandidate = (e) => {
-    e.stopPropagation();
-    setLightboxIndex((prev) => (prev > 0 ? prev - 1 : deployedCandidatesGallery.length - 1));
-  };
-
-  const handleNextCandidate = (e) => {
-    e.stopPropagation();
-    setLightboxIndex((prev) => (prev < deployedCandidatesGallery.length - 1 ? prev + 1 : 0));
-  };
 
   const getLocalizedTitle = (item) => {
     if (lang === 'si' && item.titleSi) return item.titleSi;
@@ -308,20 +268,10 @@ export default function SuccessStoriesPage({ lang, onOpenModal }) {
             </div>
 
             <div className="candidates-photo-grid">
-              {deployedCandidatesGallery.map((candidate, idx) => (
+              {deployedCandidatesGallery.map((candidate) => (
                 <div
                   key={candidate.id}
                   className="candidate-card"
-                  onClick={() => setLightboxIndex(idx)}
-                  role="button"
-                  tabIndex={0}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                      e.preventDefault();
-                      setLightboxIndex(idx);
-                    }
-                  }}
-                  aria-label={`View candidate photo: ${getCandidateTitle(candidate)}`}
                 >
                   <div className="candidate-img-container">
                     <img
@@ -337,14 +287,6 @@ export default function SuccessStoriesPage({ lang, onOpenModal }) {
                       <span className={`badge ${candidate.badge.includes('SSW') ? 'badge-red' : 'badge-blue'}`}>
                         {getCandidateBadge(candidate)}
                       </span>
-                    </div>
-
-                    {/* Interactive Expand Hover Overlay */}
-                    <div className="candidate-expand-overlay" aria-hidden="true">
-                      <div className="candidate-expand-pill">
-                        <Maximize2 size={15} />
-                        <span>{s.clickToExpand || 'Click to Expand'}</span>
-                      </div>
                     </div>
                   </div>
 
@@ -419,111 +361,6 @@ export default function SuccessStoriesPage({ lang, onOpenModal }) {
           </div>
         </div>
       </section>
-
-      {/* 5. Interactive Lightbox Modal for Candidates */}
-      {lightboxCandidate && (
-        <div
-          className="candidate-lightbox-backdrop"
-          onClick={() => setLightboxIndex(null)}
-          role="dialog"
-          aria-modal="true"
-        >
-          <div
-            className="candidate-lightbox-modal"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Close Button */}
-            <button
-              type="button"
-              className="candidate-lightbox-close"
-              onClick={() => setLightboxIndex(null)}
-              aria-label="Close Preview"
-            >
-              <X size={20} />
-            </button>
-
-            {/* Previous Arrow */}
-            <button
-              type="button"
-              className="candidate-lightbox-nav prev"
-              onClick={handlePrevCandidate}
-              aria-label="Previous Photo"
-            >
-              <ChevronLeft size={24} />
-            </button>
-
-            {/* Next Arrow */}
-            <button
-              type="button"
-              className="candidate-lightbox-nav next"
-              onClick={handleNextCandidate}
-              aria-label="Next Photo"
-            >
-              <ChevronRight size={24} />
-            </button>
-
-            <div className="candidate-lightbox-img-wrap">
-              <img
-                src={lightboxCandidate.image}
-                alt={getCandidateTitle(lightboxCandidate)}
-                className="candidate-lightbox-img"
-              />
-            </div>
-
-            <div className="candidate-lightbox-details">
-              <div className="candidate-lightbox-meta-row">
-                <span className={`badge ${lightboxCandidate.badge.includes('SSW') ? 'badge-red' : 'badge-blue'}`}>
-                  {getCandidateBadge(lightboxCandidate)}
-                </span>
-                <span className="badge badge-gold">
-                  {lightboxCandidate.tag}
-                </span>
-                <span className="candidate-reg-pill">
-                  SLBFE Lic. #3293 • 登録支援機関 23登-008312
-                </span>
-              </div>
-
-              <h3 className="candidate-lightbox-title">
-                {getCandidateTitle(lightboxCandidate)}
-              </h3>
-
-              <div className="candidate-lightbox-dest-row">
-                <div className="dest-pill">
-                  <Briefcase size={14} style={{ color: '#0ea5e9', flexShrink: 0 }} />
-                  <span>{getCandidateSector(lightboxCandidate)}</span>
-                </div>
-                <div className="dest-pill">
-                  <MapPin size={14} style={{ color: '#ef4444', flexShrink: 0 }} />
-                  <span>{getCandidateDest(lightboxCandidate)}</span>
-                </div>
-              </div>
-
-              <p className="candidate-lightbox-desc">
-                {getCandidateDesc(lightboxCandidate)}
-              </p>
-
-              <div className="candidate-lightbox-action-row">
-                <button
-                  type="button"
-                  onClick={() => {
-                    const title = getCandidateTitle(lightboxCandidate);
-                    setLightboxIndex(null);
-                    if (onOpenModal) onOpenModal(`Consultation inspired by ${title}`);
-                  }}
-                  className="btn btn-primary btn-sm"
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem' }}
-                >
-                  <Sparkles size={14} />
-                  <span>{lang === 'si' ? 'ඔබගේ වීසා අයදුම්පත අරඹන්න' : lang === 'jp' ? '個別相談・プログラムに申し込む' : 'Start Your Visa Pathway'}</span>
-                </button>
-                <span style={{ fontSize: '0.8rem', color: '#64748b', fontWeight: 600 }}>
-                  {lightboxIndex + 1} / {deployedCandidatesGallery.length}
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
