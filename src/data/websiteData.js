@@ -150,6 +150,21 @@ export const aboutUsData = {
       focusJp: "日本国内事業の戦略的ガバナンス、登録支援機関業務のコンプライアンス統括、および受入企業との業務提携推進。"
     },
     {
+      name: "Ito Tsuguki",
+      nameSi: "ඉතෝ ත්සුගුකි",
+      nameJp: "伊藤 次樹",
+      role: "Director",
+      roleSi: "අධ්‍යක්ෂ",
+      roleJp: "取締役",
+      title: "Director (Japan Operations)",
+      titleSi: "අධ්‍යක්ෂ (ජපාන මෙහෙයුම්)",
+      titleJp: "取締役（日本現地法人統括）",
+      image: "/images/team/ito-tsuguki.png",
+      focus: "Overseeing Japanese corporate employer relations, legal compliance under Japanese labor standards, and candidate reception.",
+      focusSi: "ජපානයේ ආයතනික සේවායෝජක සබඳතා, ජපන් කම්කරු නීති ප්‍රමිතීන් යටතේ නීතිමය අනුකූලතාව සහ අපේක්ෂකයින් පිළිගැනීම අධීක්ෂණය කිරීම.",
+      focusJp: "日本企業との受入提携、労働法規に基づく適正管理、受入れ環境の整備および候補者の現地定着支援。"
+    },
+    {
       name: "Nguyen Thi Hanh",
       nameSi: "නගුයෙන් ති හැන්",
       nameJp: "グエン・ティ・ハン",
@@ -193,6 +208,21 @@ export const aboutUsData = {
       focus: "On-the-ground candidate reception, airport greeting, municipal resident registration, bank account setup, and student welfare.",
       focusSi: "ජපානයේ ගුවන් තොටුපළින් පිළිගැනීම, නගර සභා නේවාසික ලියාපදිංචිය, බැංකු ගිණුම් ආරම්භ කිරීම සහ ශිෂ්‍ය සුබසාධන කටයුතු සෘජුව මෙහෙයවීම.",
       focusJp: "日本到着時の空港出迎え、住民登録、銀行口座開設、社宅手配、および滞在中の生活相談・定着支援。"
+    },
+    {
+      name: "Japanese Language Instructor",
+      nameSi: "ජපන් භාෂා උපදේශිකා",
+      nameJp: "日本語専任講師",
+      role: "Language Instructor",
+      roleSi: "ජපන් භාෂා උපදේශිකා",
+      roleJp: "日本語専任講師",
+      title: "Japanese Language Instructor (JLPT / JFT)",
+      titleSi: "ජපන් භාෂා උපදේශිකා (JLPT / JFT විභාග සූදානම)",
+      titleJp: "日本語専任指導員（JLPT・JFT-Basic対策）",
+      image: "/images/team/japanese-language-instructor.jpg",
+      focus: "Directing JLPT N5/N4 curriculum, JFT-Basic spoken immersion, Kanji calligraphy sessions, and employer interview rehearsals.",
+      focusSi: "JLPT N5/N4 විෂය නිර්දේශය, JFT-Basic කථන පුහුණුව, කන්ජි අක්ෂර ලිවීම සහ ආයතනික සම්මුඛ පරීක්ෂණ පෙරහුරු මෙහෙයවීම.",
+      focusJp: "JLPT N5・N4集中カリキュラム、JFT-Basic会話実践、漢字指導、および採用面接（Mensetsu）対策演習。"
     },
     {
       name: "Thotage Imalsha Dulanjali",
