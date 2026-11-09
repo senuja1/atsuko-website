@@ -135,6 +135,21 @@ export const aboutUsData = {
       focusJp: "全体統括、スリランカ・日本二国間連携推進、SLBFE法的コンプライアンス管理、教育・受入提携機関との連携業務。"
     },
     {
+      name: "Yoshiki Yokoi",
+      nameSi: "යොෂිකි යොකොයි",
+      nameJp: "横井 義樹",
+      role: "Director",
+      roleSi: "අධ්‍යක්ෂ",
+      roleJp: "取締役",
+      title: "Director (Japan Operations & Strategic Compliance)",
+      titleSi: "අධ්‍යක්ෂ (ජපාන මෙහෙයුම් සහ උපායමාර්ගික ප්‍රමිති)",
+      titleJp: "取締役（日本現地法人統括・戦略コンプライアンス担当）",
+      image: "/images/team/yoshiki-yokoi.jpg",
+      focus: "Strategic governance, oversight of Japan-based operations, registered support organization compliance, and corporate partnerships with Japanese accepting enterprises.",
+      focusSi: "උපායමාර්ගික නායකත්වය, ජපාන මෙහෙයුම් අධීක්ෂණය, ජපාන ලියාපදිංචි සහායක ආයතනික ප්‍රමිතීන් සහ ජපන් ආයතන සමඟ හවුල්කාරිත්වයන් මෙහෙයවීම.",
+      focusJp: "日本国内事業の戦略的ガバナンス、登録支援機関業務のコンプライアンス統括、および受入企業との業務提携推進。"
+    },
+    {
       name: "Nguyen Thi Hanh",
       nameSi: "නගුයෙන් ති හැන්",
       nameJp: "グエン・ティ・ハン",
@@ -178,21 +193,6 @@ export const aboutUsData = {
       focus: "On-the-ground candidate reception, airport greeting, municipal resident registration, bank account setup, and student welfare.",
       focusSi: "ජපානයේ ගුවන් තොටුපළින් පිළිගැනීම, නගර සභා නේවාසික ලියාපදිංචිය, බැංකු ගිණුම් ආරම්භ කිරීම සහ ශිෂ්‍ය සුබසාධන කටයුතු සෘජුව මෙහෙයවීම.",
       focusJp: "日本到着時の空港出迎え、住民登録、銀行口座開設、社宅手配、および滞在中の生活相談・定着支援。"
-    },
-    {
-      name: "Maddumage Ranudi Vihansa Ariyarathna",
-      nameSi: "මද්දුමගේ රනුදි විහංසා ආරියරත්න",
-      nameJp: "マッドゥマゲ・ラヌディ・ヴィハンサ・アリヤラトナ",
-      role: "SSW Coordinator",
-      roleSi: "SSW රැකියා සම්බන්ධීකාරක",
-      roleJp: "特定技能コーディネーター",
-      title: "SSW (Specified Skilled Worker) Coordinator",
-      titleSi: "SSW විශේෂිත කුසලතා රැකියා සම්බන්ධීකාරක",
-      titleJp: "特定技能専門コーディネーター",
-      image: "/images/team/ranudi-ariyarathna.png",
-      focus: "Coordinating Caregiver (Kaigo) practical simulation lab, Food Service, Hospitality, and Prometric CBT test readiness.",
-      focusSi: "සාත්තු සේවා (Kaigo) ප්‍රායෝගික පුහුණු ඒකකය, ආහාර සේවා, හෝටල් සේවා සහ Prometric CBT විභාග සූදානම සම්බන්ධීකරණය.",
-      focusJp: "介護実習シミュレーション、外食、宿泊などの特定技能試験対策およびプロメトリックCBT受験支援。"
     },
     {
       name: "Thotage Imalsha Dulanjali",
