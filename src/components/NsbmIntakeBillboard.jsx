@@ -67,13 +67,15 @@ function extractYouTubeId(urlOrId) {
 function normalizeFeedPayload(data) {
   const rawList = Array.isArray(data)
     ? data
-    : Array.isArray(data?.videos)
-      ? data.videos
-      : Array.isArray(data?.posts)
-        ? data.posts
-        : Array.isArray(data?.data)
-          ? data.data
-          : [];
+    : Array.isArray(data?.items)
+      ? data.items
+      : Array.isArray(data?.videos)
+        ? data.videos
+        : Array.isArray(data?.posts)
+          ? data.posts
+          : Array.isArray(data?.data)
+            ? data.data
+            : [];
 
   const parsed = rawList
     .map((item, idx) => {
@@ -82,7 +84,7 @@ function normalizeFeedPayload(data) {
         const id = extractYouTubeId(item);
         return id ? { id, title: `Atsuko Video ${idx + 1}`, category: 'YouTube Video' } : null;
       }
-      const rawId = item.id || item.youtubeId || item.url || item.permalink || '';
+      const rawId = item.id || item.youtubeId || item.url || item.permalink || item.link || item.guid || '';
       const id = extractYouTubeId(rawId);
       if (!id) return null;
       return {
@@ -90,7 +92,7 @@ function normalizeFeedPayload(data) {
         title: item.title || `Atsuko Video ${idx + 1}`,
         titleSi: item.titleSi,
         titleJp: item.titleJp,
-        category: item.category || 'Atsuko Feature',
+        category: item.category || 'Official YouTube',
         categorySi: item.categorySi,
         categoryJp: item.categoryJp,
         badge: item.badge
@@ -119,38 +121,51 @@ export default function NsbmIntakeBillboard({ lang = 'en' }) {
     let isMounted = true;
 
     async function loadLiveVideos() {
+      // 1. Try local cPanel PHP server-side live YouTube RSS bridge
       try {
-        let feedUrl = import.meta.env.VITE_YOUTUBE_FEED_URL || '';
+        const phpRes = await fetch(`/api-youtube-live.php?t=${Date.now()}`, { cache: 'no-cache' });
+        if (phpRes.ok) {
+          const phpData = await phpRes.json();
+          const phpVideos = normalizeFeedPayload(phpData);
+          if (isMounted && phpVideos.length >= 4) {
+            setVideos(phpVideos);
+            return;
+          }
+        }
+      } catch {
+        // Continue to next live source
+      }
 
+      // 2. Try official YouTube channel live RSS through high-speed CORS proxy
+      try {
+        const rssProxyUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(
+          'https://www.youtube.com/feeds/videos.xml?channel_id=UChN4iv_pO5nu-_24iBKccnA'
+        )}`;
+        const rssRes = await fetch(rssProxyUrl, { cache: 'no-cache' });
+        if (rssRes.ok) {
+          const rssData = await rssRes.json();
+          const rssVideos = normalizeFeedPayload(rssData);
+          if (isMounted && rssVideos.length >= 4) {
+            setVideos(rssVideos);
+            return;
+          }
+        }
+      } catch {
+        // Continue to config
+      }
+
+      // 3. Fallback to /youtube-feed.json
+      try {
         const configRes = await fetch(`/youtube-feed.json?t=${Date.now()}`, { cache: 'no-cache' });
-        let configData = null;
         if (configRes.ok) {
-          configData = await configRes.json();
-          if (!feedUrl && configData?.feedUrl) {
-            feedUrl = configData.feedUrl.trim();
-          }
-        }
-
-        if (feedUrl) {
-          const liveRes = await fetch(feedUrl, { cache: 'no-cache' });
-          if (liveRes.ok) {
-            const liveData = await liveRes.json();
-            const liveVideos = normalizeFeedPayload(liveData);
-            if (isMounted && liveVideos.length > 0) {
-              setVideos(liveVideos);
-              return;
-            }
-          }
-        }
-
-        if (configData) {
+          const configData = await configRes.json();
           const configVideos = normalizeFeedPayload(configData);
           if (isMounted && configVideos.length > 0) {
             setVideos(configVideos);
           }
         }
       } catch {
-        // Fallback silently
+        // Keep fallback videos
       }
     }
 
