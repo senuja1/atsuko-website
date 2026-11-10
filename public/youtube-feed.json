@@ -1,45 +1,55 @@
 {
-  "channelUrl": "https://www.youtube.com/@ATSUKOINTERNATIONAL",
+  "channelUrl": "https://www.youtube.com/@ATSUKOINTERNATIONAL/shorts",
   "videos": [
     {
-      "id": "LPol8PPQsnM",
-      "title": "Food Service Visa Job Success in Japan - Atsuko International",
-      "titleSi": "ජපානයේ Food Service රැකියාවක් ලබාගත් ඇයගේ සාර්ථකත්වය",
-      "titleJp": "特定技能「外食業」就労ビザ獲得・受講生の実績報告",
-      "category": "SSW Food Service",
-      "categorySi": "SSW ආහාර සේවා",
-      "categoryJp": "特定技能 外食業",
-      "badge": "Work Victory"
+      "id": "zcCYJCcQLFA",
+      "title": "🌸 ATSUKO INTERNATIONAL - Japan Job Placement Success Story",
+      "titleSi": "ජපානයේ රැකියා ලබාගත් අපේ සිසුන්ගේ අදහස් - අත්සුකෝ ජාත්‍යන්තර ආයතනය",
+      "titleJp": "日本就労ビザ獲得・受講生の喜びの体験談",
+      "category": "Japan Job Placement",
+      "categorySi": "ජපාන රැකියා සාර්ථකත්වය",
+      "categoryJp: "就労ビザ 実績",
+      "badge": "Job Victory"
     },
     {
-      "id": "lhdl9_nXAnE",
-      "title": "Japanese Language Student Testimonial - Atsuko International",
-      "titleSi": "අත්සුකෝ ජපන් භාෂා පාඨමාලාවේ සිසුවියකගේ අත්දැකීම්",
-      "titleJp": "日本語コース受講生のリアルな学習体験談",
-      "category": "Language Immersion",
-      "categorySi": "ජපන් භාෂා පාඨමාලාව",
-      "categoryJp": "日本語教育",
-      "badge": "Student Review"
+      "id": "VaAG-Be6ZUk",
+      "title": "ATSUKO INTERNATIONAL - JFT Exam Success & Japan Visa Milestone",
+      "titleSi: "JFT විභාගය ජයගෙන ජපානයේ රැකියා සිහිනය සැබෑ කරගත් සිසුවෙක්",
+      "titleJp: "JFT-Basic合格・日本就労へのステップ",
+      "category": "JFT Exam Passed",
+      "categorySi": "JFT විභාග ජයග්‍රහණය",
+      "categoryJp: "JFT試験 合格",
+      "badge": "JFT Exam"
     },
     {
-      "id": "4ZSTvGbNCAM",
-      "title": "Batch 17 Completion Day Feedback - Kadawatha Campus",
-      "titleSi: "17 වන කණ්ඩායමේ සිසුවියක් අවසන් දිනයේ දැක්වූ අදහස්",
-      "titleJp: "第17期生 修了日の生の声・JLPT/JFT対策",
-      "category": "Batch 17 Review",
-      "categorySi": "17 වන කණ්ඩායම",
-      "categoryJp: "第17期生",
-      "badge": "Campus Feedback"
+      "id": "43Nvg3NiZ20",
+      "title": "Batch 18 Students Real Feedback - Japanese Language Course",
+      "titleSi: "18 වන කණ්ඩායමේ සිසුන්ගේ අදහස් - 19 වන කණ්ඩායමට ලියාපදිංචි වන්න",
+      "titleJp: "第18期生 修了レビュー・第19期生募集中",
+      "category": "Batch 18 Review",
+      "categorySi: "18 වන කණ්ඩායම",
+      "categoryJp: "第18期生",
+      "badge": "Batch 18"
     },
     {
-      "id": "buiQB1nwloo",
-      "title": "Student Visa Milestone & Departure Pathway to Japan",
-      "titleSi: "අත්සුකෝ ජාත්‍යන්තර ආයතනයේ ශිෂ්‍ය වීසා සන්ධිස්ථානය",
-      "titleJp: "留学ビザ・日本渡航への確実なステップ",
-      "category": "Student Visa",
-      "categorySi": "ශිෂ්‍ය වීසා",
-      "categoryJp: "日本留学ビザ",
-      "badge": "Student Milestone"
+      "id": "1-MST6bTChE",
+      "title": "Nursing Care NVQ 03 Course Practical Training & Student Review",
+      "titleSi: "Nursing Care NVQ 03 පාඨමාලාවේ ප්‍රායෝගික පුහුණුව සහ සිසු අදහස්",
+      "titleJp: "介護職員初任者研修・NVQ Level 3 実習レビュー",
+      "category": "Nursing Care NVQ",
+      "categorySi: "NVQ 3 සාත්තු සේවා",
+      "categoryJp: "特定技能 介護",
+      "badge": "NVQ Caregiver"
+    },
+    {
+      "id": "jaMbpphKV_o",
+      "title": "NVQ Course Practical Simulation Training by Atsuko International",
+      "titleSi: "NVQ සාත්තු සේවා ප්‍රායෝගික පුහුණු ඒකකය - අත්සුකෝ ජාත්‍යන්තර ආයතනය",
+      "titleJp: "アツコ校 介護実習シミュレーション演習",
+      "category": "Caregiver Lab",
+      "categorySi: "ප්‍රායෝගික පුහුණුව",
+      "categoryJp: "介護実技",
+      "badge": "Caregiver Lab"
     }
   ]
 }

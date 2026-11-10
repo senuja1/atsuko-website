@@ -10342,8 +10342,8 @@ html[lang="jp"] .stat-label,
 
 .nsbm-four-posts-row {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
   width: 100%;
   margin: 0 auto;
 }

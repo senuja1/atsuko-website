@@ -2,42 +2,57 @@ import { useState, useEffect, useRef } from 'react';
 import { Play, ExternalLink } from 'lucide-react';
 import { YoutubeIcon } from './SocialIcons';
 
+// Exact Latest Official YouTube Shorts from @ATSUKOINTERNATIONAL
 const FALLBACK_VIDEOS = [
   {
-    id: 'LPol8PPQsnM',
-    title: 'Food Service Visa Job Success in Japan - Atsuko International',
-    titleSi: 'ජපානයේ Food Service රැකියාවක් ලබාගත් ඇයගේ සාර්ථකත්වය',
-    titleJp: '特定技能「外食業」就労ビザ獲得・受講生の実績報告',
-    category: 'SSW Food Service',
-    categorySi: 'SSW ආහාර සේවා',
-    categoryJp: '特定技能 外食業'
+    id: 'zcCYJCcQLFA',
+    title: '🌸 ATSUKO INTERNATIONAL - Japan Job Placement Success Story',
+    titleSi: 'ජපානයේ රැකියා ලබාගත් අපේ සිසුන්ගේ අදහස් - අත්සුකෝ ජාත්‍යන්තර ආයතනය',
+    titleJp: '日本就労ビザ獲得・受講生の喜びの体験談',
+    category: 'Job Placement',
+    categorySi: 'ජපාන රැකියා සාර්ථකත්වය',
+    categoryJp: '就労ビザ 実績',
+    badge: 'Job Victory'
   },
   {
-    id: 'lhdl9_nXAnE',
-    title: 'Japanese Language Student Testimonial - Atsuko International',
-    titleSi: 'අත්සුකෝ ජපන් භාෂා පාඨමාලාවේ සිසුවියකගේ අත්දැකීම්',
-    titleJp: '日本語コース受講生のリアルな学習体験談',
-    category: 'Language Immersion',
-    categorySi: 'ජපන් භාෂා පාඨමාලාව',
-    categoryJp: '日本語教育'
+    id: 'VaAG-Be6ZUk',
+    title: 'ATSUKO INTERNATIONAL - JFT Exam Success & Japan Visa Milestone',
+    titleSi: 'JFT විභාගය ජයගෙන ජපානයේ රැකියා සිහිනය සැබෑ කරගත් සිසුවෙක්',
+    titleJp: 'JFT-Basic合格・日本就労へのステップ',
+    category: 'JFT Exam Passed',
+    categorySi: 'JFT විභාග ජයග්‍රහණය',
+    categoryJp: 'JFT試験 合格',
+    badge: 'JFT Exam'
   },
   {
-    id: '4ZSTvGbNCAM',
-    title: 'Batch 17 Completion Day Feedback - Kadawatha Campus',
-    titleSi: '17 වන කණ්ඩායමේ සිසුවියක් අවසන් දිනයේ දැක්වූ අදහස්',
-    titleJp: '第17期生 修了日の生の声・JLPT/JFT対策',
-    category: 'Batch 17 Review',
-    categorySi: '17 වන කණ්ඩායම',
-    categoryJp: '第17期生'
+    id: '43Nvg3NiZ20',
+    title: 'Batch 18 Students Real Feedback - Japanese Language Course',
+    titleSi: '18 වන කණ්ඩායමේ සිසුන්ගේ අදහස් - 19 වන කණ්ඩායමට ලියාපදිංචි වන්න',
+    titleJp: '第18期生 修了レビュー・第19期生募集中',
+    category: 'Batch 18 Review',
+    categorySi: '18 වන කණ්ඩායම',
+    categoryJp: '第18期生',
+    badge: 'Batch 18'
   },
   {
-    id: 'buiQB1nwloo',
-    title: 'Student Visa Milestone & Departure Pathway to Japan',
-    titleSi: 'අත්සුකෝ ජාත්‍යන්තර ආයතනයේ ශිෂ්‍ය වීසා සන්ධිස්ථානය',
-    titleJp: '留学ビザ・日本渡航への確実なステップ',
-    category: 'Student Visa',
-    categorySi: 'ශිෂ්‍ය වීසා',
-    categoryJp: '日本留学ビザ'
+    id: '1-MST6bTChE',
+    title: 'Nursing Care NVQ 03 Course Practical Training & Student Review',
+    titleSi: 'Nursing Care NVQ 03 පාඨමාලාවේ ප්‍රායෝගික පුහුණුව සහ සිසු අදහස්',
+    titleJp: '介護職員初任者研修・NVQ Level 3 実習レビュー',
+    category: 'Nursing Care NVQ',
+    categorySi: 'NVQ 3 සාත්තු සේවා',
+    categoryJp: '特定技能 介護',
+    badge: 'NVQ Caregiver'
+  },
+  {
+    id: 'jaMbpphKV_o',
+    title: 'NVQ Course Practical Simulation Training by Atsuko International',
+    titleSi: 'NVQ සාත්තු සේවා ප්‍රායෝගික පුහුණු ඒකකය - අත්සුකෝ ජාත්‍යන්තර ආයතනය',
+    titleJp: 'アツコ校 介護実習シミュレーション演習',
+    category: 'Caregiver Lab',
+    categorySi: 'ප්‍රායෝගික පුහුණුව',
+    categoryJp: '介護実技',
+    badge: 'Caregiver Lab'
   }
 ];
 
@@ -77,12 +92,12 @@ function normalizeFeedPayload(data) {
         titleJp: item.titleJp,
         category: item.category || 'Atsuko Feature',
         categorySi: item.categorySi,
-        categoryJp: item.categoryJp
+        categoryJp: item.categoryJp,
+        badge: item.badge
       };
     })
     .filter((v) => v && v.id);
 
-  // Deduplicate and return top 4
   const seen = new Set();
   const unique = [];
   for (const v of parsed) {
@@ -90,7 +105,7 @@ function normalizeFeedPayload(data) {
       seen.add(v.id);
       unique.push(v);
     }
-    if (unique.length === 4) break;
+    if (unique.length === 8) break;
   }
   return unique;
 }
@@ -105,10 +120,9 @@ export default function NsbmIntakeBillboard({ lang = 'en' }) {
 
     async function loadLiveVideos() {
       try {
-        // 1. Check local /youtube-feed.json or env variable
         let feedUrl = import.meta.env.VITE_YOUTUBE_FEED_URL || '';
 
-        const configRes = await fetch('/youtube-feed.json', { cache: 'no-cache' });
+        const configRes = await fetch(`/youtube-feed.json?t=${Date.now()}`, { cache: 'no-cache' });
         let configData = null;
         if (configRes.ok) {
           configData = await configRes.json();
@@ -117,42 +131,31 @@ export default function NsbmIntakeBillboard({ lang = 'en' }) {
           }
         }
 
-        // 2. If external live JSON URL is provided, fetch from it
         if (feedUrl) {
           const liveRes = await fetch(feedUrl, { cache: 'no-cache' });
           if (liveRes.ok) {
             const liveData = await liveRes.json();
             const liveVideos = normalizeFeedPayload(liveData);
             if (isMounted && liveVideos.length > 0) {
-              setVideos(
-                liveVideos.length >= 4
-                  ? liveVideos.slice(0, 4)
-                  : [...liveVideos, ...FALLBACK_VIDEOS].slice(0, 4)
-              );
+              setVideos(liveVideos);
               return;
             }
           }
         }
 
-        // 3. Otherwise use videos from /youtube-feed.json if valid
         if (configData) {
           const configVideos = normalizeFeedPayload(configData);
           if (isMounted && configVideos.length > 0) {
-            setVideos(
-              configVideos.length >= 4
-                ? configVideos.slice(0, 4)
-                : [...configVideos, ...FALLBACK_VIDEOS].slice(0, 4)
-            );
+            setVideos(configVideos);
           }
         }
       } catch {
-        // Fall back silently to FALLBACK_VIDEOS if offline or unconfigured
+        // Fallback silently
       }
     }
 
     loadLiveVideos();
 
-    // Auto-refresh every 5 minutes while page remains open
     const intervalId = setInterval(loadLiveVideos, 5 * 60 * 1000);
     return () => {
       isMounted = false;
@@ -163,7 +166,7 @@ export default function NsbmIntakeBillboard({ lang = 'en' }) {
   return (
     <section ref={sectionRef} className="nsbm-intake-section" aria-label="Atsuko Admissions & Live YouTube Video Showcase">
       <div className="nsbm-intake-container">
-        {/* 4 Cards Grid Matching Website Width & Design */}
+        {/* Latest Videos Grid Matching Official Channel */}
         <div className="nsbm-four-posts-row">
           {videos.map((video) => {
             const isPlaying = playingVideoId === video.id;
@@ -223,7 +226,7 @@ export default function NsbmIntakeBillboard({ lang = 'en' }) {
                     <div className="nsbm-yt-top-row">
                       <span className="nsbm-yt-badge">
                         <YoutubeIcon size={14} />
-                        <span>YouTube</span>
+                        <span>Shorts</span>
                       </span>
                       <span className="nsbm-yt-cat-badge">
                         {currentCategory}
@@ -246,7 +249,7 @@ export default function NsbmIntakeBillboard({ lang = 'en' }) {
                           <span>{lang === 'si' ? 'වීඩියෝව නරඹන්න' : lang === 'jp' ? '動画を再生' : 'Watch Story'}</span>
                         </span>
                         <a
-                          href={`https://www.youtube.com/watch?v=${video.id}`}
+                          href={`https://www.youtube.com/shorts/${video.id}`}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="nsbm-yt-ext-link"
