@@ -1,0 +1,45 @@
+{
+  "channelUrl": "https://www.youtube.com/@ATSUKOINTERNATIONAL",
+  "videos": [
+    {
+      "id": "LPol8PPQsnM",
+      "title": "Food Service Visa Job Success in Japan - Atsuko International",
+      "titleSi": "ජපානයේ Food Service රැකියාවක් ලබාගත් ඇයගේ සාර්ථකත්වය",
+      "titleJp": "特定技能「外食業」就労ビザ獲得・受講生の実績報告",
+      "category": "SSW Food Service",
+      "categorySi": "SSW ආහාර සේවා",
+      "categoryJp": "特定技能 外食業",
+      "badge": "Work Victory"
+    },
+    {
+      "id": "lhdl9_nXAnE",
+      "title": "Japanese Language Student Testimonial - Atsuko International",
+      "titleSi": "අත්සුකෝ ජපන් භාෂා පාඨමාලාවේ සිසුවියකගේ අත්දැකීම්",
+      "titleJp": "日本語コース受講生のリアルな学習体験談",
+      "category": "Language Immersion",
+      "categorySi": "ජපන් භාෂා පාඨමාලාව",
+      "categoryJp": "日本語教育",
+      "badge": "Student Review"
+    },
+    {
+      "id": "4ZSTvGbNCAM",
+      "title": "Batch 17 Completion Day Feedback - Kadawatha Campus",
+      "titleSi: "17 වන කණ්ඩායමේ සිසුවියක් අවසන් දිනයේ දැක්වූ අදහස්",
+      "titleJp: "第17期生 修了日の生の声・JLPT/JFT対策",
+      "category": "Batch 17 Review",
+      "categorySi": "17 වන කණ්ඩායම",
+      "categoryJp: "第17期生",
+      "badge": "Campus Feedback"
+    },
+    {
+      "id": "buiQB1nwloo",
+      "title": "Student Visa Milestone & Departure Pathway to Japan",
+      "titleSi: "අත්සුකෝ ජාත්‍යන්තර ආයතනයේ ශිෂ්‍ය වීසා සන්ධිස්ථානය",
+      "titleJp: "留学ビザ・日本渡航への確実なステップ",
+      "category": "Student Visa",
+      "categorySi": "ශිෂ්‍ය වීසා",
+      "categoryJp: "日本留学ビザ",
+      "badge": "Student Milestone"
+    }
+  ]
+}

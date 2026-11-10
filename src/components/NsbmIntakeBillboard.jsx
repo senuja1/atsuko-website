@@ -1,165 +1,159 @@
 import { useState, useEffect, useRef } from 'react';
+import { Play, ExternalLink } from 'lucide-react';
+import { YoutubeIcon } from './SocialIcons';
 
-const FALLBACK_POSTS = [
+const FALLBACK_VIDEOS = [
   {
-    id: 'DeQjepkEwiW',
-    type: 'p',
-    title: 'Caregiver (SSW Visa) Practical Training - Atsuko International'
+    id: 'LPol8PPQsnM',
+    title: 'Food Service Visa Job Success in Japan - Atsuko International',
+    titleSi: 'ජපානයේ Food Service රැකියාවක් ලබාගත් ඇයගේ සාර්ථකත්වය',
+    titleJp: '特定技能「外食業」就労ビザ獲得・受講生の実績報告',
+    category: 'SSW Food Service',
+    categorySi: 'SSW ආහාර සේවා',
+    categoryJp: '特定技能 外食業'
   },
   {
-    id: 'DV0wLR8kYh1',
-    type: 'p',
-    title: 'Official 2027 April Intake & SSW Admissions - Atsuko International'
+    id: 'lhdl9_nXAnE',
+    title: 'Japanese Language Student Testimonial - Atsuko International',
+    titleSi: 'අත්සුකෝ ජපන් භාෂා පාඨමාලාවේ සිසුවියකගේ අත්දැකීම්',
+    titleJp: '日本語コース受講生のリアルな学習体験談',
+    category: 'Language Immersion',
+    categorySi: 'ජපන් භාෂා පාඨමාලාව',
+    categoryJp: '日本語教育'
   },
   {
-    id: 'Da1rbndEvGK',
-    type: 'p',
-    title: 'Food Service (SSW Visa) Approvals - Atsuko International'
+    id: '4ZSTvGbNCAM',
+    title: 'Batch 17 Completion Day Feedback - Kadawatha Campus',
+    titleSi: '17 වන කණ්ඩායමේ සිසුවියක් අවසන් දිනයේ දැක්වූ අදහස්',
+    titleJp: '第17期生 修了日の生の声・JLPT/JFT対策',
+    category: 'Batch 17 Review',
+    categorySi: '17 වන කණ්ඩායම',
+    categoryJp: '第17期生'
   },
   {
-    id: 'DZ_jTzyCJha',
-    type: 'p',
-    title: 'Batch 17 Native Sensei Classroom Immersion - Atsuko International'
+    id: 'buiQB1nwloo',
+    title: 'Student Visa Milestone & Departure Pathway to Japan',
+    titleSi: 'අත්සුකෝ ජාත්‍යන්තර ආයතනයේ ශිෂ්‍ය වීසා සන්ධිස්ථානය',
+    titleJp: '留学ビザ・日本渡航への確実なステップ',
+    category: 'Student Visa',
+    categorySi: 'ශිෂ්‍ය වීසා',
+    categoryJp: '日本留学ビザ'
   }
 ];
 
-function extractInstagramPost(item, index) {
-  if (!item) return null;
-  if (typeof item === 'string') {
-    const match = item.match(/instagram\.com\/(p|reel|tv)\/([A-Za-z0-9_-]+)/i);
-    if (match) {
-      return { id: match[2], type: match[1].toLowerCase(), title: `Atsuko International Instagram Post ${index + 1}` };
-    }
-    return { id: item.trim(), type: 'p', title: `Atsuko International Instagram Post ${index + 1}` };
-  }
-
-  const permalink = item.permalink || item.url || item.link || '';
-  const match = permalink.match(/instagram\.com\/(p|reel|tv)\/([A-Za-z0-9_-]+)/i);
-  if (match) {
-    return {
-      id: match[2],
-      type: match[1].toLowerCase(),
-      title: (item.caption || item.title || `Atsuko International Instagram Post ${index + 1}`).slice(0, 100)
-    };
-  }
-
-  if (item.shortcode || item.id) {
-    return {
-      id: item.shortcode || item.id,
-      type: item.type === 'reel' ? 'reel' : 'p',
-      title: (item.caption || item.title || `Atsuko International Instagram Post ${index + 1}`).slice(0, 100)
-    };
-  }
-
-  return null;
+function extractYouTubeId(urlOrId) {
+  if (!urlOrId) return '';
+  const trimmed = String(urlOrId).trim();
+  if (/^[A-Za-z0-9_-]{11}$/.test(trimmed)) return trimmed;
+  const match = trimmed.match(/(?:youtu\.be\/|youtube\.com\/(?:shorts\/|watch\?v=|embed\/|v\/))([A-Za-z0-9_-]{11})/i);
+  return match ? match[1] : trimmed;
 }
 
 function normalizeFeedPayload(data) {
   const rawList = Array.isArray(data)
     ? data
-    : Array.isArray(data?.posts)
-      ? data.posts
-      : Array.isArray(data?.data)
-        ? data.data
-        : [];
+    : Array.isArray(data?.videos)
+      ? data.videos
+      : Array.isArray(data?.posts)
+        ? data.posts
+        : Array.isArray(data?.data)
+          ? data.data
+          : [];
 
   const parsed = rawList
-    .map((item, idx) => extractInstagramPost(item, idx))
-    .filter((p) => p && p.id);
+    .map((item, idx) => {
+      if (!item) return null;
+      if (typeof item === 'string') {
+        const id = extractYouTubeId(item);
+        return id ? { id, title: `Atsuko Video ${idx + 1}`, category: 'YouTube Video' } : null;
+      }
+      const rawId = item.id || item.youtubeId || item.url || item.permalink || '';
+      const id = extractYouTubeId(rawId);
+      if (!id) return null;
+      return {
+        id,
+        title: item.title || `Atsuko Video ${idx + 1}`,
+        titleSi: item.titleSi,
+        titleJp: item.titleJp,
+        category: item.category || 'Atsuko Feature',
+        categorySi: item.categorySi,
+        categoryJp: item.categoryJp
+      };
+    })
+    .filter((v) => v && v.id);
 
-  // Deduplicate by shortcode ID and keep latest 4
+  // Deduplicate and return top 4
   const seen = new Set();
   const unique = [];
-  for (const post of parsed) {
-    if (!seen.has(post.id)) {
-      seen.add(post.id);
-      unique.push(post);
+  for (const v of parsed) {
+    if (!seen.has(v.id)) {
+      seen.add(v.id);
+      unique.push(v);
     }
     if (unique.length === 4) break;
   }
   return unique;
 }
 
-export default function NsbmIntakeBillboard() {
-  const [posts, setPosts] = useState(FALLBACK_POSTS);
-  const [shouldMountIframes, setShouldMountIframes] = useState(false);
+export default function NsbmIntakeBillboard({ lang = 'en' }) {
+  const [videos, setVideos] = useState(FALLBACK_VIDEOS);
+  const [playingVideoId, setPlayingVideoId] = useState(null);
   const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const node = sectionRef.current;
-    if (!node) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setShouldMountIframes(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: '350px 0px' }
-    );
-
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, []);
 
   useEffect(() => {
     let isMounted = true;
 
-    async function loadLiveInstagramPosts() {
+    async function loadLiveVideos() {
       try {
-        // 1. Check local config (/instagram-feed.json) or env variable (VITE_INSTAGRAM_FEED_URL)
-        let feedUrl = import.meta.env.VITE_INSTAGRAM_FEED_URL || '';
+        // 1. Check local /youtube-feed.json or env variable
+        let feedUrl = import.meta.env.VITE_YOUTUBE_FEED_URL || '';
 
-        const configRes = await fetch('/instagram-feed.json', {
-          cache: 'no-cache'
-        });
-
+        const configRes = await fetch('/youtube-feed.json', { cache: 'no-cache' });
         let configData = null;
         if (configRes.ok) {
           configData = await configRes.json();
-          if (!feedUrl && configData?.beholdFeedUrl) {
-            feedUrl = configData.beholdFeedUrl.trim();
+          if (!feedUrl && configData?.feedUrl) {
+            feedUrl = configData.feedUrl.trim();
           }
         }
 
-        // 2. If a live Behold.so / Instagram Graph JSON URL is configured, fetch the latest 4 posts from it
+        // 2. If external live JSON URL is provided, fetch from it
         if (feedUrl) {
           const liveRes = await fetch(feedUrl, { cache: 'no-cache' });
           if (liveRes.ok) {
             const liveData = await liveRes.json();
-            const livePosts = normalizeFeedPayload(liveData);
-            if (isMounted && livePosts.length > 0) {
-              setPosts(
-                livePosts.length >= 4
-                  ? livePosts.slice(0, 4)
-                  : [...livePosts, ...FALLBACK_POSTS].slice(0, 4)
+            const liveVideos = normalizeFeedPayload(liveData);
+            if (isMounted && liveVideos.length > 0) {
+              setVideos(
+                liveVideos.length >= 4
+                  ? liveVideos.slice(0, 4)
+                  : [...liveVideos, ...FALLBACK_VIDEOS].slice(0, 4)
               );
               return;
             }
           }
         }
 
-        // 3. Otherwise use posts from /instagram-feed.json if provided
+        // 3. Otherwise use videos from /youtube-feed.json if valid
         if (configData) {
-          const configPosts = normalizeFeedPayload(configData);
-          if (isMounted && configPosts.length > 0) {
-            setPosts(
-              configPosts.length >= 4
-                ? configPosts.slice(0, 4)
-                : [...configPosts, ...FALLBACK_POSTS].slice(0, 4)
+          const configVideos = normalizeFeedPayload(configData);
+          if (isMounted && configVideos.length > 0) {
+            setVideos(
+              configVideos.length >= 4
+                ? configVideos.slice(0, 4)
+                : [...configVideos, ...FALLBACK_VIDEOS].slice(0, 4)
             );
           }
         }
       } catch {
-        // Keep FALLBACK_POSTS silently if offline or unconfigured
+        // Fall back silently to FALLBACK_VIDEOS if offline or unconfigured
       }
     }
 
-    loadLiveInstagramPosts();
+    loadLiveVideos();
 
-    // Auto-refresh every 5 minutes while page is open
-    const intervalId = setInterval(loadLiveInstagramPosts, 5 * 60 * 1000);
+    // Auto-refresh every 5 minutes while page remains open
+    const intervalId = setInterval(loadLiveVideos, 5 * 60 * 1000);
     return () => {
       isMounted = false;
       clearInterval(intervalId);
@@ -167,28 +161,108 @@ export default function NsbmIntakeBillboard() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="nsbm-intake-section" aria-label="Atsuko Admissions & Live Instagram Showcase">
+    <section ref={sectionRef} className="nsbm-intake-section" aria-label="Atsuko Admissions & Live YouTube Video Showcase">
       <div className="nsbm-intake-container">
-        {/* 4 Posts Row Matching Website Width (No Repeating Posts) */}
+        {/* 4 Cards Grid Matching Website Width & Design */}
         <div className="nsbm-four-posts-row">
-          {posts.map((post) => (
-            <div key={post.id} className="nsbm-post-stage">
-              {shouldMountIframes ? (
-                <iframe
-                  src={`https://www.instagram.com/${post.type || 'p'}/${post.id}/embed/`}
-                  title={post.title}
-                  className="nsbm-post-iframe"
-                  frameBorder="0"
-                  scrolling="no"
-                  allowTransparency="true"
-                  allow="encrypted-media; clipboard-write;"
-                  loading="lazy"
-                />
-              ) : (
-                <div className="nsbm-post-iframe" style={{ background: '#f8fafc' }} aria-hidden="true" />
-              )}
-            </div>
-          ))}
+          {videos.map((video) => {
+            const isPlaying = playingVideoId === video.id;
+            const currentTitle =
+              lang === 'si'
+                ? video.titleSi || video.title
+                : lang === 'jp'
+                  ? video.titleJp || video.title
+                  : video.title;
+
+            const currentCategory =
+              lang === 'si'
+                ? video.categorySi || video.category
+                : lang === 'jp'
+                  ? video.categoryJp || video.category
+                  : video.category;
+
+            return (
+              <div
+                key={video.id}
+                className={`nsbm-post-stage ${isPlaying ? 'is-playing' : ''}`}
+              >
+                {isPlaying ? (
+                  <iframe
+                    src={`https://www.youtube-nocookie.com/embed/${video.id}?autoplay=1&rel=0&playsinline=1`}
+                    title={currentTitle}
+                    className="nsbm-yt-iframe"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  />
+                ) : (
+                  <div
+                    className="nsbm-yt-card"
+                    onClick={() => setPlayingVideoId(video.id)}
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        setPlayingVideoId(video.id);
+                      }
+                    }}
+                    aria-label={`Play video: ${currentTitle}`}
+                  >
+                    {/* YouTube High-Resolution Thumbnail */}
+                    <img
+                      src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
+                      alt={currentTitle}
+                      className="nsbm-yt-thumb"
+                      loading="lazy"
+                    />
+
+                    {/* Gradient Overlay for Text Readability */}
+                    <div className="nsbm-yt-overlay" />
+
+                    {/* Top Row: YouTube Badge & Category */}
+                    <div className="nsbm-yt-top-row">
+                      <span className="nsbm-yt-badge">
+                        <YoutubeIcon size={14} />
+                        <span>YouTube</span>
+                      </span>
+                      <span className="nsbm-yt-cat-badge">
+                        {currentCategory}
+                      </span>
+                    </div>
+
+                    {/* Center Glowing Play Button */}
+                    <div className="nsbm-yt-play-wrap">
+                      <div className="nsbm-yt-play-btn" aria-hidden="true">
+                        <Play size={20} fill="#ffffff" color="#ffffff" style={{ marginLeft: '3px' }} />
+                      </div>
+                    </div>
+
+                    {/* Bottom Title & Action CTA */}
+                    <div className="nsbm-yt-bottom">
+                      <h4 className="nsbm-yt-title">{currentTitle}</h4>
+                      <div className="nsbm-yt-footer-bar">
+                        <span className="nsbm-yt-watch-cta">
+                          <Play size={11} fill="#ef4444" color="#ef4444" />
+                          <span>{lang === 'si' ? 'වීඩියෝව නරඹන්න' : lang === 'jp' ? '動画を再生' : 'Watch Story'}</span>
+                        </span>
+                        <a
+                          href={`https://www.youtube.com/watch?v=${video.id}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="nsbm-yt-ext-link"
+                          onClick={(e) => e.stopPropagation()}
+                          title="Open on YouTube"
+                          aria-label="Open on YouTube"
+                        >
+                          <ExternalLink size={13} />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

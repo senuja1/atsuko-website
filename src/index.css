@@ -10399,6 +10399,188 @@ html[lang="jp"] .stat-label,
   display: block;
 }
 
+.nsbm-post-stage.is-playing::after {
+  display: none !important;
+}
+
+/* YouTube Video Showcase Card UI (Replacing Instagram Iframe with Clean YouTube Player) */
+.nsbm-yt-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  overflow: hidden;
+  background: #0f172a;
+}
+
+.nsbm-yt-thumb {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.nsbm-post-stage:hover .nsbm-yt-thumb {
+  transform: scale(1.06);
+}
+
+.nsbm-yt-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 23, 42, 0.45) 0%,
+    rgba(15, 23, 42, 0.15) 35%,
+    rgba(15, 23, 42, 0.75) 75%,
+    rgba(15, 23, 42, 0.95) 100%
+  );
+  transition: background 0.25s ease;
+}
+
+.nsbm-post-stage:hover .nsbm-yt-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(15, 23, 42, 0.55) 0%,
+    rgba(15, 23, 42, 0.2) 35%,
+    rgba(15, 23, 42, 0.8) 75%,
+    rgba(15, 23, 42, 0.98) 100%
+  );
+}
+
+.nsbm-yt-top-row {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 12px 14px;
+}
+
+.nsbm-yt-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(15, 23, 42, 0.78);
+  color: #ffffff;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(8px);
+}
+
+.nsbm-yt-cat-badge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(2, 132, 199, 0.88);
+  color: #ffffff;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  backdrop-filter: blur(8px);
+  max-width: 55%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nsbm-yt-play-wrap {
+  position: relative;
+  z-index: 2;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nsbm-yt-play-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #ef4444;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 18px rgba(239, 68, 68, 0.55), 0 0 0 4px rgba(255, 255, 255, 0.25);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.2s ease, box-shadow 0.25s ease;
+}
+
+.nsbm-post-stage:hover .nsbm-yt-play-btn {
+  transform: scale(1.14);
+  background: #dc2626;
+  box-shadow: 0 6px 24px rgba(239, 68, 68, 0.75), 0 0 0 6px rgba(255, 255, 255, 0.4);
+}
+
+.nsbm-yt-bottom {
+  position: relative;
+  z-index: 2;
+  padding: 12px 14px 14px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.nsbm-yt-title {
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.nsbm-yt-footer-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2px;
+}
+
+.nsbm-yt-watch-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #f1f5f9;
+  font-size: 0.74rem;
+  font-weight: 700;
+  opacity: 0.95;
+}
+
+.nsbm-yt-ext-link {
+  color: #cbd5e1;
+  padding: 4px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.nsbm-yt-ext-link:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.nsbm-yt-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
 /* Top Row: Partner Badges, NSBM Apply Pill & Instagram Pill */
 .nsbm-top-bar {
   display: flex;
