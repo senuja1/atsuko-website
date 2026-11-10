@@ -13,6 +13,8 @@ import {
 } from 'lucide-react';
 import { videoSuccessStories, deployedCandidatesGallery } from '../data/websiteData';
 import { getUiText } from '../data/uiText';
+import CandidateMovingGrid from './CandidateMovingGrid';
+import ShortsCoverflowCarousel from './ShortsCoverflowCarousel';
 
 function YoutubeIcon({ size = 16, className = '', style = {} }) {
   return (
@@ -175,97 +177,11 @@ export default function SuccessStoriesPage({ lang, onOpenModal }) {
         </section>
       )}
 
-      {/* 3. YouTube Shorts Gallery (9:16 Mobile-Style Grid) */}
-      {shortVideos.length > 0 && (
-        <section className="shorts-showcase-section">
-          <div className="container">
-            <div className="section-header">
-              <span className="section-badge badge-red">
-                <YoutubeIcon size={14} />
-                {s.shortsBadge}
-              </span>
-              <h2 className="section-title">
-                {s.shortsTitle} <span className="text-gradient-red">{s.shortsHighlight}</span>
-              </h2>
-              <p className="section-subtitle">
-                {s.shortsSubtitle}
-              </p>
-            </div>
+      {/* 3. YouTube Shorts 3D Coverflow Moving Showcase */}
+      <ShortsCoverflowCarousel lang={lang} onOpenModal={onOpenModal} />
 
-            <div className="shorts-grid">
-              {shortVideos.map((short) => (
-                <div key={short.id} className="short-video-card">
-                  <div className="short-9-16-wrap">
-                    <iframe
-                      src={short.embedUrl}
-                      title={short.title}
-                      loading="lazy"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      referrerPolicy="strict-origin-when-cross-origin"
-                      allowFullScreen
-                    ></iframe>
-                  </div>
-
-                  <div className="short-body">
-                    <h4 className="short-title">{getLocalizedTitle(short)}</h4>
-                    <p className="short-desc">{getLocalizedDesc(short)}</p>
-
-                    <a
-                      href={short.youtubeUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="short-footer-btn"
-                    >
-                      <YoutubeIcon size={14} />
-                      <span>{s.watchShort}</span>
-                    </a>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* 3.5 Successfully Placed & Employed Candidates in Japan (Interactive Expandable Grid) */}
-      {deployedCandidatesGallery.length > 0 && (
-        <section className="candidates-gallery-section">
-          <div className="container">
-            <div className="section-header">
-              <span className="section-badge badge-red">
-                <Camera size={14} />
-                {s.candidatesBadge || 'Airport Departures & Deployments'}
-              </span>
-              <h2 className="section-title">
-                {s.candidatesTitle || 'Our Successfully Placed & Employed'}{' '}
-                <span className="text-gradient-red">{s.candidatesHighlight || 'Candidates in Japan'}</span>
-              </h2>
-              <p className="section-subtitle">
-                {s.candidatesSubtitle || 'Real airport departure moments and deployment victories of candidates who completed their Japanese language and vocational skills training at Atsuko International Kadawatha.'}
-              </p>
-            </div>
-
-            <div className="candidates-photo-grid">
-              {deployedCandidatesGallery.map((candidate) => (
-                <div
-                  key={candidate.id}
-                  className="candidate-card"
-                >
-                  <div className="candidate-img-container">
-                    <img
-                      src={candidate.image}
-                      alt={getCandidateTitle(candidate)}
-                      className="candidate-img"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
+      {/* 3.5 Successfully Placed & Employed Candidates in Japan (Infinite Moving Grid Showcase) */}
+      <CandidateMovingGrid lang={lang} onOpenModal={onOpenModal} />
 
       {/* 4. Why Atsuko Candidates Win: The 4 Verified Guarantees */}
       <section className="section section-alt">
