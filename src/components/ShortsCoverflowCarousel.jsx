@@ -3,12 +3,9 @@ import {
   Play,
   ChevronLeft,
   ChevronRight,
-  ExternalLink,
-  Sparkles,
   MapPin,
   X
 } from 'lucide-react';
-import { videoSuccessStories } from '../data/websiteData';
 
 function YoutubeIcon({ size = 16, className = '', style = {} }) {
   return (
@@ -26,123 +23,143 @@ function YoutubeIcon({ size = 16, className = '', style = {} }) {
   );
 }
 
-export default function ShortsCoverflowCarousel({ lang = 'en', onOpenModal }) {
-  // Built-in list of official Atsuko International YouTube Shorts
-  const defaultShorts = [
-    {
-      id: 'zcCYJCcQLFA',
-      title: 'ATSUKO INTERNATIONAL - Japan Job Placement Success Story',
-      titleSi: 'ජපානයේ රැකියා ලබාගත් අපේ සිසුන්ගේ අදහස්',
-      titleJp: '日本就労ビザ獲得・受講生の体験談',
-      location: 'Nagoya, Japan',
-      locationSi: 'නගෝයා, ජපානය',
-      locationJp: '日本・名古屋',
-      duration: '01:00'
-    },
-    {
-      id: 'VaAG-Be6ZUk',
-      title: 'ATSUKO INTERNATIONAL - JFT Exam Success & Japan Visa Milestone',
-      titleSi: 'JFT විභාගය ජයගෙන ජපානයේ රැකියා සිහිනය සැබෑ කරගත් සිසුවෙක්',
-      titleJp: 'JFT-Basic合格・日本就労へのステップ',
-      location: 'Atsuko International',
-      locationSi: 'අත්සුකෝ ජාත්‍යන්තර ආයතනය',
-      locationJp: '篤子学校 カダワタ校',
-      duration: '01:00'
-    },
-    {
-      id: '43Nvg3NiZ20',
-      title: 'Batch 18 Students Real Feedback - Japanese Language Course',
-      titleSi: '18 වන කණ්ඩායමේ සිසුන්ගේ අදහස් - 19 වන කණ්ඩායමට ලියාපදිංචි වන්න',
-      titleJp: '第18期生 修了レビュー・第19期生募集中',
-      location: 'Language Campus',
-      locationSi: 'භාෂා පුහුණු මධ්‍යස්ථානය',
-      locationJp: '日本語専門教室',
-      duration: '01:00'
-    },
-    {
-      id: '1-MST6bTChE',
-      title: 'Nursing Care NVQ 03 Course Practical Training & Student Review',
-      titleSi: 'Nursing Care NVQ 03 පාඨමාලාවේ ප්‍රායෝගික පුහුණුව සහ සිසු අදහස්',
-      titleJp: '介護職員初任者研修・NVQ Level 3 実習レビュー',
-      location: 'Kaigo Training Lab',
-      locationSi: 'සාත්තු සේවා පුහුණු ඒකකය',
-      locationJp: '介護実習シミュレーション',
-      duration: '01:00'
-    },
-    {
-      id: 'jaMbpphKV_o',
-      title: 'NVQ Course Practical Simulation Training by Atsuko International',
-      titleSi: 'NVQ සාත්තු සේවා ප්‍රායෝගික පුහුණු ඒකකය - අත්සුකෝ ජාත්‍යන්තර ආයතනය',
-      titleJp: 'アツコ校 介護実習シミュレーション演習',
-      location: 'Healthcare Lab',
-      locationSi: 'සෞඛ්‍ය ප්‍රායෝගික ඒකකය',
-      locationJp: '医療・介護棟',
-      duration: '01:00'
-    },
-    {
-      id: 'lhdl9_nXAnE',
-      title: 'Japanese Language Course Student Experience & Visa Journey',
-      titleSi: 'අපගේ ජපන් භාෂා පාඨමාලාවේ සිසුවියකගේ අදහස්',
-      titleJp: '日本語コース受講生のリアルな声',
-      location: 'Atsuko International',
-      locationSi: 'අත්සුකෝ ආයතනය',
-      locationJp: '篤子学校',
-      duration: '01:00'
-    },
-    {
-      id: 'buiQB1nwloo',
-      title: 'Atsuko International Student Journey & Visa Milestone',
-      titleSi: 'ජපාන ශිෂ්‍ය වීසා සාර්ථකත්වය - අත්සුකෝ සිසු අදහස්',
-      titleJp: '日本留学ビザ取得の軌跡',
-      location: 'Tokyo, Japan',
-      locationSi: 'ටෝකියෝ, ජපානය',
-      locationJp: '東京・日本',
-      duration: '01:00'
-    },
-    {
-      id: 'LPol8PPQsnM',
-      title: 'Food Service Sector Selection - Japan Job Deployment',
-      titleSi: 'FOOD SERVICE රැකියාවක් ලබාගත් ඇයගේ සතුට',
-      titleJp: '外食業分野（特定技能）就労決定',
-      location: 'Osaka, Japan',
-      locationSi: 'ඔසාකා, ජපානය',
-      locationJp: '大阪・日本',
-      duration: '01:00'
-    },
-    {
-      id: 'I8SlMRh5APc',
-      title: 'Food Service Job Placement in Japan - Atsuko Student Story',
-      titleSi: 'ජපානයේ ආහාර සේවා ක්ෂේත්‍රයේ රැකියාවක් දිනාගත් සිසුවිය',
-      titleJp: '外食産業への就職を果たした卒業生の声',
-      location: 'Nagoya, Japan',
-      locationSi: 'නගෝයා, ජපානය',
-      locationJp: '愛知県・名古屋',
-      duration: '01:00'
-    },
-    {
-      id: 'BHaZrf4-oyo',
-      title: 'JFT Exam Passed Student Feedback & Japan Deployment',
-      titleSi: 'JFT විභාගය සමත් සිසුවියක් අප ආයතනය ගැන දැක්වූ අදහස්',
-      titleJp: 'JFT試験合格受講生による合格体験談',
-      location: 'Atsuko International',
-      locationSi: 'අත්සුකෝ ආයතනය',
-      locationJp: '篤子学校',
-      duration: '01:00'
-    }
-  ];
+// Exactly the 12 YouTube videos requested by the user
+const userShorts = [
+  {
+    id: 'DwIbi9WMrn4',
+    title: 'Atsuko International - Japan Student Visa & Language Mastery',
+    titleSi: 'ජපාන ශිෂ්‍ය වීසා සහ භාෂා පුහුණු සාර්ථකත්වය - අත්සුකෝ ජාත්‍යන්තර ආයතනය',
+    titleJp: '日本留学ビザ・日本語習得のリアルな軌跡',
+    location: 'Tokyo, Japan',
+    locationSi: 'ටෝකියෝ, ජපානය',
+    locationJp: '東京・日本',
+    duration: '01:00'
+  },
+  {
+    id: '4ZSTvGbNCAM',
+    title: 'Batch 17 Final Day Feedback - Japanese Language Course',
+    titleSi: 'ජපන් භාෂා පාඨමාලාවේ 17 වන කණ්ඩායමේ සිසුවියක් දැක්වූ සත්‍ය අදහස්',
+    titleJp: '第17期生 修了日インタビュー・受講生の率直な感想',
+    location: 'Atsuko International',
+    locationSi: 'අත්සුකෝ ජාත්‍යන්තර ආයතනය',
+    locationJp: '篤子学校 本校',
+    duration: '01:00'
+  },
+  {
+    id: 'lhdl9_nXAnE',
+    title: 'Japanese Language Course Student Experience & Visa Journey',
+    titleSi: 'අපගේ ජපන් භාෂා පාඨමාලාවේ සිසුවියකගේ අදහස්',
+    titleJp: '日本語コース受講生のリアルな声',
+    location: 'Atsuko International',
+    locationSi: 'අත්සුකෝ ආයතනය',
+    locationJp: '篤子学校',
+    duration: '01:00'
+  },
+  {
+    id: 'Y9l3blHSk5o',
+    title: 'Atsuko International - Japanese Career Milestone & Candidate Review',
+    titleSi: 'ජපානයේ රැකියා අවස්ථාවක් දිනාගත් අපේක්ෂක අදහස්',
+    titleJp: '就労ビザ取得受講生による合格体験談',
+    location: 'Nagoya, Japan',
+    locationSi: 'නගෝයා, ජපානය',
+    locationJp: '愛知県・名古屋',
+    duration: '01:00'
+  },
+  {
+    id: 'buiQB1nwloo',
+    title: 'Atsuko International Student Journey & Visa Milestone',
+    titleSi: 'ජපාන ශිෂ්‍ය වීසා සාර්ථකත්වය - අත්සුකෝ සිසු අදහස්',
+    titleJp: '日本留学ビザ取得の軌跡',
+    location: 'Tokyo, Japan',
+    locationSi: 'ටෝකියෝ, ජපානය',
+    locationJp: '東京・日本',
+    duration: '01:00'
+  },
+  {
+    id: 'LPol8PPQsnM',
+    title: 'ATSUKO INTERNATIONAL - FOOD SERVICE රැකියාවක් ලබාගත් ඇය...',
+    titleSi: 'Food Service ක්ෂේත්‍රයේ රැකියාවක් ලබාගත් ඇයගේ සතුට',
+    titleJp: '外食業分野（特定技能）就労決定',
+    location: 'Osaka, Japan',
+    locationSi: 'ඔසාකා, ජපානය',
+    locationJp: '大阪・日本',
+    duration: '01:00'
+  },
+  {
+    id: 'I8SlMRh5APc',
+    title: 'ATSUKO INTERNATIONAL - FOOD SERVICE රැකියාවක් ලබාගත් ඇයගේ සතුට...',
+    titleSi: 'ජපානයේ ආහාර සේවා රැකියාවක් හිමිකරගත් සිසුවියගේ අදහස්',
+    titleJp: '外食産業への就職を果たした卒業生の声',
+    location: 'Nagoya, Japan',
+    locationSi: 'නගෝයා, ජපානය',
+    locationJp: '愛知県・名古屋',
+    duration: '01:00'
+  },
+  {
+    id: 'BHaZrf4-oyo',
+    title: 'JFT Exam Passed Student Feedback & Japan Deployment',
+    titleSi: 'JFT විභාගය සමත් සිසුවියක් අප ආයතනය ගැන දැක්වූ අදහස්',
+    titleJp: 'JFT試験合格受講生による合格体験談',
+    location: 'Atsuko International',
+    locationSi: 'අත්සුකෝ ආයතනය',
+    locationJp: '篤子学校',
+    duration: '01:00'
+  },
+  {
+    id: 'R48IDvAbhVU',
+    title: 'Candidate Success Story & Official Guidance - Atsuko International',
+    titleSi: 'අත්සුකෝ ආයතනයේ මගපෙන්වීමෙන් ජපානයට ගිය අපේක්ෂිකාවකගේ අදහස්',
+    titleJp: 'アツコ公式ガイダンスと渡航成功事例',
+    location: 'Chiba, Japan',
+    locationSi: 'චිබා, ජපානය',
+    locationJp: '千葉・日本',
+    duration: '01:00'
+  },
+  {
+    id: 'ctA43jlUEew',
+    title: 'Japan Job Placement Celebration - Atsuko Candidate',
+    titleSi: 'ජපාන රැකියා සිහිනය සැබෑ කරගත් සිසුවියකගේ සතුට',
+    titleJp: '日本就職内定お祝い・候補生の声',
+    location: 'Aichi, Japan',
+    locationSi: 'අයිචි, ජපානය',
+    locationJp: '愛知県・日本',
+    duration: '01:00'
+  },
+  {
+    id: 'hvBtzchK430',
+    title: 'Atsuko International Student Journey & Placement Celebration',
+    titleSi: 'ජපානය බලා පිටත්වීම සැමරූ අත්සුකෝ සිසුවියගේ අදහස්',
+    titleJp: '日本出発前の記念インタビュー',
+    location: 'Nagoya, Japan',
+    locationSi: 'නගෝයා, ජපානය',
+    locationJp: '名古屋・日本',
+    duration: '01:00'
+  },
+  {
+    id: 'tw_y7l7qllI',
+    title: 'Japan Caregiver Fulltime Course | ATSUKO INTERNATIONAL',
+    titleSi: 'සාත්තු සේවා (Kaigo) පූර්ණකාලීන පාඨමාලාව සහ රැකියා පුහුණුව',
+    titleJp: '介護（Kaigo）全日制コース・特定技能訓練',
+    location: 'Kaigo Training Lab',
+    locationSi: 'සාත්තු සේවා පුහුණු ඒකකය',
+    locationJp: '介護実習シミュレーション',
+    duration: '01:00'
+  }
+];
 
-  const [shorts, setShorts] = useState(defaultShorts);
-  const [activeIndex, setActiveIndex] = useState(2); // Start centered
+export default function ShortsCoverflowCarousel({ lang = 'en' }) {
+  const shorts = userShorts;
+  const [activeIndex, setActiveIndex] = useState(4); // Center nicely on a featured short
   const [playingId, setPlayingId] = useState(null);
   const [isHovered, setIsHovered] = useState(false);
   const touchStartXRef = useRef(null);
 
-  // Auto-play / Coverflow smooth cycle
+  // Smooth Auto-cycle when not hovered and video not playing
   useEffect(() => {
     if (isHovered || playingId !== null) return;
     const timer = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % shorts.length);
-    }, 3800);
+    }, 4200);
     return () => clearInterval(timer);
   }, [isHovered, playingId, shorts.length]);
 
@@ -171,6 +188,14 @@ export default function ShortsCoverflowCarousel({ lang = 'en', onOpenModal }) {
     touchStartXRef.current = null;
   };
 
+  // Modular cyclic offset: ensures an even wide fan on both sides (left & right)
+  const getCyclicOffset = (index, current, total) => {
+    let diff = index - current;
+    while (diff > total / 2) diff -= total;
+    while (diff < -total / 2) diff += total;
+    return diff;
+  };
+
   const getLocalizedTitle = (item) => {
     if (lang === 'si' && item.titleSi) return item.titleSi;
     if ((lang === 'jp' || lang === 'ja') && item.titleJp) return item.titleJp;
@@ -196,10 +221,20 @@ export default function ShortsCoverflowCarousel({ lang = 'en', onOpenModal }) {
         <div className="section-header text-center">
           <span className="section-badge badge-red">
             <YoutubeIcon size={14} />
-            <span>{lang === 'si' ? 'අපේක්ෂකයින්ගේ වීඩියෝ කතාන්දර' : lang === 'jp' ? '受講生の体験談ショート動画' : 'Candidate Stories & Experiences'}</span>
+            <span>
+              {lang === 'si'
+                ? 'අපේක්ෂකයින්ගේ වීඩියෝ කතාන්දර'
+                : lang === 'jp'
+                ? '受講生の体験談ショート動画'
+                : 'Candidate Stories & Experiences'}
+            </span>
           </span>
           <h2 className="section-title">
-            {lang === 'si' ? 'අපගේ සිසුන්ගේ තනි කතාන්දර' : lang === 'jp' ? '日本就労・進学を果たした' : 'Our Individual Candidates Stories'}{' '}
+            {lang === 'si'
+              ? 'අපගේ සිසුන්ගේ තනි කතාන්දර'
+              : lang === 'jp'
+              ? '日本就労・進学を果たした'
+              : 'Our Individual Candidates Stories'}{' '}
             <span className="text-gradient-red">
               {lang === 'si' ? 'සහ අදහස්' : lang === 'jp' ? '受講生・修了生たち' : '& Their Experiences'}
             </span>
@@ -214,7 +249,7 @@ export default function ShortsCoverflowCarousel({ lang = 'en', onOpenModal }) {
         </div>
       </div>
 
-      {/* 3D Coverflow Stage */}
+      {/* Panoramic Wide 3D Coverflow Stage */}
       <div className="coverflow-stage-wrapper">
         {/* Left Arrow Button */}
         <button
@@ -222,7 +257,7 @@ export default function ShortsCoverflowCarousel({ lang = 'en', onOpenModal }) {
           onClick={handlePrev}
           aria-label="Previous video story"
         >
-          <ChevronLeft size={24} />
+          <ChevronLeft size={26} />
         </button>
 
         {/* Right Arrow Button */}
@@ -231,18 +266,15 @@ export default function ShortsCoverflowCarousel({ lang = 'en', onOpenModal }) {
           onClick={handleNext}
           aria-label="Next video story"
         >
-          <ChevronRight size={24} />
+          <ChevronRight size={26} />
         </button>
 
-        {/* 3D Cards Track */}
+        {/* 3D Cards Panoramic Track */}
         <div className="coverflow-track">
           {shorts.map((video, idx) => {
-            const offset = idx - activeIndex;
+            const offset = getCyclicOffset(idx, activeIndex, shorts.length);
             const isCenter = offset === 0;
             const isPlayingThis = playingId === video.id;
-
-            // Only render visible neighbors within range of ±4 to keep DOM performant
-            if (Math.abs(offset) > 4) return null;
 
             return (
               <div
@@ -251,7 +283,7 @@ export default function ShortsCoverflowCarousel({ lang = 'en', onOpenModal }) {
                 style={{
                   '--offset': offset,
                   '--abs-offset': Math.abs(offset),
-                  zIndex: 30 - Math.abs(offset)
+                  zIndex: 35 - Math.abs(offset)
                 }}
                 onClick={() => {
                   if (!isCenter) {
@@ -295,15 +327,15 @@ export default function ShortsCoverflowCarousel({ lang = 'en', onOpenModal }) {
                         className="coverflow-card-thumb"
                       />
 
-                      {/* Top Duration Badge */}
+                      {/* Top Duration Badge "01:00" */}
                       <div className="coverflow-duration-pill">
                         <span>{video.duration || '01:00'}</span>
                       </div>
 
-                      {/* Dark Gradient Overlay */}
+                      {/* Dark Gradient Overlay for Readability */}
                       <div className="coverflow-card-gradient" />
 
-                      {/* Center Play Button (Active on Center Card) */}
+                      {/* Center Play Button */}
                       <div className="coverflow-play-wrap">
                         <button
                           className="coverflow-play-btn"
@@ -317,7 +349,7 @@ export default function ShortsCoverflowCarousel({ lang = 'en', onOpenModal }) {
                           }}
                           aria-label={`Play ${video.title}`}
                         >
-                          <Play size={20} fill="#0284c7" color="#0284c7" style={{ marginLeft: '3px' }} />
+                          <Play size={22} fill="#0284c7" color="#0284c7" style={{ marginLeft: '3px' }} />
                         </button>
                       </div>
 
