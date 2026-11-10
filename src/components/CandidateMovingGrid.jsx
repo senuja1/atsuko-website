@@ -313,41 +313,6 @@ export default function CandidateMovingGrid({ lang = 'en', onOpenModal }) {
                 className="moving-grid-lightbox-img"
               />
             </div>
-
-            {/* Bottom Caption Bar */}
-            <div className="moving-grid-lightbox-footer">
-              <div className="moving-grid-lightbox-info">
-                <div className="moving-grid-lightbox-tags">
-                  <span className="badge-pill badge-pill-red">
-                    <ShieldCheck size={12} />
-                    <span>{t.verifiedSeal}</span>
-                  </span>
-                  <span className="badge-pill badge-pill-blue">
-                    <MapPin size={12} />
-                    <span>{t.departureCity}</span>
-                  </span>
-                </div>
-                <h3 className="moving-grid-lightbox-title">
-                  {t.storyCount} #{lightboxIndex + 1}
-                  <span className="text-muted text-sm" style={{ marginLeft: '10px', fontWeight: 'normal' }}>
-                    ({lightboxIndex + 1} / {candidates.length})
-                  </span>
-                </h3>
-              </div>
-
-              {onOpenModal && (
-                <button
-                  className="btn btn-primary moving-grid-lightbox-cta"
-                  onClick={() => {
-                    closeLightbox();
-                    onOpenModal(`Japan Visa Consultation from Deployment Photo #${lightboxIndex + 1}`);
-                  }}
-                >
-                  <Sparkles size={14} />
-                  <span>{t.applyCta}</span>
-                </button>
-              )}
-            </div>
           </div>
         </div>
       )}
