@@ -56,3 +56,4 @@ if (file_exists(__DIR__ . '/youtube-feed.json')) {
 } else {
     echo json_encode(['status' => 'fallback', 'videos' => []]);
 }
+
