@@ -222,14 +222,11 @@ export default function NsbmIntakeBillboard({ lang = 'en' }) {
                     {/* Gradient Overlay for Text Readability */}
                     <div className="nsbm-yt-overlay" />
 
-                    {/* Top Row: YouTube Badge & Category */}
+                    {/* Top Row: YouTube Badge */}
                     <div className="nsbm-yt-top-row">
                       <span className="nsbm-yt-badge">
                         <YoutubeIcon size={14} />
                         <span>Shorts</span>
-                      </span>
-                      <span className="nsbm-yt-cat-badge">
-                        {currentCategory}
                       </span>
                     </div>
 
