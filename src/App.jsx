@@ -150,22 +150,24 @@ export default function App() {
   };
 
   const isLegalPage = currentPage === 'privacy' || currentPage === 'terms' || currentPage === 'legal';
+  const isPortalPage = currentPage === 'portal';
+  const hideChrome = isLegalPage || isPortalPage;
 
   return (
-    <div className={`app-root ${isLegalPage ? 'app-root-legal-mode' : ''}`}>
+    <div className={`app-root ${isLegalPage ? 'app-root-legal-mode' : ''} ${isPortalPage ? 'app-root-portal-mode' : ''}`}>
       {/* Cinematic Gateway Loading Screen (Preloads Torii gate & high-res visuals) */}
-      {!isLegalPage && <SiteLoadingScreen lang={lang} minDuration={1200} />}
+      {!hideChrome && <SiteLoadingScreen lang={lang} minDuration={1200} />}
 
-      {/* Gentleman Navy Top Utility Bar (Hidden in Document Mode) */}
-      {!isLegalPage && (
+      {/* Gentleman Navy Top Utility Bar (Hidden in Document/Portal Mode) */}
+      {!hideChrome && (
         <TopBar 
           lang={lang} 
           onNavigate={handleNavigate} 
         />
       )}
 
-      {/* Primary Navigation Bar (Hidden in Document Mode) */}
-      {!isLegalPage && (
+      {/* Primary Navigation Bar (Hidden in Document/Portal Mode) */}
+      {!hideChrome && (
         <Navbar 
           lang={lang}
           setLang={setLang}
@@ -283,8 +285,8 @@ export default function App() {
         )}
       </main>
 
-      {/* 5. Master Footer (Hidden on Standalone Document Pages) */}
-      {!isLegalPage && (
+      {/* 5. Master Footer (Hidden on Standalone Document / Portal Pages) */}
+      {!hideChrome && (
         <Footer 
           lang={lang}
           onOpenModal={() => handleOpenModal('General Consultation')}
@@ -292,8 +294,8 @@ export default function App() {
         />
       )}
 
-      {/* 6. Floating Action Buttons (Hidden on Standalone Document Pages) */}
-      {!isLegalPage && <FloatingActions lang={lang} />}
+      {/* 6. Floating Action Buttons (Hidden on Standalone Document / Portal Pages) */}
+      {!hideChrome && <FloatingActions lang={lang} />}
 
       {/* 7. Interactive Consultation & Fast Registration Modal */}
       <ConsultationModal 
