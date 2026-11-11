@@ -6,7 +6,9 @@ import {
   FileCheck,
   X,
   Calendar,
-  ExternalLink
+  ExternalLink,
+  ZoomIn,
+  ZoomOut
 } from 'lucide-react';
 
 export default function OfficialCertificatesShowcase({ lang = 'en' }) {
@@ -17,9 +19,9 @@ export default function OfficialCertificatesShowcase({ lang = 'en' }) {
   // BR Info Modal state
   const [brModalOpen, setBrModalOpen] = useState(false);
 
-  // Clean Protected Document Viewer state (anti-screenshot, anti-screen-recording)
+  // Clean Protected Document Viewer state
   const [protectedViewer, setProtectedViewer] = useState(null);
-  const [isObscured, setIsObscured] = useState(false);
+  const [zoomLevel, setZoomLevel] = useState(1);
 
   // Certificate registry data
   const slbfeCertificates = {
@@ -192,74 +194,36 @@ export default function OfficialCertificatesShowcase({ lang = 'en' }) {
   const currentSlbfe = slbfeCertificates[selectedSlbfeYear];
   const activeSlbfeImage = (slbfePage === 'p2' && currentSlbfe.hasBack) ? currentSlbfe.p2 : currentSlbfe.p1;
 
-  // Anti-Screenshot & Screen-Recording Deterrence
+  // Document Viewer Keyboard & Body Lock controls
   useEffect(() => {
-    if (!protectedViewer) return;
+    if (!protectedViewer) {
+      setZoomLevel(1);
+      return;
+    }
 
-    // Detect when Snipping Tool, screenshot overlay, or screen capture steals OS focus
-    const handleBlur = () => {
-      setIsObscured(true);
-    };
+    setZoomLevel(1);
 
-    const handleFocus = () => {
-      setIsObscured(false);
-    };
-
-    const handleVisibilityChange = () => {
-      if (document.hidden) {
-        setIsObscured(true);
-      } else {
-        setIsObscured(false);
-      }
-    };
-
-    // Intercept keyboard shortcuts: PrintScreen, Ctrl+S, Ctrl+P, Ctrl+U, F12, DevTools
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
         setProtectedViewer(null);
       }
-
-      if (e.key === 'PrintScreen') {
-        setIsObscured(true);
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText('').catch(() => {});
-        }
+      if (e.key === '+' || e.key === '=') {
+        setZoomLevel((z) => Math.min(2.5, +(z + 0.3).toFixed(1)));
       }
-
-      if ((e.ctrlKey || e.metaKey) && ['s', 'p', 'u'].includes(e.key.toLowerCase())) {
-        e.preventDefault();
+      if (e.key === '-' || e.key === '_') {
+        setZoomLevel((z) => Math.max(1, +(z - 0.3).toFixed(1)));
       }
-
-      if (e.key === 'F12' || ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key.toLowerCase() === 'i')) {
-        e.preventDefault();
+      if (e.key === '0') {
+        setZoomLevel(1);
       }
     };
 
-    const handleKeyUp = (e) => {
-      if (e.key === 'PrintScreen') {
-        setIsObscured(true);
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText('').catch(() => {});
-        }
-      }
-    };
-
-    window.addEventListener('blur', handleBlur);
-    window.addEventListener('focus', handleFocus);
-    document.addEventListener('visibilitychange', handleVisibilityChange);
     window.addEventListener('keydown', handleKeyDown);
-    window.addEventListener('keyup', handleKeyUp);
-
     document.body.style.overflow = 'hidden';
 
     return () => {
-      window.removeEventListener('blur', handleBlur);
-      window.removeEventListener('focus', handleFocus);
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
       window.removeEventListener('keydown', handleKeyDown);
-      window.removeEventListener('keyup', handleKeyUp);
       document.body.style.overflow = '';
-      setIsObscured(false);
     };
   }, [protectedViewer]);
 
@@ -600,7 +564,7 @@ export default function OfficialCertificatesShowcase({ lang = 'en' }) {
       
 
       {/* ========================================================
-          CLEAN PROTECTED DOCUMENT VIEWER (ANTI-SCREENSHOT & WATERMARK)
+          CLEAN PROTECTED DOCUMENT VIEWER (RESPONSIVE & ANTI-TAMPER)
           ======================================================== */}
       {protectedViewer && (
         <div 
@@ -610,73 +574,136 @@ export default function OfficialCertificatesShowcase({ lang = 'en' }) {
           role="dialog"
           aria-modal="true"
         >
-          {/* Subtle Close button in top-right */}
-          <button 
-            type="button" 
-            className="clean-protected-close-btn"
-            onClick={() => setProtectedViewer(null)}
-            title="Close (Esc)"
-          >
-            <X size={22} />
-          </button>
-
-          {/* Centered Document Stage */}
+          {/* Header Top Bar */}
           <div 
-            className={`clean-protected-stage ${isObscured ? 'is-obscured' : ''}`}
+            className="clean-protected-topbar" 
             onClick={(e) => e.stopPropagation()}
-            onContextMenu={(e) => e.preventDefault()}
           >
-            {/* Forensic Anti-Theft Watermark Matrix */}
-            <div className="security-watermark-overlay" aria-hidden="true">
-              {Array.from({ length: 14 }).map((_, idx) => (
-                <div key={idx} className="security-watermark-line">
-                  <span>ATSUKO INTERNATIONAL (PVT) LTD</span>
-                  <span className="dot">•</span>
-                  <span>FOR OFFICIAL VERIFICATION ONLY</span>
-                  <span className="dot">•</span>
-                  <span>REPRODUCTION PROHIBITED</span>
-                  <span className="dot">•</span>
-                  <span>LICENSE NO. 3293</span>
-                  <span className="dot">•</span>
-                  <span>PV 0217143</span>
-                </div>
-              ))}
+            <div className="clean-protected-title-block">
+              <div className="clean-protected-badge-row">
+                <span className="clean-protected-badge">
+                  <ShieldCheck size={13} />
+                  <span>{protectedViewer.badge || (lang === 'si' ? 'නීත්‍යානුකූල රජයේ ලේඛනය' : lang === 'jp' ? '政府公認原本' : 'VERIFIED STATUTORY DOCUMENT')}</span>
+                </span>
+                <span className="clean-protected-live-dot" title="Active Verified Document" />
+              </div>
+              <h3 className="clean-protected-title">{protectedViewer.title}</h3>
+              {protectedViewer.sub && (
+                <p className="clean-protected-sub">{protectedViewer.sub}</p>
+              )}
             </div>
 
-            {/* Transparent Glass Shield Overlay (blocks right clicks & touch interactions) */}
-            <div 
-              className="protective-glass-shield"
-              onContextMenu={(e) => e.preventDefault()}
-              onDragStart={(e) => e.preventDefault()}
-            />
-
-            {/* Pristine Document Scan */}
-            <img
-              src={protectedViewer.src}
-              alt={protectedViewer.title}
-              className="clean-protected-img"
-              draggable="false"
-              onContextMenu={(e) => e.preventDefault()}
-              onDragStart={(e) => e.preventDefault()}
-            />
-
-            {/* Blackout Shield activated on Snipping Tool or screenshot detection */}
-            {isObscured && (
-              <div className="screenshot-blackout-shield">
-                <ShieldCheck size={52} className="shield-icon" />
-                <h3>{lang === 'si' ? 'තිර ග්‍රහණ ආරක්ෂණ පද්ධතිය සක්‍රියයි' : lang === 'jp' ? '画面キャプチャ保護が作動中' : 'Screen Capture Protection Active'}</h3>
-                <p>
-                  {lang === 'si'
-                    ? 'කවුළුව අක්‍රිය වූ විට හෝ Snipping Tool / Screenshot හඳුනාගත් විට ලේඛනය ස්වයංක්‍රීයව සඟවනු ලැබේ.'
-                    : lang === 'jp'
-                      ? 'ウィンドウ非アクティブ時やキャプチャソフト起動時は原本保護のため一時非表示になります。'
-                      : 'Document is automatically obscured while window is inactive or screenshot software is open.'}
-                </p>
-                <span className="shield-hint">
-                  {lang === 'si' ? 'නැවත බැලීමට කවුළුව මත ක්ලික් කරන්න' : lang === 'jp' ? 'クリックして表示を再開' : 'Click inside window to resume viewing'}
-                </span>
+            <div className="clean-protected-actions">
+              {/* Zoom Controls */}
+              <div className="clean-protected-zoom-group">
+                <button
+                  type="button"
+                  className="clean-protected-btn"
+                  onClick={() => setZoomLevel((z) => Math.max(1, +(z - 0.3).toFixed(1)))}
+                  disabled={zoomLevel <= 1}
+                  title="Zoom Out (-)"
+                  aria-label="Zoom Out"
+                >
+                  <ZoomOut size={16} />
+                </button>
+                <button
+                  type="button"
+                  className="clean-protected-zoom-label"
+                  onClick={() => setZoomLevel(1)}
+                  title="Reset Zoom (0)"
+                >
+                  {Math.round(zoomLevel * 100)}%
+                </button>
+                <button
+                  type="button"
+                  className="clean-protected-btn"
+                  onClick={() => setZoomLevel((z) => Math.min(2.5, +(z + 0.3).toFixed(1)))}
+                  disabled={zoomLevel >= 2.5}
+                  title="Zoom In (+)"
+                  aria-label="Zoom In"
+                >
+                  <ZoomIn size={16} />
+                </button>
               </div>
-            )}
+
+              {/* Close Button */}
+              <button 
+                type="button" 
+                className="clean-protected-close-btn"
+                onClick={() => setProtectedViewer(null)}
+                title={lang === 'si' ? 'වසන්න (Esc)' : lang === 'jp' ? '閉じる (Esc)' : 'Close (Esc)'}
+                aria-label="Close"
+              >
+                <X size={20} />
+              </button>
+            </div>
+          </div>
+
+          {/* Centered Document Stage Viewport */}
+          <div 
+            className="clean-protected-stage-viewport"
+            onClick={() => setProtectedViewer(null)}
+          >
+            <div 
+              className="clean-protected-stage-card"
+              onClick={(e) => e.stopPropagation()}
+              onContextMenu={(e) => e.preventDefault()}
+              onDoubleClick={() => setZoomLevel((z) => (z > 1 ? 1 : 1.6))}
+              title={lang === 'si' ? 'විශාලනය කිරීමට දෙවරක් ඔබන්න' : lang === 'jp' ? 'ダブルタップで拡大' : 'Double click to zoom'}
+            >
+              {/* Forensic Anti-Theft Watermark Matrix */}
+              <div className="security-watermark-overlay" aria-hidden="true">
+                {Array.from({ length: 16 }).map((_, idx) => (
+                  <div key={idx} className="security-watermark-line">
+                    <span>ATSUKO INTERNATIONAL (PVT) LTD</span>
+                    <span className="dot">•</span>
+                    <span>OFFICIAL VERIFICATION SCAN</span>
+                    <span className="dot">•</span>
+                    <span>REPRODUCTION PROHIBITED</span>
+                    <span className="dot">•</span>
+                    <span>SLBFE LIC. 3293</span>
+                    <span className="dot">•</span>
+                    <span>PV 0217143</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Transparent Glass Shield Overlay (blocks right clicks & touch dragging) */}
+              <div 
+                className="protective-glass-shield"
+                onContextMenu={(e) => e.preventDefault()}
+                onDragStart={(e) => e.preventDefault()}
+              />
+
+              {/* Pristine Document Scan */}
+              <img
+                src={protectedViewer.src}
+                alt={protectedViewer.title}
+                className="clean-protected-img"
+                style={{
+                  transform: `scale(${zoomLevel})`,
+                  transformOrigin: 'center center'
+                }}
+                draggable="false"
+                onContextMenu={(e) => e.preventDefault()}
+                onDragStart={(e) => e.preventDefault()}
+              />
+            </div>
+          </div>
+
+          {/* Footer Bar */}
+          <div 
+            className="clean-protected-bottombar"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="clean-protected-footer-info">
+              <span className="clean-protected-secure-tag">
+                🔒 {lang === 'si' ? 'නීත්‍යානුකූල රජයේ ලේඛන ලේඛනාගාරය' : lang === 'jp' ? '公認原本デジタル保管庫' : 'Statutory Government Verification Archive'}
+              </span>
+              <span className="clean-protected-footer-hint">
+                {lang === 'si' ? 'විශාලනය කිරීමට +/- ඔබන්න • පිටවීමට Esc ඔබන්න' : lang === 'jp' ? '+/- で拡大縮小 • Esc で終了' : 'Tap +/- or double-tap to zoom • Esc to exit'}
+              </span>
+            </div>
           </div>
         </div>
       )}
