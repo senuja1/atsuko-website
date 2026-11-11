@@ -13432,18 +13432,46 @@ html[lang="jp"] .stat-label,
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 16px;
+  padding: 24px 20px;
   box-sizing: border-box;
   cursor: pointer;
 }
 
+.portal-content-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: 960px;
+  width: 100%;
+}
+
 .portal-only-img {
   width: 100%;
-  max-width: 960px;
-  max-height: 88vh;
+  max-width: 900px;
+  max-height: 72vh;
   height: auto;
   object-fit: contain;
   display: block;
   user-select: none;
   -webkit-user-drag: none;
+}
+
+.portal-under-text {
+  font-size: clamp(16px, 2.2vw, 22px);
+  font-weight: 600;
+  color: #334155;
+  margin: 18px 0 0 0;
+  letter-spacing: -0.3px;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.portal-under-subtext {
+  font-size: clamp(13px, 1.6vw, 15px);
+  font-weight: 500;
+  color: #64748b;
+  margin: 6px 0 0 0;
+  text-align: center;
 }

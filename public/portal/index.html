@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Under Construction • Atsuko Student Portal</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -15,14 +18,26 @@
       background: #ffffff;
       min-height: 100vh;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
       overflow: hidden;
       cursor: pointer;
+      padding: 24px 20px;
+      text-align: center;
+    }
+    .portal-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      max-width: 960px;
+      width: 100%;
     }
     img {
-      max-width: 92vw;
-      max-height: 90vh;
+      max-width: 90vw;
+      max-height: 72vh;
       width: auto;
       height: auto;
       object-fit: contain;
@@ -30,9 +45,20 @@
       user-select: none;
       -webkit-user-drag: none;
     }
+    .portal-text {
+      font-size: clamp(16px, 2.2vw, 22px);
+      font-weight: 600;
+      color: #334155;
+      margin-top: 18px;
+      letter-spacing: -0.3px;
+      line-height: 1.45;
+    }
   </style>
 </head>
 <body onclick="window.location.href='https://atsukointernational.com'" title="Click to return to main website">
-  <img src="/images/under-construction.png" alt="Under Construction">
+  <div class="portal-box">
+    <img src="/images/under-construction.png" alt="Under Construction">
+    <p class="portal-text">We will be here soon with our newly released LMS</p>
+  </div>
 </body>
 </html>
