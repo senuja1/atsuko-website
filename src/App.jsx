@@ -20,6 +20,7 @@ const ContactPage = lazy(() => import('./components/ContactPage'));
 const StudentLifePage = lazy(() => import('./components/StudentLifePage'));
 const VisaAgencyLanding = lazy(() => import('./components/VisaAgencyLanding'));
 const LegalPage = lazy(() => import('./components/LegalPage'));
+const PortalUnderConstructionPage = lazy(() => import('./components/PortalUnderConstructionPage'));
 
 export default function App() {
   const [lang, setLang] = useState('en');
@@ -75,6 +76,10 @@ export default function App() {
       terms: {
         title: 'Terms & Conditions of Service | Atsuko International (SLBFE Lic. #3293)',
         desc: 'Official Terms & Conditions governing course enrollment, zero initial fee recruitment policy, and legal visa & employment placement services by Atsuko International.'
+      },
+      portal: {
+        title: 'Atsuko Student Portal (LMS) • Under Construction | 篤子 学校',
+        desc: 'Official Student Management and E-Learning Portal for Atsuko International. Currently under construction.'
       }
     };
 
@@ -98,7 +103,9 @@ export default function App() {
         setCurrentPage('student-visa');
       } else if (hash === 'legal') {
         setCurrentPage('privacy');
-      } else if (['home', 'about', 'courses', 'facilities', 'stories', 'branches', 'contact', 'landing', 'student-visa', 'job-visa', 'privacy', 'terms'].includes(hash)) {
+      } else if (hash === 'portal' || hash === 'student-portal') {
+        setCurrentPage('portal');
+      } else if (['home', 'about', 'courses', 'facilities', 'stories', 'branches', 'contact', 'landing', 'student-visa', 'job-visa', 'privacy', 'terms', 'portal'].includes(hash)) {
         setCurrentPage(hash);
       } else if (!hash) {
         setCurrentPage('home');
@@ -261,6 +268,16 @@ export default function App() {
               initialTab={currentPage === 'terms' ? 'terms' : 'privacy'} 
               onNavigate={handleNavigate} 
               onOpenModal={handleOpenModal} 
+            />
+          </Suspense>
+        )}
+
+        {/* STANDALONE STUDENT PORTAL UNDER CONSTRUCTION PAGE */}
+        {currentPage === 'portal' && (
+          <Suspense fallback={<div style={{ minHeight: '60vh' }} />}>
+            <PortalUnderConstructionPage 
+              lang={lang} 
+              onNavigate={handleNavigate} 
             />
           </Suspense>
         )}

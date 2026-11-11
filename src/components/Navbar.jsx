@@ -1,58 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
-import { Menu, X, GraduationCap, ExternalLink, Briefcase, Phone, BookOpen, Info, Home, Award, ChevronRight, ChevronDown, Construction, HardHat, Sparkles, FileText, CreditCard, MessageCircle } from 'lucide-react';
+import { Menu, X, GraduationCap, ExternalLink, Briefcase, Phone, BookOpen, Info, Home, Award, ChevronRight, ChevronDown } from 'lucide-react';
 import { siteTranslations } from '../data/translations';
 import { officialContacts } from '../data/websiteData';
-
-const portalModalCopy = {
-  en: {
-    badge: 'Under Active Construction • Coming Soon',
-    title: 'Atsuko Student Portal (LMS)',
-    subtitle: 'Our centralized Student Management & E-Learning Portal is currently being engineered to deliver a seamless online learning experience.',
-    featuresTitle: 'Upcoming Portal Capabilities:',
-    feature1Title: 'Interactive E-Learning & Materials',
-    feature1Desc: 'JLPT / JFT course notes, downloadable past exam papers, vocabulary drills, and lecture archives.',
-    feature2Title: 'Live COE & Visa Status Tracker',
-    feature2Desc: 'Direct status visibility for Japanese immigration Certificate of Eligibility (COE) and visa endorsements.',
-    feature3Title: 'Digital Payments & Academic Records',
-    feature3Desc: 'Attendance tracking, mock exam mark sheets, and official digital fee payment receipts.',
-    notice: 'Are you currently an enrolled Atsuko student requiring immediate assistance, batch schedules, or course materials?',
-    btnWhatsapp: 'Chat with Student Coordinator on WhatsApp',
-    btnCall: 'Call Office Hotline',
-    btnClose: 'Close / Understood',
-  },
-  si: {
-    badge: 'සංවර්ධනය වෙමින් පවතී • Under Construction',
-    title: 'අත්සුකෝ ශිෂ්‍ය ද්වාරය (Student Portal)',
-    subtitle: 'අපගේ නවතම ශිෂ්‍ය කළමනාකරණ හා මාර්ගගත අධ්‍යයන පද්ධතිය (LMS) මේ වන විට නිර්මාණය වෙමින් පවතී.',
-    featuresTitle: 'ළඟදීම ලැබෙන පහසුකම්:',
-    feature1Title: 'මාර්ගගත පාඩම් සහ විභාග අභ්‍යාස',
-    feature1Desc: 'JLPT / JFT විභාග පසුගිය ප්‍රශ්න පත්‍ර, වචන මාලා (Vocabulary), සහ පාඩම් සටහන් ලබාගැනීම.',
-    feature2Title: 'COE සහ වීසා තත්ත්වය විමසීම',
-    feature2Desc: 'ජපාන ආගමන විගමන අනුමැතිය (COE) සහ වීසා ප්‍රගතිය සජීවීව බලාගැනීමේ හැකියාව.',
-    feature3Title: 'පන්ති පැමිණීම හා ගෙවීම් වාර්තා',
-    feature3Desc: 'ඩිජිටල් ගෙවීම් රිසිට්පත්, පැමිණීමේ ප්‍රතිශත සහ ආදර්ශ විභාග ලකුණු පරීක්ෂා කිරීම.',
-    notice: 'ඔබ දැනට අත්සුකෝ ආයතනයේ ලියාපදිංචි ශිෂ්‍යයෙක් නම් සහ පාඨමාලා සටහන් හෝ විස්තර අවශ්‍ය නම්, කාර්යාලය අමතන්න:',
-    btnWhatsapp: 'WhatsApp ඔස්සේ ශිෂ්‍ය සම්බන්ධීකාරක අමතන්න',
-    btnCall: 'කාර්යාල දුරකථන අංකය',
-    btnClose: 'වසන්න (Close)',
-  },
-  jp: {
-    badge: 'システム構築中 • Under Construction',
-    title: 'Atsuko 学生専用ポータル（LMS）',
-    subtitle: '受講生・求職者向けの統合学習管理システムおよびCOE進捗確認ポータルは現在開発中です。',
-    featuresTitle: '近日公開予定の主要機能:',
-    feature1Title: 'オンライン学習＆教材アーカイブ',
-    feature1Desc: 'JLPT / JFT 過去問題集、語彙ドリル、授業レクチャーノートのダウンロード機能。',
-    feature2Title: '在留資格認定証明書（COE）リアルタイム進捗',
-    feature2Desc: '出入国在留管理庁の審査進捗状況、査証発給、出国スケジュールの確認。',
-    feature3Title: '出席率・模擬試験結果・電子領収書',
-    feature3Desc: '出席管理、定期テスト・模擬試験の成績表、受講料領収書のデジタル管理。',
-    notice: '現在受講中の生徒の皆様で教材やスケジュールについてのご相談は、事務局まで直接お問い合わせください:',
-    btnWhatsapp: 'WhatsAppで問い合わせる',
-    btnCall: 'オフィス直通電話',
-    btnClose: '閉じる',
-  }
-};
 
 export default function Navbar({ 
   lang, 
@@ -66,30 +15,10 @@ export default function Navbar({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [visaDropdownOpen, setVisaDropdownOpen] = useState(false);
   const [mobileVisaExpanded, setMobileVisaExpanded] = useState(false);
-  const [showConstructionModal, setShowConstructionModal] = useState(false);
   const dropdownRef = useRef(null);
   const dropdownTimerRef = useRef(null);
 
   const t = siteTranslations[lang] || siteTranslations.en;
-  const portalCopy = portalModalCopy[lang] || portalModalCopy.en;
-
-  // Lock body scroll and handle Escape for construction modal
-  useEffect(() => {
-    if (showConstructionModal) {
-      const origOverflow = document.body.style.overflow;
-      document.body.style.overflow = 'hidden';
-      const handleKeyDown = (e) => {
-        if (e.key === 'Escape') {
-          setShowConstructionModal(false);
-        }
-      };
-      window.addEventListener('keydown', handleKeyDown);
-      return () => {
-        document.body.style.overflow = origOverflow;
-        window.removeEventListener('keydown', handleKeyDown);
-      };
-    }
-  }, [showConstructionModal]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -344,7 +273,7 @@ export default function Navbar({
 
           <button 
             type="button"
-            onClick={() => setShowConstructionModal(true)}
+            onClick={() => onNavigate && onNavigate('portal')}
             className="nav-btn-student-login"
             title="Atsuko Student Portal Login (Under Construction)"
             aria-label="Login as Student"
@@ -507,7 +436,7 @@ export default function Navbar({
                 type="button"
                 onClick={() => {
                   setMobileMenuOpen(false);
-                  setShowConstructionModal(true);
+                  onNavigate && onNavigate('portal');
                 }}
                 className="mobile-action-student-login"
                 title="Atsuko Student Portal Login (Under Construction)"
@@ -520,132 +449,6 @@ export default function Navbar({
             </div>
           </div>
         </>
-      )}
-
-      {/* Student Portal Under Construction Modal */}
-      {showConstructionModal && (
-        <div 
-          className="portal-construction-backdrop"
-          onClick={(e) => {
-            if (e.target === e.currentTarget) setShowConstructionModal(false);
-          }}
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="portal-modal-title"
-        >
-          <div className="portal-construction-card">
-            {/* Ambient accent stripe */}
-            <div className="portal-construction-accent-bar" />
-
-            {/* Close Button */}
-            <button 
-              type="button" 
-              className="portal-construction-close"
-              onClick={() => setShowConstructionModal(false)}
-              aria-label="Close modal"
-            >
-              <X size={18} />
-            </button>
-
-            {/* Status Badge */}
-            <div className="portal-construction-badge">
-              <span className="portal-construction-pulse" />
-              <Construction size={13} />
-              <span>{portalCopy.badge}</span>
-            </div>
-
-            {/* Hero Icon Ring */}
-            <div className="portal-construction-icon-wrap">
-              <div className="portal-construction-icon-ring">
-                <GraduationCap size={32} className="portal-icon-cap" />
-                <div className="portal-construction-sub-badge" title="Under Construction">
-                  <HardHat size={14} />
-                </div>
-              </div>
-            </div>
-
-            {/* Title & Subtitle */}
-            <h3 id="portal-modal-title" className="portal-construction-title">
-              {portalCopy.title}
-            </h3>
-            <p className="portal-construction-sub">
-              {portalCopy.subtitle}
-            </p>
-
-            {/* Upcoming Features Box */}
-            <div className="portal-construction-preview-box">
-              <div className="portal-preview-heading">
-                <Sparkles size={14} className="portal-sparkle-icon" />
-                <span>{portalCopy.featuresTitle}</span>
-              </div>
-              <div className="portal-features-list">
-                <div className="portal-feature-item">
-                  <div className="portal-feature-icon">
-                    <BookOpen size={16} />
-                  </div>
-                  <div className="portal-feature-text">
-                    <strong>{portalCopy.feature1Title}</strong>
-                    <p>{portalCopy.feature1Desc}</p>
-                  </div>
-                </div>
-
-                <div className="portal-feature-item">
-                  <div className="portal-feature-icon">
-                    <FileText size={16} />
-                  </div>
-                  <div className="portal-feature-text">
-                    <strong>{portalCopy.feature2Title}</strong>
-                    <p>{portalCopy.feature2Desc}</p>
-                  </div>
-                </div>
-
-                <div className="portal-feature-item">
-                  <div className="portal-feature-icon">
-                    <CreditCard size={16} />
-                  </div>
-                  <div className="portal-feature-text">
-                    <strong>{portalCopy.feature3Title}</strong>
-                    <p>{portalCopy.feature3Desc}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Notice for enrolled students */}
-            <div className="portal-construction-notice">
-              <p>{portalCopy.notice}</p>
-            </div>
-
-            {/* Action Buttons */}
-            <div className="portal-construction-actions">
-              <a 
-                href="https://wa.me/94777933352?text=Hello%20Atsuko%20International,%20I%20am%20an%20enrolled%20student%20inquiring%20about%20classes%20and%20the%20student%20portal."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="portal-btn-whatsapp"
-              >
-                <MessageCircle size={17} />
-                <span>{portalCopy.btnWhatsapp}</span>
-              </a>
-
-              <a 
-                href="tel:+94777933352"
-                className="portal-btn-phone"
-              >
-                <Phone size={15} />
-                <span>{portalCopy.btnCall}: 077 793 3352</span>
-              </a>
-
-              <button 
-                type="button" 
-                className="portal-btn-dismiss"
-                onClick={() => setShowConstructionModal(false)}
-              >
-                {portalCopy.btnClose}
-              </button>
-            </div>
-          </div>
-        </div>
       )}
     </header>
   );
