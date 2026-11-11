@@ -94,6 +94,78 @@ export default function OfficialCertificatesShowcase({ lang = 'en' }) {
         : lang === 'jp'
           ? '2024年10月10日付発行、有効期間2024年10月1日〜2025年9月30日の公式ライセンス（シリアル: 02070）。'
           : 'Issued on 10 Oct 2024, active from 01 Oct 2024 through 30 Sept 2025 (Serial: 02070).'
+    },
+    '2023': {
+      year: '2023 / 2024',
+      status: lang === 'si' ? 'වාර්ෂික බලපත්‍රය' : lang === 'jp' ? '認可更新証' : 'Annual License',
+      statusType: 'renewed',
+      licenseNo: '3293',
+      serial: "Form 'A'",
+      validFrom: '01/10/2023',
+      validTo: '30/09/2024',
+      issueDate: '24/10/2023',
+      authority: 'Sri Lanka Bureau of Foreign Employment (SLBFE)',
+      p1: '/images/certificates/slbfe_license_2023_front.jpg?v=3',
+      p2: null,
+      hasBack: false,
+      title: lang === 'si'
+        ? 'SLBFE නිල බලපත්‍රය 2023/2024 (අංක 3293)'
+        : lang === 'jp'
+          ? 'SLBFE 送出機関ライセンス 2023/2024（第3293号）'
+          : 'SLBFE Agency License 2023/2024 (No. 3293)',
+      desc: lang === 'si'
+        ? '2023 ඔක්තෝබර් 24 දින නිකුත් කරන ලද, 2023 ඔක්තෝබර් 01 සිට 2024 සැප්තැම්බර් 30 දක්වා වලංගු වාර්ෂික අලුත්කිරීම් බලපත්‍රය (Form A / Lic: 3293).'
+        : lang === 'jp'
+          ? '2023年10月24日付発行、有効期間2023年10月1日〜2024年9月30日の公式ライセンス（Form A / 認可番号: 3293）。'
+          : 'Issued on 24 Oct 2023, active from 01 Oct 2023 through 30 Sept 2024 (Form A / Lic: 3293).'
+    },
+    '2022': {
+      year: '2022 / 2023',
+      status: lang === 'si' ? 'වාර්ෂික බලපත්‍රය' : lang === 'jp' ? '認可更新証' : 'Annual License',
+      statusType: 'renewed',
+      licenseNo: '3293',
+      serial: "Form 'A'",
+      validFrom: '01/10/2022',
+      validTo: '30/09/2023',
+      issueDate: '18/10/2022',
+      authority: 'Sri Lanka Bureau of Foreign Employment (SLBFE)',
+      p1: '/images/certificates/slbfe_license_2022_front.jpg?v=3',
+      p2: null,
+      hasBack: false,
+      title: lang === 'si'
+        ? 'SLBFE නිල බලපත්‍රය 2022/2023 (අංක 3293)'
+        : lang === 'jp'
+          ? 'SLBFE 送出機関ライセンス 2022/2023（第3293号）'
+          : 'SLBFE Agency License 2022/2023 (No. 3293)',
+      desc: lang === 'si'
+        ? '2022 ඔක්තෝබර් 18 දින නිකුත් කරන ලද, 2022 ඔක්තෝබර් 01 සිට 2023 සැප්තැම්බර් 30 දක්වා වලංගු වාර්ෂික අලුත්කිරීම් බලපත්‍රය (Form A / Lic: 3293).'
+        : lang === 'jp'
+          ? '2022年10月18日付発行、有効期間2022年10月1日〜2023年9月30日の公式ライセンス（Form A / 認可番号: 3293）。'
+          : 'Issued on 18 Oct 2022, active from 01 Oct 2022 through 30 Sept 2023 (Form A / Lic: 3293).'
+    },
+    '2021': {
+      year: '2021 / 2022',
+      status: lang === 'si' ? 'වාර්ෂික බලපත්‍රය' : lang === 'jp' ? '認可更新証' : 'Annual License',
+      statusType: 'renewed',
+      licenseNo: '3293',
+      serial: "Form 'A'",
+      validFrom: '01/10/2021',
+      validTo: '30/09/2022',
+      issueDate: '18/10/2021',
+      authority: 'Sri Lanka Bureau of Foreign Employment (SLBFE)',
+      p1: '/images/certificates/slbfe_license_2021_front.jpg?v=3',
+      p2: null,
+      hasBack: false,
+      title: lang === 'si'
+        ? 'SLBFE නිල බලපත්‍රය 2021/2022 (අංක 3293)'
+        : lang === 'jp'
+          ? 'SLBFE 送出機関ライセンス 2021/2022（第3293号）'
+          : 'SLBFE Agency License 2021/2022 (No. 3293)',
+      desc: lang === 'si'
+        ? '2021 ඔක්තෝබර් 18 දින නිකුත් කරන ලද, 2021 ඔක්තෝබර් 01 සිට 2022 සැප්තැම්බර් 30 දක්වා වලංගු ආරම්භක බලපත්‍රය (Form A / Lic: 3293).'
+        : lang === 'jp'
+          ? '2021年10月18日付発行、有効期間2021年10月1日〜2022年9月30日の設立認可証（Form A / 認可番号: 3293）。'
+          : 'Issued on 18 Oct 2021, active from 01 Oct 2021 through 30 Sept 2022 (Form A / Lic: 3293).'
     }
   };
 
@@ -403,10 +475,10 @@ export default function OfficialCertificatesShowcase({ lang = 'en' }) {
 
             <p className="cert-card-desc">
               {lang === 'si'
-                ? 'විදේශ සේවා නියුක්ති කාර්යාංශයේ (SLBFE) අංක 3293 දරන නිල බලපත්‍රලාභී ආයතනයකි. 2026/2027 දක්වා අඛණ්ඩව අලුත් කරන ලද බලපත්‍ර පෙළ.'
+                ? 'විදේශ සේවා නියුක්ති කාර්යාංශයේ (SLBFE) අංක 3293 දරන නිල බලපත්‍රලාභී ආයතනයකි. 2021 සිට 2026/2027 දක්වා අඛණ්ඩව අලුත් කරන ලද බලපත්‍ර පෙළ.'
                 : lang === 'jp'
-                  ? '海外雇用局（SLBFE）公認ライセンス（第3293号）。2026/2027年まで年次更新された正規認可証一式。'
-                  : 'SLBFE License No. 3293. Continuous government annual renewal certificates verifying unbroken legal compliance through 2026/2027.'}
+                  ? '海外雇用局（SLBFE）公認ライセンス（第3293号）。2021年から2026/2027年まで毎年更新された正規認可証一式。'
+                  : 'SLBFE License No. 3293. Continuous government annual renewal certificates from 2021 verifying unbroken legal compliance through 2026/2027.'}
             </p>
 
             {/* Interactive Stack Year Tabs & Page Switcher */}
