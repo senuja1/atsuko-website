@@ -245,25 +245,58 @@ export default function OfficialCertificatesShowcase({ lang = 'en' }) {
                   : 'Incorporated under Companies Act No. 7 of 2007 (PV 0217143). Operating with our dual-entity Japan corporate office (No: 3700-01-048848).'}
             </p>
 
-            {/* Official BR Certificate Shield / Emblem Visual */}
-            <div className="br-emblem-showcase-box" onClick={() => setBrModalOpen(true)}>
-              <div className="br-emblem-badge">
-                <div className="br-emblem-icon-ring">
-                  <Building2 size={20} />
-                </div>
-                <div className="br-emblem-text">
-                  <span className="br-gov-title">DEMOCRATIC SOCIALIST REPUBLIC OF SRI LANKA</span>
-                  <span className="br-gov-dept">DEPARTMENT OF THE REGISTRAR OF COMPANIES</span>
-                  <strong className="br-reg-highlight">PV 0217143</strong>
-                  <span className="br-company-name">ATSUKO INTERNATIONAL (PVT) LTD</span>
+            {/* Document Thumbnail Preview - Protected Inspection */}
+            <div 
+              className="cert-doc-preview-wrapper"
+              onClick={() => setProtectedViewer({
+                src: '/images/certificates/br_certificate_pv0217143.jpg',
+                title: lang === 'si'
+                  ? 'සමාගම් සංස්ථාගත කිරීමේ සහතිකය (BR) - PV 0217143'
+                  : lang === 'jp'
+                    ? 'スリランカ法人設立登記証（BR原本） - PV 0217143'
+                    : 'Certificate of Incorporation of a Private Company - PV 0217143',
+                sub: 'Democratic Socialist Republic of Sri Lanka • Department of the Registrar of Companies • Companies Act No. 7 of 2007',
+                badge: 'OFFICIAL BR CERTIFICATE'
+              })}
+              onContextMenu={(e) => e.preventDefault()}
+              title={lang === 'si' ? 'මුල් සහතිකය පරීක්ෂා කරන්න (ආරක්ෂිත)' : lang === 'jp' ? '原本画像を確認（保護表示）' : 'Inspect Raw Pic (Protected View)'}
+            >
+              <div className="cert-doc-img-container" onContextMenu={(e) => e.preventDefault()}>
+                <img
+                  src="/images/certificates/br_certificate_pv0217143.jpg"
+                  alt="Official Sri Lanka Business Registration Certificate - Atsuko International (PVT) LTD PV 0217143"
+                  className="cert-doc-img"
+                  loading="lazy"
+                  decoding="async"
+                  draggable="false"
+                  onContextMenu={(e) => e.preventDefault()}
+                  onDragStart={(e) => e.preventDefault()}
+                />
+                <div className="cert-doc-hover-overlay">
+                  <div className="cert-zoom-btn">
+                    <ShieldCheck size={14} />
+                    <span>{lang === 'si' ? 'මුල් සහතිකය පරීක්ෂා කරන්න' : lang === 'jp' ? '原本画像を確認' : 'Inspect Raw Pic'}</span>
+                  </div>
                 </div>
               </div>
-              <div className="br-view-btn-wrap">
-                <button type="button" className="btn-cert-inspect" onClick={() => setBrModalOpen(true)}>
-                  <FileCheck size={14} />
-                  <span>{lang === 'si' ? 'ලියාපදිංචි විස්තර බලන්න' : lang === 'jp' ? '法人登記詳細を確認' : 'View Registry Breakdown'}</span>
-                </button>
+              <div className="cert-stamp-badge">
+                <Building2 size={14} />
+                <span>PV 0217143 • FORM 2A</span>
               </div>
+            </div>
+
+            <div className="br-view-btn-wrap" style={{ margin: '8px 0 6px' }}>
+              <button 
+                type="button" 
+                className="btn-cert-inspect" 
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setBrModalOpen(true);
+                }}
+              >
+                <FileCheck size={14} />
+                <span>{lang === 'si' ? 'ලියාපදිංචි විස්තර බලන්න' : lang === 'jp' ? '法人登記詳細を確認' : 'View Registry Breakdown'}</span>
+              </button>
             </div>
 
             {/* Quick Metadata Table */}
@@ -613,6 +646,55 @@ export default function OfficialCertificatesShowcase({ lang = 'en' }) {
             </div>
 
             <div className="cert-br-modal-body">
+              {/* Official Scanned Certificate Quick View Banner */}
+              <div 
+                style={{ 
+                  marginBottom: '1.25rem', 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'space-between', 
+                  flexWrap: 'wrap', 
+                  gap: '12px', 
+                  background: '#f8fafc', 
+                  padding: '12px 14px', 
+                  borderRadius: '12px', 
+                  border: '1px solid #cbd5e1' 
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <img 
+                    src="/images/certificates/br_certificate_pv0217143.jpg" 
+                    alt="Certificate thumbnail" 
+                    style={{ width: '42px', height: '58px', objectFit: 'cover', borderRadius: '4px', border: '1px solid #94a3b8', boxShadow: '0 2px 6px rgba(0,0,0,0.1)' }} 
+                  />
+                  <div>
+                    <strong style={{ fontSize: '13px', color: '#0f172a', display: 'block' }}>Form 2A • Certificate of Incorporation</strong>
+                    <span style={{ fontSize: '11.5px', color: '#64748b' }}>Registrar General of Companies Sri Lanka (PV 0217143)</span>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  className="btn btn-sm btn-primary"
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '12px', padding: '6px 14px', borderRadius: '999px' }}
+                  onClick={() => {
+                    setBrModalOpen(false);
+                    setProtectedViewer({
+                      src: '/images/certificates/br_certificate_pv0217143.jpg',
+                      title: lang === 'si'
+                        ? 'සමාගම් සංස්ථාගත කිරීමේ සහතිකය (BR) - PV 0217143'
+                        : lang === 'jp'
+                          ? 'スリランカ法人設立登記証（BR原本） - PV 0217143'
+                          : 'Certificate of Incorporation of a Private Company - PV 0217143',
+                      sub: 'Democratic Socialist Republic of Sri Lanka • Department of the Registrar of Companies • Companies Act No. 7 of 2007',
+                      badge: 'OFFICIAL BR CERTIFICATE'
+                    });
+                  }}
+                >
+                  <ShieldCheck size={14} />
+                  <span>{lang === 'si' ? 'මුල් ලේඛනය පරීක්ෂා කරන්න' : lang === 'jp' ? '原本画像を表示' : 'Inspect Raw Scan'}</span>
+                </button>
+              </div>
+
               <div className="br-modal-section">
                 <h5 className="br-modal-sec-title">
                   <Building2 size={16} />
