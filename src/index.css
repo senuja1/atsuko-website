@@ -13524,29 +13524,7 @@ html[lang="jp"] .stat-label,
   right: 28px;
 }
 
-/* Dots Indicator & Counter */
-.coverflow-indicator-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  margin-top: 24px;
-}
-
-.coverflow-counter-pill {
-  display: inline-flex;
-  align-items: center;
-  background: rgba(2, 132, 199, 0.08);
-  border: 1px solid rgba(2, 132, 199, 0.25);
-  padding: 4px 14px;
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: 700;
-  color: #0369a1;
-  letter-spacing: 0.3px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-}
-
+/* Dots Indicator */
 .coverflow-dots-bar {
   display: flex;
   align-items: center;
@@ -13554,6 +13532,7 @@ html[lang="jp"] .stat-label,
   gap: 5px;
   max-width: 90vw;
   flex-wrap: wrap;
+  margin-top: 24px;
 }
 
 .coverflow-dot {

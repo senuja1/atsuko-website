@@ -604,24 +604,19 @@ export default function ShortsCoverflowCarousel({ lang = 'en' }) {
         </div>
       </div>
 
-      {/* Indicator Dots & Counter Pill */}
-      <div className="coverflow-indicator-container">
-        <div className="coverflow-counter-pill">
-          <span>{lang === 'si' ? 'වීඩියෝව' : lang === 'jp' ? '動画' : 'Video'} {activeIndex + 1} / {shorts.length}</span>
-        </div>
-        <div className="coverflow-dots-bar">
-          {shorts.map((_, dotIdx) => (
-            <button
-              key={dotIdx}
-              className={`coverflow-dot ${dotIdx === activeIndex ? 'active' : ''}`}
-              onClick={() => {
-                setPlayingId(null);
-                setActiveIndex(dotIdx);
-              }}
-              aria-label={`Jump to video ${dotIdx + 1}`}
-            />
-          ))}
-        </div>
+      {/* Indicator Dots */}
+      <div className="coverflow-dots-bar">
+        {shorts.map((_, dotIdx) => (
+          <button
+            key={dotIdx}
+            className={`coverflow-dot ${dotIdx === activeIndex ? 'active' : ''}`}
+            onClick={() => {
+              setPlayingId(null);
+              setActiveIndex(dotIdx);
+            }}
+            aria-label={`Jump to video ${dotIdx + 1}`}
+          />
+        ))}
       </div>
     </section>
   );
