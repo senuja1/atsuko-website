@@ -13524,18 +13524,41 @@ html[lang="jp"] .stat-label,
   right: 28px;
 }
 
-/* Dots Indicator */
+/* Dots Indicator & Counter */
+.coverflow-indicator-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.coverflow-counter-pill {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(2, 132, 199, 0.08);
+  border: 1px solid rgba(2, 132, 199, 0.25);
+  padding: 4px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #0369a1;
+  letter-spacing: 0.3px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
 .coverflow-dots-bar {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  margin-top: 24px;
+  gap: 5px;
+  max-width: 90vw;
+  flex-wrap: wrap;
 }
 
 .coverflow-dot {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   border-radius: 9999px;
   background: #cbd5e1;
   border: none;
@@ -13545,7 +13568,7 @@ html[lang="jp"] .stat-label,
 }
 
 .coverflow-dot.active {
-  width: 24px;
+  width: 18px;
   background: #0284c7;
   box-shadow: 0 2px 8px rgba(2, 132, 199, 0.4);
 }
