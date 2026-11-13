@@ -406,5 +406,17 @@ export const candidateStoriesData = [
     "image": "/images/deployments/candidate-story-69.jpg",
     "size": 1699983,
     "alt": "Atsuko International Japan Deployment Student Success Story"
+  },
+  {
+    "id": "candidate-story-70",
+    "image": "/images/deployments/candidate-story-70.jpg",
+    "size": 415245,
+    "alt": "Atsuko International Japan Deployment Student Success Story"
+  },
+  {
+    "id": "candidate-story-71",
+    "image": "/images/deployments/candidate-story-71.jpg",
+    "size": 460704,
+    "alt": "Atsuko International Japan Deployment Student Success Story"
   }
 ];
